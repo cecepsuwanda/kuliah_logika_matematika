@@ -1,0 +1,104 @@
+\section{Custom Exception dan Best Practice}
+
+\subsection{Membuat Custom Exception}
+Custom exception digunakan untuk mewakili kesalahan yang spesifik pada domain aplikasi.
+
+\begin{javacode}[caption={Custom Exception}]
+class SaldoTidakCukupException extends Exception {
+    public SaldoTidakCukupException(String pesan) {
+        super(pesan);
+    }
+}
+
+class Rekening {
+    private double saldo;
+
+    public void tarik(double jumlah) throws SaldoTidakCukupException {
+        if (jumlah > saldo) {
+            throw new SaldoTidakCukupException("Saldo tidak mencukupi");
+        }
+        saldo -= jumlah;
+    }
+}
+\end{javacode}
+
+\subsection{Finally dan Try-with-Resources}
+Gunakan \keyword{finally} untuk memastikan resource ditutup. Di Java modern, gunakan try-with-resources.
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Eksperimen}: Buat program yang memicu \code{NumberFormatException} dan tangani dengan try-catch.
+  \item \textbf{Custom Exception}: Buat exception \class{StokHabisException} pada sistem inventori.
+  \item \textbf{Diskusi}: Kapan sebaiknya melempar exception dan kapan mengembalikan nilai default?
+  \item \textbf{Refactoring}: Ganti penanganan error manual dengan try-with-resources pada contoh file I/O.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan checked dan unchecked exception.
+  \item Buat program input angka yang aman dari kesalahan format input.
+  \item Buat custom exception untuk validasi umur minimal 17 tahun.
+  \item Jelaskan kapan \keyword{finally} tetap dieksekusi.
+  \item \textbf{Refleksi}: Bagaimana exception handling membantu kualitas aplikasi Anda?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 3.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Exception yang wajib ditangani adalah:
+  \begin{enumerate}
+    \item Checked exception
+    \item Runtime exception
+    \item Error
+    \item Logical error
+  \end{enumerate}
+  \item Try-with-resources digunakan untuk:
+  \begin{enumerate}
+    \item Menghindari overloading
+    \item Menutup resource secara otomatis
+    \item Menghapus object
+    \item Mempercepat program
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buat class \class{Login} yang melempar exception jika password salah tiga kali.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep exception dan error
+  \item Saya dapat menggunakan try-catch dengan benar
+  \item Saya mampu membuat custom exception
+  \item Saya memahami penggunaan finally dan try-with-resources
+  \item Saya dapat menentukan kapan melempar exception
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Exception handling menjaga program tetap stabil saat terjadi kesalahan sesuai spesifikasi Java \cite{ref7}. Dengan custom exception dan try-with-resources, aplikasi menjadi lebih robust dan mudah dipelihara.
+
+\textbf{Kata Kunci}: \oop{Exception}, \oop{try-catch}, \oop{checked}, \oop{unchecked}, \oop{try-with-resources}
+\end{rangkuman}

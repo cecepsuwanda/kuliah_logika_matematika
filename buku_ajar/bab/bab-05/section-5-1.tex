@@ -1,0 +1,58 @@
+\section{Konsep Inheritance dan Relasi "is-a"}
+\begin{subcpmk}
+  \item Sub-CPMK 3.1: Mengimplementasikan inheritance dan method overriding
+\end{subcpmk}
+
+\subsection{Konsep Pewarisan}
+\begin{konsep}
+Inheritance memungkinkan kita untuk membuat class baru berdasarkan class yang sudah ada, mewarisi semua attributes dan methods-nya \cite{ref4}. Relasi ini dikenal sebagai relasi \textit{is-a}.
+\end{konsep}
+
+Keuntungan utama inheritance:
+\begin{itemize}
+  \item \textbf{Code reuse}: mengurangi duplikasi kode
+  \item \textbf{Extensibility}: menambah fitur dengan subclass
+  \item \textbf{Polymorphism}: memungkinkan penggunaan reference superclass
+\end{itemize}
+
+\subsection{Keyword \texttt{extends}}
+Dalam Java, inheritance dideklarasikan dengan keyword \keyword{extends}.
+
+\begin{javacode}[caption={Inheritance Sederhana}]
+class Kendaraan {
+    protected String merk;
+
+    public Kendaraan(String merk) {
+        this.merk = merk;
+    }
+
+    public void nyalakan() {
+        System.out.println("Kendaraan dinyalakan");
+    }
+}
+
+class Mobil extends Kendaraan {
+    private int jumlahPintu;
+
+    public Mobil(String merk, int jumlahPintu) {
+        super(merk);
+        this.jumlahPintu = jumlahPintu;
+    }
+}
+\end{javacode}
+
+\subsection{Hierarki Kelas}
+Hierarki kelas membantu kita mengorganisasi konsep dalam struktur bertingkat:
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=1.5cm]
+  \node (kendaraan) [class] {Kendaraan};
+  \node (mobil) [class, below left=of kendaraan] {Mobil};
+  \node (motor) [class, below right=of kendaraan] {Motor};
+  
+  \draw [arrow] (mobil) -- (kendaraan);
+  \draw [arrow] (motor) -- (kendaraan);
+\end{tikzpicture}
+\caption{Contoh Hierarki Kelas (Relasi is-a)}
+\end{figure}

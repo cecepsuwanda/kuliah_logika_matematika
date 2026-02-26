@@ -1,0 +1,41 @@
+\section{Methods (Behavior)}
+
+\subsection{Definisi Methods}
+
+\textbf{Methods} adalah fungsi yang didefinisikan di dalam class untuk menentukan behavior dari object.
+
+\begin{javacode}[caption={Contoh Methods}]
+public class Mahasiswa {
+    String nim;
+    String nama;
+    double ipk;
+    
+    // Method untuk menampilkan info
+    public void tampilkanInfo() {
+        System.out.println("NIM: " + nim);
+        System.out.println("Nama: " + nama);
+        System.out.println("IPK: " + ipk);
+    }
+    
+    // Method untuk mengecek kelulusan
+    public boolean lulus() {
+        return ipk >= 2.0;
+    }
+    
+    // Method untuk mendapatkan predikat
+    public String getPredikat() {
+        if (ipk >= 3.5) return "Cum Laude";
+        else if (ipk >= 3.0) return "Sangat Memuaskan";
+        else if (ipk >= 2.5) return "Memuaskan";
+        else return "Cukup";
+    }
+}
+\end{javacode}
+
+\subsection{Jenis Methods}
+
+\begin{enumerate}
+  \item \textbf{Accessor Methods (Getter)}: Mengambil nilai attribute
+  \item \textbf{Mutator Methods (Setter)}: Mengubah nilai attribute
+  \item \textbf{Utility Methods}: Melakukan operasi tertentu
+\end{enumerate}

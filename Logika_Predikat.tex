@@ -1,0 +1,768 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+%\usepackage{enumitem}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+%#make sure to change this part, since it is predefined
+      %\defbeamertemplate*{footline}{infolines theme}
+      \setbeamertemplate{footline}
+        {
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor%~~(\insertshortinstitute)
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    }
+
+%\AtBeginSection[] {
+%    \begin{frame}<beamer>{Daftar Isi}
+%    \frametitle{Daftar Isi}
+		%\tableofcontents[currentsection,currentsubsection,sectionstyle=show/hide,subsectionstyle=show/show/hide,subsubsectionstyle=show/show/show/hide]
+   % \end{frame}
+%}
+
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Logika Predikat (Kalkulus Predikat)]{Logika Predikat (Kalkulus Predikat)}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Juni 9, 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+
+
+\maketitle
+
+%\begin{frame}
+%\titlepage
+%\end{frame}
+
+\section*{Daftar Isi}
+\begin{frame}[shrink]{Daftar Isi}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+\section{Pendahuluan}
+\begin{frame}
+\frametitle{Pendahuluan}
+
+Kalimat pada kalkulus proposisi tidak dapat menjelaskan \textit{konsep objek} dan \textit{relasi antar objek}.\\
+Contoh
+\begin{center}
+	\color{blue}
+	\textit{Batuan di Mars berwarna putih}\\
+atau\\
+\textit{Batuan di Mars tidak berwarna putih}\\
+\end{center}
+Dengan aturan kalkulus proposisi, pernyataan tersebut dapat dibuat menjadi skema kalimat\\
+\begin{center}
+	\textit{(p or not p)}\\
+\end{center}
+dan selanjutnya dapat ditentukan nilai kebenarannya
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}	
+	Jika ada pernyataan lain,\\
+	\begin{center}
+	\color{blue}	
+		\textit{ Ada batuan di Mars berwarna putih}\\
+	atau\\
+	\textit{Semua batuan di Mars berwarna putih}\\
+	\end{center}
+	maka pernyataan di atas tidak dapat dibentuk menjadi skema kalimat kalkulus	proposisi.\\
+	Hal ini disebabkan karena pernyataan tersebut mengandung {\color{blue} kuantisasi dari objek}.\\
+	Oleh karena itu dibutuhkan bahasa baru yang mengenal adanya konsep objek dan relasi antar objek, yaitu menggunakan {\color{blue} Kalkulus Predikat}.	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}
+	Dengan kalkulus predikat maka pernyataan tersebut diubah menjadi :\\
+	\begin{center}
+		\color{blue}
+		(for some x) (p(x) and q(x))\\
+		or\\
+		(for all x)(if p(x) then q(x))\\
+	\end{center}
+	dimana :\\
+	p(x) = x adalah batuan di Mars \\
+	q(x) = x adalah batuan berwarna putih\\
+	"for some x" disebut kuantifier (simbol : $\exists x$) \\
+	"for all x" disebut kuantifier (simbol : $\forall x$) \\
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}
+	Pada dasarnya Kalkulus Predikat merupakan perluasan	dari Kalkulus Proposisi dimana Kalkulus Predikat mengatasi kelemahan pada kalkulus proposisi dengan menambahkan representasi
+	\begin{enumerate}
+		\item Objek yang memiliki sifat tertentu
+	    \item Relasi antar objek
+    \end{enumerate}	    
+\end{frame}
+
+\section{Definisi Simbol}
+\begin{frame}
+	\frametitle{Definisi Simbol}
+	Kalimat dalam kalkulus predikat dibuat dari simbol-simbol berikut.\\
+	\begin{enumerate}
+		\item Simbol Kebenaran : true dan false
+	 	\item Simbol Konstanta : $a, b, c, a_1, b_1, ...$
+	 	\item Simbol variabel : $x, y, z, x_1, x_2, ...$
+	 	\item Simbol fungsi : $f, g, h, g_1, f_1, h_1, ...$ \\
+	Setiap simbol fungsi mempunyai arity yang menyatakan banyaknya parameter/argumen yang harus dipenuhi.
+	 	\item Simbol Predikat (menyatakan relasi): $p, q, r, s, p_1, q_1,  ...$\\
+	Setiap simbol predikat juga memiliki arity
+    \end{enumerate}	 
+\end{frame}	
+
+\section{Definisi Term}
+\begin{frame}
+	\frametitle{Definisi Term}
+	Term adalah sebuah ekspresi yang menyatakan objek.\\
+	Term dibangun berdasarkan aturan-aturan sebagai berikut.\\
+	\begin{enumerate}
+		\item Semua konstanta adalah term
+		\item Semua variabel adalah term
+		\item Jika $t_1, t_2, ..., t_n$ adalah term ($n \geq 1$) dan f adalah fungsi dengan arity = n,
+	maka fungsi f($t_1,t_2, ..., t_n$) adalah term
+		\item Jika A adalah kalimat, sedang s dan t adalah term, maka kondisional if A
+	then s else t adalah term
+    \end{enumerate}
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Definisi Term}
+    Contoh :\\
+    \begin{enumerate} 
+    	\item  f(a,x) adalah term, karena\\
+    a adalah simbol konstanta, dan semua konstanta adalah term,\\
+    x adalah simbol variabel, dan semua variabel adalah term,\\
+    f adalah simbol fungsi dan semua fungsi adalah term
+    	\item  g(x, f(a,x)) adalah term, karena\\
+    a adalah simbol konstanta, dan semua konstanta adalah term,\\
+    x adalah simbol variabel, dan semua variabel adalah term,\\
+    f dan g adalah simbol fungsi dan semua fungsi adalah term\\
+    \end{enumerate}
+\end{frame}	
+
+\section{Definisi Proposisi}
+\begin{frame}
+	\frametitle{Definisi Proposisi}
+   Proposisi digunakan untuk merepresentasikan relasi antar objek\\
+   Proposisi dibangun berdasarkan aturan sebagai berikut :\\
+   \begin{enumerate} 
+   	\item  Simbol kebenaran adalah proposisi
+    \item  Jika $t_1, t_2, ..., t_n$ adalah term dan p adalah simbol predikat dengan n-ary maka p ($t_1,t_2, ..., t_n$) adalah proposisi
+   \end{enumerate}
+   Contoh :\\
+   p (a, x, f (a,x)) adalah proposisi, karena\\
+   a adalah simbol konstanta dan\\
+   x adalah simbol variabel, dan\\
+   f adalah simbol fungsi, dan\\   
+   semua konstanta, variabel, dan fungsi adalah term dan\\
+   p adalah simbol predikat 3-ary
+\end{frame}		
+
+\section{Definisi Kalimat}
+\begin{frame}
+	\frametitle{Definisi Kalimat}
+      Kalimat dalam kalkulus predikat dibangun dengan aturan,\\
+		\begin{enumerate} 
+			\item  Setiap proposisi adalah kalimat,
+		    \item  Jika A, B, C adalah kalimat maka
+		          \begin{enumerate} 
+			         \item \textbf{Negasi} (not A) adalah kalimat
+					 \item \textbf{Konjungsi} A dengan B: (A and B) adalah kalimat
+			         \item \textbf{Disjungsi} A dengan B : (A or B) adalah kalimat
+			         \item \textbf{Implikasi} (If A then B) adalah kalimat
+			         \item \textbf{Ekivalensi} A dan B (A if and only if B) adalah kalimat
+			         \item \textbf{Kondisional} if A then B else C adalah kalimat.
+			     \end{enumerate}   
+		    \item  Jika A adalah kalimat dan x adalah variabel maka,
+		          \begin{enumerate} 
+		          	\item (\textbf{For all x}) A adalah kalimat
+		          	\item (\textbf{For some x}) A adalah kalimat
+		         \end{enumerate} 	
+	    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definisi Kalimat}
+	Contoh :\\
+	\begin{enumerate} 
+		\item  if (for all x) p(a, b, x) then g (y) else f(a, y) adalah term, karena
+			\begin{enumerate} 
+				\item  a dan b adalah simbol konstanta,
+				\item  x dan y adalah simbol variabel,
+				\item  f dan g adalah simbol fungsi, dan
+				\item  Semua konstanta, variabel dan fungsi adalah term.
+				\item  p adalah simbol predikat.
+				\item  (for all x) p(a, b, x) adalah kalimat, g (y) dan f(a, y) adalah term, maka kondisional if (for all x) p(a, b, x) then g (y) else f(a, y) adalah term
+		     \end{enumerate}
+		     
+		\item  if (all for x) p(a, b, x) then (for some y) q(y) else not p(a,b,c) adalah kalimat
+		 \begin{enumerate} 
+		 	\item  a dan b adalah simbol konstanta,
+		 	\item  x dan y adalah simbol variabel,
+		 	\item  Semua konstanta dan variabel adalah term,
+		 	\item  p dan q adalah simbol predikat,
+		 	\item  (for all x) p(a, b, x) dan (for some y) q(y) adalah kalimat, 
+		 	maka \\kondisional if (for all x) p(a, b, x) then (for some y) q(y) else \\not p(a, b, c) adalah kalimat 
+		 \end{enumerate}    
+    \end{enumerate}
+	
+\end{frame}	
+
+\section{Definisi Ekspresi}
+\begin{frame}
+	\frametitle{Definisi Ekspresi}
+     Suatu ekspresi dalam kalkulus predikat dapat berupa kalimat atau term.\\
+     Contoh :\\
+	  \begin{tabular}{ l l }	
+		x        &         merupakan ekspresi\\
+		f(x,y)   &         merupakan ekspresi\\
+		(for some x) p(x) & merupakan ekspresi
+	 \end{tabular}	
+\end{frame}
+
+\section{Definisi Subterm,Subkalimat,Subekspresi}
+\begin{frame}
+	\frametitle{Definisi Subterm,Subkalimat,Subekspresi}
+	 \begin{enumerate} 
+	 	\item  Subterm dari term t atau dari kalimat A adalah setiap term antara yang digunakan untuk membangun t atau A
+	 	\item  Subkalimat adalah setiap kalimat antara yang digunakan untuk membangun kalimat yang lebih luas
+	 	\item  Subekspresi adalah subterm atau subkalimat yang terdapat	pada sebuah ekspresi
+     \end{enumerate}
+     Contoh :\\
+     Sebutkan semua subterm dan subkalimat yang terdapat pada ekspresi berikut :\\
+     \begin{center}
+     	\textbf{E : if (for all x) q (x, f(a)) then f (a) else b}
+     \end{center}
+     Subterm : a, x, f(a), b, if (for all x) q (x, f(a)) then f (a) else b\\
+     Subkalimat : q(x, f(a), (for all x) q(x,f(a))\\
+     Semuanya merupakan SubEkspresi dari E\\
+\end{frame}	
+
+\section{Representasi Kalimat}
+\begin{frame}
+	\frametitle{Representasi Kalimat}
+      Contoh representasi bahasa alami dalam Kalkulus Predikat\\
+      \begin{enumerate} 
+      	\item  {\color{red} Ada} apel berwarna merah\\
+      ({\color{red} FOR SOME x}) (Apel(x) AND Merah(x))
+        \item  {\color{red} Semua} apel berwarna merah\\
+         ({\color{red}FOR ALL x}) ( IF Apel(x) THEN Merah(x))
+        \item {\color{red}Setiap} orang mencintai {\color{blue}seseorang}\\
+        ({\color{red}FOR ALL x}) ({\color{blue}FOR SOME y}) LOVES(x,y) 
+        \item Ani dicintai {\color{red}banyak} orang\\
+        ({\color{red}FOR ALL x}) LOVES(x, Ani)
+  \end{enumerate}  
+ \end{frame}
+        
+\begin{frame}
+	\frametitle{Representasi Kalimat}
+	 \begin{enumerate}       
+        \item {\color{red}Semua} Apel berwarna merah terasa manis\\
+        ({\color{red}FOR ALL x}) (IF apel(x) AND merah(x) THEN manis(x))\\
+        ({\color{red}FOR ALL x}) (IF apel(x) THEN (IF merah(x) THEN manis(x)))
+        \item {\color{red}Tidak semua} apel berwarna merah terasa manis\\
+        NOT {[} ({\color{red}FOR ALL x}) (IF apel(x) AND merah(x) THEN manis(x)){]} \\
+        {[}NOT ({\color{red}FOR ALL x}){]} {[}NOT (IF apel(x) AND merah(x) THEN manis(x)){]}\\
+        ({\color{red} FOR SOME x}) (apel(x) AND merah(x) AND NOT manis(x))
+    \end{enumerate}      
+\end{frame}
+
+\section{Latihan Soal}
+\begin{frame}
+    \frametitle{Latihan Soal}
+    \begin{enumerate}       
+    	\item {\color{red} Semua} Komunis itu tidak bertuhan
+    	\item Tidak {\color{red}ada} gading yang tidak retak
+    	\item {\color{red}Ada} gajah yang jantan dan {\color{red}ada} yang betina
+    	\item {\color{red}Tidak semua} pegawai negeri itu manusia korup
+    	\item {\color{red}Hanya polisilah} yang berwenang mengadakan penyidikan, kalau {\color{red}ada} orang yang melanggar hukum
+    	\item {\color{red}Semua} orang komunis itu bukan pancasilais.\\
+              {\color{red}Ada} orang komunis yang anggota tentara.\\
+              Jadi, {\color{red}ada} anggota tentara yang bukan pancasilais
+    	\item {\color{red}Barang siapa} meminjam barang orang lain dan tidak mengembalikannya adalah penipu. {\color{red}Ada} penipu yang begitu lihai, sehingga tidak ketahuan.
+        Kalau {\color{red}orang} menipu dan itu tidak ketahuan, ia tidak dapat dihukum.
+        Jadi {\color{red}ada} penipu yang tidak dapat dihukum. 
+   \end{enumerate}     	
+\end{frame}
+
+\section{Jawaban Latihan Soal}
+\begin{frame}
+	\frametitle{Jawaban Latihan Soal}
+	\begin{enumerate}
+	   \item {\color{red} Semua} Komunis itu tidak bertuhan\\
+	         {\color{red} $\forall$x} [IF Komunis(x) THEN NOT Bertuhan(x)]\\
+	   \item Tidak {\color{red}ada} gading yang tidak retak\\
+	         NOT  [({\color{red}$\exists$x}) (Gading(x) AND NOT Retak(x)]\\
+	         {\color{red}$\forall$x} (NOT (Gading(x) AND NOT Retak(x)]\\
+	         {\color{red}$\forall$x} (IF Gading(x) THEN Retak(x))
+	   \item {\color{red}Ada} gajah yang jantan dan {\color{red}ada} yang betina\\
+	   ({\color{red}$\exists$x})[ (Gajah(x) AND Jantan(x)) OR (Gajah(x) AND Betina(x))]\\
+	   ({\color{red}$\exists$x})[ (Gajah(x) AND (Jantan(x)) OR Betina(x))]
+	   \item {\color{red}Tidak semua} pegawai negeri itu manusia korup\\
+	    NOT [{\color{red}$\forall$x} IF Manusia(x) AND Pegawai\_Negeri(x) THEN Korup(x)]\\
+	   ({\color{red}$\exists$x}) [NOT ( NOT(Manusia(x) AND Pegawai\_Negeri(x) AND NOT Korup(x)]\\
+	   ({\color{red}$\exists$x}) [Pegawai\_Negeri(x) AND Manusia(x) AND NOT Korup(x)]      
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Jawaban Latihan Soal}
+	\begin{enumerate}
+		\addtocounter{enumi}{4}
+	    \item {\color{red}Hanya polisilah} yang berwenang mengadakan penyidikan, kalau {\color{red}ada} orang yang melanggar hukum\\
+	     {\color{red}$\exists$x}{\color{red}$\forall$y}[IF Orang(x) AND MelanggarHukum(x) THEN (IF Polisi(y) THEN Penyidikan(y,x))]
+	    \item {\color{red}Semua} orang komunis itu bukan pancasilais.\\
+	          {\color{red}Ada} orang komunis yang anggota tentara.\\
+	          Jadi, {\color{red}ada} anggota tentara yang bukan pancasilais\\
+	          {\color{red}$\forall$x}[IF Komunis(x) THEN NOT Pancasilais(x)];\\ 
+	          {\color{red}$\exists$x}[Komunis(x) AND Tentara(x)];\\
+	          {\color{red}$\exists$x}[Tentara(x) AND NOT Pancasilais(x)]  
+     \end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Jawaban Latihan Soal}
+	\begin{enumerate}
+		\addtocounter{enumi}{6}
+		\item {\color{red}Barang siapa} meminjam barang orang lain dan tidak mengembalikannya adalah penipu. {\color{red}Ada} penipu yang begitu lihai, sehingga tidak ketahuan.
+		Kalau {\color{red}orang} menipu dan itu tidak ketahuan, ia tidak dapat dihukum.
+		Jadi {\color{red}ada} penipu yang tidak dapat dihukum.\\
+		\begin{enumerate}
+		\item (FOR ALL x,y,z) IF Orang(x) AND Orang(z) AND Barang(y) AND Meminjam(x,y,z) 
+		AND NOT Mengembalikkan(x,y,z) THEN Penipu(x)
+		\item (FOR SOME $x_1$) Penipu($x_1$) AND Lihai($x_1$) AND NOT Ketahuan($x_1$)
+		\item (FOR ALL x) IF Penipu(x) AND NOT Ketahuan(x) THEN NOT Hukum(x)
+		\item (FOR SOME $x_1$) Penipu($x_1$) AND NOT Hukum($x_1$)
+	    \end{enumerate} 			
+\end{enumerate}
+\end{frame}
+
+\section{Variabel Bebas atau Terikat}
+\begin{frame}
+	\frametitle{Variabel Bebas atau Terikat}
+    \begin{enumerate}
+    	\item Suatu variabel dikatakan terikat dalam sebuah ekspresi jika sedikitnya ada satu kemunculan x terikat pada ekspresi tersebut.
+    	\item Sebaliknya dikatakan variabel bebas jika sedikitnya ada satu kemunculan bebas dalam ekspresi tersebut.
+    \end{enumerate}
+     Contoh : \\ 
+     \begin{center}
+     	\textbf{(FOR ALL x)[p(x,y) AND (FOR SOME y) q(y,z)]}
+     \end{center}
+      x pada p(x,y) adalah terikat\\
+      y pada p(x,y) adalah bebas\\
+      y pada q(y,z) adalah terikat\\
+      z pada q(y,z) adalah bebas 
+     
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Variabel Bebas atau Terikat}
+	Kemunculan variabel terikat dipengaruhi oleh kemunculan kuantifier yang paling dekat.\\
+	Contoh :\\
+	\begin{center}
+		\textbf{(FOR ALL x)[p(x) OR (FOR SOME x)(FOR ALL y) r(x,y)]}
+	\end{center}
+	 variabel x pada p(x) dipengaruhi kuantifier FOR ALL x\\
+	 variabel x pada r(x,y) dipengaruhi kuantifier FOR SOME x\\
+	 Catatan :\\
+	 Perbedaan antara variabel Bebas dan Variabel Terikat adalah :\\
+	 Variabel Bebas, Nilainya diberikan oleh interpretasi\\
+	 Variabel Terikat,Nilainya terbatas dari interpretasi yang diberikan
+	
+\end{frame}	
+
+\section{Kalimat Tertutup}
+\begin{frame}
+	\frametitle{Kalimat Tertutup}
+	Sebuah kalimat dikatakan tertutup jika tidak mempunyai kemunculan bebas dari variabel-variabelnya.\\
+	Contoh :\\
+	\begin{enumerate}
+		\item  (FOR ALL x) (FOR SOME y) p(x, y)adalah kalimat tertutup.
+		\item (FOR ALL x) p(x, y) bukan merupakan kalimat tertutup
+	\end{enumerate}		
+\end{frame}	
+
+\section{Simbol Bebas}
+\begin{frame}
+	\frametitle{Simbol Bebas}
+	Simbol bebas dari ekspresi A adalah :\\
+	\begin{itemize}
+		\item variabel-variabel bebas
+		\item semua konstanta
+		\item semua simbol fungsi
+		\item semua simbol predikat		
+	\end{itemize}
+	dari ekspresi A
+
+\end{frame}
+
+\section{Interpretasi}
+\begin{frame}
+	\frametitle{Interpretasi}
+	 Misal D adalah sebarang himpunan tak kosong, maka sebuah interpretasi I dalam domain D akan memberi nilai pada setiap simbol konstanta,	variabel bebas, fungsi dan predikat yang ada pada kalimat dengan aturan sebagai berikut :\\
+	 \begin{itemize}
+	 	\item Untuk setiap konstanta a, yaitu elemen $a_1$ dari D
+	 	\item Untuk setiap variabel x, yaitu elemen $x_1$ dari D
+	 	\item Untuk setiap simbol fungsi f dengan arity = n , yaitu :\\
+	 	Fungsi $f_1$($d_1$, $d_2$, …, $d_n$) dimana argumen $d_1$, $d_2$, …, $d_n$ merupakan elemen dari D, dan nilai fungsi $f_1$($d_1$, $d_2$, …, $d_n$) merupakan anggota D
+	 	\item Untuk setiap simbol predikat p dengan arity = n, yaitu relasi $p_1$($d_1$, $d_2$, …, $d_n$) dimana argumen $d_1$, $d_2$, …, $d_n$ merupakan elemen dari D dan nilai $p_1$($d_1$, $d_2$, …, $d_n$) adalah TRUE atau FALSE
+	 \end{itemize}
+	  Jadi untuk suatu ekspresi A, sebuah interpretasi I dikatakan interpretasi untuk A, jika I memberikan nilai kepada setiap simbol bebas dari A. 
+	
+\end{frame}	
+
+\section{Arti Kalimat}
+\begin{frame}
+	\frametitle{Arti Kalimat}
+	\begin{itemize}
+		\item Arti kalimat ditentukan oleh interpretasi yang diberikan. Tetapi karena dalam kalkulus predikat mengandung pengertian objek, maka interpretasi dalam kalimat predikat harus juga mendefinisikan suatu \textbf{\underline{domain yaitu himpunan objek yang memberi arti pada term}}.
+		\item Suatu interpretasi harus memberi nilai pada setiap simbol bebas pada kalimat tersebut.
+	\end{itemize}
+	
+	
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Arti Kalimat}
+	Misalkan ada kalimat tertutup :\\
+	\begin{center}
+		\textbf{A : IF (FOR ALL x)(FOR SOME y) p(x,y) THEN p(a,f(a))}
+	\end{center}
+	Interpretasi untuk kalimat A harus\\
+	\begin{itemize}
+		\item Mendefinisikan Domain
+		\item Memberikan nilai untuk simbol bebas dalam hal ini : Konstanta a, Simbol fungsi f, Simbol p
+	\end{itemize}
+	Contoh :\\
+	 Diberikan interpretasi I dengan Domain D adalah himpunan bilangan integer positif, dimana :\\
+	 a = 0\\
+	 p = relasi “lebih besar” yaitu : p(d1,d2)=(d1 $>$ d2)\\
+	 f  = fungsi suksesor yaitu f(d) = d + 1\\
+	 berdasarkan interpretasi I, kalimat tersebut dapat diartikan sebagai :\\
+	 IF untuk setiap integer x Ada integer y sedemikian sehingga x $>$ y  THEN 0 $>$ 0 + 1
+		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Arti Kalimat}
+	Misalkan interpretasi J dengan domain bilangan integer positif, yang akan memberi nilai :\\
+	a = 0\\
+	p = relasi ketidaksamaan yaitu : p(d1,d2)=(d1$\neq$d2)\\
+	f  = fungsi predesesor yaitu f(d) = d - 1\\
+	Berdasarkan interpretasi J, kalimat tersebut dapat diartikan sebagai :\\
+	IF untuk setiap integer x Ada integer y sedemikian sehingga  x $\neq$ y  THEN 0 $\neq$ 0 – 1
+\end{frame}
+
+\section{Latihan Soal}
+\begin{frame}
+	\frametitle{Latihan Soal}
+	 Diberikan Ekspresi :\\
+	 \begin{center}
+	   \textbf{E = IF p(x,f(x)) THEN (FOR SOME y) p(a,y)}
+	\end{center}
+	\begin{enumerate}
+		\item Misalkan I adalah interpretasi untuk E dengan Domain bilangan real; dimana\\ 
+		a = $\sqrt{2}$\\
+		x = $\pi$\\
+		f = fungsi “dibagi 2” yaitu : f1(d1) = d1/2\\
+		p  = relasi “lebih besar atau sama dengan” yaitu p(d1,d2) = (d1$\geq$d2)
+		\item  Misalkan J adalah interpretasi untuk E dengan Domain semua orang; dimana\\ 
+		a = Soeharto\\
+		x = Soekarno\\
+		f = fungsi “Ibu dari” yaitu : f1(d1) = ibu dari d1\\
+		p  = relasi “anak dari” yaitu p(d1,d2) = d1 adalah anak dari d2
+		
+	\end{enumerate}
+	Apakah arti ekspresi E berdasarkan interpretasi I dan interpretasi J ?
+\end{frame}			
+
+\section{Aturan Semantik}
+\begin{frame}
+	\frametitle{Aturan Semantik}
+	Misal A adalah suatu ekspresi dan I adalah interpretasi untuk A yang meliputi domain tak kosong D. Maka nilai dibawah I ditentukan berdasarkan aturan semantik sebagai berikut :\\
+	\begin{itemize}
+		\item Nilai suatu konstanta a adalah elemen domain D.
+		\item Nilai variabel x adalah elemen domain D.
+		\item Nilai aplikasi $f_1$($t_1$, $t_2$, …, $t_n$) adalah elemen domain D dimana $f_1$($t_1$, $t_2$, …, $t_n$) f adalah fungsi yang diberikan kepada f dan $t_1$, $t_2$, …, $t_n$ adalah nilai term berdasarkan interpretasi I.
+		\item Nilai Term kondisional if A then s else t adalah nilai term s jika A bernilai TRUE dan sama dengan nilai term t jika A bernilai FALSE.
+		\item Nilai proposisi $p_1$($t_1$, $t_2$, …, $t_n$) adalah nilai kebenaran TRUE atau FALSE dimana p adalah relasi yang diberikan oleh interpretasi I dan nilai dari $t_1$, $t_2$, …, $t_n$ berdasarkan I.
+		\item Aturan untuk penghubung logik (not, or, dsb) sama dengan aturan pada kalkulus proposisi.
+	\end{itemize}	
+\end{frame}	
+
+\section{Interprestasi Yang Diperluas}
+\begin{frame}
+	\frametitle{Interprestasi Yang Diperluas}
+	Misal I adalah suatu interpretasi yang mencakup domain D maka untuk sembarang variabel x dan elemen d pada domain D, interpretasi yang diperluas\\
+	\begin{center}
+		\textbf{$\langle x \leftarrow d \rangle \circ I $ }
+	\end{center}
+	adalah interpretasi yang mencakup domain D dimana :\\
+	Variabel x diberikan nilai elemen pada domain D
+	\begin{enumerate}
+		\item Setiap variabel y (selain x) diberi nilai sama dengan elemen domain $y_1$ yaitu nilai berdasar interpretasi D. Jika y tidak memiliki nilai berdasar I maka y juga tidak memiliki nilai berdasar $\langle x \leftarrow d \rangle \circ I $.
+		\item Setiap konstanta a, simbol fungsi f, dan simbol predikat p diberi nilai sesuai dengan nilai aslinya yaitu $a_I$, $f_I$, $p_I$.
+	\end{enumerate}
+	\textbf{Sifat interpretasi yang diperluas}\\	
+	Jika I adalah interpretasi untuk kalimat berbentuk\\
+	(FOR ALL x) A dan (FOR SOME x) A,\\
+	maka $\langle x \leftarrow d \rangle \circ I $ adalah interpretasi yang berlaku untuk A juga
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Interprestasi Yang Diperluas}
+	Contoh :\\
+	\begin{enumerate}
+		\item  I adalah interpretasi yang meliputi bilangan integer, dengan\\ 
+		x = 1\\
+		y = 2\\
+		Maka perluasan interpretasi terhadap I :\\
+		$\langle x \leftarrow 3 \rangle \circ I $\\
+		akan memberikan nilai :\\
+		x = 3\\
+		y = 2
+		\item I adalah interpretasi yang meliputi bilangan integer, dengan\\ 
+		f adalah simbol fungsi biner\\
+		+ adalah fungsi penambahan integer\\
+		maka :\\
+		$\langle f \leftarrow + \rangle \circ I $ adalah interpretasi yang meliputi domain bilangan integer dengan f fungsi penambahan +.
+		
+	\end{enumerate}
+\end{frame}
+
+\section{Aturan Semantik Untuk Kuantifier}
+\begin{frame}
+	\frametitle{Aturan Semantik Untuk Kuantifier}
+	\textbf{Aturan FOR ALL}\\
+	\begin{itemize}
+		\item Kalimat (FOR ALL x) A bernilai TRUE berdasarkan interpretasi I jika:\\
+		\underline{Untuk setiap elemen d} dari domain D menyebabkan subkalimat A bernilai TRUE berdasarkan interpretasi yang diperluas $\langle x \leftarrow d \rangle \circ I $
+		\item Kalimat (FOR ALL x) A bernilai FALSE berdasarkan interpretasi I jika:\\
+		\underline{Ada elemen d} dari domain D sedemikian sehingga subkalimat A bernilai FALSE berdasarkan interpretasi yang diperluas $\langle x \leftarrow d \rangle \circ I $
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aturan Semantik Untuk Kuantifier}
+	\textbf{Aturan FOR SOME}
+	\begin{itemize}
+		\item Kalimat (FOR SOME x) A bernilai FALSE berdasarkan interpretasi I jika:\\
+		\underline{Untuk setiap elemen d} dari domain D menyebabkan subkalimat A bernilai FALSE berdasarkan interpretasi yang diperluas $\langle x \leftarrow d \rangle \circ I $
+		\item Kalimat (FOR SOME x) A bernilai TRUE berdasarkan interpretasi I jika:\\
+		\underline{Ada elemen d} dari domain D sedemikian sehingga subkalimat A bernilai TRUE berdasarkan interpretasi yang diperluas $\langle x \leftarrow d \rangle \circ I $
+	\end{itemize}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aturan Semantik Untuk Kuantifier}
+	Contoh :\\
+	A : (FOR SOME x) p(x,y)
+	Diberikan interpretasi I yang meliputi himpunan bilangan integer positif\\ 
+	y = 2\\
+	p : relasi “kurang dari”, yaitu $p_I$($d_1$,$d_2$) = $d_1<d_2$\\
+	\vspace{5mm}	
+	Berdasarkan aturan (FOR SOME x) maka\\
+	(FOR SOME x) p(x, y) bernilai TRUE jika ada elemen dari D sehingga nilai p(x,y) bernilai TRUE berdasarkan interpretasi $\langle x \leftarrow d \rangle \circ I $\\
+	\vspace{5mm}	
+	Misal diambil d = 1 maka perluasan interpretasi menjadi sehingga berdasarkan aturan proposisi $\langle x \leftarrow 1 \rangle \circ I $ diperoleh bahwa\\
+	p(1, 2) yaitu 1 $<$ 2 adalah TRUE		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aturan Semantik Untuk Kuantifier}
+	Contoh :\\
+	B : IF (FOR ALL x) (FOR SOME y) p(x,y) THEN p(a,f(a))\\
+	\vspace{5mm}
+	 Misal I adalah interpretasi untuk B yang meliputi domain bilangan real positif dimana:\\
+	 a = 1\\
+	 f : fungsi “akar dari” yaitu f1(d) = $\sqrt{d}$\\
+	 p : relasi “tidak sama dengan”, yaitu p1($d_1$,$d_2$) = $d_1 \neq d_2$\\
+	 \vspace{5mm}
+	 Misal diasumsikan bahwa B bernilai FALSE\\
+	 Maka harus diperhatikan bahwa :\\ Antisenden : (FOR ALL x) (FOR SOME y) p(x,y) bernilai TRUE\\
+	 Konsekuen : p(a,f(a)) bernilai FALSE
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aturan Semantik Untuk Kuantifier}
+    Untuk lebih mudahnya, dimulai dari \underline{Konsekuen} karena bentuknya lebih sederhana. Berdasarkan aturan proposisi, maka nilai konsekuen p(a,f(a)) yaitu $1 \neq \sqrt{1}$ adalah 
+    FALSE berdasarkan I\\
+    \vspace{1mm}
+    \underline{Antisenden} :\\
+    berdasarkan Aturan (FOR ALL x)\\
+    Untuk setiap elemen $d_1$ dari D, subkalimat (for some y) p(x,y) bernilai TRUE berdasarkan $\langle x \leftarrow d \rangle \circ I $\\
+    \vspace{0.5mm}
+    Berdasarkan Aturan (FOR SOME y)\\
+    Untuk setiap elemen $d_1$ dari D, ada elemen $d_2$ sedemikian sehingga p(x,y) bernilai TRUE berdasarkan $\langle y \leftarrow d_2 \rangle \circ \langle x \leftarrow d_1 \rangle \circ I $\\
+    \vspace{1mm}
+    Misal ambil sembarang elemen domain dan $d_2 = d_1 + 1$\\
+    Maka berdasarkan aturan proposisi, nilai p(x,y) yaitu p(d1, d2)\\
+    Berarti p(d1, d1+1) menyatakan bahwa $d_1 \neq d_1 + 1$ adalah TRUE\\
+    berdasarkan $\langle y \leftarrow d_2 \rangle \circ \langle x \leftarrow d_1 \rangle \circ I $\\
+    \vspace{0.5mm}
+    Jadi dapat disimpulkan bahwa kalimat B bernilai FALSE berdasarkan I.   
+    
+\end{frame}
+
+\section{Kecocokan}
+\begin{frame}
+  \frametitle{Kecocokan}
+  \begin{itemize}
+  	\item Dua interpretasi dikatakan cocok jika keduanya memberi nilai yang sama untuk simbol-simbolnya \underline{atau} tidak memberi nilai untuk simbol-simbolnya keduanya. 
+  	
+  	\item Dua interpretasi I dan J cocok untuk ekspresi A jika nilai A berdasarkan I sama dengan nilai A berdasarkan J \underline{atau}
+  	I dan J bukan interpretasi untuk A
+  \end{itemize}
+\end{frame}  
+
+\begin{frame}
+	\frametitle{Kecocokan}
+	Contoh :\\
+	Misalkan I adalah interpretasi yang meliputi bilangan integer dengan :\\
+	a $\rightarrow$ 0\\ 
+	b $\rightarrow$ 2\\
+	x $\rightarrow$ -1\\ 
+	f $\rightarrow$ fungsi suksessor $f_1$(d) = d + 1\\
+	dan interpretasi J yang meliputi integer dengan :\\
+	a $\rightarrow$ 0\\
+	x $\rightarrow$ 1\\
+	f $\rightarrow$	fungsi predesesor $f_1$(d) = d – 1   
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Kecocokan}
+	 \begin{itemize}
+		\item I dan J cocok untuk konstanta a
+		\item I dan J cocok untuk simbol predikat p
+		\item I dan J tidak cocok untuk variabel x
+		\item I dan J cocok untuk ekspresi f(x)
+		\item I dan J cocok untuk ekspresi f(y)
+		\item I dan J tidak cocok untuk ekspresi f(b), karena I adalah interpretasi untuk f(b) tetapi tidak untuk J 
+	\end{itemize}
+\end{frame}	
+
+\section{Validitas}
+\begin{frame}
+	\frametitle{Validitas}
+	Validitas di dalam kalkulus predikat didefinisikan hanya untuk kalimat tertutup, yaitu kalimat yang tidak memiliki variabel bebas.\\
+	\vspace{2mm}
+	\textbf{Definisi}\\
+	Sebuah kalimat A dikatakan \underline{valid} jika kalimat tersebut bernilai TRUE berdasarkan setiap interprestasi untuk A.\\
+	\vspace{2mm}
+	Pembuktian validitas kalimat dapat menggunakan :\\
+	\begin{itemize}
+		\item Dengan membuktikan bahwa kalimat tertutup A adalah VALID	(biasanya lebih “enak” untuk kalimat-kalimat yang memiliki penghubung logik : 
+		IFF, AND, NOT)
+		\item Dengan membuktikan bahwa kalimat tertutup A adalah TIDAK VALID dengan	cara mencari satu interpretasi tertentu yang menyebabkan kalimat tersebut bernilai FALSE. 
+		(biasanya untuk kalimat-kalimat yang memiliki penghubung logik : IF-THEN, OR)
+	\end{itemize}
+	
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Pembuktian Validitas}
+	Misalkan ingin dibuktikan validitas kalimat A berikut :\\
+	A : [ NOT (FOR ALL x) p(x) ] IFF [ (FOR SOME x) NOT p(x) ]\\
+	\vspace{2mm}
+	Berdasarkan aturan IFF, cukup diperlihatkan bahwa :\\
+	NOT (FOR ALL x) p(x) ] dan [ (FOR SOME x) NOT p(x) ] memiliki nilai kebenaran yang sama berdasarkan setiap interpretasi, atau dengan kata lain subkalimat pertama bernilai TRUE tepat bila subkalimat kedua juga bernilai TRUE. 
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Pembuktian Validitas}
+	A : [ NOT (FOR ALL x) p(x) ] IFF [ (FOR SOME x) NOT p(x) ]\\
+	\vspace{2mm}
+	Misalkan terdapat sebarang interpretasi I untuk A, maka\\
+	NOT (FOR ALL x) p(x)  bernilai TRUE berdasarkan I\\
+	Tepat bila (berdasarkan aturan NOT)\\
+	\hspace{5mm} (FOR ALL x) p(x) bernilai FALSE berdasarkan I\\
+	Tepat bila berdasarkan (FOR ALL x)\\
+	\hspace{5mm} Ada elemen d di dalam domain D\\
+	Sehingga p(x) bernilai FALSE berdasarkan $\langle x \leftarrow d \rangle \circ I $\\	
+	Tepat bila berdasarkan aturan NOT\\
+	\hspace{5mm} Ada elemen d di dalam domain D\\
+	sehingga NOT p(x) bernilai TRUE berdasarkan $\langle x \leftarrow d \rangle \circ I $\\ 
+	Tepat bila berdasarkan aturan (FOR SOME x)\\
+	\hspace{5mm} (FOR SOME x) NOT p(x) bernilai TRUE berdasarkan Interpretasi I
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pembuktian Validitas}
+	Misalkan ingin dibuktikan validitas kalimat B berikut :\\
+	B :	IF (FOR SOME y) (FOR ALL x) q(x, y) THEN\\ 
+	\hspace{5mm}(FOR ALL x) (FOR SOME y) q(x y)\\
+	\vspace{2mm}
+	Asumsikan bahwa B tidak valid, sehingga bahwa untuk suatu interpretasi I untuk B.\\
+	\vspace{2mm}
+	Jika Antisenden : (FOR SOME y) (FOR ALL x) q(x, y)\\
+	\hspace{30mm}bernilai TRUE berdasarkan I\\
+	maka konsekuen : (FOR ALL x) (FOR SOME y) q(x, y)\\
+	\hspace{30mm}bernilai FALSE berdasarkan I
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pembuktian Validitas}
+	Karena Antisenden bernilai TRUE berdasarkan  I,\\
+	maka (berdasarkan aturan FOR SOME y)\\
+	Ada elemen $d_1$ di dalam domain D sehingga (FOR ALL x) q(x, y) bernilai TRUE 
+	berdasarkan $\langle x \leftarrow d_1 \rangle \circ I $\\
+	\vspace{1mm}
+	Tepat bila berdasarkan aturan FOR ALL x\\
+	Ada elemen $d_1$ di dalam domain D sedemikian sehingga untuk setiap elemen $d_2$ di dalam domain D sedemikian sehingga q(x, y) bernilai TRUE berdasarkan $\langle x \leftarrow d_2 \rangle \circ \langle y \leftarrow d_1 \rangle \circ I $ ......... (1)\\
+	\vspace{1mm}
+	Karena konsekuen bernilai FALSE berdasarkan I,\\ 
+	Maka (berdasarkan aturan FOR ALL x)Ada elemen $e_1$ di dalam domain D sehingga (FOR SOME y) q(x, y) bernilai FALSE 
+	berdasarkan $\langle x \leftarrow e \rangle \circ I $\\
+	\vspace{1mm}
+	Tepat bila (berdasarkan aturan FOR SOME y)\\
+	Ada elemen $e_1$ di dalam domain D sedemikian sehingga untuk semua elemen $e_2$ di dalam domain D sedemikian sehingga q(x, y) bernilai FALSE berdasarkan $\langle y \leftarrow e_2 \rangle \circ \langle x \leftarrow e_1 \rangle \circ I $ ......... (2)
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pembuktian Validitas}
+	Berdasarkan (1) dan (2) kita dapat mengambil nilai elemen $d_1$ sama dengan dan $d_2$ sama dengan $e_1$, sehingga dari (1) diperoleh :\\
+	\vspace{2mm}
+	q(x y) bernilai TRUE berdasarkan $\langle x \leftarrow e_1 \rangle \circ \langle y \leftarrow d_1 \rangle \circ I $ ......... (3)\\
+	dan dari (2) diperoleh\\
+	 q(x, y) bernilai FALSE berdasarkan $\langle y \leftarrow d_1 \rangle \circ \langle x \leftarrow e_1 \rangle \circ I $ ......... (4)\\
+	 Karena variabel x dan y berbeda, maka interpretasi\\
+	 $\langle x \leftarrow e_1 \rangle \circ \langle y \leftarrow d_1 \rangle \circ I $ dan $\langle y \leftarrow d_1 \rangle \circ \langle x \leftarrow e_1 \rangle \circ I $\\
+	 adalah identik, sehingga terlihat bahwa (3) dan (4) saling berkontradiksi.\\
+	 \vspace{5mm}
+	 \textbf{Berarti asumsi bahwa B tidak valid adalah tidak benar, sehingga B \underline{VALID}} 
+\end{frame}									
+
+\end{document}

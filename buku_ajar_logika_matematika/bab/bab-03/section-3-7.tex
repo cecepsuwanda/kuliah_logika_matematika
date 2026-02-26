@@ -1,0 +1,106 @@
+\section{Varian Implikasi dan Hirarki Operator Logika}
+
+\subsection{Varian dari Implikasi}
+
+Dari suatu implikasi $p \rightarrow q$, dapat dibentuk tiga pernyataan turunan yang penting:
+
+\begin{konsep}
+\begin{enumerate}
+  \item \textbf{Konvers}: $q \rightarrow p$ (membalik arah implikasi)
+  \item \textbf{Invers}: $\neg p \rightarrow \neg q$ (menegasikan kedua komponen)
+  \item \textbf{Kontraposisi}: $\neg q \rightarrow \neg p$ (membalik arah dan menegasikan)
+\end{enumerate}
+
+Hubungan penting:
+\begin{itemize}
+  \item Implikasi $p \rightarrow q$ \textbf{ekuivalen} dengan kontraposisinya $\neg q \rightarrow \neg p$
+  \item Konvers $q \rightarrow p$ \textbf{ekuivalen} dengan invers $\neg p \rightarrow \neg q$
+  \item Implikasi \textbf{tidak} selalu ekuivalen dengan konversnya
+\end{itemize}
+\end{konsep}
+
+\begin{contoh}
+Perhatikan tabel kebenaran berikut yang membandingkan implikasi, konvers, invers, dan kontraposisi:
+
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$p$ & $\neg p$ & $q$ & $\neg q$ & $p \rightarrow q$ & $q \rightarrow p$ & $\neg p \rightarrow \neg q$ & $\neg q \rightarrow \neg p$ \\
+\hline
+B & S & B & S & B & B & B & B \\
+B & S & S & B & S & B & B & S \\
+S & B & B & S & B & S & S & B \\
+S & B & S & B & B & B & B & B \\
+\hline
+\end{tabular}
+\end{center}
+
+Perhatikan bahwa:
+\begin{itemize}
+  \item Kolom $p \rightarrow q$ dan $\neg q \rightarrow \neg p$ identik $\Rightarrow$ implikasi $\equiv$ kontraposisi
+  \item Kolom $q \rightarrow p$ dan $\neg p \rightarrow \neg q$ identik $\Rightarrow$ konvers $\equiv$ invers
+  \item Kolom $p \rightarrow q$ dan $q \rightarrow p$ \textbf{berbeda} $\Rightarrow$ implikasi $\not\equiv$ konvers
+\end{itemize}
+\end{contoh}
+
+\begin{contoh}
+Misalkan $p \rightarrow q$: ``Jika hari hujan, maka jalan basah.''
+\begin{itemize}
+  \item \textbf{Konvers} ($q \rightarrow p$): ``Jika jalan basah, maka hari hujan.'' (Belum tentu benar --- jalan bisa basah karena disiram.)
+  \item \textbf{Invers} ($\neg p \rightarrow \neg q$): ``Jika hari tidak hujan, maka jalan tidak basah.'' (Juga belum tentu benar.)
+  \item \textbf{Kontraposisi} ($\neg q \rightarrow \neg p$): ``Jika jalan tidak basah, maka hari tidak hujan.'' (Sama benarnya dengan pernyataan asal.)
+\end{itemize}
+\end{contoh}
+
+\subsection{Hirarki (Prioritas) Operator Logika}
+
+Ketika mengevaluasi ekspresi logika yang melibatkan beberapa operator tanpa tanda kurung, diperlukan aturan prioritas untuk menghindari ambiguitas.
+
+\begin{konsep}
+Urutan pengerjaan operator logika dari prioritas tertinggi ke terendah:
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Prioritas} & \textbf{Operator} & \textbf{Nama} \\
+\hline
+1 (tertinggi) & $\neg$ & Negasi \\
+\hline
+2 & $\wedge$ & Konjungsi \\
+\hline
+3 & $\vee$ & Disjungsi \\
+\hline
+4 & $\rightarrow$ & Implikasi \\
+\hline
+5 (terendah) & $\leftrightarrow$ & Biimplikasi \\
+\hline
+\end{tabular}
+\end{center}
+\end{konsep}
+
+\begin{contoh}
+Ekspresi $\neg p \wedge q \rightarrow \neg r \vee s$ tanpa tanda kurung dievaluasi sebagai:
+$$\big((\neg p) \wedge q\big) \rightarrow \big((\neg r) \vee s\big)$$
+
+Langkah-langkah berdasarkan hirarki:
+\begin{enumerate}
+  \item Negasi dulu: $\neg p$ dan $\neg r$
+  \item Konjungsi: $(\neg p) \wedge q$
+  \item Disjungsi: $(\neg r) \vee s$
+  \item Implikasi: $\big((\neg p) \wedge q\big) \rightarrow \big((\neg r) \vee s\big)$
+\end{enumerate}
+\end{contoh}
+
+\begin{contoh}
+Tambahkan tanda kurung pada ekspresi berikut agar tidak ambigu:
+\begin{enumerate}
+  \item $p \wedge q \wedge r \rightarrow s$ menjadi $((p \wedge q) \wedge r) \rightarrow s$
+  \item $p \vee q \vee r \leftrightarrow \neg s$ menjadi $((p \vee q) \vee r) \leftrightarrow (\neg s)$
+  \item $p \vee q \wedge r \rightarrow p \wedge q \vee r$ menjadi $(p \vee (q \wedge r)) \rightarrow ((p \wedge q) \vee r)$
+\end{enumerate}
+\end{contoh}
+
+\begin{catatan}
+Dalam praktik, penggunaan tanda kurung secara eksplisit selalu dianjurkan untuk menghindari kesalahan dan meningkatkan keterbacaan ekspresi logika, bahkan jika hirarki operator sudah diketahui. Hal ini juga berlaku dalam pemrograman: \code{if (a and b) or c} lebih jelas daripada \code{if a and b or c}.
+\end{catatan}

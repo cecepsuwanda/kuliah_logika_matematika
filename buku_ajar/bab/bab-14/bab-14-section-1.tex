@@ -1,0 +1,233 @@
+\section{Asesmen Akhir Komprehensif}
+
+\subsection{Petunjuk Umum}
+
+Asesmen ini dirancang untuk mengukur pencapaian CPMK-1, CPMK-2, CPMK-3, dan CPMK-4 secara menyeluruh \cite{ref8}. Kerjakan dengan jujur dan mandiri.
+
+\textbf{Alokasi Waktu}:
+\begin{itemize}
+  \item Bagian A (Pilihan Ganda): 30 menit
+  \item Bagian B (Essay): 45 menit
+  \item Bagian C (Analisis Kode): 45 menit
+  \item Bagian D (Coding Challenge): 90 menit
+\end{itemize}
+
+\subsection{Bagian A: Pilihan Ganda (CPMK-1)}
+
+\textbf{Petunjuk}: Pilih satu jawaban yang paling tepat.
+
+\begin{enumerate}
+  \item Manakah yang BUKAN merupakan pilar OOP?
+  \begin{enumerate}
+    \item Abstraksi
+    \item Enkapsulasi
+    \item Kompilasi
+    \item Polimorfisme
+  \end{enumerate}
+  
+  \item Dalam Java, keyword untuk mewarisi class adalah:
+  \begin{enumerate}
+    \item inherits
+    \item extends
+    \item implements
+    \item super
+  \end{enumerate}
+  
+  \item Method overriding terjadi ketika:
+  \begin{enumerate}
+    \item Dua method dalam class yang sama memiliki nama sama
+    \item Subclass mendefinisikan ulang method dari superclass
+    \item Method memiliki parameter yang berbeda
+    \item Method dipanggil berkali-kali
+  \end{enumerate}
+  
+  \item Interface dalam Java:
+  \begin{enumerate}
+    \item Dapat memiliki instance variables
+    \item Semua methods harus abstract (sebelum Java 8)
+    \item Dapat di-instantiate
+    \item Hanya boleh memiliki satu method
+  \end{enumerate}
+  
+  \item Prinsip SOLID yang menyatakan "class harus terbuka untuk extension tapi tertutup untuk modification" adalah:
+  \begin{enumerate}
+    \item Single Responsibility Principle
+    \item Open/Closed Principle
+    \item Liskov Substitution Principle
+    \item Dependency Inversion Principle
+  \end{enumerate}
+  
+  \item Design pattern yang memastikan hanya ada satu instance dari class adalah:
+  \begin{enumerate}
+    \item Factory Pattern
+    \item Singleton Pattern
+    \item Observer Pattern
+    \item Strategy Pattern
+  \end{enumerate}
+  
+  \item Dalam Java Collections, struktur data yang tidak mengizinkan duplikat adalah:
+  \begin{enumerate}
+    \item List
+    \item Set
+    \item Map
+    \item Queue
+  \end{enumerate}
+  
+  \item Exception yang harus di-handle dengan try-catch disebut:
+  \begin{enumerate}
+    \item RuntimeException
+    \item Checked Exception
+    \item Unchecked Exception
+    \item Error
+  \end{enumerate}
+  
+  \item Dalam UML Class Diagram, relasi "has-a" digambarkan dengan:
+  \begin{enumerate}
+    \item Generalization
+    \item Association/Aggregation/Composition
+    \item Dependency
+    \item Realization
+  \end{enumerate}
+
+  \item Kelas yang digunakan untuk menulis objek ke file secara serialization adalah:
+  \begin{enumerate}
+    \item FileWriter
+    \item ObjectOutputStream
+    \item BufferedReader
+    \item Scanner
+  \end{enumerate}
+  
+  \item Annotation untuk menandai method sebagai test case dalam JUnit adalah:
+  \begin{enumerate}
+    \item @Test
+    \item @TestCase
+    \item @Unit
+    \item @Assert
+  \end{enumerate}
+
+  \item Refactoring yang memecah method panjang menjadi beberapa method kecil disebut:
+  \begin{enumerate}
+    \item Extract Method
+    \item Inline Method
+    \item Replace Conditionals with Polymorphism
+    \item Move Method
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Bagian B: Essay (CPMK-1, CPMK-2)}
+
+\textbf{Petunjuk}: Jawab dengan jelas dan lengkap.
+\begin{enumerate}
+  \item Jelaskan perbedaan antara abstract class dan interface dalam Java! Kapan sebaiknya menggunakan abstract class dan kapan menggunakan interface? Berikan contoh kasus untuk masing-masing.
+  
+  \item Jelaskan konsep polymorphism dalam OOP! Berikan contoh kode Java yang mendemonstrasikan compile-time polymorphism dan runtime polymorphism.
+  
+  \item Jelaskan 5 prinsip SOLID! Pilih salah satu prinsip dan berikan contoh kode yang melanggar prinsip tersebut, kemudian perbaiki kode tersebut.
+  
+  \item Gambarkan Class Diagram untuk sistem perpustakaan sederhana yang memiliki minimal 5 class dengan relasi yang tepat (association, aggregation, composition, inheritance).
+  
+  \item Jelaskan konsep Test-Driven Development (TDD)! Apa keuntungan menggunakan TDD dalam pengembangan software?
+
+  \item Jelaskan contoh refactoring sederhana yang dapat Anda lakukan untuk memperbaiki code smell "Long Method".
+\end{enumerate}
+
+\subsection{Bagian C: Analisis Kode (CPMK-3, CPMK-4)}
+
+\textbf{Petunjuk}: Analisis kode berikut dan jawab pertanyaan.
+
+\begin{javacode}[caption={Kode untuk Dianalisis}]
+public class BankAccount {
+    public String accountNumber;
+    public double balance;
+    public String ownerName;
+    
+    public void deposit(double amount) {
+        balance = balance + amount;
+    }
+    
+    public void withdraw(double amount) {
+        balance = balance - amount;
+    }
+    
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class SavingsAccount extends BankAccount {
+    public double interestRate;
+    
+    public void addInterest() {
+        balance = balance + (balance * interestRate);
+    }
+}
+\end{javacode}
+
+\textbf{Pertanyaan}:
+\begin{enumerate}
+  \item Identifikasi minimal 5 masalah dalam kode di atas terkait dengan prinsip OOP dan best practices.
+  \item Perbaiki kode tersebut dengan menerapkan encapsulation yang tepat.
+  \item Tambahkan validasi yang diperlukan pada method \method{deposit} dan \method{withdraw}.
+  \item Implementasikan constructor yang sesuai untuk kedua class.
+  \item Apakah kode ini melanggar prinsip SOLID? Jelaskan!
+\end{enumerate}
+
+\subsection{Bagian D: Coding Challenge (CPMK-2, CPMK-3, 4)}
+
+\textbf{Petunjuk}: Implementasikan sistem berikut dengan menerapkan semua konsep OOP yang telah dipelajari.
+
+\textbf{Studi Kasus: Sistem Manajemen Toko Buku Online}
+
+Buat sistem manajemen toko buku online dengan requirements berikut:
+
+\textbf{Requirements}:
+\begin{enumerate}
+  \item \textbf{Class \class{Buku}}:
+  \begin{itemize}
+    \item Attributes: isbn, judul, penulis, penerbit, tahunTerbit, harga, stok
+    \item Methods: getInfo(), updateStok(), hitungDiskon()
+  \end{itemize}
+  
+  \item \textbf{Class \class{BukuFisik}} (extends \class{Buku}):
+  \begin{itemize}
+    \item Attribute tambahan: berat, dimensi
+    \item Method: hitungOngkir()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Ebook}} (extends \class{Buku}):
+  \begin{itemize}
+    \item Attribute tambahan: ukuranFile, format
+    \item Method: download()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Pelanggan}}:
+  \begin{itemize}
+    \item Attributes: idPelanggan, nama, email, alamat
+    \item Methods: register(), updateProfile()
+  \end{itemize}
+  
+  \item \textbf{Class \class{Keranjang}}:
+  \begin{itemize}
+    \item Attributes: daftarBuku (ArrayList), pelanggan
+    \item Methods: tambahBuku(), hapusBuku(), hitungTotal(), checkout()
+  \end{itemize}
+  
+  \item \textbf{Interface \class{Pembayaran}}:
+  \begin{itemize}
+    \item Methods: prosesPembayaran(), verifikasiPembayaran()
+  \end{itemize}
+  
+  \item \textbf{Class \class{PembayaranKartuKredit}} dan \class{Pembayaran\-Transfer} (implements \class{Pembayaran})
+\end{enumerate}
+
+\textbf{Kriteria Penilaian}:
+\begin{itemize}
+  \item Penerapan encapsulation (private attributes, getter/setter)
+  \item Penggunaan inheritance yang tepat
+  \item Implementasi polymorphism
+  \item Penggunaan interface
+  \item Validasi data yang sesuai
+  \item Exception handling
+  \item Code quality (naming, comments, structure)
+  \item Unit testing untuk minimal 3 methods
+\end{itemize}

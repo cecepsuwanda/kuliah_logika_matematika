@@ -1,0 +1,121 @@
+\section{Interface dan Perbandingannya dengan Abstract Class}
+
+\subsection{Konsep Interface}
+Interface mendefinisikan kontrak yang harus diimplementasikan oleh class.
+
+\begin{javacode}[caption={Contoh Interface}]
+interface Pembayaran {
+    void proses();
+    void verifikasi();
+}
+
+class PembayaranKartu implements Pembayaran {
+    @Override
+    public void proses() {
+        System.out.println("Proses kartu kredit");
+    }
+
+    @Override
+    public void verifikasi() {
+        System.out.println("Verifikasi kartu kredit");
+    }
+}
+\end{javacode}
+
+\subsection{Perbandingan Abstract Class vs Interface}
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{5cm}|p{5.5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Abstract Class} & \textbf{Interface} \\
+\hline
+Instansiasi & Tidak dapat diinstansiasi & Tidak dapat diinstansiasi \\
+\hline
+Inheritance & Single inheritance & Multiple inheritance of type \\
+\hline
+State & Dapat memiliki attribute & Hanya constant (public static final) \\
+\hline
+Method & Abstract dan konkret & Abstract, default, static \\
+\hline
+\end{tabular}
+\caption{Perbandingan Abstract Class dan Interface}
+\end{table}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+\sloppy
+  \item \textbf{Diskusi}: Tentukan kapan menggunakan abstract class dan kapan interface.
+  \item \textbf{Implementasi}: Buat interface \class{Notifikasi}. Lalu buat class \class{EmailNotifikasi} dan \class{SMSNotifikasi}.
+  \item \textbf{Studi Kasus}: Rancang abstract class \class{Bentuk} dan implementasi \class{Lingkaran}, \class{Segitiga}.
+  \item \textbf{Review}: Analisis kode yang menggunakan inheritance berlebihan dan usulkan perbaikan dengan interface.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan utama antara abstract class dan interface.
+  \item Buat abstract class \class{Transportasi} dan subclass \class{Kereta}, \class{Bus}.
+  \item Buat interface \class{Diskon} dan implementasikan pada class \class{Produk}.
+  \item Jelaskan manfaat default method pada interface.
+  \item \textbf{Refleksi}: Bagaimana Anda menentukan pilihan desain antara abstract class dan interface?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 3.2}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Interface di Java dapat diimplementasikan oleh:
+  \begin{enumerate}
+    \item Satu class saja
+    \item Banyak class
+    \item Hanya abstract class
+    \item Hanya class final
+  \end{enumerate}
+  \item Abstract class dapat memiliki:
+  \begin{enumerate}
+    \item Hanya method abstract
+    \item Hanya method static
+    \item Method abstract dan method konkret
+    \item Hanya constructor private
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Rancang interface \class{Layanan} dan dua implementasi berbeda. Tunjukkan penggunaan polymorphism.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep abstract class
+  \item Saya memahami konsep interface
+  \item Saya dapat memilih antara abstract class dan interface
+  \item Saya dapat mengimplementasikan interface di Java
+  \item Saya dapat menggunakan polymorphism dengan abstract class dan interface
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Abstract class menyediakan dasar perilaku dan state bersama, sedangkan interface menyediakan kontrak untuk perilaku \cite{ref4}. Keduanya mendukung polymorphism dan desain yang fleksibel.
+
+\textbf{Kata Kunci}: \oop{Abstract Class}, \oop{Interface}, \oop{implements}, \oop{default method}, \oop{polymorphism}
+\end{rangkuman}

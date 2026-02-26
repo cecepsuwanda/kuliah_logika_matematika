@@ -1,0 +1,119 @@
+\section{Paradigma Prosedural vs Berorientasi Objek}
+
+\subsection{Pemrograman Prosedural}
+
+\oop{Pemrograman prosedural} adalah paradigma yang berfokus pada \textbf{prosedur} atau \textbf{fungsi} yang beroperasi pada data.
+
+\textbf{Karakteristik:}
+\begin{itemize}
+  \item Program terdiri dari serangkaian instruksi/prosedur
+  \item Data dan fungsi terpisah
+  \item Alur program linear (top-down)
+  \item Fokus pada "bagaimana" melakukan sesuatu
+\end{itemize}
+
+\begin{contoh}
+\textbf{Contoh Kode Prosedural (Pseudo-code):}
+
+\begin{verbatim}
+// Data terpisah
+struct Mahasiswa {
+    string nim;
+    string nama;
+    double ipk;
+}
+
+// Fungsi terpisah
+function hitungPredikat(double ipk) {
+    if (ipk >= 3.5) return "Cum Laude";
+    else if (ipk >= 3.0) return "Sangat Memuaskan";
+    else return "Memuaskan";
+}
+
+// Penggunaan
+Mahasiswa mhs;
+mhs.nim = "1234";
+mhs.nama = "Budi";
+mhs.ipk = 3.7;
+string predikat = hitungPredikat(mhs.ipk);
+\end{verbatim}
+
+Perhatikan bahwa data (\code{Mahasiswa}) dan fungsi (\code{hitungPredikat}) terpisah.
+\end{contoh}
+
+\subsection{Pemrograman Berorientasi Objek}
+
+\oop{Pemrograman Berorientasi Objek (OOP)} adalah paradigma yang berfokus pada \textbf{objek} yang mengenkapsulasi data dan perilaku.
+
+\textbf{Karakteristik:}
+\begin{itemize}
+  \item Program terdiri dari objek-objek yang berinteraksi
+  \item Data dan fungsi digabung dalam satu unit (class)
+  \item Fokus pada "apa" yang dimodelkan
+  \item Lebih dekat dengan dunia nyata
+\end{itemize}
+
+\begin{contoh}
+\textbf{Contoh Kode OOP (Java):}
+
+\begin{javacode}[caption={Class Mahasiswa dengan OOP}]
+public class Mahasiswa {
+    // Data (attributes)
+    private String nim;
+    private String nama;
+    private double ipk;
+    
+    // Constructor
+    public Mahasiswa(String nim, String nama) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = 0.0;
+    }
+    
+    // Behavior (methods)
+    public void setIPK(double ipk) {
+        this.ipk = ipk;
+    }
+    
+    public String getPredikat() {
+        if (ipk >= 3.5) return "Cum Laude";
+        else if (ipk >= 3.0) return "Sangat Memuaskan";
+        else return "Memuaskan";
+    }
+}
+
+// Penggunaan
+Mahasiswa mhs = new Mahasiswa("1234", "Budi");
+mhs.setIPK(3.7);
+String predikat = mhs.getPredikat();
+\end{javacode}
+
+Data dan fungsi menyatu dalam class \class{Mahasiswa}.
+\end{contoh}
+
+\subsection{Perbandingan Prosedural vs OOP}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5cm}|>{\raggedright\arraybackslash}p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Prosedural} & \textbf{OOP} \\
+\hline
+Fokus & Fungsi/Prosedur & Objek \\
+\hline
+Struktur Data & Data terpisah dari fungsi & Data dan fungsi dalam class \\
+\hline
+Akses Data & Global atau parameter & Encapsulation (private/public) \\
+\hline
+Code Reuse & Function library & Inheritance \\
+\hline
+Maintainability & Sulit untuk program besar & Lebih mudah dengan modularitas \\
+\hline
+Real-world Modeling & Abstrak & Lebih natural \\
+\hline
+\hline
+Contoh Bahasa & C, Pascal, FORTRAN & Java, C++, Python \cite{ref4, ref7} \\
+\hline
+\end{tabular}
+\caption{Perbandingan Prosedural vs OOP}
+\end{table}

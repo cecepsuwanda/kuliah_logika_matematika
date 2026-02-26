@@ -1,0 +1,127 @@
+\section{Overriding, \texttt{super}, dan Desain Hierarki}
+
+\subsection{Method Overriding}
+Subclass dapat mendefinisikan ulang method dari superclass. Gunakan anotasi \code{@Override} untuk memperjelas niat.
+
+\begin{javacode}[caption={Contoh Method Overriding}]
+class Kendaraan {
+    public void nyalakan() {
+        System.out.println("Kendaraan dinyalakan");
+    }
+}
+
+class Mobil extends Kendaraan {
+    @Override
+    public void nyalakan() {
+        System.out.println("Mobil dinyalakan dengan kunci");
+    }
+}
+\end{javacode}
+
+\subsection{Penggunaan \texttt{super}}
+\code{super} digunakan untuk memanggil constructor atau method dari superclass.
+
+\begin{javacode}[caption={Penggunaan super}]
+class Dosen {
+    protected String nama;
+
+    public Dosen(String nama) {
+        this.nama = nama;
+    }
+}
+
+class DosenTetap extends Dosen {
+    private String nidn;
+
+    public DosenTetap(String nama, String nidn) {
+        super(nama);
+        this.nidn = nidn;
+    }
+}
+\end{javacode}
+
+\subsection{Composition vs Inheritance}
+Gunakan inheritance jika relasi \textit{is-a} kuat. Jika tidak, gunakan composition (\textit{has-a}) untuk fleksibilitas.
+
+\begin{catatan}
+Contoh: \class{Mobil} \textit{has-a} \class{Mesin}. Lebih tepat menggunakan composition.
+\end{catatan}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Hierarki Kelas}: Buat hierarki class untuk sistem akademik (Person $\rightarrow$ Mahasiswa/Dosen).
+  \item \textbf{Overriding}: Implementasikan method \method{hitungGaji} berbeda di class \class{Pegawai} dan \class{Manajer}.
+  \item \textbf{Diskusi}: Identifikasi contoh \textit{is-a} dan \textit{has-a} dalam aplikasi e-commerce.
+  \item \textbf{Code Review}: Cari potensi penyalahgunaan inheritance pada kode yang diberikan dosen.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan inheritance dan composition.
+  \item Buat class \class{Hewan} dan subclass \class{Kucing}. Tambahkan method \method{suara} dan override di subclass.
+  \item Kapan penggunaan inheritance dapat menyebabkan masalah desain? Berikan contoh.
+  \item Buat class \class{Pegawai} dan subclass \class{PegawaiKontrak}. Tambahkan atribut dan method spesifik.
+  \item \textbf{Refleksi}: Apa tantangan terbesar Anda saat menyusun hierarki kelas?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 3.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Keyword untuk melakukan inheritance di Java adalah:
+  \begin{enumerate}
+    \item inherit
+    \item extends
+    \item implements
+    \item override
+  \end{enumerate}
+  \item Method overriding berarti:
+  \begin{enumerate}
+    \item Dua method dengan nama sama dalam class yang sama
+    \item Subclass mendefinisikan ulang method superclass
+    \item Method dipanggil berulang
+    \item Method private diakses dari luar class
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buat hierarki class \class{Produk} $\rightarrow$ \class{ProdukDigital} dan \class{ProdukFisik} dengan atribut dan method yang sesuai.
+  \item Demonstrasikan overriding pada method \method{hitungHargaAkhir}.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep inheritance dan relasi \textit{is-a}
+  \item Saya dapat membuat subclass dengan \keyword{extends}
+  \item Saya mampu menerapkan method overriding
+  \item Saya memahami penggunaan \code{super}
+  \item Saya dapat memilih inheritance atau composition dengan tepat
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Inheritance memungkinkan class baru mewarisi perilaku dan data dari class lain, mendukung code reuse dan desain hierarki \cite{ref4}. Overriding dan \code{super} adalah kunci untuk menyesuaikan perilaku subclass.
+
+\textbf{Kata Kunci}: \oop{Inheritance}, \oop{extends}, \oop{overriding}, \oop{super}, \oop{is-a}, \oop{composition}
+\end{rangkuman}

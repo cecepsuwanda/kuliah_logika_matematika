@@ -1,0 +1,264 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large RENCANA PEMBELAJARAN SEMESTER (RPS)}\\
+\textbf{Berbasis Outcome-Based Education (OBE)}\\[0.5cm]
+\textbf{PROGRAM STUDI TEKNIK INFORMATIKA}\\
+\textbf{FAKULTAS TEKNIK}\\
+\textbf{UNIVERSITAS LOREM IPSUM}\\
+\end{center}
+
+\vspace{1cm}
+
+% ============================================================
+% 1. IDENTITAS MATA KULIAH
+% ============================================================
+\section*{1. Identitas Mata Kuliah}
+\begin{tabular}{ll}
+Nama Program Studi & : Teknik Informatika \\
+Nama Mata Kuliah & : Pemrograman Berorientasi Objek \\
+Kode Mata Kuliah & : TIF-301 \\
+Semester & : 3 (Tiga) \\
+SKS / Bobot Kredit & : 3 SKS (2 Teori, 1 Praktikum) \\
+Dosen Pengampu & : Dr. Lorem Ipsum, M.Kom. \\
+Tanggal Penyusunan & : 31 Januari 2026 \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 2. CAPAIAN PEMBELAJARAN LULUSAN (CPL)
+% ============================================================
+\section*{2. Capaian Pembelajaran Lulusan (CPL)}
+
+CPL yang dibebankan pada mata kuliah ini mencakup kompetensi lulusan dalam aspek pengetahuan, keterampilan, dan sikap:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPL-1 (Pengetahuan):} Menguasai konsep teoretis bidang pengetahuan tertentu secara umum dan konsep teoretis bagian khusus dalam bidang pengetahuan tersebut secara mendalam, serta mampu memformulasikan penyelesaian masalah prosedural.
+  
+  \item \textbf{CPL-2 (Keterampilan Umum):} Mampu menerapkan pemikiran logis, kritis, sistematis, dan inovatif dalam konteks pengembangan atau implementasi ilmu pengetahuan dan teknologi yang memperhatikan dan menerapkan nilai humaniora.
+  
+  \item \textbf{CPL-3 (Keterampilan Khusus):} Mampu merancang, mengimplementasikan, dan mengevaluasi sistem perangkat lunak menggunakan paradigma berorientasi objek dengan mempertimbangkan standar kualitas perangkat lunak.
+  
+  \item \textbf{CPL-4 (Sikap):} Menunjukkan sikap bertanggung jawab atas pekerjaan di bidang keahliannya secara mandiri dan mampu bekerja sama dalam tim.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 3. CAPAIAN PEMBELAJARAN MATA KULIAH (CPMK)
+% ============================================================
+\section*{3. Capaian Pembelajaran Mata Kuliah (CPMK)}
+
+Kemampuan atau kompetensi spesifik yang diharapkan mahasiswa kuasai setelah menyelesaikan mata kuliah:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPMK-1:} Mahasiswa mampu memahami dan menjelaskan konsep dasar pemrograman berorientasi objek (class, object, encapsulation, inheritance, polymorphism).
+  
+  \item \textbf{CPMK-2:} Mahasiswa mampu merancang solusi permasalahan menggunakan diagram UML (Use Case, Class Diagram, Sequence Diagram).
+  
+  \item \textbf{CPMK-3:} Mahasiswa mampu mengimplementasikan konsep OOP dalam bahasa pemrograman Java dengan menerapkan prinsip SOLID.
+  
+  \item \textbf{CPMK-4:} Mahasiswa mampu menganalisis dan mengevaluasi kualitas kode program berorientasi objek berdasarkan best practices dan design patterns.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 4. SUB-CPMK / INDIKATOR PENCAPAIAN
+% ============================================================
+\section*{4. Sub-CPMK / Indikator Pencapaian}
+
+Penjabaran CPMK menjadi indikator yang lebih terukur dan dapat diuji:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Sub-CPMK 1.1:} Menjelaskan perbedaan antara pemrograman prosedural dan berorientasi objek
+  \item \textbf{Sub-CPMK 1.2:} Mengidentifikasi class, object, dan attribute dalam studi kasus nyata
+  \item \textbf{Sub-CPMK 1.3:} Mendemonstrasikan konsep encapsulation dengan access modifier
+  \item \textbf{Sub-CPMK 2.1:} Membuat use case diagram untuk sistem sederhana
+  \item \textbf{Sub-CPMK 2.2:} Merancang class diagram dengan relasi yang tepat (association, aggregation, composition)
+  \item \textbf{Sub-CPMK 3.1:} Mengimplementasikan inheritance dan method overriding
+  \item \textbf{Sub-CPMK 3.2:} Menerapkan polymorphism dalam desain aplikasi
+  \item \textbf{Sub-CPMK 4.1:} Menganalisis code smell dan melakukan refactoring
+  \item \textbf{Sub-CPMK 4.2:} Mengimplementasikan minimal 3 design patterns (Singleton, Factory, Observer)
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 5. MATERI PEMBELAJARAN (BAHAN KAJIAN)
+% ============================================================
+\section*{5. Materi Pembelajaran (Bahan Kajian)}
+
+Daftar topik materi yang relevan dengan Sub-CPMK dan CPMK:
+
+\begin{enumerate}[leftmargin=*]
+  \item Pengenalan Paradigma Berorientasi Objek
+  \item Konsep Class dan Object
+  \item Encapsulation dan Information Hiding
+  \item Inheritance dan Hierarchical Relationships
+  \item Polymorphism dan Dynamic Binding
+  \item Abstract Class dan Interface
+  \item UML Diagrams (Use Case, Class, Sequence)
+  \item Exception Handling dalam OOP
+  \item Prinsip SOLID (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion)
+  \item Design Patterns (Creational, Structural, Behavioral)
+  \item Collections dan Generics
+  \item File I/O dan Serialization
+  \item Unit Testing dan Test-Driven Development
+  \item Code Quality dan Refactoring
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 6. METODE PEMBELAJARAN
+% ============================================================
+\section*{6. Metode Pembelajaran}
+
+Strategi atau pendekatan pembelajaran yang dipilih sesuai OBE yang menekankan aktivitas mahasiswa:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Ceramah Interaktif:} Penjelasan konsep dengan diskusi tanya jawab
+  \item \textbf{Problem-Based Learning (PBL):} Mahasiswa menyelesaikan permasalahan nyata menggunakan OOP
+  \item \textbf{Project-Based Learning:} Pengembangan aplikasi mini sebagai proyek kelompok
+  \item \textbf{Praktikum Terbimbing:} Latihan coding dengan bimbingan asisten
+  \item \textbf{Peer Review:} Mahasiswa melakukan code review terhadap pekerjaan rekan
+  \item \textbf{Flipped Classroom:} Mahasiswa mempelajari materi sebelum kelas, diskusi mendalam di kelas
+  \item \textbf{Studi Kasus:} Analisis implementasi OOP pada aplikasi open source
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 7. PENGALAMAN BELAJAR MAHASISWA
+% ============================================================
+\section*{7. Pengalaman Belajar Mahasiswa}
+
+Deskripsi tugas, aktivitas, atau pengalaman belajar yang mendukung pencapaian Sub-CPMK:
+
+\begin{itemize}[leftmargin=*]
+  \item Menganalisis studi kasus untuk mengidentifikasi class dan object
+  \item Merancang class diagram untuk sistem perpustakaan, e-commerce, atau sistem akademik
+  \item Mengimplementasikan aplikasi console berbasis OOP dengan minimal 5 class
+  \item Melakukan refactoring pada kode yang diberikan untuk meningkatkan kualitas
+  \item Berkolaborasi dalam tim untuk mengembangkan proyek aplikasi desktop sederhana
+  \item Mempresentasikan hasil analisis design pattern pada framework populer
+  \item Menulis unit test untuk class yang telah dibuat
+  \item Melakukan peer code review dan memberikan feedback konstruktif
+  \item Membuat dokumentasi teknis menggunakan Javadoc
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 8. KRITERIA, INDIKATOR, DAN BOBOT PENILAIAN
+% ============================================================
+\section*{8. Kriteria, Indikator, dan Bobot Penilaian}
+
+Teknik/alat asesmen dipetakan ke Sub-CPMK/CPMK dengan bobot yang jelas:
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5.5cm}|c|}
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+Tugas Individu & Coding Assignment & Sub-CPMK 1.1, 1.2, 1.3, 3.1 & 15 \\
+\hline
+Kuis & Multiple Choice \& Essay & Sub-CPMK 1.1, 2.1, 2.2 & 10 \\
+\hline
+Praktikum & Lab Exercise & Sub-CPMK 3.1, 3.2, 4.1 & 15 \\
+\hline
+UTS & Written Exam \& Coding & CPMK-1, CPMK-2 & 20 \\
+\hline
+Proyek Kelompok & Application Development & CPMK-2, CPMK-3, CPMK-4 & 20 \\
+\hline
+UAS & Comprehensive Exam & CPMK-1, CPMK-2, CPMK-3, CPMK-4 & 20 \\
+\hline
+\textbf{Total} & & & \textbf{100} \\
+\hline
+\end{longtable}
+
+\textbf{Kriteria Penilaian:}
+\begin{itemize}[leftmargin=*]
+  \item A (85-100): Menguasai semua CPMK dengan sangat baik, mampu menerapkan dalam kasus kompleks
+  \item B (70-84): Menguasai sebagian besar CPMK dengan baik
+  \item C (60-69): Menguasai CPMK dasar dengan cukup
+  \item D (50-59): Menguasai sebagian kecil CPMK
+  \item E (<50): Belum menguasai CPMK yang ditetapkan
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 9. EVALUASI DAN REFLEKSI PEMBELAJARAN (OPSIONAL)
+% ============================================================
+\section*{9. Evaluasi dan Refleksi Pembelajaran}
+
+Penilaian sumatif/formatif untuk memantau ketercapaian outcome secara menyeluruh:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Evaluasi Formatif:} Kuis mingguan, latihan coding, peer review untuk memberikan feedback berkelanjutan
+  \item \textbf{Evaluasi Sumatif:} UTS dan UAS untuk mengukur pencapaian CPMK secara komprehensif
+  \item \textbf{Refleksi Mahasiswa:} Jurnal belajar mingguan untuk refleksi diri terhadap pemahaman materi
+  \item \textbf{Evaluasi Dosen:} Survey kepuasan mahasiswa di tengah dan akhir semester
+  \item \textbf{Continuous Improvement:} Analisis hasil penilaian untuk perbaikan RPS di semester berikutnya
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 10. DAFTAR REFERENSI
+% ============================================================
+\section*{10. Daftar Referensi}
+
+Sumber belajar utama yang digunakan dalam penyusunan materi dan asesmen:
+
+\begin{enumerate}[leftmargin=*]
+  \item Gamma, E., Helm, R., Johnson, R., \& Vlissides, J. (1994). \textit{Design Patterns: Elements of Reusable Object-Oriented Software}. Addison-Wesley.
+  
+  \item Bloch, J. (2018). \textit{Effective Java} (3rd ed.). Addison-Wesley Professional.
+  
+  \item Martin, R. C. (2017). \textit{Clean Architecture: A Craftsman's Guide to Software Structure and Design}. Prentice Hall.
+  
+  \item Horstmann, C. S. (2019). \textit{Core Java Volume I--Fundamentals} (11th ed.). Prentice Hall.
+  
+  \item Freeman, E., \& Robson, E. (2020). \textit{Head First Design Patterns} (2nd ed.). O'Reilly Media.
+  
+  \item Fowler, M. (2018). \textit{Refactoring: Improving the Design of Existing Code} (2nd ed.). Addison-Wesley Professional.
+  
+  \item Oracle. (2024). \textit{The Java Tutorials}. Retrieved from \url{https://docs.oracle.com/javase/tutorial/}
+  
+  \item Larman, C. (2004). \textit{Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design} (3rd ed.). Prentice Hall.
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+Disusun oleh,\\[2cm]
+\textbf{Dr. Lorem Ipsum, M.Kom.}\\
+NIP. 123456789012345678
+\end{tabular}
+\end{flushright}
+
+\end{document}

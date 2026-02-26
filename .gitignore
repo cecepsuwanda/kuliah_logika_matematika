@@ -1,0 +1,59 @@
+# ============================================
+# LaTeX build artifacts & auxiliary files
+# ============================================
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.xdy
+*.run.xml
+*.synctex
+*.synctex.gz
+*.pdfsync
+*.log
+*.lol
+# PDF output (build products)
+*.pdf
+
+# ============================================
+# Output directory
+# ============================================
+output/
+
+# ============================================
+# OS & editor generated
+# ============================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# ============================================
+# Cursor / IDE
+# ============================================
+.cursor/
+.idea/
+*.code-workspace

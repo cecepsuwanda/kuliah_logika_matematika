@@ -1,0 +1,64 @@
+\section{Abstract Class dan Abstraksi}
+\begin{subcpmk}
+  \item Sub-CPMK 3.2: Menerapkan polymorphism dalam desain aplikasi
+\end{subcpmk}
+
+\begin{konsep}
+\textbf{Abstraksi} melalui abstract class dan interface adalah mekanisme utama untuk mencapai desain yang fleksibel dalam Java \cite{ref4}. Abstract class tidak dapat diinstansiasi dan dapat memiliki method abstrak serta konkret.
+\end{konsep}
+
+\subsection{Karakteristik Abstract Class}
+\begin{itemize}
+  \item Dideklarasikan dengan keyword \keyword{abstract}
+  \item Dapat memiliki atribut dan constructor
+  \item Dapat memiliki method abstract dan non-abstract
+\end{itemize}
+
+\begin{javacode}[caption={Contoh Abstract Class}]
+abstract class Pegawai {
+    protected String nama;
+
+    public Pegawai(String nama) {
+        this.nama = nama;
+    }
+
+    public abstract double hitungGaji();
+
+    public void tampilkanInfo() {
+        System.out.println("Nama: " + nama);
+    }
+}
+
+class PegawaiTetap extends Pegawai {
+    private double gajiBulanan;
+
+    public PegawaiTetap(String nama, double gajiBulanan) {
+        super(nama);
+        this.gajiBulanan = gajiBulanan;
+    }
+
+    @Override
+    public double hitungGaji() {
+        return gajiBulanan;
+    }
+}
+\end{javacode}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+  \node (pegawai) [class, fill=gray!20] {\textit{Pegawai}};
+  \node (tetap) [class, below=of pegawai] {PegawaiTetap};
+  
+  \draw [arrow] (tetap) -- (pegawai);
+\end{tikzpicture}
+\caption{Hierarki Class Pegawai (Abstract)}
+\end{figure}
+
+\subsection{Kapan Menggunakan Abstract Class}
+Gunakan abstract class ketika:
+\begin{itemize}
+  \item Ada perilaku umum yang ingin diwariskan
+  \item Ada method yang wajib diimplementasikan subclass
+  \item Dibutuhkan constructor atau state bersama
+\end{itemize}

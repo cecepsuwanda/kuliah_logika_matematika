@@ -1,0 +1,117 @@
+\section{Asesmen Akhir Komprehensif}
+
+\subsection{Petunjuk Umum}
+
+Asesmen ini dirancang untuk mengukur pencapaian CPMK-1, CPMK-2, CPMK-3, dan CPMK-4 beserta seluruh Sub-CPMK (1.1--1.3, 2.1--2.3, 3.1, 3.2, 4.1--4.3) secara menyeluruh \cite{rosen2019}. Kerjakan dengan jujur dan mandiri.
+
+\textbf{Alokasi Waktu}:
+\begin{itemize}
+  \item Bagian A (Pilihan Ganda): 30 menit
+  \item Bagian B (Essay): 45 menit
+  \item Bagian C (Tabel Kebenaran \& Bukti): 60 menit
+  \item Bagian D (Prolog Praktik): 45 menit
+\end{itemize}
+
+\subsection{Bagian A: Pilihan Ganda (Sub-CPMK 1.1--1.3, 2.1--2.3, 3.1, 3.2, 4.3)}
+
+\textbf{Petunjuk}: Pilih satu jawaban yang paling tepat.
+
+\begin{enumerate}
+  \item Manakah yang merupakan proposisi? (Sub-CPMK 1.1)
+  \begin{enumerate}
+    \item Berapa harga buku ini?
+    \item $2 + 2 = 4$
+    \item Tolong buka jendela
+    \item $x > 5$
+  \end{enumerate}
+  
+  \item Nilai $p \rightarrow q$ ketika $p$ salah dan $q$ benar adalah: (Sub-CPMK 1.2)
+  \begin{enumerate}
+    \item Benar
+    \item Salah
+  \end{enumerate}
+  
+  \item $\neg(p \wedge q)$ ekuivalen dengan: (Sub-CPMK 2.2)
+  \begin{enumerate}
+    \item $\neg p \wedge \neg q$
+    \item $\neg p \vee \neg q$
+    \item $p \vee q$
+    \item $p \wedge q$
+  \end{enumerate}
+  
+  \item Negasi dari $\forall x \, P(x)$ adalah: (Sub-CPMK 3.1)
+  \begin{enumerate}
+    \item $\forall x \, \neg P(x)$
+    \item $\exists x \, \neg P(x)$
+    \item $\neg \exists x \, P(x)$
+    \item $\exists x \, P(x)$
+  \end{enumerate}
+  
+  \item Aturan inferensi ``jika $p \rightarrow q$ dan $p$, maka $q$'' disebut: (Sub-CPMK 3.2)
+  \begin{enumerate}
+    \item Modus Tollens
+    \item Modus Ponens
+    \item Silogisme
+    \item Kontraposisi
+  \end{enumerate}
+  
+  \item Dalam Prolog, simbol \texttt{:-} digunakan untuk: (Sub-CPMK 4.3)
+  \begin{enumerate}
+    \item Mendefinisikan fakta
+    \item Mendefinisikan aturan (implikasi)
+    \item Menjalankan query
+    \item Membuat variabel
+  \end{enumerate}
+  
+  \item Manakah yang benar tentang fakta dalam Prolog? (Sub-CPMK 4.3)
+  \begin{enumerate}
+    \item Fakta diakhiri dengan titik (\texttt{.}) dan selalu bernilai benar
+    \item Fakta menggunakan operator \texttt{:=}
+    \item Fakta tidak boleh mengandung variabel
+    \item Fakta sama dengan query
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Bagian B: Essay (Sub-CPMK 2.1--2.3, 3.1, 3.2, 4.1, 4.2, 4.3)}
+
+\textbf{Petunjuk}: Jawab dengan jelas dan lengkap.
+
+\begin{enumerate}
+  \item Jelaskan perbedaan tautologi, kontradiksi, dan kontingensi! Berikan contoh masing-masing. (Sub-CPMK 2.3)
+  \item Terjemahkan ke logika predikat: ``Semua mahasiswa yang rajin belajar akan lulus.'' Tentukan domain dan predikat yang Anda gunakan. (Sub-CPMK 2.1, 3.1)
+  \item Jelaskan metode bukti langsung, kontraposisi, dan kontradiksi. Kapan masing-masing metode paling cocok digunakan? (Sub-CPMK 4.1)
+  \item Jelaskan prinsip induksi matematika (basis dan langkah induktif). Berikan contoh pernyataan yang dapat dibuktikan dengan induksi. (Sub-CPMK 4.2)
+  \item Jelaskan komponen program Prolog: fakta, aturan, dan query. Bagaimana ketiganya berkaitan dengan logika predikat? (Sub-CPMK 4.3)
+\end{enumerate}
+
+\subsection{Bagian C: Tabel Kebenaran dan Bukti (Sub-CPMK 1.3, 2.2, 4.1, 4.2)}
+
+\textbf{Petunjuk}: Kerjakan secara sistematis. Tulis langkah-langkah bukti dengan jelas.
+
+\begin{enumerate}
+  \item Buat tabel kebenaran untuk $(p \rightarrow q) \leftrightarrow (\neg p \vee q)$. Apakah ekuivalensi ini tautologi? (Sub-CPMK 1.3, 2.2)
+  \item Buktikan dengan induksi: $1 + 2 + \cdots + n = n(n+1)/2$ untuk $n \geq 1$. (Sub-CPMK 4.2)
+  \item Buktikan: ``Jika $n^2$ genap maka $n$ genap'' dengan metode kontraposisi. (Sub-CPMK 4.1)
+\end{enumerate}
+
+\subsection{Bagian D: Prolog Praktik (Sub-CPMK 4.3)}
+
+\textbf{Petunjuk}: Implementasikan program Prolog berikut sesuai ketentuan. Gunakan SWI-Prolog atau lingkungan Prolog yang tersedia.
+
+\textbf{Studi Kasus: Basis Pengetahuan Silsilah Keluarga}
+
+Buat program Prolog untuk merepresentasikan silsilah keluarga sederhana dengan requirements berikut:
+
+\textbf{Requirements}:
+\begin{enumerate}
+  \item \textbf{Fakta}: Definisikan minimal 6 fakta relasi \texttt{orangtua(OrangTua, Anak)} untuk menyatakan siapa orang tua dari siapa. Contoh: \texttt{orangtua(ahmad, budi).}
+  \item \textbf{Aturan}: Tulis aturan \texttt{kakek(X, Z)} yang menyatakan ``X adalah kakek dari Z'' berdasarkan relasi orangtua. Gunakan variabel yang tepat.
+  \item \textbf{Aturan}: Tulis aturan \texttt{nenek(X, Z)} yang menyatakan ``X adalah nenek dari Z''.
+  \item \textbf{Query}: Jalankan dan tunjukkan hasil query berikut:
+  \begin{itemize}
+    \item \texttt{?- kakek(X, Y).} (mencari pasangan kakek--cucu)
+    \item \texttt{?- orangtua(ahmad, X).} (mencari anak dari ahmad; sesuaikan nama dengan fakta Anda)
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Kriteria Penilaian}: Kebenaran sintaks, kelengkapan fakta dan aturan, validitas hasil query, serta kesesuaian dengan logika predikat.

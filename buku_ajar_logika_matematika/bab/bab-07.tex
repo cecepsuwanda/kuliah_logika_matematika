@@ -1,0 +1,115 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{6}}{}
+\begin{document}
+
+\chapter{Induksi Matematika}
+
+\begin{subcpmk}
+  \item Sub-CPMK 4.2: Membuktikan pernyataan menggunakan induksi matematika
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-07/section-7-1}
+\input{bab-07/section-7-2}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item Buktikan $1^2 + 2^2 + \cdots + n^2 = n(n+1)(2n+1)/6$ dengan induksi.
+  \item Buktikan $2^n > n$ untuk $n \geq 1$.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Buktikan $3 \mid (n^3 - n)$ untuk $n \geq 1$.
+  \item Buktikan $1 \cdot 2 + 2 \cdot 3 + \cdots + n(n+1) = n(n+1)(n+2)/3$.
+  \item \textbf{Refleksi}: Jelaskan mengapa verifikasi numerik (misalnya dengan program) tidak dapat menggantikan bukti induksi. Kapan Anda akan memakai induksi kuat dibanding induksi biasa?
+  \item Buktikan: $1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$ untuk semua $n \geq 1$.
+  \item Buktikan: $n^3 - n$ habis dibagi 3 untuk semua $n \geq 1$. (Petunjuk: faktorisasi atau gunakan induksi.)
+  \item Buktikan: $3^n > 2n + 1$ untuk semua $n \geq 2$. Tentukan basis yang tepat.
+  \item Buktikan dengan induksi kuat: setiap integer $n \geq 12$ dapat dinyatakan sebagai $4a + 5b$ untuk $a, b \geq 0$.
+  \item Jelaskan perbedaan antara induksi lemah (biasa) dan induksi kuat. Berikan satu contoh pernyataan di mana induksi kuat diperlukan tetapi induksi biasa tidak cukup (Section~7.2).
+  \item \textbf{Refleksi}: Bagaimana hubungan antara induksi matematika dan rekursi dalam pemrograman? Berikan contoh fungsi rekursif yang kebenaran output-nya dapat dibuktikan dengan induksi.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 7.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Langkah basis dalam induksi matematika bertujuan untuk:
+  \begin{enumerate}
+    \item Membuktikan $P(k+1)$ dari $P(k)$
+    \item Membuktikan $P(n_0)$ benar untuk nilai awal $n_0$
+    \item Mengasumsikan $P(k)$ benar
+    \item Membuktikan negasi dari $P(n)$
+  \end{enumerate}
+  \item Hipotesis induksi adalah:
+  \begin{enumerate}
+    \item Asumsi bahwa $P(k)$ benar untuk suatu $k$ tertentu
+    \item Bukti bahwa $P(k+1)$ benar
+    \item Basis dari induksi
+    \item Negasi dari pernyataan yang dibuktikan
+  \end{enumerate}
+  \item Dalam induksi kuat (strong induction), hipotesis yang diasumsikan adalah:
+  \begin{enumerate}
+    \item $P(k)$ benar
+    \item $P(n_0), P(n_0+1), \ldots, P(k)$ semuanya benar
+    \item Hanya $P(n_0)$ benar
+    \item $P(k+1)$ benar
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buktikan dengan induksi: $\sum_{i=0}^{n} 2^i = 2^{n+1} - 1$ untuk semua $n \geq 0$. Tuliskan semua langkah secara lengkap.
+  \item Buktikan dengan induksi kuat: bilangan Fibonacci $F_n < 2^n$ untuk semua $n \geq 1$.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat menulis bukti induksi dengan basis dan langkah induktif
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas induksi matematika sebagai teknik pembuktian fundamental untuk pernyataan yang bergantung pada bilangan bulat. Prinsip induksi terdiri atas verifikasi basis dan langkah induktif; variasi seperti induksi kuat dan pemilihan basis $n_0$ yang berbeda dibahas untuk berbagai konteks.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Induksi matematika: (1) Basis---buktikan $P(n_0)$; (2) Langkah induktif---buktikan $P(k) \Rightarrow P(k+1)$ untuk $k \geq n_0$.
+  \item Kasus basis tidak boleh diabaikan; hipotesis induksi adalah asumsi sementara untuk menurunkan $P(k+1)$.
+  \item Induksi kuat mengasumsikan $P(1), \ldots, P(k)$ dan berguna ketika $P(k+1)$ bergantung pada beberapa nilai sebelumnya.
+  \item Basis $n_0$ dapat 0, 1, atau lebih besar sesuai domain pernyataan.
+  \item Verifikasi numerik (misalnya dengan program) memperkuat pemahaman tetapi bukan pengganti bukti induksi.
+\end{itemize}
+
+\textbf{Kata Kunci}: induksi matematika, basis, langkah induktif, hipotesis induksi, induksi kuat, verifikasi numerik.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

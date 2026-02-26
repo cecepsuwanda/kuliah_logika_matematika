@@ -1,0 +1,129 @@
+\section{Runtime Polymorphism dan Dynamic Dispatch}
+
+\subsection{Overriding dan Dynamic Binding}
+Runtime polymorphism terjadi saat method yang dipanggil ditentukan pada saat runtime berdasarkan objek aktual.
+
+\begin{javacode}[caption={Runtime Polymorphism}]
+class Bentuk {
+    public double luas() {
+        return 0.0;
+    }
+}
+
+class Lingkaran extends Bentuk {
+    private double r;
+
+    public Lingkaran(double r) {
+        this.r = r;
+    }
+
+    @Override
+    public double luas() {
+        return Math.PI * r * r;
+    }
+}
+
+class Persegi extends Bentuk {
+    private double s;
+
+    public Persegi(double s) {
+        this.s = s;
+    }
+
+    @Override
+    public double luas() {
+        return s * s;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Bentuk b1 = new Lingkaran(7);
+        Bentuk b2 = new Persegi(4);
+        System.out.println(b1.luas());
+        System.out.println(b2.luas());
+    }
+}
+\end{javacode}
+
+\subsection{Polymorphism pada Interface}
+Polymorphism juga terjadi ketika menggunakan reference bertipe interface.
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Eksperimen Overloading}: Buat class \class{Printer} dengan method \method{cetak} untuk tipe data berbeda.
+  \item \textbf{Dynamic Dispatch}: Buat array bertipe superclass yang berisi beberapa subclass dan panggil method yang dioverride.
+  \item \textbf{Studi Kasus}: Implementasikan interface \class{Pembayaran} dengan beberapa jenis pembayaran.
+  \item \textbf{Diskusi}: Jelaskan manfaat polymorphism dalam pengembangan framework.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Apa perbedaan overloading dan overriding?
+  \item Buat class \class{Hewan} dengan method \method{suara}. Buat subclass \class{Anjing} dan \class{Kucing} yang mengoverride method tersebut.
+  \item Buat contoh penggunaan interface yang menunjukkan polymorphism.
+  \item Mengapa polymorphism penting untuk extensibility aplikasi?
+  \item \textbf{Refleksi}: Dalam proyek Anda, bagian mana yang paling terbantu oleh polymorphism?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 3.2}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Runtime polymorphism terjadi karena:
+  \begin{enumerate}
+    \item Overloading
+    \item Overriding
+    \item Constructor
+    \item Static method
+  \end{enumerate}
+  \item Method yang dipanggil pada runtime ditentukan oleh:
+  \begin{enumerate}
+    \item Tipe reference
+    \item Tipe objek aktual
+    \item Nama method
+    \item Jumlah parameter
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buat hierarki class \class{Notifikasi} dengan subclass \class{Email} dan \class{SMS}. Demonstrasikan polymorphism saat mengirim notifikasi.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep polymorphism
+  \item Saya dapat membuat method overloading
+  \item Saya dapat menerapkan method overriding
+  \item Saya memahami dynamic dispatch pada runtime
+  \item Saya dapat menggunakan polymorphism dengan interface
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+\sloppy
+Polymorphism memungkinkan satu interface digunakan untuk banyak bentuk objek \cite{ref4}. Overloading terjadi di compile-time, sedangkan overriding terjadi di runtime melalui dynamic dispatch.
+
+\textbf{Kata Kunci}: \oop{Polymorphism}, \oop{overloading}, \oop{overriding}, \oop{dynamic dispatch}, \oop{interface}
+\end{rangkuman}

@@ -1,0 +1,25 @@
+\section{Unit Testing dan Siklus TDD}
+\begin{subcpmk}
+  \item Sub-CPMK 4.1: Menganalisis code smell dan melakukan refactoring
+\end{subcpmk}
+
+\subsection{Konsep Unit Testing}
+Unit testing memastikan setiap method bekerja sesuai harapan. Pengujian yang baik mempercepat deteksi bug.
+
+\subsection{Test-Driven Development (TDD)}
+Siklus TDD: \textbf{Red} (tulis test gagal), \textbf{Green} (buat test lulus), \textbf{Refactor} (perbaiki struktur).
+
+\textbf{Refactoring} adalah proses mengubah sistem perangkat lunak sedemikian rupa sehingga tidak mengubah perilaku eksternal kode namun memperbaiki struktur internalnya \cite{ref6}.
+
+\begin{javacode}[caption={Contoh Unit Test JUnit}]
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+class KalkulatorTest {
+    @Test
+    void testTambah() {
+        Kalkulator k = new Kalkulator();
+        assertEquals(5, k.tambah(2, 3));
+    }
+}
+\end{javacode}

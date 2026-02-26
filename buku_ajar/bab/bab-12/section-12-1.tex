@@ -1,0 +1,33 @@
+\section{Java Collections Framework dan Generics}
+\begin{subcpmk}
+  \item Sub-CPMK 3.1: Mengimplementasikan struktur data dengan Collections dan Generics
+\end{subcpmk}
+
+\textbf{Java Collections Framework} adalah arsitektur terpadu untuk merepresentasikan dan memanipulasi koleksi object \cite{ref4}.
+
+\subsection{Jenis Collections}
+\begin{itemize}
+  \item \textbf{List}: urutan terjaga, boleh duplikat (ArrayList, LinkedList)
+  \item \textbf{Set}: tidak boleh duplikat (HashSet, TreeSet)
+  \item \textbf{Map}: pasangan key-value (HashMap, TreeMap)
+  \item \textbf{Queue}: antrian (PriorityQueue)
+\end{itemize}
+
+\subsection{Generics}
+Generics membuat koleksi lebih aman terhadap tipe data dan mengurangi casting.
+
+\begin{javacode}[caption={Contoh Collections dan Generics}]
+import java.util.ArrayList;
+import java.util.List;
+
+public class DemoList {
+    public static void main(String[] args) {
+        List<String> nama = new ArrayList<>();
+        nama.add("Ayu");
+        nama.add("Bima");
+        for (String n : nama) {
+            System.out.println(n);
+        }
+    }
+}
+\end{javacode}

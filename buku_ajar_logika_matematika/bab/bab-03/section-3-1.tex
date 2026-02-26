@@ -1,0 +1,92 @@
+\section{Proposisi dan Nilai Kebenaran}
+
+\logic{Proposisi} adalah pernyataan deklaratif yang memiliki nilai kebenaran---yaitu bernilai \textbf{benar} (B atau T) atau \textbf{salah} (S atau F), tetapi tidak keduanya sekaligus \cite{rosen2019,forallx}. Dalam logika matematika, setiap proposisi harus dapat diberi penilaian definitif tentang kebenarannya, meskipun secara faktual nilai tersebut mungkin belum diketahui. Sifat bivalen ini (hanya ada dua nilai: benar atau salah) merupakan prinsip dasar logika klasik yang disebut prinsip bivalensi \cite{wiki_proplogic}.
+
+Pembedaan proposisi dari jenis kalimat lain sangat penting dalam logika formal. Pertanyaan, perintah, dan seruan tidak dapat dipandang sebagai proposisi karena tidak memiliki nilai kebenaran. Demikian pula, ungkapan yang mengandung variabel bebas (seperti ``$x + 1 = 5$'') bukan proposisi dalam pengertian logika proposisional, karena kebenarannya bergantung pada nilai $x$ yang belum ditentukan. Hanya pernyataan deklaratif yang lengkap dan tertutup yang dapat menjadi proposisi \cite{wiki_proplogic,forallx}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{4.2cm}|}
+\hline
+\textbf{Jenis} & \textbf{Kriteria} & \textbf{Contoh} & \textbf{Alasan} \\
+\hline
+Proposisi & Pernyataan deklaratif; bernilai B atau S saja & ``Jakarta ibu kota Indonesia.'' & Dapat dinilai benar/salah secara objektif \\
+\hline
+Bukan: Pertanyaan & Meminta informasi & ``Berapa umur Anda?'' & Tidak memiliki nilai kebenaran \\
+\hline
+Bukan: Perintah/Seruan & Memerintah atau mengungkapkan perasaan & ``Buka pintu!'' & Tidak dapat dinilai benar/salah \\
+\hline
+Bukan: Terbuka & Mengandung variabel bebas & ``$x + 1 = 5$'' & Bergantung nilai $x$; belum pasti B/S \\
+\hline
+\end{tabular}
+\caption{Proposisi vs bukan proposisi: kriteria dan contoh}
+\label{tab:proposisi-vs-non}
+\end{table}
+
+Gambar~\ref{fig:klasifikasi-kalimat} mengilustrasikan klasifikasi kalimat: hanya pernyataan deklaratif tertutup yang merupakan proposisi.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  level distance=1.2cm,
+  level 1/.style={sibling distance=3.2cm},
+  edge from parent path={(\tikzparentnode) -- (\tikzchildnode)},
+  every node/.style={font=\small},
+  box/.style={rectangle, draw=black, rounded corners=2pt, align=center, minimum height=0.6cm},
+  root/.style={box, fill=blue!15},
+  prop/.style={box, fill=green!15},
+  nonprop/.style={box, fill=orange!15}
+]
+  \node[root] (root) {Kalimat};
+  \node[prop, below left=1.4cm and 0.2cm of root] (prop) {Proposisi\\deklaratif B/S};
+  \node[nonprop, below right=1.4cm and 0.2cm of root] (non) {Bukan proposisi};
+  \node[nonprop, below left=0.5cm of non] (q) {Pertanyaan};
+  \node[nonprop, below=0.5cm of non] (cmd) {Perintah/Seruan};
+  \node[nonprop, below right=0.5cm of non] (open) {Terbuka ($x$)};
+  \draw[thick, ->] (root) -- (prop);
+  \draw[thick, ->] (root) -- (non);
+  \draw[->] (non) -- (q);
+  \draw[->] (non) -- (cmd);
+  \draw[->] (non) -- (open);
+\end{tikzpicture}
+\caption{Klasifikasi kalimat: proposisi vs bukan proposisi}
+\label{fig:klasifikasi-kalimat}
+\end{figure}
+
+\begin{contoh}
+Proposisi:
+\begin{itemize}
+  \item ``Jakarta adalah ibu kota Indonesia.'' (Benar)
+  \item ``2 + 2 = 5.'' (Salah)
+  \item ``Bilangan 7 adalah prima.'' (Benar)
+  \item ``Semua bilangan genap habis dibagi 2.'' (Benar)
+\end{itemize}
+
+Bukan proposisi:
+\begin{itemize}
+  \item ``Berapa umur Anda?'' (pertanyaan)
+  \item ``Tolong buka pintu!'' (perintah)
+  \item ``$x + 1 = 5$'' (bukan pernyataan pasti, bergantung nilai $x$)
+  \item ``Pelajaran ini mudah!'' (ekspresi subjektif, tidak definitif)
+\end{itemize}
+\end{contoh}
+
+Dalam sejarah logika, konsep proposisi telah berkembang sejak masa Aristoteles dan kaum Stoik \cite{wiki_proplogic}. Chrysippus di abad ke-3 SM mengembangkan sistem deduktif logika proposisional yang berfokus pada proposisi sebagai unit dasar. Perkembangan selanjutnya oleh George Boole, Gottlob Frege, dan tokoh lain memperjelas bahwa proposisi dalam logika simbolik direpresentasikan sebagai variabel proposisional---huruf seperti $p$, $q$, $r$ yang masing-masing mewakili pernyataan atomik \cite{copi2014,openlogic}.
+
+Proposisi atomik (sederhana) merupakan proposisi yang tidak dapat diuraikan menjadi proposisi lain melalui penghubung logika. Contohnya, ``Hari ini hujan'' dan ``Saya membawa payung'' adalah proposisi atomik. Proposisi majemuk dibentuk dengan menggabungkan proposisi atomik menggunakan operator logika seperti negasi, konjungsi, dan disjungsi \cite{rosen2019,levin_discrete}. Dalam notasi formal, proposisi atomik biasanya dilambangkan dengan huruf kecil: $p$, $q$, $r$, dan seterusnya.
+
+\begin{contoh}
+\textbf{Contoh kontekstual: spesifikasi sistem dan aturan}
+
+Dalam spesifikasi perangkat lunak atau aturan bisnis, banyak kalimat yang merupakan proposisi:
+\begin{itemize}
+  \item ``Pengguna telah login.'' (proposisi: benar atau salah tergantung state sistem)
+  \item ``Saldo rekening mencukupi untuk penarikan.'' (proposisi: dapat dinilai dari data)
+  \item ``Mahasiswa dinyatakan lulus jika IPK $\geq 2{,}0$ dan tidak ada nilai D.'' (kalimat ini mendefinisikan aturan; pernyataan ``Mahasiswa A lulus'' adalah proposisi setelah A dan datanya diketahui)
+\end{itemize}
+Yang bukan proposisi dalam konteks yang sama: ``Tolong login terlebih dahulu!'' (perintah), ``Apakah saldo mencukupi?'' (pertanyaan).
+\end{contoh}
+
+Kebergunaan logika proposisional dalam ilmu komputer dan informatika sangat luas. Bahasa pemrograman menggunakan operator Boolean (AND, OR, NOT) yang bersesuaian dengan operator logika. Kondisi dalam struktur kendali (if-then, while, dan sejenisnya) pada dasarnya adalah proposisi atau proposisi majemuk yang dievaluasi nilai kebenarannya saat eksekusi program \cite{levin_discrete,rosen2019}.

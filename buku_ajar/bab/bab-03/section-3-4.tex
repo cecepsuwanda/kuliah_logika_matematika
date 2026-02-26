@@ -1,0 +1,47 @@
+\section{Constructor}
+
+\subsection{Apa itu Constructor?}
+
+\begin{konsep}
+\textbf{Constructor} adalah method khusus yang dipanggil saat object dibuat. Constructor digunakan untuk menginisialisasi attributes object.
+
+Ciri-ciri constructor:
+\begin{itemize}
+  \item Nama sama dengan nama class
+  \item Tidak memiliki return type (bahkan bukan \code{void})
+  \item Dipanggil otomatis saat object dibuat dengan \keyword{new}
+\end{itemize}
+\end{konsep}
+
+\begin{javacode}[caption={Contoh Constructor}]
+public class Mahasiswa {
+    String nim;
+    String nama;
+    double ipk;
+    
+    // Constructor tanpa parameter (default constructor)
+    public Mahasiswa() {
+        nim = "0000";
+        nama = "Unknown";
+        ipk = 0.0;
+    }
+    
+    // Constructor dengan parameter
+    public Mahasiswa(String nim, String nama) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = 0.0;
+    }
+    
+    // Constructor dengan semua parameter
+    public Mahasiswa(String nim, String nama, double ipk) {
+        this.nim = nim;
+        this.nama = nama;
+        this.ipk = ipk;
+    }
+}
+\end{javacode}
+
+\subsection{Constructor Overloading}
+
+Class dapat memiliki multiple constructors dengan parameter yang berbeda. Ini disebut \oop{constructor overloading}.

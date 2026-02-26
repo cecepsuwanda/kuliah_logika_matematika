@@ -1,0 +1,168 @@
+\section{Negasi Pernyataan Majemuk}
+
+Setelah memahami operator logika dasar dan tabel kebenaran, langkah penting berikutnya adalah memahami bagaimana negasi bekerja pada pernyataan majemuk. Negasi pernyataan majemuk tidak sesederhana menambahkan ``tidak'' di depan kalimat; diperlukan aturan khusus yang berkaitan erat dengan Hukum De Morgan.
+
+\subsection{Negasi Konjungsi}
+
+\begin{konsep}
+Negasi dari pernyataan $p \wedge q$ adalah $\neg p \vee \neg q$. Secara formal:
+$$\neg(p \wedge q) \equiv \neg p \vee \neg q$$
+Ini adalah salah satu bentuk \logic{Hukum De Morgan}: negasi konjungsi menjadi disjungsi dari negasi masing-masing komponen \cite{brilliant_de_morgan}.
+\end{konsep}
+
+\begin{contoh}
+Misalkan:
+\begin{itemize}
+  \item $p$: saya suka apel
+  \item $q$: saya tidak suka wortel
+\end{itemize}
+Maka:
+\begin{itemize}
+  \item $p \wedge q$: saya suka apel \textbf{dan} tidak suka wortel
+  \item $\neg(p \wedge q)$: saya \textbf{tidak} suka apel \textbf{atau} saya suka wortel
+\end{itemize}
+
+Tabel kebenaran berikut membuktikan bahwa $\neg(p \wedge q) \equiv \neg p \vee \neg q$:
+
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $\neg p$ & $q$ & $\neg q$ & $p \wedge q$ & $\neg(p \wedge q)$ & $\neg p \vee \neg q$ \\
+\hline
+B & S & B & S & B & S & S \\
+B & S & S & B & S & B & B \\
+S & B & B & S & S & B & B \\
+S & B & S & B & S & B & B \\
+\hline
+\end{tabular}
+\end{center}
+Kolom $\neg(p \wedge q)$ dan $\neg p \vee \neg q$ identik, membuktikan ekuivalensi.
+\end{contoh}
+
+\subsection{Negasi Disjungsi}
+
+\begin{konsep}
+Negasi dari pernyataan $p \vee q$ adalah $\neg p \wedge \neg q$. Secara formal:
+$$\neg(p \vee q) \equiv \neg p \wedge \neg q$$
+Ini adalah bentuk kedua dari \logic{Hukum De Morgan}: negasi disjungsi menjadi konjungsi dari negasi masing-masing komponen \cite{libretexts_equiv}.
+\end{konsep}
+
+\begin{contoh}
+Misalkan:
+\begin{itemize}
+  \item $p$: Andi pergi ke supermarket
+  \item $q$: Andi menonton di bioskop
+\end{itemize}
+Maka:
+\begin{itemize}
+  \item $p \vee q$: Andi pergi ke supermarket \textbf{atau} menonton di bioskop
+  \item $\neg(p \vee q)$: Andi \textbf{tidak} pergi ke supermarket \textbf{dan tidak} menonton di bioskop
+\end{itemize}
+
+Tabel kebenaran:
+
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $\neg p$ & $q$ & $\neg q$ & $p \vee q$ & $\neg(p \vee q)$ & $\neg p \wedge \neg q$ \\
+\hline
+B & S & B & S & B & S & S \\
+B & S & S & B & B & S & S \\
+S & B & B & S & B & S & S \\
+S & B & S & B & S & B & B \\
+\hline
+\end{tabular}
+\end{center}
+\end{contoh}
+
+\subsection{Negasi Implikasi}
+
+\begin{konsep}
+Negasi dari pernyataan $p \rightarrow q$ adalah $p \wedge \neg q$. Secara formal:
+$$\neg(p \rightarrow q) \equiv p \wedge \neg q$$
+Artinya: implikasi ``jika $p$ maka $q$'' salah hanya ketika $p$ benar tetapi $q$ salah.
+\end{konsep}
+
+\begin{contoh}
+Misalkan:
+\begin{itemize}
+  \item $p$: Nico belajar dengan giat
+  \item $q$: Nico naik kelas
+\end{itemize}
+Maka:
+\begin{itemize}
+  \item $p \rightarrow q$: Jika Nico belajar dengan giat maka Nico naik kelas
+  \item $\neg(p \rightarrow q)$: Nico belajar dengan giat \textbf{dan ternyata} Nico \textbf{tidak} naik kelas
+\end{itemize}
+
+Tabel kebenaran:
+
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$p$ & $\neg p$ & $q$ & $\neg q$ & $p \rightarrow q$ & $\neg(p \rightarrow q)$ & $p \wedge \neg q$ \\
+\hline
+B & S & B & S & B & S & S \\
+B & S & S & B & S & B & B \\
+S & B & B & S & B & S & S \\
+S & B & S & B & B & S & S \\
+\hline
+\end{tabular}
+\end{center}
+\end{contoh}
+
+\subsection{Negasi Biimplikasi}
+
+\begin{konsep}
+Negasi dari pernyataan $p \leftrightarrow q$ adalah $(p \wedge \neg q) \vee (q \wedge \neg p)$. Secara formal:
+$$\neg(p \leftrightarrow q) \equiv (p \wedge \neg q) \vee (q \wedge \neg p)$$
+Artinya: biimplikasi salah ketika $p$ dan $q$ memiliki nilai kebenaran yang berbeda.
+\end{konsep}
+
+\begin{contoh}
+Misalkan:
+\begin{itemize}
+  \item $p$: Ulangan dibatalkan
+  \item $q$: Diadakan kerja bakti
+\end{itemize}
+Maka:
+\begin{itemize}
+  \item $p \leftrightarrow q$: Ulangan dibatalkan \textbf{jika dan hanya jika} diadakan kerja bakti
+  \item $\neg(p \leftrightarrow q)$: Ulangan dibatalkan \textbf{dan tidak} diadakan kerja bakti, \textbf{atau} diadakan kerja bakti \textbf{dan} ulangan \textbf{tidak} dibatalkan
+\end{itemize}
+
+Tabel kebenaran:
+
+\begin{center}
+\scriptsize
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+$p$ & $\neg p$ & $q$ & $\neg q$ & $p \leftrightarrow q$ & $\neg(p \leftrightarrow q)$ & $p \wedge \neg q$ & $q \wedge \neg p$ & $(p \wedge \neg q) \vee (q \wedge \neg p)$ \\
+\hline
+B & S & B & S & B & S & S & S & S \\
+B & S & S & B & S & B & B & S & B \\
+S & B & B & S & S & B & S & B & B \\
+S & B & S & B & B & S & S & S & S \\
+\hline
+\end{tabular}
+\end{center}
+\end{contoh}
+
+\begin{catatan}
+Ringkasan negasi pernyataan majemuk:
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Pernyataan} & \textbf{Negasi} \\
+\hline
+$p \wedge q$ & $\neg p \vee \neg q$ \\
+$p \vee q$ & $\neg p \wedge \neg q$ \\
+$p \rightarrow q$ & $p \wedge \neg q$ \\
+$p \leftrightarrow q$ & $(p \wedge \neg q) \vee (q \wedge \neg p)$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{catatan}

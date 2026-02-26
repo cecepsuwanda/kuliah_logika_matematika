@@ -1,0 +1,57 @@
+\section{Penerjemahan Bahasa Alami ke Logika Proposisional}
+
+Proses translasi pernyataan bahasa alami ke simbol logika proposisional melibatkan tiga langkah sistematis \cite{rosen2019,forallx}: (1) identifikasi proposisi atomik---pernyataan sederhana yang tidak dapat diuraikan menjadi proposisi lain; (2) tentukan operator penghubung yang menghubungkan proposisi-proposisi tersebut (negasi, konjungsi, disjungsi, implikasi, atau biconditional); (3) tulis ekspresi formal dalam simbol. Langkah ini penting karena bahasa alami sering ambigu atau tidak presisi; simbolisasi memaksa kita untuk mengklarifikasi makna dan memungkinkan analisis logika yang ketat \cite{copi2014}.
+
+Bahasa alami memiliki ambiguitas yang harus ditangani saat translasi \cite{forallx,copi2014}. Kata ``atau'' dalam bahasa Indonesia dapat bersifat inclusive (A atau B atau keduanya)---yang bersesuaian dengan $\vee$---atau exclusive (A atau B tetapi tidak keduanya). Kalimat ``jika A maka B'' kadang diinterpretasikan sebagai implikasi material $A \rightarrow B$, namun dalam konteks tertentu pembicara mungkin bermaksud hubungan sebab-akibat yang lebih kuat. Penting untuk mempertimbangkan konteks dan memilih interpretasi yang paling masuk akal untuk tujuan analisis \cite{copi2014}.
+
+Beberapa kata kunci umum dan padanan simbolnya \cite{rosen2019,stanford_intrologic} dirangkum dalam Tabel~\ref{tab:kata-kunci-simbol}. Pemahaman padanan ini mempermudah translasi dan menghindari kesalahan umum \cite{stanford_intrologic}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.8cm}|c|>{\raggedright\arraybackslash}p{5.5cm}|}
+\hline
+\textbf{Kata/frasa (Indonesia)} & \textbf{Simbol} & \textbf{Contoh kalimat singkat} \\
+\hline
+tidak, bukan, tidaklah benar bahwa & $\neg$ & ``Dia \emph{tidak} hadir.'' $\mapsto \neg p$ \\
+\hline
+dan, serta, tetapi & $\wedge$ & ``Hujan \emph{dan} angin.'' $\mapsto p \wedge q$ \\
+\hline
+atau (inclusive) & $\vee$ & ``Teh \emph{atau} kopi.'' $\mapsto p \vee q$ \\
+\hline
+jika...maka, apabila, bilamana & $\rightarrow$ & ``\emph{Jika} hujan \emph{maka} basah.'' $\mapsto p \rightarrow q$ \\
+\hline
+jika dan hanya jika, bilamana dan hanya bilamana & $\leftrightarrow$ & ``Lulus \emph{jika dan hanya jika} nilai $\geq 60$.'' $\mapsto p \leftrightarrow q$ \\
+\hline
+kecuali (sering) & $\rightarrow$ (ekuivalen) & ``Tidak datang \emph{kecuali} diundang'' $\mapsto$ ``jika datang maka diundang'' \\
+\hline
+\end{tabular}
+\caption{Padanan kata kunci bahasa alami dan simbol logika \cite{rosen2019,stanford_intrologic}}
+\label{tab:kata-kunci-simbol}
+\end{table}
+
+\begin{contoh}
+\textbf{Conditional}: ``Jika hujan turun, maka tanah basah.'' Misal $p$ = ``Hujan turun'', $q$ = ``Tanah basah''. Maka: $p \rightarrow q$.
+
+\textbf{Biconditional}: ``Saya lulus jika dan hanya jika nilai saya $\geq 60$.'' Misal $p$ = ``Saya lulus'', $q$ = ``Nilai saya $\geq 60$''. Maka: $p \leftrightarrow q$.
+
+\textbf{De Morgan dalam bahasa alami}: ``Saya tidak bisa belajar dan bermain sekaligus'' ekuivalen dengan $\neg(p \wedge q)$ atau $\neg p \vee \neg q$: ``Saya tidak belajar atau saya tidak bermain.''
+
+\textbf{Kecuali}: ``Dia tidak datang kecuali diundang'' dapat ditafsirkan sebagai ``Jika dia datang, maka dia diundang'' yaitu $p \rightarrow q$, dengan $p$ = ``Dia datang'', $q$ = ``Dia diundang''. Atau ekuivalen: ``Jika tidak diundang, maka tidak datang'': $\neg q \rightarrow \neg p$.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Translasi step-by-step: ``A hanya jika B''}
+
+Kalimat ``Saya lulus hanya jika nilai $\geq 60$.'' Berarti: lulus mengimplikasikan nilai cukup. Jadi $p$ = ``Saya lulus'', $q$ = ``Nilai saya $\geq 60$''; makna ``A hanya jika B'' adalah $A \rightarrow B$, sehingga $p \rightarrow q$.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Translasi: ``Dia dibayar kecuali terlambat.''}
+
+Interpretasi: dibayar kecuali (jika) terlambat $\Rightarrow$ jika terlambat maka tidak dibayar, atau: jika dibayar maka tidak terlambat. Dengan $p$ = ``Dia dibayar'', $q$ = ``Dia terlambat'': bentuk yang konsisten adalah $\neg q \rightarrow p$ (jika tidak terlambat maka dibayar) atau ekuivalen $p \rightarrow \neg q$ (jika dibayar maka tidak terlambat). Pilih satu sesuai konteks; di sini $\neg q \rightarrow p$ atau $\neg p \rightarrow q$ (jika tidak dibayar maka terlambat).
+\end{contoh}
+
+\begin{catatan}
+Perhatikan perbedaan ``A jika B'' dengan ``A hanya jika B'': ``A jika B'' berarti B cukup untuk A, sehingga $B \rightarrow A$; ``A hanya jika B'' berarti B perlu untuk A, sehingga $A \rightarrow B$. Jangan tertukar urutan premis dan konsekuen dalam implikasi. Untuk mengurangi kesalahan, tulis dahulu proposisi atomik dengan notasi yang konsisten sebelum menggabungkannya.
+\end{catatan}

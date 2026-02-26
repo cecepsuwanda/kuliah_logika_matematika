@@ -1,0 +1,54 @@
+\section{Bukti Kontradiksi}
+
+\textbf{Bukti kontradiksi}, atau \emph{reductio ad absurdum} (mengurangi ke hal yang absurd), adalah metode pembuktian yang menetapkan kebenaran $p$ dengan menunjukkan bahwa asumsi $\neg p$ mengarah pada kontradiksi \cite{rosen2019,wiki_proof_contradiction}. Prosedurnya terdiri dari tiga langkah: (1) asumsikan negasi dari pernyataan yang ingin dibuktikan, yaitu $\neg p$; (2) dari asumsi ini, turunkan konsekuensi-konsekuensi logis hingga diperoleh kontradiksi---suatu pernyataan yang selalu salah, misalnya $q \wedge \neg q$ atau pernyataan yang bertentangan dengan fakta/aksioma yang diketahui; (3) karena asumsi $\neg p$ mengarah pada sesuatu yang mustahil, asumsi tersebut salah, sehingga $p$ harus benar \cite{olp_contradiction,forallx}. Prinsip dasarnya: dari premis yang salah, kita dapat menurunkan apa saja, termasuk kontradiksi; jadi jika dari $\neg p$ kita sampai pada kontradiksi, $\neg p$ tidak mungkin benar, sehingga $p$ benar. Alur bukti kontradiksi digambarkan pada Gambar~\ref{fig:proof-contradiction-flow}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.75cm, font=\small, box/.style={rectangle, draw=black, rounded corners=3pt, minimum width=3cm, align=center}]
+  \node[box, fill=orange!15] (a1) {Ingin buktikan $p$};
+  \node[box, fill=red!12] (a2) [below=of a1] {Asumsikan $\neg p$};
+  \node[box, fill=blue!8] (a3) [below=of a2] {Turunkan konsekuensi logis};
+  \node[box, fill=red!20] (a4) [below=of a3] {Dapatkan kontradiksi};
+  \node[box, fill=green!15] (a5) [below=of a4] {Kesimpulan: $p$ benar};
+  \draw[thick, ->, >=stealth] (a1) -- (a2);
+  \draw[thick, ->, >=stealth] (a2) -- (a3);
+  \draw[thick, ->, >=stealth] (a3) -- (a4);
+  \draw[thick, ->, >=stealth] (a4) -- (a5);
+\end{tikzpicture}
+\caption{Alur bukti kontradiksi (\emph{reductio ad absurdum})}
+\label{fig:proof-contradiction-flow}
+\end{figure}
+
+Bukti kontradiksi berbeda dari bukti kontraposisi meskipun keduanya melibatkan negasi \cite{forallx,olp_contradiction}. Bukti kontraposisi khusus untuk implikasi $p \rightarrow q$: kita membuktikan $\neg q \rightarrow \neg p$, yang ekuivalen dengan implikasi asli. Bukti kontradiksi lebih umum: dapat dipakai untuk pernyataan apapun $p$, bukan hanya implikasi. Dalam bukti kontradiksi, kita tidak membuktikan implikasi ekuivalen; kita hanya menunjukan bahwa $\neg p$ tidak konsisten dengan yang kita ketahui, sehingga $p$ harus diterima \cite{rosen2019,libretexts_proofs}. Tabel~\ref{tab:contradiction-vs-contrapositive} merangkum kapan masing-masing metode dipakai \cite{libretexts_proofs,wiki_proof_contradiction}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.4cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4cm}|}
+\hline
+\textbf{Aspek} & \textbf{Bukti kontraposisi} & \textbf{Bukti kontradiksi} \\
+\hline
+Jenis pernyataan & Hanya implikasi $p \to q$ & Pernyataan apa pun $p$ \\
+\hline
+Langkah & Buktikan $\neg q \to \neg p$ (ekuivalen) & Asumsikan $\neg p$, capai kontradiksi \\
+\hline
+Tujuan & Menunjukkan implikasi ekuivalen benar & Menunjukkan $\neg p$ mustahil \\
+\hline
+Contoh khas & ``Jika $n^2$ genap maka $n$ genap'' & ``$\sqrt{2}$ irasional'', ketakterhinggaan \\
+\hline
+\end{tabular}
+\caption{Kapan memakai bukti kontraposisi vs bukti kontradiksi}
+\label{tab:contradiction-vs-contrapositive}
+\end{table}
+
+Bukti kontradiksi sangat berguna untuk pernyataan eksistensial negatif (misalnya ``tidak ada bilangan rasional $r$ sehingga $r^2 = 2$''), pembuktian irasionalitas, dan hasil ketakterhinggaan \cite{rosen2019,levin_discrete}. Ketika sulit membangun objek atau konstruksi langsung, lebih mudah mengasumsikan keberadaan atau kebenaran yang hendak kita sangkal, lalu menunjukkan bahwa asumsi itu mustahil. Contoh klasik: membuktikan $\sqrt{2}$ irasional; kita asumsikan $\sqrt{2}$ rasional (yaitu ada $a,b$ bulat dengan $b \neq 0$ sedemikian sehingga $\sqrt{2} = a/b$ dalam bentuk paling sederhana), lalu kita tunjukkan bahwa $a$ dan $b$ harus genap keduanya, kontradiksi dengan ``bentuk paling sederhana'' \cite{wiki_proof_contradiction,rosen2019}.
+
+Penerapan bukti kontradiksi meluas ke teori komputasi dan logika matematika \cite{setslogic,rosen2019}. Pembuktian bahwa masalah tertentu \emph{undecidable} (tidak ada algoritma yang selalu benar untuk menyelesaikannya) sering memakai kontradiksi: asumsikan ada algoritma seperti itu, lalu tunjukkan bahwa hal itu akan mengarah pada kontradiksi (misalnya dengan diagonalisasi). Demikian pula, teorema ketidaklengkapan Gödel memanfaatkan penalaran yang secara esensial berbasis kontradiksi untuk menunjukkan keterbatasan sistem formal \cite{setslogic}. Pemahaman bukti kontradiksi menjadi fondasi untuk memahami batas-batas komputasi dan formalisasi matematika.
+
+\begin{contoh}
+Buktikan: $\sqrt{2}$ irasional. Asumsikan sebaliknya: $\sqrt{2}$ rasional, jadi $\sqrt{2} = a/b$ untuk bilangan bulat $a$, $b$ dengan $b \neq 0$, dan pecahan dalam bentuk paling sederhana (gcd$(a,b) = 1$). Maka $2 = a^2/b^2$, sehingga $a^2 = 2b^2$, artinya $a^2$ genap. Karena kuadrat bilangan ganjil ganjil, $a$ harus genap, misal $a = 2k$. Substitusi: $4k^2 = 2b^2$, jadi $b^2 = 2k^2$, sehingga $b^2$ genap dan $b$ genap. Maka $a$ dan $b$ keduanya genap, kontradiksi dengan asumsi bahwa $a/b$ paling sederhana. Jadi $\sqrt{2}$ tidak rasional.
+\end{contoh}
+
+\begin{catatan}
+Saat menggunakan bukti kontradiksi untuk pernyataan berkuantifier, pastikan negasi dilakukan dengan benar. Misalnya, untuk membuktikan $\neg \exists x \, P(x)$ dengan kontradiksi, asumsikan $\exists x \, P(x)$; negasi dari $\forall x \, \neg P(x)$ adalah $\exists x \, P(x)$, bukan $\forall x \, P(x)$. Gunakan hukum negasi kuantifier: $\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$ dan $\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$ \cite{rosen2019,forallx}.
+\end{catatan}

@@ -1,0 +1,41 @@
+\section{Negasi Pernyataan Berkuantifier}
+
+Negasi pernyataan berkuantifier mematuhi hukum yang analog dengan hukum De Morgan untuk konjungsi dan disjungsi \cite{rosen2019,forallx,brilliant_de_morgan}. Tabel~\ref{tab:negasi-kuantifier} merangkum hukum negasi untuk kuantifier tunggal dan majemuk \cite{copi2014,iep_predicate}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Pernyataan} & \textbf{Negasi (ekuivalen)} \\
+\hline
+$\forall x \, P(x)$ & $\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$ \\
+\hline
+$\exists x \, P(x)$ & $\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$ \\
+\hline
+$\forall x \, \exists y \, P(x,y)$ & $\neg(\forall x \, \exists y \, P(x,y)) \equiv \exists x \, \forall y \, \neg P(x,y)$ \\
+\hline
+\end{tabular}
+\caption{Hukum negasi pernyataan berkuantifier \cite{rosen2019,forallx}}
+\label{tab:negasi-kuantifier}
+\end{table}
+
+Negasi dari ``untuk semua $x$, $P(x)$ benar'' adalah ``ada $x$ sehingga $P(x)$ salah''; negasi dari ``ada $x$ sehingga $P(x)$ benar'' adalah ``untuk semua $x$, $P(x)$ salah''. Dalam bahasa sehari-hari: ``tidak semua'' ekuivalen dengan ``ada yang tidak'', dan ``tidak ada'' ekuivalen dengan ``semua tidak'' \cite{rosen2019}.
+
+Intuisi ini membantu kita menegasikan pernyataan secara benar \cite{forallx,stanford_intrologic}. Misalnya, negasi dari ``Semua mahasiswa lulus'' bukan ``Semua mahasiswa tidak lulus'', melainkan ``Ada mahasiswa yang tidak lulus''. Negasi dari ``Ada bilangan prima genap'' bukan ``Ada bilangan prima yang tidak genap'', melainkan ``Semua bilangan prima tidak genap'' (atau ``Tidak ada bilangan prima yang genap''). Kesalahan umum adalah mempertahankan kuantifier yang sama saat menegasi; aturan di atas memastikan kuantifier berganti saat negasi diaplikasikan \cite{rosen2019,copi2014}.
+
+Dalam pembuktian, negasi pernyataan berkuantifier sering digunakan untuk mencari kontracontoh \cite{rosen2019,copi2014}. Untuk membuktikan bahwa $\forall x \, P(x)$ salah, cukup menunjukkan $\exists x \, \neg P(x)$, yaitu menemukan satu elemen $a$ sedemikian sehingga $P(a)$ salah. Sebaliknya, untuk membuktikan $\exists x \, P(x)$ salah, kita harus menunjukkan $\forall x \, \neg P(x)$, yaitu bahwa tidak ada satupun elemen yang memenuhi $P$ \cite{iep_predicate,olp_fol}.
+
+Untuk pernyataan dengan kuantifier majemuk (nested quantifiers), negasi dilakukan dengan membalik setiap kuantifier dan menegasikan predikat \cite{rosen2019}. Contoh:
+\[
+\neg (\forall x \, \exists y \, P(x,y)) \equiv \exists x \, \forall y \, \neg P(x,y).
+\] Artinya, negasi dari ``untuk setiap $x$ ada $y$ sehingga $P(x,y)$'' adalah ``ada $x$ sedemikian sehingga untuk setiap $y$, $\neg P(x,y)$'' \cite{forallx,berkeley_fol}. Pola ini konsisten: kuantifier bergantian dari $\forall$ ke $\exists$ dan sebaliknya saat negasi diaplikasikan dari luar ke dalam.
+
+\begin{itemize}
+  \item $\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$
+  \item $\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$
+\end{itemize}
+
+\begin{contoh}
+Negasi dari ``Semua mahasiswa lulus'' adalah ``Ada mahasiswa yang tidak lulus''. Negasi dari ``Ada bilangan prima genap'' adalah ``Semua bilangan prima tidak genap'' (atau ``Tidak ada bilangan prima yang genap''). Negasi dari $\forall x \, \exists y \, (x < y)$ (``Untuk setiap $x$ ada $y$ sehingga $x < y$'') adalah $\exists x \, \forall y \, \neg(x < y)$, yaitu ``Ada $x$ sedemikian sehingga untuk setiap $y$, $x \geq y$'' (misalnya $x$ adalah elemen terbesar, jika ada).
+\end{contoh}

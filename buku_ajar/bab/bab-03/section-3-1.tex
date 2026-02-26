@@ -1,0 +1,75 @@
+\section{Definisi Class dan Object}
+
+\subsection{Apa itu Class?}
+
+\begin{konsep}
+\textbf{Class} adalah blueprint atau template yang mendefinisikan karakteristik dan perilaku dari suatu entitas \cite{ref2}. Class mendefinisikan attributes (data) dan methods (behavior) yang akan dimiliki oleh objek.
+
+Analogi: Class seperti cetak biru rumah, sedangkan object adalah rumah yang dibangun berdasarkan cetak biru tersebut.
+\end{konsep}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+  \node (class) [class] {Class: Blueprint Rumah};
+  \node (obj1) [object, below left=of class] {Object 1: Rumah A};
+  \node (obj2) [object, below right=of class] {Object 2: Rumah B};
+  
+  \draw [arrow] (class) -- (obj1) node[midway, left] {instansiasi};
+  \draw [arrow] (class) -- (obj2) node[midway, right] {instansiasi};
+\end{tikzpicture}
+\caption{Konsep Class dan Object}
+\end{figure}
+
+Dalam Java, class didefinisikan dengan keyword \keyword{class}:
+
+\begin{javacode}[caption={Struktur Dasar Class}]
+public class NamaClass {
+    // Attributes (instance variables)
+    tipeData namaAttribute;
+    
+    // Constructor
+    public NamaClass() {
+        // Inisialisasi
+    }
+    
+    // Methods
+    public void namaMethod() {
+        // Implementasi
+    }
+}
+\end{javacode}
+
+\subsection{Apa itu Object?}
+
+\begin{konsep}
+\textbf{Object} adalah instance (perwujudan) dari class. Object memiliki state (nilai attributes) dan behavior (methods) yang didefinisikan oleh class-nya.
+\end{konsep}
+
+Membuat object dalam Java menggunakan keyword \keyword{new}:
+
+\begin{javacode}[caption={Membuat Object}]
+NamaClass namaObject = new NamaClass();
+\end{javacode}
+
+\subsection{Hubungan Class dan Object}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Class} & \textbf{Object} \\
+\hline
+Definisi & Template/Blueprint & Instance dari class \\
+\hline
+Keberadaan & Logical entity & Physical entity \\
+\hline
+Memory & Tidak menggunakan memory & Menggunakan memory \\
+\hline
+Jumlah & Satu class & Banyak object dari satu class \\
+\hline
+Keyword & \code{class} & \code{new} \\
+\hline
+\end{tabular}
+\caption{Hubungan Class dan Object}
+\end{table}

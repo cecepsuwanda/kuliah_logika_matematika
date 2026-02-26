@@ -1,0 +1,30 @@
+\section{Konsep Exception dan Try-Catch}
+\begin{subcpmk}
+  \item Sub-CPMK 3.1: Mengimplementasikan exception handling dalam program Java
+\end{subcpmk}
+
+\begin{konsep}
+\textbf{Exception handling} adalah mekanisme untuk menangani kondisi tidak terduga selama runtime, memastikan program tetap berjalan stabil \cite{ref4}. Exception handling membantu program tetap stabil dan memberikan pesan kesalahan yang jelas.
+\end{konsep}
+
+\subsection{Jenis Exception}
+\begin{itemize}
+  \item \textbf{Checked Exception}: wajib ditangani (contoh: \code{IOException})
+  \item \textbf{Unchecked Exception}: turunan \code{RuntimeException}
+  \item \textbf{Error}: kesalahan serius yang biasanya tidak ditangani
+\end{itemize}
+
+\subsection{Struktur Try-Catch}
+
+\begin{javacode}[caption={Try-Catch Sederhana}]
+public class DemoException {
+    public static void main(String[] args) {
+        try {
+            int hasil = 10 / 0;
+            System.out.println(hasil);
+        } catch (ArithmeticException e) {
+            System.out.println("Terjadi kesalahan: " + e.getMessage());
+        }
+    }
+}
+\end{javacode}

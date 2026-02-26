@@ -1,0 +1,2 @@
+# Untuk script download/generate figures Bab 2
+matplotlib>=3.5.0

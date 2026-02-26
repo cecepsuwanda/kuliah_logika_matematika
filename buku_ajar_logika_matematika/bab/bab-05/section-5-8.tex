@@ -1,0 +1,139 @@
+\section{Kecocokan, Validitas, dan Latihan Soal}
+
+\subsection{Kecocokan Interpretasi}
+
+\begin{konsep}
+\begin{itemize}
+  \item Dua interpretasi dikatakan \logic{cocok} jika keduanya memberi nilai yang sama untuk simbol-simbolnya, \emph{atau} keduanya tidak memberi nilai untuk simbol-simbol tersebut.
+  \item Dua interpretasi $I$ dan $J$ \textbf{cocok untuk ekspresi $A$} jika nilai $A$ berdasarkan $I$ sama dengan nilai $A$ berdasarkan $J$, atau keduanya bukan interpretasi untuk $A$.
+\end{itemize}
+\end{konsep}
+
+\begin{contoh}
+Misalkan $I$ adalah interpretasi dengan domain bilangan integer:
+\begin{center}
+\begin{tabular}{lcl}
+  $a$ & $\rightarrow$ & 0 \\
+  $b$ & $\rightarrow$ & 2 \\
+  $x$ & $\rightarrow$ & $-1$ \\
+  $f$ & $\rightarrow$ & fungsi suksesor: $f_I(d) = d + 1$
+\end{tabular}
+\end{center}
+
+Dan interpretasi $J$ dengan domain bilangan integer:
+\begin{center}
+\begin{tabular}{lcl}
+  $a$ & $\rightarrow$ & 0 \\
+  $x$ & $\rightarrow$ & 1 \\
+  $f$ & $\rightarrow$ & fungsi predeseor: $f_J(d) = d - 1$
+\end{tabular}
+\end{center}
+
+Analisis kecocokan:
+\begin{itemize}
+  \item $I$ dan $J$ \textbf{cocok} untuk konstanta $a$ (keduanya bernilai 0)
+  \item $I$ dan $J$ \textbf{tidak cocok} untuk variabel $x$ ($-1 \neq 1$)
+  \item $I$ dan $J$ \textbf{cocok} untuk ekspresi $f(x)$ ($f_I(-1) = 0$ dan $f_J(1) = 0$)
+  \item $I$ dan $J$ \textbf{tidak cocok} untuk ekspresi $f(b)$, karena $I$ memberikan nilai untuk $b$ tetapi $J$ tidak
+\end{itemize}
+\end{contoh}
+
+\subsection{Validitas}
+
+\begin{konsep}
+Validitas dalam kalkulus predikat didefinisikan hanya untuk \textbf{kalimat tertutup} (tidak memiliki variabel bebas).
+
+Sebuah kalimat $A$ dikatakan \logic{valid} jika kalimat tersebut bernilai TRUE berdasarkan \textbf{setiap} interpretasi untuk $A$.
+
+Pembuktian validitas dapat dilakukan dengan:
+\begin{enumerate}
+  \item \textbf{Membuktikan valid}: Tunjukkan bahwa kalimat $A$ bernilai TRUE untuk setiap interpretasi. Cocok untuk kalimat dengan penghubung IFF, AND, NOT.
+  \item \textbf{Membuktikan tidak valid}: Cari satu interpretasi yang menyebabkan kalimat bernilai FALSE (kontracontoh). Cocok untuk kalimat dengan penghubung IF-THEN, OR.
+\end{enumerate}
+\end{konsep}
+
+\begin{contoh}
+\textbf{Pembuktian validitas kalimat $A$}:
+$$A : [\neg(\forall x)\, p(x)] \leftrightarrow [(\exists x)\, \neg p(x)]$$
+
+Berdasarkan aturan IFF, cukup diperlihatkan bahwa kedua subkalimat memiliki nilai kebenaran yang sama berdasarkan setiap interpretasi.
+
+Misalkan terdapat sebarang interpretasi $I$ untuk $A$, maka:
+
+$\neg(\forall x)\, p(x)$ bernilai TRUE berdasarkan $I$\\
+\hspace*{5mm} tepat bila (aturan NOT): $(\forall x)\, p(x)$ bernilai FALSE berdasarkan $I$\\
+\hspace*{5mm} tepat bila (aturan $\forall$): ada elemen $d$ dalam domain $D$ sehingga $p(x)$ bernilai FALSE berdasarkan $\langle x \leftarrow d \rangle \circ I$\\
+\hspace*{5mm} tepat bila (aturan NOT): ada elemen $d$ sehingga $\neg p(x)$ bernilai TRUE berdasarkan $\langle x \leftarrow d \rangle \circ I$\\
+\hspace*{5mm} tepat bila (aturan $\exists$): $(\exists x)\, \neg p(x)$ bernilai TRUE berdasarkan $I$
+
+Karena rantai ``tepat bila'' berlaku untuk sebarang $I$, maka kedua subkalimat selalu memiliki nilai kebenaran yang sama. Jadi $A$ \textbf{valid}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Pembuktian validitas kalimat $B$}:
+$$B : \text{IF}\; (\exists y)(\forall x)\, q(x, y) \;\text{THEN}\; (\forall x)(\exists y)\, q(x, y)$$
+
+Asumsikan $B$ \textbf{tidak valid}; maka ada interpretasi $I$ dimana antisenden TRUE dan konsekuen FALSE.
+
+\textbf{Antisenden TRUE}: ada elemen $d_1$ sehingga untuk setiap $d_2$, $q(x, y)$ TRUE berdasarkan $\langle x \leftarrow d_2 \rangle \circ \langle y \leftarrow d_1 \rangle \circ I$ \quad\ldots(1)
+
+\textbf{Konsekuen FALSE}: ada elemen $e_1$ sehingga untuk semua $e_2$, $q(x, y)$ FALSE berdasarkan $\langle y \leftarrow e_2 \rangle \circ \langle x \leftarrow e_1 \rangle \circ I$ \quad\ldots(2)
+
+Dari (1), ambil $d_2 = e_1$; dari (2), ambil $e_2 = d_1$. Maka:
+\begin{itemize}
+  \item Dari (1): $q(x, y)$ TRUE berdasarkan $\langle x \leftarrow e_1 \rangle \circ \langle y \leftarrow d_1 \rangle \circ I$
+  \item Dari (2): $q(x, y)$ FALSE berdasarkan $\langle y \leftarrow d_1 \rangle \circ \langle x \leftarrow e_1 \rangle \circ I$
+\end{itemize}
+
+Karena $x$ dan $y$ berbeda, kedua interpretasi identik --- ini kontradiksi! Jadi asumsi bahwa $B$ tidak valid adalah salah. Kesimpulan: \textbf{$B$ valid}.
+\end{contoh}
+
+\subsection{Latihan Soal: Representasi Kalimat Predikat}
+
+\textbf{Soal.} Representasikan pernyataan-pernyataan berikut dalam kalkulus predikat (gunakan kuantifier, predikat, dan operator logika):
+
+\begin{enumerate}
+  \item Semua komunis itu tidak bertuhan
+  \item Tidak ada gading yang tidak retak
+  \item Ada gajah yang jantan dan ada yang betina
+  \item Tidak semua pegawai negeri itu manusia korup
+  \item Hanya polisilah yang berwenang mengadakan penyidikan, kalau ada orang yang melanggar hukum
+  \item Semua orang komunis itu bukan pancasilais. Ada orang komunis yang anggota tentara. Jadi, ada anggota tentara yang bukan pancasilais.
+  \item Barang siapa meminjam barang orang lain dan tidak mengembalikannya adalah penipu. Ada penipu yang begitu lihai, sehingga tidak ketahuan. Kalau orang menipu dan itu tidak ketahuan, ia tidak dapat dihukum. Jadi ada penipu yang tidak dapat dihukum.
+\end{enumerate}
+
+\subsection{Jawaban Latihan Soal}
+
+\begin{enumerate}
+  \item Semua komunis itu tidak bertuhan:\\
+  $(\forall x)\, [\text{Komunis}(x) \rightarrow \neg\text{Bertuhan}(x)]$
+
+  \item Tidak ada gading yang tidak retak:\\
+  $\neg[(\exists x)\, (\text{Gading}(x) \wedge \neg\text{Retak}(x))]$\\
+  $\equiv (\forall x)\, (\text{Gading}(x) \rightarrow \text{Retak}(x))$
+
+  \item Ada gajah yang jantan dan ada yang betina:\\
+  $(\exists x)\, [\text{Gajah}(x) \wedge (\text{Jantan}(x) \vee \text{Betina}(x))]$
+
+  \item Tidak semua pegawai negeri itu manusia korup:\\
+  $(\exists x)\, [\text{Pegawai\_Negeri}(x) \wedge \text{Manusia}(x) \wedge \neg\text{Korup}(x)]$
+
+  \item Hanya polisilah yang berwenang mengadakan penyidikan, kalau ada orang yang melanggar hukum:\\
+  $(\exists x)(\forall y)\, [\text{Orang}(x) \wedge \text{MelanggarHukum}(x) \rightarrow (\text{Polisi}(y) \rightarrow \text{Penyidikan}(y, x))]$
+
+  \item Argumen silogistik:
+  \begin{itemize}
+    \item Premis 1: $(\forall x)\, [\text{Komunis}(x) \rightarrow \neg\text{Pancasilais}(x)]$
+    \item Premis 2: $(\exists x)\, [\text{Komunis}(x) \wedge \text{Tentara}(x)]$
+    \item Kesimpulan: $(\exists x)\, [\text{Tentara}(x) \wedge \neg\text{Pancasilais}(x)]$
+  \end{itemize}
+
+  \item Argumen kompleks:
+  \begin{itemize}
+    \item Premis 1: $(\forall x, y, z)\, [\text{Orang}(x) \wedge \text{Barang}(y) \wedge \text{Orang}(z) \wedge \text{Meminjam}(x, y, z) \wedge \neg\text{Mengembalikan}(x, y, z) \rightarrow \text{Penipu}(x)]$
+    \item Premis 2: $(\exists x_1)\, [\text{Penipu}(x_1) \wedge \text{Lihai}(x_1) \wedge \neg\text{Ketahuan}(x_1)]$
+    \item Premis 3: $(\forall x)\, [\text{Penipu}(x) \wedge \neg\text{Ketahuan}(x) \rightarrow \neg\text{Hukum}(x)]$
+    \item Kesimpulan: $(\exists x_1)\, [\text{Penipu}(x_1) \wedge \neg\text{Hukum}(x_1)]$
+  \end{itemize}
+\end{enumerate}
+

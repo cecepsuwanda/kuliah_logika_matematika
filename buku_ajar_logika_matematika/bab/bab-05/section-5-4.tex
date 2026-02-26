@@ -1,0 +1,115 @@
+\section{Penerjemahan Bahasa Alami ke Logika Predikat}
+
+Proses translasi pernyataan bahasa alami ke logika predikat melibatkan empat langkah sistematis \cite{rosen2019,forallx}: (1) identifikasi domain atau universe of discourse---himpunan objek yang menjadi acuan; (2) definisikan predikat yang merepresentasikan sifat atau relasi yang disebutkan; (3) identifikasi kata kunci yang mengindikasikan kuantifier universal atau eksistensial; (4) susun ekspresi formal dengan memperhatikan pola ``semua A adalah B'' versus ``ada A yang B'' \cite{stanford_intrologic,iep_predicate}. Gambar~\ref{fig:flowchart-terjemahan} merangkum alur tersebut.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=0.9cm, font=\small, every node/.style={rectangle, draw=black, fill=blue!8, minimum width=3.2cm, align=center}]
+  \node (s1) {1. Identifikasi domain};
+  \node [below=of s1] (s2) {2. Definisikan predikat};
+  \node [below=of s2] (s3) {3. Kata kunci kuantifier};
+  \node [below=of s3] (s4) {4. Susun ekspresi formal};
+  \draw[thick,->,>=stealth] (s1) -- (s2);
+  \draw[thick,->,>=stealth] (s2) -- (s3);
+  \draw[thick,->,>=stealth] (s3) -- (s4);
+\end{tikzpicture}
+\caption{Langkah terjemahan bahasa alami ke logika predikat \cite{rosen2019,forallx}}
+\label{fig:flowchart-terjemahan}
+\end{figure}
+
+Pendekatan ini memastikan terjemahan yang presisi dan konsisten dengan semantik logika predikat \cite{copi2014}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.8cm}|l|l|}
+\hline
+\textbf{Kata kunci (Indonesia)} & \textbf{Simbol} & \textbf{Contoh} \\
+\hline
+semua, setiap, tiap-tiap & $\forall$ & ``Semua mahasiswa...'' \\
+\hline
+ada, beberapa, terdapat, sedikitnya satu & $\exists$ & ``Ada bilangan prima genap'' \\
+\hline
+tidak semua & $\neg\forall \equiv \exists x \, \neg P(x)$ & ``Tidak semua burung terbang'' \\
+\hline
+tidak ada & $\neg\exists \equiv \forall x \, \neg P(x)$ & ``Tidak ada yang hadir'' \\
+\hline
+\end{tabular}
+\caption{Kata kunci bahasa Indonesia ke kuantifier \cite{rosen2019,brilliant_de_morgan}}
+\label{tab:kata-kunci-kuantifier}
+\end{table}
+
+``Semua'', ``setiap'', ``tiap-tiap'' $\mapsto \forall$; ``ada'', ``beberapa'', ``sedikitnya satu'', ``terdapat'', ``paling tidak satu'' $\mapsto \exists$. Frasa ``tidak semua'' ekuivalen dengan $\neg\forall$, setara dengan $\exists x \, \neg P(x)$ \cite{brilliant_de_morgan,berkeley_fol}. ``Tidak ada'' berarti $\neg\exists$, ekuivalen dengan $\forall x \, \neg P(x)$ \cite{rosen2019}.
+
+Pola penting untuk kuantifier terbatas \cite{forallx,rosen2019}: ``Semua A adalah B'' diterjemahkan sebagai $\forall x \, (A(x) \rightarrow B(x))$, bukan $\forall x \, (A(x) \wedge B(x))$. Bentuk kedua salah karena menuntut bahwa setiap $x$ dalam domain memenuhi $A$; padahal kita hanya berbicara tentang yang memenuhi $A$. ``Ada A yang B'' diterjemahkan sebagai $\exists x \, (A(x) \wedge B(x))$, bukan $\exists x \, (A(x) \rightarrow B(x))$, karena implikasi akan benar trivial jika ada $x$ yang tidak memenuhi $A$ \cite{stanford_intrologic,copi2014}.
+
+\begin{contoh}
+\textbf{``Semua mahasiswa yang rajin belajar akan lulus.''} Domain: mahasiswa. Misal $R(x)$ = ``$x$ rajin belajar'', $L(x)$ = ``$x$ lulus''. Maka: $\forall x \, (R(x) \rightarrow L(x))$.
+
+\textbf{``Tidak semua burung bisa terbang.''} Domain: burung. Misal $T(x)$ = ``$x$ bisa terbang''. Negasi dari ``semua burung bisa terbang'' ($\forall x \, T(x)$) adalah $\exists x \, \neg T(x)$: ``Ada burung yang tidak bisa terbang.'' (Contoh: penguin.)
+
+\textbf{``Ada bilangan yang bukan prima.''} Domain: bilangan bulat positif $> 1$. Misal $P(x)$ = ``$x$ prima''. Maka: $\exists x \, \neg P(x)$. Atau dengan domain semua bilangan bulat $> 1$: $\exists x \, \neg P(x)$ tetap valid (misal $x = 4$).
+\end{contoh}
+
+\begin{catatan}
+Jangan menggunakan $\forall x \, (A(x) \wedge B(x))$ untuk ``semua A adalah B''; gunakan $\forall x \, (A(x) \rightarrow B(x))$. Jangan menggunakan $\exists x \, (A(x) \rightarrow B(x))$ untuk ``ada A yang B''; gunakan $\exists x \, (A(x) \wedge B(x))$. Selalu tentukan domain secara eksplisit untuk menghindari ambiguitas.
+\end{catatan}
+
+\subsection*{Aplikasi dalam Query: SQL dan Prolog}
+
+Klausa \code{WHERE} dalam SQL merealisasikan predikat pada baris tabel; eksistensi dapat diekspresikan dengan \code{EXISTS} \cite{w3schools_sql,rosen2019}. Prolog secara alami mengekspresikan predikat dan kuantifier eksistensial melalui query dengan variabel \cite{learn_prolog,swi_prolog}.
+
+\begin{contoh}
+\textbf{SQL: predikat dan eksistensi} \cite{w3schools_sql,sql_exists_subquery}
+
+Query berikut mengambil mahasiswa yang \emph{ada} matakuliah yang diambilnya bernilai A (predikat eksistensial pada matakuliah):
+
+\begin{lstlisting}[language=SQL, basicstyle=\ttfamily\small, frame=single, caption={Query dengan predikat dan subquery \texttt{EXISTS}}]
+-- Mahasiswa yang mengambil paling sedikit satu matakuliah dengan nilai A
+SELECT DISTINCT m.nama, m.nim
+FROM mahasiswa m
+WHERE EXISTS (
+  SELECT 1 FROM krs k
+  WHERE k.nim = m.nim AND k.nilai = 'A'
+);
+\end{lstlisting}
+\end{contoh}
+
+\begin{contoh}
+\textbf{Prolog: predikat dan ``ada $x$ sehingga $P(x)$''} \cite{learn_prolog,swi_prolog}
+
+Fakta mendefinisikan predikat; query dengan variabel bebas menanyakan apakah \emph{ada} objek yang memenuhi predikat:
+
+\begin{lstlisting}[style=prologstyle, caption={Fakta dan query Prolog: ada $x$ yang suka matematika}]
+suka(ali, matematika).
+suka(budi, fisika).
+suka(citra, matematika).
+% Query: ?- suka(X, matematika).
+% Jawaban: X = ali ; X = citra.  (exists x: suka(x, matematika))
+\end{lstlisting}
+\end{contoh}
+
+\subsection*{Studi Kasus: Penerjemahan dan Query}
+
+\begin{contoh}
+\textbf{Studi Kasus: Kriteria kelulusan mahasiswa}
+
+Pernyataan: ``Semua mahasiswa yang IPK $\geq 2$ dan lulus skripsi akan wisuda.'' \\
+Domain: mahasiswa. Predikat: $A(x)$ = ``$x$ ber-IPK $\geq 2$'', $B(x)$ = ``$x$ lulus skripsi'', $C(x)$ = ``$x$ wisuda''. Terjemahan:
+\[
+\forall x \, \bigl( (A(x) \wedge B(x)) \rightarrow C(x) \bigr).
+\]
+Dalam sistem akademik, aturan ini muncul sebagai kondisi di backend (misalnya \code{if ipk >= 2 and lulus\_skripsi: boleh\_wisuda}) atau dalam query yang memfilter calon wisuda \cite{rosen2019,stanford_cs103}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Studi Kasus: Katalog perpustakaan}
+
+Pernyataan: ``Semua buku di rak harus punya ISBN'' dan ``Ada buku yang dipinjam.'' \\
+Domain: buku. Predikat: $R(x)$ = ``$x$ ada di rak'', $I(x)$ = ``$x$ punya ISBN'', $L(x)$ = ``$x$ dipinjam''. Terjemahan:
+\begin{itemize}[nosep]
+  \item ``Semua buku di rak punya ISBN'': $\forall x \, (R(x) \rightarrow I(x))$.
+  \item ``Ada buku yang dipinjam'': $\exists x \, L(x)$.
+\end{itemize}
+Query SQL setara untuk ``buku yang dipinjam'': \code{SELECT * FROM buku WHERE status = 'dipinjam'}; untuk memeriksa ``setiap buku di rak punya ISBN'' dapat digunakan agregasi atau constraint \cite{w3schools_sql}.
+\end{contoh}

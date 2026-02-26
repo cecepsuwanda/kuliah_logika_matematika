@@ -1,0 +1,108 @@
+\section{Behavioral Pattern: Observer}
+
+\subsection{Observer Pattern}
+Observer digunakan ketika satu objek (subject) perlu memberi tahu banyak objek lain (observer) saat ada perubahan.
+
+\begin{javacode}[caption={Observer Pattern Sederhana}]
+interface Observer {
+    void update(String pesan);
+}
+
+class Subscriber implements Observer {
+    private String nama;
+
+    public Subscriber(String nama) {
+        this.nama = nama;
+    }
+
+    public void update(String pesan) {
+        System.out.println(nama + " menerima: " + pesan);
+    }
+}
+\end{javacode}
+
+\subsection{Kapan Menggunakan Design Pattern}
+Gunakan pattern saat:
+\begin{itemize}
+  \item Solusi berulang muncul di banyak bagian aplikasi
+  \item Dibutuhkan struktur yang konsisten
+  \item Tim perlu pola komunikasi yang jelas
+\end{itemize}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Implementasi Singleton}: Buat class \class{Logger} sebagai singleton.
+  \item \textbf{Factory}: Buat factory untuk membuat objek pembayaran.
+  \item \textbf{Observer}: Buat sistem notifikasi berita dengan subject dan observer.
+  \item \textbf{Diskusi}: Identifikasi pattern pada framework Java (misalnya Spring).
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan Factory dan Singleton.
+  \item Buat contoh kasus yang cocok menggunakan Observer.
+  \item Apa resiko jika Singleton digunakan berlebihan?
+  \item Tambahkan pattern Strategy pada studi kasus diskon.
+  \item \textbf{Refleksi}: Pattern mana yang paling membantu desain Anda?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 4.2}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Pattern yang menjamin hanya satu instance adalah:
+  \begin{enumerate}
+    \item Factory
+    \item Singleton
+    \item Observer
+    \item Strategy
+  \end{enumerate}
+  \item Observer pattern cocok digunakan untuk:
+  \begin{enumerate}
+    \item Membuat banyak objek
+    \item Mengelola notifikasi perubahan
+    \item Menghitung data
+    \item Menyimpan konfigurasi
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Implementasikan Singleton, Factory, dan Observer pada satu studi kasus sederhana.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep design patterns
+  \item Saya dapat menerapkan Singleton
+  \item Saya dapat menerapkan Factory
+  \item Saya dapat menerapkan Observer
+  \item Saya dapat memilih pattern sesuai kebutuhan
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Design patterns menyediakan solusi teruji untuk masalah desain umum \cite{ref1, ref5}. Singleton, Factory, dan Observer adalah pola dasar yang sering digunakan di aplikasi nyata.
+
+\textbf{Kata Kunci}: \oop{Design Pattern}, \oop{Singleton}, \oop{Factory}, \oop{Observer}, \oop{Strategy}
+\end{rangkuman}

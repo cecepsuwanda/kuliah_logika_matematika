@@ -1,0 +1,140 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{3}}{}
+\begin{document}
+
+\chapter{Ekuivalensi Logika dan Tautologi}
+
+\begin{subcpmk}
+  \item Sub-CPMK 2.1: Menerjemahkan pernyataan bahasa Indonesia ke simbol logika proposisional
+  \item Sub-CPMK 2.2: Menentukan ekuivalensi logika menggunakan hukum-hukum aljabar proposisi
+  \item Sub-CPMK 2.3: Mengidentifikasi tautologi, kontradiksi, dan kontingensi
+\end{subcpmk}
+
+\input{bab-04/section-4-1}
+\input{bab-04/section-4-2}
+\input{bab-04/section-4-3}
+\input{bab-04/section-4-4}
+\input{bab-04/section-4-5}
+\input{bab-04/section-4-6}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item Buktikan $\neg(p \rightarrow q) \equiv p \wedge \neg q$ menggunakan tabel kebenaran dan verifikasi dengan hukum aljabar proposisi.
+  \item Translasikan 3 pernyataan sehari-hari ke simbol logika. Definisikan proposisi atomik dan gunakan operator yang tepat.
+  \item Tulis fungsi Python untuk memeriksa ekuivalensi dua formula (misalnya $p \rightarrow q$ dan $\neg p \vee q$) dengan tabel kebenaran otomatis.
+  \item Terapkan hukum De Morgan pada satu kondisi di program (if/else) Anda: tulis bentuk asli dan bentuk ekuivalen. Verifikasi bahwa keduanya menghasilkan output yang sama.
+  \item Sederhanakan ekspresi logika $\neg(\neg p \wedge q) \vee (p \wedge \neg q)$ menggunakan langkah-langkah aljabar proposisi dan tabel kebenaran. Bandingkan hasilnya.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Tunjukkan bahwa $(p \rightarrow q) \leftrightarrow (\neg p \vee q)$ adalah tautologi menggunakan tabel kebenaran.
+  \item Translasi: ``Dia tidak datang kecuali diundang.'' ke simbol logika. Identifikasi proposisi atomik dan operator yang digunakan.
+  \item Translasi: ``Saya lulus hanya jika nilai $\geq 60$.'' Tentukan $p$, $q$, dan formula yang tepat ($p \rightarrow q$ atau $q \rightarrow p$). Jelaskan alasan pemilihan Anda.
+  \item Dengan Python atau tabel kebenaran, periksa apakah $p \wedge \neg p$ kontradiksi dan $p \vee \neg p$ tautologi. Jelaskan mengapa hal ini penting dalam logika.
+  \item Gunakan hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan) untuk menyederhanakan: $(p \wedge q) \vee (p \wedge \neg q)$. Tuliskan setiap langkah beserta hukum yang digunakan.
+  \item Berdasarkan Section~4.4, analisis sebuah studi kasus penyederhanaan kondisi program menggunakan hukum ekuivalensi logika.
+  \item \textbf{Refleksi}: Bagian mana dari ekuivalensi logika dan tautologi yang paling sering digunakan dalam pemrograman atau penyederhanaan ekspresi Boolean? Berikan contoh pengalaman Anda.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 2.1--2.3}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Dua proposisi $P$ dan $Q$ ekuivalen secara logika jika dan hanya jika:
+  \begin{enumerate}
+    \item $P \wedge Q$ tautologi
+    \item $P \leftrightarrow Q$ tautologi
+    \item $P \vee Q$ kontradiksi
+    \item $P \rightarrow Q$ kontingensi
+  \end{enumerate}
+  \item Hukum De Morgan: $\neg(p \vee q)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $\neg p \vee \neg q$
+    \item $\neg p \wedge \neg q$
+    \item $p \wedge q$
+    \item $p \vee q$
+  \end{enumerate}
+  \item Proposisi yang selalu bernilai salah untuk setiap interpretasi disebut:
+  \begin{enumerate}
+    \item Tautologi
+    \item Kontradiksi
+    \item Kontingensi
+    \item Ekuivalen
+  \end{enumerate}
+  \item Hukum distributif: $p \wedge (q \vee r)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $(p \wedge q) \vee (p \wedge r)$
+    \item $(p \vee q) \wedge (p \vee r)$
+    \item $p \wedge q \wedge r$
+    \item $(p \wedge q) \vee r$
+  \end{enumerate}
+  \item Translasi yang benar untuk ``Saya lulus hanya jika saya belajar'' ($p$: saya lulus, $q$: saya belajar) adalah:
+  \begin{enumerate}
+    \item $q \rightarrow p$
+    \item $p \rightarrow q$
+    \item $p \wedge q$
+    \item $p \leftrightarrow q$
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Translasikan dua kalimat bahasa Indonesia ke simbol logika (identifikasi proposisi atomik dan operator). Verifikasi dengan tabel kebenaran.
+  \item Tulis program Python singkat yang memeriksa apakah suatu formula (untuk 2 variabel) adalah tautologi, kontradiksi, atau kontingensi.
+  \item Sederhanakan ekspresi $\neg(p \rightarrow q) \vee (p \wedge q)$ menggunakan hukum aljabar proposisi. Tuliskan setiap langkah.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat menentukan ekuivalensi dua formula logika menggunakan tabel kebenaran
+  \item Saya dapat menerapkan hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan, absorpsi, identitas, komplemen, idempoten)
+  \item Saya dapat mengidentifikasi tautologi, kontradiksi, dan kontingensi
+  \item Saya dapat menerjemahkan pernyataan bahasa alami ke simbol logika proposisional dengan benar
+  \item Saya dapat menyederhanakan ekspresi logika menggunakan hukum-hukum ekuivalensi
+  \item Saya dapat memeriksa ekuivalensi atau jenis formula (tautologi/kontradiksi/kontingensi) dengan Python atau tabel kebenaran
+  \item Saya dapat mengaplikasikan penyederhanaan logika dalam konteks pemrograman (kondisi if/else)
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas ekuivalensi logika, tautologi, dan translasi pernyataan ke simbol logika.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Dua formula $P$ dan $Q$ ekuivalen ($P \equiv Q$) jika $P \leftrightarrow Q$ adalah tautologi; hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan, absorpsi, identitas, komplemen, idempoten) menyediakan aturan transformasi.
+  \item Tautologi (selalu benar), kontradiksi (selalu salah), dan kontingensi (tergantung input) menentukan sifat formula logika.
+  \item Translasi bahasa alami ke simbol logika membutuhkan identifikasi proposisi atomik, pemilihan operator yang tepat, dan penanganan kata kunci seperti ``hanya jika'', ``kecuali'', dan ``jika dan hanya jika''.
+  \item Penyederhanaan ekspresi logika menggunakan hukum-hukum aljabar memungkinkan optimasi kondisi program dan verifikasi aturan bisnis.
+  \item Penerapan: penyederhanaan kondisi program if/else, optimasi query Boolean, dan verifikasi spesifikasi sistem.
+\end{itemize}
+
+\textbf{Kata Kunci}: ekuivalensi logika, hukum De Morgan, hukum distributif, tautologi, kontradiksi, kontingensi, translasi, penyederhanaan, aljabar proposisi
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

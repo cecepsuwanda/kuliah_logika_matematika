@@ -1,0 +1,129 @@
+\section{Getter/Setter, Validasi, dan Immutability}
+
+\subsection{Getter dan Setter}
+Getter dan setter adalah method publik yang mengontrol akses terhadap attribute private. Pola ini memungkinkan validasi dan konsistensi data.
+
+\begin{javacode}[caption={Contoh Getter dan Setter dengan Validasi}]
+public class Produk {
+    private String kode;
+    private String nama;
+    private double harga;
+
+    public Produk(String kode, String nama, double harga) {
+        this.kode = kode;
+        this.nama = nama;
+        setHarga(harga);
+    }
+
+    public String getKode() {
+        return kode;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+
+    public void setHarga(double harga) {
+        if (harga <= 0) {
+            throw new IllegalArgumentException("Harga harus positif");
+        }
+        this.harga = harga;
+    }
+}
+\end{javacode}
+
+\subsection{Immutability}
+Object \textit{immutable} tidak dapat diubah setelah dibuat. Pendekatan ini meminimalkan bug dan meningkatkan keamanan data.
+
+\begin{catatan}
+Untuk membuat class immutable:
+\begin{itemize}
+  \item Gunakan \keyword{private final} untuk attributes
+  \item Tidak menyediakan setter
+  \item Inisialisasi di constructor
+  \item Jika menyimpan objek mutable, lakukan defensive copy
+\end{itemize}
+\end{catatan}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Refactoring Encapsulation}: Diberikan class dengan attributes public, ubah menjadi private dan buat getter/setter yang tepat.
+  \item \textbf{Validasi Data}: Implementasikan validasi untuk class \class{Mahasiswa} (nilai 0-100, IPK 0.0-4.0).
+  \item \textbf{Design Review}: Diskusikan kapan sebaiknya sebuah attribute tidak diberi setter.
+  \item \textbf{Studi Kasus}: Buat class \class{BookingHotel} dengan aturan: tanggal check-out harus setelah check-in.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan manfaat utama encapsulation dalam pengembangan software.
+  \item Apa perbedaan antara attribute \keyword{public} dan \keyword{private}? Berikan contoh.
+  \item Buat class \class{KartuMember} dengan attribute nomorMember, nama, poin. Terapkan encapsulation dan validasi poin tidak boleh negatif.
+  \item Kapan sebaiknya sebuah class dibuat immutable? Jelaskan dengan contoh.
+  \item \textbf{Refleksi}: Bagian apa dari encapsulation yang paling sering Anda lupakan saat menulis kode?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 1.3}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Tujuan utama encapsulation adalah:
+  \begin{enumerate}
+    \item Mempercepat eksekusi program
+    \item Menyembunyikan detail internal dan mengontrol akses data
+    \item Mengurangi jumlah class
+    \item Menghapus kebutuhan constructor
+  \end{enumerate}
+  \item Keyword yang paling tepat untuk attribute yang hanya boleh diakses dalam class:
+  \begin{enumerate}
+    \item public
+    \item protected
+    \item private
+    \item default
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buat class \class{AkunPengguna} dengan validasi email dan password minimal 8 karakter.
+  \item Sertakan getter yang diperlukan dan batasi setter pada data yang tidak boleh diubah.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat menjelaskan konsep encapsulation dan information hiding
+  \item Saya dapat menggunakan access modifier dengan tepat
+  \item Saya mampu membuat getter/setter dengan validasi
+  \item Saya mengetahui kapan menggunakan object immutable
+  \item Saya dapat menjaga class invariant dengan encapsulation
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Encapsulation menjaga data tetap aman dan konsisten melalui access modifier dan method pengontrol \cite{ref2}. Getter/setter memungkinkan validasi, sedangkan immutability membantu mencegah perubahan yang tidak diinginkan.
+
+\textbf{Kata Kunci}: \oop{Encapsulation}, \oop{Access Modifier}, \oop{Getter/Setter}, \oop{Immutable}, \oop{Validation}
+\end{rangkuman}

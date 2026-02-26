@@ -1,0 +1,117 @@
+\section{Latihan Soal Tambahan: Logika Proposisi}
+
+Berikut adalah kumpulan soal latihan untuk memperdalam pemahaman tentang proposisi, operator logika, tabel kebenaran, dan evaluasi ekspresi logika.
+
+\subsection{Soal Konversi Bahasa Alami ke Simbol Logika}
+
+\textbf{Soal 1.}
+Gunakan konstanta proposisional berikut:
+\begin{center}
+\begin{tabular}{lcl}
+  $p$ & = & Bowo kaya raya \\
+  $q$ & = & Bowo hidup bahagia
+\end{tabular}
+\end{center}
+Ubah pernyataan-pernyataan berikut menjadi bentuk logika:
+\begin{enumerate}
+  \item Bowo tidak kaya.
+  \item Bowo kaya raya dan hidup bahagia.
+  \item Bowo kaya raya atau tidak hidup bahagia.
+  \item Jika Bowo kaya raya, maka ia hidup bahagia.
+  \item Bowo hidup bahagia jika dan hanya jika ia kaya raya.
+\end{enumerate}
+
+\textbf{Soal 2.}
+Misalkan $p$, $q$, dan $r$ adalah variabel proposisional:
+\begin{center}
+\begin{tabular}{lcl}
+  $p$ & = & Anda sakit flu \\
+  $q$ & = & Anda ujian \\
+  $r$ & = & Anda lulus
+\end{tabular}
+\end{center}
+Ubahlah ekspresi berikut menjadi pernyataan dalam bahasa Indonesia:
+\begin{enumerate}
+  \item $p \rightarrow \neg q$
+  \item $q \rightarrow \neg r$
+  \item $\neg q \rightarrow r$
+  \item $(p \wedge q) \rightarrow r$
+  \item $(p \rightarrow \neg r) \vee (q \rightarrow \neg r)$
+  \item $(p \wedge q) \vee (\neg q \wedge r)$
+\end{enumerate}
+
+\textbf{Soal 3.}
+Ubahlah pernyataan-pernyataan berikut menjadi bentuk logika (definisikan variabel proposisional yang digunakan):
+\begin{enumerate}
+  \item Jika Bowo berada di Malioboro, maka Dewi juga ada di Malioboro.
+  \item Pintu rumah Dewi berwarna merah atau coklat.
+  \item Berita itu tidak menyenangkan.
+  \item Bowo akan datang jika ia mempunyai kesempatan.
+  \item Jika Dewi rajin kuliah, maka ia pasti pandai.
+\end{enumerate}
+
+\subsection{Soal Tabel Kebenaran}
+
+\textbf{Soal 4.}
+Dengan menggunakan tabel kebenaran, jawab pertanyaan-pertanyaan berikut:
+\begin{enumerate}
+  \item Apakah nilai kebenaran dari $p \wedge p$?
+  \item Apakah nilai kebenaran dari $p \vee p$?
+  \item Apakah nilai kebenaran dari $(p \wedge \neg p)$ dan $(p \vee \neg p)$?
+  \item Apakah $(p \rightarrow q)$ mempunyai nilai kebenaran yang sama dengan $(q \rightarrow p)$?
+  \item Apakah $(p \rightarrow q) \rightarrow r$ mempunyai nilai kebenaran yang sama dengan $p \rightarrow (q \rightarrow r)$?
+\end{enumerate}
+
+\textbf{Soal 5.}
+Buatlah tabel kebenaran untuk ekspresi-ekspresi logika berikut:
+\begin{enumerate}
+  \item $\neg(\neg p \wedge \neg q)$
+  \item $p \wedge (p \vee q)$
+  \item $((\neg p \wedge (\neg q \wedge r)) \vee (q \wedge r)) \vee (p \wedge r)$
+  \item $(p \wedge q) \vee (((\neg p \wedge q) \rightarrow p) \wedge \neg q)$
+  \item $(p \rightarrow q) \leftrightarrow (\neg q \rightarrow \neg p)$
+  \item $p \wedge ((r \vee q) \leftrightarrow \neg r)$
+  \item $\neg((p \wedge q) \rightarrow \neg r) \vee p$
+\end{enumerate}
+
+\subsection{Soal Konversi ke Proposisi Majemuk}
+
+\textbf{Soal 6.}
+Ubahlah pernyataan-pernyataan berikut menjadi ekspresi logika berupa proposisi majemuk:
+\begin{enumerate}
+  \item Jika tikus itu waspada dan bergerak cepat, maka kucing atau anjing itu tidak mampu menangkapnya.
+  \item Jika saya tidak keliru, Dewi sudah diwisuda dan pacarnya atau orangtuanya berada disampingnya.
+  \item Bowo membeli saham dan membeli properti untuk investasinya, atau dia dapat menanamkan uang di deposito bank dan menerima bunga uang.
+\end{enumerate}
+
+\subsection{Soal Hirarki Operator}
+
+\textbf{Soal 7.}
+Masukkan tanda kurung biasa ke dalam ekspresi logika berikut ini sehingga tidak terjadi ambiguitas:
+\begin{enumerate}
+  \item $p \wedge q \wedge r \rightarrow s$
+  \item $p \vee q \vee r \leftrightarrow \neg s$
+  \item $\neg p \wedge q \rightarrow \neg r \vee s$
+  \item $p \rightarrow q \leftrightarrow \neg r \rightarrow \neg s$
+  \item $p \vee q \wedge r \rightarrow p \wedge q \vee r$
+\end{enumerate}
+
+\subsection{Soal Evaluasi Ekspresi Logika}
+
+\textbf{Soal 8.}
+Jika $\tau(p) = B$ dan $\tau(q) = B$, sedangkan $\tau(r) = S$ dan $\tau(s) = S$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut:
+\begin{enumerate}
+  \item $p \wedge (q \vee r)$
+  \item $(p \vee q) \wedge r$
+  \item $((p \vee q) \wedge r) \vee \neg((p \vee q) \wedge (q \vee s))$
+  \item $(\neg(p \wedge q) \vee \neg r) \vee (((\neg p \wedge q) \vee \neg s) \wedge r)$
+  \item $(p \leftrightarrow r) \wedge (\neg q \rightarrow s)$
+\end{enumerate}
+
+\textbf{Soal 9.}
+Jika $\tau(p) = S$ dan $\tau(q) = S$, sedangkan $\tau(r) = B$ dan $\tau(s) = B$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut:
+\begin{enumerate}
+  \item $\neg(p \leftrightarrow q) \wedge (\neg r \rightarrow s)$
+  \item $(\neg p \wedge (q \vee \neg r) \vee (q \leftrightarrow \neg p)) \leftrightarrow (s \wedge r)$
+  \item $(p \vee (q \rightarrow (r \wedge \neg p))) \leftrightarrow \neg(q \vee \neg s)$
+\end{enumerate}

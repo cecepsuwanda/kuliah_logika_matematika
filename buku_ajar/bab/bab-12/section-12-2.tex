@@ -1,0 +1,98 @@
+\section{File I/O dan Serialization}
+
+\subsection{Membaca dan Menulis File}
+File I/O memungkinkan aplikasi menyimpan data secara permanen.
+
+\begin{javacode}[caption={Contoh Menulis File}]
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class TulisFile {
+    public static void main(String[] args) throws IOException {
+        try (FileWriter writer = new FileWriter("catatan.txt")) {
+            writer.write("Belajar File I/O");
+        }
+    }
+}
+\end{javacode}
+
+\subsection{Serialization}
+Serialization mengubah objek menjadi byte stream agar dapat disimpan atau dikirim.
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Collections}: Buat program manajemen daftar tugas dengan ArrayList.
+  \item \textbf{Map}: Simpan pasangan NIM dan nama mahasiswa menggunakan HashMap.
+  \item \textbf{File I/O}: Simpan data mahasiswa ke file teks dan baca kembali.
+  \item \textbf{Serialization}: Simpan objek \class{Mahasiswa} ke file menggunakan \code{ObjectOutputStream}.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan List, Set, dan Map.
+  \item Buat contoh penggunaan generics pada class \class{Kotak<T>}.
+  \item Buat program yang membaca file CSV sederhana.
+  \item Jelaskan manfaat serialization dan kapan sebaiknya digunakan.
+  \item \textbf{Refleksi}: Bagaimana Collections membantu Anda menulis kode yang lebih rapi?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 3.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Struktur data yang tidak mengizinkan duplikat adalah:
+  \begin{enumerate}
+    \item List
+    \item Set
+    \item Map
+    \item Queue
+  \end{enumerate}
+  \item Try-with-resources berguna untuk:
+  \begin{enumerate}
+    \item Menghapus file
+    \item Menutup resource otomatis
+    \item Mengubah format file
+    \item Mempercepat loop
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buat aplikasi pencatatan transaksi sederhana menggunakan List dan file teks.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat membedakan List, Set, dan Map
+  \item Saya dapat menggunakan generics untuk keamanan tipe
+  \item Saya dapat membaca dan menulis file sederhana
+  \item Saya memahami konsep serialization
+  \item Saya dapat memilih koleksi yang sesuai dengan kebutuhan
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Collections memudahkan pengelolaan data dinamis, generics meningkatkan keamanan tipe, dan file I/O memungkinkan data disimpan secara permanen sesuai standar Java \cite{ref7}. Serialization membantu penyimpanan objek secara langsung.
+
+\textbf{Kata Kunci}: \oop{Collections}, \oop{Generics}, \oop{List}, \oop{Map}, \oop{File I/O}, \oop{Serialization}
+\end{rangkuman}

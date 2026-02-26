@@ -1,0 +1,35 @@
+\section{Keyword \texttt{this}}
+
+\subsection{Penggunaan \texttt{this}}
+
+Keyword \keyword{this} merujuk pada object saat ini. Digunakan untuk:
+
+\begin{enumerate}
+  \item Membedakan instance variable dengan parameter yang namanya sama
+  \item Memanggil constructor lain dalam class yang sama
+  \item Mengembalikan instance saat ini
+\end{enumerate}
+
+\begin{javacode}[caption={Penggunaan this}]
+public class Mahasiswa {
+    private String nama;
+    private double ipk;
+    
+    // this untuk membedakan parameter dan instance variable
+    public Mahasiswa(String nama, double ipk) {
+        this.nama = nama;  // this.nama = instance variable
+        this.ipk = ipk;    // nama = parameter
+    }
+    
+    // this untuk memanggil constructor lain
+    public Mahasiswa(String nama) {
+        this(nama, 0.0);  // Memanggil constructor di atas
+    }
+    
+    // this untuk mengembalikan object saat ini
+    public Mahasiswa setNama(String nama) {
+        this.nama = nama;
+        return this;  // Method chaining
+    }
+}
+\end{javacode}

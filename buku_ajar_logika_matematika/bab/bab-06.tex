@@ -1,0 +1,132 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{5}}{}
+\begin{document}
+
+\chapter{Aturan Inferensi dan Metode Bukti}
+
+\begin{subcpmk}
+  \item Sub-CPMK 3.2: Menggunakan aturan inferensi (modus ponens, modus tollens, silogisme, dll.) untuk membangun argumen valid
+  \item Sub-CPMK 4.1: Membuktikan pernyataan menggunakan metode bukti langsung dan kontraposisi
+\end{subcpmk}
+
+\input{bab-06/section-6-1}
+\input{bab-06/section-6-2}
+\input{bab-06/section-6-3}
+\input{bab-06/section-6-4}
+
+\begin{aktivitas}
+  \item Identifikasi aturan inferensi (modus ponens, modus tollens, silogisme hipotetik, atau resolusi) yang digunakan dalam 3 argumen dari kehidupan sehari-hari. Tuliskan premis dan kesimpulan dalam simbol logika.
+  \item Buktikan secara langsung: ``Jika $n$ genap, maka $n^2$ genap.'' Tuliskan setiap langkah beserta justifikasinya.
+  \item Buktikan dengan kontraposisi: ``Jika $n^2$ ganjil, maka $n$ ganjil.''
+  \item Buktikan dengan kontradiksi: ``$\sqrt{2}$ irasional.'' Identifikasi asumsi, derivasi kontradiksi, dan kesimpulan.
+  \item Analisis studi kasus verifikasi aturan bisnis (Section~6.4): buat rangkaian aturan inferensi untuk memvalidasi apakah suatu karyawan berhak atas bonus berdasarkan premis kinerja.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Tentukan aturan inferensi yang digunakan:
+  \begin{enumerate}
+    \item Premis: $p \rightarrow q$, $p$. Kesimpulan: $q$. (Aturan: \ldots)
+    \item Premis: $p \rightarrow q$, $\neg q$. Kesimpulan: $\neg p$. (Aturan: \ldots)
+    \item Premis: $p \rightarrow q$, $q \rightarrow r$. Kesimpulan: $p \rightarrow r$. (Aturan: \ldots)
+    \item Premis: $p \vee q$, $\neg p$. Kesimpulan: $q$. (Aturan: \ldots)
+  \end{enumerate}
+  \item Buktikan secara langsung: ``Jumlah dua bilangan genap adalah genap.''
+  \item Buktikan dengan kontraposisi: ``Jika $3n + 2$ genap, maka $n$ genap.''
+  \item Buktikan dengan kontradiksi: ``Tidak ada bilangan rasional terkecil yang positif.''
+  \item Berdasarkan Section~6.4, buat argumen formal (premis-premis dan aturan inferensi) untuk memvalidasi: ``Jika server merespons dan koneksi aman, maka transaksi berhasil. Server merespons. Koneksi aman. Jadi, transaksi berhasil.'' Identifikasi setiap aturan yang digunakan.
+  \item \textbf{Refleksi}: Manakah metode bukti (langsung, kontraposisi, kontradiksi) yang paling nyaman Anda gunakan? Dalam situasi seperti apa masing-masing metode paling efektif?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 4.1--4.2}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Modus ponens menyimpulkan $q$ dari premis:
+  \begin{enumerate}
+    \item $p \rightarrow q$ dan $q$
+    \item $p \rightarrow q$ dan $p$
+    \item $p \rightarrow q$ dan $\neg q$
+    \item $p \wedge q$
+  \end{enumerate}
+  \item Modus tollens menyimpulkan $\neg p$ dari premis:
+  \begin{enumerate}
+    \item $p \rightarrow q$ dan $p$
+    \item $p \rightarrow q$ dan $\neg q$
+    \item $p \vee q$ dan $\neg p$
+    \item $p \wedge q$ dan $\neg p$
+  \end{enumerate}
+  \item Bukti kontraposisi untuk $p \rightarrow q$ membuktikan:
+  \begin{enumerate}
+    \item $q \rightarrow p$
+    \item $\neg q \rightarrow \neg p$
+    \item $\neg p \rightarrow \neg q$
+    \item $p \wedge \neg q$
+  \end{enumerate}
+  \item Dalam bukti kontradiksi untuk membuktikan $P$, kita mengasumsikan:
+  \begin{enumerate}
+    \item $P$ benar dan mencari kontradiksi
+    \item $\neg P$ benar dan mencari kontradiksi
+    \item $P \rightarrow Q$ dan membuktikan $Q$
+    \item $Q \rightarrow P$ dan membuktikan $Q$
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Buktikan: ``Jika $n$ adalah bilangan bulat ganjil, maka $n^2$ juga ganjil.'' Gunakan bukti langsung.
+  \item Buktikan dengan kontradiksi: ``Jika $a^2$ genap, maka $a$ genap.'' (Petunjuk: asumsikan $a$ ganjil.)
+  \item Buat rangkaian argumen formal (minimal 4 langkah) menggunakan aturan inferensi untuk memvalidasi suatu kesimpulan dari premis-premis yang diberikan.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat mengidentifikasi dan menerapkan modus ponens, modus tollens, silogisme hipotetik, dan silogisme disjungtif
+  \item Saya dapat menerapkan aturan simplifikasi, konjungsi, adisi, dan resolusi
+  \item Saya dapat membangun bukti langsung dengan langkah-langkah terjustifikasi
+  \item Saya dapat membangun bukti kontraposisi ($\neg q \rightarrow \neg p$ untuk membuktikan $p \rightarrow q$)
+  \item Saya dapat membangun bukti kontradiksi (asumsikan negasi, derivasi kontradiksi)
+  \item Saya dapat memilih metode bukti yang tepat sesuai struktur pernyataan
+  \item Saya dapat mengaplikasikan aturan inferensi dalam verifikasi aturan bisnis dan validasi argumen
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas aturan inferensi dan metode pembuktian formal.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Aturan inferensi dasar: modus ponens ($p \rightarrow q, p \vdash q$), modus tollens ($p \rightarrow q, \neg q \vdash \neg p$), silogisme hipotetik ($p \rightarrow q, q \rightarrow r \vdash p \rightarrow r$), silogisme disjungtif ($p \vee q, \neg p \vdash q$).
+  \item Aturan tambahan: simplifikasi ($p \wedge q \vdash p$), konjungsi ($p, q \vdash p \wedge q$), adisi ($p \vdash p \vee q$), resolusi ($p \vee q, \neg p \vee r \vdash q \vee r$).
+  \item Bukti langsung: buktikan $p \rightarrow q$ dengan mengasumsikan $p$ benar dan menunjukkan $q$ benar melalui langkah-langkah logis.
+  \item Bukti kontraposisi: buktikan $p \rightarrow q$ dengan membuktikan $\neg q \rightarrow \neg p$; berguna ketika kesimpulan sulit dibuktikan langsung.
+  \item Bukti kontradiksi: asumsikan $\neg P$ dan derivasi kontradiksi ($C \wedge \neg C$); berguna untuk pernyataan keberadaan negatif (irrasionalitas, ketakhinggaan).
+  \item Penerapan: verifikasi aturan bisnis, validasi argumen formal, dan verifikasi kebenaran program.
+\end{itemize}
+
+\textbf{Kata Kunci}: modus ponens, modus tollens, silogisme hipotetik, silogisme disjungtif, resolusi, bukti langsung, bukti kontraposisi, bukti kontradiksi
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

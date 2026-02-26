@@ -1,0 +1,115 @@
+\section{Ekuivalensi Logika dan Hukum Aljabar Proposisi}
+
+Dua proposisi $P$ dan $Q$ \logic{ekuivalen secara logika} (ditulis $P \equiv Q$) jika dan hanya jika keduanya memiliki nilai kebenaran yang sama untuk setiap interpretasi \cite{rosen2019,forallx}. Ekuivalensi logika berkaitan erat dengan operator biconditional: $P \equiv Q$ berarti $P \leftrightarrow Q$ bernilai benar untuk setiap kombinasi nilai kebenaran variabel proposisional. Untuk memverifikasi ekuivalensi, kita dapat membuat tabel kebenaran untuk $P$ dan $Q$ lalu membandingkan kolom hasilnya, atau membuktikan bahwa $P \leftrightarrow Q$ merupakan tautologi \cite{libretexts_logic,libretexts_equiv}.
+
+Hukum De Morgan dinamai dari Augustus De Morgan (1806--1871), matematikawan Inggris yang memformalkan hubungan antara negasi dengan konjungsi dan disjungsi \cite{brilliant_de_morgan}. Dua hukum De Morgan menyatakan: $\neg(p \wedge q) \equiv \neg p \vee \neg q$ serta $\neg(p \vee q) \equiv \neg p \wedge \neg q$. Dalam bahasa alami, ``tidak (A dan B)'' ekuivalen dengan ``tidak A atau tidak B'', sedangkan ``tidak (A atau B)'' ekuivalen dengan ``tidak A dan tidak B''. Hukum ini sangat berguna dalam gerbang logika digital: gerbang NAND dan NOR yang dibangun berdasarkan prinsip De Morgan dapat dipakai untuk merealisasikan gerbang NOT, AND, dan OR \cite{rosen2019,brilliant_de_morgan}.
+
+Hukum komutatif, asosiatif, dan distributif memudahkan penyederhanaan ekspresi logika. Hukum komutatif menyatakan bahwa urutan tidak mempengaruhi hasil untuk $\wedge$ dan $\vee$, mirip penjumlahan dan perkalian dalam aljabar biasa \cite{rosen2019}. Hukum asosiatif memungkinkan pengelompokan ulang tanpa mengubah nilai kebenaran. Hukum distributif menghubungkan $\vee$ dengan $\wedge$ serupa dengan distribusi perkalian terhadap penjumlahan: $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$ dan $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$ \cite{levin_discrete}.
+
+Ekuivalensi implikasi $p \rightarrow q \equiv \neg p \vee q$ sangat penting karena memungkinkan kita mengekspresikan implikasi hanya dengan negasi dan disjungsi \cite{rosen2019,copi2014}. Selain itu, kontraposisi $(p \rightarrow q) \equiv (\neg q \rightarrow \neg p)$ sering dipakai dalam pembuktian: membuktikan kontraposisi dapat lebih mudah daripada membuktikan implikasi aslinya. Inverse dan konvers tidak ekuivalen dengan implikasi asli; hanya kontraposisi yang ekuivalen logika dengan implikasi \cite{copi2014}.
+
+Tabel~\ref{tab:hukum-ekuivalensi} merangkum hukum ekuivalensi utama yang sering dipakai \cite{libretexts_equiv,rosen2019}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|l|>{\raggedright\arraybackslash}p{5.2cm}|>{\raggedright\arraybackslash}p{5.2cm}|}
+\hline
+\textbf{Nama} & \textbf{Bentuk 1} & \textbf{Bentuk 2} \\
+\hline
+De Morgan & $\neg(p \wedge q)$ & $\neg p \vee \neg q$ \\
+& $\neg(p \vee q)$ & $\neg p \wedge \neg q$ \\
+\hline
+Komutatif & $p \wedge q$ & $q \wedge p$ \\
+& $p \vee q$ & $q \vee p$ \\
+\hline
+Asosiatif & $(p \wedge q) \wedge r$ & $p \wedge (q \wedge r)$ \\
+& $(p \vee q) \vee r$ & $p \vee (q \vee r)$ \\
+\hline
+Distributif & $p \vee (q \wedge r)$ & $(p \vee q) \wedge (p \vee r)$ \\
+& $p \wedge (q \vee r)$ & $(p \wedge q) \vee (p \wedge r)$ \\
+\hline
+Implikasi & $p \rightarrow q$ & $\neg p \vee q$ \\
+\hline
+Kontraposisi & $p \rightarrow q$ & $\neg q \rightarrow \neg p$ \\
+\hline
+\end{tabular}
+\caption{Ringkasan hukum ekuivalensi logika \cite{libretexts_equiv}}
+\label{tab:hukum-ekuivalensi}
+\end{table}
+
+Gambar~\ref{fig:ekuivalensi-implikasi} mengilustrasikan hubungan antara implikasi asli, konvers, invers, dan kontraposisi. Hanya implikasi asli dan kontraposisi yang ekuivalen secara logika.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=1.2cm, every node/.style={font=\small}]
+  \node[proposisi] (impl) {$p \rightarrow q$};
+  \node[proposisi, right=2.2cm of impl] (conv) {Konvers: $q \rightarrow p$};
+  \node[proposisi, below=1cm of impl] (inv) {Invers: $\neg p \rightarrow \neg q$};
+  \node[proposisi, below=1cm of conv] (contra) {Kontraposisi: $\neg q \rightarrow \neg p$};
+  \draw[arrow] (impl) -- node[above, pos=0.5] {negasi} (conv);
+  \draw[arrow] (impl) -- node[left, pos=0.5] {negasi} (inv);
+  \draw[arrow] (contra) -- node[below, pos=0.5] {ekuivalen $\equiv$} (impl);
+  \draw[thick, double, blue] (impl.south east) -- (contra.north west);
+  \node[font=\footnotesize, blue] at (1.1,-0.5) {$\equiv$};
+\end{tikzpicture}
+\caption{Ekuivalensi implikasi: hanya $p \rightarrow q$ dan $\neg q \rightarrow \neg p$ yang ekuivalen \cite{copi2014}}
+\label{fig:ekuivalensi-implikasi}
+\end{figure}
+
+\begin{contoh}
+\textbf{Buktikan $\neg(p \rightarrow q) \equiv p \wedge \neg q$ dengan hukum aljabar.}
+
+Langkah 1: Implikasi ekuivalen dengan $\neg p \vee q$, sehingga
+\[
+\neg(p \rightarrow q) \equiv \neg(\neg p \vee q).
+\]
+Langkah 2: Terapkan De Morgan pada $\neg(\neg p \vee q)$:
+\[
+\neg(\neg p \vee q) \equiv \neg(\neg p) \wedge \neg q \equiv p \wedge \neg q.
+\]
+Jadi $\neg(p \rightarrow q) \equiv p \wedge \neg q$.
+\end{contoh}
+
+Verifikasi ekuivalensi dapat dilakukan dengan program: bandingkan kolom hasil tabel kebenaran untuk dua ekspresi \cite{python_docs_boolean,levin_discrete}.
+
+\begin{contoh}
+\textbf{Memeriksa ekuivalensi $p \rightarrow q$ dan $\neg p \vee q$ dengan Python}
+
+\begin{lstlisting}[style=pythonstyle, caption={Cek ekuivalensi dua formula dengan tabel kebenaran}]
+from itertools import product
+
+def impl(p, q):
+    """p -> q (implikasi material)"""
+    return (not p) or q
+
+def neg_p_or_q(p, q):
+    return (not p) or q
+
+print("p    q    p->q   ~p v q   Ekuivalen?")
+print("-" * 45)
+for p, q in product([True, False], repeat=2):
+    v1 = impl(p, q)
+    v2 = neg_p_or_q(p, q)
+    eq = "Ya" if v1 == v2 else "Tidak"
+    pp = "B" if p else "S"
+    qq = "B" if q else "S"
+    v1s = "B" if v1 else "S"
+    v2s = "B" if v2 else "S"
+    print(f"{pp:4} {qq:4} {v1s:6} {v2s:8} {eq}")
+# Semua baris "Ekuivalen? = Ya" -> P <-> Q tautologi
+\end{lstlisting}
+\end{contoh}
+
+\begin{konsep}
+Ringkasan hukum aljabar proposisi utama: gunakan De Morgan untuk menyederhanakan negasi dari konjungsi/disjungsi; komutatif dan asosiatif untuk mengatur ulang urutan; distributif untuk memfaktorkan atau mengembangkan; implikasi $\equiv \neg p \vee q$ untuk menghilangkan operator $\rightarrow$ saat analisis tabel kebenaran atau penyederhanaan.
+\end{konsep}
+
+Hukum penting:
+\begin{itemize}
+  \item Hukum De Morgan: $\neg(p \wedge q) \equiv \neg p \vee \neg q$; $\neg(p \vee q) \equiv \neg p \wedge \neg q$
+  \item Komutatif: $p \wedge q \equiv q \wedge p$; $p \vee q \equiv q \vee p$
+  \item Asosiatif: $(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$; $(p \vee q) \vee r \equiv p \vee (q \vee r)$
+  \item Distributif: $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$; $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$
+  \item Implikasi: $p \rightarrow q \equiv \neg p \vee q$
+\end{itemize}

@@ -1,0 +1,109 @@
+\section{ISP, DIP, dan Contoh Refactoring}
+
+\subsection{Interface Segregation Principle (ISP)}
+Gunakan interface kecil dan spesifik daripada interface besar yang memaksa class mengimplementasikan method yang tidak dibutuhkan.
+
+\subsection{Dependency Inversion Principle (DIP)}
+High-level module tidak boleh bergantung pada low-level module. Keduanya harus bergantung pada abstraksi.
+
+\begin{javacode}[caption={Contoh DIP dengan Interface}]
+interface Notifier {
+    void kirim(String pesan);
+}
+
+class EmailNotifier implements Notifier {
+    public void kirim(String pesan) {
+        System.out.println("Email: " + pesan);
+    }
+}
+
+class LayananNotifikasi {
+    private Notifier notifier;
+
+    public LayananNotifikasi(Notifier notifier) {
+        this.notifier = notifier;
+    }
+
+    public void kirimPromo() {
+        notifier.kirim("Promo baru!");
+    }
+}
+\end{javacode}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Identifikasi Code Smell}: Temukan pelanggaran SRP pada class layanan.
+  \item \textbf{Refactoring}: Ubah class yang terlalu besar menjadi beberapa class kecil.
+  \item \textbf{Diskusi}: Contoh pelanggaran LSP pada hierarki class.
+  \item \textbf{Praktik}: Terapkan DIP pada modul pengiriman notifikasi.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan masing-masing prinsip SOLID dengan contoh singkat.
+  \item Berikan contoh pelanggaran OCP dan cara memperbaikinya.
+  \item Mengapa ISP penting saat mendesain API?
+  \item Buat desain sederhana yang menerapkan DIP untuk layanan pembayaran.
+  \item \textbf{Refleksi}: Prinsip SOLID mana yang paling sulit Anda terapkan?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 4.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Prinsip yang menyatakan class memiliki satu alasan untuk berubah adalah:
+  \begin{enumerate}
+    \item SRP
+    \item OCP
+    \item LSP
+    \item DIP
+  \end{enumerate}
+  \item DIP menekankan ketergantungan pada:
+  \begin{enumerate}
+    \item Implementasi konkret
+    \item Abstraksi
+    \item Class final
+    \item Static method
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Refactor class \class{OrderService} agar mengikuti SRP dan OCP.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami prinsip SRP, OCP, dan LSP
+  \item Saya memahami prinsip ISP dan DIP
+  \item Saya dapat mengidentifikasi pelanggaran SOLID
+  \item Saya dapat melakukan refactoring dasar sesuai SOLID
+  \item Saya dapat menerapkan SOLID pada desain sederhana
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Prinsip SOLID membantu mengurangi ketergantungan, meningkatkan modularitas, dan memudahkan perubahan, sebagaimana dijelaskan dalam konsep arsitektur bersih \cite{ref3}. Dengan menerapkannya, kode menjadi lebih bersih dan tahan terhadap perubahan.
+
+\textbf{Kata Kunci}: \oop{SOLID}, \oop{SRP}, \oop{OCP}, \oop{LSP}, \oop{ISP}, \oop{DIP}
+\end{rangkuman}

@@ -1,0 +1,122 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{2}}{}
+\begin{document}
+
+\chapter{Proposisi dan Operator Logika}
+
+\begin{subcpmk}
+  \item Sub-CPMK 1.1: Menjelaskan definisi proposisi dan membedakan proposisi dari kalimat non-proposisi
+  \item Sub-CPMK 1.2: Menggunakan operator logika (not, and, or, implies, iff) untuk membentuk proposisi majemuk
+  \item Sub-CPMK 1.3: Membuat tabel kebenaran untuk proposisi majemuk dan menentukan nilai kebenarannya
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-03/section-3-1}
+\input{bab-03/section-3-2}
+\input{bab-03/section-3-3}
+\input{bab-03/section-3-4}
+\input{bab-03/section-3-5}
+\input{bab-03/section-3-6}
+\input{bab-03/section-3-7}
+\input{bab-03/section-3-8}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+\begin{aktivitas}
+  \item Identifikasi 5 kalimat dari berita/buku; tentukan mana proposisi dan mana bukan. Berikan alasan berdasarkan kriteria proposisi dari Section~3.1.
+  \item Buat tabel kebenaran untuk $(p \rightarrow q) \wedge (q \rightarrow p)$ dan bandingkan dengan $p \leftrightarrow q$. Apakah keduanya ekuivalen?
+  \item Terjemahkan ``Saya lulus ujian jika dan hanya jika saya belajar'' ke simbol logika. Tentukan proposisi atomik dan operator yang digunakan.
+  \item Buat program Python yang mencetak tabel kebenaran untuk $p \rightarrow q$ (dua variabel). Gunakan \texttt{True}/\texttt{False} atau B/S.
+  \item Pilih satu paragraf aturan (misalnya aturan akademik atau spesifikasi sistem); identifikasi kalimat mana yang merupakan proposisi dan mana yang bukan. Jelaskan dengan kriteria dari bab ini.
+  \item Terapkan Hukum De Morgan pada kondisi \texttt{if} dalam kode Python Anda: tulis bentuk negasi asli dan ekuivalennya.
+  \item Tentukan konvers, invers, dan kontraposisi dari implikasi ``Jika hari hujan maka jalan basah.'' Manakah yang ekuivalen dengan implikasi asli?
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+\begin{latihan}
+  \item Manakah yang merupakan proposisi? (a) ``Bumi berbentuk bulat.'' (b) ``Jangan menyontek!'' (c) ``$x > 0$.'' (d) ``Semua manusia akan mati.'' Berikan alasan masing-masing.
+  \item Buat tabel kebenaran untuk $\neg(p \wedge q)$ dan $(\neg p) \vee (\neg q)$. Apa yang dapat Anda simpulkan? (Kaitkan dengan Hukum De Morgan.)
+  \item Buat tabel kebenaran untuk $p \rightarrow (q \vee r)$ dengan tiga variabel ($2^3 = 8$ baris). Apakah formula ini tautologi, kontradiksi, atau kontingensi?
+  \item Terjemahkan ke simbol logika: (a) ``Jika hari hujan maka jalan basah.'' (b) ``Saya lulus jika dan hanya jika IPK $\geq 2{,}0$.'' Definisikan variabel proposisional yang Anda gunakan.
+  \item Untuk proposisi $(p \wedge q) \rightarrow \neg r$, buat tabel kebenaran lengkap dengan kolom antara ($p \wedge q$, $\neg r$). Apakah formula ini tautologi, kontradiksi, atau kontingensi?
+  \item Tentukan negasi dari ``Jika Ali rajin belajar maka Ali lulus dan mendapat beasiswa.'' Gunakan Hukum De Morgan untuk menyederhanakan hasilnya.
+  \item Berdasarkan hirarki operator logika (Section~3.7), berikan tanda kurung eksplisit pada: $\neg p \wedge q \vee r \rightarrow s \leftrightarrow t$.
+  \item \textbf{Refleksi}: Dalam konteks pemrograman, kapan Anda memakai kondisi yang ekuivalen dengan implikasi $p \rightarrow q$? Berikan satu contoh singkat (misalnya \texttt{if} dalam Python). Bagaimana konvers, invers, dan kontraposisi memengaruhi logika program Anda?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+\begin{asesmen}
+\textbf{Instrumen untuk Sub-CPMK 1.1--1.3}
+
+\textbf{A. Pilihan Ganda}
+
+\begin{enumerate}
+  \item Manakah nilai kebenaran $p \rightarrow q$ ketika $p$ salah dan $q$ benar? (a) Benar \quad (b) Salah. \quad Jawaban: (a) Benar.
+  \item Manakah yang \emph{bukan} proposisi? (a) ``$2+2=4$.'' \quad (b) ``Apakah hari hujan?'' \quad (c) ``Semua bilangan prima ganjil.'' \quad (d) ``$x < 0$.''
+  \item $p \leftrightarrow q$ benar jika dan hanya jika: (a) $p$ dan $q$ sama nilai kebenarannya \quad (b) $p$ benar \quad (c) $q$ salah \quad (d) $p \wedge q$ benar.
+  \item Negasi dari $p \wedge q$ menurut Hukum De Morgan adalah: (a) $\neg p \wedge \neg q$ \quad (b) $\neg p \vee \neg q$ \quad (c) $p \vee q$ \quad (d) $\neg(p \vee q)$.
+  \item Kontraposisi dari $p \rightarrow q$ adalah: (a) $q \rightarrow p$ \quad (b) $\neg p \rightarrow \neg q$ \quad (c) $\neg q \rightarrow \neg p$ \quad (d) $\neg q \rightarrow p$.
+\end{enumerate}
+
+\textbf{B. Essay singkat}
+
+\begin{enumerate}
+  \item Jelaskan perbedaan proposisi atomik dan proposisi majemuk. Berikan masing-masing dua contoh.
+  \item Buat tabel kebenaran untuk $\neg(p \vee q)$ dan $(\neg p) \wedge (\neg q)$. Buktikan Hukum De Morgan kedua.
+  \item Berdasarkan studi kasus sistem lampu (Section~3.5), modifikasi kondisi agar lampu menyala dengan operator XOR. Buat tabel kebenaran dan jelaskan perbedaannya.
+\end{enumerate}
+
+\textbf{C. Coding (opsional)}
+
+Tulis program Python yang mencetak tabel kebenaran untuk $p \wedge (q \rightarrow r)$ (tiga variabel) dan menentukan apakah formula tersebut tautologi, kontradiksi, atau kontingensi.
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+\begin{checklist}
+  \item Saya dapat membedakan proposisi dari non-proposisi berdasarkan kriteria deklaratif dan bernilai benar/salah
+  \item Saya dapat menggunakan kelima operator logika ($\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$) dengan benar
+  \item Saya dapat membuat tabel kebenaran untuk proposisi majemuk dengan $2^n$ baris
+  \item Saya dapat menerjemahkan kalimat alami ke bentuk simbolik dan sebaliknya
+  \item Saya dapat menentukan negasi pernyataan majemuk menggunakan Hukum De Morgan
+  \item Saya dapat menentukan konvers, invers, dan kontraposisi dari suatu implikasi
+  \item Saya memahami hirarki prioritas operator logika
+  \item Saya dapat mengimplementasikan evaluasi proposisi majemuk dalam kode (misalnya Python)
+  \item Saya dapat mengidentifikasi proposisi dalam konteks studi kasus (sistem lampu, kondisi kelulusan)
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\begin{rangkuman}
+Bab ini membahas proposisi dan operator logika sebagai fondasi logika matematika.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Proposisi adalah pernyataan deklaratif yang bernilai benar atau salah. Proposisi terbagi menjadi proposisi atomik (tunggal) dan proposisi majemuk (gabungan dengan operator).
+  \item Lima operator logika: negasi ($\neg$), konjungsi ($\wedge$), disjungsi ($\vee$), implikasi ($\rightarrow$), bikondisional ($\leftrightarrow$). Prioritas dari tertinggi: $\neg, \wedge, \vee, \rightarrow, \leftrightarrow$.
+  \item Tabel kebenaran mendaftar semua $2^n$ kombinasi nilai variabel dan hasil formula; digunakan untuk menentukan tautologi (selalu benar), kontradiksi (selalu salah), dan kontingensi.
+  \item Hukum De Morgan: $\neg(p \wedge q) \equiv \neg p \vee \neg q$ dan $\neg(p \vee q) \equiv \neg p \wedge \neg q$ --- penting untuk negasi pernyataan majemuk.
+  \item Varian implikasi: konvers ($q \rightarrow p$), invers ($\neg p \rightarrow \neg q$), kontraposisi ($\neg q \rightarrow \neg p$). Hanya kontraposisi yang ekuivalen dengan implikasi asli.
+  \item Penerapan dalam pemrograman: operator Boolean (\texttt{and}, \texttt{or}, \texttt{not}), struktur \texttt{if}; studi kasus sistem lampu dan kondisi kelulusan.
+\end{itemize}
+
+\textbf{Kata Kunci}: proposisi, operator logika, tabel kebenaran, negasi, konjungsi, disjungsi, implikasi, bikondisional, tautologi, kontradiksi, kontingensi, Hukum De Morgan, konvers, invers, kontraposisi
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

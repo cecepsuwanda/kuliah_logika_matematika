@@ -1,0 +1,1169 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+%\usepackage{enumitem}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+%#make sure to change this part, since it is predefined
+      %\defbeamertemplate*{footline}{infolines theme}
+      \setbeamertemplate{footline}
+        {
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor%~~(\insertshortinstitute)
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    }
+
+%\AtBeginSection[] {
+%    \begin{frame}<beamer>{Daftar Isi}
+%    \frametitle{Daftar Isi}
+		%\tableofcontents[currentsection,currentsubsection,sectionstyle=show/hide,subsectionstyle=show/show/hide,subsubsectionstyle=show/show/show/hide]
+   % \end{frame}
+%}
+
+
+\title[Logika Matematika]{Logika Matematika}
+\author{Cecep Suwanda, S.Si.}
+\date{April 2, 2016}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+
+
+\maketitle
+
+%\begin{frame}
+%\titlepage
+%\end{frame}
+
+\section*{Daftar Isi}
+\begin{frame}[shrink]{Daftar Isi}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+\section{Logika Preposisi (Kalkulus Preposisi)}
+\subsection{Definisi Logika}
+\begin{frame}
+\frametitle{Definisi Logika}
+    \begin{definisi}
+   	  Ilmu yang mempelajari tentang cara berpikir yang logis/masuk akal 
+    \end{definisi}
+	\begin{definisi}
+      Logika matematika adalah	ilmu yang digunakan untuk menentukan nilai kebenaran dari suatu pernyataan atau penarikan kesimpulan 
+      berdasarkan aturan-aturan dasar yang berlaku.         
+    \end{definisi}
+
+\end{frame}
+
+\subsection{Kalimat Tertutup}
+\begin{frame}
+\frametitle{Kalimat Tertutup}
+
+ \begin{definisi}[Kalimat Tertutup/Pernyataan]
+    Adalah suatu kalimat yang bernilai benar saja atau salah saja. Dengan kata lain, tidak sekaligus kedua-duanya. Pernyataan disebut juga \textbf{preposisi}. Yang dapat di golongkan sebagai pernyataan adalah kalimat-kalimat yang menerangkan sesuatu (disebut : \textit{kalimat deklaratif})
+ \end{definisi}
+ 
+\begin{contoh}	
+	\begin{enumerate}
+		\item Menara itu tinggi. 
+		\item Jumlah hari ada 7.
+		\item 3 adalah bilangan ganjil
+		\item nilai x yang memenuhi 3x+1=7 adalah 2
+		\item 5 kurang dari 3
+	\end{enumerate}	 
+\end{contoh}
+\end{frame}
+
+\subsection{Kalimat Terbuka}
+\begin{frame}
+	\frametitle{Kalimat Terbuka}
+
+\begin{definisi}[Kalimat Terbuka]
+	 Kalimat yang memuat peubah/variabel, sehingga belum dapat ditentukan nilai kebenarannya ( benar atau salah ). Tetapi apabila variabel diganti nilai tertentu akan menjadi suatu pernyataan.
+\end{definisi}
+
+\begin{contoh}
+	\begin{enumerate}
+		\item $y>5$	
+		\item $x + 3 = 8$	
+	\end{enumerate}
+\end{contoh}
+
+\end{frame}
+
+\subsection{Nilai Kebenaran Suatu Pernyataan}
+\begin{frame}[shrink]
+\frametitle{Nilai Kebenaran Suatu Pernyataan}
+  \begin{block}{Dasar Empiris}
+  	Menentukan benar atau salah dari sebuah pernyataan berdasarkan fakta yang ada atau dijumpai dalam kehidupan sehari-hari.
+  \end{block}
+  
+  \begin{contoh}
+  	\begin{enumerate}
+  		\item Ibukota jawa Timur adalah Surabaya.
+  		\item Air adalah benda padat.
+  	\end{enumerate}
+  \end{contoh}
+  
+  
+  \begin{block}{Dasar tak Empiris}
+  	Menentukan benar atau salah dari sebuah pernyataan dengan memakai bukti atau perhitungan-perhitungan dalam matematika.
+  \end{block}
+
+  \begin{contoh}
+  	\begin{enumerate}
+  		\item Akar persamaan $3x-1=5$ adalah 2.
+  		\item Jika $x > 1$, maka $x > 2$.
+  			
+  	\end{enumerate}
+  \end{contoh}
+\end{frame}
+
+\subsection{Lambang Suatu Pernyataan}
+\begin{frame}
+\frametitle{Lambang Suatu Pernyataan}
+
+\begin{block}{Lambang Suatu pernyataan}
+ Suatu pernyataan dilambangkan dengan memakai huruf kecil, seperti \textit{a}, \textit{b}, \textit{c},...,\textit{p},\textit{q},\textit{r},... dan seterusnya.
+\end{block}
+
+\begin{contoh}
+	Pernyataan "4 adalah bilangan genap" dapat dilambangkan dengan memakai huruf \textit{p}.\\
+	Ditulis:\\
+	\textit{p} :  4 adalah bilangan genap.
+\end{contoh}
+\end{frame}
+
+\subsection{Lambang Nilai Kebenaran Suatu Pernyataan}
+\begin{frame}
+\frametitle{Lambang Nilai Kebenaran Suatu Pernyataan}
+\begin{block}{Lambang Nilai Kebenaran Suatu Pernyataan}
+Nilai kebenaran dilambangkan dengan memakai huruf Yunani $\tau$ (dibaca: \textit{tau})
+\end{block}
+  \begin{contoh}
+  	\begin{enumerate}
+	 \item $\tau(\textit{p}) = T$ dibaca “nilai kebenaran pernyataan \textit{p} adalah \textit{T}” atau “pernyataan \textit{p} mempunyai nilai kebenaran \textit{T}”.
+	\item $\textit{q}$: 10 kurang dari 5, merupakan pernyataan yang salah, ditulis $\tau(\textit{q}) = F$.
+    \end{enumerate}
+  \end{contoh}
+\end{frame}
+
+\subsection{Pernyataan Majemuk}
+\begin{frame}
+\frametitle{Pernyataan Majemuk}
+  \begin{definisi}[Pernyataan Majemuk]
+   Suatu pernyataan yang didalamnya terdiri dari beberapa pernyataan, antara pernyataan yang satu dengan yang lainnya dihubungkan dengan kata sambung. Kata sambung ini berupa kata sambung logika.
+  \end{definisi}
+  
+  \begin{block}{Kata Sambung Logika}
+  	\begin{tabular}{ | l | l | l | }
+  		\hline
+  		Kata Sambung & Simbol & Nama \\ \hline
+  		Dan (\textit{And}) & $\wedge$ & Konjungsi \\ \hline
+  		Atau (\textit{or}) & $\vee$ & Disjungsi \\ \hline
+  		Tidak (\textit{not}) & $\neg$ & Negasi \\ \hline
+  		Jika ... maka ...(\textit{if ... then ...}) & $\rightarrow$ & Implikasi \\ \hline
+  		jika dan hanya jika (\textit{if and only if}) & $\leftrightarrow$ & Biimplikasi \\ 
+  		\hline
+  	\end{tabular}
+  \end{block}
+  
+  
+\end{frame}
+
+\subsubsection{Nilai Kebenaran Konjungsi}
+\begin{frame}[shrink]
+\frametitle{Nilai Kebenaran Konjungsi}
+   \begin{definisi}[Konjungsi]
+   	Adalah pernyataan yang dibentuk dari dua pernyataan \textit{p} dan \textit{q} dengan kata hubung "dan".   	
+   \end{definisi}
+    \begin{block}{Nilai Kebenaran Konjungsi}
+    	\begin{tabular}{ | l | l | l | }
+    		\hline
+    		\textit{p} & \textit{q} & $\textit{p}\wedge\textit{q}$ \\ \hline
+    		T & T & T \\ \hline
+    		T & F & F \\ \hline
+    		F & T & F \\ \hline
+    		F & F & F \\     		 
+    		\hline
+    	\end{tabular}
+    \end{block}
+    \begin{contoh}
+        Pernyataan : 13 bilangan prima dan $13^2$ = 169 \\
+        Disimbolkan :\\
+        \textit{p} : 13 bilangan prima ($\tau(\textit{p})$ =T)\\
+        \textit{q} : $13^2$ = 169 ($\tau(\textit{q})$ =T)\\
+        $\textit{p}\wedge\textit{q}$ : 13 bilangan prima dan $13^2$ = 169 ($\tau(\textit{p}\wedge\textit{q})$ =T)
+    \end{contoh}
+    
+\end{frame}
+
+\subsubsection{Nilai Kebenaran Disjungsi}
+\begin{frame}[shrink]
+	\frametitle{Nilai Kebenaran Disjungsi}
+	\begin{definisi}[Disjungsi]
+		Adalah pernyataan yang dibentuk dari dua pernyataan \textit{p} dan \textit{q} dengan kata hubung "atau".   	
+	\end{definisi}
+	\begin{block}{Nilai Kebenaran Disjungsi}
+		\begin{tabular}{ | l | l | l | }
+			\hline
+			\textit{p} & \textit{q} & $\textit{p}\vee\textit{q}$ \\ \hline
+			T & T & T \\ \hline
+			T & F & T \\ \hline
+			F & T & T \\ \hline
+			F & F & F \\     		 
+			\hline
+		\end{tabular}
+	\end{block}
+	
+	\begin{contoh}
+		Pernyataan : 6 adalah bilangan genap atau 13 adalah bilangan prima.
+		 \\
+		Disimbolkan :\\
+		\textit{p} : 6 adalah bilangan genap ($\tau(\textit{p})$ =T)\\
+		\textit{q} : 13 adalah bilangan prima ($\tau(\textit{q})$ =T)\\
+		$\textit{p}\vee\textit{q}$ : \\6 adalah bilangan genap atau 13 adalah bilangan prima ($\tau(\textit{p}\vee\textit{q})$ =T)
+	\end{contoh}	
+	
+\end{frame}
+
+\subsubsection{Nilai Kebenaran Negasi}
+\begin{frame}[shrink]
+	\frametitle{Nilai Kebenaran Negasi}
+	\begin{definisi}[Negasi]
+		Adalah pernyataan yang menyangkal atau mengingkari pernyataan awal.		   	
+	\end{definisi}
+	\begin{block}{Nilai Kebenaran Negasi}
+		\begin{tabular}{ | l | l | }
+			\hline
+			\textit{p} & $\neg\textit{p}$  \\ \hline
+			T & F  \\ \hline			
+			F & T  \\     		 
+			\hline
+		\end{tabular}
+	\end{block}
+	\begin{contoh}
+		 \textit{p}  : 2 + 3 = 5 ($\tau(\textit{p})$ = T)\\
+		 $\neg\textit{p}$ : 2 + 3 $\neq$ 5 ($\tau(\neg\textit{p})$ = F)		 
+	\end{contoh}
+	\begin{contoh}
+	 q: Semua bilangan prima adalah ganjil ($\tau(\textit{q})$ = T) \\
+	$\neg\textit{q}$: Tidak benar bahwa semua bilangan prima adalah ganjil ($\tau(\neg\textit{q})$ = F)\\
+	atau\\
+	$\neg\textit{q}$ 	: Ada bilangan prima yang tidak ganjil ($\tau(\neg\textit{q})$ = F)	 
+	\end{contoh}
+\end{frame}
+
+
+\subsubsection{Nilai Kebenaran Implikasi}
+\begin{frame}[shrink]
+	\frametitle{Nilai Kebenaran Implikasi}
+	\begin{definisi}[Implikasi]
+		
+		Adalah pernyataan yang dibentuk dari dua pernyataan \textit{p} dan \textit{q} dalam bentuk "jika \textit{p}, maka \textit{q}".     	
+	\end{definisi}
+	\begin{block}{Nilai Kebenaran Implikasi}
+		\begin{tabular}{ | l | l | l | }
+			\hline
+			\textit{p} & \textit{q} & $\textit{p}\rightarrow\textit{q}$ \\ \hline
+			T & T & T \\ \hline
+			T & F & F \\ \hline
+			F & T & T \\ \hline
+			F & F & T \\     		 
+			\hline
+		\end{tabular}
+	\end{block}
+	\begin{contoh}
+		Pernyataan : Jika 3 + 2 = 5, maka 5 adalah bilangan prima
+		\\
+		Disimbolkan :\\
+		\textit{p} : 3 + 2 = 5 ($\tau(\textit{p})$ =T)\\
+		\textit{q} : 5 adalah bilangan prima ($\tau(\textit{q})$ =T)\\
+		$\textit{p}\rightarrow\textit{q}$ : \\Jika 3 + 2 = 5, maka 5 adalah bilangan prima ($\tau(\textit{p}\rightarrow\textit{q})$ =T)	
+	\end{contoh}
+\end{frame}
+
+
+
+\subsubsection{Nilai Kebenaran Biimplikasi}
+\begin{frame}[shrink]
+	\frametitle{Nilai Kebenaran Biimplikasi}
+	\begin{definisi}[Biimplikasi]
+			Adalah pernyataan yang dibentuk dari dua pernyataan \textit{p} dan \textit{q} dalam bentuk "\textit{p} jika dan hanya jika \textit{q}". 	
+	\end{definisi}
+	\begin{block}{Nilai Kebenaran Biimplikasi}
+		\begin{tabular}{ | l | l | l | }
+			\hline
+			\textit{p} & \textit{q} & $\textit{p}\leftrightarrow\textit{q}$ \\ \hline
+			T & T & T \\ \hline
+			T & F & F \\ \hline
+			F & T & F \\ \hline
+			F & F & T \\     		 
+			\hline
+		\end{tabular}
+	\end{block}
+	\begin{contoh}
+			Pernyataan : $16^{1/2} = 4$ jika dan hanya jika $\log^{16}{4} = \frac{1}{2}$\\
+			Disimbolkan :\\
+			\textit{p} : $16^{1/2} = 4$ ($\tau(\textit{p})$ =T)\\
+			\textit{q} : $\log^{16}{4} = \frac{1}{2}$ ($\tau(\textit{q})$ =T)\\
+			$\textit{p}\leftrightarrow\textit{q}$ : \\$16^{1/2} = 4$ jika dan hanya jika $\log^{16}{4} = \frac{1}{2}$ ($\tau(\textit{p}\leftrightarrow\textit{q})$ =T)	
+	\end{contoh}
+\end{frame}
+
+\subsubsection{Varian dari Implikasi}
+\begin{frame}
+	\frametitle{Varian dari Implikasi}
+  \small	
+	\begin{block}{Konvers}
+	$q \rightarrow p$, yang disebut konvers dari $\textit{p} \rightarrow \textit{q}$.
+     \end{block}	
+	\begin{block}{Invers}
+	$\neg\textit{p}\rightarrow\neg\textit{q}$, yang disebut invers dari $\textit{p} \rightarrow \textit{q}$.\\
+    \end{block}	
+	\begin{block}{Kontraposisi}
+	$\neg\textit{q} \rightarrow\neg\textit{p}$, yang disebut kontraposisi dari $\textit{p} \rightarrow \textit{q}$.\\
+    \end{block}
+	\begin{block}{Tabel Kebenaran Konvers,Invers dan Kontraposisi}	
+		\begin{tabular}{ | l | l | l | l | l | l | l |l |}
+			\hline
+			\textit{p} & $\neg\textit{p}$ & \textit{q} & $\neg\textit{q}$ & $\textit{p}\rightarrow\textit{q}$ & $\textit{q}\rightarrow\textit{p}$ & $\neg\textit{p}\rightarrow\neg\textit{q}$ & $\neg\textit{q}\rightarrow\neg\textit{p}$\\ \hline
+			T & F & T & F & T & T & T & T \\ \hline
+			T & F & F & T & F & T & T & F \\ \hline
+			F & T & T & F & T & F & F & T \\ \hline
+			F & T & F & T & T & T & T & T \\     		 
+			\hline
+		\end{tabular}
+   \end{block}	
+	
+\end{frame}
+
+\subsubsection{Tautologi dan Kontradiksi}
+\begin{frame}[shrink]
+	\frametitle{Tautologi dan Kontradiksi}
+
+	\begin{block}{Tautologi}
+    Pernyataan majemuk disebut \textbf{tautologi} jika ia benar untuk semua kasus.    
+    \end{block}	
+    \begin{contoh}
+      $p \vee \neg(p \wedge q)$ adalah sebuah tautologi\\
+      \begin{tabular}{ | l | l | l | l | l |}
+      	\hline
+      	\textit{p} & \textit{q} &  $\textit{p}\wedge\textit{q}$ & $\neg(\textit{p}\wedge\textit{q})$ & $p \vee \neg(p \wedge q)$ \\ \hline
+      	T &  T & T & F & T\\ \hline
+      	T &  F & F & T & T \\ \hline
+      	F &  T & F & T & T\\ \hline
+      	F &  F & F & T & T\\     		 
+      	\hline
+      \end{tabular}
+    \end{contoh}
+    \begin{block}{Kontradiksi}
+    	Pernyataan majemuk disebut \textbf{kontradiksi} jika ia salah untuk semua kasus
+    \end{block}
+    \begin{contoh}
+    $(p \wedge q)\wedge\neg(p \vee q)$ adalah sebuah kontradiksi\\
+    \begin{tabular}{ | l | l | l | l | l | l |}
+    	\hline
+    	\textit{p} & \textit{q} &  $\textit{p}\wedge\textit{q}$ & 
+    	$\textit{p}\vee\textit{q}$ &
+    	$\neg(\textit{p}\vee\textit{q})$ & $(p \wedge q)\wedge\neg(p \vee q)$ \\ \hline
+    	T &  T & T & T & F & F\\ \hline
+    	T &  F & F & T & F & F \\ \hline
+    	F &  T & F & T & F & F\\ \hline
+    	F &  F & F & F & T & F\\     		 
+    	\hline
+    \end{tabular}	
+    \end{contoh}
+\end{frame}	
+
+
+\subsection{Negasi Pernyataan Majemuk}
+\subsubsection{Negasi Konjungsi}
+\begin{frame}
+	\frametitle{Negasi Konjungsi}
+    	\begin{definisi}[Negasi Konjungsi]
+    		Negasi dari pernyataan $\textit{p}\wedge\textit{q}$  adalah $\neg\textit{p}\vee\neg\textit{q}$    		 	
+    	\end{definisi}
+    	\begin{contoh}
+    		\textit{p} : saya suka apel \\
+    		\textit{q} : saya tidak suka wortel \\
+    		$\textit{p}\wedge\textit{q}$ : saya suka apel dan tidak suka wortel\\
+    		$\neg(\textit{p}\wedge\textit{q})$ : saya tidak suka apel atau saya suka wortel	\\
+    		
+    		\begin{tabular}{ | l | l | l | l | l | l | l |}
+    			\hline
+    			\textit{p} & $\neg\textit{p}$ & \textit{q} & $\neg\textit{q}$ & $\textit{p}\wedge\textit{q}$ & $\neg(\textit{p}\wedge\textit{q})$ & $\neg\textit{p}\vee\neg\textit{q}$ \\ \hline
+    			T & F & T & F & T & F & F\\ \hline
+    			T & F & F & T & F & T & T \\ \hline
+    			F & T & T & F & F & T & T\\ \hline
+    			F & T & F & T & F & T & T\\     		 
+    			\hline
+    		\end{tabular}
+    	\end{contoh}
+\end{frame}
+
+\subsubsection{Negasi Disjungsi}
+\begin{frame}
+	\frametitle{Negasi Disjungsi}
+    \begin{definisi}[Negasi Disjungsi]
+    	Negasi dari pernyataan $\textit{p}\vee\textit{q}$  adalah $\neg\textit{p}\wedge\neg\textit{q}$    		 	
+    \end{definisi}
+    \begin{contoh}
+    	\textit{p} : Andi pergi ke supermarket \\
+    	\textit{q} : Andi menonton di bioskop \\
+    	$\textit{p}\vee\textit{q}$ : Andi pergi ke supermarket atau menonton di bioskop\\
+    	$\neg(\textit{p}\vee\textit{q})$ : Andi tidak pergi ke supermarket dan tidak menonton di bioskop	\\
+    	
+    	\begin{tabular}{ | l | l | l | l | l | l | l |}
+    		\hline
+    		\textit{p} & $\neg\textit{p}$ & \textit{q} & $\neg\textit{q}$ & $\textit{p}\vee\textit{q}$ & $\neg(\textit{p}\vee\textit{q})$ & $\neg\textit{p}\wedge\neg\textit{q}$ \\ \hline
+    		T & F & T & F & T & F & F\\ \hline
+    		T & F & F & T & T & F & F \\ \hline
+    		F & T & T & F & T & F & F\\ \hline
+    		F & T & F & T & F & T & T\\     		 
+    		\hline
+    	\end{tabular}
+    \end{contoh}
+\end{frame}
+
+\subsubsection{Negasi Implikasi}
+\begin{frame}
+	\frametitle{Negasi Implikasi}
+ \begin{definisi}[Negasi Implikasi]
+ 	Negasi dari pernyataan $\textit{p}\rightarrow\textit{q}$  adalah $\textit{p}\wedge\neg\textit{q}$    		 	
+ \end{definisi}
+ \begin{contoh}
+ 	\textit{p} : Nico belajar dengan giat \\
+ 	\textit{q} : Nico naik kelas \\
+ 	$\textit{p}\rightarrow\textit{q}$ : Jika nico belajar dengan giat maka nico naik kelas\\
+ 	$\neg(\textit{p}\rightarrow\textit{q})$ : Nico belajar dengan giat dan ternyata nico tidak naik kelas.	\\
+ 	
+ 	\begin{tabular}{ | l | l | l | l | l | l | l |}
+ 		\hline
+ 		\textit{p} & $\neg\textit{p}$ & \textit{q} & $\neg\textit{q}$ & $\textit{p}\rightarrow\textit{q}$ & $\neg(\textit{p}\rightarrow\textit{q})$ & $\textit{p}\wedge\neg\textit{q}$ \\ \hline
+ 		T & F & T & F & T & F & F\\ \hline
+ 		T & F & F & T & F & T & T \\ \hline
+ 		F & T & T & F & T & F & F\\ \hline
+ 		F & T & F & T & T & F & F\\     		 
+ 		\hline
+ 	\end{tabular}
+ \end{contoh}
+\end{frame}
+
+\subsubsection{Negasi Biimplikasi}
+\begin{frame}[shrink]
+	\frametitle{Negasi Biimplikasi}
+\begin{definisi}[Negasi Biimplikasi]
+	Negasi dari pernyataan $\textit{p}\leftrightarrow\textit{q}$  adalah $(\textit{p}\wedge\neg\textit{q})\vee(\textit{q}\wedge\neg\textit{p})$    		 	
+\end{definisi}
+\begin{contoh}
+	\textit{p} : Ulangan dibatalkan \\
+	\textit{q} : Diadakan kerja bakti \\
+	$\textit{p}\leftrightarrow\textit{q}$ : Ulangan dibatalkan jika dan hanya jika diadakan kerja bakti \\
+	$\neg(\textit{p}\leftrightarrow\textit{q})$ : Ulangan dibatalkan dan tidak diadakan kerja bakti atau diadakan kerja bakti dan ulangan tidak dibatalkan.	\\
+ \tiny{	
+	\begin{tabular}{ | l | l | l | l | l | l | l |l |l |}
+		\hline
+		\textit{p} & $\neg\textit{p}$ & \textit{q} & $\neg\textit{q}$ & $\textit{p}\leftrightarrow\textit{q}$ & $\neg(\textit{p}\leftrightarrow\textit{q})$ & $\textit{p}\wedge\neg\textit{q}$ & $\textit{q}\wedge\neg\textit{p}$ & $(\textit{p}\wedge\neg\textit{q})\vee(\textit{q}\wedge\neg\textit{p})$\\ \hline
+		T & F & T & F & T & F & F & F & F\\ \hline
+		T & F & F & T & F & T & T & F & T\\ \hline
+		F & T & T & F & F & T & F & T & T\\ \hline
+		F & T & F & T & T & F & F & F & F\\     		 
+		\hline
+	\end{tabular}}
+\end{contoh}
+\end{frame}
+
+\subsection{Hirarki Operator Logika}
+\begin{frame}
+	\frametitle{Hirarki Operator Logika}
+  \begin{definisi}[Hirarki Operator Logika]
+  	Urutan pengerjaan dari operator logika.
+  \end{definisi}
+  \begin{block}{Tabel Hirarki Operator Logika }
+  \begin{tabular}{ | l | l | l |}
+  	\hline
+  	Hierarki Ke & Simbol Operator & Nama Operator \\ \hline
+  	1 & $\neg$ & Negasi \\ \hline
+  	2 & $\wedge$ & Konjungsi \\ \hline
+  	3 & $\vee$ & Disjungsi \\ \hline
+  	4 & $\rightarrow$ & Implikasi \\ \hline
+  	5 & $\leftrightarrow$ & Biimplikasi \\     		 
+  	\hline
+  \end{tabular}
+  \end{block}
+\end{frame}
+
+\subsection{Latihan Soal}
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 1}\\	
+	Gunakan konstanta proposisional berikut:\\	 
+	\begin{tabular}{l c l}
+      \textit{p} & = & Bowo kaya raya\\
+      \textit{q} & = & Bowo hidup bahagia
+    \end{tabular}\\	
+	Selanjutnya, ubah pernyataan-pernyataan berikut ini menjadi bentuk logika:\\	
+	\begin{enumerate}
+		\item Bowo tidak kaya.
+		\item Bowo kaya raya dan hidup bahagia.
+		\item Bowo kaya raya atau tidak hidup bahagia.
+		\item Jika Bowo kaya raya, maka ia hidup bahagia.
+		\item Bowo hidup bahagia jika dan hanya jika ia kaya raya.
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 2}\\	
+	Misalkan \textit{p},\textit{q} dan \textit{r} adalah variabel proposisional :\\	 
+	\begin{tabular}{l c l}
+		\textit{p} & = & Anda sakit flu\\
+		\textit{q} & = & Anda Ujian\\
+		\textit{r} & = & Anda Lulus
+	\end{tabular}\\	
+	Ubahlah ekspresi berikut menjadi pernyataan dalam bahasa indonesia : \\	
+	\begin{enumerate}
+		\item $p \rightarrow \neg q$
+		\item $q \rightarrow \neg r$
+		\item $\neg q \rightarrow r$
+		\item $(p \wedge q) \rightarrow r$
+		\item $(p \rightarrow \neg r) \vee (q \rightarrow \neg r)$
+		\item $(p \wedge q) \vee (\neg q \wedge r)$
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 3}\\	
+	Ubahlah pernyataan-pernyataan berikut menjadi bentuk logika :\\	 	
+	\begin{enumerate}
+		\item Jika Bowo berada di Malioboro, maka Dewi juga ada di Malioboro.
+		\item Pintu rumah Dewi berwarna merah atau coklat.
+		\item Berita itu tidak menyenangkan.
+		\item Bowo akan datang jika ia mempunyai kesempatan.
+		\item Jika Dewi rajin kuliah, maka ia pasti pandai.		
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 4}\\	
+	Dengan menggunakan tabel kebenaran, jawab pertanyaan-pertanyaan berikut :\\	 	
+	\begin{enumerate}
+		\item Apakah nilai kebenaran dari $p \wedge p $ ?
+		\item Apakah nilai kebenaran dari $p \vee p $ ?
+		\item Apakah nilai kebenaran dari $(p \wedge \neg p) $ dan $(p \vee \neg p)$ ?
+		\item Apakah $(p \rightarrow q)$ mempunyai nilai kebenaran yang sama dengan $(q \rightarrow p)$ ?
+		\item Apakah $(p \rightarrow q) \rightarrow r$ mempunyai nilai kebenaran yang sama dengan $p \rightarrow (q \rightarrow r)$ ?		
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 5}\\	
+	Buatlah tabel kebenaran untuk ekspresi-ekspresi logika berikut :\\	 	
+	\begin{enumerate}
+		\item $\neg (\neg p \wedge \neg q)$
+		\item $p \wedge (p \vee q)$
+		\item $((\neg p \wedge (\neg q \wedge r))\vee (q \wedge r))\vee (p \wedge r)$
+		\item $(p \wedge q)\vee (((\neg p \wedge q) \rightarrow p)\wedge \neg q)$
+		\item $(p \rightarrow q)\leftrightarrow (\neg q \rightarrow \neg p)$		
+		\item $p \wedge ((r \vee q) \leftrightarrow \neg r)$	
+		\item $\neg((p \wedge q)\rightarrow \neg r)\vee p$	
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 6}\\	
+	Ubahlah pernyataan-pernyataan berikut menjadi ekspresi logika berupa proposisi majemuk : \\	 	
+	\begin{enumerate}
+		\item Jika tikus itu waspada dan bergerak cepat, maka kucing atau anjing itu tidak mampu menangkapnya.
+		\item Jika saya tidak keliru, Dewi sudah diwisuda dan pacarnya atau orangtuanya berada disampingnya.
+		\item Bowo membeli saham dan membeli properti untuk investasinya, atau dia dapat menanamkan uang di deposito bank dan menerima bunga uang.			
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 7}\\	
+    Masukan tanda kurung biasa ke dalam ekspresi logika berikut ini sehingga tidak terjadi ambiguitas : \\	 	
+	\begin{enumerate}
+		\item $p \wedge q \wedge r \rightarrow s$
+		\item $p \vee q \vee r \leftrightarrow \neg s$
+		\item $\neg p \wedge q \rightarrow \neg r \vee s$	
+		\item $p \rightarrow q \leftrightarrow \neg r \rightarrow \neg s$
+		\item $p \vee q \wedge r \rightarrow p \wedge q \vee r$		
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 8}\\	
+     Jika $\tau(p)=T$ dan $\tau(q)=T$,sedangkan $\tau(r)=F$ dan $\tau(s)=F$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut  : \\	 	
+	\begin{enumerate}
+		\item $p \wedge (q \vee r)$
+		\item $(p \vee q) \wedge r$
+		\item $((p\vee q)\wedge r) \vee \neg((p \vee q)\wedge (q\vee s))$	
+		\item $(\neg(p \wedge q)\vee \neg r) \vee (((\neg p \wedge q)\vee \neg s) \wedge r)$
+		\item $(p \leftrightarrow r) \wedge (\neg q \rightarrow s)$		
+	\end{enumerate}		
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 9}\\	
+	Jika $\tau(p)=F$ dan $\tau(q)=F$,sedangkan $\tau(r)=T$ dan $\tau(s)=T$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut  : \\	 	
+	\begin{enumerate}
+		\item $\neg(p \leftrightarrow q)\wedge (\neg r \rightarrow s)$
+		\item $(\neg p \wedge (q \vee \neg r)\vee (q \leftrightarrow \neg p)) \leftrightarrow (s \wedge r)$
+		\item $(p \vee (q \rightarrow (r \wedge \neg p))) \leftrightarrow \neg (q \vee \neg s)$		
+	\end{enumerate}		
+\end{frame}
+
+\subsection{Ekuivalen Logis}
+\begin{frame}
+   \frametitle{Ekuivalen Logis}
+   \begin{definisi}[Ekuivalen Logis]
+   	 Preposisi \textit{p} dan \textit{q} disebut ekuivalen jika $\tau(p)=\tau(q)$, dengan simbol $p \equiv q$
+   \end{definisi}
+   
+   \begin{contoh}
+   	$\neg(p \wedge q) \equiv \neg q \vee \neg p$\\
+   	Dibuktikan dengan tabel kebenaran\\
+   	\begin{tabular}{ | l | l | l | l | l | l | l |}
+   		\hline
+   		\textit{p} & $\neg p$& \textit{q} &$\neg q$& $p \wedge q$  & $\neg(q \wedge p)$& $\neg q \vee \neg p$\\ \hline
+   		T & F & T & F & T & F & F \\ \hline
+   		T & F & F & T & F & T & T  \\ \hline
+   		F & T & T & F & F & T & T\\ \hline
+   		F & T & F & T & F & T & T \\     		 
+   		\hline
+   	\end{tabular}
+   \end{contoh}	
+   
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ekuivalen Logis}	
+	\begin{contoh}
+		$p \rightarrow q \equiv \neg p \vee q$\\
+		Dibuktikan dengan tabel kebenaran\\
+		\begin{tabular}{ | l | l | l | l |l |}
+			\hline
+			\textit{p} & $\neg p$ &  \textit{q} & $p \rightarrow q$  & $\neg p \vee q$\\ \hline
+			T & F & T & T & T  \\ \hline
+			T & F & F & F & F   \\ \hline
+			F & T & T & T & T \\ \hline
+			F & T & F & T & T  \\     		 
+			\hline
+		\end{tabular}
+	\end{contoh}
+\end{frame}	
+	
+\begin{frame}
+	\frametitle{Ekuivalen Logis}	
+	\begin{contoh}
+		$p \leftrightarrow q \equiv (p \rightarrow q)\wedge (q \rightarrow p)$\\
+		Dibuktikan dengan tabel kebenaran\\
+		\begin{tabular}{ | l | l | l | l |l |l |}
+			\hline
+			\textit{p} & \textit{q} & $p \rightarrow q$  & $q \rightarrow p$ & $(p \rightarrow q)\wedge (q \rightarrow p)$ & $p \leftrightarrow q$\\ \hline
+			T & T & T & T & T & T  \\ \hline
+			T & F & F & T & F & F  \\ \hline
+			F & T & T & F & F & F\\ \hline
+			F & F & T & T & T & T \\     		 
+			\hline
+		\end{tabular}
+	\end{contoh}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ekuivalen Logis}	
+	\begin{contoh}
+		$p \leftrightarrow q \equiv (p \wedge q)\vee(\neg p \wedge \neg q)$\\
+		Dibuktikan dengan tabel kebenaran\\
+		\begin{tabular}{ | l | l | l | l | l | l |l |l |}
+			\hline
+			\textit{p} & $\neg p$ &\textit{q}& $\neg q$ & $p \wedge q$  & $\neg q \wedge \neg p$ & $(p \wedge q)\vee(\neg p \wedge \neg q)$ & $p \leftrightarrow q$\\ \hline
+			T & F & T & F & T & F & T & T  \\ \hline
+			T & F & F & T & F & F & F & F  \\ \hline
+			F & T & T & F & F & F & F & F\\ \hline
+			F & T & F & T & F & T & T & T \\     		 
+			\hline
+		\end{tabular}
+	\end{contoh}	
+\end{frame}
+
+\subsection{Latihan Soal}
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 10}\\
+	Buktikan bahwa ekspresi-ekspresi logika berikut ini ekuivalen dengan menggunakan tabel kebenaran :\\
+	\begin{enumerate}
+		\item $ \neg p \leftrightarrow q  \equiv (\neg p \vee q)\wedge (\neg q \vee p) $
+		\item $q \leftrightarrow (\neg p \rightarrow q) \equiv T$
+		\item $(p \vee \neg q)\rightarrow r \equiv (\neg p \wedge q)\vee r$	
+		\item $p \rightarrow (q \rightarrow r) \equiv (p \rightarrow r)\rightarrow r$
+		\item $p \rightarrow q \equiv \neg (p \wedge \neg q) $
+		\item $\neg (\neg(p \wedge q)\vee q) \equiv F$
+		\item $ ((p \wedge (q\rightarrow r))\wedge(p \rightarrow(q \rightarrow \neg r)))\rightarrow p \equiv T$	
+	\end{enumerate}	
+\end{frame}
+
+
+\subsection{Hukum-hukum Logika}
+\begin{frame}
+	\frametitle{Hukum-hukum Logika}
+	\begin{block}{Hukum-hukum Logika}
+	\small	
+	   \begin{tabular}{ | l | l |}
+	   	\hline
+	   	 Hukum Identitas  & Hukum Null Dominasi  \\ 
+	   	 $p\vee F \equiv p$  & $p\wedge F \equiv F$  \\  
+	   	 $p\wedge T \equiv p$  &  $p\vee T \equiv T$ \\ \hline
+	   	  Hukum Negasi & Hukum Idempoten \\	
+	   	  $p\vee \neg p \equiv T$  & $p\vee p \equiv p$  \\  
+	   	  $p\wedge \neg q \equiv F$  &  $p\wedge p \equiv p$ \\ \hline
+	   	  Hukum Involusi(Negasi Ganda) & Hukum Penyerapan (Absorpsi) \\	
+	   	  $\neg(\neg p) \equiv p$  & $p \vee (p \wedge q) \equiv p$  \\  
+	   	                                 &  $p \wedge (p \vee q) \equiv p$ \\ \hline
+	   	  Hukum Komutatif & Hukum Asosiatif \\	
+	   	  $p \vee q \equiv q \vee p$  & $ p \vee (q \vee r) \equiv (p \vee q) \vee r$  \\  
+	   	  $p \wedge q \equiv q \wedge p$  &  $ p \wedge (q \wedge r) \equiv (p \wedge q) \wedge r$ \\ \hline	
+	   	 Hukum Distributif & Hukum De Morgan \\	
+	   	 $p \vee (q \wedge r) \equiv (p \vee q)\wedge (p \vee r) $  & $ \neg(p \wedge q) \equiv \neg p \vee \neg q$  \\  
+	   	 $p \wedge (q \vee r) \equiv (p \wedge q)\vee (p \wedge r)$  &  $ \neg(p \vee q) \equiv \neg p \wedge \neg q$ \\
+	   	\hline
+	   \end{tabular}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Hukum-hukum Logika}
+	\begin{block}{Hukum-hukum Logika}
+		\small	
+		\begin{tabular}{ | l | l |}
+			\hline
+			Hukum Penyerapan (Absorpsi)  &   \\ 
+			$p \vee (\neg p \wedge q) \equiv (p \vee q)$  & $(p \wedge q)\vee(p \wedge \neg q)\equiv p$  \\  
+			$p \wedge (\neg p \vee q) \equiv (p \wedge q)$  &   \\ \hline
+				
+			$p \rightarrow q \equiv \neg p \vee q$  & $p \leftrightarrow q \equiv (p \wedge q) \vee (\neg p \wedge \neg q)$  \\  
+			$p \rightarrow q \equiv \neg (p \wedge \neg q)$  &  $p \leftrightarrow q \equiv (p \rightarrow q) \wedge (q \rightarrow p)$ \\ \hline
+				
+			$(p \wedge q)\vee (p \wedge \neg q) \equiv p$  & $(p \wedge q)\vee (\neg p \wedge  q) \equiv q$  \\  
+			$(p \vee q)\wedge (p \vee \neg q) \equiv p$& $(p \vee q)\wedge (\neg p \vee  q) \equiv q$ \\ \hline		
+			
+		\end{tabular}
+	\end{block}
+\end{frame}
+
+
+\subsection{Penyederhanaan Ekspresi Logika}
+\begin{frame}
+	\frametitle{Penyederhanaan Ekspresi Logika}
+	Penyederhana ekspresi logika di lakukan dengan menggunakan hukum logika.\\
+	\begin{contoh}
+		Sederhanakan $(p \wedge \neg q)\vee(p \wedge q \wedge r)$ :\\
+		$(p \wedge \neg q)\vee(p \wedge q \wedge r)$\\		
+		\begin{tabular}{ l l  l  }						
+			$\equiv$ & $(p \wedge \neg q)\vee(p \wedge (q \wedge r))$ & Tambah Kurung   \\ 
+			$\equiv$ & $p \wedge (\neg q \vee(q \wedge r))$ & Distributif   \\ 
+			$\equiv$ & $p \wedge((\neg q \vee q)\wedge(\neg p \vee r)$ & Distributif \\ 
+			$\equiv$ & $p \wedge(T \wedge (\neg p \vee r))$ & Tautologi  \\ 
+			$\equiv$ & $p \wedge(\neg p \vee r)$ & Identitas   			
+		\end{tabular}
+	\end{contoh}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Penyederhanaan Ekspresi Logika}
+	Penyederhana juga dapat digunakan untuk membuktikan ekuivalensi logis.\\
+	\begin{contoh}
+		Buktikan : $(p \rightarrow q)\wedge(q \rightarrow p)\equiv(p \wedge q)\vee(\neg p \wedge \neg q)$ \\
+		Pembuktian :\\
+		$(p \rightarrow q)\wedge(q \rightarrow p)$\\		
+		\begin{tabular}{ l l  l  }						
+			$\equiv$ & $(\neg p \vee q)\wedge(\neg q \vee p)$ & $p \rightarrow q \equiv \neg p \vee q$   \\ 
+			$\equiv$ & $(q \vee \neg p)\wedge(p \vee \neg q)$ & Komutatif   \\ 
+			$\equiv$ & $(p \vee \neg q)\wedge(q \vee \neg p)$ & Komutatif \\ 
+			$\equiv$ & $((p \vee \neg q)\wedge q)\vee((p \vee \neg q)\wedge \neg p)$ & Distributif  \\ 
+			$\equiv$ & $((p \wedge q)\vee(\neg q \wedge q))\vee((p \wedge \neg p)\vee(\neg q \wedge \neg p))$ & Distributif  \\ 
+			$\equiv$ & $((p \wedge q)\vee F)\vee(F\vee(\neg q \wedge \neg p))$ & Negasi   \\ 
+			$\equiv$ & $(p \wedge q)\vee(\neg q \wedge \neg p)$ & Identitas   \\ 
+			$\equiv$ & $(p \wedge q)\vee(\neg p \wedge \neg q)$ & Komutatif  			
+		\end{tabular}
+	\end{contoh}	
+\end{frame}
+
+\begin{frame}[shrink]
+	\frametitle{Penyederhanaan Ekspresi Logika}
+	Penyederhana juga dapat digunakan untuk memeriksa tautologi.\\
+	\begin{contoh}
+		 $((p \wedge(q \rightarrow r))\wedge(p \rightarrow(q \rightarrow \neg r)))\rightarrow p$ \\				
+		\begin{tabular}{ l l  l  }						
+			$\equiv$ & $\neg((p \wedge (\neg q \vee r))\wedge(\neg p \vee(\neg q \vee \neg r)))\vee p$ & $p \rightarrow q \equiv \neg p \vee q$   \\ 
+			$\equiv$ & $(\neg(p \wedge (\neg q \vee r))\vee \neg(\neg p \vee(\neg q \vee \neg r)))\vee p$ & De Morgan   \\  
+			$\equiv$ & $((\neg p \vee \neg(\neg q \vee r))\vee (\neg\neg p \wedge \neg(\neg q \vee \neg r)))\vee p$ & De Morgan   \\  
+			$\equiv$ & $((\neg p \vee (\neg\neg q \wedge \neg r))\vee (\neg\neg p \wedge (\neg\neg q \wedge \neg\neg r)))\vee p$ & De Morgan   \\
+			$\equiv$ & $((\neg p \vee (q \wedge \neg r))\vee  (p \wedge  (q \wedge r)))\vee p$ & Negasi Ganda   \\  	
+			$\equiv$ & $(\neg p \vee (q \wedge \neg r))\vee  (p \wedge  (q \wedge r))\vee p$ & Hapus Kurung   \\  
+			$\equiv$ & $(\neg p \vee (q \wedge \neg r))\vee ((p \wedge  (q \wedge r))\vee p)$ & Tambah Kurung   \\ 
+			$\equiv$ & $(\neg p \vee (q \wedge \neg r))\vee (p \vee (p \wedge  (q \wedge r)))$ & Komutatif   \\ 
+			$\equiv$ & $(\neg p \vee (q \wedge \neg r))\vee p $ & Absorption   \\ 
+			$\equiv$ & $((\neg p \vee (q \wedge \neg r))\vee p) $ & Tambah Kurung   \\ 	
+			$\equiv$ & $(p \vee(\neg p \vee (q \wedge \neg r))) $ & Komutatif   \\ 
+			$\equiv$ & $(p \vee \neg p) $ & Absorpsi   \\
+			$\equiv$ & $T$ & Tautologi   \\			
+		\end{tabular}
+	\end{contoh}	
+\end{frame}
+
+\subsection{Latihan Soal}
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 11}\\
+	Sederhanakan ekspresi-ekspresi logika berikut ini menjadi bentuk paling sederhana :\\
+	\begin{enumerate}
+		\item $ p \wedge (\neg p \rightarrow p) $
+		\item $\neg (\neg p \wedge (q\vee \neg q))$
+		\item $(p \rightarrow q)\rightarrow((p \rightarrow \neg q)\rightarrow \neg p)$	
+		\item $(p \rightarrow(p \vee \neg r))\wedge \neg p \wedge q$
+		\item $(\neg p \wedge \neg (q \rightarrow r))\wedge \neg (p \rightarrow (q \rightarrow \neg r)) $
+		\item $(\neg p \rightarrow q)\rightarrow ((\neg p \rightarrow \neg q)\rightarrow p)$
+		\item $(p \wedge (\neg p \vee q))\vee q \vee (p \wedge (p \vee q)) $
+		\item $(p \wedge \neg q \wedge p \wedge \neg r)\vee (r \wedge p \wedge \neg r) $	
+	\end{enumerate}	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 12}\\
+	Buktikan absorption laws berikut ini dengan penyederhanaan :\\
+	\begin{enumerate}
+		\item $ (p \wedge q)\vee(\neg p \wedge q) \equiv q $
+		\item $ (p \vee q)\wedge(\neg p \vee q) \equiv q $
+	\end{enumerate}	
+	\textbf{SOAL 13}\\
+	Sederhanakan ekspresi-ekspresi logika berikut ini menjadi bentuk paling sederhana :\\
+	\begin{enumerate}
+		\item $ \neg p \rightarrow \neg q $
+		\item $(p \rightarrow q) \wedge (q \rightarrow r)$	
+		\item $(p \rightarrow q)\leftrightarrow ((p \wedge q) \leftrightarrow p)$	
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[shrink]
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 14}\\
+	Buktikan dua ekspresi logika berikut ekuivalen dengan penyederhanaan :\\
+	\begin{enumerate}
+		\item $ (p \wedge q)\vee (q \wedge r) \equiv q \wedge (p \vee r) $
+		\item $ \neg(\neg(p \wedge q)\vee p) \equiv T$
+		\item $\neg(\neg p \vee \neg(r \vee s))\equiv (p \wedge r)\vee (p \wedge s)$	
+		\item $p \wedge (\neg p \vee q)\equiv p \wedge q$
+		\item $\neg(\neg p \wedge \neg q)\equiv p \vee q$
+		\item $(p \wedge q)\vee(p \wedge \neg q)\equiv p$
+		\item $p \leftrightarrow q \equiv \neg(\neg(\neg p \vee q)\vee \neg(\neg q \vee p)) $
+		\item $p \leftrightarrow q \equiv (\neg p \vee q) \wedge (\neg q \vee p) $
+		\item $ \neg(\neg p \vee \neg(q \vee r))\equiv (p \wedge q) \vee (p \wedge r) $
+		\item $(p \vee r)\wedge(q \vee s)\equiv (p \wedge q)\vee(p \wedge s)\vee(q \wedge r)\vee(r \wedge s) $			
+	\end{enumerate}	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Latihan Soal}
+	\textbf{SOAL 15}\\
+	Dengan menggunakan penyederhanan, periksa apakah ekspresi logika berikut merupakan tautologi :\\
+	\begin{enumerate}
+		\item $p \wedge (\neg p \rightarrow p) $
+		\item $(p \rightarrow q)\rightarrow((p \rightarrow \neg q)\rightarrow \neg p) $	
+		\item $((p \rightarrow (q \vee \neg r))\wedge \neg p)\wedge q $
+		\item $(\neg p \rightarrow q)\rightarrow((\neg p \rightarrow \neg q)\rightarrow p) $	
+		\item $((p \wedge (q \rightarrow r))\wedge(p \rightarrow(q \rightarrow \neg r)))\rightarrow p $
+		\item $((p \rightarrow q)\wedge(q \rightarrow r))\rightarrow((p \wedge q)\rightarrow r) $
+		\item $p \rightarrow (q \rightarrow p) $
+		\item $(q \rightarrow p) \rightarrow p $
+		\item $\neg \neg p \rightarrow p$
+		\item $(\neg p \rightarrow \neg q)\rightarrow(q \rightarrow p)$	
+		\item $(p \rightarrow (q \rightarrow r))\rightarrow((p \rightarrow q)\rightarrow(p \rightarrow r))$			
+	\end{enumerate}	
+\end{frame}
+
+\section{Logika Predikat (Kalkulus Predikat)}
+\subsection{Pendahuluan}
+\begin{frame}
+\frametitle{Pendahuluan}
+
+Kalimat pada kalkulus proposisi tidak dapat menjelaskan \textit{konsep objek} dan \textit{relasi antar objek}.\\
+Contoh
+\begin{center}
+	\color{blue}
+	\textit{Batuan di Mars berwarna putih}\\
+atau\\
+\textit{Batuan di Mars tidak berwarna putih}\\
+\end{center}
+Dengan aturan kalkulus proposisi, pernyataan tersebut dapat dibuat menjadi skema kalimat\\
+\begin{center}
+	\textit{(p or not p)}\\
+\end{center}
+dan selanjutnya dapat ditentukan nilai kebenarannya
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}	
+	Jika ada pernyataan lain,\\
+	\begin{center}
+	\color{blue}	
+		\textit{ Ada batuan di Mars berwarna putih}\\
+	atau\\
+	\textit{Semua batuan di Mars berwarna putih}\\
+	\end{center}
+	maka pernyataan di atas tidak dapat dibentuk menjadi skema kalimat kalkulus	proposisi.\\
+	Hal ini disebabkan karena pernyataan tersebut mengandung {\color{blue} kuantisasi dari objek}.\\
+	Oleh karena itu dibutuhkan bahasa baru yang mengenal adanya konsep objek dan relasi antar objek, yaitu menggunakan {\color{blue} Kalkulus Predikat}.	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}
+	Dengan kalkulus predikat maka pernyataan tersebut diubah menjadi :\\
+	\begin{center}
+		\color{blue}
+		(for some x) (p(x) and q(x))\\
+		or\\
+		(for all x)(if p(x) then q(x))\\
+	\end{center}
+	dimana :\\
+	p(x) = x adalah batuan di Mars \\
+	q(x) = x adalah batuan berwarna putih\\
+	"for some x" disebut kuantifier (simbol : $\exists x$) \\
+	"for all x" disebut kuantifier (simbol : $\forall x$) \\
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pendahuluan}
+	Pada dasarnya Kalkulus Predikat merupakan perluasan	dari Kalkulus Proposisi dimana Kalkulus Predikat mengatasi kelemahan pada kalkulus proposisi dengan menambahkan representasi
+	\begin{enumerate}
+		\item Objek yang memiliki sifat tertentu
+	    \item Relasi antar objek
+    \end{enumerate}	    
+\end{frame}
+
+\subsection{Definisi Simbol}
+\begin{frame}
+	\frametitle{Definisi Simbol}
+	Kalimat dalam kalkulus predikat dibuat dari simbol-simbol berikut.\\
+	\begin{enumerate}
+		\item Simbol Kebenaran : true dan false
+	 	\item Simbol Konstanta : $a, b, c, a_1, b_1, ...$
+	 	\item Simbol variabel : $x, y, z, x_1, x_2, ...$
+	 	\item Simbol fungsi : $f, g, h, g_1, f_1, h_1, ...$ \\
+	Setiap simbol fungsi mempunyai arity yang menyatakan banyaknya parameter/argumen yang harus dipenuhi.
+	 	\item Simbol Predikat (menyatakan relasi): $p, q, r, s, p_1, q_1,  ...$\\
+	Setiap simbol predikat juga memiliki arity
+    \end{enumerate}	 
+\end{frame}	
+
+\subsection{Definisi Term}
+\begin{frame}
+	\frametitle{Definisi Term}
+	Term adalah sebuah ekspresi yang menyatakan objek.\\
+	Term dibangun berdasarkan aturan-aturan sebagai berikut.\\
+	\begin{enumerate}
+		\item Semua konstanta adalah term
+		\item Semua variabel adalah term
+		\item Jika $t_1, t_2, ..., t_n$ adalah term ($n \geq 1$) dan f adalah fungsi dengan arity = n,
+	maka fungsi f($t_1,t_2, ..., t_n$) adalah term
+		\item Jika A adalah kalimat, sedang s dan t adalah term, maka kondisional if A
+	then s else t adalah term
+    \end{enumerate}
+\end{frame}	
+
+\begin{frame}
+	\frametitle{Definisi Term}
+    Contoh :\\
+    \begin{enumerate} 
+    	\item  f(a,x) adalah term, karena\\
+    a adalah simbol konstanta, dan semua konstanta adalah term,\\
+    x adalah simbol variabel, dan semua variabel adalah term,\\
+    f adalah simbol fungsi dan semua fungsi adalah term
+    	\item  g(x, f(a,x)) adalah term, karena\\
+    a adalah simbol konstanta, dan semua konstanta adalah term,\\
+    x adalah simbol variabel, dan semua variabel adalah term,\\
+    f dan g adalah simbol fungsi dan semua fungsi adalah term\\
+    \end{enumerate}
+\end{frame}	
+
+\subsection{Definisi Proposisi}
+\begin{frame}
+	\frametitle{Definisi Proposisi}
+   Proposisi digunakan untuk merepresentasikan relasi antar objek\\
+   Proposisi dibangun berdasarkan aturan sebagai berikut :\\
+   \begin{enumerate} 
+   	\item  Simbol kebenaran adalah proposisi
+    \item  Jika $t_1, t_2, ..., t_n$ adalah term dan p adalah simbol predikat dengan n-ary maka p ($t_1,t_2, ..., t_n$) adalah proposisi
+   \end{enumerate}
+   Contoh :\\
+   p (a, x, f (a,x)) adalah proposisi, karena\\
+   a adalah simbol konstanta dan\\
+   x adalah simbol variabel, dan\\
+   f adalah simbol fungsi, dan\\   
+   semua konstanta, variabel, dan fungsi adalah term dan\\
+   p adalah simbol predikat 3-ary
+\end{frame}		
+
+\subsection{Definisi Kalimat}
+\begin{frame}
+	\frametitle{Definisi Kalimat}
+      Kalimat dalam kalkulus predikat dibangun dengan aturan,\\
+		\begin{enumerate} 
+			\item  Setiap proposisi adalah kalimat,
+		    \item  Jika A, B, C adalah kalimat maka
+		          \begin{enumerate} 
+			         \item \textbf{Negasi} (not A) adalah kalimat
+					 \item \textbf{Konjungsi} A dengan B: (A and B) adalah kalimat
+			         \item \textbf{Disjungsi} A dengan B : (A or B) adalah kalimat
+			         \item \textbf{Implikasi} (If A then B) adalah kalimat
+			         \item \textbf{Ekivalensi} A dan B (A if and only if B) adalah kalimat
+			         \item \textbf{Kondisional} if A then B else C adalah kalimat.
+			     \end{enumerate}   
+		    \item  Jika A adalah kalimat dan x adalah variabel maka,
+		          \begin{enumerate} 
+		          	\item (\textbf{For all x}) A adalah kalimat
+		          	\item (\textbf{For some x}) A adalah kalimat
+		         \end{enumerate} 	
+	    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definisi Kalimat}
+	Contoh :\\
+	\begin{enumerate} 
+		\item  if (for all x) p(a, b, x) then g (y) else f(a, y) adalah term, karena
+			\begin{enumerate} 
+				\item  a dan b adalah simbol konstanta,
+				\item  x dan y adalah simbol variabel,
+				\item  f dan g adalah simbol fungsi, dan
+				\item  Semua konstanta, variabel dan fungsi adalah term.
+				\item  p adalah simbol predikat.
+				\item  (for all x) p(a, b, x) adalah kalimat, g (y) dan f(a, y) adalah term, maka kondisional if (for all x) p(a, b, x) then g (y) else f(a, y) adalah term
+		     \end{enumerate}
+		     
+		\item  if (all for x) p(a, b, x) then (for some y) q(y) else not p(a,b,c) adalah kalimat
+		 \begin{enumerate} 
+		 	\item  a dan b adalah simbol konstanta,
+		 	\item  x dan y adalah simbol variabel,
+		 	\item  Semua konstanta dan variabel adalah term,
+		 	\item  p dan q adalah simbol predikat,
+		 	\item  (for all x) p(a, b, x) dan (for some y) q(y) adalah kalimat, 
+		 	maka \\kondisional if (for all x) p(a, b, x) then (for some y) q(y) else \\not p(a, b, c) adalah kalimat 
+		 \end{enumerate}    
+    \end{enumerate}
+	
+\end{frame}	
+
+\subsection{Definisi Ekspresi}
+\begin{frame}
+	\frametitle{Definisi Ekspresi}
+     Suatu ekspresi dalam kalkulus predikat dapat berupa kalimat atau term.\\
+     Contoh :\\
+	  \begin{tabular}{ l l }	
+		x        &         merupakan ekspresi\\
+		f(x,y)   &         merupakan ekspresi\\
+		(for some x) p(x) & merupakan ekspresi
+	 \end{tabular}	
+\end{frame}
+
+\subsection{Definisi Subterm,Subkalimat,Subekspresi}
+\begin{frame}
+	\frametitle{Definisi Subterm,Subkalimat,Subekspresi}
+	 \begin{enumerate} 
+	 	\item  Subterm dari term t atau dari kalimat A adalah setiap term antara yang digunakan untuk membangun t atau A
+	 	\item  Subkalimat adalah setiap kalimat antara yang digunakan untuk membangun kalimat yang lebih luas
+	 	\item  Subekspresi adalah subterm atau subkalimat yang terdapat	pada sebuah ekspresi
+     \end{enumerate}
+     Contoh :\\
+     Sebutkan semua subterm dan subkalimat yang terdapat pada ekspresi berikut :\\
+     \begin{center}
+     	\textbf{E : if (for all x) q (x, f(a)) then f (a) else b}
+     \end{center}
+     Subterm : a, x, f(a), b, if (for all x) q (x, f(a)) then f (a) else b\\
+     Subkalimat : q(x, f(a), (for all x) q(x,f(a))\\
+     Semuanya merupakan SubEkspresi dari E\\
+\end{frame}	
+
+\subsection{Representasi Kalimat}
+\begin{frame}
+	\frametitle{Representasi Kalimat}
+      Contoh representasi bahasa alami dalam Kalkulus Predikat\\
+      \begin{enumerate} 
+      	\item  {\color{red} Ada} apel berwarna merah\\
+      ({\color{red} FOR SOME x}) (Apel(x) AND Merah(x))
+        \item  {\color{red} Semua} apel berwarna merah\\
+         ({\color{red}FOR ALL x}) ( IF Apel(x) THEN Merah(x))
+        \item {\color{red}Setiap} orang mencintai {\color{blue}seseorang}\\
+        ({\color{red}FOR ALL x}) ({\color{blue}FOR SOME y}) LOVES(x,y) 
+        \item Ani dicintai {\color{red}banyak} orang\\
+        ({\color{red}FOR ALL x}) LOVES(x, Ani)
+  \end{enumerate}  
+ \end{frame}
+        
+\begin{frame}
+	\frametitle{Representasi Kalimat}
+	 \begin{enumerate}       
+        \item {\color{red}Semua} Apel berwarna merah terasa manis\\
+        ({\color{red}FOR ALL x}) (IF apel(x) AND merah(x) THEN manis(x))\\
+        ({\color{red}FOR ALL x}) (IF apel(x) THEN (IF merah(x) THEN manis(x)))
+        \item {\color{red}Tidak semua} apel berwarna merah terasa manis\\
+        NOT {[} ({\color{red}FOR ALL x}) (IF apel(x) AND merah(x) THEN manis(x)){]} \\
+        {[}NOT ({\color{red}FOR ALL x}){]} {[}NOT (IF apel(x) AND merah(x) THEN manis(x)){]}\\
+        ({\color{red} FOR SOME x}) (apel(x) AND merah(x) AND NOT manis(x))
+    \end{enumerate}      
+\end{frame}
+
+\subsection{Latihan Soal}
+\begin{frame}
+    \frametitle{Latihan Soal}
+    \begin{enumerate}       
+    	\item {\color{red} Semua} Komunis itu tidak bertuhan
+    	\item Tidak {\color{red}ada} gading yang tidak retak
+    	\item {\color{red}Ada} gajah yang jantan dan {\color{red}ada} yang betina
+    	\item {\color{red}Tidak semua} pegawai negeri itu manusia korup
+    	\item {\color{red}Hanya polisilah} yang berwenang mengadakan penyidikan, kalau {\color{red}ada} orang yang melanggar hukum
+    	\item {\color{red}Semua} orang komunis itu bukan pancasilais.\\
+              {\color{red}Ada} orang komunis yang anggota tentara.\\
+              Jadi, {\color{red}ada} anggota tentara yang bukan pancasilais
+    	\item {\color{red}Barang siapa} meminjam barang orang lain dan tidak mengembalikannya adalah penipu. {\color{red}Ada} penipu yang begitu lihai, sehingga tidak ketahuan.
+        Kalau {\color{red}orang} menipu dan itu tidak ketahuan, ia tidak dapat dihukum.
+        Jadi {\color{red}ada} penipu yang tidak dapat dihukum. 
+   \end{enumerate}     	
+\end{frame}	
+
+\end{document}

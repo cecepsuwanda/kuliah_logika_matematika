@@ -1,0 +1,344 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large RENCANA PEMBELAJARAN SEMESTER (RPS)}\\
+\textbf{Berbasis Outcome-Based Education (OBE)}\\[0.5cm]
+\textbf{PROGRAM STUDI TEKNIK INFORMATIKA}\\
+\textbf{FAKULTAS TEKNOLOGI INFORMASI}\\
+\textbf{UNIVERSITAS BALE BANDUNG}\\
+\end{center}
+
+\vspace{1cm}
+
+% ============================================================
+% 1. IDENTITAS MATA KULIAH
+% ============================================================
+\section*{1. Identitas Mata Kuliah}
+\begin{tabular}{ll}
+Nama Program Studi & : Teknik Informatika \\
+Nama Mata Kuliah & : Logika Matematika \\
+Kode Mata Kuliah & : TIF-xxx \\
+Semester & : 2 (Dua) \\
+SKS / Bobot Kredit & : 2 SKS \\
+Jumlah Pertemuan & : 16 pertemuan \\
+Dosen Pengampu & : [Nama Dosen Pengampu] \\
+Tanggal Penyusunan & : [Tanggal Penyusunan] \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 2. CAPAIAN PEMBELAJARAN LULUSAN (CPL)
+% ============================================================
+\section*{2. Capaian Pembelajaran Lulusan (CPL)}
+
+CPL yang dibebankan pada mata kuliah ini mencakup kompetensi lulusan dalam aspek pengetahuan, keterampilan, dan sikap:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPL-1 (Pengetahuan):} Menguasai konsep teoretis logika matematika dan fondasi diskrit yang menjadi dasar ilmu komputer serta mampu memformulasikan argumen dan bukti secara formal.
+  
+  \item \textbf{CPL-2 (Keterampilan Umum):} Mampu menerapkan pemikiran logis, kritis, sistematis, dan analitis dalam konteks pemecahan masalah informatika serta pengembangan atau implementasi ilmu pengetahuan dan teknologi.
+  
+  \item \textbf{CPL-3 (Keterampilan Khusus):} Mampu menganalisis, memodelkan, dan memverifikasi pernyataan menggunakan logika proposisional, logika predikat, serta mampu menggunakan konsep logic programming untuk pemecahan masalah.
+  
+  \item \textbf{CPL-4 (Sikap):} Menunjukkan sikap bertanggung jawab atas pekerjaan di bidang keahliannya secara mandiri, teliti dalam penalaran, dan mampu bekerja sama dalam tim.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 3. CAPAIAN PEMBELAJARAN MATA KULIAH (CPMK)
+% ============================================================
+\section*{3. Capaian Pembelajaran Mata Kuliah (CPMK)}
+
+Kemampuan atau kompetensi spesifik yang diharapkan mahasiswa kuasai setelah menyelesaikan mata kuliah:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPMK-1:} Mahasiswa mampu memahami dan menjelaskan konsep proposisi, operator logika (negasi, konjungsi, disjungsi, implikasi, bikondisional), serta membangun dan menganalisis tabel kebenaran.
+  
+  \item \textbf{CPMK-2:} Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke bentuk logika formal dan menganalisis ekuivalensi logika serta tautologi, kontradiksi, dan kontingensi.
+  
+  \item \textbf{CPMK-3:} Mahasiswa mampu memahami logika predikat (kuantifier universal dan eksistensial), mengevaluasi kebenaran pernyataan berkuantifier, dan menerapkan aturan inferensi untuk membangun bukti formal.
+  
+  \item \textbf{CPMK-4:} Mahasiswa mampu menggunakan berbagai metode bukti (langsung, kontraposisi, kontradiksi, induksi matematika) dan mengenal dasar-dasar logic programming dengan Prolog.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 4. SUB-CPMK / INDIKATOR PENCAPAIAN
+% ============================================================
+\section*{4. Sub-CPMK / Indikator Pencapaian}
+
+Penjabaran CPMK menjadi indikator yang lebih terukur dan dapat diuji:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Sub-CPMK 1.1:} Menjelaskan definisi proposisi dan membedakan proposisi dari kalimat non-proposisi
+  \item \textbf{Sub-CPMK 1.2:} Menggunakan operator logika (not, and, or, implies, iff) untuk membentuk proposisi majemuk
+  \item \textbf{Sub-CPMK 1.3:} Membuat tabel kebenaran untuk proposisi majemuk dan menentukan nilai kebenarannya
+  \item \textbf{Sub-CPMK 2.1:} Menerjemahkan pernyataan bahasa Indonesia ke simbol logika proposisional
+  \item \textbf{Sub-CPMK 2.2:} Menentukan ekuivalensi logika menggunakan hukum-hukum aljabar proposisi
+  \item \textbf{Sub-CPMK 2.3:} Mengidentifikasi tautologi, kontradiksi, dan kontingensi
+  \item \textbf{Sub-CPMK 3.1:} Menulis dan mengevaluasi pernyataan berkuantifier universal ($\forall$) dan eksistensial ($\exists$)
+  \item \textbf{Sub-CPMK 3.2:} Menggunakan aturan inferensi (modus ponens, modus tollens, silogisme, dll.) untuk membangun argumen valid
+  \item \textbf{Sub-CPMK 4.1:} Membuktikan pernyataan menggunakan metode bukti langsung dan kontraposisi
+  \item \textbf{Sub-CPMK 4.2:} Membuktikan pernyataan menggunakan induksi matematika
+  \item \textbf{Sub-CPMK 4.3:} Menulis fakta dan aturan sederhana dalam Prolog serta menjalankan query dasar
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 5. MATERI PEMBELAJARAN (BAHAN KAJIAN)
+% ============================================================
+\section*{5. Materi Pembelajaran (Bahan Kajian)}
+
+Daftar topik materi yang relevan dengan Sub-CPMK dan CPMK:
+
+\begin{enumerate}[leftmargin=*]
+  \item Pendahuluan Logika Matematika dan Peranannya dalam Informatika
+  \item Proposisi dan Nilai Kebenaran
+  \item Operator Logika: Negasi, Konjungsi, Disjungsi, Implikasi, Bikondisional
+  \item Tabel Kebenaran dan Proposisi Majemuk
+  \item Ekuivalensi Logika dan Hukum-hukum Aljabar Proposisi
+  \item Tautologi, Kontradiksi, dan Kontingensi
+  \item Penerjemahan Bahasa Alami ke Logika Proposisional
+  \item Logika Predikat: Predikat dan Variabel
+  \item Kuantifier Universal dan Eksistensial
+  \item Negasi Pernyataan Berkuantifier
+  \item Aturan Inferensi dan Argumen Valid
+  \item Metode Bukti: Langsung, Kontraposisi, Kontradiksi
+  \item Induksi Matematika
+  \item Pengenalan Logic Programming dan Prolog
+  \item Fakta, Aturan, dan Query dalam Prolog
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 6. METODE PEMBELAJARAN
+% ============================================================
+\section*{6. Metode Pembelajaran}
+
+Strategi atau pendekatan pembelajaran yang dipilih sesuai OBE yang menekankan aktivitas mahasiswa:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Ceramah Interaktif:} Penjelasan konsep logika dengan diskusi tanya jawab dan contoh-contoh relevan untuk informatika
+  \item \textbf{Problem-Based Learning (PBL):} Mahasiswa menyelesaikan permasalahan logika (translasi, tabel kebenaran, bukti) secara mandiri atau berkelompok
+  \item \textbf{Latifan Terstruktur:} Pengerjaan soal-soal logika dan bukti di kelas dengan bimbingan dosen
+  \item \textbf{Demonstrasi:} Penggunaan tools online (ProofLab, TruthLab, Carnap) untuk latihan natural deduction dan tabel kebenaran
+  \item \textbf{Praktikum Prolog:} Pengenalan SWI-Prolog dan latihan penulisan fakta, aturan, serta query
+  \item \textbf{Flipped Classroom:} Mahasiswa mempelajari materi sebelum kelas melalui OER, diskusi mendalam di kelas
+  \item \textbf{Studi Kasus:} Analisis penerapan logika dalam sirkuit digital, verifikasi perangkat lunak, atau kecerdasan buatan
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 7. PENGALAMAN BELAJAR MAHASISWA
+% ============================================================
+\section*{7. Pengalaman Belajar Mahasiswa}
+
+Deskripsi tugas, aktivitas, atau pengalaman belajar yang mendukung pencapaian Sub-CPMK:
+
+\begin{itemize}[leftmargin=*]
+  \item Menerjemahkan pernyataan sehari-hari atau spesifikasi sederhana ke bentuk logika proposisional/predikat
+  \item Membuat tabel kebenaran untuk proposisi majemuk dan menganalisis hasilnya
+  \item Membuktikan ekuivalensi logika menggunakan hukum-hukum aljabar proposisi
+  \item Membangun bukti formal menggunakan aturan inferensi (modus ponens, modus tollens, silogisme, dll.)
+  \item Membuktikan pernyataan numerik atau kombinatorial menggunakan induksi matematika
+  \item Menggunakan tools online (proof checker, truth table generator) untuk memverifikasi jawaban
+  \item Menulis program Prolog sederhana untuk memodelkan relasi (misal: silsilah keluarga, aturan bisnis)
+  \item Berkolaborasi dalam tim kecil untuk menyelesaikan soal bukti yang lebih kompleks
+  \item Merefleksikan kaitan logika matematika dengan mata kuliah lain (struktur data, basis data, kecerdasan buatan)
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 8. KRITERIA, INDIKATOR, DAN BOBOT PENILAIAN
+% ============================================================
+\section*{8. Kriteria, Indikator, dan Bobot Penilaian}
+
+Teknik/alat asesmen dipetakan ke Sub-CPMK/CPMK dengan bobot yang jelas:
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5.5cm}|c|}
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+Tugas Individu & Latihan soal logika, translasi, tabel kebenaran & Sub-CPMK 1.1--2.3 & 15 \\
+\hline
+Kuis & Multiple Choice \& Essay & Sub-CPMK 1.1--3.1 & 10 \\
+\hline
+Tugas Bukti & Penulisan bukti formal (langsung, induksi) & Sub-CPMK 3.2, 4.1, 4.2 & 15 \\
+\hline
+Praktikum Prolog & Latihan SWI-Prolog & Sub-CPMK 4.3 & 10 \\
+\hline
+UTS & Written Exam (Pertemuan 15) & CPMK-1, CPMK-2 & 25 \\
+\hline
+UAS & Comprehensive Exam (Pertemuan 16) & CPMK-1, CPMK-2, CPMK-3, CPMK-4 & 25 \\
+\hline
+\textbf{Total} & & & \textbf{100} \\
+\hline
+\end{longtable}
+
+\textbf{Kriteria Penilaian:}
+\begin{itemize}[leftmargin=*]
+  \item A (85-100): Menguasai semua CPMK dengan sangat baik, mampu menerapkan dalam kasus kompleks
+  \item B (70-84): Menguasai sebagian besar CPMK dengan baik
+  \item C (60-69): Menguasai CPMK dasar dengan cukup
+  \item D (50-59): Menguasai sebagian kecil CPMK
+  \item E (<50): Belum menguasai CPMK yang ditetapkan
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 9. EVALUASI DAN REFLEKSI PEMBELAJARAN
+% ============================================================
+\section*{9. Evaluasi dan Refleksi Pembelajaran}
+
+Penilaian sumatif/formatif untuk memantau ketercapaian outcome secara menyeluruh:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Evaluasi Formatif:} Kuis mingguan, latihan soal di kelas, dan tugas individu untuk memberikan feedback berkelanjutan
+  \item \textbf{Evaluasi Sumatif:} UTS dan UAS untuk mengukur pencapaian CPMK secara komprehensif
+  \item \textbf{Refleksi Mahasiswa:} Jurnal belajar atau refleksi singkat untuk mendokumentasikan kesulitan dan pemahaman
+  \item \textbf{Evaluasi Dosen:} Survey kepuasan mahasiswa di tengah dan akhir semester
+  \item \textbf{Continuous Improvement:} Analisis hasil penilaian untuk perbaikan RPS di semester berikutnya
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 10. DAFTAR REFERENSI
+% ============================================================
+\section*{10. Daftar Referensi}
+
+Sumber belajar utama (sumber terbuka/OER) yang digunakan dalam penyusunan materi dan asesmen:
+
+\subsection*{A. Logika dan Bukti (OER)}
+\begin{enumerate}[leftmargin=*]
+  \item Open Logic Project. (2024). \textit{Open Logic Project}. CC-BY-4.0. \url{https://openlogicproject.org/}
+  \item Alama, J., \& others. (2024). \textit{Sets, Logic, Computation: An Open Introduction to Metalogic}. Open Logic Project. \url{https://slc.openlogicproject.org/}
+  \item Magnus, P.D., Button, T., Trueman, R., \& Zach, R. (2023). \textit{forall x: Calgary}. An Introduction to Formal Logic. \url{https://forallx.openlogicproject.org/}
+  \item Carnegie Mellon University. (2024). \textit{Logic \& Proofs}. Open Learning Initiative. \url{https://oli.cmu.edu/courses/logic-proofs-copy/}
+  \item Open Logic Project. (2024). \textit{Natural Deduction Proof Editor and Checker}. \url{https://proofs.openlogicproject.org/}
+  \item Levin, O. (2024). \textit{Discrete Mathematics: An Open Introduction} (4th ed.). \url{https://discrete.openmathbooks.org/}
+  \item MIT OpenCourseWare. (2010). \textit{6.042J Mathematics for Computer Science}. \url{https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/}
+  \item Saylor Academy. (2024). \textit{CS202: Discrete Structures}. Unit 3: Mathematical Logic. \url{https://learn.saylor.org/course/view.php?id=67}
+  \item Stanford University. (2024). \textit{CS103: Mathematical Foundations of Computing}. \url{https://web.stanford.edu/class/cs103/}
+  \item Cornell University. (2011). \textit{CS3110 Lecture 13: Propositional Logic and Natural Deduction}. \url{https://www.cs.cornell.edu/courses/cs3110/2011sp/Lectures/lec13-logic/logic.htm}
+  \item Carnegie Mellon University. \textit{15-414: Natural Deduction}. \url{https://www.cs.cmu.edu/~fp/courses/atp/handouts/ch2-natded.pdf}
+  \item Internet Encyclopedia of Philosophy. (2024). \textit{Natural Deduction}. \url{https://iep.utm.edu/natural-deduction/}
+  \item Gentzen, G. (1934). Investigations into Logical Deduction. \textit{Mathematische Zeitschrift}, 39(1), 176--210.
+  \item Discrete Math for CS. (2024). \textit{Induction}. \url{https://discrete-math-for-cs.github.io/website/induction.html}
+  \item University of Ottawa. \textit{Induction and Recursion}. Lecture notes. \url{https://site.uottawa.ca/~lucia/courses/2101-10/lecturenotes/06Induction.pdf}
+\end{enumerate}
+
+\subsection*{B. Prolog dan Logic Programming}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{15}
+  \item Blackburn, P., Bos, J., \& Striegnitz, K. (2024). \textit{Learn Prolog Now!} \url{http://lpn.swi-prolog.org/}
+  \item Wielemaker, J., \& others. (2024). \textit{SWI-Prolog}. \url{https://swi-prolog.org/}
+  \item SWI-Prolog. (2024). \textit{SWI-Prolog Manual}. \url{https://www.swi-prolog.org/pldoc/man}
+  \item Prolog. (2024). \textit{Prolog Documentation}. Read the Docs. \url{https://prolog.readthedocs.io/}
+  \item Spivey, J.M. (1996). \textit{An Introduction to Logic Programming Through Prolog}. \url{https://spivey.oriel.ox.ac.uk/corner/An_introduction_to_logic_programming_through_Prolog}
+  \item UCSD. \textit{Prolog Tutorial}. CSE 130. \url{https://cseweb.ucsd.edu/classes/wi09/cse130/misc/prolog/prolog_tutorial.pdf}
+  \item Rose-Hulman Institute of Technology. \textit{Introduction to Prolog}. \url{https://www.rose-hulman.edu/class/cs/csse513/papers/PrologIntro.pdf}
+  \item Lu, J., \& Mead, J. \textit{Prolog Tutorial}. Bucknell University.
+\end{enumerate}
+
+\subsection*{C. Buku Ajar dan Teori}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{23}
+  \item Rosen, K.H. (2019). \textit{Discrete Mathematics and Its Applications} (8th ed.). McGraw-Hill. Ch. 1: The Foundations: Logic and Proofs.
+  \item Copi, I.M., Cohen, C., \& McMahon, K. (2014). \textit{Introduction to Logic} (14th ed.). Routledge.
+  \item Hopcroft, J.E., Motwani, R., \& Ullman, J.D. (2001). \textit{Introduction to Automata Theory, Languages, and Computation} (2nd ed.). Addison-Wesley.
+  \item Buss, S. \textit{Introduction to Proof Theory}. UCSD. \url{https://mathweb.ucsd.edu/~sbuss/IntroMathLogic/}
+  \item Levin, M. (1974). \textit{Mathematical Logic for Computer Scientists}. MIT Project MAC.
+  \item Dwijono, D. \textit{Logika Matematika untuk Ilmu Komputer}.
+  \item Soesianto, \& Dwijono. \textit{Seri Logika Matematika: Logika Proposisional}.
+  \item Ramdhania, K.F. (2023). \textit{Logika Matematika}. Media Sains Indonesia. Repository Ubhara Jaya.
+\end{enumerate}
+
+\subsection*{D. Boolean Algebra dan Digital Logic}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{31}
+  \item University of Washington CSE. (2022). \textit{Boolean Logic and Functions}. \url{https://courses.cs.washington.edu/courses/cse390b/22wi/readings/boolean_logic.html}
+  \item University of Virginia. (2023). \textit{Boolean Algebra and Gates}. \url{https://www.cs.virginia.edu/~jh2jf/courses/cs2130/spring2023/readings/bool.html}
+  \item Grinnell College. (2015). \textit{Digital Logic Gates}. \url{https://weinman.cs.grinnell.edu/courses/CSC105/2015S/readings/logic-gates.html}
+  \item Wikipedia. (2024). \textit{SAT solver}. \url{https://en.wikipedia.org/wiki/SAT_solver}
+  \item Carnegie Mellon University. \textit{15-414 SAT Solving}. \url{https://www.cs.cmu.edu/~15414/s21/lectures/12-sat-solving.pdf}
+  \item Cook, S.A., \& Levin, L. (1971). The complexity of theorem-proving procedures. \textit{STOC 1971}. (Cook-Levin Theorem, NP-completeness of SAT)
+\end{enumerate}
+
+\subsection*{E. Sumber Indonesia dan Institusi}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{37}
+  \item OER UNEJ. (2024). \textit{Open Logic Project}. \url{https://oer.unej.ac.id/}
+  \item UPGRIS. \textit{Logika Informatika}. SIP UPGRIS. \url{https://sip.upgris.ac.id/materials/}
+  \item Telkom University. \textit{Logika Matematika}. Online Learning.
+  \item Repository Ubhara Jaya. \textit{Logika Matematika}. \url{https://repository.ubharajaya.ac.id/}
+  \item Perpustakaan UNDHA. \textit{Koleksi Logika Matematika}. \url{https://lib2.undha.ac.id/}
+\end{enumerate}
+
+\subsection*{F. Open Textbook Library dan BCCampus}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{42}
+  \item Open Textbook Library. \textit{Discrete Mathematics: An Open Introduction} (Oscar Levin). \url{https://open.umn.edu/opentextbooks/textbooks/394}
+  \item BCCampus. \textit{Sets, Logic, Computation}. \url{https://collection.bccampus.ca/textbooks/sets-logic-computation-an-open-introduction-to-metalogic-321/}
+  \item Open Textbook Library. \textit{forall x: Calgary}. \url{https://open.umn.edu/opentextbooks/textbooks/1139}
+\end{enumerate}
+
+\subsection*{G. Wikipedia dan Ensiklopedia}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{45}
+  \item Wikipedia. (2024). \textit{Natural deduction}. \url{https://en.wikipedia.org/wiki/Natural_deduction}
+  \item Wikipedia. (2024). \textit{Propositional logic}. \url{https://en.wikipedia.org/wiki/Propositional_calculus}
+  \item Wikipedia. (2024). \textit{First-order logic}. \url{https://en.wikipedia.org/wiki/First-order_logic}
+  \item Wikipedia. (2024). \textit{Boolean algebra}. \url{https://en.wikipedia.org/wiki/Boolean_algebra}
+  \item Wikipedia. (2024). \textit{Prolog}. \url{https://en.wikipedia.org/wiki/Prolog}
+\end{enumerate}
+
+\subsection*{H. Tambahan}
+\begin{enumerate}[leftmargin=*]
+  \setcounter{enumi}{50}
+  \item Carnap. \textit{Carnap: An Open-Source Framework for Formal Logic}. Proof practice system. \url{https://carnap.io/}
+  \item University of Washington. \textit{SAT Solver}. \url{https://homes.cs.washington.edu/~kevinz/sat-solver}
+  \item Hackatronic. \textit{Logic Gates, Truth Tables, Boolean Algebra}. \url{https://hackatronic.com/types-of-logic-gates-with-symbol-truth-table-and-ic-numbers/}
+  \item Open Logic Project. \textit{Natural Deduction}. \url{https://builds.openlogicproject.org/content/first-order-logic/proof-systems/natural-deduction.pdf}
+  \item University of Western Ontario. \textit{Induction and Recursion}. \url{https://www.csd.uwo.ca/~abrandt5/teaching/DiscreteStructures/Chapter5/}
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+Disusun oleh,\\[2cm]
+\textbf{[Nama Dosen Pengampu]}\\
+NIP. [NIP Dosen]
+\end{tabular}
+\end{flushright}
+
+\end{document}

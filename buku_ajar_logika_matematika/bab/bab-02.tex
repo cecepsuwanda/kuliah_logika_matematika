@@ -1,0 +1,137 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{1}}{}
+\begin{document}
+
+\chapter{Landasan Teori dan Konsep Dasar Logika Matematika}
+
+Setelah mempelajari bab ini, mahasiswa diharapkan dapat menjelaskan konsep dan definisi kunci logika matematika, mengidentifikasi peran logika dalam informatika, serta memahami peta konsep materi yang akan dipelajari dalam buku ini.
+
+\begin{subcpmk}
+  \item Menjelaskan konsep dan definisi kunci logika matematika (proposisi, premis, kesimpulan, argumen valid, aturan inferensi) serta sejarah singkat perkembangannya.
+  \item Mengidentifikasi peran logika dalam informatika (pemrograman, basis data, AI, verifikasi) dan peta konsep hierarki materi logika dalam buku ajar.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-02/section-2-1}
+\input{bab-02/section-2-2}
+\input{bab-02/section-2-3}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Diskusi Kelompok}: Identifikasi tiga contoh argumen dari kehidupan sehari-hari (misalnya iklan, berita, atau percakapan). Tentukan mana premis dan mana kesimpulan; diskusikan apakah argumen tersebut valid atau tidak berdasarkan definisi di Tabel~\ref{tab:konsep-logika}.
+  \item \textbf{Identifikasi Penerapan}: Pilih satu bidang dari Tabel~\ref{tab:aplikasi-logika} (pemrograman, basis data, AI, verifikasi, atau perangkat keras digital) dan cari satu contoh konkret di mana logika Boolean atau logika predikat digunakan. Jelaskan secara singkat dalam bentuk tulisan atau presentasi.
+  \item \textbf{Eksplorasi Kode}: Jalankan contoh kode Python generator tabel kebenaran di bab ini. Modifikasi untuk menampilkan tabel kebenaran operator OR dan NOT.
+  \item \textbf{Pemetaan Materi}: Gambar ulang peta konsep (Gambar~\ref{fig:peta-konsep}) dengan menambahkan satu contoh penerapan nyata untuk setiap bab (misalnya: Bab III $\to$ struktur \texttt{if}, Bab V $\to$ query SQL, Bab VIII $\to$ Prolog).
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan perbedaan antara premis dan kesimpulan dalam suatu argumen. Berikan satu contoh argumen valid (modus ponens) dan satu contoh argumen invalid (penegasan konsekuen) seperti dicontohkan di bab ini.
+  \item Berdasarkan timeline perkembangan logika (Tabel~\ref{tab:timeline-logika}), jelaskan kontribusi George Boole dan Gottlob Frege terhadap logika modern dan dampaknya bagi informatika.
+  \item Berikan dua contoh penerapan logika dalam pemrograman (misalnya operator Boolean dalam Python) dan dua contoh dalam basis data (misalnya klausa \texttt{WHERE} dengan \texttt{AND}/\texttt{OR}).
+  \item Analisis Studi Kasus Sistem Login: mengapa kondisi login menggunakan operator konjungsi ($\wedge$) bukan disjungsi ($\vee$)? Apa dampaknya jika menggunakan $\vee$?
+  \item Jelaskan bagaimana gerbang logika AND, OR, NOT (Gambar~\ref{fig:logic-gates}) merealisasikan operasi logika secara fisika dalam perangkat keras digital.
+  \item \textbf{Refleksi}: Dari lima bidang penerapan logika di Tabel~\ref{tab:aplikasi-logika}, bidang mana yang paling menarik minat Anda? Mengapa?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK Bab 2}
+
+\textbf{A. Pilihan Ganda}
+
+\begin{enumerate}
+  \item Pernyataan yang bernilai benar atau salah, tetapi tidak keduanya, dalam logika matematika disebut:
+  \begin{enumerate}
+    \item Premis
+    \item Proposisi
+    \item Kesimpulan
+    \item Aturan inferensi
+  \end{enumerate}
+
+  \item Dalam konteks logika, argumen dikatakan valid jika:
+  \begin{enumerate}
+    \item Premis-premisnya benar
+    \item Kesimpulannya mengikuti secara logis dari premis
+    \item Jumlah premis lebih dari satu
+    \item Kesimpulannya populer di masyarakat
+  \end{enumerate}
+
+  \item Tokoh yang memperkenalkan logika predikat dengan kuantifier adalah:
+  \begin{enumerate}
+    \item Aristoteles
+    \item George Boole
+    \item Gottlob Frege
+    \item Wittgenstein
+  \end{enumerate}
+
+  \item Dalam Python, ekspresi \texttt{x < 10 and y > 5} menggunakan konsep logika:
+  \begin{enumerate}
+    \item Disjungsi
+    \item Konjungsi
+    \item Implikasi
+    \item Negasi
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Essay}
+
+\begin{enumerate}
+  \item Jelaskan peran logika matematika dalam tiga bidang informatika yang berbeda, berikan contoh konkret masing-masing.
+  \item Uraikan lintasan belajar dari proposisi (Bab III) hingga Prolog (Bab VIII) dan jelaskan mengapa urutan tersebut penting bagi pemahaman mahasiswa.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran buku ajar.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya dapat menjelaskan perbedaan antara premis dan kesimpulan dalam suatu argumen
+  \item Saya dapat menyebutkan dan menjelaskan konsep kunci: proposisi, argumen valid, dan aturan inferensi
+  \item Saya dapat menjelaskan perkembangan sejarah logika dari Aristoteles hingga logika modern
+  \item Saya dapat mengidentifikasi peran logika dalam pemrograman (operator Boolean, struktur kontrol)
+  \item Saya dapat mengidentifikasi peran logika dalam basis data (query SQL, predikat)
+  \item Saya dapat mengidentifikasi peran logika dalam AI (sistem pakar, inferensi) dan perangkat keras (gerbang logika)
+  \item Saya memahami peta konsep materi logika dalam buku ini (dari proposisional hingga Prolog)
+  \item Saya dapat memberikan contoh argumen valid dan invalid dalam kehidupan sehari-hari
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini menyajikan fondasi teoretis logika matematika, peranannya dalam informatika, dan peta konsep materi yang akan dipelajari.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Logika matematika mempelajari penalaran formal, argumen valid, serta aturan inferensi; konsep kunci meliputi proposisi, premis, kesimpulan, dan argumen valid (Tabel~\ref{tab:konsep-logika}).
+  \item Perkembangan logika dari Aristoteles (silogistik), kaum Stoik (proposisional), Boole (aljabar Boolean), Frege (kuantifier), hingga Wittgenstein (tabel kebenaran) membentuk fondasi logika simbolik dan komputasi (Tabel~\ref{tab:timeline-logika}).
+  \item Logika diterapkan dalam lima bidang informatika: pemrograman (Boolean, struktur kontrol), basis data (SQL, predikat), AI (inferensi, sistem pakar), verifikasi perangkat lunak, dan perangkat keras digital (gerbang logika).
+  \item Studi kasus: sistem login ($p_\text{user} \wedge p_\text{pass}$), query basis data (predikat konjungsi), dan sistem pakar (modus ponens).
+  \item Peta konsep buku berurutan: logika proposisional $\to$ ekuivalensi dan tautologi $\to$ logika predikat $\to$ inferensi dan bukti $\to$ induksi matematika $\to$ logic programming (Prolog).
+\end{itemize}
+
+\textbf{Kata Kunci}: \logic{Logika matematika}, Proposisi, Premis, Kesimpulan, Argumen valid, Aturan inferensi, Gerbang logika, Aljabar Boolean, Peta konsep
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

@@ -1,0 +1,87 @@
+\section{Pengenalan Prolog}
+
+Prolog adalah bahasa pemrograman berbasis \logic{logic programming} yang memungkinkan pengguna mendeskripsikan pengetahuan dalam bentuk fakta dan aturan, lalu mengeksekusi program melalui query \cite{learn_prolog,swi_prolog,wiki_prolog}. Program Prolog terdiri dari tiga komponen utama: \emph{fakta} (predikat yang selalu benar), \emph{aturan} (implikasi logis antara predikat), dan \emph{query} (pertanyaan yang diajukan kepada basis pengetahuan). Berbeda dengan bahasa imperatif seperti C atau Java, Prolog tidak menuliskan urutan instruksi melainkan mendefinisikan relasi dan membiarkan mesin inferensi mencari jawaban \cite{spivey_prolog,prolog_docs}.
+
+Tabel~\ref{tab:paradigma-prolog} membandingkan paradigma imperatif dengan logic programming \cite{learn_prolog,spivey_prolog}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|l|>{\raggedright\arraybackslash}p{5cm}|>{\raggedright\arraybackslash}p{5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Imperatif (C, Java)} & \textbf{Logic programming (Prolog)} \\
+\hline
+Fokus & \emph{Bagaimana} menghitung (urutan langkah) & \emph{Apa} yang benar (fakta dan aturan) \\
+\hline
+Eksekusi & Urutan instruksi tetap & Pencarian bukti (proof search) \\
+\hline
+Variabel & Diisi oleh assignment & Diisi oleh unifikasi \\
+\hline
+Contoh & \texttt{x = 1; y = x+1;} & \texttt{orangtua(ahmad, ali).} \\
+\hline
+\end{tabular}
+\caption{Perbandingan paradigma imperatif dan logic programming \cite{learn_prolog}}
+\label{tab:paradigma-prolog}
+\end{table}
+
+Prolog berasal dari proyek penelitian tahun 1972 di Universitas Marseille oleh Alain Colmerauer dan Philippe Roussel, dengan kontribusi teoritis dari Robert Kowalski mengenai logika pemrograman \cite{wiki_prolog,spivey_prolog}. Paradigma \logic{logic programming} berangkat dari gagasan bahwa program dapat dipandang sebagai teori dalam logika, dan komputasi sebagai proses pembuktian (proof search) \cite{rosen2019,learn_prolog}. Programmer mendeskripsikan \emph{apa yang benar} tentang domain masalah, bukan \emph{bagaimana} menghitung hasil; mesin Prolog kemudian menggunakan mekanisme unifikasi dan resolution untuk membuktikan apakah query dapat dipenuhi \cite{spivey_prolog,lu_mead_prolog}.
+
+Keterkaitan Prolog dengan logika predikat sangat erat \cite{learn_prolog,olp_fol,hopcroft2001}.
+\par\noindent
+Fakta seperti \texttt{orangtua(ahmad, ali)} bersesuaian dengan atom predikat dalam logika orde pertama; aturan \texttt{kakek(X,Z) :- ayah(X,Y), orangtua(Y,Z).} bersesuaian dengan klausa Horn---implikasi dengan satu literal positif di kepala dan konjungsi literal di tubuh. Prolog mengimplementasikan subset logika predikat (definite clause logic) sehingga program dapat ditafsirkan secara logis dan dimanipulasi dengan teori pembuktian \cite{olp_fol,berkeley_fol}. Gambar~\ref{fig:family-tree-bab08} mengilustrasikan contoh struktur silsilah yang dapat direpresentasikan dengan fakta dan aturan Prolog.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm,
+  every node/.style={font=\small},
+  gen/.style={rectangle, draw=black, fill=blue!10, minimum width=1.4cm},
+  person/.style={rectangle, rounded corners, draw=black, fill=green!8, minimum width=1.2cm}
+]
+  \node[gen] (k1) {Kakek};
+  \node[gen, right=2.2cm of k1] (n1) {Nenek};
+  \node[person, below=of k1, xshift=1.1cm] (a) {Ahmad};
+  \node[person, below=of n1, xshift=-1.1cm] (b) {Ibu};
+  \node[person, below=1.2cm of a, xshift=-0.6cm] (c1) {Ali};
+  \node[person, below=1.2cm of a, xshift=0.6cm] (c2) {Sari};
+  \draw[thick, -] (k1) -- (a);
+  \draw[thick, -] (n1) -- (a);
+  \draw[thick, -] (k1) -- (b);
+  \draw[thick, -] (n1) -- (b);
+  \draw[thick, -] (a) -- (c1);
+  \draw[thick, -] (a) -- (c2);
+  \draw[thick, -] (b) -- (c1);
+  \draw[thick, -] (b) -- (c2);
+\end{tikzpicture}
+\caption{Contoh pohon silsilah: relasi orangtua dapat dinyatakan dengan fakta \texttt{orangtua/2}; kakek/nenek dengan aturan \cite{learn_prolog}}
+\label{fig:family-tree-bab08}
+\end{figure}
+
+Prolog telah diterapkan dalam berbagai domain \cite{spivey_prolog,berkeley_fol,mit_6042}. Basis data deduktif menggunakan Prolog untuk query dan reasoning atas relasi. Dalam kecerdasan buatan, Prolog dipakai untuk representasi pengetahuan, expert system, dan natural language processing. Verifikasi perangkat lunak dan analisis formal juga memanfaatkan logika Prolog. Pemahaman Prolog memberikan fondasi untuk mempelajari constraint logic programming, answer set programming, dan paradigma deklaratif lainnya \cite{learn_prolog,wiki_prolog}.
+
+Untuk praktik, mahasiswa dapat menggunakan SWI-Prolog (\url{https://swi-prolog.org/}) yang bersifat open source dan multiplatform \cite{swi_prolog}. Learn Prolog Now (\cite{learn_prolog}) menyediakan tutorial interaktif dengan SWISH (SWI-Prolog for Sharing) yang dapat dijalankan di peramban web. Simply Logical (\cite{simply_logical}) menawarkan materi OER interaktif dengan fokus pada reasoning dan AI, cocok untuk pendalaman lebih lanjut.
+
+\begin{contoh}
+Fakta:
+\begin{lstlisting}[style=prologstyle]
+suka(ali, matematika).
+suka(budi, informatika).
+\end{lstlisting}
+
+Query: \texttt{?- suka(ali, matematika).} $\rightarrow$ true.
+\end{contoh}
+
+\begin{contoh}
+Contoh program kecil: beberapa fakta dan satu aturan. Query \texttt{?- teman(ali, X).} akan mengembalikan nilai \texttt{X} yang membuat predikat \texttt{teman(ali, X)} benar.
+\begin{lstlisting}[style=prologstyle, caption={Fakta dan aturan sederhana}]
+suka(ali, matematika).
+suka(budi, matematika).
+suka(sari, informatika).
+teman(X, Y) :- suka(X, Z), suka(Y, Z), X %*\=*) Y.
+\end{lstlisting}
+Aturan \texttt{teman(X,Y)} dibaca: X dan Y teman jika keduanya suka mata kuliah Z yang sama, dan X tidak sama dengan Y. Dengan mengetik \texttt{?- teman(ali, budi).} jawabannya \texttt{true}; \texttt{?- teman(ali, X).} menghasilkan \texttt{X = budi} \cite{learn_prolog}.
+\end{contoh}
+
+\begin{konsep}
+Prolog adalah bahasa logic programming deklaratif. Program terdiri dari fakta dan aturan; eksekusi dilakukan melalui query. Prolog berkorespondensi dengan klausa Horn dalam logika predikat. Mesin Prolog menggunakan unifikasi dan resolution untuk menjawab query.
+\end{konsep}

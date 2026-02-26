@@ -1,0 +1,42 @@
+\section{Object Creation dan Instantiation}
+
+\subsection{Membuat Object}
+
+Proses membuat object disebut \oop{instantiation}. Dalam Java, gunakan keyword \keyword{new}:
+
+\begin{javacode}[caption={Membuat dan Menggunakan Object}]
+public class Main {
+    public static void main(String[] args) {
+        // Membuat object dengan default constructor
+        Mahasiswa mhs1 = new Mahasiswa();
+        
+        // Membuat object dengan parameterized constructor
+        Mahasiswa mhs2 = new Mahasiswa("123456", "Budi Santoso");
+        
+        // Mengakses attributes (jika public)
+        mhs2.ipk = 3.75;
+        
+        // Memanggil methods
+        mhs2.tampilkanInfo();
+        System.out.println("Predikat: " + mhs2.getPredikat());
+        
+        // Cek kelulusan
+        if (mhs2.lulus()) {
+            System.out.println(mhs2.nama + " dinyatakan LULUS");
+        }
+    }
+}
+\end{javacode}
+
+\subsection{Memory Allocation}
+
+Ketika object dibuat:
+\begin{enumerate}
+  \item Memory dialokasikan di \textbf{heap}
+  \item Reference variable disimpan di \textbf{stack}
+  \item Constructor dipanggil untuk inisialisasi
+\end{enumerate}
+
+\begin{catatan}
+Jika tidak ada constructor yang didefinisikan, Java otomatis menyediakan \textbf{default constructor} tanpa parameter yang menginisialisasi attributes dengan nilai default (0, null, false).
+\end{catatan}

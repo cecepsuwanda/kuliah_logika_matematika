@@ -1,0 +1,124 @@
+\section{Contoh Lengkap: Class Buku}
+
+\begin{javacode}[caption={Class Buku - Contoh Lengkap}]
+public class Buku {
+    // Attributes
+    private String isbn;
+    private String judul;
+    private String penulis;
+    private int tahunTerbit;
+    private double harga;
+    private boolean tersedia;
+    
+    // Static variable
+    private static int jumlahBuku = 0;
+    
+    // Constructor
+    public Buku(String isbn, String judul, String penulis, 
+                int tahunTerbit, double harga) {
+        this.isbn = isbn;
+        this.judul = judul;
+        this.penulis = penulis;
+        this.tahunTerbit = tahunTerbit;
+        this.harga = harga;
+        this.tersedia = true;
+        jumlahBuku++;
+    }
+    
+    // Getter methods
+    public String getISBN() {
+        return isbn;
+    }
+    
+    public String getJudul() {
+        return judul;
+    }
+    
+    public String getPenulis() {
+        return penulis;
+    }
+    
+    public int getTahunTerbit() {
+        return tahunTerbit;
+    }
+    
+    public double getHarga() {
+        return harga;
+    }
+    
+    public boolean isTersedia() {
+        return tersedia;
+    }
+    
+    // Setter methods
+    public void setHarga(double harga) {
+        if (harga > 0) {
+            this.harga = harga;
+        }
+    }
+    
+    public void setTersedia(boolean tersedia) {
+        this.tersedia = tersedia;
+    }
+    
+    // Utility methods
+    public void pinjam() {
+        if (tersedia) {
+            tersedia = false;
+            System.out.println("Buku '" + judul + "' berhasil dipinjam");
+        } else {
+            System.out.println("Buku tidak tersedia");
+        }
+    }
+    
+    public void kembalikan() {
+        tersedia = true;
+        System.out.println("Buku '" + judul + "' berhasil dikembalikan");
+    }
+    
+    public void tampilkanInfo() {
+        System.out.println("=== Informasi Buku ===");
+        System.out.println("ISBN: " + isbn);
+        System.out.println("Judul: " + judul);
+        System.out.println("Penulis: " + penulis);
+        System.out.println("Tahun: " + tahunTerbit);
+        System.out.println("Harga: Rp " + harga);
+        System.out.println("Status: " + (tersedia ? "Tersedia" : "Dipinjam"));
+    }
+    
+    // Static method
+    public static int getJumlahBuku() {
+        return jumlahBuku;
+    }
+}
+\end{javacode}
+
+\begin{javacode}[caption={Penggunaan Class Buku}]
+public class TestBuku {
+    public static void main(String[] args) {
+        // Membuat object buku
+        Buku buku1 = new Buku("978-0134685991", "Effective Java", 
+                              "Joshua Bloch", 2018, 450000);
+        
+        Buku buku2 = new Buku("978-0596009205", "Head First Java", 
+                              "Kathy Sierra", 2005, 350000);
+        
+        // Menampilkan informasi
+        buku1.tampilkanInfo();
+        System.out.println();
+        
+        // Meminjam buku
+        buku1.pinjam();
+        buku1.pinjam();  // Coba pinjam lagi
+        
+        // Mengembalikan buku
+        buku1.kembalikan();
+        
+        // Mengubah harga
+        buku2.setHarga(300000);
+        
+        // Menampilkan jumlah buku
+        System.out.println("\nTotal buku: " + Buku.getJumlahBuku());
+    }
+}
+\end{javacode}

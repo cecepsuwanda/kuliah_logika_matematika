@@ -1,0 +1,63 @@
+\section{Variasi Induksi}
+
+Sering kali pernyataan yang akan dibuktikan membutuhkan modifikasi dari bentuk induksi standar \cite{levin_discrete,uwo_induction}. Dalam induksi biasa, langkah induktif hanya memanfaatkan asumsi $P(k)$ untuk membuktikan $P(k+1)$, tetapi ada kasus di mana kita membutuhkan informasi tentang beberapa nilai sebelumnya sekaligus. Selain itu, nilai basis $n_0$ tidak selalu harus 1; tergantung pada domain pernyataan, kita mungkin memulai dari 0, 2, atau bilangan lain \cite{wiki_induction,rosen2019}. Variasi induksi dirancang untuk menangani situasi semacam itu secara valid. Tabel~\ref{tab:induksi-biasa-kuat} membandingkan induksi biasa dan induksi kuat \cite{rosen2019,libretexts_induction}.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{4.2cm}|}
+\hline
+\textbf{Aspek} & \textbf{Induksi biasa} & \textbf{Induksi kuat} \\
+\hline
+Hipotesis & Hanya asumsikan $P(k)$ benar & Asumsikan $P(1), P(2), \ldots, P(k)$ semuanya benar \\
+\hline
+Kapan dipakai & $P(k+1)$ dapat diturunkan hanya dari $P(k)$ & $P(k+1)$ bergantung pada beberapa $P(j)$ dengan $j \leq k$ \\
+\hline
+Contoh & $1+2+\cdots+n = n(n+1)/2$ & Faktorisasi prima, barisan Fibonacci, struktur rekursif \\
+\hline
+\end{tabular}
+\caption{Perbandingan induksi biasa dan induksi kuat}
+\label{tab:induksi-biasa-kuat}
+\end{table}
+
+Induksi kuat (strong induction), kadang disebut induksi lengkap atau complete induction, memperkuat hipotesis yang dapat digunakan dalam langkah induktif \cite{rosen2019,libretexts_induction,brilliant_induction}. Dalam induksi kuat, kita mengasumsikan bahwa $P(1), P(2), \ldots, P(k)$ semuanya benar, lalu membuktikan $P(k+1)$. Berbeda dengan induksi biasa yang hanya mengasumsikan $P(k)$, induksi kuat memberikan lebih banyak informasi untuk dibangun di langkah induktif. Secara logis, induksi kuat ekuivalen dengan induksi biasa: kedua bentuk sama-sama valid dan dapat diturunkan satu dari yang lain berdasarkan sifat bilangan asli \cite{levin_discrete,discrete_induction}.
+
+Induksi kuat sangat berguna ketika langkah $P(k+1)$ bergantung pada lebih dari sekadar $P(k)$ \cite{mit_6042,discrete_induction}. Contoh klasik adalah pembuktian teorema faktorisasi prima: setiap bilangan bulat $n \geq 2$ dapat dinyatakan sebagai hasil kali bilangan prima. Untuk membuktikan $P(k+1)$, kita perlu mempertimbangkan apakah $k+1$ prima atau komposit; jika komposit, maka $k+1 = ab$ dengan $2 \leq a, b \leq k$, sehingga $P(a)$ dan $P(b)$ (bukan hanya $P(k)$) yang diperlukan. Relasi rekursif seperti barisan Fibonacci atau analisis struktur dengan ketergantungan pada beberapa langkah sebelumnya juga sering dibuktikan dengan induksi kuat \cite{libretexts_induction,uwo_induction}.
+
+Basis $n_0 = 0$ sering digunakan ketika pernyataan melibatkan bilangan cacah (nonnegative integers) atau definisi rekursif yang dimulai dari 0 \cite{wiki_induction,uottawa_induction}. Misalnya, dalam ilmu komputer, indeks larik atau jumlah iterasi sering dimulai dari 0. Pembuktian tentang jumlah langkah algoritma atau kompleksitas untuk input berukuran $n$ (dengan $n = 0$ berarti kasus kosong) mungkin memerlukan basis $n_0 = 0$. Proses induksi tetap sama: verifikasi $P(0)$ dan buktikan $P(k) \Rightarrow P(k+1)$ untuk $k \geq 0$ \cite{levin_discrete,mit_6042}.
+
+Basis $n_0 > 1$ diperlukan ketika pernyataan hanya bermakna atau hanya benar untuk $n$ di atas nilai tertentu \cite{brilliant_induction,rosen2019}. Contohnya, ketaksamaan $n^2 > 2n + 1$ tidak berlaku untuk $n = 1$ atau $n = 2$, tetapi berlaku untuk $n \geq 4$. Dalam kasus demikian, basis harus diverifikasi untuk $n_0 = 4$, dan langkah induktif dibuktikan untuk $k \geq 4$. Memilih basis yang salah dapat menyebabkan bukti gagal atau menghasilkan pernyataan yang tidak valid \cite{discrete_induction,libretexts_induction}.
+
+\begin{catatan}
+Induksi biasa hanya memakai $P(k)$; induksi kuat memakai $P(1), \ldots, P(k)$. Pilih induksi kuat ketika $P(k+1)$ bergantung pada beberapa $P(j)$ dengan $j < k$. Pilih basis $n_0$ sesuai domain pernyataan.
+\end{catatan}
+
+\begin{contoh}
+Setiap bilangan bulat $n \geq 2$ dapat dinyatakan sebagai hasil kali bilangan prima (mungkin hanya satu faktor). Bukti dengan induksi kuat: Basis $n=2$: $2$ prima, jadi $2 = 2$ (hasil kali satu prima). Langkah induktif: Asumsikan setiap $j$ dengan $2 \leq j \leq k$ dapat difaktorkan. Untuk $k+1$: jika $k+1$ prima, selesai. Jika tidak, $k+1 = ab$ dengan $2 \leq a, b \leq k$. Menurut hipotesis, $a$ dan $b$ masing-masing hasil kali prima, sehingga $k+1 = ab$ juga hasil kali prima \cite{rosen2019,libretexts_induction}.
+\end{contoh}
+
+\begin{contoh}
+Ketaksamaan $n^2 > 2n + 1$ berlaku untuk $n \geq 4$ (bukan untuk $n=1,2,3$). Basis $n_0 = 4$: $4^2 = 16 > 9 = 2(4)+1$. Langkah induktif: Asumsikan $k^2 > 2k+1$ untuk suatu $k \geq 4$. Maka $(k+1)^2 = k^2 + 2k + 1 > (2k+1) + 2k + 1 = 4k + 2$. Untuk $k \geq 4$, $4k+2 \geq 2(k+1)+1 = 2k+3$, jadi $P(k+1)$ benar \cite{brilliant_induction,rosen2019}.
+\end{contoh}
+
+\subsection{Studi Kasus: Pembuktian \texorpdfstring{$3 \mid (n^3 - n)$}{3 | (n^3 - n)}}
+
+Aplikasi induksi dalam sifat keterbagian sering muncul dalam algoritma dan teori bilangan \cite{levin_discrete,mit_6042}. Kita buktikan: untuk setiap bilangan bulat $n \geq 1$, $3$ membagi $n^3 - n$ (atau $n^3 - n$ habis dibagi $3$).
+
+\textbf{Pernyataan:} $P(n): 3 \mid (n^3 - n)$ untuk $n \geq 1$.
+
+\textbf{Basis:} $n=1$. Maka $n^3 - n = 0$, dan $3 \mid 0$, jadi $P(1)$ benar.
+
+\textbf{Langkah induktif:} Asumsikan $3 \mid (k^3 - k)$ untuk suatu $k \geq 1$. Perhatikan
+\[
+(k+1)^3 - (k+1) = k^3 + 3k^2 + 3k + 1 - k - 1 = (k^3 - k) + 3(k^2 + k).
+\]
+Berdasarkan hipotesis, $3 \mid (k^3 - k)$, dan $3 \mid 3(k^2+k)$. Jadi $3$ membagi jumlahnya, sehingga $3 \mid \big((k+1)^3 - (k+1)\big)$. Dengan induksi, $3 \mid (n^3 - n)$ untuk semua $n \geq 1$ \cite{rosen2019}.
+
+Verifikasi numerik dengan Python (bukan pengganti bukti):
+
+\begin{lstlisting}[style=pythonstyle, caption={Verifikasi $3 \mid (n^3 - n)$ untuk $n = 1, \ldots, 20$}]
+for n in range(1, 21):
+    assert (n**3 - n) % 3 == 0, f"n={n}: (n^3 - n) tidak habis dibagi 3"
+print("3 | (n^3 - n) OK untuk n=1..20")
+\end{lstlisting}

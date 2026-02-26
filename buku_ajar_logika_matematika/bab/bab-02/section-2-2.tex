@@ -1,0 +1,153 @@
+\section{Peranan Logika dalam Informatika}
+
+Logika matematika merupakan fondasi bagi banyak bidang ilmu komputer \cite{levin_discrete,mit_6042,stanford_cs103}. Konsep-konsep logika tidak hanya bersifat teoretis, tetapi terealisasi langsung dalam praktik pemrograman, desain basis data, dan pembangunan sistem cerdas. Pemahaman logika yang baik membantu mahasiswa informatika merancang program yang benar, menulis query yang efisien, dan memahami cara kerja perangkat keras digital.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{3.5cm}|>{\raggedright\arraybackslash}p{5.9cm}|}
+\hline
+\textbf{Bidang} & \textbf{Konsep Logika} & \textbf{Contoh Penerapan} \\
+\hline
+Pemrograman & Boolean, struktur kontrol & Kondisi \code{if}, \code{while}; operator \code{and}, \code{or}, \code{not} \cite{levin_discrete} \\
+\hline
+Basis Data & Logika predikat, kuantifier & Klausa \code{WHERE}, \code{JOIN}; query SQL \cite{rosen2019} \\
+\hline
+Kecerdasan Buatan & Inferensi, aturan logika & Sistem pakar, reasoning engine, modus ponens \cite{mit_6042} \\
+\hline
+Verifikasi Perangkat Lunak & Spesifikasi logika, bukti formal & Model checking, theorem proving \cite{stanford_cs103} \\
+\hline
+Perangkat Keras Digital & Gerbang logika, aljabar Boolean & AND, OR, NOT, XOR; sirkuit kombinatorial \cite{grinnell_logic,hackatronic} \\
+\hline
+\end{tabular}
+\caption{Aplikasi logika dalam bidang informatika}
+\label{tab:aplikasi-logika}
+\end{table}
+
+Dalam pemrograman, logika Boolean menjadi inti dari struktur kontrol dan pengambilan keputusan \cite{levin_discrete,saylor_cs202}. Kondisi \code{if}, \code{else if}, dan \code{else} mengevaluasi ekspresi boolean yang bernilai benar atau salah. Loop seperti \code{while} dan \code{for} bergantung pada kondisi boolean untuk menentukan apakah iterasi berlanjut atau berhenti. Operator logika AND, OR, dan NOT digunakan untuk menggabungkan beberapa kondisi menjadi satu ekspresi yang menentukan alur eksekusi program.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.7cm,
+  decision/.style={diamond, draw=black, fill=orange!20, aspect=2, align=center},
+  process/.style={rectangle, draw=black, fill=blue!15, rounded corners},
+  start/.style={ellipse, draw=black, fill=green!20},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[start] (start) {Mulai};
+  \node[decision, below=of start] (cond) {Kondisi\\Boolean?};
+  \node[process, below left=1cm and 1.2cm of cond] (t) {Blok True};
+  \node[process, below right=1cm and 1.2cm of cond] (f) {Blok False};
+  \node[process, below=2.2cm of cond] (end) {Lanjut};
+  \draw[arrow] (start) -- (cond);
+  \draw[arrow] (cond) -| node[near start, left] {Ya} (t);
+  \draw[arrow] (cond) -| node[near start, right] {Tidak} (f);
+  \draw[arrow] (t) |- (end);
+  \draw[arrow] (f) |- (end);
+\end{tikzpicture}
+\caption{Alur keputusan berbasis kondisi Boolean (struktur \code{if-else})}
+\label{fig:alur-boolean}
+\end{figure}
+
+Gambar~\ref{fig:logic-gates} memperlihatkan simbol gerbang logika AND, OR, dan NOT yang menjadi fondasi sirkuit digital. Setiap gerbang merealisasikan operasi logika secara fisika \cite{grinnell_logic,hackatronic}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{logic-gates}
+\caption{Gerbang logika dasar: NOT, AND, OR (dihasilkan oleh script Python)}
+\label{fig:logic-gates}
+\end{figure}
+
+\begin{contoh}
+\textbf{Operator Boolean dalam Python} \cite{python_docs_boolean,levin_discrete}:
+
+\begin{lstlisting}[style=pythonstyle, caption={Evaluasi kondisi dengan operator \texttt{and}, \texttt{or}, \texttt{not}}]
+# Operator Boolean: and, or, not
+x = 5
+y = 10
+print(x < 10 and y > 5)   # True and True  -> True
+print(x < 3 or y > 5)     # False or True  -> True
+print(not (x == y))       # not False      -> True
+
+# Struktur kontrol berbasis logika
+if x > 0 and y > 0:
+    print("Kedua bilangan positif")
+\end{lstlisting}
+\end{contoh}
+
+\begin{contoh}
+\textbf{Generator tabel kebenaran sederhana dengan Python}:
+
+\begin{lstlisting}[style=pythonstyle, caption={Fungsi pembangkit tabel kebenaran untuk dua variabel}]
+def truth_table(op_name, op_func):
+    """Mencetak tabel kebenaran untuk operator biner."""
+    print(f"p    q    {op_name}")
+    print("-" * 20)
+    for p in [True, False]:
+        for q in [True, False]:
+            print(f"{p!s:5} {q!s:5} {op_func(p, q)!s:5}")
+
+# Contoh: konjungsi (AND)
+truth_table("p and q", lambda p, q: p and q)
+\end{lstlisting}
+\end{contoh}
+
+\begin{contoh}
+\textbf{Query SQL dengan operator logika} \cite{w3schools_sql,rosen2019}:
+
+Klausa \code{WHERE} menyatakan predicate (predikat) yang harus dipenuhi oleh baris:
+
+\begin{lstlisting}[language=SQL, basicstyle=\ttfamily\small, frame=single, caption={SQL \texttt{WHERE} dengan \texttt{AND}, \texttt{OR}, \texttt{NOT}}]
+-- Mahasiswa dengan IPK >= 3.0 DAN semester <= 6
+SELECT nama, nim, ipk FROM mahasiswa
+WHERE ipk >= 3.0 AND semester <= 6;
+
+-- Mahasiswa jurusan Informatika ATAU Elektro
+SELECT * FROM mahasiswa
+WHERE jurusan = 'Informatika' OR jurusan = 'Elektro';
+
+-- Mahasiswa yang TIDAK mengambil mata kuliah X
+SELECT nim FROM mahasiswa
+WHERE nim NOT IN (SELECT nim FROM krs WHERE kode_mk = 'X');
+\end{lstlisting}
+\end{contoh}
+
+\subsection*{Studi Kasus}
+
+\begin{contoh}
+\textbf{Studi Kasus 1: Sistem Login}
+
+Kondisi agar user berhasil login: \emph{username valid} \textbf{AND} \emph{password benar}. Dalam logika proposisional:
+\[
+\text{login\_sukses} \leftrightarrow (p_{\text{user}} \wedge p_{\text{pass}})
+\]
+Jika salah satu premis salah, kesimpulan salah. Ini menjelaskan mengapa sistem menolak login ketika username atau password keliru \cite{levin_discrete}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Studi Kasus 2: Query Basis Data Mahasiswa}
+
+``Tampilkan mahasiswa yang lulus (IPK $\geq$ 2.0) dan mengambil mata kuliah Logika Matematika.''
+Query ini membutuhkan predicate konjungsi:
+\[
+P(\text{mhs}) \equiv \text{IPK(mhs)} \geq 2.0 \wedge \text{ambil(mhs, Logika)}
+\]
+Implementasi SQL menggunakan \code{WHERE ipk >= 2.0 AND ...} \cite{rosen2019}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Studi Kasus 3: Sistem Pakar Sederhana}
+
+Aturan: ``Jika suhu $>$ 38$^\circ$C \textbf{dan} batuk, maka kemungkinan flu.''
+\[
+(\text{suhu\_tinggi} \wedge \text{batuk}) \rightarrow \text{flu}
+\]
+Mesin inferensi memeriksa premis (fakta) dan menarik kesimpulan dengan modus ponens \cite{mit_6042,saylor_cs202}.
+\end{contoh}
+
+Basis data relasional mengandalkan logika predikat dalam bahasa query seperti SQL \cite{rosen2019,stanford_cs103}. Klausa \code{WHERE} pada perintah \code{SELECT} menyatakan kondisi yang harus dipenuhi oleh baris yang diambil. Operasi join antar tabel dapat dipandang sebagai operasi pada relasi yang memanfaatkan konsep konjungsi dan disjungsi. Query yang kompleks sering kali membutuhkan pemahaman tentang kuantifier universal dan eksistensial untuk memastikan hasil yang diinginkan.
+
+Kecerdasan buatan dan sistem berbasis pengetahuan memanfaatkan logika formal untuk melakukan penalaran \cite{mit_6042,saylor_cs202}. Sistem pakar merepresentasikan pengetahuan dalam bentuk aturan logika (misalnya ``jika kondisi A dan B maka kesimpulan C''). Reasoning engine menarik kesimpulan dari fakta dan aturan menggunakan mekanisme inferensi seperti modus ponens dan resolusi. Logika predikat orde satu (first-order logic) digunakan dalam representasi pengetahuan untuk menangani objek, relasi, dan kuantifikasi.
+
+Verifikasi perangkat lunak dan sirkuit digital juga bertumpu pada logika \cite{levin_discrete}. Dalam verifikasi formal, spesifikasi sistem dinyatakan dalam bentuk logika, lalu dibuktikan bahwa implementasi memenuhi spesifikasi tersebut. Sirkuit digital dibangun dari gerbang logika (AND, OR, NOT, XOR) yang merealisasikan operasi logika secara fisika. Setiap komponen komputer pada dasarnya memproses sinyal biner sesuai dengan aturan logika Boolean.

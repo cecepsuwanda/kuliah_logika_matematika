@@ -1,0 +1,66 @@
+\section{Static vs Instance Members}
+
+\subsection{Instance Members}
+
+\textbf{Instance members} (attributes dan methods) adalah milik object. Setiap object memiliki copy sendiri.
+
+\subsection{Static Members}
+
+\textbf{Static members} adalah milik class, bukan object. Dibagi oleh semua object.
+
+\begin{javacode}[caption={Static vs Instance}]
+public class Mahasiswa {
+    // Instance variable (setiap object punya copy sendiri)
+    private String nama;
+    private double ipk;
+    
+    // Static variable (dibagi semua object)
+    private static int jumlahMahasiswa = 0;
+    private static String namaUniversitas = "Universitas Lorem Ipsum";
+    
+    public Mahasiswa(String nama, double ipk) {
+        this.nama = nama;
+        this.ipk = ipk;
+        jumlahMahasiswa++;  // Increment setiap object dibuat
+    }
+    
+    // Instance method
+    public void tampilkanInfo() {
+        System.out.println("Nama: " + nama);
+        System.out.println("IPK: " + ipk);
+    }
+    
+    // Static method
+    public static int getJumlahMahasiswa() {
+        return jumlahMahasiswa;
+    }
+    
+    public static String getNamaUniversitas() {
+        return namaUniversitas;
+    }
+}
+
+// Penggunaan
+public class Main {
+    public static void main(String[] args) {
+        // Akses static member tanpa object
+        System.out.println("Universitas: " + Mahasiswa.getNamaUniversitas());
+        
+        Mahasiswa mhs1 = new Mahasiswa("Budi", 3.5);
+        Mahasiswa mhs2 = new Mahasiswa("Ani", 3.8);
+        
+        // Akses static member melalui class name
+        System.out.println("Total mahasiswa: " + Mahasiswa.getJumlahMahasiswa());
+        // Output: Total mahasiswa: 2
+    }
+}
+\end{javacode}
+
+\begin{catatan}
+\textbf{Best Practice}:
+\begin{itemize}
+  \item Akses static members melalui class name, bukan object
+  \item Static methods tidak bisa mengakses instance variables secara langsung
+  \item Gunakan static untuk utility methods atau constants
+\end{itemize}
+\end{catatan}

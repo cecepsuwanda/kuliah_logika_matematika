@@ -1,0 +1,97 @@
+\section{Code Quality dan Refactoring}
+
+\subsection{Code Smell yang Umum}
+Beberapa contoh code smell:
+\begin{itemize}
+  \item Method terlalu panjang
+  \item Duplikasi kode
+  \item Nama variabel tidak jelas
+  \item Kelas melakukan terlalu banyak tugas
+\end{itemize}
+
+\subsection{Teknik Refactoring}
+Refactoring adalah proses memperbaiki struktur kode tanpa mengubah perilaku.
+\begin{itemize}
+  \item Extract Method
+  \item Rename Variable
+  \item Replace Magic Number with Constant
+  \item Move Method
+\end{itemize}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Unit Test}: Buat unit test untuk class \class{RekeningBank}.
+  \item \textbf{TDD}: Terapkan siklus Red-Green-Refactor pada fitur login sederhana.
+  \item \textbf{Refactoring}: Perbaiki class dengan method yang terlalu panjang.
+  \item \textbf{Diskusi}: Identifikasi code smell pada proyek mini.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Jelaskan manfaat unit testing bagi tim pengembang.
+  \item Buat test case untuk method \method{hitungDiskon} pada class \class{Produk}.
+  \item Sebutkan minimal 3 contoh refactoring dan kapan digunakan.
+  \item Bagaimana TDD membantu desain yang lebih baik?
+  \item \textbf{Refleksi}: Apa code smell yang paling sering Anda temui?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK 4.1}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Siklus TDD yang benar adalah:
+  \begin{enumerate}
+    \item Green-Red-Refactor
+    \item Red-Green-Refactor
+    \item Refactor-Red-Green
+    \item Red-Refactor-Green
+  \end{enumerate}
+  \item Refactoring bertujuan untuk:
+  \begin{enumerate}
+    \item Mengubah perilaku program
+    \item Memperbaiki struktur tanpa mengubah perilaku
+    \item Menambah fitur baru
+    \item Menghapus semua test
+  \end{enumerate}
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Lakukan refactoring pada class \class{Order} agar mengikuti SRP dan tambahkan unit test.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran A
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami konsep unit testing
+  \item Saya memahami siklus TDD
+  \item Saya dapat mengidentifikasi code smell
+  \item Saya dapat melakukan refactoring dasar
+  \item Saya dapat menulis test untuk method penting
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Unit testing dan TDD meningkatkan kualitas software. Refactoring membantu menjaga struktur kode tetap bersih dan mudah dipelihara, sebagaimana didokumentasikan dalam katalog refactoring \cite{ref6}.
+
+\textbf{Kata Kunci}: \oop{Unit Testing}, \oop{TDD}, \oop{Refactoring}, \oop{Code Smell}, \oop{JUnit}
+\end{rangkuman}

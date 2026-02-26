@@ -1,0 +1,103 @@
+\section{Pendahuluan Logika Matematika}
+
+\logic{Logika matematika} adalah cabang matematika yang mempelajari penalaran formal---yaitu cara bernalar yang valid berdasarkan aturan yang terdefinisi dengan jelas \cite{rosen2019,copi2014,forallx}. Secara mendasar, logika memungkinkan kita membedakan argumen yang sahih (valid) dari argumen yang keliru (invalid). Pengetahuan tentang logika matematika menjadi fondasi penting bagi mahasiswa informatika, karena keterampilan berpikir logis dibutuhkan dalam pemrograman, desain algoritma, dan verifikasi sistem.
+
+Logika bermula dari kebutuhan manusia untuk berpikir secara sistematis dan terstruktur. Di Yunani Kuno, Aristoteles mengembangkan logika silogistik yang menjadi dasar pemikiran Barat selama berabad-abad \cite{wiki_proplogic,iep_logic_history}. Kaum Stoik kemudian melanjutkan pengembangan logika proposisional yang lebih dekat dengan logika modern. Upaya-upaya awal ini meletakkan pondasi bagi munculnya logika simbolik pada abad ke-19.
+
+Perkembangan logika modern dimulai dengan kontribusi para matematikawan seperti George Boole dan Gottlob Frege \cite{openlogic,copi2014}. Boole merumuskan aljabar logika (Boolean algebra) yang mengaitkan operasi logika dengan operasi matematika. Frege memperkenalkan logika predikat dengan kuantifier, yang menjadi dasar bagi sebagian besar sistem logika formal saat ini. Kerja mereka memungkinkan logika ditulis dalam bentuk simbolik yang presisi, sehingga dapat dianalisis secara matematis.
+
+Dalam logika matematika, struktur argumen terdiri atas premis-premis (pernyataan awal yang diasumsikan benar) dan kesimpulan (pernyataan yang ditarik dari premis). Suatu argumen dikatakan valid jika kesimpulan mengikuti secara logis dari premis-premis; dengan kata lain, tidak mungkin premis benar sementara kesimpulan salah \cite{forallx,copi2014}. Aturan inferensi mendefinisikan langkah-langkah yang diperbolehkan untuk menarik kesimpulan dari premis. Pemahaman tentang premis, kesimpulan, dan aturan inferensi adalah kunci untuk menguasai logika matematika.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{9cm}|}
+\hline
+\textbf{Konsep} & \textbf{Definisi} \\
+\hline
+Proposisi & Pernyataan deklaratif yang bernilai benar atau salah, tetapi tidak keduanya \cite{rosen2019}. \\
+\hline
+Premis & Pernyataan awal yang diasumsikan benar dalam suatu argumen \cite{copi2014}. \\
+\hline
+Kesimpulan & Pernyataan yang ditarik dari premis berdasarkan aturan inferensi \cite{forallx}. \\
+\hline
+Argumen Valid & Argumen yang strukturnya menjamin: jika premis benar, maka kesimpulan pasti benar \cite{copi2014}. \\
+\hline
+Aturan Inferensi & Langkah-langkah yang diperbolehkan untuk menarik kesimpulan dari premis \cite{iep_natded}. \\
+\hline
+\end{tabular}
+\caption{Konsep dan definisi kunci logika matematika}
+\label{tab:konsep-logika}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Periode} & \textbf{Tokoh / Peristiwa} \\
+\hline
+384--322 SM & Aristoteles: logika silogistik, kategori, deduksi \cite{wiki_proplogic}. \\
+\hline
+Abad 3 SM & Kaum Stoik: logika proposisional, penghubung kondisional \cite{iep_logic_history}. \\
+\hline
+1854 & George Boole: \emph{The Laws of Thought}, aljabar Boolean \cite{openlogic}. \\
+\hline
+1879 & Gottlob Frege: \emph{Begriffsschrift}, logika predikat dengan kuantifier \cite{copi2014}. \\
+\hline
+1921 & Wittgenstein: tabel kebenaran, \emph{Tractatus} \cite{wiki_proplogic}. \\
+\hline
+\end{tabular}
+\caption{Timeline perkembangan logika matematika}
+\label{tab:timeline-logika}
+\end{table}
+
+Gambar~\ref{fig:timeline-logika} mengilustrasikan timeline perkembangan logika secara visual. Gambar~\ref{fig:struktur-argumen} memperlihatkan struktur argumen: premis-premis memasuki proses inferensi, dan kesimpulan dihasilkan melalui aturan yang valid.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{timeline-logika}
+\caption{Timeline perkembangan logika matematika (dihasilkan oleh script Python)}
+\label{fig:timeline-logika}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=1.2cm,
+  premis/.style={rectangle, draw=black, fill=blue!15, rounded corners, minimum width=2cm, minimum height=0.8cm},
+  inferensi/.style={rectangle, draw=black, fill=green!15, rounded corners, minimum width=2.5cm, minimum height=0.8cm},
+  kesimpulan/.style={rectangle, draw=black, fill=orange!15, rounded corners, minimum width=2cm, minimum height=0.8cm},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[premis] (p1) {Premis 1};
+  \node[premis, below=0.5cm of p1] (p2) {Premis 2};
+  \node[inferensi, right=2cm of $(p1)!0.5!(p2)$] (inf) {Aturan Inferensi};
+  \node[kesimpulan, right=2cm of inf] (k) {Kesimpulan};
+  \draw[arrow] (p1.east) -- (inf.west);
+  \draw[arrow] (p2.east) -- (inf.west);
+  \draw[arrow] (inf.east) -- (k.west);
+\end{tikzpicture}
+\caption{Struktur argumen: dari premis melalui inferensi ke kesimpulan}
+\label{fig:struktur-argumen}
+\end{figure}
+
+\begin{contoh}
+\textbf{Argumen valid:}
+\begin{itemize}
+  \item Premis 1: Jika hari hujan, maka jalan basah. \quad Premis 2: Hari hujan. \quad Kesimpulan: Jalan basah. (Modus ponens)
+  \item Premis 1: Semua mamalia bernapas dengan paru-paru. \quad Premis 2: Kucing adalah mamalia. \quad Kesimpulan: Kucing bernapas dengan paru-paru.
+\end{itemize}
+
+\textbf{Argumen invalid:}
+\begin{itemize}
+  \item Premis 1: Jika hari hujan, maka jalan basah. \quad Premis 2: Jalan basah. \quad Kesimpulan: Hari hujan. (Penegasan konsekuen---jalan bisa basah karena penyebab lain.)
+  \item Premis 1: Beberapa mahasiswa pandai. \quad Premis 2: Ali mahasiswa. \quad Kesimpulan: Ali pandai. (Tidak valid: ``beberapa'' tidak menjamin Ali termasuk di antaranya.)
+\end{itemize}
+\end{contoh}
+
+Logika matematika mencakup beberapa subbidang utama yang saling berkaitan \cite{wiki_proplogic,openlogic}. Logika proposisional mempelajari pernyataan sederhana dan cara menggabungkannya dengan operator seperti negasi, konjungsi, dan disjungsi. Logika predikat memperluas logika proposisional dengan variabel dan kuantifier, sehingga dapat mengekspresikan pernyataan yang lebih kompleks. Teori pembuktian (proof theory) mempelajari struktur dan sifat-sifat bukti formal. Mata kuliah ini berfokus pada logika proposisional, logika predikat, dan metode pembuktian yang relevan bagi informatika.
+
+\begin{konsep}
+Logika matematika mempelajari struktur argumen dan aturan inferensi yang memastikan kesimpulan yang ditarik dari premis-premis yang benar akan selalu benar. Argumen valid adalah argumen yang strukturnya menjamin bahwa jika premis benar, maka kesimpulan pasti benar.
+\end{konsep}
