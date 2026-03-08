@@ -1,0 +1,71 @@
+\section{Pembuktian Langsung (Direct Proof)}
+
+Pembuktian langsung merupakan teknik pembuktian yang paling fundamental dan intuitif. Untuk membuktikan implikasi $p \rightarrow q$, kita mengasumsikan bahwa hipotesis $p$ bernilai benar, kemudian melalui serangkaian langkah penalaran deduktif yang valid, menunjukkan bahwa kesimpulan $q$ juga bernilai benar. Teknik ini memanfaatkan fakta bahwa implikasi $p \rightarrow q$ bernilai salah hanya jika $p$ benar dan $q$ salah; dengan menunjukkan bahwa $q$ selalu benar ketika $p$ benar, kita membuktikan bahwa kasus palsu tersebut tidak mungkin terjadi \cite{rosen2019}.
+
+\subsection{Struktur Bukti Langsung}
+
+Prosedur umum pembuktian langsung untuk implikasi $p \rightarrow q$:
+
+\begin{enumerate}
+    \item \textbf{Asumsikan} hipotesis $p$ bernilai benar.
+    \item \textbf{Terapkan} definisi, aksioma, lemma, dan teorema yang berlaku.
+    \item \textbf{Lakukan} manipulasi aljabar dan penalaran logis selangkah demi selangkah.
+    \item \textbf{Tunjukkan} bahwa rangkaian penalaran tersebut menghasilkan kesimpulan $q$ bernilai benar.
+\end{enumerate}
+
+Setiap langkah dalam bukti harus dijustifikasi secara eksplisit. Justifikasi dapat berupa: penerapan definisi, penggunaan aksioma, hasil dari lemma atau teorema sebelumnya, atau aturan inferensi yang valid.
+
+\subsection{Contoh: Kuadrat Bilangan Ganjil}
+
+\begin{contoh}
+\textbf{Teorema}: Jika $n$ bilangan ganjil, maka $n^2$ adalah bilangan ganjil.
+
+\textbf{Bukti (Langsung):}
+\begin{enumerate}
+    \item Asumsikan $n$ adalah bilangan ganjil. \hfill (\textit{asumsi hipotesis})
+    \item Berdasarkan definisi bilangan ganjil, terdapat bilangan bulat $k$ sehingga $n = 2k + 1$. \hfill (\textit{definisi})
+    \item Hitung $n^2$:
+    \[ n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1 \]
+    \item Misalkan $m = 2k^2 + 2k$. Karena $k$ bilangan bulat, maka $m$ juga bilangan bulat. \hfill (\textit{ketertutupan})
+    \item Sehingga $n^2 = 2m + 1$, yang berbentuk definisi bilangan ganjil.
+    \item Kesimpulan: $n^2$ adalah bilangan ganjil. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\subsection{Contoh: Jumlah Dua Bilangan Genap}
+
+\begin{contoh}
+\textbf{Teorema}: Jika $a$ dan $b$ bilangan genap, maka $a + b$ juga bilangan genap.
+
+\textbf{Bukti (Langsung):}
+\begin{enumerate}
+    \item Asumsikan $a$ dan $b$ bilangan genap. \hfill (\textit{asumsi})
+    \item Berdasarkan definisi, terdapat bilangan bulat $j$ dan $k$ sehingga $a = 2j$ dan $b = 2k$. \hfill (\textit{definisi genap})
+    \item Hitung $a + b$:
+    \[ a + b = 2j + 2k = 2(j + k) \]
+    \item Misalkan $m = j + k$, yang merupakan bilangan bulat (karena penjumlahan dua bilangan bulat menghasilkan bilangan bulat).
+    \item Sehingga $a + b = 2m$, yang berbentuk definisi bilangan genap.
+    \item Kesimpulan: $a + b$ bilangan genap. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\subsection{Contoh: Hasil Kali Bilangan Rasional}
+
+\begin{contoh}
+\textbf{Teorema}: Jika $r$ dan $s$ bilangan rasional, maka $r \cdot s$ juga bilangan rasional.
+
+\textbf{Bukti (Langsung):}
+\begin{enumerate}
+    \item Asumsikan $r$ dan $s$ bilangan rasional.
+    \item Berdasarkan definisi bilangan rasional, terdapat bilangan bulat $a, b, c, d$ dengan $b \neq 0$ dan $d \neq 0$, sehingga $r = \frac{a}{b}$ dan $s = \frac{c}{d}$.
+    \item Hitung $r \cdot s$:
+    \[ r \cdot s = \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \]
+    \item Karena $a, c$ bilangan bulat, maka $ac$ bilangan bulat (ketertutupan perkalian). Karena $b \neq 0$ dan $d \neq 0$, maka $bd \neq 0$.
+    \item Sehingga $r \cdot s = \frac{ac}{bd}$ merupakan rasio dua bilangan bulat dengan penyebut tak nol, yang memenuhi definisi bilangan rasional.
+    \item Kesimpulan: $r \cdot s$ bilangan rasional. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\begin{catatan}
+Kunci keberhasilan bukti langsung terletak pada penguasaan definisi. Perhatikan bahwa pada ketiga contoh di atas, langkah pertama setelah asumsi selalu menerapkan \textbf{definisi} dari konsep yang dimaksud (ganjil, genap, rasional). Definisi memberi kita ekspresi aljabar yang dapat dimanipulasi menuju kesimpulan.
+\end{catatan}

@@ -1,0 +1,99 @@
+\section{Rangkaian Aritmetika: Half-Adder dan Full-Adder}
+
+Rangkaian aritmetika merupakan salah satu aplikasi paling fundamental dari gerbang logika. Operasi penjumlahan biner menjadi dasar bagi seluruh operasi aritmetika dalam prosesor digital, termasuk pengurangan (melalui komplemen dua), perkalian (melalui penjumlahan berulang), dan pembagian. Pemahaman tentang rangkaian penjumlah (\textit{adder}) menjembatani konsep aljabar Boolean yang abstrak dengan implementasi perangkat keras yang konkret \cite{rosen2019}.
+
+\subsection{Half-Adder}
+
+\begin{definisi}[Half-Adder]
+\logic{Half-adder} adalah rangkaian kombinasional yang menjumlahkan dua bit masukan ($A$ dan $B$) dan menghasilkan dua bit keluaran: \textbf{Sum} ($S$) yang merupakan bit hasil penjumlahan, dan \textbf{Carry} ($C_{out}$) yang merupakan bit bawaan (simpanan) ke posisi bit berikutnya.
+\end{definisi}
+
+Persamaan Boolean untuk half-adder diperoleh langsung dari definisi penjumlahan biner:
+
+\begin{align*}
+S &= A \oplus B = A'B + AB' \quad \text{(Sum: gerbang XOR)} \\
+C_{out} &= A \cdot B \quad \text{(Carry: gerbang AND)}
+\end{align*}
+
+Tabel kebenaran half-adder:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|l|}
+\hline
+$A$ & $B$ & $S$ & $C_{out}$ & \textbf{Keterangan} \\ \hline
+0 & 0 & 0 & 0 & $0 + 0 = 0$ \\ \hline
+0 & 1 & 1 & 0 & $0 + 1 = 1$ \\ \hline
+1 & 0 & 1 & 0 & $1 + 0 = 1$ \\ \hline
+1 & 1 & 0 & 1 & $1 + 1 = 10_2$ (carry 1) \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[circuit logic US, huge circuit symbols,
+                    every circuit symbol/.style={fill=white, draw=black, thick}]
+  % XOR for Sum
+  \node[xor gate] (xor1) at (2, 1) {};
+  \draw (xor1.input 1) -- ++(-0.5,0) coordinate (ja);
+  \draw (xor1.input 2) -- ++(-0.5,0) coordinate (jb);
+  \draw (xor1.output) -- ++(0.5,0) node[right] {$S = A \oplus B$};
+
+  % AND for Carry
+  \node[and gate] (and1) at (2, -1) {};
+  \draw (and1.output) -- ++(0.5,0) node[right] {$C_{out} = A \cdot B$};
+
+  % Inputs with branch
+  \draw (ja) -- ++(-1,0) node[left] {$A$} coordinate (a);
+  \draw (jb) -- ++(-0.5,0) |- (and1.input 1);
+  \node (B) at (-0.5,-1.2) {$B$};
+  \draw (B) -- ++(0.5,0) coordinate (b) |- (and1.input 2);
+  \draw (b) |- (jb);
+  \draw (a) ++(0.5,0) |- (and1.input 1);
+\end{tikzpicture}
+\caption{Diagram Rangkaian Half-Adder}
+\label{fig:half-adder}
+\end{figure}
+
+Half-adder disebut ``half'' karena hanya mampu menjumlahkan dua bit tanpa memperhitungkan carry dari posisi bit sebelumnya. Keterbatasan ini menjadikan half-adder tidak cukup untuk operasi penjumlahan multi-bit yang memerlukan propagasi carry antar posisi bit.
+
+\subsection{Full-Adder}
+
+\begin{definisi}[Full-Adder]
+\logic{Full-adder} adalah rangkaian kombinasional yang menjumlahkan \textbf{tiga} bit masukan: dua operand ($A$ dan $B$) serta satu carry masukan ($C_{in}$) dari posisi bit sebelumnya. Keluarannya adalah Sum ($S$) dan Carry out ($C_{out}$).
+\end{definisi}
+
+Persamaan Boolean untuk full-adder:
+
+\begin{align*}
+S &= A \oplus B \oplus C_{in} \\
+C_{out} &= AB + C_{in}(A \oplus B) = AB + AC_{in} + BC_{in}
+\end{align*}
+
+Tabel kebenaran full-adder memiliki $2^3 = 8$ baris:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c||c|c|}
+\hline
+$A$ & $B$ & $C_{in}$ & $S$ & $C_{out}$ \\ \hline
+0 & 0 & 0 & 0 & 0 \\ \hline
+0 & 0 & 1 & 1 & 0 \\ \hline
+0 & 1 & 0 & 1 & 0 \\ \hline
+0 & 1 & 1 & 0 & 1 \\ \hline
+1 & 0 & 0 & 1 & 0 \\ \hline
+1 & 0 & 1 & 0 & 1 \\ \hline
+1 & 1 & 0 & 0 & 1 \\ \hline
+1 & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{konsep}
+Full-adder dapat diimplementasikan menggunakan dua half-adder dan satu gerbang OR. Half-adder pertama menjumlahkan $A$ dan $B$, menghasilkan $S_1 = A \oplus B$ dan $C_1 = AB$. Half-adder kedua menjumlahkan $S_1$ dan $C_{in}$, menghasilkan $S = S_1 \oplus C_{in}$ dan $C_2 = S_1 \cdot C_{in}$. Carry akhir: $C_{out} = C_1 + C_2 = AB + (A \oplus B)C_{in}$.
+\end{konsep}
+
+\subsection{Ripple-Carry Adder}
+
+Untuk menjumlahkan bilangan biner $n$-bit, $n$ buah full-adder dirangkai secara kaskade (\textit{cascade}), di mana carry output dari setiap posisi bit dihubungkan ke carry input pada posisi bit berikutnya. Rangkaian ini disebut \logic{ripple-carry adder} karena sinyal carry ``mengalir'' (\textit{ripple}) dari posisi bit terendah (LSB) ke posisi bit tertinggi (MSB) \cite{wiki_adder}.
+
+Kelemahan utama ripple-carry adder adalah waktu propagasi yang proporsional terhadap jumlah bit, karena setiap full-adder harus menunggu carry dari full-adder sebelumnya sebelum dapat menghasilkan output yang benar. Untuk penjumlah $n$-bit, waktu propagasi terburuk adalah $2n$ kali delay satu gerbang. Arsitektur yang lebih cepat seperti \textit{carry-lookahead adder} mengatasi keterbatasan ini, tetapi pembahasannya berada di luar cakupan buku ini.

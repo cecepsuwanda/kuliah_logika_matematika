@@ -1,146 +1,57 @@
-\documentclass[../main]{subfiles}
-\ifSubfilesClassLoaded{\setcounter{chapter}{4}}{}
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
 
-\chapter{Logika Predikat dan Kuantifier}
+\chapter{Evaluasi Pernyataan Majemuk dengan Tabel Kebenaran}
 
 \begin{subcpmk}
-  \item Sub-CPMK 3.1: Menulis dan mengevaluasi pernyataan berkuantifier universal ($\forall$) dan eksistensial ($\exists$)
+  \item Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk yang kompleks.
+  \item Mahasiswa dapat merunut dan mensimulasikan nilai aljabar logika untuk banyak variabel komputasi.
 \end{subcpmk}
 
-\input{bab-05/section-5-1}
-\input{bab-05/section-5-2}
-\input{bab-05/section-5-3}
-\input{bab-05/section-5-4}
-\input{bab-05/section-5-5}
-\input{bab-05/section-5-6}
-\input{bab-05/section-5-7}
-\input{bab-05/section-5-8}
+\section{Penggunaan Tabel Kebenaran (Truth Table)}
+Setiap proposisi elementer dibatasi atas dua keadaan (Benar atau Salah). Ketika terdapat sekumpulan sejumlah $n$ variabel proposisi deklarasi ($p_1, p_2, \ldots p_n$), kombinasi evaluasi total probabilitas nilai kebenaran akan memenuhi perumusan ruang probabilitas $2^n$ baris data di dalam Tabel Kebenaran.
+Tabel Kebenaran adalah peranti algoritmis grafis yang berdaya guna dalam mendeteksi dan mengeksekusi semantik Boolean secara terpusat dan tanpa ambiguitas operasional. Langkah iterasi ini serupa dengan algoritma pereduksi \textit{brute-force} guna me-list (\textit{enumeration}) probabilitas mutasi *state* / status dari \textit{software}.
 
-% ============================================================
-% AKTIVITAS PEMBELAJARAN
-% ============================================================
-
-\begin{aktivitas}
-  \item Tulis 3 pernyataan dengan $\forall$ dan 3 dengan $\exists$; tentukan nilai kebenarannya untuk domain yang Anda pilih (misalnya bilangan bulat, mahasiswa, atau hewan).
-  \item Berikan negasi dari ``Semua orang suka matematika'' dan ``Ada siswa yang tidak hadir''; verifikasi dengan hukum negasi kuantifier ($\neg\forall x \, P(x) \equiv \exists x \, \neg P(x)$ dan $\neg\exists x \, P(x) \equiv \forall x \, \neg P(x)$).
-  \item Terjemahkan 2 pernyataan bahasa Indonesia ke logika predikat. Definisikan domain, predikat, dan variabel yang digunakan. Gunakan pola ``semua A adalah B'' $\mapsto \forall x \, (A(x) \rightarrow B(x))$.
-  \item Identifikasi variabel bebas dan terikat dalam formula: $(\forall x)\, [P(x, y) \rightarrow (\exists z)\, Q(z)]$. Tentukan apakah formula ini kalimat tertutup atau terbuka.
-  \item Buat interpretasi $I$ untuk formula $(\forall x)\, P(x) \rightarrow (\exists x)\, Q(x)$ dengan domain $D = \{1, 2, 3\}$. Tentukan nilai kebenarannya berdasarkan $I$.
-  \item Berdasarkan latihan soal di Section~5.8, representasikan ``Tidak ada gading yang tidak retak'' ke dalam logika predikat dan berikan dua bentuk ekuivalen.
-\end{aktivitas}
-
-% ============================================================
-% LATIHAN DAN REFLEKSI
-% ============================================================
-
-\begin{latihan}
-  \item Terjemahkan ``Tidak semua burung bisa terbang'' ke logika predikat. Tentukan predikat, domain, dan tulis dua bentuk yang ekuivalen ($\neg\forall \ldots$ dan $\exists \ldots$).
-  \item Tentukan negasi dari $\forall x \, \exists y \, (x < y)$ dan jelaskan maknanya dalam bahasa alami. Apakah negasi tersebut benar atau salah untuk domain bilangan bulat?
-  \item Terjemahkan ``Semua mahasiswa yang mengerjakan tugas akan mendapat nilai'' ke logika predikat. Definisikan domain, predikat, dan variabel.
-  \item Buktikan atau berikan kontracontoh: $\forall x \, (P(x) \vee Q(x))$ ekuivalen dengan $(\forall x \, P(x)) \vee (\forall x \, Q(x))$?
-  \item Berdasarkan Section~5.5 dan 5.6, identifikasi mana yang term, proposisi atomik, kalimat, dan ekspresi dari formula berikut: $(\forall x)\, [P(f(x), a) \rightarrow (\exists y)\, Q(x, y)]$.
-  \item Buat dua interpretasi $I$ dan $J$ yang cocok untuk konstanta $a$ tetapi tidak cocok untuk variabel $x$ (Section~5.8). Jelaskan mengapa kecocokan penting dalam semantik kalkulus predikat.
-  \item Buktikan validitas: $\neg(\forall x)\, P(x) \leftrightarrow (\exists x)\, \neg P(x)$ menggunakan metode semantik (Section~5.8).
-  \item \textbf{Refleksi}: Apa kesulitan utama Anda dalam menerjemahkan pernyataan bahasa alami ke logika predikat? Bagaimana membedakan kapan menggunakan $\rightarrow$ vs $\wedge$ dalam kuantifikasi?
-\end{latihan}
-
-% ============================================================
-% ASESMEN
-% ============================================================
-
-\begin{asesmen}
-\textbf{Instrumen Penilaian untuk Sub-CPMK 3.1}
-
-\textbf{A. Pilihan Ganda}
+\subsection{Tahapan Penyusunan Tabel}
+Misalkan sebuah mesin komputer mengevaluasi urutan ekspresi komposit:
+$X = (p \land \sim q) \lor r$
 \begin{enumerate}
-  \item Pernyataan $\forall x \, P(x)$ bernilai benar jika dan hanya jika:
-  \begin{enumerate}
-    \item Ada paling sedikit satu $x$ sehingga $P(x)$ benar
-    \item $P(a)$ benar untuk setiap elemen $a$ dalam domain
-    \item Ada tepat satu $x$ sehingga $P(x)$ benar
-    \item $P(x)$ salah untuk semua $x$
-  \end{enumerate}
-  \item Negasi dari $\exists x \, (Q(x) \wedge R(x))$ yang ekuivalen adalah:
-  \begin{enumerate}
-    \item $\forall x \, (\neg Q(x) \vee \neg R(x))$
-    \item $\exists x \, (\neg Q(x) \wedge \neg R(x))$
-    \item $\forall x \, (Q(x) \rightarrow \neg R(x))$
-    \item $\exists x \, (Q(x) \vee R(x))$
-  \end{enumerate}
-  \item Terjemahan yang benar untuk ``Semua A adalah B'' dalam logika predikat adalah:
-  \begin{enumerate}
-    \item $\forall x \, (A(x) \wedge B(x))$
-    \item $\forall x \, (A(x) \rightarrow B(x))$
-    \item $\exists x \, (A(x) \wedge B(x))$
-    \item $\exists x \, (A(x) \rightarrow B(x))$
-  \end{enumerate}
-  \item Dalam formula $(\forall x)\, P(x, y)$, variabel $y$ berstatus:
-  \begin{enumerate}
-    \item Terikat
-    \item Bebas
-    \item Konstan
-    \item Tidak terdefinisi
-  \end{enumerate}
-  \item Sebuah kalimat $A$ dikatakan valid jika:
-  \begin{enumerate}
-    \item $A$ benar untuk satu interpretasi tertentu
-    \item $A$ benar untuk setiap interpretasi
-    \item $A$ salah untuk setiap interpretasi
-    \item $A$ memiliki variabel bebas
-  \end{enumerate}
+    \item Hitung iterasi $n$. Ada 3 buah var ($p, q, r$). Maka total baris wajib dicitrakan sebanyak $2^3 = 8$ baris konjugasi nilai (Kombinasi 000 hingga 111).
+    \item Gambarkan kolom untuk setiap unit atom dasarnya terlebih dahulu (kolom atomik primer).
+    \item Lanjutkan pembentukan kolom komponen secara sub-himpunan, yakni mengartikulasikan bentuk bersarang yang paling dalam tanda kurungnya dulu, contoh: $\sim q$, kemudian $(p \land \sim q)$.
+    \item Bentuk kolom evaluasi kumulatif keseluruhan: $(p \land \sim q) \lor r$.
 \end{enumerate}
 
-\textbf{B. Tugas Praktik}
-\begin{itemize}
-  \item Tulis 2 pernyataan dengan kuantifier universal dan 2 dengan kuantifier eksistensial (domain: mahasiswa atau bilangan bulat). Tentukan nilai kebenarannya dan berikan negasi formal dari masing-masing.
-  \item Terjemahkan ``Tidak semua mahasiswa lulus kalkulus'' dan ``Ada dosen yang meneliti logika'' ke notasi logika predikat; definisikan domain dan predikat yang Anda gunakan.
-  \item Representasikan argument silogistik berikut dalam kalkulus predikat dan buktikan kesimpulannya valid: ``Semua komunis tidak bertuhan. Ada komunis yang tentara. Jadi, ada tentara yang tidak bertuhan.'' (Section~5.8)
-\end{itemize}
+\begin{contoh}
+Tabel skematik untuk 2 var iterasi ($p, q$) membentuk 4 baris evaluasi:
 
-\textbf{Rubrik Penilaian}: Lihat Lampiran
-\end{asesmen}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{$p$} & \textbf{$q$} & \textbf{$\sim q$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \rightarrow \sim q$} \\
+\hline
+T & T & F & T & T & F \\
+T & F & T & F & T & T \\
+F & T & F & F & T & T \\
+F & F & T & F & F & T \\
+\hline
+\end{tabular}\\
+\textit{Contoh Tabel Kebenaran Sintesis $p \rightarrow \sim q$}
+\end{center}
+\end{contoh}
 
-% ============================================================
-% CHECKLIST KOMPETENSI
-% ============================================================
+\begin{aktivitas}
+  \item Simulasikanlah, bagaimana komputasi program jika ia menerima argumen Boolean yang lebih makroskopis, misalnya melibatkan susunan 5 variabel independen pengontrol navigasi pesawat (sebanyak $2^5 = 32$ permutasi). Apa kendala manusia yang diatasi melalui tabel kebenaran sistematis?
+\end{aktivitas}
+
+\begin{latihan}
+  \item Susunlah Tabel Kebenaran (T-F / 1-0) iteratif bagi fungsi majemuk komputasi $f(A,B,C): A \leftrightarrow (B \land \sim C)$. Ada berapa permutasi \textit{assignment} baris yang menjadikannya *True/Benar* pada finalisasinya?
+\end{latihan}
 
 \begin{checklist}
-  \item Saya dapat mendefinisikan predikat dengan variabel dan menentukan domain
-  \item Saya dapat menulis dan mengevaluasi $\forall x \, P(x)$ dan $\exists x \, P(x)$ untuk domain tertentu
-  \item Saya dapat menegasikan pernyataan berkuantifier dengan benar menggunakan hukum negasi kuantifier
-  \item Saya dapat menerjemahkan pernyataan bahasa alami ke logika predikat (pola ``semua A adalah B'' dan ``ada A yang B'')
-  \item Saya dapat membedakan term, proposisi atomik, kalimat, dan ekspresi dalam kalkulus predikat
-  \item Saya dapat mengidentifikasi variabel bebas dan terikat; membedakan kalimat terbuka dan tertutup
-  \item Saya dapat membuat interpretasi dan mengevaluasi nilai kebenaran formula berdasarkan interpretasi
-  \item Saya memahami konsep kecocokan interpretasi dan validitas kalimat
+  \item Memahami konsep probabilitas jumlah baris data $2^n$.
+  \item Mampu mensintesis tabel dan membongkar sub-kolom matematis fungsi bersarang tanpa salah iterasi nilai.
 \end{checklist}
 
-% ============================================================
-% RANGKUMAN
-% ============================================================
-
-\begin{rangkuman}
-Bab ini membahas logika predikat dan kuantifier sebagai perluasan logika proposisional.
-
-\textbf{Poin Kunci:}
-\begin{itemize}
-  \item Predikat adalah pernyataan dengan variabel yang memiliki domain; nilai kebenarannya ditentukan oleh elemen domain yang disubstitusi.
-  \item Kuantifier universal ($\forall$) menyatakan ``untuk semua'' dan eksistensial ($\exists$) menyatakan ``ada''; keduanya mengikat variabel.
-  \item Negasi kuantifier: $\neg\forall x \, P(x) \equiv \exists x \, \neg P(x)$ dan $\neg\exists x \, P(x) \equiv \forall x \, \neg P(x)$.
-  \item Pola translasi: ``semua A adalah B'' $\mapsto \forall x \, (A(x) \rightarrow B(x))$; ``ada A yang B'' $\mapsto \exists x \, (A(x) \wedge B(x))$.
-  \item Formalisasi kalkulus predikat: term (variabel, konstanta, fungsi), proposisi atomik, kalimat (formula tanpa variabel bebas), ekspresi.
-  \item Variabel bebas tidak terikat kuantifier; variabel terikat berada dalam skop kuantifier. Kalimat tertutup tidak memiliki variabel bebas.
-  \item Interpretasi menentukan domain dan pemetaan simbol; aturan semantik mengevaluasi nilai kebenaran berdasarkan interpretasi.
-  \item Validitas: kalimat tertutup valid jika bernilai TRUE untuk setiap interpretasi. Pembuktian menggunakan metode semantik atau kontracontoh.
-\end{itemize}
-
-\textbf{Kata Kunci}: predikat, kuantifier universal ($\forall$), kuantifier eksistensial ($\exists$), negasi kuantifier, variabel bebas, variabel terikat, interpretasi, kecocokan, validitas, kalimat tertutup
-\end{rangkuman}
-
-\ifSubfilesClassLoaded{
-  \renewcommand{\bibname}{Daftar Pustaka}
-  \bibliographystyle{plain}
-  \bibliography{../references}
-}{}
 \end{document}

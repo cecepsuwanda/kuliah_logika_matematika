@@ -1,0 +1,56 @@
+\section{Fungsi Proposisional (Kalimat Terbuka)}
+
+Di ranah Logika Proposisi, kepingan huruf seperti $p, q, r$ mewakili secara utuh satu kalimat tunggal deklaratif yang kebetulan memiliki sifat absolut \textbf{sudah tertutup} (memiliki 1 entitas pasti nilai kebenaran). Namun, begitu kita mencampuradukkan Term dari genus Variabel Anonim ke dalam pelukan Predikat, kita melahirkan wujud \textbf{Fungsi Proposisional} \cite{rosen2019}.
+
+\subsection{Definisi Klasik Fungsi Proposisional}
+
+\begin{definisi}[Fungsi Proposisional]
+\logic{Fungsi Proposisional} (atau sering diekuivalensikan dalam bahasa linguistik awam sebagai *Kalimat Terbuka*) adalah perpaduan simbiosis mutlak antara sesosok Predikat dengan sekurang-kurangnya sebuah (atau lebih) Variabel tak teridentifikasi bebas ($x, y, z$). 
+\end{definisi}
+
+Konsekuensi paling kritis dari definisi ini adalah: \textbf{Sebuah Fungsi Proposisional TIDAK memiliki dan dipastikan gagal dievaluasi nilai kebenarannya (True/False)}. Ini disebabkan karena subjek/aktor yang ingin dievaluasi oleh predikat masih menyembunyikan identitas aslinya di balik topeng variabel (anonim). Nilai kebenarannya masih ``ngambang'' bergantung pada identitas asli dari huruf $x$ kelak.
+
+\subsection{Evolusi dari Kalimat Terbuka Menuju Tertutup}
+
+\begin{contoh}
+Misalkan diberikan contoh kalimat verbal: \textit{"Dia adalah Presiden Pertama Republik Indonesia"}. 
+
+Dalam frasa di atas, kata ganti peranti tunjuk \textbf{"Dia"} menduduki peran sentral Variabel bebas ($x$). Di sisi berlawanan, susunan frasa verba klaim \textbf{"...adalah Presiden Pertama Republik Indonesia"} ditahbiskan menduduki fungsi Predikat sentral, dinotasikan kapital $P$. 
+
+Sehingga struktur rangka kerangka aslinya hanyalah: $P(\text{Dia})$ atau lebih lazim ditulis secara matematis akademis menjadi $P(x)$. 
+
+Pada wujud mentah seperti ini, kita jelas takkan bernyali menjatuhkan palu hakim putusan True atau False. Kita tak tahu siapa si \textbf{x} tersebut. Bentuk luntang-lantung inilah yang disahkan sebagai \textbf{Kalimat Terbuka (Fungsi Proposisional)}.
+\end{contoh}
+
+\subsection{Mensubstitusi dengan Konstanta Absolut}
+
+Dari statusnya yang masih menjadi pergunjingan ambigu, Fungsi Proposisional $P(x)$ dapat menetas bermetamorfosis menjadi sebuah \textbf{Proposisi Sempurna} (Kalimat Tertutup) hanya dan hanya jika kita mengeksekusi proses **Substitusi Identitas Konstanta** pada variabel pengembara $x$ tersebut.
+
+\begin{contoh}
+Melanjutkan contoh $P(x)$ sebelumnya. Mari kita tembak variabel $x$ secara membabi buta menggunakan 3 sampel selongsong uji Konstanta berbeda:
+
+\begin{enumerate}
+    \item \textbf{Subjek Konstanta Pertama:} $a = \text{B.J. Habibie}$
+    \begin{itemize}
+        \item Substitusi ke wajan predikat: $P(a)$
+        \item Kalimat merangkai utuh menjadi: \textit{"B.J. Habibie adalah Presiden Pertama Republik Indonesia."}
+        \item Evaluasi Verifikator: Kalimat merangkai sempurna (Tertutup). Secara historis bernilai \textbf{SALAH (F)}.
+    \end{itemize}
+
+    \item \textbf{Subjek Konstanta Kedua:} $b = \text{Megawati Soekarnoputri}$
+    \begin{itemize}
+        \item Substitusi: $P(b)$
+        \item Formasi Utuh: \textit{"Megawati Soekarnoputri adalah Presiden Pertama Republik Indonesia."}
+        \item Evaluasi Fakta Dokumen: Menghasilkan vonis \textbf{SALAH (F)}.
+    \end{itemize}
+    
+    \item \textbf{Subjek Konstanta Pamungkas:} $s = \text{Ir. Soekarno}$
+    \begin{itemize}
+        \item Substitusi Akhir: $P(s)$
+        \item Kalimat berbunyi merdu: \textit{"Ir. Soekarno adalah Presiden Pertama Republik Indonesia."}
+        \item Evaluasi Fakta Final: Memperoleh mahkota kebenaran sakral bernilai \textbf{BENAR (T)}.
+    \end{itemize}
+\end{enumerate}
+\end{contoh}
+
+Melalui runtutan eksperimen di atas, kita memaknai kaidah tertinggi FOL pertama kali: Sebagaimana mesin cetak gol \textit{striker} sepakbola takkan mengkonversi poin tanpa umpan cantik bola, maka **Predikat takkan pernah sanggup melontarkan kesimpulan Benar/Salah sebelum ada Subjek Variabel yang disubstitusi tuntas membumi di tangannya**. Transformasi \textbf{Kalimat Terbuka $\longrightarrow$ Proposisi} mensyaratkan penuangan Konstanta definitif padanya.

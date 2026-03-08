@@ -1,0 +1,159 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{10}}{}
+\begin{document}
+
+\chapter{Rangkaian Gerbang Logika dan Desain Digital}
+
+\begin{subcpmk}
+  \item Sub-CPMK 3.5: Mahasiswa mampu mengidentifikasi dan menjelaskan fungsi gerbang logika dasar, turunan, dan universal beserta tabel kebenarannya.
+  \item Sub-CPMK 3.6: Mahasiswa mampu mengkonversi ekspresi Boolean menjadi rangkaian gerbang logika dan sebaliknya (analisis rangkaian).
+  \item Sub-CPMK 3.7: Mahasiswa mampu merancang rangkaian kombinasional sederhana seperti adder, multiplexer, dan decoder.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-11/section-11-1}
+\input{bab-11/section-11-2}
+\input{bab-11/section-11-3}
+\input{bab-11/section-11-4}
+\input{bab-11/section-11-5}
+\input{bab-11/section-11-6}
+\input{bab-11/section-11-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item Rancang rangkaian gerbang logika untuk fungsi $F(X,Y,Z) = X(Y' + Z)$ menggunakan gerbang AND, OR, dan NOT. Hitung jumlah gerbang yang diperlukan.
+  \item Konversikan rangkaian pada aktivitas sebelumnya ke rangkaian NAND-only. Bandingkan jumlah gerbang sebelum dan sesudah konversi.
+  \item Implementasikan rangkaian half-adder menggunakan hanya gerbang NAND. Gambarkan diagram rangkaiannya dan verifikasi dengan tabel kebenaran.
+  \item Diberikan rangkaian yang terdiri dari 4 gerbang: NOT pada $A$ (keluaran $W$), AND pada $W$ dan $C$ (keluaran $X$), OR pada $B$ dan $X$ (keluaran $Y$), AND pada $Y$ dan $D$ (keluaran $F$). Analisis rangkaian ini: tentukan ekspresi Boolean $F$ dan buat tabel kebenarannya.
+  \item Rancang decoder 3-ke-8 menggunakan gerbang AND dan NOT. Tuliskan ekspresi Boolean untuk setiap keluaran.
+  \item Implementasikan fungsi $G(A,B,C) = \sum m(1, 2, 6, 7)$ menggunakan: (a) gerbang AND-OR-NOT, dan (b) satu decoder 3-ke-8 dan satu gerbang OR.
+  \item Rancang multiplexer 4-ke-1 menggunakan gerbang AND, OR, dan NOT. Verifikasi bahwa rangkaian Anda bekerja dengan benar untuk setiap kombinasi sinyal pemilih.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Representasikan persamaan $F = W'XY + WXZ + Y'Z'$ ke dalam diagram rangkaian gerbang logika. Hitung jumlah total gerbang (AND, OR, NOT) yang diperlukan.
+  \item Konversikan rangkaian pada soal sebelumnya ke bentuk NAND-only. Tunjukkan langkah-langkah konversi dan hitung jumlah gerbang NAND yang diperlukan.
+  \item Rancang rangkaian full-adder dan buktikan bahwa ekspresi carry-out $C_{out} = AB + C_{in}(A \oplus B)$ ekuivalen dengan $C_{out} = AB + AC_{in} + BC_{in}$.
+  \item Diberikan rangkaian NAND-only berikut: Gerbang 1 (NAND $A,B$, output $P$), Gerbang 2 (NAND $P,P$, output $Q$), Gerbang 3 (NAND $C,D$, output $R$), Gerbang 4 (NAND $R,R$, output $S$), Gerbang 5 (NAND $Q,S$, output $F$). Analisis rangkaian: tentukan $F$ dalam bentuk ekspresi Boolean yang disederhanakan.
+  \item Jelaskan perbedaan antara multiplexer dan decoder. Berikan contoh penggunaan masing-masing dalam arsitektur komputer.
+  \item Implementasikan fungsi Boolean $F(A,B) = A \oplus B$ (XOR) menggunakan: (a) hanya gerbang NAND, (b) hanya gerbang NOR. Gambarkan kedua rangkaian dan bandingkan jumlah gerbang yang diperlukan.
+  \item \textbf{Refleksi}: Mengapa pada tingkat produksi massal, banyak pabrikan semikonduktor mengonversi seluruh rangkaian ke bentuk NAND-only? Apa keuntungan dan kerugiannya dibandingkan dengan menggunakan campuran gerbang AND-OR-NOT standar?
+  \item \textbf{Refleksi}: Bagaimana konsep critical path memengaruhi trade-off antara kecepatan dan biaya (jumlah gerbang) dalam desain rangkaian digital?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja untuk Sub-CPMK 3.5--3.7}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Gerbang logika yang memberikan output 1 jika dan hanya jika jumlah masukan bernilai 1 bersifat ganjil adalah:
+  \begin{enumerate}
+    \item Gerbang OR
+    \item Gerbang AND
+    \item Gerbang XOR (Exclusive-OR)
+    \item Gerbang NOR
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Gerbang yang secara individual bersifat lengkap secara fungsional (\textit{universal gate}) adalah:
+  \begin{enumerate}
+    \item AND dan OR
+    \item XOR dan XNOR
+    \item NAND dan NOR
+    \item AND dan NOT
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Rangkaian half-adder terdiri dari:
+  \begin{enumerate}
+    \item 1 gerbang AND dan 1 gerbang OR
+    \item 1 gerbang XOR dan 1 gerbang AND
+    \item 2 gerbang AND dan 1 gerbang OR
+    \item 1 gerbang NAND dan 1 gerbang NOR
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Decoder $n$-ke-$2^n$ menghasilkan:
+  \begin{enumerate}
+    \item $n$ sinyal output
+    \item $2n$ sinyal output
+    \item $2^n$ sinyal output, masing-masing berkorespondensi dengan satu minterm
+    \item $n^2$ sinyal output
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Jika rangkaian memiliki 4 tingkat gerbang dan setiap gerbang memiliki delay $t_d = 5$ ns, maka delay total jalur kritis adalah:
+  \begin{enumerate}
+    \item 5 ns
+    \item 10 ns
+    \item 15 ns
+    \item 20 ns
+  \end{enumerate}
+  Jawaban: (d)
+\end{enumerate}
+
+\textbf{B. Essay Singkat}
+\begin{enumerate}
+  \item Buktikan bahwa gerbang NOR bersifat lengkap secara fungsional dengan menunjukkan implementasi NOT, AND, dan OR hanya menggunakan gerbang NOR. Gambarkan rangkaian untuk masing-masing.
+  \item Rancang rangkaian full-adder 1-bit dan rangkaikan empat full-adder untuk membentuk penjumlah 4-bit (ripple-carry adder). Jelaskan bagaimana sinyal carry dipropagasi.
+  \item Diberikan rangkaian dengan campuran gerbang AND, OR, NOT, dan NAND. Analisis rangkaian tersebut, tentukan ekspresi Boolean output-nya, sederhanakan, dan verifikasi dengan tabel kebenaran.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami fungsi dan simbol standar gerbang logika dasar (AND, OR, NOT)
+  \item Saya mengenal fungsi dan simbol gerbang turunan (NAND, NOR, XOR, XNOR) beserta tabel kebenarannya
+  \item Saya memahami konsep kelengkapan fungsional dan dapat membuktikan universalitas gerbang NAND dan NOR
+  \item Saya mampu mengkonversi ekspresi Boolean SOP menjadi rangkaian gerbang logika secara sistematis
+  \item Saya mampu mengkonversi rangkaian AND-OR-NOT ke rangkaian NAND-only atau NOR-only
+  \item Saya memahami struktur dan persamaan Boolean untuk half-adder dan full-adder
+  \item Saya mengenal konsep multiplexer dan decoder serta hubungannya dengan minterm
+  \item Saya mampu menganalisis rangkaian gerbang dan menentukan ekspresi Boolean yang diimplementasikannya
+  \item Saya memahami konsep critical path dan pengaruhnya terhadap kecepatan rangkaian
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas realisasi fisik konsep aljabar Boolean dalam bentuk rangkaian gerbang logika digital, menjembatani teori matematika dengan implementasi perangkat keras.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Tiga gerbang dasar (AND, OR, NOT) mengimplementasikan tiga operasi fundamental aljabar Boolean. Empat gerbang turunan (NAND, NOR, XOR, XNOR) memberikan efisiensi tambahan dalam implementasi.
+  \item Gerbang NAND dan NOR masing-masing bersifat \textit{lengkap secara fungsional} (universal): seluruh fungsi Boolean dapat diimplementasikan hanya menggunakan satu jenis gerbang. Hal ini memiliki implikasi penting dalam efisiensi fabrikasi semikonduktor.
+  \item Konversi ekspresi Boolean ke rangkaian gerbang bersifat mekanistik --- setiap operator menjadi satu gerbang, dan struktur ekspresi menentukan interkoneksi. Rangkaian SOP (AND-OR) dapat dikonversi ke NAND-NAND, dan POS (OR-AND) ke NOR-NOR.
+  \item Rangkaian aritmetika (half-adder, full-adder, ripple-carry adder) merupakan blok bangunan dasar untuk operasi penjumlahan biner dalam prosesor.
+  \item Multiplexer memilih satu dari banyak sinyal masukan berdasarkan kode pemilih, sementara decoder mengonversi kode biner menjadi sinyal aktivasi individual (satu-dari-banyak). Keduanya dapat digunakan untuk mengimplementasikan fungsi Boolean.
+  \item Analisis rangkaian (dari diagram ke ekspresi) dan analisis timing (critical path) merupakan keterampilan penting dalam verifikasi dan optimasi desain digital.
+\end{itemize}
+
+\textbf{Kata Kunci}: gerbang logika, AND, OR, NOT, NAND, NOR, XOR, XNOR, gerbang universal, kelengkapan fungsional, half-adder, full-adder, ripple-carry adder, multiplexer, decoder, analisis rangkaian, critical path
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

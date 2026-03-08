@@ -1,0 +1,105 @@
+\section{Gerbang Logika Turunan: NAND, NOR, XOR, XNOR}
+
+Selain tiga gerbang dasar, terdapat empat gerbang logika turunan yang sangat penting dalam perancangan digital. Gerbang-gerbang ini disebut ``turunan'' karena fungsinya dapat diekspresikan menggunakan kombinasi gerbang AND, OR, dan NOT. Namun, dalam implementasi fisik, gerbang turunan justru seringkali memerlukan lebih sedikit transistor dibandingkan kombinasi gerbang dasar yang ekuivalennya, menjadikannya lebih efisien secara perangkat keras \cite{allaboutcircuits_gates}.
+
+\subsection{Gerbang NAND (NOT-AND)}
+
+\begin{definisi}[Gerbang NAND]
+Gerbang NAND menghasilkan keluaran yang merupakan \textbf{komplemen} dari gerbang AND. Keluaran bernilai $0$ hanya jika seluruh masukan bernilai $1$, dan bernilai $1$ pada kondisi lainnya. Ekspresi Boolean: $F = (A \cdot B)' = A' + B'$ (berdasarkan hukum De Morgan).
+\end{definisi}
+
+Gerbang NAND memiliki signifikansi khusus karena merupakan salah satu dari dua gerbang universal yang akan dibahas pada section berikutnya. Pada level transistor, gerbang NAND merupakan gerbang yang paling natural dalam teknologi CMOS (\textit{Complementary Metal-Oxide-Semiconductor}), karena implementasinya hanya memerlukan empat transistor, lebih sedikit dibandingkan implementasi AND yang memerlukan enam transistor.
+
+\subsection{Gerbang NOR (NOT-OR)}
+
+\begin{definisi}[Gerbang NOR]
+Gerbang NOR menghasilkan keluaran yang merupakan \textbf{komplemen} dari gerbang OR. Keluaran bernilai $1$ hanya jika seluruh masukan bernilai $0$, dan bernilai $0$ jika setidaknya satu masukan bernilai $1$. Ekspresi Boolean: $F = (A + B)' = A' \cdot B'$ (berdasarkan hukum De Morgan).
+\end{definisi}
+
+Gerbang NOR juga merupakan gerbang universal. Secara historis, komputer panduan Apollo (\textit{Apollo Guidance Computer}) yang digunakan NASA untuk misi pendaratan di bulan tahun 1969 dibangun seluruhnya dari sekitar 5.600 gerbang NOR \cite{electronics_tutorials_gates}.
+
+\subsection{Gerbang XOR (Exclusive-OR)}
+
+\begin{definisi}[Gerbang XOR]
+Gerbang XOR (\textit{Exclusive-OR}) menghasilkan keluaran bernilai $1$ jika dan hanya jika \textbf{jumlah masukan bernilai $1$ bersifat ganjil}. Untuk gerbang 2-masukan, keluaran bernilai $1$ hanya jika kedua masukan memiliki nilai yang \textbf{berbeda}. Ekspresi Boolean: $F = A \oplus B = A'B + AB'$.
+\end{definisi}
+
+Gerbang XOR memiliki aplikasi yang sangat luas dalam sistem digital:
+\begin{itemize}
+    \item \textbf{Penjumlah biner}: XOR menghasilkan bit jumlah (sum) pada rangkaian half-adder dan full-adder.
+    \item \textbf{Detektor paritas}: XOR dari beberapa bit menghitung paritas (genap/ganjil) dari data.
+    \item \textbf{Kriptografi}: Operasi XOR digunakan secara ekstensif dalam algoritma enkripsi seperti \textit{stream cipher} dan \textit{one-time pad}.
+    \item \textbf{Komparator}: XOR bernilai 1 jika dua bit berbeda, sehingga dapat digunakan untuk mendeteksi perbedaan.
+\end{itemize}
+
+\subsection{Gerbang XNOR (Exclusive-NOR)}
+
+\begin{definisi}[Gerbang XNOR]
+Gerbang XNOR adalah komplemen dari gerbang XOR. Keluaran bernilai $1$ jika dan hanya jika kedua masukan memiliki nilai yang \textbf{sama} (keduanya 0 atau keduanya 1). Ekspresi Boolean: $F = (A \oplus B)' = AB + A'B' = A \odot B$.
+\end{definisi}
+
+Gerbang XNOR berfungsi sebagai detektor kesamaan (\textit{equality detector}) dan sering digunakan dalam rangkaian komparator digital, di mana beberapa pasang bit dibandingkan secara paralel untuk menentukan apakah dua bilangan biner bernilai sama.
+
+\subsection{Simbol dan Tabel Kebenaran Perbandingan}
+
+Gambar~\ref{fig:gerbang-turunan-11} menampilkan simbol grafis keempat gerbang turunan.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[circuit logic US, huge circuit symbols,
+                    every circuit symbol/.style={thick}]
+
+  % Gerbang NAND
+  \node[nand gate, fill=cyan!10, draw=cyan!50!black] (nand1) at (0,0) {};
+  \draw (nand1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (nand1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (nand1.output) -- ++(0.5,0) node[right] {$(AB)'$};
+  \node[below=0.5cm of nand1] {NAND};
+
+  % Gerbang NOR
+  \node[nor gate, fill=cyan!10, draw=cyan!50!black] (nor1) at (4.5,0) {};
+  \draw (nor1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (nor1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (nor1.output) -- ++(0.5,0) node[right] {$(A+B)'$};
+  \node[below=0.5cm of nor1] {NOR};
+
+  % Gerbang XOR
+  \node[xor gate, fill=orange!10, draw=orange!50!black] (xor1) at (0,-3) {};
+  \draw (xor1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (xor1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (xor1.output) -- ++(0.5,0) node[right] {$A \oplus B$};
+  \node[below=0.5cm of xor1] {XOR};
+
+  % Gerbang XNOR
+  \node[xnor gate, fill=orange!10, draw=orange!50!black] (xnor1) at (4.5,-3) {};
+  \draw (xnor1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (xnor1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (xnor1.output) -- ++(0.5,0) node[right] {$A \odot B$};
+  \node[below=0.5cm of xnor1] {XNOR};
+
+\end{tikzpicture}
+\caption{Simbol Gerbang Logika Turunan}
+\label{fig:gerbang-turunan-11}
+\end{figure}
+
+Tabel~\ref{tab:perbandingan-gerbang-11} menyajikan perbandingan lengkap tabel kebenaran seluruh gerbang logika 2-masukan.
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c||c|c|c|c|c|c|}
+\hline
+$A$ & $B$ & \textbf{AND} & \textbf{OR} & \textbf{NAND} & \textbf{NOR} & \textbf{XOR} & \textbf{XNOR} \\ \hline
+0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\ \hline
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+\end{tabular}
+\caption{Perbandingan Tabel Kebenaran Seluruh Gerbang Logika 2-Masukan}
+\label{tab:perbandingan-gerbang-11}
+\end{table}
+
+\begin{catatan}
+Perhatikan hubungan komplementer pada tabel di atas: NAND adalah komplemen AND, NOR adalah komplemen OR, dan XNOR adalah komplemen XOR. Setiap pasangan gerbang komplementer menghasilkan keluaran yang berlawanan untuk setiap kombinasi masukan.
+\end{catatan}

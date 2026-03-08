@@ -1,0 +1,56 @@
+\section{Studi Kasus: Verifikasi Algoritma Pengurutan}
+
+Algoritma pengurutan (\textit{sorting}) merupakan salah satu topik paling fundamental dalam ilmu komputer. Verifikasi formal algoritma pengurutan menyediakan studi kasus yang lebih kompleks dibandingkan pencarian linear, karena melibatkan loop bersarang (\textit{nested loops}) dan properti yang lebih rumit \cite{rosen2019}.
+
+\subsection{Insertion Sort: Algoritma}
+
+\begin{verbatim}
+    InsertionSort(A, n):
+        for j := 1 to n-1 do
+            key := A[j]
+            i := j - 1
+            while i >= 0 and A[i] > key do
+                A[i+1] := A[i]
+                i := i - 1
+            A[i+1] := key
+\end{verbatim}
+
+\textbf{Spesifikasi}:
+\begin{itemize}
+    \item \textbf{Prekondisi}: $n \geq 1$ dan $A[0..n-1]$ terdefinisi
+    \item \textbf{Postkondisi}: $A[0] \leq A[1] \leq \ldots \leq A[n-1]$ dan $A$ merupakan permutasi dari array masukan
+\end{itemize}
+
+\subsection{Loop Invariant untuk Loop Luar}
+
+\begin{definisi}[Loop Invariant Insertion Sort]
+Invarian loop luar: ``Pada awal setiap iterasi loop \texttt{for} dengan indeks $j$, subarray $A[0..j-1]$ terurut secara tidak menurun dan merupakan permutasi dari elemen-elemen asli $A[0..j-1]$.''
+\end{definisi}
+
+\textbf{Verifikasi:}
+
+\textbf{1. Inisialisasi} ($j = 1$): Subarray $A[0..0]$ hanya berisi satu elemen, yang secara trivial terurut. $\checkmark$
+
+\textbf{2. Pemeliharaan}: Asumsikan $A[0..j-1]$ terurut. Badan loop mengambil $A[j]$ (disebut $key$) dan menyisipkannya ke posisi yang tepat dalam $A[0..j-1]$ melalui loop dalam (\texttt{while}). Elemen-elemen yang lebih besar dari $key$ digeser satu posisi ke kanan. Setelah penyisipan, $A[0..j]$ terurut dan merupakan permutasi dari elemen asli. $\checkmark$
+
+\textbf{3. Terminasi} ($j = n$): Invarian menyatakan $A[0..n-1]$ terurut dan merupakan permutasi dari array masukan. Ini adalah postkondisi. $\checkmark$
+
+\subsection{Loop Invariant untuk Loop Dalam}
+
+Loop dalam (\texttt{while}) juga memiliki invariannya sendiri:
+
+\begin{konsep}
+Invarian loop dalam: ``$A[i+2..j]$ berisi elemen-elemen yang lebih besar dari $key$ dalam urutan terurut, dan $key$ akan disisipkan pada posisi $i+1$.''
+
+Fungsi pengurangan loop dalam: $V = i + 1$. Karena $i$ menurun 1 pada setiap iterasi dan loop berhenti ketika $i < 0$ atau $A[i] \leq key$, loop dalam pasti berterminasi.
+\end{konsep}
+
+\subsection{Properti yang Harus Dijaga}
+
+Perhatikan bahwa postkondisi pengurutan memiliki dua komponen:
+\begin{enumerate}
+    \item \textbf{Terurut}: $A[0] \leq A[1] \leq \ldots \leq A[n-1]$.
+    \item \textbf{Permutasi}: Array hasil merupakan permutasi dari array masukan (tidak ada elemen yang hilang atau ditambahkan).
+\end{enumerate}
+
+Properti kedua sering diabaikan oleh pemula tetapi sangat penting. Program yang mengganti seluruh elemen array menjadi $0$ menghasilkan output terurut, tetapi jelas salah karena bukan permutasi dari masukan.

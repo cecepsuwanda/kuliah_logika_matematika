@@ -1,0 +1,57 @@
+\section{Penyangkalan dengan Kontra-Contoh}
+
+Sejauh ini, pembahasan difokuskan pada cara \emph{membuktikan} bahwa suatu pernyataan benar. Namun, dalam matematika dan ilmu komputer, kemampuan untuk menunjukkan bahwa suatu pernyataan \emph{salah} sama pentingnya. Untuk menyangkal pernyataan universal (``untuk semua $x$, $P(x)$''), cukup menemukan satu elemen domain yang tidak memenuhi $P$ --- elemen tersebut disebut \logic{kontra-contoh} (\textit{counterexample}) \cite{rosen2019}.
+
+\subsection{Landasan Logis}
+
+Pernyataan universal $\forall x\, P(x)$ menyatakan bahwa $P(x)$ bernilai benar untuk setiap $x$ dalam domain. Negasi dari pernyataan ini adalah:
+\[ \neg [\forall x\, P(x)] \equiv \exists x\, \neg P(x) \]
+
+Artinya, untuk menyangkal pernyataan universal, cukup tunjukkan \emph{keberadaan} satu elemen $x_0$ dalam domain sehingga $P(x_0)$ bernilai salah. Elemen $x_0$ inilah yang disebut kontra-contoh.
+
+\begin{definisi}[Kontra-Contoh]
+\logic{Kontra-contoh} (\textit{counterexample}) adalah elemen spesifik dari domain yang menunjukkan bahwa suatu pernyataan universal adalah salah. Satu kontra-contoh sudah cukup untuk menyangkal pernyataan universal, tidak peduli berapa banyak contoh lain yang mendukungnya.
+\end{definisi}
+
+\subsection{Contoh Penyangkalan}
+
+\begin{contoh}
+\textbf{Klaim}: ``Untuk setiap bilangan bulat positif $n$, $n^2 - n + 41$ adalah bilangan prima.''
+
+Klaim ini tampak benar jika diuji untuk nilai-nilai kecil:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+$n$ & $n^2 - n + 41$ & Prima? \\ \hline
+1 & 41 & Ya \\ \hline
+2 & 43 & Ya \\ \hline
+3 & 47 & Ya \\ \hline
+5 & 61 & Ya \\ \hline
+10 & 131 & Ya \\ \hline
+\end{tabular}
+\end{center}
+
+Namun, untuk $n = 41$:
+\[ 41^2 - 41 + 41 = 41^2 = 1681 = 41 \times 41 \]
+yang \textbf{bukan} bilangan prima. Kontra-contoh ditemukan pada $n = 41$, sehingga klaim tersebut \textbf{salah}. $\blacksquare$
+\end{contoh}
+
+\begin{contoh}
+\textbf{Klaim}: ``Untuk setiap bilangan real $x$, $x^2 > x$.''
+
+\textbf{Kontra-contoh}: Pilih $x = \frac{1}{2}$.
+\[ x^2 = \left(\frac{1}{2}\right)^2 = \frac{1}{4} < \frac{1}{2} = x \]
+
+Karena $x^2 < x$ (bukan $x^2 > x$), maka klaim tersebut \textbf{salah}. $\blacksquare$
+\end{contoh}
+
+\subsection{Peringatan: Kontra-Contoh vs Bukti}
+
+\begin{konsep}
+\textbf{Asimetri fundamental}: Satu kontra-contoh cukup untuk menyangkal pernyataan universal, tetapi seribu contoh yang mendukung \emph{tidak cukup} untuk membuktikan pernyataan universal. Membuktikan $\forall x\, P(x)$ memerlukan argumentasi yang berlaku untuk seluruh domain, bukan hanya sampel.
+
+Analogi: Untuk membuktikan bahwa ``semua angsa berwarna putih'', memeriksa jutaan angsa putih tidak cukup. Tetapi menemukan satu angsa hitam sudah cukup untuk menyangkalnya.
+\end{konsep}
+
+Kemampuan membedakan antara verifikasi empiris dan bukti formal sangat penting dalam ilmu komputer. Pengujian perangkat lunak (\textit{testing}) menunjukkan keberadaan bug (mirip kontra-contoh), tetapi test yang lulus seluruhnya tidak membuktikan ketiadaan bug --- sama seperti contoh-contoh yang mendukung tidak membuktikan pernyataan universal \cite{velleman2019}.

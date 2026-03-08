@@ -1,0 +1,83 @@
+\section{Induksi pada Pertidaksamaan}
+
+Induksi matematika tidak terbatas pada pembuktian persamaan. Teknik ini juga sangat efektif untuk membuktikan \logic{pertidaksamaan} yang melibatkan bilangan bulat. Bukti induksi pada pertidaksamaan memerlukan kehati-hatian tambahan, karena langkah induksi harus menunjukkan bahwa ketidaksamaan ``tetap terjaga'' ketika $n$ bertambah dari $k$ ke $k+1$ \cite{rosen2019}.
+
+\subsection{Pertidaksamaan Eksponensial}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap bilangan bulat $n \geq 1$, berlaku $2^n > n$.
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 1$):
+\[ 2^1 = 2 > 1 = n. \quad \checkmark \]
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k \geq 1$:
+\[ 2^k > k \]
+
+\textbf{Langkah Induksi}: Buktikan $2^{k+1} > k + 1$.
+\begin{align*}
+2^{k+1} &= 2 \cdot 2^k \\
+         &> 2 \cdot k  & \text{(hipotesis induksi: } 2^k > k) \\
+         &= k + k \\
+         &\geq k + 1 & \text{(karena } k \geq 1)
+\end{align*}
+
+Sehingga $2^{k+1} > k + 1$. $\blacksquare$
+\end{contoh}
+
+\subsection{Pertidaksamaan Faktorial}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap bilangan bulat $n \geq 4$, berlaku $n! > 2^n$.
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 4$):
+\[ 4! = 24 > 16 = 2^4. \quad \checkmark \]
+
+Perhatikan bahwa basis dimulai dari $n = 4$, bukan $n = 1$, karena pertidaksamaan tidak berlaku untuk $n = 1, 2, 3$ (misalnya $3! = 6 < 8 = 2^3$).
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k \geq 4$:
+\[ k! > 2^k \]
+
+\textbf{Langkah Induksi}: Buktikan $(k+1)! > 2^{k+1}$.
+\begin{align*}
+(k+1)! &= (k+1) \cdot k! \\
+        &> (k+1) \cdot 2^k & \text{(hipotesis induksi)} \\
+        &> 2 \cdot 2^k & \text{(karena } k+1 \geq 5 > 2 \text{ untuk } k \geq 4) \\
+        &= 2^{k+1}
+\end{align*}
+
+Sehingga $(k+1)! > 2^{k+1}$. $\blacksquare$
+\end{contoh}
+
+\subsection{Pertidaksamaan Bernoulli}
+
+\begin{contoh}
+\textbf{Teorema (Pertidaksamaan Bernoulli)}: Untuk setiap bilangan real $x \geq -1$ dan setiap bilangan bulat $n \geq 1$:
+\[ (1 + x)^n \geq 1 + nx \]
+
+\textbf{Bukti (Induksi pada $n$):}
+
+\textbf{Langkah Basis} ($n = 1$):
+\[ (1+x)^1 = 1 + x = 1 + 1 \cdot x. \quad \checkmark \]
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k \geq 1$:
+\[ (1 + x)^k \geq 1 + kx \]
+
+\textbf{Langkah Induksi}: Buktikan $(1 + x)^{k+1} \geq 1 + (k+1)x$.
+\begin{align*}
+(1 + x)^{k+1} &= (1 + x)^k \cdot (1 + x) \\
+               &\geq (1 + kx)(1 + x) & \text{(hip. induksi; } 1+x \geq 0) \\
+               &= 1 + x + kx + kx^2 \\
+               &= 1 + (k+1)x + kx^2 \\
+               &\geq 1 + (k+1)x & \text{(karena } kx^2 \geq 0)
+\end{align*}
+
+Sehingga $(1+x)^{k+1} \geq 1 + (k+1)x$. $\blacksquare$
+\end{contoh}
+
+\begin{catatan}
+Pada langkah induksi pertidaksamaan, perhatikan bahwa kita sering memerlukan \textbf{fakta tambahan} selain hipotesis induksi --- misalnya ``$k \geq 1$'' atau ``$kx^2 \geq 0$''. Fakta tambahan ini harus berasal dari batasan domain yang diberikan dalam pernyataan teorema, dan harus dinyatakan secara eksplisit dalam bukti.
+\end{catatan}

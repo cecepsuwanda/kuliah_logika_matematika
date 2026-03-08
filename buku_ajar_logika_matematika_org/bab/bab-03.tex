@@ -1,0 +1,135 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{2}}{}
+\begin{document}
+
+\chapter{Proposisi dan Operator Logika}
+
+\begin{subcpmk}
+  \item Sub-CPMK 1.1: Mahasiswa mampu menjelaskan konsep dasar proposisi, nilai kebenaran, dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+  \item Sub-CPMK 1.2: Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
+  \item Sub-CPMK 1.3: Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi (modus ponens, modus tollens, silogisme) dalam memecahkan persoalan komputasi dasar.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-03/section-3-1}
+\input{bab-03/section-3-2}
+\input{bab-03/section-3-3}
+\input{bab-03/section-3-4}
+\input{bab-03/section-3-5}
+\input{bab-03/section-3-6}
+\input{bab-03/section-3-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+\begin{aktivitas}
+  \item \textbf{Investigasi Proposisi di Kehidupan Kampus:} Kelilingi mading pengumuman fakultas. Salin 3 kalimat pengumuman yang masuk kategori \textbf{Proposisi Mutlak (Deklaratif)}, dan 3 kalimat lain yang murni \textbf{Non-Proposisi} (Misalnya: Perintah larangan parkir, atau kalimat tanya). Bedah mengapa sistem Aljabar menolak mentah-mentah 3 kalimat terakhir tersebut!
+  \item Tuliskan kode fungsi *Boolean logic* di Python memilah *Bug* pada filter data Karyawan: Anda ingin meloloskan "Karyawan Lulusan S1 \textbf{ATUKAH} Karyawan Gaji di Bawah 5 Juta". Jika si Bowo lulusan S1 sekaligus gajinya 3 Juta, apakah ia lantas tertolak oleh gerbang $\lor$ (OR)? Eksekusi skripnya di Laptop Anda lalu laporkan!
+  \item Terjemahkan pernyataan \textit{Trap/Jebakan} berikut ke rumus simbol panah: "Mahasiswa diizinkan mengulang Ujian Remedial \textbf{HANYA JIKA} nilai kehadiran absennya merengkuh angka utuh di atas 80\% semester ini." Hati-hati menentukan mana pangkal panah ($p$) dan mana sasaran akibat ($q$).
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+\begin{latihan}
+  \item Manakah yang berhak menyandang status \textbf{Kalimat Terbuka} dan minta ditusuk peubah definitif?
+    \begin{enumerate}
+        \item "Gunung Everest membengkak menduduki singgasana benua Eropa."
+        \item "$2y + 8 > 100$"
+        \item "Mereka bersepakat melegalkan hukum pajak penambahan nilai."
+        \item "Pohon Pisang berfotosintesis menggunakan oksigen daun."
+    \end{enumerate}
+  \item Rumuskan tabel kebenaran 8-baris membongkar kepalsuan sebuah modifikasi **Varian INVERS** bodoh berbunyi: $(\neg p \rightarrow \neg q)$. Buktikan dengan angka mutlak bahwa ia tidak pernah ekuivalen melahirkan genetik setara dengan ibu kandungnya $(p \rightarrow q)$.
+  \item Aplikasikan **Hukum Negasi Membongkar Implikasi** (tanpa Tabel) dari petatah-petitih janji gombal ini: \textit{"Bila besok Pangeran datang membawa kereta kuda, maka Sang Putri dipastikan kabur mencintai pangeran."} Tulis terjemahan harfiah pelucutan janji tersebut!
+  \item Uraikan \textit{Tree Parsing / Otopsi Pemotongan} berdasarkan derajat kasta \textbf{Hierarki Resolusi Operator} mesin *Compiler* terhadap baris sengkarut ini:  $\neg A \wedge B \vee C \rightarrow D \leftrightarrow E$. Tunjukkan bagian manakah yang dieksekusi nomor wahid dan manakah lapis dinding terakhirnya!
+  \item \textbf{Refleksi Sistem Aljabar:} Kapan Anda secara insting memutuskan memvalidasi fakta proposisi wajib turun melakukan ekspedisi **Empiris** (Terjun ukur Lab Fisika/Lapang), berbanding sekedar asyik corat-coret di atas kertas meramu **Derivasi Matematika Non-Empiris**? Apa beda kepastian keduanya?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+\begin{asesmen}
+\textbf{Instrumen untuk Sub-CPMK 1.1--1.3}
+
+\textbf{A. Pilihan Ganda}
+
+\begin{enumerate}
+  \item Mengapa kalimat Interogatif ("Siapakah pembunuh sang Presiden?") ditendang dari kerajaan Logika Matematika secara tidak terhormat?
+  \begin{enumerate}
+    \item Karena ia kekurangan predikat subjek
+    \item Sebab mesin tak memedulikan nasib presiden 
+    \item Karena statusnya melanggar Hukum Eksklusif, haram dinilai \textit{True} jua \textit{False}.
+    \item Lantaran ia kalimat berskala Empiris Observasi.
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Manakah representasi Tautologi murni dari Varian Implikasi yang secara mutlak sahih mempertahankan kemuliaan **Ekuivalensi Identik** 100\% tanpa setitikpun menodai janji orisinal ibu kandungnya $(p \rightarrow q)$?
+  \begin{enumerate}
+    \item Konvers ($q \rightarrow p$)
+    \item Biimplikasi ($p \leftrightarrow q$)
+    \item Invers ($\neg p \rightarrow \neg q$)
+    \item Kontraposisi ($\neg q \rightarrow \neg p$)
+  \end{enumerate}
+  Jawaban: (d)
+  
+  \item Sebuah janji kaku dari seorang Calon Presiden: \textit{"Jika saya merengkuh kemenangan ($p$), maka BBM saya turunkan drastis ($q$)"}. Realitasnya beliau kejam menderita \textbf{KALAH SUARA MUTLAK (F)}. Oleh karenanya, di mata hakim logika hukum, janji orisinil Implikasinya sejak masa awal bulan pemilu \textbf{otomatis divonis status}:
+  \begin{enumerate}
+    \item Berdosa Cacat Salah Mutlak (F)
+    \item Kontradiksi Premis
+    \item BENAR SUTI MUTLAK (T) / \textit{Vacuous Truth}
+    \item Gugur Tak Bernilai
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Essay Evaluasi Mandiri}
+
+\begin{enumerate}
+  \item Seorang Arsitek Jaringan menulis \textit{Requirement}: "Server menyalakan alarm bahaya mengevakuasi penghuni \textbf{HANYA BILA} suhu kipas \textit{processor} tembus 90 derajat." Translasi panah Implikasi manakah yang legal valid masuk ke algoritma mesinnya? Bedah dan buktikan kiamat apa yang disulut bila Sang Arsitek iseng memakai panah terbalik salah kaprah!
+  \item Buktikan secara mandiri betapa kokoh nan menakjubkannya hukum Negasi membongkar kemasan Implikasi bersyarat: $\neg(p \rightarrow q) \equiv (p \wedge \neg q)$ memakai amunisi 4-baris Tabel Kebenaran sakti.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian Berbasis OBE}: Terlampir pada Indeks Buku Belakang.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+\begin{checklist}
+  \item Saya sanggup membantai perbedaan tajam antara Proposisi Deklaratif melawan kumpulan Kalimat Interogatif/Perintah/Terbuka (Peubah) tak bernilai.
+  \item Saya mafhum benar beda filosofis Epistemologi Empiris melawan Derivasi Matematika A Priori.
+  \item Saya dapat menggunakan kelima operator logika ($\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$) dengan hafal kepribadian kaku mereka menyaring parameter T dan F.
+  \item Saya fasih menabrakkan Tabel Implikasi aneh dengan realita \textit{Vacuous Truth} bilamana sang pemicu cacat False.
+  \item Saya menguasai dogma penusukan kasta \textbf{Hierarki Operator} lapis demi lapis dari Not tertinggi hingga Biimplikasi terdasar.
+  \item Saya khatam betul perihal 3 turunan varian pelintiran Modifikasi: Konvers, Invers, beserta rajanya mahkota agung *Kontraposisi*.
+  \item Saya mampu menerjemahkan jebakan emosi bahasa sastra "Malahan, Padahal" beserta ancaman "Hanya Bila" memutasi panah ke simbol biner lurus.
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\begin{rangkuman}
+Bab 3 menyulut lentera pertama bagi kawah otak mahasiswa mendikte bahasa pemrograman menabrakkan miliaran probabilitas seleksi *Boolean*.
+
+\textbf{Sorotan Poin Kunci Esensial:}
+\begin{itemize}
+  \item \textbf{Proposisi Mutlak} murni kalimah tertutup memegang 1 takdir sakti (True atau False). Tertolaklah segala rupa sastra tanya/perintah, beserta kalimat Terbuka ber-variabel semu ($x>8$).
+  \item \textbf{Epistemologi T/F} digali mutlak perpaduan antara meraba alam (Empiris Terukur) versus membongkar derivasi aljabar suci di angan kertas (Derivatif Matematis).
+  \item Pasukan \textbf{Operator Penghubung Fundamental} ditopang algojo Negasi ($\neg$), algojo kejam tak berkompromi Konjungsi ($\wedge$), dan perisai kerelaan maha luwes pemaaf Disjungsi ($\vee$).
+  \item Gerbong \textbf{Implikasi Syarat ($\rightarrow$)} terbukti amat lentur ajaib meloloskan kelulusan *Vacuous Truth* (Status T otomatis menempel asal sang Pemicunya digugurkan F).
+  \item Tiga serangkai \textbf{Modifikasi Implikasi} merangkul *Konvers* (panah tertukar), *Invers* (Negasi sejajar), namun hanya sang agung \textbf{KONTRA POSISI ($\neg q \rightarrow \neg p$)} lah yang mutlak kembar identik EKUIVALEN mempertahankan T/F janji ibu kandungnya tanpa tercela.
+  \item Kaidah *Machine Compiling* mutlak diatur undang-undang kaku **Hierarki Resolusi Operator**:  $\neg, \wedge, \vee, \rightarrow, \leftrightarrow$.
+  \item \textbf{Translasi Simbolik} dari narasi emosi alamiah sastra menuntut penjinakan radar mendeteksi penyamaran (seperti membongkar "Padahal/Tetapi" murni kedok dari sang Konjungsi $\wedge$).
+\end{itemize}
+
+\textbf{Sandi Kunci Pembatas}: Proposisi Tertutup, Kalimat Deklaratif, Kalimat Peubah, Epistemologi Logika, Hierarki Operator Biner, Implikasi Murni, Varian Konvers/Invers/Kontraposisi, Terjemahan Penyamaran Bahasa.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

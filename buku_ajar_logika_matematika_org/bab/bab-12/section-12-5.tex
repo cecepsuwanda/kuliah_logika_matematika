@@ -1,0 +1,59 @@
+\section[Pembuktian dengan Kasus]{\raggedright Pembuktian dengan Kasus dan Pembuktian Exhaustif}
+
+Terdapat situasi di mana membuktikan suatu pernyataan secara umum (untuk seluruh elemen domain) lebih mudah dilakukan dengan membagi domain menjadi beberapa kasus yang saling lepas (\textit{mutually exclusive}) dan menangkap seluruh kemungkinan (\textit{collectively exhaustive}), kemudian membuktikan pernyataan tersebut untuk setiap kasus secara terpisah \cite{rosen2019}.
+
+\subsection{Pembuktian dengan Kasus (Proof by Cases)}
+
+\begin{definisi}[Pembuktian dengan Kasus]
+\logic{Pembuktian dengan kasus} (\textit{proof by cases} / \textit{proof by exhaustion of cases}) adalah teknik pembuktian di mana domain dipartisi menjadi kasus-kasus $C_1, C_2, \ldots, C_n$ yang saling lepas dan lengkap, kemudian pernyataan dibuktikan secara terpisah untuk setiap kasus. Teknik ini valid berdasarkan aturan inferensi:
+\[ \frac{(C_1 \rightarrow q) \wedge (C_2 \rightarrow q) \wedge \ldots \wedge (C_n \rightarrow q)}{(C_1 \vee C_2 \vee \ldots \vee C_n) \rightarrow q} \]
+\end{definisi}
+
+Kunci keberhasilan metode ini adalah memastikan bahwa kasus-kasus yang dipilih benar-benar \emph{mencakup seluruh kemungkinan}. Jika ada kasus yang terlewat, bukti menjadi tidak valid.
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap bilangan bulat $n$, $n^2 + n$ adalah bilangan genap.
+
+\textbf{Bukti (dengan Kasus):}
+
+Setiap bilangan bulat $n$ bernilai genap atau ganjil (dua kasus, saling lepas dan lengkap).
+
+\textbf{Kasus 1:} $n$ genap. Maka $n = 2k$ untuk suatu bilangan bulat $k$.
+\[ n^2 + n = (2k)^2 + 2k = 4k^2 + 2k = 2(2k^2 + k) \]
+yang berbentuk $2m$ (genap). $\checkmark$
+
+\textbf{Kasus 2:} $n$ ganjil. Maka $n = 2k + 1$ untuk suatu bilangan bulat $k$.
+\[ n^2 + n = (2k+1)^2 + (2k+1) = 4k^2 + 4k + 1 + 2k + 1 = 4k^2 + 6k + 2 = 2(2k^2 + 3k + 1) \]
+yang berbentuk $2m$ (genap). $\checkmark$
+
+Kedua kasus terbukti. $\blacksquare$
+\end{contoh}
+
+\subsection{Pembuktian Exhaustif}
+
+\begin{definisi}[Pembuktian Exhaustif]
+\logic{Pembuktian exhaustif} (\textit{exhaustive proof} / \textit{brute-force proof}) adalah pembuktian di mana pernyataan diverifikasi untuk \textbf{setiap} elemen domain secara individual, tanpa menggunakan argumentasi umum. Metode ini hanya dapat diterapkan jika domain bersifat berhingga dan cukup kecil untuk diperiksa satu per satu.
+\end{definisi}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap bilangan bulat $n$ dengan $1 \leq n \leq 4$, berlaku $n^2 \leq 2^n \cdot n$.
+
+\textbf{Bukti (Exhaustif):} Periksa setiap nilai:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$n$ & $n^2$ & $2^n \cdot n$ & $n^2 \leq 2^n \cdot n$? \\ \hline
+1 & 1 & 2 & Ya ($1 \leq 2$) \\ \hline
+2 & 4 & 8 & Ya ($4 \leq 8$) \\ \hline
+3 & 9 & 24 & Ya ($9 \leq 24$) \\ \hline
+4 & 16 & 64 & Ya ($16 \leq 64$) \\ \hline
+\end{tabular}
+\end{center}
+
+Semua kasus terverifikasi. $\blacksquare$
+\end{contoh}
+
+\begin{catatan}
+Pembuktian exhaustif memiliki keterbatasan yang jelas: jika domain berhingga tetapi sangat besar (misalnya semua bilangan prima kurang dari $10^9$), verifikasi manual menjadi tidak praktis. Dalam kasus seperti itu, komputer sering digunakan untuk membantu verifikasi, tetapi bukti semacam itu kadang diperdebatkan statusnya dalam komunitas matematika.
+\end{catatan}

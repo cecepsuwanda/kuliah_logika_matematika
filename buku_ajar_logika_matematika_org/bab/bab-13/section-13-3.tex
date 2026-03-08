@@ -1,0 +1,85 @@
+\section{Induksi pada Penjumlahan Deret}
+
+Salah satu aplikasi paling umum dari induksi matematika adalah membuktikan formula tertutup (\textit{closed-form formula}) untuk penjumlahan deret. Formula tertutup menggantikan penjumlahan dengan $n$ suku menjadi satu ekspresi yang hanya melibatkan $n$, sehingga nilai penjumlahan dapat dihitung langsung tanpa menjumlahkan suku per suku \cite{rosen2019}.
+
+\subsection{Jumlah \texorpdfstring{$n$}{n} Bilangan Bulat Positif Pertama}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap $n \geq 1$:
+\[ \sum_{i=1}^{n} i = 1 + 2 + 3 + \ldots + n = \frac{n(n+1)}{2} \]
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 1$):
+\[ \text{Ruas kiri: } 1. \quad \text{Ruas kanan: } \frac{1 \cdot 2}{2} = 1. \quad 1 = 1. \; \checkmark \]
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k$:
+\[ 1 + 2 + \ldots + k = \frac{k(k+1)}{2} \]
+
+\textbf{Langkah Induksi}: Buktikan untuk $n = k + 1$:
+\begin{align*}
+1 + 2 + \ldots + k + (k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+&= \frac{k(k+1) + 2(k+1)}{2} \\
+&= \frac{(k+1)(k+2)}{2} \\
+&= \frac{(k+1)((k+1)+1)}{2}
+\end{align*}
+
+Bentuk ini sesuai dengan formula untuk $n = k + 1$. $\blacksquare$
+\end{contoh}
+
+\subsection{Jumlah Kuadrat}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap $n \geq 1$:
+\[ \sum_{i=1}^{n} i^2 = 1^2 + 2^2 + \ldots + n^2 = \frac{n(n+1)(2n+1)}{6} \]
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 1$):
+\[ \text{Ruas kiri: } 1^2 = 1. \quad \text{Ruas kanan: } \frac{1 \cdot 2 \cdot 3}{6} = 1. \quad 1 = 1. \; \checkmark \]
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k$:
+\[ 1^2 + 2^2 + \ldots + k^2 = \frac{k(k+1)(2k+1)}{6} \]
+
+\textbf{Langkah Induksi}: Buktikan untuk $n = k + 1$:
+\begin{align*}
+1^2 + 2^2 + \ldots + k^2 + (k+1)^2 &= \frac{k(k+1)(2k+1)}{6} + (k+1)^2 \\
+&= \frac{k(k+1)(2k+1) + 6(k+1)^2}{6} \\
+&= \frac{(k+1)[k(2k+1) + 6(k+1)]}{6} \\
+&= \frac{(k+1)(2k^2 + k + 6k + 6)}{6} \\
+&= \frac{(k+1)(2k^2 + 7k + 6)}{6} \\
+&= \frac{(k+1)(k+2)(2k+3)}{6} \\
+&= \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}
+\end{align*}
+
+Bentuk ini sesuai dengan formula untuk $n = k + 1$. $\blacksquare$
+\end{contoh}
+
+\subsection{Jumlah Deret Geometri}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap $n \geq 0$ dan $r \neq 1$:
+\[ \sum_{i=0}^{n} r^i = 1 + r + r^2 + \ldots + r^n = \frac{r^{n+1} - 1}{r - 1} \]
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 0$):
+\[ \text{Ruas kiri: } r^0 = 1. \quad \text{Ruas kanan: } \frac{r^1 - 1}{r - 1} = \frac{r - 1}{r - 1} = 1. \quad 1 = 1. \; \checkmark \]
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k$:
+\[ 1 + r + r^2 + \ldots + r^k = \frac{r^{k+1} - 1}{r - 1} \]
+
+\textbf{Langkah Induksi}: Buktikan untuk $n = k + 1$:
+\begin{align*}
+1 + r + \ldots + r^k + r^{k+1} &= \frac{r^{k+1} - 1}{r - 1} + r^{k+1} \\
+&= \frac{r^{k+1} - 1 + r^{k+1}(r - 1)}{r - 1} \\
+&= \frac{r^{k+1} - 1 + r^{k+2} - r^{k+1}}{r - 1} \\
+&= \frac{r^{k+2} - 1}{r - 1} = \frac{r^{(k+1)+1} - 1}{r - 1}
+\end{align*}
+
+Sesuai dengan formula untuk $n = k + 1$. $\blacksquare$
+\end{contoh}
+
+\begin{konsep}
+Perhatikan pola yang konsisten pada ketiga bukti di atas. Langkah induksi selalu dimulai dengan memisahkan suku terakhir ($k+1$) dari penjumlahan, kemudian menerapkan hipotesis induksi pada $k$ suku pertama, dan terakhir menunjukkan melalui manipulasi aljabar bahwa hasilnya sesuai dengan formula untuk $n = k+1$.
+\end{konsep}

@@ -1,0 +1,64 @@
+\section{Panduan Praktis Translasi Bahasa Alami}
+
+Translasi statemen bahasa keseharian manusia, ke alam rumus Logika Predikat acap kali dinodai kesalahpahaman karena ambiguitas semantik kalimat verbal. Bagian ini merupakan matriks pedoman (ringkasan instan) kompas penerjemahan berbasis korelasi kuantor dan operator logika, guna menangkal kesalahan gramatika pemodelan fundamental \cite{rosen2019}.
+
+\subsection{Kamus Konstruksi Proposisi}
+
+Matriks berikut menuntun pemakaian kombinasi operator kuantor dan proposisi yang legal dan stabil beroperasi. Asumsikan semesta wacana adalah \textit{seluruh elemen} tanpa dipotong / tanpa disaring.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{|p{4cm}|p{6cm}|p{4.5cm}|}
+\caption{Kamus Konstruksi Translasi ke Logika Predikat (FOL)} \label{tab:translasi_fol} \\
+\hline
+\textbf{Frasa Bahasa Indonesia} & \textbf{Konversi Aturan Predikat Orde 1} & \textbf{Pola Operator Pasangan} \\ \hline
+\endfirsthead
+
+\hline
+\textbf{Frasa Bahasa Indonesia} & \textbf{Konversi Aturan Predikat Orde 1} & \textbf{Pola Operator Pasangan} \\ \hline
+\endhead
+
+\multicolumn{3}{r}{\textit{berlanjut ke halaman berikutnya...}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+``Setiap entitas $P$ itu karakternya $Q$'' & $\forall x \, (P(x) \rightarrow Q(x))$ & Universal $+$ Implikasi \newline ($\forall, \rightarrow$) \\ \hline
+
+``Beberapa / Sebagian / Ada entitas $P$ yang tergolong $Q$'' & $\exists x \, (P(x) \land Q(x))$ & Eksistensial $+$ Konjungsi \newline ($\exists, \land$) \\ \hline
+
+``Tak satupun entitas $P$ yang tergolong $Q$'' & $\forall x \, (P(x) \rightarrow \neg Q(x))$ \newline \textit{atau} \newline $\neg \exists x \, (P(x) \land Q(x))$ & Universal $+$ $\neg$Konsekuen \newline ($\forall, \rightarrow, \neg$) \\ \hline
+
+``Semua entitas $P$ itu karakternya TIDAK $Q$'' & Identik / Sinonim dgn nomor urut 3 di atas & Identik \\ \hline
+
+``Beberapa / Sebagian entitas $P$ TIDAK tergolong karakter $Q$'' & $\exists x \, (P(x) \land \neg Q(x))$ & Eksistensial $+$ $\land\neg$ \newline ($\exists, \land, \neg$) \\ \hline
+
+``Hanya anggota $P$ murni yang boleh punya sifat $Q$'' & $\forall x \, (Q(x) \rightarrow P(x))$ \newline \textit{(*Catat: posisinya terbalik secara struktural)} & Implikasi bersilang balik \\ \hline
+
+\end{longtable}
+
+\subsection{Contoh Translasi Kasus Jamak}
+
+\begin{contoh}
+Diberikan domain $\mathcal{U} = \text{semua makhluk}$. Predikat dasar: \\
+$A(x)$ = $x$ adalah atlet \\
+$S(x)$ = $x$ berbadan sehat \\
+$K(x)$ = $x$ perokok
+
+Lakukan translasi formal:
+\begin{enumerate}
+    \item \textbf{Setiap atlet pasti sehat.} \\
+    $\forall x \, (A(x) \rightarrow S(x))$
+    \item \textbf{Seorang perokok takkan pernah menjadi atlet.} \\
+    "Takkan pernah" bermakna Tak Satupun. Rujuk nomor 3 di tabel. \\
+    $\forall x \, (K(x) \rightarrow \neg A(x))$
+    \item \textbf{Beberapa atlet sehat, yang bodohnya juga perokok.} \\
+    "Beberapa" + konjungsi bertumpuk. \\
+    $\exists x \, (A(x) \land S(x) \land K(x))$
+    \item \textbf{Sebagian atlet ada yang sakit-sakitan (tidak sehat).} \\
+    $\exists x \, (A(x) \land \neg S(x))$
+    \item \textbf{Syarat telak sehat secara utuh (di organisasi ini), adalah ia tak merokok.} \\
+    Hanya yang tak merokok bersertifikat sehat. Jadi: "setiap yg direkomendasikan sehat $\implies$ harus bebas tembakau". \\
+    $\forall x \, (S(x) \rightarrow \neg K(x))$
+\end{enumerate}
+\end{contoh}

@@ -1,0 +1,77 @@
+\section{Pembuktian dengan Kontradiksi (Proof by Contradiction)}
+
+Pembuktian dengan kontradiksi (\textit{proof by contradiction}, atau \textit{reductio ad absurdum}) merupakan teknik pembuktian yang sangat kuat dan serbaguna. Metode ini bekerja dengan mengasumsikan bahwa pernyataan yang hendak dibuktikan adalah \emph{salah}, kemudian menunjukkan bahwa asumsi tersebut menghasilkan suatu kontradiksi logis --- yakni pernyataan yang mustahil benar. Karena asumsi kepalsuan menghasilkan kemustahilan, maka pernyataan asli harus benar \cite{hammack2018}.
+
+\subsection{Landasan Logis}
+
+Untuk membuktikan implikasi $p \rightarrow q$, bukti kontradiksi didasarkan pada ekuivalensi:
+\[ p \rightarrow q \equiv \neg(p \wedge \neg q) \]
+
+Artinya, $p \rightarrow q$ bernilai benar jika dan hanya jika $p \wedge \neg q$ bernilai salah (mustahil). Jika kita mengasumsikan $p \wedge \neg q$ (hipotesis benar, kesimpulan salah) dan berhasil menurunkan kontradiksi, maka $p \wedge \neg q$ memang mustahil, sehingga $p \rightarrow q$ terbukti benar.
+
+Untuk membuktikan pernyataan umum $P$ (bukan implikasi), kita mengasumsikan $\neg P$ dan menurunkan kontradiksi, sehingga $\neg P$ mustahil dan $P$ harus benar.
+
+\subsection{Struktur Bukti Kontradiksi}
+
+\begin{enumerate}
+    \item \textbf{Asumsikan} negasi dari pernyataan yang hendak dibuktikan.
+    \begin{itemize}
+        \item Untuk implikasi $p \rightarrow q$: asumsikan $p$ benar dan $\neg q$ benar.
+        \item Untuk pernyataan umum $P$: asumsikan $\neg P$ benar.
+    \end{itemize}
+    \item \textbf{Lakukan} penalaran deduktif dari asumsi tersebut.
+    \item \textbf{Tunjukkan} bahwa penalaran tersebut menghasilkan pernyataan yang jelas merupakan kontradiksi (misalnya: $0 = 1$, suatu bilangan genap sekaligus ganjil, atau bertentangan dengan fakta yang telah diketahui).
+    \item \textbf{Simpulkan} bahwa asumsi awal (negasi) harus salah, sehingga pernyataan asli terbukti benar.
+\end{enumerate}
+
+\subsection{Contoh: Irasionalitas \texorpdfstring{$\sqrt{2}$}{sqrt(2)}}
+
+\begin{contoh}
+\textbf{Teorema}: $\sqrt{2}$ adalah bilangan irasional.
+
+Ini merupakan salah satu bukti kontradiksi paling terkenal dalam sejarah matematika, yang telah dikenal sejak zaman Yunani kuno.
+
+\textbf{Bukti (Kontradiksi):}
+\begin{enumerate}
+    \item Asumsikan, untuk mendapatkan kontradiksi, bahwa $\sqrt{2}$ adalah bilangan rasional.
+    \item Maka terdapat bilangan bulat $a$ dan $b$ dengan $b \neq 0$ dan $\gcd(a, b) = 1$ (pecahan sudah disederhanakan) sehingga $\sqrt{2} = \frac{a}{b}$.
+    \item Kuadratkan kedua ruas: $2 = \frac{a^2}{b^2}$, sehingga $a^2 = 2b^2$.
+    \item $a^2$ genap (karena $a^2 = 2b^2$ adalah kelipatan 2), maka $a$ genap (telah dibuktikan pada section sebelumnya via kontraposisi).
+    \item Karena $a$ genap, terdapat bilangan bulat $c$ sehingga $a = 2c$.
+    \item Substitusi: $(2c)^2 = 2b^2$, sehingga $4c^2 = 2b^2$, maka $b^2 = 2c^2$.
+    \item $b^2$ genap, maka $b$ genap.
+    \item Tetapi jika $a$ dan $b$ keduanya genap, maka $\gcd(a, b) \geq 2$, yang \textbf{berkontradiksi} dengan asumsi bahwa $\gcd(a, b) = 1$.
+    \item Karena kontradiksi diperoleh, maka asumsi awal salah. $\sqrt{2}$ adalah bilangan irasional. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\subsection{Contoh: Ketidakberhinggaan Bilangan Prima}
+
+\begin{contoh}
+\textbf{Teorema} (Euclid): Terdapat tak berhingga banyak bilangan prima.
+
+\textbf{Bukti (Kontradiksi):}
+\begin{enumerate}
+    \item Asumsikan, untuk mendapatkan kontradiksi, bahwa hanya terdapat berhingga bilangan prima, yaitu $p_1, p_2, \ldots, p_n$.
+    \item Konstruksi bilangan $N = p_1 \cdot p_2 \cdot \ldots \cdot p_n + 1$.
+    \item $N > 1$, sehingga $N$ memiliki faktor prima (setiap bilangan $> 1$ memiliki faktor prima).
+    \item Misalkan $p_i$ adalah salah satu faktor prima dari $N$. Maka $p_i | N$ (membagi habis $N$).
+    \item Tetapi $p_i$ juga membagi $p_1 \cdot p_2 \cdot \ldots \cdot p_n$ (karena $p_i$ adalah salah satu faktornya).
+    \item Jika $p_i | N$ dan $p_i | (p_1 \cdot \ldots \cdot p_n)$, maka $p_i | (N - p_1 \cdot \ldots \cdot p_n) = 1$.
+    \item Tetapi tidak ada bilangan prima yang membagi 1. \textbf{Kontradiksi.}
+    \item Asumsi salah, maka terdapat tak berhingga bilangan prima. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\subsection{Perbedaan dengan Kontraposisi}
+
+Meskipun kontraposisi dan kontradiksi sama-sama merupakan metode tak langsung, keduanya berbeda secara fundamental:
+
+\begin{itemize}
+    \item \textbf{Kontraposisi} membuktikan pernyataan yang \emph{ekuivalen} ($\neg q \rightarrow \neg p$) secara langsung. Ini hanya berlaku untuk implikasi $p \rightarrow q$.
+    \item \textbf{Kontradiksi} bekerja dengan mengasumsikan negasi dan mencari kemustahilan. Ini dapat digunakan untuk \emph{semua jenis pernyataan}, tidak terbatas pada implikasi.
+\end{itemize}
+
+\begin{konsep}
+Kontradiksi sering menjadi satu-satunya pilihan untuk membuktikan pernyataan eksistensial negatif (``tidak ada ...'') atau pernyataan tentang ketidakmungkinan. Bukti bahwa $\sqrt{2}$ irasional dan bukti ketidakberhinggaan bilangan prima adalah contoh klasik di mana kontraposisi tidak dapat diterapkan secara langsung, tetapi kontradiksi memberikan pendekatan yang elegan \cite{wiki_mathematical_proof}.
+\end{konsep}

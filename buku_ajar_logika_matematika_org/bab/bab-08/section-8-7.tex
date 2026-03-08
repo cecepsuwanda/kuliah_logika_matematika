@@ -1,0 +1,64 @@
+\section{Asumsi Dunia Tertutup dan Batasan Pemodelan}
+
+Dalam konteks basis pengetahuan, interpretasi terhadap informasi yang \emph{tidak} ada dalam KB menjadi isu penting. Bagaimana kita memperlakukan pernyataan yang tidak dinyatakan sebagai fakta maupun aturan? Jawabannya bergantung pada asumsi yang diadopsi oleh sistem \cite{rosen2019}.
+
+\subsection{Asumsi Dunia Tertutup (Closed-World Assumption)}
+
+\begin{definisi}[Asumsi Dunia Tertutup]
+\logic{Asumsi Dunia Tertutup} (\textit{Closed-World Assumption}, CWA) menyatakan bahwa setiap fakta yang \textbf{tidak} ada dalam basis pengetahuan dianggap \textbf{salah}. Dengan kata lain, KB dianggap lengkap: jika suatu fakta tidak dinyatakan, maka itu karena fakta tersebut memang tidak benar.
+\end{definisi}
+
+Di bawah CWA, jika $Manusia(Marcus)$ ada dalam KB tetapi $Manusia(Caesar)$ tidak ada, maka sistem menyimpulkan bahwa $\neg Manusia(Caesar)$ --- bukan karena ada bukti bahwa Caesar bukan manusia, melainkan karena tidak ada informasi yang menyatakan sebaliknya.
+
+\subsection{Asumsi Dunia Terbuka (Open-World Assumption)}
+
+\begin{definisi}[Asumsi Dunia Terbuka]
+\logic{Asumsi Dunia Terbuka} (\textit{Open-World Assumption}, OWA) menyatakan bahwa ketiadaan fakta dalam KB \textbf{tidak} berarti fakta tersebut salah --- mungkin saja fakta tersebut benar tetapi belum diketahui atau belum dimasukkan ke KB.
+\end{definisi}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{3.5cm}|p{4cm}|p{4.5cm}|}
+\hline
+\textbf{Aspek} & \textbf{CWA (Dunia Tertutup)} & \textbf{OWA (Dunia Terbuka)} \\ \hline
+Fakta tidak dinyatakan & Dianggap salah & Status tidak diketahui \\ \hline
+Kelengkapan KB & KB dianggap lengkap & KB mungkin tidak lengkap \\ \hline
+Contoh penggunaan & Basis data relasional, SQL & Web Semantik, Ontologi \\ \hline
+Negasi & By default (negation as failure) & Harus dinyatakan eksplisit \\ \hline
+\end{tabular}
+\caption{Perbandingan Asumsi Dunia Tertutup dan Terbuka}
+\end{table}
+
+\subsection{Implikasi pada Pemodelan}
+
+Pemilihan asumsi (CWA vs OWA) memiliki dampak signifikan pada desain basis pengetahuan:
+
+\begin{contoh}
+\textbf{Skenario}: KB berisi fakta $Laki(Hasan)$, $Laki(Ahmad)$, $Laki(Ali)$, $Perempuan(Minah)$, $Perempuan(Rina)$, $Perempuan(Sari)$.
+
+\textbf{Query}: $Laki(Budi)$?
+
+\begin{itemize}
+    \item \textbf{Di bawah CWA}: Karena $Laki(Budi)$ tidak ada dalam KB, jawaban adalah \textbf{Salah}.
+    \item \textbf{Di bawah OWA}: Karena KB tidak menyatakan $Laki(Budi)$ maupun $\neg Laki(Budi)$, jawaban adalah \textbf{Tidak Diketahui}.
+\end{itemize}
+\end{contoh}
+
+\subsection{Batasan Pemodelan FOL}
+
+Meskipun logika predikat orde pertama sangat ekspresif, terdapat beberapa batasan penting yang perlu dipahami:
+
+\begin{enumerate}
+    \item \textbf{Ketidakpastian}: FOL standar tidak menangani probabilitas atau derajat keyakinan. Untuk domain yang memerlukan penalaran probabilistik, diperlukan ekstensi seperti logika fuzzy atau jaringan Bayesian.
+
+    \item \textbf{Perubahan pengetahuan}: FOL standar bersifat monoton --- menambah fakta baru tidak pernah membatalkan kesimpulan lama. Dalam dunia nyata, informasi baru kadang membatalkan kesimpulan sebelumnya (\textit{defeasible reasoning}).
+
+    \item \textbf{Kompleksitas komputasi}: Penalaran otomatis dalam FOL bersifat \textit{semi-decidable} --- tidak selalu dijamin berterminasi. Untuk domain besar, waktu komputasi bisa sangat signifikan.
+
+    \item \textbf{Representasi temporal}: FOL standar tidak memiliki mekanisme bawaan untuk merepresentasikan perubahan waktu. Fakta $Login(UserA)$ tidak menyatakan kapan login terjadi atau apakah masih berlaku \cite{wiki_closed_world}.
+\end{enumerate}
+
+\begin{konsep}
+Meskipun terdapat batasan, logika predikat orde pertama tetap menjadi fondasi bagi berbagai paradigma representasi pengetahuan modern, termasuk basis data relasional (SQL mengadopsi CWA), web semantik (OWL mengadopsi OWA), dan sistem pakar. Pemahaman mendalam tentang FOL menjadi prasyarat untuk mempelajari representasi pengetahuan tingkat lanjut.
+\end{konsep}

@@ -1,0 +1,35 @@
+\section{Aturan Resolusi dalam Kecerdasan Buatan}
+
+Seiring bergulirnya revolusi komputer abad modern, ahli komputasimengidamkan suatu metode mesin mandiri yang sanggup mengeksekusi inferensi jutaan fakta tanpa harus menghafal kesebelas varian Modus Ponens/Tollens secara spesifik \cite{rosen2019}. Mimpi biner tersebut dijawab tuntas oleh **John Alan Robinson** (1965) lewat temuan algoritma penalaran pamungkas yang menyatukan ragam dedupsi: \textbf{Resolusi}.
+
+\subsection{Definisi dan Mekanika Resolusi}
+
+Resolusi adalah teknik inferensi silang pada dua buah klausa Disjungsi ($OR$) yang memuat satu pasangan \textit{Proposisi Saling Bertentangan (Literal dan Negasinya)}.
+
+\begin{teorema}[Prinsip Resolusi]
+Bila panggung sidang menyediakan dua klausa Disjungsi kokoh Benar: $(p \lor q)$ dan $(\neg p \lor r)$. Lantaran kita dihajar fakta mutlak bahwa kepingan $p$ secara alami mustahil hidup rukun serentak dalam status "Benar" DAN "Salah" (Hukum Non-Kontradiksi). Jika $p$ kebetulan hari ini Benar, berarti $\neg p$ celaka/salah, maka pilar penyangga utama di premis kedua diserahkan penuh secara mutlak ke tubuh sisa klausa: Yakni $r$ diwajibkan Benar. 
+
+Sebaliknya, bila alam mendikte $p$ yang hancur Salah, maka $q$ di premis pertama yang harus pikul komando meledak Benar. Konklusinya senantiasa melahirkan: \textbf{Kombinasi persatuan "Sisa Klausa Utuh": ($q \lor r$)}. Sisa-sisa klausa ini lantas digabungkan menjadi kesimpulan baru hasil peleburan (Resolvent).
+\end{teorema}
+
+\textbf{Anatomi Blok Argumen Resolusi:}
+\[
+\begin{array}{cl}
+p \vee q & \text{(Klausa OR Pertama)} \\
+\neg p \vee r & \text{(Klausa OR Kedua memuat penangkal } p) \\
+\hline
+\therefore q \vee r & \text{(Resolvent / Kesimpulan Hasil Silang)}
+\end{array}
+\]
+
+\begin{contoh}
+Misalkan dua fakta logis dikirimkan ke dalam mesin Kecerdasan Buatan (AI):
+\begin{itemize}
+    \item \textbf{Data 1 ($p \lor q$)}: "Andi sedang mudik menginjak tanah Surabaya ATAU Andi asyik bertugas piket di ibukota Jakarta."
+    \item \textbf{Data 2 ($\neg p \lor r$)}: "Andi jelas Tidak Sedang Berada di tanah mudikan Surabaya ATAU mesin mobil operasionalnya kini tengah berjalan panik mengular di tol malam."
+\end{itemize}
+Sistem komputer langsung memindai letak paradoks: Pura-pura abaikan konflik ruang spasial Andi di Surabaya ($p$) dengan lawannya ($\neg p$). Trik resolusi langsung memenggal variabel masalah $p$ dan mengawinkan silang sisa ujung variabel tak berdosa: \\
+\textbf{Konklusi Logis ($\therefore q \lor r$)}: \\ \textit{"Selesai! Berarti Andi memang pantas memikul status Asyik piket di Ibukota ($q$) ATAU mobil mesin operasionalnya tengah meronta menyusuri aspal Tol ($r$)."}
+\end{contoh}
+
+Dalam arsitektur *Artificial Intelligence* masa kini, khususnya sistem pakar bahasa pemrograman \textbf{PROLOG (Programming in Logic)}, hampir 100\% motor inferensi di balik layarnya berjalan melumat basis data (*Knowledge Base*) memakai repetisi mesin potong \textit{Resolusi} berantai ini \cite{wiki_first_order_logic}. Sangat elegan dan mudah dikodekan dalam loop biner.

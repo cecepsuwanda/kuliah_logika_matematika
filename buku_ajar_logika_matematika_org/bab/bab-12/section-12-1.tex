@@ -1,0 +1,43 @@
+\section{Pengertian Teorema, Bukti, dan Terminologi}
+
+Dalam matematika dan ilmu komputer, setiap klaim mengenai sifat suatu objek, algoritma, atau sistem harus divalidasi secara formal melalui proses pembuktian. Pembuktian bukan sekadar verifikasi empiris (menguji beberapa kasus), melainkan demonstrasi logis yang menunjukkan bahwa suatu pernyataan berlaku untuk \emph{seluruh} kasus yang mungkin. Kemampuan menyusun dan memahami bukti merupakan keterampilan fundamental bagi mahasiswa informatika, karena pembuktian menjadi dasar bagi analisis algoritma, verifikasi program, dan kriptografi \cite{rosen2019}.
+
+\subsection{Teorema}
+
+\begin{definisi}[Teorema]
+\logic{Teorema} adalah pernyataan matematika yang kebenarannya telah dibuktikan secara formal melalui rangkaian penalaran logis yang valid, berdasarkan aksioma, definisi, dan teorema-teorema lain yang telah dibuktikan sebelumnya. Teorema merupakan kebenaran yang berlaku secara universal dalam sistem aksiomatik yang mendasarinya.
+\end{definisi}
+
+Sebagian besar teorema memiliki struktur implikasi: ``Jika $p$, maka $q$'' ($p \rightarrow q$), di mana $p$ disebut \logic{hipotesis} (premis, anteseden) dan $q$ disebut \logic{kesimpulan} (konklusi, konsekuen). Membuktikan teorema berarti menunjukkan bahwa implikasi $p \rightarrow q$ bernilai benar untuk setiap kasus --- yaitu tidak pernah terjadi situasi di mana $p$ benar tetapi $q$ salah.
+
+\subsection{Bukti (Proof)}
+
+\begin{definisi}[Bukti]
+\logic{Bukti} (\textit{proof}) adalah demonstrasi deduktif yang memaparkan langkah demi langkah penalaran logis --- berdasarkan aksioma, definisi, dan aturan inferensi yang sah --- untuk menunjukkan bahwa suatu proposisi atau teorema bernilai benar. Setiap langkah dalam bukti harus dijustifikasi oleh landasan logis yang valid \cite{velleman2019}.
+\end{definisi}
+
+Bukti berbeda secara fundamental dari verifikasi empiris. Seorang ilmuwan mungkin menguji hipotesis dengan mengamati ribuan kasus dan menemukan bahwa semuanya sesuai, tetapi hal itu tidak membuktikan bahwa hipotesis berlaku untuk \emph{seluruh} kasus. Sebaliknya, bukti matematis memberikan jaminan absolut bahwa suatu pernyataan benar untuk setiap elemen dalam domain yang dimaksud.
+
+\subsection{Terminologi Terkait}
+
+Beberapa konsep penting yang erat kaitannya dengan teorema dan bukti:
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item \textbf{Aksioma / Postulat}: Pernyataan kebenaran mendasar yang diterima tanpa pembuktian. Aksioma menjadi titik awal dari mana teorema-teorema diturunkan. Contoh: ``Untuk setiap bilangan bulat $a$, $a + 0 = a$'' (identitas penjumlahan).
+
+  \item \textbf{Definisi}: Pernyataan yang secara tepat menentukan makna suatu istilah atau konsep matematis. Definisi bukan klaim yang perlu dibuktikan, melainkan konvensi yang disepakati. Contoh: ``Bilangan bulat $n$ disebut genap jika terdapat bilangan bulat $k$ sehingga $n = 2k$''.
+
+  \item \textbf{Lemma}: Teorema bantu yang dibuktikan terlebih dahulu dan digunakan sebagai batu loncatan untuk membuktikan teorema utama yang lebih besar. Lemma memecah pembuktian yang kompleks menjadi bagian-bagian yang lebih mudah dikelola.
+
+  \item \textbf{Akibat (\textit{Corollary})}: Proposisi yang kebenarannya mengikuti secara langsung dan mudah dari teorema yang telah dibuktikan, tanpa memerlukan pembuktian tambahan yang substansial.
+
+  \item \textbf{Konjektur (\textit{Conjecture})}: Pernyataan yang diyakini benar berdasarkan bukti empiris atau intuisi, tetapi belum dibuktikan secara formal. Contoh terkenal: Konjektur Goldbach (setiap bilangan genap $> 2$ adalah jumlah dua bilangan prima).
+\end{enumerate}
+
+\begin{konsep}
+Hierarki dalam matematika dapat digambarkan sebagai: \textbf{Aksioma} $\rightarrow$ \textbf{Lemma} $\rightarrow$ \textbf{Teorema} $\rightarrow$ \textbf{Akibat}. Aksioma diterima tanpa bukti, lemma dibuktikan untuk mendukung teorema, teorema dibuktikan sebagai hasil utama, dan akibat diturunkan dari teorema dengan mudah.
+\end{konsep}
+
+\subsection{Notasi Q.E.D.}
+
+Akhir dari sebuah bukti biasanya ditandai dengan simbol $\blacksquare$ atau singkatan \textbf{Q.E.D.} (\textit{quod erat demonstrandum}, bahasa Latin untuk ``yang hendak dibuktikan''). Simbol ini mengindikasikan bahwa rangkaian penalaran telah lengkap dan kesimpulan yang dikehendaki telah tercapai. Dalam konteks buku ini, simbol $\blacksquare$ akan digunakan secara konsisten untuk menandai akhir setiap bukti.

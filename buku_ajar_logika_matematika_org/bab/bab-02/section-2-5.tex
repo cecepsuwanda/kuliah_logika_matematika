@@ -1,0 +1,34 @@
+\section{Gerbang Sirkuit Digital: Logika di Atas Keping Silikon}
+
+Kini tibalah saatnya menggali misteri terdalam: Lantas bagaimana rentetan Aljabar yang sebatas tulisan tinta hitam putih di buku Boole, bisa tiba-tiba menghidupkan layar kaca komputer raksasa bertenaga listrik? 
+
+Jawaban murni dari ilusi konyol tersebut tersemat tegak lurus pada lompatan terhebat Arsitektur Fisika Abad ke-20: Penemuan \textbf{Transistor} semikonduktor yang sukses menerjemahkan pakem abstrak Boolean 1 (True) dan 0 (False) direkam secara kasat mata menjadi Voltan Beraliran Arus Tinggi (misal 5 Volt) melawan Voltan Putus Jatuh (0 Volt) \cite{grinnell_logic,hackatronic}. 
+
+\subsection{1. Berdirinya Kekaisaran Gerbang Dasar Logika (\textit{Logic Gates})}
+
+Para pemahat silikon menyolder sekian banyak transistor berukuran nano saling jalin-menjalin membentuk \textit{Logic Gates} murni yang fungsinya taat babi buta menjiplak Operasi Proposisional Dasar And, Or, dan Not:
+
+\begin{itemize}
+    \item \textbf{Gerbang AND (Konjungsi):} Dua kabel input (A, B) mengalir masuk. Kabel keluaran \textit{Output} hanya akan sudi bernyala terang benderang dialiri voltan bilamana dan hanya bilamana \textbf{KEDUA} kabel induknya serentak di-injeksi nyala 1 (T). Mati sehelai saja (F), output memudar layu mematung 0 mutlak.
+    \item \textbf{Gerbang OR (Disjungsi lentur):} Merakit dua kabel masukan asalkan \textbf{Minimal Satu Aja} (Entah Kiri, Entah Kanan) bergelora setrum ber-arus 1 (T), output di ujung niscaya bertepuk tangan sukses tersulut nyala api 1 (T) seolah tanpa cela.
+    \item \textbf{Gerbang NOT (Inverter Penyangkal):} Mematahkan lurus-lurus takdir subjek. Dipancing listrik nyala (1), malah menendang *Output*-nya gelap terbunuh (0). Disuplai kabel mati gelap (0), secara siluman membakar ujung outputnya menyala meledak berani (1).
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{logic-gates}
+\caption{Formasi Blueprint *Hardware*: Simbol sakral militer Gerbang NOT (kiri), Gerbang AND peluru (tengah), Gerbang OR kapal melengkung (kanan) mendikte semesta arsitektur CPU Komputer \cite{hackatronic}.}
+\label{fig:logic-gates}
+\end{figure}
+
+\subsection{2. Optimasi Silikon: Uang Triliunan Rupiah dari Aljabar Tipis}
+
+Kenapa seorang insinyur *Hardware* dituntut kelulusan A kumlaude pada ujian mata kuliah Aljabar Logika Matematika? 
+
+\textbf{Sengketa Skema Sirkuit Emas:} Diberikan spesifikasi komponen sirkuit: \textbf{$Y = (A \land B) \lor (A \land \neg B)$}. Manajer pabrik tak terdidik akan membabi-buta mencetak membakar plat tembaga menggunakan 2 Gerbang AND mahal murni disambungkan ke sebuah Gerbang NOT murni dan mengelas muaranya berkumpul di 1 Gerbang OR murni. Total ongkos perakitan = 4 Komponen Raksasa \cite{levin_discrete}.
+
+Insinyur Logika lulusan bersenjata memandang sirkuit itu lalu sekilas iseng menggores kertas meringkas faktorisasi mundur:
+$$ Y = A \land (B \lor \neg B) \equiv A \land \text{True} \equiv \textbf{A} $$
+
+Sirkuit meledak menyisakan output sebiji nilai polos **A**. Biang kerok pabrik batal memborong jutaan \textit{Logic Gates}. Mereka akhirnya merakit gampang cuma menyambung 1 seutas kabel Tembaga Telanjang A langsung dihunjamkan ke tiang keluaran Output Y! Tak ada And, Tak usah ada OR. Nol rupiah budget pembelah angin diselamatkan!
+Inilah manifestasi fisik *Engineering* sejati: Menumpas \textbf{BOM MATERIAL (Bill of Materials)} secara brutal bertumpu sepenuhnya dari penyederhanaan goresan abstrak pena Aljabar Proposisional mahasiswa. \cite{grinnell_logic,hackatronic}

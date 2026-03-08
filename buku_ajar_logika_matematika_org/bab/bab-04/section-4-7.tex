@@ -1,0 +1,56 @@
+\section{Studi Kasus: Optimasi Kode Bercabang \textit{If-Else} dan Gerbang Logika}
+
+Untuk menutup selubung keanggunan Bab Ekuivalensi dan Tautologi ini, kita membongkar gerbang realita sejati ke panggung nyata mengapa kita mati-matian tersiksa menghafal puluhan manipulasi Distributif dan De Morgan \cite{rosen2019}. Aljabar Logika modern mutlak menyumbangkan dua kucuran pilar utama pada semesta teknologi modern: Menyederhanakan Baris percabangan program (Software), dan membabat biaya pencetakan gerbang Silikon Semikonduktor (Hardware).
+
+\subsection{1. Pemangkasan Dead-Code di Belantara IF-ELSE}
+
+Pernahkah Anda membaca kodingan kolega sistem senior yang berjubel kusut mengurai puluhan persyaratan Boolean gila di gerbang validasi server Web?
+
+\textbf{Skenario Kode Asli Mentah:}
+\begin{lstlisting}[style=pythonstyle]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  
+  # Validasi kualifikasi nasabah (versi ruwet):
+  if not (not a_kerja and b_jaminan):
+      # Cek tambahan di dalam:
+      if a_kerja and (b_jaminan or not c_bebas_utang):
+          return True
+  return False
+\end{lstlisting}
+
+Mari kita bedah arsitekturnya ke ranah Logika Proposisional murni:
+Sang programmer malang mendikte filter dengan pola: $\neg(\neg A \wedge B) \wedge (A \wedge (B \vee \neg C))$
+
+\textbf{Proses Operasi Bedah Forensik Penyederhanaan:}
+\begin{align*}
+    1.\ & \neg(\neg A \wedge B) \wedge A \wedge (B \vee \neg C) & \text{(Bentuk utuh gerbang bercabang program)} \\
+    2.\ & (A \vee \neg B) \wedge A \wedge (B \vee \neg C) & \text{(Menerabas masuk dengan peluru De Morgan pada ruas awal)} \\
+    3.\ & A \wedge (A \vee \neg B) \wedge (B \vee \neg C) & \text{(Hukum Komutatif menggeser sejajar sekutu sebangsa merapat)} \\
+    4.\ & \mathbf{A} \wedge (B \vee \neg C) & \text{(Terang benderang! Kunci sakti Absorpsi memenggal paksa deretan $A \wedge (A \vee \neg B)$ lebur terisap ke $A$ saja!!)}
+\end{align*}
+
+\textbf{Transformasi Kode Bersih Pasca-Penyulingan (Refactoring):}
+\begin{lstlisting}[style=pythonstyle]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  
+  # Filter Ekuivalensi Ceria nan Minimalis:
+  return a_kerja and (b_jaminan or not c_bebas_utang)
+\end{lstlisting}
+Bayangkan efisiensi putaran memori *Central Processing Unit (CPU)* yang mampu diselamatkan. Itulah harga jutaan Dollar di balik sihir Ekuivalensi proporsi diskrit mahasiswa.
+
+\subsection{2. Aplikasi Memutilasi Rangkaian Gerbang Logika Digital (Integrated Circuits)}
+
+Sejatinya logika proposisional adalah ibu kandung pemodelan perangkat keras Gerbang Sirkuit Digital (Hardware \textit{AND/OR/NOT Gates}). Misalkan Divisi Pabrik ditawari kontrak mematenkan *blueprint* cetak IC pemroses dengan skematik sinyal Input A, B mengalir menunggangi formula: 
+$$ Q_{output} = (A \land B) \lor (A \land \neg B) $$
+
+Manajer bodoh akan kalap memborong 2 bilah Chip Gerbang AND beralih 1 Gerbang NOT, menguras saldo anggaran menelan jejak kelistrikan panjang memampatkan ruang papan sirkuit mahal berlapis tembaga.
+
+\textbf{Analisis Ilmuwan Pintar (Penyederhanaan Silang):}
+\begin{align*}
+    (A \wedge B) \vee (A \wedge \neg B) &\equiv A \wedge (B \vee \neg B) \quad \text{(Faktorisasi mundur Distributif)} \\
+    &\equiv A \wedge \mathbf{T} \quad \text{(Sabet Hukum Tiada Tengah memusnahkan properti biner)} \\
+    &\equiv \mathbf{A} \quad \text{(Sikat bersih Identitas kembar jernih transparan)}
+\end{align*}
+
+Hasil Ekuivalensi mengaum mengerikan: $Q_{output} \equiv A$.
+Artinya, \textbf{BUANG} rencana gila memborong 3 cetakan gerbang silikon mahal! Sambungkan saja Tembaga Kabel Input A polosan menerabas memotong jalan ke pintu gerbang pelabuhan akhir Output! Total biaya perakitan menukik tajam menjebol Rp0 perak. Pabrik menang tender \cite{wiki_first_order_logic}.

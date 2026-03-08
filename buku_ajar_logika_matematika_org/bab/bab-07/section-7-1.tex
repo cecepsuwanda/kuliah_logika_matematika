@@ -1,0 +1,41 @@
+\section{Pengantar Kuantifikasi dan Semesta Pembicaraan}
+
+Sebagaimana dibahas pada Bab 6, sebuah fungsi proposisional (misalnya $P(x) \equiv \text{``}x > 3\text{''}$) belum memiliki nilai kebenaran yang deterministik karena masih memuat peubah bebas. Untuk mengubah fungsi proposisional menjadi proposisi (kalimat tertutup yang bernilai benar atau salah), kita dapat melakukan substitusi peubah dengan suatu konstanta spesifik. Namun, selain substitusi langsung, terdapat pendekatan matematis yang jauh lebih kuat dan ekspresif: \logic{Kuantifikasi} \cite{rosen2019}.
+
+\subsection{Kuantifikasi}
+
+\begin{definisi}[Kuantifikasi]
+\logic{Kuantifikasi} (\textit{Quantification}) adalah proses mengaplikasikan operator logika yang menentukan batasan \textbf{kuantitas} atau jangkauan subjek di mana suatu fungsi proposisional berlaku. Operator ini disebut \logic{Kuantor} (\textit{Quantifier}).
+\end{definisi}
+
+Dengan kuantifikasi, kita tidak lagi berbicara tentang satu entitas spesifik (seperti ``Budi mahasiswa teladan''), melainkan tentang sekumpulan entitas (seperti ``\textit{Semua} mahasiswa teladan'' atau ``Terdapat \textit{beberapa} mahasiswa teladan''). Logika yang mempelajari fungsi proposisional beserta kuantornya disebut \logic{Logika Predikat} atau \logic{Logika Orde Pertama} (\textit{First-Order Logic}).
+
+\subsection{Semesta Pembicaraan (Universe of Discourse)}
+
+Sebelum kita dapat mengevaluasi kalimat berkuantor, ada satu prasyarat absolut yang sering diabaikan: kita harus secara eksplisit mendefinisikan lingkungan objek yang sedang dibicarakan.
+
+\begin{definisi}[Semesta Pembicaraan]
+\logic{Semesta Pembicaraan} (\textit{Universe of Discourse} atau \textit{Domain of Discourse}), disimbolkan dengan $\mathcal{U}$, adalah himpunan semua nilai yang mungkin disubstitusikan ke dalam variabel suatu fungsi proposisional. Variabel dalam kuantor hanya diizinkan mengambil nilai dari himpunan $\mathcal{U}$ tersebut.
+\end{definisi}
+
+Pemilihan semesta pembicaraan $\mathcal{U}$ sangat krusial karena nilai kebenaran suatu proposisi berkuantor dapat \textbf{berubah drastis} tergantung pada $\mathcal{U}$ yang ditetapkan.
+
+\begin{contoh}
+\textbf{Pengaruh Semesta Pembicaraan}
+
+Diberikan pernyataan: ``Semua elemen $x$ memenuhi $x^2 > 0$''.
+\begin{itemize}
+    \item Jika $\mathcal{U}$ adalah himpunan semua bilangan riil ($\mathbb{R}$), maka proposisi ini bernilai \textbf{Salah}. Alasannya: terdapat $x = 0 \in \mathbb{R}$ di mana $0^2 = 0$, dan $0$ tidak lebih besar dari $0$.
+    \item Jika $\mathcal{U}$ diubah menjadi himpunan bilangan bulat positif ($\mathbb{Z}^+$), maka proposisi ini bernilai \textbf{Benar}, karena kuadrat dari setiap bilangan bulat positif selalu positif.
+\end{itemize}
+\end{contoh}
+
+\subsection{Kategori Kuantor Utama}
+
+Logika predikat bersandar pada dua kuantor fundamental yang menangkap dua gagasan ekstrem secara matematis:
+\begin{enumerate}
+    \item \textbf{Kuantor Universal} (\textit{Universal Quantifier}): digunakan untuk membuat klaim bahwa suatu properti berlaku konsisten tanpa terkecuali untuk seluruh anggota domain. Disimbolkan dengan ``$\forall$''.
+    \item \textbf{Kuantor Eksistensial} (\textit{Existential Quantifier}): digunakan untuk menegaskan bahwa sekurang-kurangnya terdapat (minimal satu) entitas di dalam domain yang memenuhi suatu properti. Disimbolkan dengan ``$\exists$''.
+\end{enumerate}
+
+Pada beberapa buku literatur \cite{wiki_quantifier_logic}, domain penugasan sering kali dituliskan secara eksplisit pada bawah simbol kuantor, misalnya $\forall_{x \in \mathbb{Z}} P(x)$. Di buku ini, jika domain tidak ditulis eksplisit, maka diasumsikan domainnya telah disepakati dari konteks permasalahan.

@@ -1,0 +1,50 @@
+\section{Predikat dan Arity (Relasi $n$-ary)}
+
+Bila ``Term'' menduduki takhta sebagai sang Subjek matematis, maka giliran Predikat-lah yang maju selaku Kata Kerja atau atribut pemerian (\textit{predicate modifier}). Tanpa Predikat, rentetan Term hanyut jadi barisan entitas tanpa klaim. Keberadaan Predikatlah yang menjadi pabrik produsen pembuat status \textbf{Benar (T) atau Salah (F)} \cite{rosen2019}.
+
+\subsection{Definisi Formal Predikat}
+
+\begin{definisi}[Predikat]
+\logic{Predikat} merujuk pada atribut, klasifikasi spesifik, properti, kondisi, maupun persilangan hubungan logis yang dilekatkan kepada sang Subjek/Objek (yaitu Term).
+\end{definisi}
+
+Sesuai konvensi logikawan, notasi Predikat dilukiskan via alfabet kapital/huruf besar tunggal (lazimnya huruf-huruf seperti $P, Q, R, S$, atau abjad deskriptif seperti $M$ untuk Manusia).
+
+\begin{contoh}
+Ambil kembali contoh historis ``Socrates adalah manusia''.
+\begin{enumerate}
+    \item Term (Konstanta Spesifik): $s \equiv \text{Socrates}$
+    \item Deskripsi Klaim: ``... adalah seorang manusia''
+    \item Predikat Kapital: $M(x) \equiv x \text{ beratribut sebagai makhluk ras manusia}$.
+\end{enumerate}
+
+Dengan menyatukan subjek dan predikat, transkripsi logisnya berubah ke dimensi formal: $M(s)$. Fakta bahwa Socrates sungguh merupakan bagian biologis umat manusia membawa klausa logis $M(s)$ berhak mengemban mahkota nilai realitas mutlak: \textbf{Benar (T)}.
+\end{contoh}
+
+\subsection{Arity (Tingkatan Relasi Dimensi $n$)}
+
+Di dunia nyata, kita mendapati atribut tunggal kepemilikan mutlak layaknya \textit{``Gunung Everest itu amat menjulang tinggi''}. Namun, kita juga sangat sering menjumpai interaksi komparatif antara dua benda, atau silang interelasi antara 3 pihak sekaligus. Di dalam anatomi Logika Predikat, hierarki atau jumlah \textit{slot argumen} term pendamping predikat ini dinamakan \textbf{Arity}.
+
+\subsubsection{Predikat 1-Arity (\textit{Unary} / Monadik)}
+Menempel tunggal pada entitas mandiri biasa berupa sifat absolut atau properti eksklusif suatu himpunan.
+\begin{itemize}
+    \item $G(n) \equiv n \text{ adalah bilangan Genap}$
+    \item $W(x) \equiv x \text{ merupakan warga benua Afrika}$
+    \item Evaluasi nilai: $G(8) \implies \textbf{True}$. $G(13) \implies \textbf{False}$.
+\end{itemize}
+
+\subsubsection{Predikat 2-Arity (\textit{Binary} / Dyadik)}
+Penyatuan korelasi, perbandingan spesifik, atau persilangan relasi biner antar 2 Term (Term saling berinteraksi). Huruf parameter pertama biasanya adalah Subjek Aktor, diikuti Huruf parameter Kedua sang Objek Penerima. Urutan di relasi asimetris 2-Arity lazimnya \textbf{tidak boleh} sembarangan tertukar jika tidak disokong teorema komutatif matematika murni.
+\begin{itemize}
+    \item $L(x, y) \equiv x \text{ bernilai lebih besar ketimbang } y$.
+    \item $S(a, b) \equiv a \text{ jatuh hati pada } b$.
+    \item Evaluasi Nilai: $L(100, 2) \implies \textbf{True}$. Sebaliknya penukaran posisi $L(2, 100) \implies \textbf{False}$. 
+    \item Perhatikan asimetrinya relasi bahasa keseharian manusia: statemen $S(\text{Romeo}, \text{Juliet})$ memang amat berpeluang besar True, namun hal tesebut tidak serta merta memberikan garansi matematis otomatis jika statemen balasan pertukaran letak $S(\text{Juliet}, \text{Romeo})$ lantas otomatis diklaim mematri status True pada alam semesta fiktif tersebut \cite{wiki_first_order_logic}.
+\end{itemize}
+
+\subsubsection{Predikat $n$-Arity (\textit{n-ary} / Polyadik)}
+Predikat orde pertama dibebaskan melar tak berbatas jumlah kail pendamping parameternya (\textit{tuple sequence}). 
+\begin{itemize}
+    \item \textbf{3-Arity}: $B(x, y, z) \equiv \text{Kordinat spasial kota } x \text{ berlokasi membentang lurus tepat membelah posisi di tengah-tengah kota } y \text{ dan kota } z$.
+    \item Evaluasi posisi linear logis Jawa Tengah: $B(\text{Salatiga}, \text{Semarang}, \text{Boyolali}) \implies \textbf{True}$.
+\end{itemize}

@@ -1,0 +1,57 @@
+\section{Resolusi Query dan Rantai Penalaran Deduktif}
+
+Tujuan utama membangun basis pengetahuan adalah untuk dapat menjawab pertanyaan (\textit{query}) secara otomatis melalui penalaran deduktif. Proses ini menggabungkan fakta-fakta dari $\Delta$ dan aturan-aturan dari $\Gamma$ menggunakan aturan inferensi untuk menurunkan kesimpulan baru \cite{rosen2019}.
+
+\subsection{Proses Resolusi Query}
+
+Resolusi query mengikuti langkah-langkah sistematis:
+
+\begin{enumerate}
+    \item \textbf{Terima query}: Identifikasi apa yang ingin dibuktikan, misalnya $Kakek(Hasan, Ali)$?
+    \item \textbf{Cari fakta langsung}: Apakah query sudah merupakan fakta dalam $\Delta$? Jika ya, jawab ``benar''.
+    \item \textbf{Cari aturan yang relevan}: Identifikasi aturan dalam $\Gamma$ yang konsekuennya cocok dengan query.
+    \item \textbf{Instansiasi aturan}: Terapkan UI untuk mengikat variabel dengan konstanta yang sesuai.
+    \item \textbf{Evaluasi anteseden}: Periksa apakah anteseden aturan terpenuhi (mungkin memerlukan penalaran rekursif).
+    \item \textbf{Terapkan Modus Ponens}: Jika anteseden bernilai benar, simpulkan konsekuen.
+\end{enumerate}
+
+\subsection{Rantai Penalaran (Chaining)}
+
+Dalam banyak kasus, pembuktian suatu query memerlukan rangkaian langkah inferensi yang saling terhubung. Terdapat dua strategi utama:
+
+\begin{itemize}
+    \item \textbf{Forward Chaining} (penalaran maju): Mulai dari fakta yang diketahui, terapkan aturan untuk menurunkan fakta-fakta baru hingga query terjawab. Strategi ini bersifat \textit{data-driven}.
+    \item \textbf{Backward Chaining} (penalaran mundur): Mulai dari query yang ingin dijawab, cari aturan yang konsekuennya cocok, lalu coba buktikan anteseden-nya secara rekursif. Strategi ini bersifat \textit{goal-driven}.
+\end{itemize}
+
+\subsection{Contoh Rantai Penalaran}
+
+\begin{contoh}
+\textbf{Basis Pengetahuan:}
+
+Fakta ($\Delta$):
+\begin{align*}
+&Manusia(Marcus), \quad Penduduk(Marcus, Pompeii)
+\end{align*}
+
+Aturan ($\Gamma$):
+\begin{align*}
+&R_1: \forall x\, (Manusia(x) \rightarrow Mortal(x)) \\
+&R_2: \forall x\, (Penduduk(x, Pompeii) \rightarrow Tewas(x, Erupsi, 79)) \\
+&R_3: \forall x\, (Mortal(x) \wedge Tewas(x, Erupsi, 79) \rightarrow Legenda(x))
+\end{align*}
+
+\textbf{Query}: $Legenda(Marcus)$?
+
+\textbf{Penalaran (Forward Chaining):}
+\begin{enumerate}
+    \item Dari $Manusia(Marcus)$ dan $R_1$ (UI, $x = Marcus$): $Mortal(Marcus)$.
+    \item Dari $Penduduk(Marcus, Pompeii)$ dan $R_2$ (UI, $x = Marcus$): $Tewas(Marcus, Erupsi, 79)$.
+    \item Dari $Mortal(Marcus) \wedge Tewas(Marcus, Erupsi, 79)$ dan $R_3$ (UI, $x = Marcus$): $Legenda(Marcus)$.
+    \item Query terjawab: $Legenda(Marcus)$ bernilai \textbf{Benar}. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\begin{konsep}
+Perhatikan bahwa rantai penalaran di atas menunjukkan bagaimana fakta-fakta baru ($Mortal(Marcus)$, $Tewas(Marcus, Erupsi, 79)$, $Legenda(Marcus)$) tidak secara eksplisit ada dalam KB, tetapi dapat \textbf{diturunkan} melalui inferensi logis. Inilah kekuatan utama pendekatan basis pengetahuan: kemampuan menemukan implikasi tersembunyi dari informasi yang tersedia.
+\end{konsep}

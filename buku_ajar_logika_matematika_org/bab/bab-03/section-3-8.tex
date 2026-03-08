@@ -1,0 +1,24 @@
+\section{Studi Kasus dan Latihan Soal}
+\subsection{Contoh Translasi Kalimat ke Simbol Logika}
+Gunakan konstanta proposisional berikut:
+\begin{itemize}
+	\item $p$ = Bowo kaya raya
+	\item $q$ = Bowo hidup bahagia
+\end{itemize}
+
+Berikut adalah translasi proposisi ke dalam bentuk logika:
+\begin{enumerate}
+	\item Bowo tidak kaya $\mapsto \neg p$
+	\item Bowo kaya raya dan hidup bahagia $\mapsto p \wedge q$
+	\item Bowo kaya raya atau tidak hidup bahagia $\mapsto p \vee \neg q$
+	\item Jika Bowo kaya raya, maka ia hidup bahagia $\mapsto p \rightarrow q$
+	\item Bowo hidup bahagia jika dan hanya jika ia kaya raya $\mapsto q \leftrightarrow p$
+\end{enumerate}
+
+\subsection{Permasalahan Ambiguitas}
+Masukan tanda kurung biasa ke dalam ekspresi logika berikut ini sehingga tidak terjadi ambiguitas, berdasarkan hirarki operator:
+\begin{enumerate}
+	\item $p \wedge q \wedge r \rightarrow s \mapsto ((p \wedge q) \wedge r) \rightarrow s$
+	\item $p \vee q \vee r \leftrightarrow \neg s \mapsto ((p \vee q) \vee r) \leftrightarrow (\neg s)$
+	\item $\neg p \wedge q \rightarrow \neg r \vee s \mapsto ((\neg p) \wedge q) \rightarrow ((\neg r) \vee s)$	
+\end{enumerate}

@@ -1,40 +1,44 @@
-\documentclass[../main]{subfiles}
-\ifSubfilesClassLoaded{\setcounter{chapter}{8}}{}
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
 
-\chapter{Evaluasi, Refleksi, dan Integrasi Kompetensi}
+\chapter{Pengantar Logika Predikat dan Semesta Pembicaraan (*Universe of Discourse*)}
 
-Bab ini berisi asesmen komprehensif untuk mengukur pencapaian seluruh CPMK dan Sub-CPMK yang telah dipelajari sepanjang mata kuliah Logika Matematika.
+\begin{subcpmk}
+  \item Mahasiswa mampu menjelaskan kekurangan logika proposisi pada spesifikasi argumen dinamis berskala iterasi data kompleks.
+  \item Mahasiswa mampu menjelaskan definisi konseptual Logika Kuantifikasional (*Predicate Logic/First-Order Logic*), variabel parameter fungsi objek, dan ruang pemetaan domain himpunan *Universe of Discourse*.
+\end{subcpmk}
 
-\input{bab-09/section-9-1}
-\input{bab-09/section-9-2}
-\input{bab-09/section-9-3}
-\input{bab-09/section-9-4}
+\section{Terbatasnya Komputasi Logika Proposisional Murni Dasar}
+Kalkulus Proposisional, selaras dengan pemaparan yang melandasi bab pembuka silabus struktur RPS kita terdahulu, dinilai memiliki fungsivitas dan batas analitikal arsitektur komputatif algoritma di tingkat dasar terbatas karena struktur konotasi klausa var bebas dan *inflexible* dalam menghadapi kelompok struktur data kolektif himpunan data/matriks spesifik \textit{(Arrays, Databases, Object Collections)}.
 
-\begin{rangkuman}
-Selamat! Anda telah menyelesaikan perjalanan pembelajaran Logika Matematika. Dari proposisi dan operator logika hingga logika predikat, metode bukti, induksi, dan Prolog---Anda telah membangun fondasi penalaran formal yang penting untuk ilmu komputer.
+Analisis kasus "Semua Komputer Universitas Bale Bandung berjalan memakai *Kernel Linux*" di kalkulus proposisional tunggal dipaksa disimbolkan cukup ke dalam ekspresi deklarasi tunggal utuh tak parsial semisal $P$. Kekakuan komputasional itu akan mengakibatkan kita nihil / tak mampu menyimak penalaran rasional turunan algoritmik dari premis: "Server X itu adalah sebuah unit Komputer di Universitas Bale Bandung", lalu membuat spesifik konklusif "$\therefore$ Maka Server X tak tertolak diproses oleh komputasi logis berjalan di Kernel Linux mutlak otomatis". Tipe argumen ini tak bisa digarap dan ditracking fungsi penalarannya pada Modus tollens/ponens murni (logika proposisi murni buta atas \textit{Properti dari Subjek Objek Dalam Lingkup Klasifikasi Kelas}).
 
-\textbf{Apa yang Telah Anda Pelajari}:
-\begin{itemize}
-  \item Proposisi dan operator logika (negasi, konjungsi, disjungsi, implikasi, bikondisional)
-  \item Tabel kebenaran dan penentuan nilai kebenaran proposisi majemuk
-  \item Ekuivalensi logika dan hukum aljabar proposisi
-  \item Tautologi, kontradiksi, dan kontingensi
-  \item Translasi pernyataan bahasa alami ke simbol logika proposisional
-  \item Logika predikat dengan kuantifier universal dan eksistensial
-  \item Aturan inferensi (modus ponens, modus tollens, silogisme)
-  \item Metode bukti: langsung, kontraposisi, kontradiksi
-  \item Induksi matematika
-  \item Pengenalan Prolog: fakta, aturan, query
-\end{itemize}
+\section{Pengayaan Semantik Melalui Logika Predikat (Kalkulus Kuantifikasional / FOL)}
+Disinilah \textit{First-Order Logic/Kalkulus Predikat} berperan krusial dalam mendefinisikan sifat dan obyek relasi rasional pemrograman kelas.
 
-\textbf{Langkah Selanjutnya}:
-Terus praktik membangun bukti dan menulis program Prolog. Eksplorasi Open Logic Project, forall x: Calgary, dan Learn Prolog Now! untuk pendalaman. Logika Matematika adalah fondasi bagi Matematika Diskrit, Teori Komputasi, dan Kecerdasan Buatan---terus lanjutkan perjalanan belajar Anda!
-\end{rangkuman}
+Kalkulus algoritma matematika Predikat membedah keutuhan klausa $P$ dengan struktur "Subjek" pemetaan objek *Entity* $x$, dan memahat "Predikat" karakteristik pemetaan $P(x)$, dimana predikat komputatif berperan sebagai suatu Fungsi Proposisional (*Propositional Function*).
+Fungsi $P(x)$ baru dapat divaluasi mutlak bernilai True/False/T-F \textit{setelah nilai variabel komputasinya $x$ dideklarasikan dan diasistensikan nilai instansiasi nyata/objek himpunannya}.
 
-\ifSubfilesClassLoaded{
-  \renewcommand{\bibname}{Daftar Pustaka}
-  \bibliographystyle{plain}
-  \bibliography{../references}
-}{}
+\subsection{Universe of Discourse / Semesta Pembicaraan Matematis Komputasi}
+Untuk mengatasi problem kekeliruan eksekusi domain tipe algoritmik komputasi *Error Data Type Range Iterations*, saat sistem mendefenisikan fungsi subjek variabel terbuka matematis terapan inputnya, misal "x adalah variabel ganjil algoritmik", maka pembuat algoritma/program komputatif rasional mutlak "mendefinisikan domain cakupan yang logik valid rasional yang secara himpunan matematis diperbolehkan untuk digunakan iteratif var $x$ tersebut". Hal tersebut disebut **Universe of Discourse (Semesta Pembicaraan)**. Misalkan *Universe Discourse* himpunan komputasional sistem dari $x$ tersebut digaris haruslah Himpunan Bilangan Bulat Positif/Asli mutlak, sehingga nilai pecahan di luarnya tertolak (*False type syntax errors exception* \textit{Out Of Bounds Scope Type Error}).
+
+\begin{contoh}
+Spesifikasikan parameter Logika fungsi predikat: "x lebih panjang kapasitas memorinya dari var struktur \textit{char y array size}".
+
+Predikat: Fungsi Komplementer Logis $M(x,y)$, dengan deklarasi makna algoritmik spesifikasi khusus komputatifnya "= x *memorinya* $>$ y".  
+Universe of discourse: Data Set tipe primitif di memori.
+Bila input: $M(\text{Array}[100], \text{Boolean})$. \\
+Fungsi logikal relasi evaluatif $M$ \textit{TRUE/T} sebab array \textit{100 index bytes} ukurannya komputatif algoritmanya rasional melibas variabel berkapasitas 1 *bit primitive type*.
+\end{contoh}
+
+\begin{aktivitas}
+  \item Temukan pola relasi dari deklarasi sistematis logik: Fungsi fungsi program \textit{IsEvenDigit($n$)}. Domain himpunan Universe of Discourse matematisnya apa saja yang rasional sah dieksekusi \textit{compile} sistem logikal algoritmik sistem numeriknya?
+\end{aktivitas}
+
+\begin{checklist}
+  \item Mampu menspesifikan komponen "Predikat" dan komponen data "Subjek Objeknya *variable parameter instance*".
+  \item Konstan tak abai akan batasan tipe \textit{Universe Of Discourse} sebagai fondasi komputabilitas logika eksekusinya di kalkulus ini.
+\end{checklist}
+
 \end{document}

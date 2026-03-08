@@ -1,0 +1,70 @@
+\section{Studi Kasus Pemodelan Sederhana dalam Teks Naratif}
+
+Untuk mengikat pemahaman dari serpihan Term, Predikat, Arity, hingga Semesta Wacana, mari kita turun dari awang-awang teori dan mendemonstrasikan proses pemodelan kalimat keseharian ("bahasa naratif alami manusia") diubah murni ke dalam kerangka kaku Logika Predikat \cite{rosen2019}.
+
+\subsection{Skenario Pemodelan}
+
+Diberikan sebuah paragraf naratif yang mendeskripsikan kehidupan kampus seorang mahasiswa teladan:
+
+\begin{quote}
+\textit{Anton adalah seorang mahasiswa Informatika di Universitas Nusantara. Universitas Nusantara berlokasi strategis di ibukota Jakarta. Anton sangat menyukai mata kuliah Logika Matematika karena dosennya mengajar dengan baik. Meskipun Anton bukan pimpinan BEM kampus, namun ia memiliki IPK lebih tinggi dari ketua BEM (Sinta). Budi adalah sahabat kental Anton.}
+\end{quote}
+
+Tugas pemodelan (\textit{Knowledge Representation}) mengharuskan kita memecahkan teks di atas ke dalam susunan entri-entri rumus formal Logika Orde Pertama tanpa kompromi tata bahasa puitis \cite{wiki_first_order_logic}.
+
+\subsection{Tahap 1: Ekstraksi Kamus Entitas (Term Konstanta)}
+
+Langkah pertama adalah mendata dan membekukan nama-nama entitas absolut (kata benda spesifik) menjadi Term Konstanta.
+\begin{enumerate}
+    \item $a \equiv \text{Anton}$
+    \item $b \equiv \text{Budi}$
+    \item $s \equiv \text{Sinta}$
+    \item $u \equiv \text{Universitas Nusantara}$
+    \item $j \equiv \text{Jakarta}$
+    \item $m \equiv \text{Logika Matematika}$
+\end{enumerate}
+
+\subsection{Tahap 2: Meramu Blok Relasi dan Atribut (Predikat $n$-ary)}
+
+Langkah kedua, kita wajib mendata daftar kata kerja dan kata sifat pengikut deskripsi untuk dicampurkan dalam fungsi arity sesuai jumlah partisipannya.
+\begin{enumerate}
+    \item \textbf{1-Arity (Properti Mandiri):}
+    \begin{itemize}
+        \item $M(x) \equiv x \text{ berstatus mahasiswa}$.
+        \item $B(x) \equiv x \text{ menjabat ketua BEM}$.
+    \end{itemize}
+    \item \textbf{2-Arity (Relasi Biner):}
+    \begin{itemize}
+        \item $K(x, y) \equiv \text{mahasiswa } x \text{ terdaftar kuliah di institusi } y$.
+        \item $L(x, y) \equiv \text{Institusi/Gedung } x \text{ beralamat fisik di kota } y$.
+        \item $S(x, z) \equiv \text{Orang } x \text{ sangat menyukai subjek pelajaran } z$.
+        \item $P(x, y) \equiv \text{Nilai indeks prestasi IPK } x \text{ lebih prestise di atas IPK } y$.
+        \item $H(x, y) \equiv \text{Orang } x \text{ bersahabat karib absolut dengan } y$.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Tahap 3: Konstruksi Klausa Proposisi Final}
+
+Langkah klimaks adalah merakit entitas dan blok relasi berdasarkan cerita paragraf di atas baris demi baris, menjadi Proposisi utuh yang sah (secara otomatis semua ini dianggap bertitel \textbf{T/Benar} di alam semesta buatan kisah ini).
+
+\begin{itemize}
+    \item \textit{"Anton adalah seorang mahasiswa Informatika di Universitas Nusantara"}
+    \[ M(a) \land K(a, u) \]
+    
+    \item \textit{"Universitas Nusantara berlokasi strategis di ibukota Jakarta"}
+    \[ L(u, j) \]
+    
+    \item \textit{"Anton sangat menyukai mata kuliah Logika Matematika"}
+    \[ S(a, m) \]
+    
+    \item \textit{"Sinta sang ketua BEM" \& "Meskipun Anton bukan pimpinan BEM kampus..."}
+    \[ B(s) \land \neg B(a) \]
+    
+    \item \textit{"... namun Anton memiliki IPK lebih tinggi dari ketua BEM (Sinta)"}
+    \[ P(a, s) \]
+    
+    \item \textit{"Budi adalah sahabat kental Anton"}
+    \[ H(b, a) \]
+\end{itemize}
+
+Penutup relasional: Pada fungsi \textit{Sahabat Kental} $H(x, y)$, secara kaidah sosial manusia, ikatan persahabatan lazimnya bermanifestasi dua arah (simetris / \textit{commutative}). Maka secara logis dan otomatis dari $H(b, a)$, mesin pemikir pangkalan data sistem pakar (\textit{expert system engine}) berhak menginferensi nilai kebenaran timbal balik: $H(a, b) \implies \textbf{True}$. Hal senada \textbf{gagal telak diaplikasikan} pada relasi tidak simetris layaknya IPK 2-Arity. Meskipun $P(a, s)$ Benar, putar balik letak nilai parameter $P(s, a)$ wajib dicekal mutlak membuahkan nilai \textbf{False}. 

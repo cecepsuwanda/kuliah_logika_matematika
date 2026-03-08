@@ -1,0 +1,89 @@
+\section{Induksi Kuat (Strong Induction)}
+
+Induksi kuat (\textit{strong induction}), atau disebut juga \textit{complete induction}, merupakan varian dari induksi matematika di mana hipotesis induksi lebih kuat: alih-alih hanya mengasumsikan $P(k)$, induksi kuat mengasumsikan kebenaran $P(n)$ untuk \textbf{seluruh} bilangan bulat $n$ dari $n_0$ hingga $k$. Meskipun kedua versi induksi secara matematis ekuivalen (dapat membuktikan pernyataan yang sama), beberapa teorema jauh lebih mudah dibuktikan menggunakan induksi kuat \cite{rosen2019}.
+
+\subsection{Pernyataan Formal}
+
+\begin{definisi}[Prinsip Induksi Kuat]
+Misalkan $P(n)$ adalah pernyataan yang bergantung pada bilangan bulat $n$. Jika:
+\begin{enumerate}
+    \item $P(n_0)$ bernilai benar (\textbf{langkah basis}), dan
+    \item Untuk setiap $k \geq n_0$, jika $P(n_0), P(n_0+1), \ldots, P(k)$ semuanya benar, maka $P(k+1)$ juga benar (\textbf{langkah induksi}),
+\end{enumerate}
+maka $P(n)$ bernilai benar untuk seluruh $n \geq n_0$.
+\end{definisi}
+
+Secara simbolis:
+\[ \Big[ P(n_0) \wedge \forall k \geq n_0\, \Big(\bigwedge_{i=n_0}^{k} P(i) \rightarrow P(k+1)\Big) \Big] \rightarrow \forall n \geq n_0\, P(n) \]
+
+\subsection{Perbandingan Induksi Lemah dan Kuat}
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{4.2cm}|>{\raggedright\arraybackslash}p{4.2cm}|}
+\hline
+\textbf{Aspek} & \textbf{Induksi Lemah} & \textbf{Induksi Kuat} \\ \hline
+Hipotesis induksi & Hanya $P(k)$ & $P(n_0), P(n_0{+}1), \ldots, P(k)$ \\ \hline
+Asumsi yang digunakan & Satu kasus sebelumnya & Seluruh kasus sebelumnya \\ \hline
+Langkah basis & Biasanya satu nilai & Kadang memerlukan beberapa nilai \\ \hline
+Kapan digunakan & $P(k+1)$ hanya bergantung pada $P(k)$ & $P(k+1)$ bergantung pada beberapa nilai sebelumnya \\ \hline
+Contoh aplikasi & Formula deret, pertidaksamaan & Faktorisasi prima, analisis rekursi \\ \hline
+\end{tabular}
+\caption{Perbandingan Induksi Lemah dan Induksi Kuat}
+\end{table}
+
+\subsection{Contoh: Faktorisasi Prima}
+
+\begin{contoh}
+\textbf{Teorema (Fundamental Theorem of Arithmetic --- bagian keberadaan)}: Setiap bilangan bulat $n \geq 2$ dapat ditulis sebagai hasil kali bilangan-bilangan prima.
+
+\textbf{Bukti (Induksi Kuat):}
+
+\textbf{Langkah Basis} ($n = 2$):
+$2$ sendiri adalah bilangan prima, sehingga trivially merupakan ``hasil kali'' satu bilangan prima. $\checkmark$
+
+\textbf{Hipotesis Induksi (Kuat)}: Asumsikan bahwa untuk semua bilangan bulat $j$ dengan $2 \leq j \leq k$, $j$ dapat ditulis sebagai hasil kali bilangan prima.
+
+\textbf{Langkah Induksi}: Buktikan bahwa $k + 1$ dapat ditulis sebagai hasil kali bilangan prima.
+
+\textbf{Kasus 1:} $k + 1$ adalah bilangan prima. Maka $k+1$ sendiri sudah merupakan hasil kali satu prima. $\checkmark$
+
+\textbf{Kasus 2:} $k + 1$ bukan bilangan prima (komposit). Maka terdapat bilangan bulat $a$ dan $b$ dengan $2 \leq a, b < k + 1$ (artinya $a \leq k$ dan $b \leq k$) sehingga $k + 1 = a \cdot b$.
+
+Karena $2 \leq a \leq k$ dan $2 \leq b \leq k$, hipotesis induksi kuat menjamin bahwa baik $a$ maupun $b$ dapat ditulis sebagai hasil kali bilangan prima. Maka $k + 1 = a \cdot b$ juga merupakan hasil kali bilangan prima. $\checkmark$
+
+Berdasarkan prinsip induksi kuat, setiap bilangan bulat $n \geq 2$ dapat difaktorisasi sebagai hasil kali bilangan prima. $\blacksquare$
+\end{contoh}
+
+\begin{catatan}
+Perhatikan bahwa bukti di atas \textbf{tidak dapat} dilakukan dengan induksi lemah. Ketika $k+1$ komposit, kita memerlukan kebenaran $P(a)$ dan $P(b)$ di mana $a$ dan $b$ bisa berupa nilai apa saja antara 2 dan $k$ --- bukan hanya $k$ saja. Inilah alasan induksi kuat diperlukan \cite{wiki_strong_induction}.
+\end{catatan}
+
+\subsection{Contoh: Deret Fibonacci}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap $n \geq 1$, bilangan Fibonacci ke-$n$ memenuhi $F_n < 2^n$, di mana $F_1 = 1, F_2 = 1, F_n = F_{n-1} + F_{n-2}$ untuk $n \geq 3$.
+
+\textbf{Bukti (Induksi Kuat):}
+
+\textbf{Langkah Basis}:
+\begin{itemize}
+    \item $n = 1$: $F_1 = 1 < 2 = 2^1$. $\checkmark$
+    \item $n = 2$: $F_2 = 1 < 4 = 2^2$. $\checkmark$
+\end{itemize}
+(Diperlukan dua basis karena definisi $F_n$ bergantung pada dua suku sebelumnya.)
+
+\textbf{Hipotesis Induksi (Kuat)}: Asumsikan $F_j < 2^j$ untuk semua $j$ dengan $1 \leq j \leq k$ (di mana $k \geq 2$).
+
+\textbf{Langkah Induksi}: Buktikan $F_{k+1} < 2^{k+1}$.
+\begin{align*}
+F_{k+1} &= F_k + F_{k-1} \\
+         &< 2^k + 2^{k-1} & \text{(hip. induksi pada $F_k$ dan $F_{k-1}$)} \\
+         &< 2^k + 2^k & \text{(karena } 2^{k-1} < 2^k) \\
+         &= 2 \cdot 2^k = 2^{k+1}
+\end{align*}
+
+Sehingga $F_{k+1} < 2^{k+1}$. $\blacksquare$
+\end{contoh}

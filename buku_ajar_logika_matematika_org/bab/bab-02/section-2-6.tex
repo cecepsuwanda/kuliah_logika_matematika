@@ -1,0 +1,44 @@
+\section{Peta Jalur Ekspedisi: Taksonomi Materi Buku Ajar}
+
+Demi merengkuh status gelar ksatria kelulusan sarjana utuh meramu pembedahan Algoritma *Computer Science*, ekspedisi mahasiswa di bangku kelas ini tidaklah cuma berhenti memandangi tabel kebenaran and/or tipis-tipis biasa \cite{rosen2019,levin_discrete}. 
+
+Silabus buku ajar Mahakarya "Logika Informatika" ini dirancang berurut spiral layaknya arsitektur menara bertingkat berfondasi kokoh (Gambar~\ref{fig:peta-konsep}). Berikut adalah rute perbatasan negara (\textit{Roadmap}) yang bakal mahasiswa injang remuk pelan-pelan kelak:
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm and 1cm,
+  box/.style={rectangle, draw=black, rounded corners, fill=blue!10, minimum width=2.4cm, minimum height=0.7cm, align=center, font=\small},
+  root/.style={rectangle, draw=black, rounded corners, fill=green!20, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small\bfseries},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[root] (root) {Kawah Candradimuka Logika Matematika};
+  \node[box, below left=1.2cm and 0.5cm of root] (b3) {Bab 3 \& 4 \\Fondasi Proposisional Evaluatif};
+  \node[box, below=1.2cm of root] (b4) {Bab 5 \& 6 \\ Aturan Inferensi Valid dan Sistem Pembuktian Matematis};
+  \node[box, below right=1.2cm and 0.5cm of root] (b5) {Bab 7 \& 8\\Semesta Kuantifier Logika Predikat (SQL/AI)};
+  \node[box, below=1.8cm of b4] (b6) {Bab 9 \& 10\\Teknik Mahkota Induksi \& Rekursi Canggih Algoritma};
+  \draw[arrow] (root) -- (b3);
+  \draw[arrow] (root) -- (b4);
+  \draw[arrow] (root) -- (b5);
+  \draw[arrow] (b3) -- (b4);
+  \draw[arrow] (b4) -- (b5);
+  \draw[arrow] (b5) -- (b6);
+  \draw[arrow] (b4) -- (b6);
+\end{tikzpicture}
+\caption{Spiral Taksonomi Hirarki Logika - Masing-masing anak tangga mensuport pilar bab di masa atasnya.}
+\label{fig:peta-konsep-bab2}
+\end{figure}
+
+\subsection{1. Pondasi Purba Biner: Bab III -- IV}
+Ekspedisi start keras menjamah alam **Logika Proposisional** (Nilai Atomik Sempit) dan mematahkan anomali **Ekuivalensi/Tautologi** menggunakan artileri Tabel Kebenaran \textit{Brute-Force} serta pisau bedah 20 Hukum Aljabar Boolean De Morgan. (*Membentengi skill memangkas Bug percabangan sintaks If-Else Software*).
+
+\subsection{2. Benteng Penarikan Konklusi Hakim: Bab V -- VI}
+Mahasiswa dicecar latihan gila **Modus Ponens, Tollens,** dan \textbf{Pembangunan Proof Pembuktian Berundak}. Mendidik meracik kesimpulan 100\% tanpa celah memverifikasi struktur sistem tak patah didera skenario aneh. Metode Pembuktian Langsung (*Direct Proof*), Pembuktian Kontradiksi sesat, dan Contraposisi dihidangkan di piring hidangan panas.
+
+\subsection{3. Naik Takhta Raja Variabel "Semua" \& "Sebagian": Bab VII -- VIII}
+Bosan hanya mengupas si miskin entitas Atomik, Mahasiswa naik takhta mengeksplor luasnya dimensi alam semesta via tembak misil **Logika Predikat (Kuantor $\forall$/$\exists$)**. Ini fondasi nyawa perumusan Query (*WHERE EXISTS*) Tabel Relasional \textit{Database} dan pemodelan nalar berantai pada meskin Sistem Pakar \textit{Artificial Intelligence}.
+
+\subsection{4. Seni Menyiasati Mesin Abadi: Bab IX -- X}
+Pilar penutup agung membesut senjata rahasia \textbf{Logika Bukti Induksi Matematika} dan \textbf{Rentetan Rekursi (\textit{Recursion Loop})}. Mahasiswa diangkat statusnya mampu menjustifikasi membuktikan keabsahan \textit{Looping Algoritma Sorting/Searching} ber-triliun kali mutar *For-Loops* itu sah tak tersesat mati konyol membakar memori sirkuit!
+
+Setiap rantai bab ini merupakan kunci sandi gembok masuk bagi gerbang bab urutan esok paginya. Tidak diperkenankan satupun sarjana meloncati gembok membolos \cite{levin_discrete,rosen2019}!

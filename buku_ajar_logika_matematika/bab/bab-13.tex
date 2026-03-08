@@ -1,0 +1,45 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Penyederhanaan Fungsi Logika (Hukum Aljabar Boolean dan K-Map)}
+
+\begin{subcpmk}
+  \item Mahasiswa mampu mengoptimalkan unjuk kerja komputasional perangkat keras berbasis logika melalui penyederhanaan fungsi matematis Aljabar Boolean dan mereduksinya lewat metode visual Peta Karnaugh (\textit{Karnaugh Maps}).
+\end{subcpmk}
+
+\section{Urgensi Optimalisasi Spesifikasi Logika (Simplifikasi Sum of Products)}
+Menyusun langsung untaian logik Tabel Kebenaran faktual menjadi \textit{Sirkuit Boolean Sum of Products} / (Sum Of Minterms - SOP) acapkali melahirkan spesifikasi matematis yang memakan sangat banyak gerbang fisik kelistrikan IC (Integrated Circuits). Pengurangan redudansi/biaya dan panas (termodinamika mikroprosesor) amat krusial di Teknik Informatika \textit{Computer Engineering}. Oleh karenanya, \textit{Boolean Function Simplification} digarap secara sistematis baik lewat manipulasi aljabar teoretik 100\% rumus, maupun Peta Geometris \textit{K-Map}.
+
+\begin{contoh}
+Reduksi Komputasional Sirkuit secara Aljabar Klasik:
+Fungsi $F(x, y, z) = x\cdot y\cdot z + x\cdot y'\cdot z + x\cdot y\cdot z'$
+1. Manipulatif asosiatif $x\cdot z \cdot (y + y') + x\cdot y\cdot z'$
+2. Karena $(y+y') = 1$ , fungsi termampat konklusinya $F = x\cdot z + x\cdot y\cdot z'$
+3. Terapkan hukum distributif $F = x \cdot (z + y\cdot z')$
+4. Teorema Redudansi memampatkannya kian kecil hingga fungsi ini diproses absolut $100\%$ sama akurasinya via: $F = x(z+y) = xz + xy$. Spesifikasi lebih sedikit kabel gerbang kelistrikan.
+\end{contoh}
+
+\section{Metodologi Karnaugh Map (K-Map/Peta Karnaugh)}
+K-Map adalah matrik visual/grafis memukau yang dieksplorasi sistematis oleh Maurice Karnaugh, yang mendaur bentuk susunan *Redudansi Input Boolean* menggunakan pemetaan letak sel (\textit{Spatial Gray Code Adjacency}).
+Metode ini paling efisien bagi jumlah spesifikasi *variable input* komputasional kecil (2-Var hingga optimal 4-Var logikal).
+
+\subsection{Pola Peraturan Klasifikasi Pembungkusan K-Map}
+1. \textbf{Pemetaan Minterm $1$}: Setelah mentabulasi deret output logis $F$ (berstatus True $1$) berdasar posisinya di K-Map, \textit{highlight/tandai} kotak cell $1$.
+2. \textbf{Perbungkusan Adjacency/Pengulungan (*Looping/Grouping*)}: Susun bungkusan sub-kumpulan secara horisontal atau vertikal dari sel yang diarsir $1$. \textit{Ukuran Bungkus wajib berbentuk komputasi kuadrat biner!} Yakni: boleh berisi 1 sel blok tunggal, 2 sel kembar (Sepasang), 4 sel bersebelahan/petak kuadran, 8 sel blok kubus utuh komputasi, dst.
+3. \textbf{Hukum Bungkus \textit{Overlapping} Diagonal}: DILARANG memblok kelompok grup K-map secara menyilang diagonal. Dan Boleh tumpang tindih grup, manfaatkan pembungkus \textit{Pac-Man Effect} (Sel tepi memutar mengikat sel pojok seberangnya).
+
+\begin{aktivitas}
+  \item Desain rancangan fungsi $F(A,B,C) = \Sigma m(0, 1, 2, 5, 6, 7)$ (angka \textit{minterms}). Buat kisi/tabel pemetaan silang matriks $3$ Variabel K-Map ini dan demonstrasikan di hadapan sejawat Anda area kotak mana yang sah digabung jadi kuadran logikal 4!
+\end{aktivitas}
+
+\begin{latihan}
+  \item Mereduksi Fungsi Boolean 4-Variabel. Berikan sintesis ringkas reduksi dari fungsivariabel input $F(w,x,y,z)$ berderet sel \textit{minterms} (status bernilai True) di koordinat: $(1, 3, 5, 7, 12, 13, 14, 15)$. Tulis ringkasan rumus *SOP Optimized*-nya sesudah pengelompokan K-Map Anda.
+\end{latihan}
+
+\begin{checklist}
+  \item Mampu mensitasi dan mencari simplifikasi manual abstraksi dengan rumus $xy + x' = (x+x')(y+x') \dots$
+  \item Bisa memblok (Grouping) kotak matriks pada dimensi 4-Var \textit{Gray Code} Peta K-Map tanpa ada kelompok silang *Error Grouping Diagonal*.
+\end{checklist}
+
+\end{document}

@@ -1,0 +1,64 @@
+\section{Studi Kasus: Pemodelan Aturan E-Commerce}
+
+Logika predikat tidak hanya berguna dalam domain akademis --- ia juga diterapkan secara luas dalam sistem informasi modern. Studi kasus ini menunjukkan bagaimana aturan bisnis (\textit{business rules}) pada platform e-commerce dapat dimodelkan dan divalidasi menggunakan logika predikat orde pertama \cite{rosen2019}.
+
+\subsection{Skenario Bisnis}
+
+Sebuah platform e-commerce memiliki aturan-aturan berikut:
+\begin{enumerate}
+    \item Pengguna yang telah login dan terverifikasi dapat menyimpan item ke keranjang belanja.
+    \item Pengguna yang memiliki keranjang berisi setidaknya satu item dan saldo mencukupi dapat melakukan checkout.
+    \item Pengguna premium mendapatkan diskon otomatis pada setiap pembelian.
+\end{enumerate}
+
+\subsection{Pemodelan Formal}
+
+Fakta ($\Delta$):
+\begin{align*}
+\Delta = \{ & Login(UserA), \; Terverifikasi(UserA), \\
+            & Premium(UserA), \; Saldo(UserA, 500000), \\
+            & HargaItem(Laptop, 450000) \}
+\end{align*}
+
+Aturan ($\Gamma$):
+\begin{align*}
+R_1&: \forall x\, (Login(x) \wedge Terverifikasi(x) \rightarrow BolehSimpan(x)) \\
+R_2&: \forall x, i\, (BolehSimpan(x) \rightarrow Simpan(x, i, Keranjang)) \\
+R_3&: \forall x, i, s, h\, (Simpan(x, i, Keranjang) \wedge Saldo(x, s) \wedge \\
+    & \qquad\qquad HargaItem(i, h) \wedge (s \geq h) \rightarrow BolehCheckout(x, i)) \\
+R_4&: \forall x, i\, (BolehCheckout(x, i) \wedge Premium(x) \rightarrow Diskon(x, i, 10\%))
+\end{align*}
+
+\subsection{Inferensi: Apakah UserA Berhak Diskon?}
+
+\begin{contoh}
+\textbf{Query}: $Diskon(UserA, Laptop, 10\%)$?
+
+\textbf{Penalaran (Forward Chaining):}
+\begin{enumerate}
+    \item $Login(UserA) \wedge Terverifikasi(UserA)$ \hfill (fakta dari $\Delta$)
+    \item $BolehSimpan(UserA)$ \hfill ($R_1$, Modus Ponens)
+    \item $Simpan(UserA, Laptop, Keranjang)$ \hfill ($R_2$, UI dengan $i = Laptop$)
+    \item $Saldo(UserA, 500000) \wedge HargaItem(Laptop, 450000) \wedge (500000 \geq 450000)$
+    \hfill (fakta $\Delta$ + evaluasi)
+    \item $BolehCheckout(UserA, Laptop)$ \hfill ($R_3$, dari langkah 3 dan 4)
+    \item $BolehCheckout(UserA, Laptop) \wedge Premium(UserA)$ \hfill (langkah 5 + fakta $\Delta$)
+    \item $Diskon(UserA, Laptop, 10\%)$ \hfill ($R_4$, Modus Ponens)
+\end{enumerate}
+
+Query terjawab: UserA berhak mendapat diskon 10\% untuk pembelian Laptop. $\blacksquare$
+\end{contoh}
+
+\subsection{Kasus Negatif: UserB Tidak Terverifikasi}
+
+\begin{contoh}
+Misalkan $\Delta' = \{Login(UserB), \neg Terverifikasi(UserB)\}$.
+
+\textbf{Query}: $BolehSimpan(UserB)$?
+
+Aturan $R_1$ mensyaratkan $Login(x) \wedge Terverifikasi(x)$. Karena $Terverifikasi(UserB)$ tidak ada dalam $\Delta'$ (atau secara eksplisit bernilai salah), anteseden $R_1$ tidak terpenuhi untuk $x = UserB$. Maka $BolehSimpan(UserB)$ \textbf{tidak dapat disimpulkan}. Rantai inferensi berhenti, dan UserB tidak dapat melanjutkan ke tahap checkout.
+\end{contoh}
+
+\begin{catatan}
+Contoh kasus negatif ini menunjukkan bagaimana basis pengetahuan secara otomatis ``memblokir'' akses ketika prekondisi (dalam hal ini verifikasi pengguna) tidak dipenuhi. Pola ini sangat mirip dengan mekanisme otorisasi (\textit{authorization}) pada sistem perangkat lunak nyata.
+\end{catatan}

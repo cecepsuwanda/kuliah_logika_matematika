@@ -1,140 +1,51 @@
-\documentclass[../main]{subfiles}
-\ifSubfilesClassLoaded{\setcounter{chapter}{3}}{}
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
 
-\chapter{Ekuivalensi Logika dan Tautologi}
+\chapter{Kata Hubung Logika: Konjungsi, Disjungsi, Negasi, Implikasi, Biimplikasi}
 
 \begin{subcpmk}
-  \item Sub-CPMK 2.1: Menerjemahkan pernyataan bahasa Indonesia ke simbol logika proposisional
-  \item Sub-CPMK 2.2: Menentukan ekuivalensi logika menggunakan hukum-hukum aljabar proposisi
-  \item Sub-CPMK 2.3: Mengidentifikasi tautologi, kontradiksi, dan kontingensi
+  \item Mahasiswa mampu menggunakan operator dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+  \item Mahasiswa dapat menerjemahkan \textit{logical operators} tersebut di tingkat penulisan struktur sintaks kode percabangan umum.
 \end{subcpmk}
 
-\input{bab-04/section-4-1}
-\input{bab-04/section-4-2}
-\input{bab-04/section-4-3}
-\input{bab-04/section-4-4}
-\input{bab-04/section-4-5}
-\input{bab-04/section-4-6}
+\section{Operator Dasar Logika Proposisional}
 
-% ============================================================
-% AKTIVITAS PEMBELAJARAN
-% ============================================================
+Dalam merancang sirkuit komputasi, suatu proposisi tunggal tak ubahnya sekeping transistor tunggal; terlalu sederhana dan nirfungsi logis yang panjang. Manusia dan mesin merangkai simpulan rumit dari penggabungan proposisi yang disusun menggunakan perangkai \textit{(Logical Connectives)}. Terdapat lima \textit{connective} terpenting, yaitu \textbf{Negasi ($\sim$)}, \textbf{Konjungsi ($\land$)}, \textbf{Disjungsi ($\lor$)}, \textbf{Implikasi ($\rightarrow$)}, dan \textbf{Biimplikasi ($\leftrightarrow$)}.
+
+\subsection{Negasi (NOT / Penyangkalan)}
+Negasi, didefinisikan secara harfiah dengan "TIDAK", yaitu operasi matematis \textit{unary} (melibatkan 1 proposisi tunggal). Jika proposisi $p$ bernilai T (benar), maka $\sim p$ akan berbalik arah nilainya menjadi F (salah). Di sintaks pemrograman (seperti Java/C++), notasi negasi umum ditulis dengan tanda \texttt{!}.
+
+\subsection{Konjungsi (AND / Dan)}
+Suatu proposisi gabungan $p \land q$ yang disebut \textbf{Konjungsi} ini bernilai T secara eksklusif hanya jika "KEDUA" elemen asal, baik preposisi kiri maupun preposisi kanan (keduanya $p$ maupun $q$) bernilai mutlak T. Selain dari klausa interaktif itu, seluruh kombinasinya bernilai F. Operator AND di beberapa bahasa pemrograman disimbolkan \texttt{\&\&}.
+
+\subsection{Disjungsi (OR / Atau)}
+Operasi Disjungsi digambarkan sebagai "ATAU", dinotasikan $p \lor q$. Bernilai T jika terdapat minimal salah satu proposisi pembentuk bernilai T. Operator OR di bahasa C/C++/Java biasanya disimbolkan \texttt{||}.
+
+\subsection{Implikasi (If... Then / Bersyarat)}
+Pada kalimat deklarasi, implikasi kerap diterjemahkan menggunakan kalimat majemuk komputasi "JIKA \textit{kondisi p} MAKA \textit{kesimpulan q}". Implikasi yang dinotasikan $p \rightarrow q$ (dengan $p$ sebagai \textit{anteseden} dan $q$ sebagai \textit{konsekuen}) akan bernilai Salah (F) pada satu konfigurasi langka: yakni jika hipotesisnya ($p$) ditepati (Benar) namun kesimpulannya dikhianati ($q$ dinilai Salah). Dalam semua kasus hipotesis lainnya, ia menoleransi nilai Benar.
+
+\subsection{Biimplikasi (If and Only If / Ekuivalensi Dua Arah)}
+Disimbolkan secara ekuivalen $p \leftrightarrow q$, diartikan secara formal sebagai "p jika dan hanya jika q". Pernyataan logika biimplikasi sangat tertutup—ia hanya mengeksekusi penilaian T bila pasangan preposisinya kompak (kembar); $p$ dan $q$ wajib sama-sama bernilai T atau harus identik sama-sama F. Sangat sering diterapkan untuk \textit{Equality Match}.
 
 \begin{aktivitas}
-  \item Buktikan $\neg(p \rightarrow q) \equiv p \wedge \neg q$ menggunakan tabel kebenaran dan verifikasi dengan hukum aljabar proposisi.
-  \item Translasikan 3 pernyataan sehari-hari ke simbol logika. Definisikan proposisi atomik dan gunakan operator yang tepat.
-  \item Tulis fungsi Python untuk memeriksa ekuivalensi dua formula (misalnya $p \rightarrow q$ dan $\neg p \vee q$) dengan tabel kebenaran otomatis.
-  \item Terapkan hukum De Morgan pada satu kondisi di program (if/else) Anda: tulis bentuk asli dan bentuk ekuivalen. Verifikasi bahwa keduanya menghasilkan output yang sama.
-  \item Sederhanakan ekspresi logika $\neg(\neg p \wedge q) \vee (p \wedge \neg q)$ menggunakan langkah-langkah aljabar proposisi dan tabel kebenaran. Bandingkan hasilnya.
+  \item Diskusikan dalam satu grup: Terjemahkan kata hubung bahasa sehari-hari: "Karena lelah, maka Saya butuh kopi" dan carilah pola \textit{anteseden} (penyebab) serta \textit{konsekuennya}. Bagaimana terjemahan formal simbol operatornya?
 \end{aktivitas}
 
-% ============================================================
-% LATIHAN DAN REFLEKSI
-% ============================================================
-
 \begin{latihan}
-  \item Tunjukkan bahwa $(p \rightarrow q) \leftrightarrow (\neg p \vee q)$ adalah tautologi menggunakan tabel kebenaran.
-  \item Translasi: ``Dia tidak datang kecuali diundang.'' ke simbol logika. Identifikasi proposisi atomik dan operator yang digunakan.
-  \item Translasi: ``Saya lulus hanya jika nilai $\geq 60$.'' Tentukan $p$, $q$, dan formula yang tepat ($p \rightarrow q$ atau $q \rightarrow p$). Jelaskan alasan pemilihan Anda.
-  \item Dengan Python atau tabel kebenaran, periksa apakah $p \wedge \neg p$ kontradiksi dan $p \vee \neg p$ tautologi. Jelaskan mengapa hal ini penting dalam logika.
-  \item Gunakan hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan) untuk menyederhanakan: $(p \wedge q) \vee (p \wedge \neg q)$. Tuliskan setiap langkah beserta hukum yang digunakan.
-  \item Berdasarkan Section~4.4, analisis sebuah studi kasus penyederhanaan kondisi program menggunakan hukum ekuivalensi logika.
-  \item \textbf{Refleksi}: Bagian mana dari ekuivalensi logika dan tautologi yang paling sering digunakan dalam pemrograman atau penyederhanaan ekspresi Boolean? Berikan contoh pengalaman Anda.
+  \item Diketahui proposisi:\\
+  $p$: Hardware adalah perangkat keras.\\
+  $q$: Java adalah bahasa assembly instruksi mikroprosesor.\\
+  Tuliskan ekspresi dan estimasi semantik kebenaran dari $(p \lor \sim q)$.
 \end{latihan}
 
-% ============================================================
-% ASESMEN
-% ============================================================
-
 \begin{asesmen}
-\textbf{Instrumen Penilaian untuk Sub-CPMK 2.1--2.3}
-
-\textbf{A. Pilihan Ganda}
-\begin{enumerate}
-  \item Dua proposisi $P$ dan $Q$ ekuivalen secara logika jika dan hanya jika:
-  \begin{enumerate}
-    \item $P \wedge Q$ tautologi
-    \item $P \leftrightarrow Q$ tautologi
-    \item $P \vee Q$ kontradiksi
-    \item $P \rightarrow Q$ kontingensi
-  \end{enumerate}
-  \item Hukum De Morgan: $\neg(p \vee q)$ ekuivalen dengan:
-  \begin{enumerate}
-    \item $\neg p \vee \neg q$
-    \item $\neg p \wedge \neg q$
-    \item $p \wedge q$
-    \item $p \vee q$
-  \end{enumerate}
-  \item Proposisi yang selalu bernilai salah untuk setiap interpretasi disebut:
-  \begin{enumerate}
-    \item Tautologi
-    \item Kontradiksi
-    \item Kontingensi
-    \item Ekuivalen
-  \end{enumerate}
-  \item Hukum distributif: $p \wedge (q \vee r)$ ekuivalen dengan:
-  \begin{enumerate}
-    \item $(p \wedge q) \vee (p \wedge r)$
-    \item $(p \vee q) \wedge (p \vee r)$
-    \item $p \wedge q \wedge r$
-    \item $(p \wedge q) \vee r$
-  \end{enumerate}
-  \item Translasi yang benar untuk ``Saya lulus hanya jika saya belajar'' ($p$: saya lulus, $q$: saya belajar) adalah:
-  \begin{enumerate}
-    \item $q \rightarrow p$
-    \item $p \rightarrow q$
-    \item $p \wedge q$
-    \item $p \leftrightarrow q$
-  \end{enumerate}
-\end{enumerate}
-
-\textbf{B. Tugas Praktik}
-\begin{itemize}
-  \item Translasikan dua kalimat bahasa Indonesia ke simbol logika (identifikasi proposisi atomik dan operator). Verifikasi dengan tabel kebenaran.
-  \item Tulis program Python singkat yang memeriksa apakah suatu formula (untuk 2 variabel) adalah tautologi, kontradiksi, atau kontingensi.
-  \item Sederhanakan ekspresi $\neg(p \rightarrow q) \vee (p \wedge q)$ menggunakan hukum aljabar proposisi. Tuliskan setiap langkah.
-\end{itemize}
-
-\textbf{Rubrik Penilaian}: Lihat Lampiran.
+Asesmen Formatif: Jawaban konversi preposisi komputasi di rubrik mini (bobot evaluasi UTS parsial 5\%).
 \end{asesmen}
 
-% ============================================================
-% CHECKLIST KOMPETENSI
-% ============================================================
-
 \begin{checklist}
-  \item Saya dapat menentukan ekuivalensi dua formula logika menggunakan tabel kebenaran
-  \item Saya dapat menerapkan hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan, absorpsi, identitas, komplemen, idempoten)
-  \item Saya dapat mengidentifikasi tautologi, kontradiksi, dan kontingensi
-  \item Saya dapat menerjemahkan pernyataan bahasa alami ke simbol logika proposisional dengan benar
-  \item Saya dapat menyederhanakan ekspresi logika menggunakan hukum-hukum ekuivalensi
-  \item Saya dapat memeriksa ekuivalensi atau jenis formula (tautologi/kontradiksi/kontingensi) dengan Python atau tabel kebenaran
-  \item Saya dapat mengaplikasikan penyederhanaan logika dalam konteks pemrograman (kondisi if/else)
+  \item Mengetahui tanda matematis/simbol dari seluruh 5 kata hubung dasar.
+  \item Mengerti karakter penilaian dari tabel Implikasi versus Biimplikasi.
 \end{checklist}
 
-% ============================================================
-% RANGKUMAN
-% ============================================================
-
-\begin{rangkuman}
-Bab ini membahas ekuivalensi logika, tautologi, dan translasi pernyataan ke simbol logika.
-
-\textbf{Poin Kunci:}
-\begin{itemize}
-  \item Dua formula $P$ dan $Q$ ekuivalen ($P \equiv Q$) jika $P \leftrightarrow Q$ adalah tautologi; hukum-hukum aljabar proposisi (komutatif, asosiatif, distributif, De Morgan, absorpsi, identitas, komplemen, idempoten) menyediakan aturan transformasi.
-  \item Tautologi (selalu benar), kontradiksi (selalu salah), dan kontingensi (tergantung input) menentukan sifat formula logika.
-  \item Translasi bahasa alami ke simbol logika membutuhkan identifikasi proposisi atomik, pemilihan operator yang tepat, dan penanganan kata kunci seperti ``hanya jika'', ``kecuali'', dan ``jika dan hanya jika''.
-  \item Penyederhanaan ekspresi logika menggunakan hukum-hukum aljabar memungkinkan optimasi kondisi program dan verifikasi aturan bisnis.
-  \item Penerapan: penyederhanaan kondisi program if/else, optimasi query Boolean, dan verifikasi spesifikasi sistem.
-\end{itemize}
-
-\textbf{Kata Kunci}: ekuivalensi logika, hukum De Morgan, hukum distributif, tautologi, kontradiksi, kontingensi, translasi, penyederhanaan, aljabar proposisi
-\end{rangkuman}
-
-\ifSubfilesClassLoaded{
-  \renewcommand{\bibname}{Daftar Pustaka}
-  \bibliographystyle{plain}
-  \bibliography{../references}
-}{}
 \end{document}

@@ -1,129 +1,51 @@
-\documentclass[../main]{subfiles}
-\ifSubfilesClassLoaded{\setcounter{chapter}{7}}{}
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
 
-\chapter{Pengenalan Prolog dan Logic Programming}
+\chapter{Analisis Validitas Argumen dalam Konteks Komputasi Dasar}
 
 \begin{subcpmk}
-  \item Sub-CPMK 4.3: Menulis fakta dan aturan sederhana dalam Prolog serta menjalankan query dasar
+  \item Mahasiswa mampu membuktikan atau menjatuhkan sebuah sistem argumen fungsional dan teknologis secara metodologi \textit{Logic Tracing} matematis dasar komprehensif.
 \end{subcpmk}
 
-% ============================================================
-% MATERI POKOK
-% ============================================================
-\input{bab-08/section-8-1}
-\input{bab-08/section-8-2}
-\input{bab-08/section-8-3}
-\input{bab-08/section-8-4}
+\section{Studi Kasus Pembuktian Sistem Komputasi Argumentatif Murni}
 
-% ============================================================
-% AKTIVITAS PEMBELAJARAN
-% ============================================================
+Bab ini tak memperkenalkan teori dasar baru, tetapi memfasilitasi "Lab Sintesis" atas perpaduan komponen teknis diskursus deduktif bab 3 -- 7 sebelumnya. Algoritma modern menuntut kesahihan argumentasi spesifikasi \textit{System Information Flow} secara absolut dan tertulis (non-interpretatif manusiawi).
+
+Teknik pemecahan yang dominan berlaku di arsitektur rekayasa \textit{software}:
+\begin{itemize}
+    \item Substitusi / Mengabstraksi bahasa \textit{Requirement User/Client} ke simbolisme parameter logika murni algoritmik fungsional proposisi ($p, q, \land, \lor, \rightarrow$).
+    \item Evaluasi berantai untuk mereduksi proposisi abstrak itu melalui hukum dasar yang mapan seperti Ekivalensi, Ponens \& Tollens.
+    \item Bila secara matematis semua simpul premis mayor kompatibel dan *Tautologik* menuju hipotesisnya, \textit{architecture flowchart code software}-nya diklaim bebas kontradiksi/celah logika.
+\end{itemize}
+
+\begin{contoh}
+\textbf{Kasus Analisis Spesifikasi Keamanan Server:}\\
+Sebuah rancangan manual \textit{cyber-security} menyebut 3 hal prasyarat keamanan sbb:
+1. Jika Firewall Sistem Dioperasikan ($F$), Modul Pertahanan Aktif ($M$) atau Anomali Trafik Terblokir ($A$). $\rightarrow (F \rightarrow M \lor A)$
+2. Jika Sistem Audit Intrusif beroperasi optimal ($S$), Modul Pertahanan TIDAK Aktif. $\rightarrow (S \rightarrow \sim M)$
+3. Jika Sistem Firewall Dioperasikan dan Audit Sistem Optimal berjalan, buktikanlah deduksi apakah secara pasti Anomali Terblokir ($A$). ($\dots$ Buktikan apakah $(F \land S) \rightarrow A$ merupakan sistem deduksi argumen berskala rasional Valid).
+
+\textbf{Langkah Sintesis Komputasi Inferensial:}
+- (Premis Minor Faktanya): Kita ambil pemisalan Asumsi input $(F \land S)$ \textit{wajib nilainya mutlak bernilai Benar}. Otomatis $F$ adalah Benar, selaras pararel dengan $S$ \textit{adalah wajib} mutlak Benar.
+- Karena Inputnya mensyaratkan status mutlak $S$ bernilai \textit{True}/T, Modus Ponens spesifik pada premis (2) $S \rightarrow \sim M$,  Konsekuensi turunannya memvalidasi variabel turunan $\sim M$ berstatus benar mutlak!
+- Karena input juga mem-validasi $F$, sesuai turunan inferensi Modus Ponens rasional di aturan (1) $F \rightarrow (M \lor A)$, hal itu menarik kesimpulan turunannya yakni klausa gabungan logik rasional $(M \lor A)$ diwajibkan dikunci kebenarannya (\textit{True value function}).
+- Namun dari reduksi sebelumnya, fakta memvonis status $\sim M$ bernilai T (sehingga var independen iterasi nilainya adalah $M=F$ alias False logis!!).
+- Dari aturan pokok inferensial Silogisme Disjungtif logika, diketahui \textit{Expression Block} $(M \lor A)$ harus berwibawa \textit{True}, sedangkan $M$ berstatus deterministik logikal \textit{False}. Karena fungsi \textit{OR ($\lor$)} wajib memiliki sisa True untuk aktif fungsional paralelitasnya, secara alam logika mutlak konklusi algoritmanya menarik keniscayaan nilai semantik ke terminal fungsi variabel input murni $A$, mensahkan secara total $A$ wajib bereksistensial di posisi logikal Benar / T ("Anomali benar-benar pasti Terblokasi Formal!").
+- \textbf{Argumen/Spesifikasi Algoritma Server ini sahih 100\% logis secara komputasi fungsional rasional.}
+\end{contoh}
 
 \begin{aktivitas}
-  \item Install SWI-Prolog. Tulis program silsilah keluarga (ayah, ibu, kakek, nenek) dengan fakta dan aturan.
-  \item Jalankan query untuk menanyakan siapa kakek dari siapa.
-  \item Instal SWI-Prolog (Section~8.1). Tulis 5 fakta tentang keluarga Anda menggunakan predikat \texttt{parent/2}, \texttt{male/1}, \texttt{female/1}. Query: siapa anak dari X?
-  \item Tulis aturan Prolog untuk \texttt{sibling(X, Y)}, \texttt{grandparent(X, Y)}, dan \texttt{ancestor(X, Y)} (Section~8.2). Uji dengan query menggunakan basis pengetahuan silsilah keluarga (Section~8.4).
-  \item Lakukan trace unifikasi (Section~8.3) untuk query \texttt{?- ancestor(tom, jim).} pada basis pengetahuan di studi kasus. Tuliskan setiap langkah substitusi dan backtracking yang terjadi.
-  \item Buat basis pengetahuan Prolog sederhana untuk domain selain keluarga (misalnya hewan, kota, atau makanan). Definisikan minimal 5 fakta dan 3 aturan. Query 3 pertanyaan.
+  \item Rancang dan rumuskan algoritma spesifik *Error Trace Logging System* Anda bersendikan minimal 3 Premis dari operator majemuk dan inferensial. Analisis di depan kolega akademis komputatif.
 \end{aktivitas}
 
-% ============================================================
-% LATIHAN DAN REFLEKSI
-% ============================================================
-
-\begin{latihan}
-  \item Tulis fakta-fakta Prolog untuk basis pengetahuan berikut: ``Ali suka matematika. Budi suka informatika. Cici suka fisika. Ali suka informatika.'' Tulis query untuk mencari: siapa yang suka informatika?
-  \item Tulis aturan Prolog: ``X adalah rekan Y jika keduanya menyukai mata kuliah yang sama.'' Gunakan basis fakta dari soal 1. Jalankan query \texttt{?- rekan(ali, Y).}
-  \item Jelaskan proses unifikasi dan backtracking yang terjadi ketika Prolog mengevaluasi query \texttt{?- ancestor(X, jim).} pada basis pengetahuan di Section~8.4. Gambarkan pohon pencarian.
-  \item Bandingkan paradigma deklaratif (Prolog) dengan paradigma imperatif (Python/Java). Berikan contoh masalah yang lebih mudah diselesaikan dengan masing-masing paradigma.
-  \item Hubungkan konsep fakta dan aturan Prolog dengan logika predikat (Bab V): tunjukkan korespondensi antara klausa Prolog dan formula logika predikat.
-  \item \textbf{Refleksi}: Apa kelebihan dan keterbatasan paradigma logic programming dibandingkan pemrograman imperatif yang telah Anda pelajari? Dalam domain apa Prolog paling cocok?
-\end{latihan}
-
-% ============================================================
-% ASESMEN
-% ============================================================
-
 \begin{asesmen}
-\textbf{Instrumen Evaluasi Kinerja untuk Sub-CPMK 6.1}
-
-\textbf{A. Pilihan Ganda}
-\begin{enumerate}
-  \item Dalam Prolog, \texttt{parent(tom, bob).} adalah:
-  \begin{enumerate}
-    \item Aturan
-    \item Fakta
-    \item Query
-    \item Variabel
-  \end{enumerate}
-  \item Prolog menyelesaikan query dengan mekanisme:
-  \begin{enumerate}
-    \item Iterasi dan loop
-    \item Unifikasi dan backtracking
-    \item Kompilasi dan linking
-    \item Parsing dan tokenizing
-  \end{enumerate}
-  \item Dalam klausa Prolog \texttt{ancestor(X,Y) :- parent(X,Y).}, bagian \texttt{parent(X,Y)} disebut:
-  \begin{enumerate}
-    \item Head
-    \item Body (subgoal)
-    \item Query
-    \item Atom
-  \end{enumerate}
-  \item Variabel dalam Prolog selalu dimulai dengan:
-  \begin{enumerate}
-    \item Huruf kecil
-    \item Huruf besar atau underscore
-    \item Angka
-    \item Tanda kutip
-  \end{enumerate}
-\end{enumerate}
-
-\textbf{B. Tugas Praktik (Evaluasi Kinerja)}
-\begin{itemize}
-  \item Buat basis pengetahuan lengkap silsilah keluarga minimal 3 generasi menggunakan predikat \texttt{parent/2}, \texttt{male/1}, \texttt{female/1} (Section~8.4).
-  \item Definisikan aturan: \texttt{sibling/2}, \texttt{grandparent/2}, \texttt{ancestor/2}, \texttt{uncle/2} atau \texttt{aunt/2}.
-  \item Jalankan 5 query berbeda dan dokumentasikan hasil serta proses unifikasi/backtracking untuk salah satu query.
-  \item Tuliskan korespondensi antara setiap aturan Prolog dengan formula logika predikat.
-\end{itemize}
-
-\textbf{Rubrik Penilaian}: Lihat Lampiran.
+Aplikasi integratif perancangan (Project Mini) penyelesaian argumen teknikal sistem komputasional perangkat keras, yang akan direviu pada komponen formatif berkelompok di tahap penugasan formal selanjutnya.
 \end{asesmen}
 
-% ============================================================
-% CHECKLIST KOMPETENSI
-% ============================================================
-
 \begin{checklist}
-  \item Saya dapat menulis fakta dan aturan Prolog
-  \item Saya dapat menjalankan query dasar
+  \item Tidak bingung mengkonversi dari paparan tekstual spesifikasi \textit{System Design} jadi rumus proposisional yang tepat simbolik sintaksnya matematis konklusif .
+  \item Secara terpandu mengurutkan deduksi kebenaran rantai tanpa cacat interpretatif kontradiktif.
 \end{checklist}
 
-% ============================================================
-% RANGKUMAN
-% ============================================================
-
-\begin{rangkuman}
-Bab ini memperkenalkan Prolog dan \logic{logic programming}. Program Prolog terdiri atas \emph{fakta}, \emph{aturan}, dan \emph{query}; eksekusi didasarkan pada unifikasi dan resolution. SWI-Prolog dapat digunakan untuk praktik menulis program dan menjalankan query dasar.
-
-\textbf{Poin Kunci:}
-\begin{itemize}
-  \item Prolog adalah bahasa deklaratif: program mendefinisikan relasi (fakta dan aturan), mesin menjawab query.
-  \item Fakta adalah predikat yang selalu benar; aturan berbentuk \texttt{Kepala :- Tubuh} (Kepala jika Tubuh).
-  \item Query diawali \texttt{?-}; jawaban berupa \texttt{true}/\texttt{false} atau binding variabel.
-  \item Unifikasi menemukan substitusi agar dua term sama; resolution dan backtracking adalah mekanisme inferensi Prolog.
-  \item Program Prolog bersesuaian dengan klausa Horn dalam logika predikat.
-  \item SWI-Prolog dan Learn Prolog Now menyediakan lingkungan praktik dan tutorial.
-\end{itemize}
-
-\textbf{Kata Kunci}: \logic{Prolog}, fakta, aturan, query, unifikasi, resolution, backtracking, klausa Horn, SWI-Prolog.
-\end{rangkuman}
-
-\ifSubfilesClassLoaded{
-  \renewcommand{\bibname}{Daftar Pustaka}
-  \bibliographystyle{plain}
-  \bibliography{../references}
-}{}
 \end{document}

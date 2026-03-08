@@ -1,0 +1,52 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Pemodelan Masalah Komputasi menggunakan Logika Predikat}
+
+\begin{subcpmk}
+  \item Mahasiswa mampu memodelkan masalah komputasi yang tak terstruktur di alam verbal manusia dengan merepresentasikannya menggunakan kerangka ekspresif logika predikat.
+\end{subcpmk}
+
+\section{Pemodelan Sintaks *Query* dan Struktur Data}
+
+Kemampuan menerjemahkan kebutuhan (*requirements*) menjadi model matematika diskrit merupakan fondasi arsitektur sistem Basis Data (*Relational Databases*) modern (merujuk pada *Relational Calculus*) maupun rekayasa *Knowledge-Based AI*. Logika Predikat menyumbang sintaks formalnya secara masif.
+
+Ketika programmer memformulasikan sintaks kueri penarikan *record*, misalnya SQL:
+\lstset{language=SQL}
+\begin{lstlisting}
+SELECT Email FROM Pengguna WHERE Umur > 18 AND Status = 'Aktif';
+\end{lstlisting}
+Secara diam-diam, sang programmer tengah merancang instruksi komputasi bertumpu evaluasi model Logika Predikat.
+Fungsi komputasional di \textit{backend database engine} memanifestasikan perintah tabel kolom tersebut menjadi pencarian yang memuaskan variabel kuantifikasi himpunan relasional.
+
+Domain $U$ = {Himpunan Entitas Tabel Pengguna Aktif}.
+Model Klausa Relasi Pemodelannya: $\{ x \in Pengguna \mid Umur(x) > 18 \land Status(x, Aktif) \}$.
+Di sini predikat \textit{Umur} adalah fungsi pemetaan variabel tunggal iteratif ($P(x)$) dan \textit{Status} adalah relasional argumen komputatif variabel ganda $R(x, y)$.
+
+\section{Pemodelan Logika Bersarang (*Nested Quantifiers*)}
+Masalah kompleks komputasi memerlukan Kuantor jamak tak merdeka (Bersarang).
+Misal pemodelan arsitektur enkripsi data komputatif: "Semua kata sandi, pasti di-enkripsi algoritma hash oleh sekurang-kurangnya sebuah server keamanan valid."
+
+Domain $P$ = Sandi, Domain $S$ = Server. Predikat Enkripsi $E(x, y)$ (sandi x di hash server y).
+Model Relasi Formal Komputasinya: $\forall x (P(x) \rightarrow \exists y (S(y) \land E(x, y)))$
+
+\begin{contoh}
+Menguraikan \textit{Deadlock Dependency}:
+Misalkan $T_i$ merepresentasikan \textit{Thread/Process} CPU, dan $R_a$ tipe *Resources Data*. $W(T_i, R_a)$ artinya Thread $i$ mem-blok menunggu \textit{Resource $a$}. Masalah *System Deadlock* dimodelkan terjadi bila: "Ada thread siklis yang saling blok satu dan yang lainnya abadi." Model pendeteksi awal yang di-skrip engineer Sistem Operasi mengecek apakah *status flag komputasionalnya* merujuk \textit{True} pada relasi: $\exists x \exists y (W(x, y) \land W(y, x))$.
+\end{contoh}
+
+\begin{aktivitas}
+  \item Pilih \textit{Rule} atau \textit{Guideline Form Validasi Password Sistem}. (Contoh: "Setiap sandi user setidaknya mengandung satu modifikasi atribut *special character*"). Formulasikan model kuantor berindeks logika predikatnya secara akurat di atas kanvas/kertas untuk divisualisasikan bersama sejawat Anda!
+\end{aktivitas}
+
+\begin{asesmen}
+Akurasi pendefinisian ruang himpunan *Universe (U)* pada tugas perancangan spesifikasi Logika *Database Relational* yang diberikan saat ujian portofolio terstruktur.
+\end{asesmen}
+
+\begin{checklist}
+  \item Mampu mengenali peranan $P(x)$ di dalam sintaks bahasa kueri \texttt{SQL} / pengkondisian data komputasi praktis *Array Filtering*.
+  \item Lancar mentransformasi kebutuhan verbal rumit \textit{System User} menjadi persamaan bersarang kuantor mutlak tanpa ambiguitas terjemahan.
+\end{checklist}
+
+\end{document}

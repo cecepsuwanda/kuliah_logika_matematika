@@ -1,0 +1,58 @@
+\section{Kesesatan Berpikir Formal (Logical Fallacies)}
+
+Di tengah gempita indahnya presisi matematika menarik konklusi, terdapat jurang jebakan batman yang ribuan kali sukses mengecoh nalar umat manusia di sepanjang persidangan hukum dan debat publik. Dua monster \textbf{Invalid Inference (Argumen Cacat)} berpola formal sangat sering bergentayangan mirip saudara kembar dari Modus Ponens dan Modus Tollens. Jebakan ini dinamakan \textit{Fallacy} \cite{rosen2019}.
+
+\subsection{1. Menetapkan Konsekuen (Fallacy of Affirming the Consequent)}
+
+Ini adalah jebakan klasik di mana seseorang tertipu memutar balik arus lalu lintas Modus Ponens. Manusia cenderung terbuai menduga panah implikasi ($p \rightarrow q$) bersifat dua arah. 
+
+\begin{teorema}[Jebakan Menetapkan Akibat]
+Seseorang diberikan Implikasi kuat ($p \rightarrow q$). Lalu alam tiba-tiba menunjukkan bahwa si AKIBAT ($q$) tengah terjadi mekar paripurna. Lantas dengan pongahnya ia menyimpulkan bahwa sumber penyulut aslinya pastilah ($p$). Ini \textbf{CACAT TOTAL!} \textbf{Argumen tidak sah / Invalid}. 
+\end{teorema}
+
+\textbf{Anatomi Argumen Sesat:}
+\[
+\begin{array}{cl}
+p \rightarrow q & \text{(Premis Mayor)} \\
+q & \text{(Sang Akibat justru digandakan/dibenarkan)} \\
+\hline
+\therefore p & \text{\xcancel{(KESIMPULAN CACAT! SESAT)}}
+\end{array}
+\]
+
+\begin{contoh}
+Perhatikan dan resapi kesalahan fatal berikut:
+\begin{itemize}
+    \item \textbf{Janji ($p \rightarrow q$)}: "Jika kompor di dapur meledak, maka seluruh gedung apartemen ini ludes terbakar." (Sangat Benar).
+    \item \textbf{Fakta Tragedi ($q$)}: "Di siaran TV Breaking News, Apartemen kita disiarkan ludes terbakar jadi abu."
+    \item \textbf{Kesimpulan Sesat ($\therefore p$)}: "Astaga! Pasti Kompor pemicunya yang meledak mengawali ini semua."
+\end{itemize}
+\textbf{Mengapa Cacat?} Karena Apartemen ludes terbakar ($q$) punya \textbf{TRILYUNAN PENYEBAB LAIN} selain kompor meledak. Bisa jadi karena sambaran petir, ulah iseng anak bermain petasan, dll. Memastikan ($q$) terjadi TIDAK PERNAH menggaransi status ($p$).
+\end{contoh}
+
+\subsection{2. Menyangkal Anteseden (Fallacy of Denying the Antecedent)}
+
+Saudara kembar dari argumen cacat di atas adalah peniruan palsu atas Modus Tollens. Pemutarbalikan logika nekat dilakukan.
+
+\begin{teorema}[Jebakan Menyangkal Sebab]
+Jika si pemikir diberikan Implikasi kuat ($p \rightarrow q$). Kemudian dewa nasib mencabut tiket dan menggagalkan kelahiran si PENYEBAB ($\neg p$). Lantas manusia secara serampangan teriak ke ranah publik menyimpulkan si AKIBAT otomatis niscaya ikut binasa gagal terwujud. Ini \textbf{ARGUMEN INVALID / CACAT NALAR SEUTUHNYA}.
+\end{teorema}
+
+\textbf{Anatomi Argumen Sesat:}
+\[
+\begin{array}{cl}
+p \rightarrow q & \text{(Premis Mayor)} \\
+\neg p & \text{(Sang Penulis Sebab digugurkan)} \\
+\hline
+\therefore \neg q & \text{\xcancel{(KESIMPULAN CACAT! SESAT)}}
+\end{array}
+\]
+
+\begin{contoh}
+\begin{itemize}
+    \item \textbf{Janji ($p \rightarrow q$)}: "Jika saya hari ini diguyur gajian bonus akhir tahun miliaran, maka tabungan bank BCA saya meluber lubis kaya raya."
+    \item \textbf{Fakta Kemiskinan ($\neg p$)}: "Sial, pak bos tidak memberi saya secuil pun gaji bonus."
+    \item \textbf{Kesimpulan Sesat ($\therefore \neg q$)}: "Ya sudah fix, berarti saya ditakdirkan selamanya miskin, tabungan BCA saya akan terus mengkerut tidak bisa membesar raya alias gagal gajian!"
+\end{itemize}
+\textbf{Mengapa Cacat?} Pintu menjadi kaya raya ($q$) tidak hanya digedor lewat tiket rute tunggal "Bonus". Sang narator bisa saja memenangkan lotre esok harinya, warisan kakeknya cair tak terduga, atau usaha \textit{StartUp} miliknya kebetulan mendadak viral di-akuisisi Facebook minggu depan yang berujung $q$ malah bernilai Benar. Ketiadaan rute tunggal ($\neg p$) tak menjamin gerbang raksasa konklusi ikutan runtuh dan haram diketok $\neg q$.
+\end{contoh}

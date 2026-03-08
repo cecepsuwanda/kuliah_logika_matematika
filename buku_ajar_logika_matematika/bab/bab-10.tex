@@ -1,0 +1,56 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Kuantor Universal dan Kuantor Eksistensial}
+
+\begin{subcpmk}
+  \item Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial secara lugas.
+\end{subcpmk}
+
+\section{Pendahuluan Kuantifikasi Komputasi}
+Untuk mengatasi keterbatasan Logika Proposisi dalam merepresentasikan *collection of items* / himpunan instansiasi logik yang sangat besar di ilmu komputer (Database, Array iterasi fungsi), digunakan alat spesifikasi batas kuantitas yang berakar dari operator Kalkulus, yakni \textbf{Kuantor} (Quantifier).
+
+Kuantor men-skala-kan properti "Kebenaran" milik suatu fungsi predikat $P(x)$ agar menjangkau / di\_binding ke setiap elemen domain *Universe Of Discourse* ($U$).
+
+\section{Kuantor Universal ($\forall$)}
+Frasa "Semua", "Setiap", "Seluruh", diterjemahkan formal dengan simbol Kuantor Universal ($\forall$, sebuah huruf A yang digambar terbalik dari kata "*All*").
+
+Ekspresinya ditulis matematis $\forall x \ P(x)$, dibaca: \textit{"Untuk semua x (di ranah himpunan $U$), berlaku sifat $P(x)$."}
+
+\begin{konsep}
+Kuantor Universal identik hubungannya dengan gerbang **Logika AND ($\land$)** yang diulang masif untuk seluruh anggota $U$.
+Bila $U = \{1, 2, 3\}$, maka klaim $\forall x \ P(x)$ secara teknis operasional adalah sintesis evaluasi logikal absolut dari: $P(1) \land P(2) \land P(3)$. Jika ada **Satu Saja** var data yang menyebabkan fungsi P salah (False), maka seluruh pernyataan Kuantor Universal ini sontak runtuh (*False loop breaker*).
+\end{konsep}
+
+\section{Kuantor Eksistensial ($\exists$)}
+Frasa longgar komputasi pencarian data/ \textit{query filter matching} seperti "Ada", "Terdapat setidaknya satu", atau "Beberapa", diwakili simbol Kuantor Eksistensial ($\exists$, huruf E simetrik dari kata "*Exists*").
+
+Notasi standar komputasinya adalah $\exists x \ P(x)$, secara semantik dinarasikan \textit{"Ada (setidaknya satu) $x$ sedemikian rupa sehingga sifat predikat $P(x)$ itu benar/True."}
+
+\begin{konsep}
+Kuantor Eksistensial sejajar dengan gerbang **Logika OR ($\lor$)** makro algoritmik. Bila $U = \{1, 2, 3\}$, klaim $\exists x \ P(x)$ setara ekspresi operasi mesin seleksi komparator Boolean: $P(1) \lor P(2) \lor P(3)$. Cukup kompilator menjumpai **satu saja** temuan data bernilai T, maka perulangan algoritma akan tervalidasi True sukses.
+\end{konsep}
+
+\begin{contoh}
+Terjemahan Bahasa Alami ke Logika Predikat Komputasi:
+- "Setiap \textit{process} komputasi ($P$) yang kelebihan *load* CPU ($L$) akan dibekukan oleh OS server ($B$)".
+Terjemahan: $\forall x \ (P(x) \land L(x) \rightarrow B(x))$
+- "Ada setidaknya satu \textit{file} ($F$) di \textit{Directory Root} ini yang terinfeksi \textit{malware} ($M$)".
+Terjemahan: $\exists x \ (F(x) \land M(x))$
+\end{contoh}
+
+\begin{aktivitas}
+  \item Berlatihlah di grup menerjemahkan negasi kompleks dari algoritma spesifikasi ini: Apa bedanya algoritma yang dideklarasikan dengan formal $\sim(\forall x P(x))$ dengan yang dikonstruksi secara formal sebagai eksistensial $\exists x (\sim P(x))$? Tunjukkan kesetaraannya secara logikal intuitif!
+\end{aktivitas}
+
+\begin{latihan}
+  \item Ubah spesifikasi tekstual "Sistem komputasi melarang bahwa \textit{Ada user} yang memiliki kata sandi panjangnya di bawah 5 karakter" menjadi struktur Kuantor lengkap.
+\end{latihan}
+
+\begin{checklist}
+  \item Paham fungsi pemetaan absolut fungsi AND / OR pada iterasi algoritmis.
+  \item Terampil merepresentasikan "Semua" ($\forall$) vs "Sebagian/Terdapat" ($\exists$).
+\end{checklist}
+
+\end{document}

@@ -1,0 +1,311 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large RENCANA PEMBELAJARAN SEMESTER (RPS)}\\
+\textbf{Berbasis Outcome-Based Education (OBE)}\\[0.5cm]
+\textbf{PROGRAM STUDI TEKNIK INFORMATIKA}\\
+\textbf{FAKULTAS TEKNOLOGI INFORMASI}\\
+\textbf{UNIVERSITAS BALE BANDUNG}\\
+\end{center}
+
+\vspace{1cm}
+
+% ============================================================
+% 1. IDENTITAS MATA KULIAH
+% ============================================================
+\section*{1. Identitas Mata Kuliah}
+\begin{tabular}{ll}
+Nama Program Studi & : Teknik Informatika \\
+Nama Mata Kuliah & : Logika Matematika \\
+Kode Mata Kuliah & : TIF-xxx \\
+Semester & : 2 (Dua) \\
+SKS / Bobot Kredit & : 2 SKS \\
+Jumlah Pertemuan & : 16 pertemuan \\
+Dosen Pengampu & : [Nama Dosen Pengampu] \\
+Tanggal Penyusunan & : \today \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 2. CAPAIAN PEMBELAJARAN LULUSAN (CPL)
+% ============================================================
+\section*{2. Capaian Pembelajaran Lulusan (CPL)}
+
+CPL yang dibebankan pada mata kuliah ini mencakup kompetensi lulusan dalam aspek pengetahuan, keterampilan, dan sikap:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPL01:} Kemampuan menganalisis persoalan computing yang kompleks serta menerapkan prinsip-prinsip computing dan disiplin ilmu relevan lainnya untuk mengidentifikasi solusi, dengan mempertimbangkan wawasan perkembangan ilmu transdisiplin.
+  
+  \item \textbf{CPL02:} Memiliki pengetahuan yang memadai terkait dengan cara kerja sistem komputer dan mampu merancang dan mengembangkan berbagai algoritma metode untuk memecahkan masalah.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 3. CAPAIAN PEMBELAJARAN MATA KULIAH (CPMK)
+% ============================================================
+\section*{3. Capaian Pembelajaran Mata Kuliah (CPMK)}
+
+Kemampuan atau kompetensi spesifik yang diharapkan mahasiswa kuasai setelah menyelesaikan mata kuliah:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPMK1 (Fokus Logika Proposisional \& Analisis Argumen - Terkait CPL01):} Mahasiswa mampu menganalisis validitas argumen dan persoalan komputasi dasar dengan menerapkan prinsip-prinsip logika proposisional, tabel kebenaran, dan penarikan kesimpulan (silogisme, modus ponens, modus tollens) untuk mengidentifikasi solusi yang logis.
+  
+  \item \textbf{CPMK2 (Fokus Logika Predikat \& Pemodelan - Terkait CPL01 \& CPL02):} Mahasiswa mampu memodelkan persoalan yang lebih kompleks ke dalam bentuk ekspresi logika predikat (menggunakan kuantor universal dan eksistensial) sebagai langkah awal dalam merancang metode penyelesaian masalah yang terstruktur.
+  
+  \item \textbf{CPMK3 (Fokus Aljabar Boolean \& Sistem Komputer - Terkait CPL02):} Mahasiswa mampu menerapkan hukum-hukum aljabar Boolean untuk menyederhanakan fungsi logika dan merepresentasikannya ke dalam bentuk gerbang logika dasar, sebagai bentuk pemahaman terhadap cara kerja perangkat keras sistem komputer.
+  
+  \item \textbf{CPMK4 (Fokus Teknik Pembuktian \& Validasi Algoritma - Terkait CPL01 \& CPL02):} Mahasiswa mampu merancang argumen matematis dan membuktikan kebenaran suatu metode atau algoritma sederhana menggunakan teknik pembuktian formal (seperti deduksi, kontradiksi, atau induksi matematika) untuk memastikan solusi komputasi berjalan sesuai spesifikasi.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 4. SUB-CPMK / INDIKATOR PENCAPAIAN
+% ============================================================
+\section*{4. Sub-CPMK / Indikator Pencapaian}
+
+Penjabaran CPMK menjadi indikator yang lebih terukur dan dapat diuji:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Sub-CPMK 1.1:} Mahasiswa mampu menjelaskan konsep dasar proposisi, nilai kebenaran, dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+  \item \textbf{Sub-CPMK 1.2:} Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
+  \item \textbf{Sub-CPMK 1.3:} Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi (modus ponens, modus tollens, silogisme) dalam memecahkan persoalan komputasi dasar.
+  
+  \item \textbf{Sub-CPMK 2.1:} Mahasiswa mampu menjelaskan konsep dasar logika predikat, fungsi proposisional, dan ruang lingkup pembicaraan (\textit{universe of discourse}).
+  \item \textbf{Sub-CPMK 2.2:} Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial.
+  \item \textbf{Sub-CPMK 2.3:} Mahasiswa mampu memodelkan masalah komputasi yang terstruktur dengan merepresentasikan logika predikat sebagai basis perancangan algoritma.
+  
+  \item \textbf{Sub-CPMK 3.1:} Mahasiswa mampu mendefinisikan prinsip-prinsip dan hukum-hukum dasar Aljabar Boolean.
+  \item \textbf{Sub-CPMK 3.2:} Mahasiswa mampu menyederhanakan fungsi logika menggunakan hukum Aljabar Boolean atau Peta Karnaugh (K-Map).
+  \item \textbf{Sub-CPMK 3.3:} Mahasiswa mampu mengonversi dan merepresentasikan fungsi logika yang telah disederhanakan ke dalam bentuk rangkaian gerbang logika dasar pembentuk sistem komputer.
+  
+  \item \textbf{Sub-CPMK 4.1:} Mahasiswa mampu menerapkan berbagai metode pembuktian matematis dasar (pembuktian langsung, pembuktian tidak langsung/kontradiksi, dan kontraposisi).
+  \item \textbf{Sub-CPMK 4.2:} Mahasiswa mampu mengaplikasikan prinsip Induksi Matematika untuk membuktikan kebenaran sebuah deret atau properti dari algoritma rekursif sederhana.
+  \item \textbf{Sub-CPMK 4.3:} Mahasiswa mampu menyusun argumen matematis formal untuk memvalidasi langkah-langkah dalam penyelesaian masalah komputasi.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 5. MATERI PEMBELAJARAN (BAHAN KAJIAN)
+% ============================================================
+\section*{5. Materi Pembelajaran (Bahan Kajian)}
+
+Daftar topik materi yang relevan dengan Sub-CPMK dan CPMK:
+
+\begin{enumerate}[leftmargin=*]
+  \item Konsep Dasar Proposisi dan Kata Hubung Logika (Konjungsi, Disjungsi, Negasi, Implikasi, Biimplikasi)
+  \item Tabel Kebenaran, Tautologi, Kontradiksi, dan Kontingensi
+  \item Aturan Inferensi dan Penarikan Kesimpulan (Modus Ponens, Modus Tollens, Silogisme)
+  \item Konsep Logika Predikat, Fungsi Proposisional, dan \textit{Universe of Discourse}
+  \item Kuantor Universal ($\forall$) dan Eksistensial ($\exists$)
+  \item Pemodelan Masalah Komputasi berbasis Logika Predikat
+  \item Prinsip dan Hukum-hukum Dasar Aljabar Boolean
+  \item Penyederhanaan Fungsi Logika (Hukum Aljabar Boolean dan Peta Karnaugh)
+  \item Representasi Fungsi Logika ke Rangkaian Gerbang Logika Dasar
+  \item Metode Pembuktian Matematis (Pembuktian Langsung, Tidak Langsung, Kontraposisi)
+  \item Prinsip Induksi Matematika
+  \item Penyusunan Argumen Matematis Formal untuk Validasi Algoritma/Solusi Komputasi
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 6. METODE PEMBELAJARAN
+% ============================================================
+\section*{6. Metode Pembelajaran}
+
+Strategi atau pendekatan pembelajaran yang dipilih sesuai OBE yang menekankan aktivitas mahasiswa:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Ceramah Interaktif:} Penjelasan konsep teori dasar terkait logika dasar dengan diskusi dan tanya jawab interaktif.
+  \item \textbf{Problem-Based Learning (PBL):} Mahasiswa menyelesaikan studi kasus/pemecahan persoalan logika proposisional, penyederhanaan gerbang logika, dan metode pembuktian secara mandiri maupun berkelompok.
+  \item \textbf{Latihan Terstruktur Terpandu:} Latihan kelas untuk menyusun tabel kebenaran, membuktikan validitas argumen, dan merancang K-Map di bawah bimbingan fasilitator.
+  \item \textbf{Flipped Classroom:} Mahasiswa mengeksplorasi referensi \textit{Open Educational Resources} mengenai Logika Diskrit sebelum sesi kelas dimulai.
+  \item \textbf{Tugas Pembuktian Praktis:} Menyusun ulang argumentasi atau membuktikan deret algoritma dasar secara matematis.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 7. PENGALAMAN BELAJAR MAHASISWA
+% ============================================================
+\section*{7. Pengalaman Belajar Mahasiswa}
+
+Deskripsi tugas, aktivitas, atau pengalaman belajar yang mendukung pencapaian Sub-CPMK:
+
+\begin{itemize}[leftmargin=*]
+  \item Mengonstruksi kalimat natural menjadi bentuk ekspresi simbolik proporsional maupun predikatif beserta kuantornya.
+  \item Menyusun dan menganalisis nilai kebenaran dari spesifikasi persyaratan sistem buatan melalui Tabel Kebenaran.
+  \item Mengevaluasi apakah argumen dan aturan yang berjalan pada suatu pseudocode bersifat Valid atau Inconclusive.
+  \item Mentransformasikan rumus logika kompleks dan menyederhanakannya melalui ekspresi Aljabar Boolean dan Peta Karnaugh (K-Map).
+  \item Melatih kemampuan spasial-sistem dengan mensimulasikan gerbang logika dasar (AND, OR, NOT, NAND, NOR, XOR).
+  \item Melakukan latihan pembuktian terhadap sifat-sifat khusus matematis atau pola deret langkah menggunakan metode induksi.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 8. KRITERIA, INDIKATOR, DAN BOBOT PENILAIAN
+% ============================================================
+\section*{8. Kriteria, Indikator, dan Bobot Penilaian}
+
+Teknik/alat asesmen dipetakan ke Sub-CPMK/CPMK dengan bobot yang jelas:
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{5.5cm}|c|}
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/Sub-CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/Sub-CPMK} & \textbf{Bobot (\%)} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+Tugas Individu 1 & Latihan Soal Evaluasi Tautologi \& Argumen & Sub-CPMK 1.1, 1.2, 1.3 & 15 \\
+\hline
+Tugas Kelompok 1 & Studi Kasus Pemodelan Predikat & Sub-CPMK 2.1, 2.2, 2.3 & 10 \\
+\hline
+Kuis & Ujian Pilihan Ganda/Esai Singkat & Sub-CPMK 1.1 -- 3.1 & 10 \\
+\hline
+UTS & Ujian Tulis (Kasus Proposisional, Predikat, dan Kuantor) & CPMK-1, CPMK-2 & 25 \\
+\hline
+Tugas Individu 2 & Penyederhanaan K-Map \& Rangkaian Gerbang Logika & Sub-CPMK 3.1, 3.2, 3.3 & 15 \\
+\hline
+UAS & Ujian Komprehensif (Aljabar Boolean \& Metode Pembuktian/Induksi) & CPMK-3, CPMK-4 & 25 \\
+\hline
+\textbf{Total} & & & \textbf{100} \\
+\hline
+\end{longtable}
+
+\textbf{Kriteria Penilaian:}
+\begin{itemize}[leftmargin=*]
+  \item A (85-100): Menguasai secara amat sangat baik metode logika, pembuktian materi tingkat lanjut, dan ekspresi operasional algoritma tanpa keraguan.
+  \item B (70-84): Menguasai pemahaman dasar dan dapat mengaplikasikan aturan inferensi, Boolean, serta tabel kebenaran secara mandiri.
+  \item C (60-69): Menguasai materi logika elementer saja.
+  \item D (50-59): Sebagian besar instrumen asesmen tidak terjawab secara valid atau parsial.
+  \item E (<50): Belum menguasai kompetensi CPMK sama sekali.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 9. EVALUASI DAN REFLEKSI PEMBELAJARAN (OPSIONAL)
+% ============================================================
+\section*{9. Evaluasi dan Refleksi Pembelajaran}
+
+Penilaian sumatif/formatif untuk memantau ketercapaian outcome secara menyeluruh:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Evaluasi Formatif:} Pemberian feedback intensif dalam latsol di kelas untuk meluruskan miskonsepsi dalam tabel kebenaran atau penulisan kuantor.
+  \item \textbf{Evaluasi Sumatif:} Penyelenggaraan UTS dan UAS guna merekap pemahaman materi di pertengahan dan pengujung semester secara formal.
+  \item \textbf{Refleksi Mahasiswa:} Mahasiswa diajak mengeksplorasi apa yang sulit dari teknik formal dan relevansinya untuk pemahaman mereka di mata kuliah sistem hardware / alpro.
+  \item \textbf{Continuous Improvement:} Penyesuaian silabus (apakah diperlukan perangkat empiris seperti pengenalan logika pemrograman Prolog) bila terdeteksi stagnasi minat kelas.
+\end{itemize}
+
+\vspace{0.5cm}
+
+% ============================================================
+% 10. DAFTAR REFERENSI
+% ============================================================
+\section*{10. Daftar Referensi}
+
+Berikut merupakan 50 referensi/materi Rujukan (sebagian besar berupa \textit{Open Educational Resources} / Sumber Terbuka) yang dikemas dan dijadikan acuan pada perancangan Logika Matematika secara holistik:
+
+\subsection*{A. Buku Teks Terbuka dan e-Books Gratis}
+\begin{enumerate}[leftmargin=*, label={A\arabic*.}]
+  \item The Open Logic Text - \textit{The Open Logic Project}, University of Calgary.
+  \item forall x: Calgary Remix - \textit{P.D. Magnus \& Tim Button}.
+  \item A Problem Course in Mathematical Logic - \textit{Stefan Bilaniuk, Trent University}.
+  \item Mathematical Logic: An Introduction - \textit{Michal Walicki}.
+  \item Introduction to Mathematical Logic - \textit{Vilnis Detlovs, Karlis Podnieks}.
+  \item Logic for Computer Science - \textit{Jean H. Gallier}.
+  \item Mathematical Logic through Python - \textit{Yannai A. Gonczarowski, Noam Nisan}.
+  \item A First Course in Logic - \textit{Shawn Hedman}.
+  \item Introduction to Formal Logic - \textit{P.D. Magnus, dkk (SUNY OER)}.
+  \item Book of Proof - \textit{Richard Hammack}.
+\end{enumerate}
+
+\subsection*{B. Modul Perkuliahan \& Diktat Terbuka (Indonesia)}
+\begin{enumerate}[leftmargin=*, label={B\arabic*.}]
+  \item Modul Pengantar Logika Matematika PEMA4102 - \textit{Universitas Terbuka}.
+  \item Bahan Ajar Logika Matematika - \textit{Fasilkom Universitas Indonesia}.
+  \item Diktat Logika Matematika \& Himpunan - \textit{STEI ITB}.
+  \item Modul Logika Informatika - \textit{UIN Sunan Kalijaga Yogyakarta}.
+  \item Materi Logika Matematika dan Komputasi - \textit{Telkom University}.
+  \item Buku Ajar Pengantar Dasar Matematika: Logika dan Himpunan - \textit{Unesa}.
+  \item Diktat Logika dan Himpunan Dasar - \textit{Sanata Dharma}.
+  \item Handout Materi Logika Matematika - \textit{Universitas Negeri Malang}.
+  \item Catatan Kuliah Logika Elementer - \textit{Elok UGM}.
+  \item Modul Logika dan Algoritma - \textit{Polmed}.
+\end{enumerate}
+
+\subsection*{C. Kursus Terbuka Berkualitas (OpenCourseWare / MOOCs)}
+\begin{enumerate}[leftmargin=*, label={C\arabic*.}]
+  \item MIT OCW 6.042J: Mathematics for Computer Science.
+  \item MIT OCW 24.241: Logic I.
+  \item MIT OCW 24.242: Logic II.
+  \item Stanford University: Introduction to Logic (Coursera).
+  \item Stanford University: Mathematical Thinking (Coursera).
+  \item Harvard Online OER: Logic and Computational Thinking.
+  \item NPTEL (India): Mathematical Logic.
+  \item Carnegie Mellon University: OLI Logic \& Proofs.
+  \item LibreTexts Mathematics: Mathematical Logic.
+  \item Saylor Academy: MA202 Discrete Mathematics.
+\end{enumerate}
+
+\subsection*{D. Artikel, Ensiklopedia, dan Publikasi Ilmiah Terbuka}
+\begin{enumerate}[leftmargin=*, label={D\arabic*.}]
+  \item Stanford Encyclopedia of Philosophy (SEP) - \textit{Classical Logic}.
+  \item Internet Encyclopedia of Philosophy (IEP) - \textit{Propositional dan Predicate Logic}.
+  \item The Bulletin of Symbolic Logic (Open Access).
+  \item Journal of Formal Logic (Notre Dame).
+  \item Jurnal Mosharafa: Publikasi tentang Pembelajaran Logika Matematika.
+  \item Jurnal Elemen - \textit{Analisis Kesalahan dalam Membuktikan Logika}.
+  \item Jurnal Edumatica - \textit{Pengembangan Modul Logika Matematika Berbasis E-learning}.
+  \item arXiv.org - Kategori \textit{Logic in Computer Science}.
+  \item arXiv.org - Kategori \textit{Mathematical Logic}.
+  \item DOAJ - \textit{Kategorisasi Artikel Mathematical Logic}.
+\end{enumerate}
+
+\subsection*{E. Sumber Komunitas, Video Interaktif, dan Repositori Kode}
+\begin{enumerate}[leftmargin=*, label={E\arabic*.}]
+  \item Khan Academy - \textit{Logika, Bukti, dan Teori Himpunan Dasar}.
+  \item Mathologer (YouTube) - \textit{Video visualisasi logika}.
+  \item Numberphile (YouTube) - \textit{Kurt Godel's Theorem}.
+  \item TrevTutor (YouTube) - \textit{Discrete Math I}.
+  \item The Math Sorcerer (YouTube) - \textit{Review Pembelajaran Logika}.
+  \item Neso Academy (YouTube) - \textit{Discrete Mathematics}.
+  \item GitHub Repositories - \textit{Lean Theorem Prover}.
+  \item Coq Proof Assistant Community Wiki.
+  \item Brilliant.org Wiki - \textit{Logic Rules, Truth Tables}.
+  \item Project Gutenberg - \textit{The Laws of Thought karya George Boole}.
+\end{enumerate}
+
+\vspace{1cm}
+
+\begin{flushright}
+\begin{tabular}{c}
+Disusun oleh,\\[2cm]
+\textbf{[Nama Dosen Pengampu]}\\
+NIP. [NIP Dosen]
+\end{tabular}
+\end{flushright}
+
+\end{document}

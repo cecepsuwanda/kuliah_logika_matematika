@@ -4,7 +4,7 @@
 % ============================================================
 % Lampiran A: Rubrik Penilaian
 % ============================================================
-\section*{Lampiran A: Rubrik Penilaian Tugas Logika}
+\section*{Lampiran A: Rubrik Penilaian Tugas Praktik}
 
 \begin{table}[h]
 \centering
@@ -13,18 +13,18 @@
 \hline
 \textbf{Kriteria} & \textbf{Sangat Baik} & \textbf{Baik} & \textbf{Perlu Perbaikan} \\
 \hline
-Translasi ke Logika & Semua pernyataan benar diterjemahkan & Sebagian besar benar & Banyak kesalahan translasi \\
+Desain Class & Struktur jelas, relasi tepat & Struktur cukup jelas & Struktur belum tepat \\
 \hline
-Tabel Kebenaran & Lengkap dan benar & Ada sedikit kesalahan & Banyak kesalahan \\
+Encapsulation & Semua data terlindungi & Sebagian data terlindungi & Banyak data terbuka \\
 \hline
-Bukti Formal & Langkah jelas dan valid & Sebagian langkah kurang jelas & Bukti tidak valid \\
+Implementasi OOP & Inheritance dan polymorphism tepat & Ada kekurangan kecil & Banyak kesalahan konsep \\
 \hline
-Induksi Matematika & Basis dan langkah induktif lengkap & Ada kekurangan kecil & Struktur bukti salah \\
+Code Quality & Naming rapi, tidak ada duplikasi & Ada sedikit duplikasi & Banyak duplikasi dan nama tidak jelas \\
 \hline
-Prolog & Fakta, aturan, query benar & Ada sedikit kesalahan sintaks & Tidak berjalan \\
+Testing & Test lengkap dan relevan & Test sebagian & Tidak ada test \\
 \hline
 \end{tabular}
-\caption{Rubrik Penilaian Tugas Logika}
+\caption{Rubrik Penilaian Tugas Praktik}
 \end{table}
 
 % ============================================================
@@ -33,32 +33,26 @@ Prolog & Fakta, aturan, query benar & Ada sedikit kesalahan sintaks & Tidak berj
 \section*{Lampiran B: Contoh Template Laporan Tugas}
 \begin{enumerate}
   \item Judul dan Identitas Mahasiswa
-  \item Deskripsi Masalah (pernyataan yang dianalisis)
-  \item Translasi ke Simbol Logika (jika applicable)
-  \item Tabel Kebenaran atau Langkah Bukti
-  \item Hasil Eksekusi Prolog (jika applicable)
+  \item Deskripsi Masalah
+  \item Desain Class dan UML
+  \item Implementasi (cuplikan kode penting)
+  \item Hasil Pengujian
   \item Refleksi dan Kesimpulan
 \end{enumerate}
 
 % ============================================================
 % Lampiran C: Glosarium
 % ============================================================
-\section*{Lampiran C: Glosarium Istilah Logika}
+\section*{Lampiran C: Glosarium Istilah OOP}
 \begin{itemize}
-  \item \textbf{Proposisi}: Pernyataan yang bernilai benar atau salah, tetapi tidak keduanya
-  \item \textbf{Negasi}: Penyangkalan dari suatu proposisi; not ($\neg$)
-  \item \textbf{Konjungsi}: Gabungan dua proposisi dengan ``dan''; and ($\wedge$)
-  \item \textbf{Disjungsi}: Gabungan dua proposisi dengan ``atau''; or ($\vee$)
-  \item \textbf{Implikasi}: Pernyataan ``jika ... maka ...''; if-then ($\rightarrow$)
-  \item \textbf{Bikondisional}: Pernyataan ``jika dan hanya jika''; iff ($\leftrightarrow$)
-  \item \textbf{Tautologi}: Proposisi yang selalu bernilai benar
-  \item \textbf{Kontradiksi}: Proposisi yang selalu bernilai salah
-  \item \textbf{Kontingensi}: Proposisi yang kadang benar dan kadang salah
-  \item \textbf{Kuantifier Universal} ($\forall$): ``Untuk semua''
-  \item \textbf{Kuantifier Eksistensial} ($\exists$): ``Terdapat'' atau ``Ada''
-  \item \textbf{Modus Ponens}: Aturan inferensi: jika $p \rightarrow q$ dan $p$, maka $q$
-  \item \textbf{Modus Tollens}: Aturan inferensi: jika $p \rightarrow q$ dan $\neg q$, maka $\neg p$
-  \item \textbf{Induksi Matematika}: Metode bukti untuk pernyataan tentang bilangan bulat nonnegatif
+  \item \textbf{Class}: Blueprint untuk membuat objek
+  \item \textbf{Object}: Instance dari class
+  \item \textbf{Encapsulation}: Penyembunyian data melalui akses terkontrol
+  \item \textbf{Inheritance}: Pewarisan atribut dan method
+  \item \textbf{Polymorphism}: Satu interface untuk banyak bentuk
+  \item \textbf{Abstraction}: Menyembunyikan detail implementasi
+  \item \textbf{Interface}: Kontrak perilaku tanpa implementasi
+  \item \textbf{Refactoring}: Perbaikan struktur kode tanpa mengubah perilaku
 \end{itemize}
 
 % ============================================================
@@ -66,9 +60,7 @@ Prolog & Fakta, aturan, query benar & Ada sedikit kesalahan sintaks & Tidak berj
 % ============================================================
 \section*{Lampiran D: Referensi Tambahan}
 \begin{itemize}
-  \item Open Logic Project: \url{https://openlogicproject.org/}
-  \item forall x: Calgary (Formal Logic): \url{https://forallx.openlogicproject.org/}
-  \item Learn Prolog Now!: \url{http://lpn.swi-prolog.org/}
-  \item SWI-Prolog: \url{https://swi-prolog.org/}
-  \item Discrete Mathematics: An Open Introduction: \url{https://discrete.openmathbooks.org/}
+  \item Oracle Java Documentation: \url{https://docs.oracle.com/javase/}
+  \item JUnit 5 User Guide: \url{https://junit.org/junit5/docs/current/user-guide/}
+  \item Refactoring Catalog: \url{https://refactoring.com/catalog/}
 \end{itemize}

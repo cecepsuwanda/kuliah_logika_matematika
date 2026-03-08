@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Representasi Fungsi Logika ke dalam Rangkaian Gerbang Logika Dasar}
+
+\begin{subcpmk}
+  \item Mahasiswa mampu mengonversi dan merepresentasikan spesifikasi fungsi komputasi Boolean menjadi cetak biru sirkuit rangkaian gerbang logika (\textit{Logic Gates circuit}) standar perangkat keras.
+\end{subcpmk}
+
+\section{Komponen Blok Gerbang Logika (Logic Gates)}
+Spesifikasi bahasa mesin dan representasi Aljabar Boolean, sekalipun sudah tereduksi \textit{minimal hardware requirements} dalam K-Map atau SOP \textit{(Sum Of Products)}, wajib dirancang pada \textit{draft} sirkuit fisik sebelum dicetak pada *silicon \textit{wafers}*. Elemen struktural elektronika ini dikenal sebagai \textbf{Gerbang Logika (Logic Gates)}.
+
+Sirkuit logika *High \& Low* dibangun di atas blok pembangun (\textit{building block}) yang sangat minim:
+
+\subsection{Gerbang Primitif}
+\begin{enumerate}
+    \item \textbf{AND Gate ($\cdot$):} Akan mensuplai jalur kelistrikan *True* Output jika seluruh sakelar input sirkuit ditutup (kedua kondisi $A$ dan $B$ berstatus HIGH/$1$).
+    \item \textbf{OR Gate ($+$):} Akan meloloskan tegangan jika sekurangnya $1$ terminal inputnya terkoneksi HIGH.
+    \item \textbf{NOT Gate ($'$ atau $\sim$):} Berperan menginversi total status kebenaran awal (*Inverter Gate*). Terminal masuk LOW akan diputar *outputnya* menjadi arus HIGH.
+\end{enumerate}
+
+\subsection{Gerbang Kombinatorial/Derivatif Fungsional Universal}
+Mengakomodir abstraksi fabrikasi, komponen dasar di atas dilebur. Menariknya, dua gerbang derivatif berikut disebut berkapasitas **Universal Gate**, sebab dengan hanya menyusun gerbang tipe ini sendiri-sendiri, Anda tetap bisa mereplika sirkuit murni \textit{AND/OR/NOT}.
+\begin{enumerate}
+    \item \textbf{NAND Gate (Not-AND):} Fungsi $F=(A\cdot B)'$. Outputnya akan selalu meloloskan listrik sirkuit bernilai aktif / $1$, \textbf{kecuali} takkala seluruh kaki terminal inputnya berikan inputan angka $1$ murni, maka tegangan terputus mutlak (*False/Low*).
+    \item \textbf{NOR Gate (Not-OR):} Fungsi $F=(A+B)'$. Terminal komputasional ini selalu putus tegangan (Output=0), \textbf{kecuali} semata-mata bila *seluruh* masukan kakinya *Low* $0$ murni. (Sebaliknya dari fungsi OR).
+\end{enumerate}
+
+\subsection{Gerbang Eksklusif Komparator Bitwise}
+\begin{enumerate}
+    \item \textbf{XOR Gate (Exclusive OR) $\oplus$:} Fungsi komparator kesetaraan beda ganda: Output bernilai True ($1$) bilamana nilai kaki-kaki masukan sirkulasi input sistem tak serasi atau saling berbeda asimetris (contoh: Input 1 dan 0). Jika identik sama-sama $0$ atau kembar $1$ maka ia menolak kelistrikan alias $0$.
+    \item \textbf{XNOR (Exclusive NOR) $\odot$:} Kebalikan XOR, mendeteksi parameter fungsionalitas identik (*Equality Comparator*). Menyala ($1$) jika kaki sama-sama inputnya ($00 / 11$).
+\end{enumerate}
+
+\section{Translasi Sirkuit ke Diagram}
+Mempraktikkan pembuatan Diagram Perancangan Gerbang.
+\begin{contoh}
+Spesifikasi Fungsi Kunci Server: $F = A\cdot B + C'$
+- Buat \textit{wire} / Kawat masukan *Terminal* ($A,B,C$).
+- Hubungkan Terminal C menuju modul \textbf{Gerbang NOT/Inverter}. Namai arus keluarannya kawat komputasi $K_1$ (isinya $C'$).  
+- Hubungkan Terminal $A$ dan terminal \textit{wire} $B$ sebagai sakelar masukan gerbang \textbf{AND (\textit{D-shaped})}. Ambil kabel hasil tegangan kelistrikan kombinasinya, tandai $K_2$ (memuat relasi logis $A\cdot B$).
+- Pertemukan simpul konektor/kawat sambungan logikal $K_1$ dan kabel arsitektur $K_2$ mensuplai gerbang kombinasi final fungsi Penjumlahan komputasi \textbf{OR (\textit{Curved/Shield shape})}. Terminal kabel akhir yang ditarik menjadi port Output Mutlak $F$ pada PCB perangkat. 
+\end{contoh}
+
+\begin{aktivitas}
+  \item Berkolaborasilah dan sketsakan susunan kawat arsitektur sirkuit bagi skrip fungsi $F = (X + Y') \cdot Z$. Tentukan berapa gerbang NAND minimum yang dibutuhkan untuk men-daur ulang spesifikasi sirkuit fungsional itu sepenuhnya (sistem Universal Gate)?
+\end{aktivitas}
+
+\begin{latihan}
+  \item Jelaskan alasan matematis (menggunakan \textit{De Morgan Law}) mengapa sirkuit dengan terminal gerbang paralel AND yang diletakkan pasca Inverter konektor (Sirkuit $A' \cdot B'$) memiliki validitas komputasional identik ekuivalensinya jika fungsinya dialihkan arsitekturnya ke sebuah NOR Gate berspesifikasi input asli $(A, B)$!
+\end{latihan}
+
+\begin{checklist}
+  \item Terbiasa dan ingat wujud skematik bentuk simbol gerbang (AND $D$, OR $Shield$, NOT Segitiga Bulat, dsb.)
+  \item Sigap mengaitkan spesifikasi aljabar SOP fungsi term K-Map kembali ke susunan kabel hierarkis.
+\end{checklist}
+
+\end{document}

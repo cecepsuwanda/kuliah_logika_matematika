@@ -1,0 +1,73 @@
+\section{Aturan Konjungsi, Penambahan, dan Penyederhanaan}
+
+Sebagai melengkapi piranti bedah para \textit{Logician}, tidak cukup hanya mengandalkan jurus pengikat implikasi bersyarat besar. Komponen pelengkap yang menyasar operator fundamental tunggal amat vital manakala kita ditugasi membangun pembuktian berantai teorem aksiomatis nan pelik. Triumvirat alat mungil namun sakti ini ialah: Konjungsi, Penambahan, dan Penyederhanaan.
+
+\subsection{1. Aturan Konjungsi (Conjunction)}
+
+Terkadang dua kebenaran otonom bersliweran tanpa ikatan. Tugas logikawan mengamalkan tali pelindung di antara mereka berdua tanpa menodai esensi kesucian orisinalitas argumen.
+
+\begin{teorema}[Konjungsi]
+Andaikan realita mentah di atas panggung meyakinkan kita berturut-turut bahwa frasa merdeka pertama nyata Benar adanya ($p$), serta frasa merdeka tetangganya juga tak disangkal kebenarannya ($q$). Berjabat tangan tulus mengizinkan mereka diikat paksa dalam satu bahtera berlabel konjungsi AND bersatu utuh ($p \land q$).
+\end{teorema}
+
+\textbf{Anatomi Argumen Konjungsi:}
+\[
+\begin{array}{c}
+p \\
+q \\
+\hline
+\therefore p \wedge q
+\end{array}
+\]
+
+\begin{contoh}
+Premis 1: Jakarta ialah Ibukota menawan letak geografis Indonesia. ($p$) \\
+Premis 2: Bangkok menahbiskan ia dikukuhkan jemaat sebagai Ibukota eksotis negera Thailand. ($q$) \\
+Maka, tiada larangan merajut simpulan: \\
+\textit{"Jakarta adalah panglima letak ibukota Indonesia, DAN Bangkok memimpin ibukota Thailand" ($p \land q$)}
+\end{contoh}
+
+\subsection{2. Aturan Penambahan Disjungsi (Addition)}
+
+Sering diolok-olok mahasiswi sebagai jurus *"pabrik kebohongan magis"*. Aturan Penambahan mengucurkan kebebasan menyambung atribut omong kosong apa pun dengan damai di sebelah pilar yang semula terjamin asli kebenarannya.
+
+\begin{teorema}[Penambahan Disjungtif]
+Sifat lenturnya konjungsi \textit{Or} menjanjikan bahwa semisal komponen pertama $p$ sudah lunas mendarat bernilai sah Benar T, maka penambahan entitas aneh $q$ macam manapun (mau bumi terbelah sekalipun nilai T/F nya) lewat jembatan ($p \lor q$), keseluruhan gedung relasi itu suci diakui bernilai kumulatif Benar (T).
+\end{teorema}
+
+\textbf{Anatomi Argumen Penambahan:}
+\[
+\begin{array}{c}
+p \\
+\hline
+\therefore p \vee q
+\end{array}
+\]
+
+\begin{contoh}
+Premis absolut: "Bowo rutin senantiasa mandi basah guyur di saat mentari terbit menyapa bumi pagi." ($p$) \\
+Kesimpulan tambahan sakti: "Entah Bowo asyik mandi air di pagi buta, ATAU Budi tiba-tiba terbang menembus rasi bintang Andromeda menyapa parit Saturnus." ($p \lor q$) \\
+Gara-gara keaslian $p$ sudah T mutlak, keseluruhan statemen bongsor di atas \textbf{Legal Valid}!
+\end{contoh}
+
+\subsection{3. Aturan Penyederhanaan Konjungsi (Simplification)}
+
+Kebalikan dari dewa pencipta tumpang tindih. Bila sang dosen Logika menjejali lembar tugas dengan klausa konjungsi gemuk mengerikan bertali ganda, Anda dianugerahkan kapak algojo untuk merobek memutus tali AND, mencaplok satu pihak saja membuang yang lain.
+
+\begin{teorema}[Penyederhanaan]
+Beranjak kaku dari marwah syarat keras konjungsi ($p \land q$); kalau blok gemuk ini secara global ditahbiskan Benar sempurna T, praktis elemen-elemen di selongsong kirinya harus Benar (T), dan selongsong kanan mutlak bersyarat rukun (T) juga. Oleh karena tabiat patuh itu, kita dengan sewenang-wenang dihalalkan memberangus satu klausa ke teluk jurang, merawat fragmen satunya hidup makmur solo karir ($p$).
+\end{teorema}
+
+\textbf{Anatomi Argumen Pemangkasan:}
+\[
+\begin{array}{ccc}
+p \wedge q & \text{atau} & p \wedge q\\
+\hline
+\therefore p & & \therefore q
+\end{array}
+\]
+
+\begin{contoh}
+Premis Besar: "Air zamzam berkhasiat sejuk jernih, DAN api kompor mambakar hangus niscaya pijar melukai telapak kulit tangan semata." ($p \land q$) \\
+Kesimpulan Algojo: Ambil penggalan sesuka porsi kebutuhan "Air zamzam berkhasiat sejuk jernih" ($\therefore p$), ia sah T valid, atau buang air raup klausa apinya ke kursi konklusi $\therefore q$. Sah dan legal tiada bercela \cite{rosen2019}.
+\end{contoh}

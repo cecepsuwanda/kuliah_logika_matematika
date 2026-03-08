@@ -1,0 +1,23 @@
+\section{Motivasi dan Keterbatasan Metode Aljabar}
+
+Pada bab sebelumnya, telah dibahas teknik penyederhanaan ekspresi Boolean menggunakan manipulasi aljabar, yaitu dengan menerapkan secara berurutan hukum-hukum seperti distributif, komplemen, absorpsi, dan konsensus. Meskipun metode aljabar bersifat valid dan terbukti menghasilkan ekspresi yang ekuivalen, terdapat beberapa keterbatasan fundamental yang menjadikan metode ini tidak selalu praktis untuk digunakan dalam konteks perancangan rangkaian digital \cite{rosen2019}.
+
+Keterbatasan pertama dan paling signifikan adalah tidak adanya algoritma deterministik yang menjamin pencapaian solusi optimal. Seorang perancang mungkin berhasil menyederhanakan ekspresi sampai suatu bentuk tertentu, tetapi tidak memiliki cara untuk memastikan apakah bentuk tersebut memang yang paling sederhana atau masih dapat disederhanakan lebih lanjut. Keberhasilan penyederhanaan seringkali bergantung pada intuisi, pengalaman, dan kemampuan perancang untuk ``melihat'' peluang faktorisasi yang mungkin tidak langsung terlihat. Dua orang perancang yang berbeda dapat menghasilkan bentuk sederhana yang berbeda pula untuk ekspresi yang sama \cite{allaboutcircuits_boolean}.
+
+Keterbatasan kedua berkaitan dengan skalabilitas. Untuk fungsi Boolean dengan jumlah variabel yang besar (misalnya 5 atau lebih variabel), jumlah suku dalam ekspresi kanonik dapat sangat banyak, sehingga manipulasi aljabar menjadi rumit dan rentan kesalahan. Selain itu, penambahan suku redundan sebagai strategi penyederhanaan --- sebagaimana pada pembuktian hukum konsensus --- memerlukan wawasan yang sulit untuk diotomatisasi. Keterbatasan-keterbatasan ini memotivasi pengembangan metode penyederhanaan yang lebih sistematik dan visual.
+
+\subsection{Sejarah Peta Karnaugh}
+
+\logic{Peta Karnaugh} (K-Map) diperkenalkan oleh Maurice Karnaugh, seorang insinyur telekomunikasi di Bell Labs, melalui publikasinya pada tahun 1953 yang berjudul \textit{The Map Method for Synthesis of Combinational Logic Circuits} \cite{karnaugh1953}. Metode ini merupakan pengembangan dari teknik diagram Veitch yang diusulkan oleh Edward W. Veitch pada tahun 1952. Karnaugh menyempurnakan penataan baris dan kolom diagram menggunakan Kode Gray, sehingga menghasilkan pemetaan yang lebih teratur dan mudah digunakan.
+
+Kontribusi fundamental Karnaugh adalah mengubah proses penyederhanaan dari manipulasi simbol aljabar yang abstrak menjadi pengenalan pola visual pada peta dua dimensi. Dengan K-Map, perancang cukup mengidentifikasi kelompok-kelompok sel yang bersebelahan untuk menemukan bentuk sederhana, tanpa perlu menguasai teknik-teknik manipulasi aljabar yang canggih. Pendekatan visual ini sangat efektif hingga empat variabel dan masih dapat digunakan untuk lima hingga enam variabel dengan penyesuaian tertentu \cite{wiki_karnaugh}.
+
+\begin{konsep}
+Peta Karnaugh bukanlah pengganti aljabar Boolean, melainkan alat bantu komplementer yang memanfaatkan kemampuan pengenalan pola visual manusia. Untuk fungsi dengan lebih dari 6 variabel, metode algoritmik seperti Quine-McCluskey lebih sesuai karena dapat diotomatisasi oleh komputer.
+\end{konsep}
+
+\subsection{Gambaran Umum Metode K-Map}
+
+Prinsip kerja Peta Karnaugh didasarkan pada dua ide pokok. Pertama, seluruh kombinasi input dari sebuah fungsi Boolean dipetakan ke dalam sel-sel pada sebuah grid dua dimensi, di mana setiap sel merepresentasikan satu minterm. Kedua, tata letak baris dan kolom grid disusun sedemikian rupa sehingga dua sel yang bersebelahan (secara horizontal maupun vertikal) hanya berbeda pada tepat satu variabel. Pengaturan ini memanfaatkan Kode Gray sebagai skema pengindeksan, yang akan dibahas secara detail pada section berikutnya.
+
+Ketika dua sel yang bersebelahan pada K-Map sama-sama mengandung nilai 1, hal ini menandakan bahwa variabel yang berbeda di antara keduanya tidak memengaruhi nilai output fungsi. Variabel tersebut dapat dieliminasi berdasarkan hukum komplemen ($x + x' = 1$), sehingga menghasilkan suku yang lebih sederhana. Semakin besar kelompok sel bersebelahan yang bernilai 1, semakin banyak variabel yang dapat dieliminasi, dan semakin sederhana ekspresi akhir yang dihasilkan \cite{rosen2019}.

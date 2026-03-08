@@ -1,0 +1,47 @@
+\section{Studi Kasus: Verifikasi Pencarian Linear}
+
+Pencarian linear (\textit{linear search}) merupakan algoritma pencarian paling dasar yang memeriksa setiap elemen array secara berurutan hingga elemen target ditemukan atau seluruh elemen telah diperiksa. Meskipun sederhana, verifikasi formal pencarian linear menyediakan contoh yang sangat baik untuk menerapkan konsep loop invariant \cite{rosen2019}.
+
+\subsection{Algoritma dan Spesifikasi}
+
+\begin{verbatim}
+    LinearSearch(A, n, key):
+        i := 0
+        while i < n do
+            if A[i] = key then
+                return i
+            i := i + 1
+        return -1
+\end{verbatim}
+
+\textbf{Spesifikasi}:
+\begin{itemize}
+    \item \textbf{Prekondisi}: $n \geq 0$ dan $A[0..n-1]$ terdefinisi
+    \item \textbf{Postkondisi}: Jika $key$ ada di $A$, kembalikan indeks $i$ dengan $A[i] = key$. Jika tidak, kembalikan $-1$.
+\end{itemize}
+
+\subsection{Loop Invariant untuk Pencarian Linear}
+
+\begin{definisi}[Loop Invariant Pencarian Linear]
+Invarian: $I \equiv$ ``untuk semua $j$ dengan $0 \leq j < i$, berlaku $A[j] \neq key$'' dan $0 \leq i \leq n$.
+
+Artinya, pada awal setiap iterasi, elemen target belum ditemukan di posisi $0$ hingga $i-1$.
+\end{definisi}
+
+\textbf{Verifikasi tiga syarat}:
+
+\textbf{1. Inisialisasi}: Sebelum loop, $i = 0$. Tidak ada $j$ dengan $0 \leq j < 0$, sehingga pernyataan ``untuk semua $j$ dengan $0 \leq j < 0$, $A[j] \neq key$'' bernilai benar secara vakum. $\checkmark$
+
+\textbf{2. Pemeliharaan}: Asumsikan $I$ benar dan $i < n$. Jika $A[i] = key$, program mengembalikan $i$ (postkondisi terpenuhi). Jika $A[i] \neq key$, maka setelah $i := i + 1$, invarian diperluas: elemen target tidak ditemukan di posisi $0$ hingga $i$ (nilai $i$ lama), yaitu posisi $0$ hingga $i_{baru} - 1$. $\checkmark$
+
+\textbf{3. Terminasi}: Ketika loop berakhir secara normal ($i \geq n$, yaitu $i = n$), invarian menyatakan: ``untuk semua $j$ dengan $0 \leq j < n$, $A[j] \neq key$''. Artinya, $key$ tidak ada di array, sehingga mengembalikan $-1$ adalah benar. $\checkmark$
+
+\subsection{Bukti Terminasi}
+
+Fungsi pengurangan: $V = n - i$.
+\begin{itemize}
+    \item Selama $i < n$: $V > 0$. $\checkmark$
+    \item Pada setiap iterasi (jika tidak return): $i$ bertambah 1, sehingga $V$ berkurang 1. $\checkmark$
+\end{itemize}
+
+Loop berterminasi setelah paling banyak $n$ iterasi. Pencarian linear benar secara total. $\blacksquare$

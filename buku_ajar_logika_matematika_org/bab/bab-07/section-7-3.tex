@@ -1,0 +1,53 @@
+\section{Kuantor Eksistensial: Saksi Kebenaran dan Konjungsi}
+
+Sementara $\forall$ bertindak pesimis (satu debu merusak segalanya), kuantor eksistensial mewakili pandangan yang fleksibel. Fokusnya bukanlah pada semua benda, melainkan apakah terdapat setidaknya sebuah benda yang merealisasikan sebuah properti \cite{rosen2019}.
+
+\subsection{Definisi Formal Kuantor Eksistensial}
+
+\begin{definisi}[Kuantor Eksistensial]
+Kuantifikasi eksistensial merubah fungsi proposisional $P(x)$ menjadi proposisi ``terdapat setidaknya satu (sekurang-kurangnya satu) elemen $x$ di dalam semesta pembicaraan $\mathcal{U}$ sedemikian sehingga $P(x)$ bernilai benar''. Notasinya ditulis:
+\[ \exists x \, P(x) \]
+Simbol $\exists$ asalnya dari huruf ``E'' terbalik (\textit{Exists}).
+\end{definisi}
+
+Dibaca:
+\begin{itemize}
+    \item ``Terdapat sebuah $x$ sedemikian rupa sehingga $P(x)$''
+    \item ``Sekurang-kurangnya satu $x$ memenuhi $P(x)$''
+    \item ``Ada $x$ dengan sifat $P(x)$''
+\end{itemize}
+
+Jika semesta pembicaraan $\mathcal{U}$ berbentuk himpunan terhingga $\mathcal{U} = \{a_1, a_2, \ldots, a_n\}$, maka kuantor eksistensial ekuivalen secara logis dengan disjungsi massal sekujur elemen:
+\[ \exists x \, P(x) \equiv P(a_1) \lor P(a_2) \lor \ldots \lor P(a_n) \]
+
+Oleh karena dihubungkan dengan operator OR ($\lor$), kalimat eksistensial bernilai \textbf{Susah Salah}. Ia baru tumbang dan bernilai \textbf{Salah} jika \emph{setiap} nilai di ruang semesta dicoba dan seluruhnya gagal memenuhi $P(x)$. Sebaliknya, cukup temukan \textbf{satu saja} nilai $c$ di mana $P(c)$ bernilai Benar (nilai $c$ ini jamak disebut \textit{witness} atau saksi eksistensi), maka status keseluruhan proposisi langsung divonis Benar.
+
+\subsection{Kombinasi dengan Konjungsi ($\wedge$)}
+
+Dalam translasi dari bahasa alami, frasa berbau eksistensial lazim diterjemahkan menjadi operator konjungsi logika.
+
+\begin{contoh}
+Translasi proposisi: ``Sebagian buah terasa asam.''
+\begin{itemize}
+    \item Jika domain $\mathcal{U}$ direstriksi pada himpunan buah-buahan saja, biarkan $A(x) \equiv \text{``}x \text{ terasa asam''}$. Notasinya ringkas:
+    \[ \exists x \, A(x) \]
+    
+    \item Apabila semesta $\mathcal{U}$ dibiarkan amat luas mencakup segala benda di dapur, biarkan $B(x) \equiv \text{``}x \text{ adalah buah''}$. Proposisi menyatakan bahwa \textit{terdapat benda yang merupakan buah DAN secara bersamaan ia juga terasa asam}. Maka translasinya:
+    \[ \exists x \, (B(x) \land A(x)) \]
+\end{itemize}
+\end{contoh}
+
+\begin{catatan}
+\textbf{Perhatian!} Kuantor eksistensial sebaiknya \textbf{tidak} dipasangkan secara ceroboh dengan implikasi ($\rightarrow$). Menafsir kalimat menjadi $\exists x \, (B(x) \rightarrow A(x))$ bermakna ``Terdapat benda di dunia ini, jika benda itu buah maka sifatnya asam.'' Klaim ini nyaris mustahil bernilai salah atau kosong. Coba saja ambil batu ($B(\textit{batu})$ bernilai Salah). Karena anteseden Salah, relasi implikasi menghasilkan vacous truth (Benar). Artinya batu saja sudah berhasil menjadi \textit{witness} agar kuantor eksistensial-nya Benar \cite{wiki_quantifier_logic}. Jadi, hindari menggunakan implikasi bersama eksistensial.
+\end{catatan}
+
+\subsection{Contoh Matematis Eksistensial}
+
+\begin{contoh}
+Diberikan domain $\mathcal{U} = \text{Bilangan Real } (\mathbb{R})$.
+\begin{enumerate}
+    \item $\exists x \ (x^2 = 9)$ \\ \textbf{Nilai: Benar}. Kita cukup menyediakan satu \textit{witness}, misalnya $x = 3$. Terbukti $3^2 = 9$.
+    \item $\exists x \ (x = x + 1)$ \\ \textbf{Nilai: Salah}. Tidak ada bilangan berapapun di seluruh galaksi Real yang setara dengan nilainya sendiri ditambahkan satu.
+    \item $\exists x \ (x^2 < 0)$ \\ \textbf{Nilai: Salah}. Untuk domain $\mathbb{R}$, kuadrat nilai \emph{real} pasti $\geq 0$. Jika $\mathcal{U}$ diubah ke Himpunan Bilangan Kompleks ($\mathbb{C}$), statement di atas baru bisa bernilai Benar berkat kehadiran bilangan imajiner $i^2 = -1$.
+\end{enumerate}
+\end{contoh}

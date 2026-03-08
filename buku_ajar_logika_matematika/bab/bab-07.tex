@@ -1,115 +1,62 @@
-\documentclass[../main]{subfiles}
-\ifSubfilesClassLoaded{\setcounter{chapter}{6}}{}
+\documentclass[../main.tex]{subfiles}
+
 \begin{document}
 
-\chapter{Induksi Matematika}
+\chapter{Aturan Inferensi dan Penarikan Kesimpulan}
 
 \begin{subcpmk}
-  \item Sub-CPMK 4.2: Membuktikan pernyataan menggunakan induksi matematika
+  \item Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi deduktif matematis murni (logika silogistik).
+  \item Mahasiswa mengenali pola Modus Ponens, Modus Tollens, dan skema Silogisme Hipotetis dalam memecahkan persoalan rasional.
 \end{subcpmk}
 
-% ============================================================
-% MATERI POKOK
-% ============================================================
-\input{bab-07/section-7-1}
-\input{bab-07/section-7-2}
+\section{Pendahuluan Penarikan Simpulan Komputatif}
 
-% ============================================================
-% AKTIVITAS PEMBELAJARAN
-% ============================================================
+Sistem pengambil keputusan \textit{(Decision Support Systems)} dalam perangkat lunak modern digerakkan oleh *Inference Engines*. Di belakang *Inference Engines* (Mesin Inferensi komputasi *Artificial Intelligence* level awalan), bersemayam kemampuan dan kerangka untuk mengidentifikasi sekumpulan *Premis* aksiomatik maupun deklarasi faktual untuk, \textit{melalui penalaran silogistik deduktif presisi}, menarik dan memutuskan turunan berupa satu *Konklusi (Kesimpulan)* berdaya valid dan \textit{reliable} kuat.
+
+Aturan Inferensi (\textit{Rules of Inference}) memandu bagaimana dari kondisi-kondisi (premis-premis matematis) $P_1, P_2, P_3 \dots P_k$ berimbas ke Konklusi logis berdinamika konsisten ($Q$).
+
+Suatu inferensi (argumen) dijuluki \textbf{VALID} takkala, jika \textit{seluruh susunan dari premis-premis penggeraknya bernilai aktual Benar (T)}, maka keniscayaan akan memastikan Konklusi-nya wajib Bernilai \textbf{Benar (T)}. Pembuktian teknis ini direduksi setara ke ekivalensi dari Tautologi majemuk $(P_1 \land P_2 \land \dots \land P_k) \rightarrow Q$.
+
+\section{Aturan Pokok Inferensi Proposisional Dasar}
+
+\subsection{Modus Ponens (Hukum Pembenaran Khusus)}
+Juga termasyhur selaku \textit{The Rule of Detachment}. Esensinya menyatakan bilamana sebuah prasyarat kebenaran komputasional kausal dipenuhi premis bersyarat, dan pre-kondisi itu pun benar-benar konkret/terjadi mutlak, maka kesimpulan dan \textit{trigger} akibat bersyaratnya logis secara otomatis dieksekusi benar. Ekstraknya:\\
+Premis Mayor: $p \rightarrow q$ (Jika hujan interupsi, maka \textit{trigger sensor air} aktif) \\
+Premis Minor: $p$ (Memang turunlah curah hujan iterupsi) \\
+Kesimpulan: $\therefore q$ (Sirkuit menyatakan \textit{sensor air divalidasi aktif!})
+
+\subsection{Modus Tollens (Hukum Penolakan)}
+Menyitir dari Modus Ponens, namun diinisiasikan di sisi pengingkaran akibat semantik (\textit{The Law of Contrapositive Denial}). \\
+Premis Mayor: $p \rightarrow q$ \\
+Premis Minor: $\sim q$ (Diinspeksi ternyata: \textit{sensor air bernilai matifalse / False!}) \\
+Kesimpulan: $\therefore \sim p$ (Otomatis ditarik validitas inferensi komputasi Logis konklusinya: Saat ini Hujan Interupsi jelas tak berlaku = False / Negasi $p$).
+
+\subsection{Silogisme Hipotetis}
+Bila mesin algoritma AI disuplai rangkaian berantai kognisi berdimensi kontinuitas dari $p$ meluncur ke $q$, dibarengi $q$ bermuara meluncur pada $r$, logis mereduksi kesimpulan transisional silogisme (hukum transisi).\\
+Premis 1: $p \rightarrow q$ \\
+Premis 2: $q \rightarrow r$ \\
+Kesimpulan: $\therefore p \rightarrow r$
+
+\subsection{Silogisme Disjungtif}
+Menentukan keputusan dari gerbang komputasi persilangan OR (\textit{The Law of Disjunctive Inference}).\\
+Premis 1: $p \lor q$ (Sistem \textit{booting} memakai Partisi X Atau Sistem Partisi Induk Utama/Y)\\
+Premis 2: $\sim p$ (Log \textit{compiler} memindai tak ada \textit{booting} lewat partisi dasar X)\\
+Kesimpulan: $\therefore q$ (Secara deduksi logis, PC ini beroperasi \textit{booting} spesifik via Partisi Induk Y!)
 
 \begin{aktivitas}
-  \item Buktikan $1^2 + 2^2 + \cdots + n^2 = n(n+1)(2n+1)/6$ dengan induksi.
-  \item Buktikan $2^n > n$ untuk $n \geq 1$.
+  \item \textbf{Diskusi Rasional AI Base}: Sistem navigasi taktis menyatakan \textit{(A1)} Jika bensin habis maka fungsi motor utama putus. \textit{(A2)} Ternyata saat ini fungsi motor utama tidak terputus beroperasi. Apa inferensi mutlak status bahan bensin Anda dan memakai logika aturan Aturan Pokok Inferensi manakah itu?
 \end{aktivitas}
 
-% ============================================================
-% LATIHAN DAN REFLEKSI
-% ============================================================
-
 \begin{latihan}
-  \item Buktikan $3 \mid (n^3 - n)$ untuk $n \geq 1$.
-  \item Buktikan $1 \cdot 2 + 2 \cdot 3 + \cdots + n(n+1) = n(n+1)(n+2)/3$.
-  \item \textbf{Refleksi}: Jelaskan mengapa verifikasi numerik (misalnya dengan program) tidak dapat menggantikan bukti induksi. Kapan Anda akan memakai induksi kuat dibanding induksi biasa?
-  \item Buktikan: $1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}$ untuk semua $n \geq 1$.
-  \item Buktikan: $n^3 - n$ habis dibagi 3 untuk semua $n \geq 1$. (Petunjuk: faktorisasi atau gunakan induksi.)
-  \item Buktikan: $3^n > 2n + 1$ untuk semua $n \geq 2$. Tentukan basis yang tepat.
-  \item Buktikan dengan induksi kuat: setiap integer $n \geq 12$ dapat dinyatakan sebagai $4a + 5b$ untuk $a, b \geq 0$.
-  \item Jelaskan perbedaan antara induksi lemah (biasa) dan induksi kuat. Berikan satu contoh pernyataan di mana induksi kuat diperlukan tetapi induksi biasa tidak cukup (Section~7.2).
-  \item \textbf{Refleksi}: Bagaimana hubungan antara induksi matematika dan rekursi dalam pemrograman? Berikan contoh fungsi rekursif yang kebenaran output-nya dapat dibuktikan dengan induksi.
+  \item Terjemahkan pola inferensial ini, tentukan ia tergolong Valid argumen dari aturan spesifik yang mana:
+  "Jika hari Senin, \textit{database cronjob backup} dieksekusi secara otomatis." (Premis Mayor).
+  "Dan juga \textit{Backup database cronjob} telah terevaluasi dan batal/tak berjalan di server (False)." (Premis Minor).
+  Kesimpulan : "Bisa disimpulkan dengan yakin formal algoritmanya hari jadwal saat ini *Bukan Senin*"
 \end{latihan}
 
-% ============================================================
-% ASESMEN
-% ============================================================
-
-\begin{asesmen}
-\textbf{Instrumen Penilaian untuk Sub-CPMK 7.1}
-
-\textbf{A. Pilihan Ganda}
-\begin{enumerate}
-  \item Langkah basis dalam induksi matematika bertujuan untuk:
-  \begin{enumerate}
-    \item Membuktikan $P(k+1)$ dari $P(k)$
-    \item Membuktikan $P(n_0)$ benar untuk nilai awal $n_0$
-    \item Mengasumsikan $P(k)$ benar
-    \item Membuktikan negasi dari $P(n)$
-  \end{enumerate}
-  \item Hipotesis induksi adalah:
-  \begin{enumerate}
-    \item Asumsi bahwa $P(k)$ benar untuk suatu $k$ tertentu
-    \item Bukti bahwa $P(k+1)$ benar
-    \item Basis dari induksi
-    \item Negasi dari pernyataan yang dibuktikan
-  \end{enumerate}
-  \item Dalam induksi kuat (strong induction), hipotesis yang diasumsikan adalah:
-  \begin{enumerate}
-    \item $P(k)$ benar
-    \item $P(n_0), P(n_0+1), \ldots, P(k)$ semuanya benar
-    \item Hanya $P(n_0)$ benar
-    \item $P(k+1)$ benar
-  \end{enumerate}
-\end{enumerate}
-
-\textbf{B. Tugas Praktik}
-\begin{itemize}
-  \item Buktikan dengan induksi: $\sum_{i=0}^{n} 2^i = 2^{n+1} - 1$ untuk semua $n \geq 0$. Tuliskan semua langkah secara lengkap.
-  \item Buktikan dengan induksi kuat: bilangan Fibonacci $F_n < 2^n$ untuk semua $n \geq 1$.
-\end{itemize}
-
-\textbf{Rubrik Penilaian}: Lihat Lampiran.
-\end{asesmen}
-
-% ============================================================
-% CHECKLIST KOMPETENSI
-% ============================================================
-
 \begin{checklist}
-  \item Saya dapat menulis bukti induksi dengan basis dan langkah induktif
+  \item Mampu menspesifikan parameter deduktif pada pengkondisian skrip fungsional yang valid.
+  \item Hafal 4 Aturan Pokok: Ponens, Tollens, Transisi Silogisme Hipotetis dan Disjungtif Logis.
 \end{checklist}
 
-% ============================================================
-% RANGKUMAN
-% ============================================================
-
-\begin{rangkuman}
-Bab ini membahas induksi matematika sebagai teknik pembuktian fundamental untuk pernyataan yang bergantung pada bilangan bulat. Prinsip induksi terdiri atas verifikasi basis dan langkah induktif; variasi seperti induksi kuat dan pemilihan basis $n_0$ yang berbeda dibahas untuk berbagai konteks.
-
-\textbf{Poin Kunci:}
-\begin{itemize}
-  \item Induksi matematika: (1) Basis---buktikan $P(n_0)$; (2) Langkah induktif---buktikan $P(k) \Rightarrow P(k+1)$ untuk $k \geq n_0$.
-  \item Kasus basis tidak boleh diabaikan; hipotesis induksi adalah asumsi sementara untuk menurunkan $P(k+1)$.
-  \item Induksi kuat mengasumsikan $P(1), \ldots, P(k)$ dan berguna ketika $P(k+1)$ bergantung pada beberapa nilai sebelumnya.
-  \item Basis $n_0$ dapat 0, 1, atau lebih besar sesuai domain pernyataan.
-  \item Verifikasi numerik (misalnya dengan program) memperkuat pemahaman tetapi bukan pengganti bukti induksi.
-\end{itemize}
-
-\textbf{Kata Kunci}: induksi matematika, basis, langkah induktif, hipotesis induksi, induksi kuat, verifikasi numerik.
-\end{rangkuman}
-
-\ifSubfilesClassLoaded{
-  \renewcommand{\bibname}{Daftar Pustaka}
-  \bibliographystyle{plain}
-  \bibliography{../references}
-}{}
 \end{document}

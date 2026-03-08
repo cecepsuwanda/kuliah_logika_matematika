@@ -1,0 +1,143 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{6}}{}
+\begin{document}
+
+\chapter{Kuantor Universal dan Eksistensial}
+
+\begin{subcpmk}
+  \item Sub-CPMK 2.2: Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-07/section-7-1}
+\input{bab-07/section-7-2}
+\input{bab-07/section-7-3}
+\input{bab-07/section-7-4}
+\input{bab-07/section-7-5}
+\input{bab-07/section-7-6}
+\input{bab-07/section-7-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item Tentukan nilai kebenaran dari $\forall x \, (x^2 \ge x)$ jika semesta pembicaraannya adalah bilangan bulat $\mathbb{Z}$. Bagaimana jika semestanya diubah menjadi bilangan riil $\mathbb{R}$? Berikan \textit{counterexample} jika salah.
+  \item Buat minimal 3 contoh pernyataan berkuantor eksistensial dalam konteks sistem basis data mahasiswa.
+  \item Diskusikan mengapa $\exists y \, \forall x \, P(x, y)$ merupakan pernyataan yang jauh lebih kuat (susah dibuktikan) dibandingkan $\forall x \, \exists y \, P(x, y)$.
+  \item Lakukan negasi bertahap pada kalimat: ``Semua mahasiswa baru wajib mengikuti orientasi atau mengumpulkan surat keterangan sakit.'' Gunakan Hukum De Morgan untuk kuantor dan operator logika $\lor$.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Misalkan $M(x)$ menyatakan ``$x$ adalah mahasiswa'' dan $L(x)$ menyatakan ``$x$ lulus kalkulus''. Translasi pernyataan berikut ke logika predikat:
+  \begin{enumerate}
+      \item Setiap mahasiswa lulus kalkulus.
+      \item Ada mahasiswa yang lulus kalkulus.
+      \item Tidak ada mahasiswa yang lulus kalkulus.
+      \item Beberapa mahasiswa tidak lulus kalkulus.
+  \end{enumerate}
+  \item Tentukan ingkaran (negasi) matematis dari $\exists x \, \forall y \, (x + y = 0)$.
+  \item Jika $\mathcal{U} = \{1, 2, 3\}$, jabarkan $\forall x \, \exists y \, (x < y)$ menjadi bentuk operator konjungsi ($\land$) dan disjungsi ($\lor$) massal tanpa menggunakan simbol kuantor.
+  \item Mengapa kuantor universal ($\forall$) sangat erat kaitannya dengan operator implikasi ($\rightarrow$), sementara kuantor eksistensial ($\exists$) identik dengan operator konjungsi ($\land$)? Berikan ilustrasi kasus salah kaprah.
+  \item \textbf{Refleksi}: Berikan contoh frasa berita yang ambigu dalam bahasa sehari-hari akibat ketiadaan \textit{scoping} kuantitas (semua vs sebagian) yang jelas. Bagaimana logika predikat mengatasi ambiguitas ini?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja untuk Sub-CPMK 2.2}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Manakah yang merupakan translasi formal dari ``Setiap burung (\textit{B}) bisa terbang (\textit{F})''?
+  \begin{enumerate}
+    \item $\forall x \, (B(x) \land F(x))$
+    \item $\forall x \, (B(x) \rightarrow F(x))$
+    \item $\exists x \, (B(x) \rightarrow F(x))$
+    \item $\forall x \, (F(x) \rightarrow B(x))$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Jika $\mathcal{U}$ adalah himpunan semua hewan, terjemahan yang tepat untuk pernyataan ``Ada hewan yang bisa berbicara'' ($B(x) =$ bisa berbicara) adalah:
+  \begin{enumerate}
+    \item $\exists x \, B(x)$
+    \item $\forall x \, B(x)$
+    \item $\exists x \, \neg B(x)$
+    \item $\forall x \, \neg B(x)$
+  \end{enumerate}
+  Jawaban: (a)
+
+  \item Hukum De Morgan untuk Kuantor menyatakan bahwa $\neg \forall x \, P(x)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $\forall x \, \neg P(x)$
+    \item $\exists x \, \neg P(x)$
+    \item $\neg \exists x \, P(x)$
+    \item $\exists x \, P(x)$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Kuantor bersarang $\forall x \, \exists y \, P(x,y)$ bermakna:
+  \begin{enumerate}
+    \item Ada satu variabel perisai konstan $y$ untuk disandingkan dengan seluruh populasi $x$.
+    \item Setiap pilihan $x$ bebas memiliki variabel saksi pendamping $y$ yang berbeda-beda.
+    \item Pasangan ganda independen acak $(x,y)$ apa saja pasti benar.
+    \item Mustahil bernilai salah di semesta manapun.
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Essay}
+\begin{enumerate}
+  \item Translasi pernyataan majemuk berikut menggunakan $S(x)$ untuk \textit{mahasiswa}, $K(x)$ untuk \textit{komputer}, dan $P(x,y)$ untuk \textit{$x$ punya $y$}: ``Setiap mahasiswa memiliki sekurang-kurangnya sebuah komputer.''
+  \item Jabarkan proses evaluasi negasi masuk ke dalam scope terdalam untuk ekspresi logika: $\neg \Big[ \exists x \, \forall y \, (P(x) \rightarrow Q(x,y)) \Big]$.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya sanggup menyadari urgensi deklarasi eksplisit Semesta Pembicaraan (Universe of Discourse) sebelum mengevaluasi kebenaran operator Kuantor.
+  \item Saya membedakan perbedaan operasional antara $\forall$ (Universal) yang bersandar konjungsi massal dan $\exists$ (Eksistensial) yang berasaskan disjungsi massal.
+  \item Saya mahir memasangkan $\forall$ secara eksklusif dengan operator Implikasi ($\rightarrow$) tanpa terjebak error.
+  \item Saya paham bahwa $\exists$ merupakan paket hemat berdampingan absolut dengan Konjungsi ($\land$).
+  \item Saya hafal perbedaan hierarki makna dari kombo Kuantor Bersarang asimetris $\forall \exists$ lawan $\exists \forall$.
+  \item Saya fasih memberlakukan ekspansi penyangkalan (Negasi Hukum De Morgan) hingga celah terdalam formula logika berkuantor ganda.
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 7 membangun jembatan fundamental dari logika proposisi menuju level yang lebih prediktif yakni Logika Orde Pertama (FOL) menggunakan operator kuantitas makro \textit{Quantifier}. Menelaah objek komputasi individual terlalu terbatas, sehingga dikenalkan model \textit{scoping} massal.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Semesta Pembicaraan (Universe of Discourse)} merujuk kepada himpunan wadah limit di mana batas iterasi setiap elemen konstanta diberlakukan.
+  \item \textbf{Kuantor Universal ($\forall$)} dirancang merepresentasikan kalimat absolut \textit{semua/setiap}. Pola translasinya mensyaratkan berpasangan dengan Implikasi agar maknanya valid.
+  \item \textbf{Kuantor Eksistensial ($\exists$)} dikonstruksi menjembatani pernyataan parsial \textit{sekurang-kurangnya spesimen tunggal} pembawa sifat (saksi kebenaran tunggal). Lazimnya tandem wajibnya adalah operator Konjungsi AND murni.
+  \item \textbf{Penempatan Tata Letak bersarang miring $\forall \exists$ berbeda absolut menantang struktur $\exists \forall$}. 
+  \item \textbf{Penarikan Negasi / Ingkaran De Morgan} untuk Kuantor memiliki karakter saling silih-berganti ($\neg \forall \equiv \exists \neg$ dan sebaliknya). 
+\end{itemize}
+
+\textbf{Kata Kunci}: Semesta Pembicaraan, Kuantor Universal, Kuantor Eksistensial, Implikasi, Konjungsi, Kuantor Bersarang, Kuantor De Morgan, Witness (Saksi), Counterexample (Penyangkal).
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

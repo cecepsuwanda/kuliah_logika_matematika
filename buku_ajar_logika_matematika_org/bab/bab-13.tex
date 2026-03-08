@@ -1,0 +1,159 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{12}}{}
+\begin{document}
+
+\chapter{Pembuktian via Induksi Matematika}
+
+\begin{subcpmk}
+  \item Sub-CPMK 4.4: Mahasiswa mampu menjelaskan prinsip induksi matematika dan analoginya dengan efek domino.
+  \item Sub-CPMK 4.5: Mahasiswa mampu menerapkan induksi lemah untuk membuktikan formula penjumlahan, pertidaksamaan, dan sifat keterbagian.
+  \item Sub-CPMK 4.6: Mahasiswa mampu menerapkan induksi kuat pada masalah yang memerlukan hipotesis induksi multipel.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-13/section-13-1}
+\input{bab-13/section-13-2}
+\input{bab-13/section-13-3}
+\input{bab-13/section-13-4}
+\input{bab-13/section-13-5}
+\input{bab-13/section-13-6}
+\input{bab-13/section-13-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item Buktikan dengan induksi: $\displaystyle\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$ untuk setiap $n \geq 1$.
+  \item Buktikan dengan induksi: $2^n > n$ untuk setiap $n \geq 1$.
+  \item Buktikan dengan induksi: $3 \mid (n^3 - n)$ untuk setiap $n \geq 1$.
+  \item Buktikan dengan induksi kuat bahwa setiap bilangan bulat $n \geq 2$ memiliki faktor prima.
+  \item Identifikasi dan jelaskan kesalahan pada ``bukti'' induksi berikut: ``Semua kuda memiliki warna yang sama.'' (Petunjuk: cari kesalahan pada langkah induksi ketika $k = 1$.)
+  \item Buktikan dengan induksi: $\displaystyle\sum_{i=1}^{n} \frac{1}{i(i+1)} = \frac{n}{n+1}$ untuk setiap $n \geq 1$.
+  \item Bandingkan bukti induksi lemah dan induksi kuat pada teorema: ``Setiap pecahan postal $\geq 12$ sen dapat dibentuk dari perangko 4 sen dan 5 sen.'' Gunakan induksi kuat.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Buktikan dengan induksi: $1 + 2 + 4 + \ldots + 2^n = 2^{n+1} - 1$ untuk setiap $n \geq 0$.
+  \item Buktikan dengan induksi: $\displaystyle\sum_{i=1}^{n} i^3 = \left(\frac{n(n+1)}{2}\right)^2$ untuk setiap $n \geq 1$.
+  \item Buktikan dengan induksi: $n^2 \leq 2^n$ untuk setiap $n \geq 4$.
+  \item Buktikan dengan induksi: $5 \mid (6^n - 1)$ untuk setiap $n \geq 0$.
+  \item Buktikan dengan induksi: jumlah sudut dalam dari poligon konveks dengan $n$ sisi ($n \geq 3$) adalah $(n-2) \cdot 180^\circ$.
+  \item Buktikan dengan induksi kuat: setiap bilangan bulat $n \geq 2$ dapat ditulis sebagai hasil kali bilangan-bilangan prima (tidak harus berbeda).
+  \item Buktikan dengan induksi: $F_1 + F_2 + \ldots + F_n = F_{n+2} - 1$, di mana $F_n$ adalah bilangan Fibonacci ke-$n$.
+  \item \textbf{Refleksi}: Dalam analogi domino, mengapa cukup membuktikan bahwa batu pertama jatuh dan setiap batu yang jatuh akan meruntuhkan batu berikutnya, untuk menjamin bahwa seluruh batu akan jatuh? Apa yang terjadi jika salah satu syarat tidak terpenuhi?
+  \item \textbf{Refleksi}: Dapatkah bilangan riil (desimal) digunakan sebagai nilai parameter dalam induksi matematika? Jelaskan batasan domain yang sesuai untuk induksi.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja untuk Sub-CPMK 4.4--4.6}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Prinsip induksi matematika terdiri dari dua komponen:
+  \begin{enumerate}
+    \item Langkah basis dan langkah deduksi
+    \item Langkah basis dan langkah induksi
+    \item Hipotesis dan konklusi
+    \item Premis dan kontradiksi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Dalam langkah induksi, kita mengasumsikan:
+  \begin{enumerate}
+    \item $P(n)$ benar untuk semua $n$
+    \item $P(k)$ benar untuk sembarang $k \geq n_0$ (hipotesis induksi)
+    \item $P(k+1)$ benar
+    \item $P(n_0)$ benar
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Perbedaan utama induksi kuat dari induksi lemah adalah:
+  \begin{enumerate}
+    \item Induksi kuat tidak memerlukan langkah basis
+    \item Induksi kuat mengasumsikan kebenaran untuk semua nilai dari $n_0$ hingga $k$
+    \item Induksi kuat hanya berlaku untuk bilangan ganjil
+    \item Induksi kuat selalu menghasilkan bukti yang lebih pendek
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Jika langkah induksi valid tetapi langkah basis gagal, maka:
+  \begin{enumerate}
+    \item Pernyataan terbukti benar
+    \item Pernyataan terbukti salah
+    \item Bukti induksi tidak valid (tidak membuktikan apa-apa)
+    \item Diperlukan bukti langsung tambahan
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Induksi kuat sangat berguna untuk membuktikan:
+  \begin{enumerate}
+    \item Formula penjumlahan sederhana
+    \item Pertidaksamaan eksponensial
+    \item Sifat bilangan yang melibatkan partisi atau dekomposisi
+    \item Identitas trigonometri
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Essay}
+\begin{enumerate}
+  \item Jelaskan perbedaan antara induksi matematika lemah dan induksi kuat. Berikan contoh pernyataan yang lebih tepat dibuktikan dengan induksi kuat.
+  \item Buktikan dengan induksi: $\displaystyle\sum_{i=0}^{n} 3^i = \frac{3^{n+1} - 1}{2}$ untuk setiap $n \geq 0$. Tuliskan setiap langkah dengan justifikasi.
+  \item Buktikan dengan induksi kuat: setiap bilangan bulat $n \geq 8$ dapat dinyatakan sebagai $n = 3a + 5b$ untuk bilangan bulat non-negatif $a$ dan $b$.
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya memahami prinsip induksi matematika dan analoginya dengan efek domino
+  \item Saya mampu menyusun bukti induksi dengan template standar: basis, hipotesis, langkah induksi, kesimpulan
+  \item Saya mampu membuktikan formula penjumlahan deret menggunakan induksi
+  \item Saya mampu membuktikan pertidaksamaan menggunakan induksi
+  \item Saya mampu membuktikan sifat keterbagian bilangan menggunakan induksi
+  \item Saya memahami perbedaan induksi lemah dan induksi kuat serta kapan masing-masing digunakan
+  \item Saya mampu menerapkan induksi kuat pada masalah faktorisasi dan rekursi
+  \item Saya dapat mengidentifikasi kesalahan umum dalam bukti induksi (basis terlewat, hipotesis tidak digunakan, arah salah)
+  \item Saya memahami bahwa langkah basis dan langkah induksi keduanya wajib untuk bukti yang valid
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas induksi matematika sebagai teknik pembuktian fundamental untuk pernyataan yang melibatkan bilangan bulat.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Prinsip Induksi} dianalogikan dengan efek domino: jika batu pertama jatuh (basis) dan setiap batu yang jatuh menjatuhkan batu berikutnya (langkah induksi), maka seluruh batu akan jatuh.
+  \item \textbf{Induksi lemah} mengasumsikan hanya $P(k)$ pada hipotesis induksi dan membuktikan $P(k+1)$. Cocok untuk formula penjumlahan, pertidaksamaan, dan keterbagian di mana $P(k+1)$ hanya bergantung pada $P(k)$.
+  \item \textbf{Induksi kuat} mengasumsikan kebenaran $P(n_0), \ldots, P(k)$ secara serentak. Diperlukan ketika $P(k+1)$ bergantung pada beberapa nilai sebelumnya, seperti pada faktorisasi prima dan sifat deret Fibonacci.
+  \item Kedua langkah (basis \textbf{dan} induksi) wajib ada. Basis tanpa induksi tidak membuktikan apa-apa di luar nilai awal. Induksi tanpa basis adalah rantai implikasi tanpa titik awal.
+  \item Kesalahan umum: melupakan basis, tidak menggunakan hipotesis induksi, penalaran sirkuler, dan basis yang tidak tepat.
+\end{itemize}
+
+\textbf{Kata Kunci}: induksi matematika, langkah basis, langkah induksi, hipotesis induksi, induksi lemah, induksi kuat, efek domino, deret, pertidaksamaan, keterbagian, Fibonacci
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

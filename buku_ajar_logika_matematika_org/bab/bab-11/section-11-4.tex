@@ -1,0 +1,130 @@
+\section{Konversi Ekspresi Boolean ke Rangkaian Gerbang}
+
+Proses mentranslasikan ekspresi aljabar Boolean menjadi diagram rangkaian gerbang logika merupakan keterampilan inti dalam perancangan digital. Setiap operator dalam ekspresi Boolean berkorespondensi langsung dengan satu gerbang logika, dan struktur hierarkis ekspresi menentukan interkoneksi antar gerbang. Proses konversi ini bersifat mekanistik dan dapat dilakukan secara algoritmik \cite{rosen2019}.
+
+\subsection{Prosedur Konversi Sistematis}
+
+Berikut prosedur umum untuk mengkonversi ekspresi Boolean menjadi rangkaian gerbang:
+
+\begin{enumerate}
+  \item \textbf{Identifikasi operator terluar}: Operator dengan prioritas paling rendah yang belum dibatasi tanda kurung merupakan gerbang pada tahap keluaran akhir.
+  \item \textbf{Dekomposisi rekursif}: Setiap operand dari operator terluar dianalisis secara rekursif. Jika operand merupakan ekspresi komposit, proses diulang. Jika operand merupakan variabel tunggal atau komplemennya, ia menjadi sinyal masukan.
+  \item \textbf{Penanganan komplemen}: Setiap komplemen variabel memerlukan satu gerbang NOT pada jalur sinyal masukan.
+  \item \textbf{Penanganan percabangan}: Jika satu variabel digunakan di beberapa tempat dalam ekspresi, jalur sinyalnya dicabangkan (\textit{fan-out}).
+\end{enumerate}
+
+\subsection{Contoh Konversi Langkah demi Langkah}
+
+\begin{contoh}
+\textbf{Konversi $F = A'B + AB'$ (Fungsi XOR)}
+
+\textbf{Langkah 1:} Operator terluar adalah $+$ (OR), sehingga gerbang terakhir (output) adalah OR.
+
+\textbf{Langkah 2:} Operand kiri $A'B$ memerlukan gerbang AND dengan masukan $A'$ dan $B$. Operand kanan $AB'$ memerlukan gerbang AND dengan masukan $A$ dan $B'$.
+
+\textbf{Langkah 3:} $A'$ memerlukan NOT pada $A$, dan $B'$ memerlukan NOT pada $B$.
+
+\textbf{Langkah 4:} Variabel $A$ dicabangkan ke NOT (untuk $A'$) dan ke AND kedua. Variabel $B$ dicabangkan ke AND pertama dan ke NOT (untuk $B'$).
+
+\begin{center}
+\begin{tikzpicture}[circuit logic US, huge circuit symbols,
+                    every circuit symbol/.style={fill=white, draw=black, thick}]
+
+  % Gates
+  \node[not gate] (notA) at (1, 1) {};
+  \node[not gate] (notB) at (1, -1.5) {};
+  \node[and gate] (and1) at (3, 1.5) {};
+  \node[and gate] (and2) at (3, -1) {};
+  \node[or gate]  (or1)  at (6, 0.25) {};
+
+  % Inputs
+  \node (A) at (-1, 2) {$A$};
+  \node (B) at (-1, -1) {$B$};
+
+  % A branching
+  \draw (A) -- (0,2) |- (notA.input);
+  \draw (0,2) |- (and2.input 1);
+  \filldraw (0,2) circle (2pt);
+
+  % B branching
+  \draw (B) -- (0,-1) |- (notB.input);
+  \draw (0,-1) |- (and1.input 2);
+  \filldraw (0,-1) circle (2pt);
+
+  % Inner connections
+  \draw (notA.output) |- (and1.input 1);
+  \draw (notB.output) |- (and2.input 2);
+
+  \draw (and1.output) -- ++(1,0) |- (or1.input 1);
+  \draw (and2.output) -- ++(1,0) |- (or1.input 2);
+
+  \draw (or1.output) -- ++(0.5,0) node[right] {$F = A'B + AB'$};
+
+\end{tikzpicture}
+\captionsetup{hypcap=false}
+\captionof{figure}{Rangkaian Gerbang untuk $F = A'B + AB'$ (Ekuivalen XOR)}
+\end{center}
+
+\textbf{Penghitungan gerbang}: 2 NOT + 2 AND + 1 OR = \textbf{5 gerbang}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Konversi $G = (A + B)(C' + D)$}
+
+\textbf{Analisis:} Operator terluar adalah perkalian ($\cdot$) antara dua suku penjumlahan.
+
+\begin{center}
+\begin{tikzpicture}[circuit logic US, huge circuit symbols,
+                    every circuit symbol/.style={fill=white, draw=black, thick}]
+
+  % Gates
+  \node[or gate] (or1) at (2, 1.5) {};
+  \node[not gate] (notC) at (0, -0.5) {};
+  \node[or gate] (or2) at (2, -1) {};
+  \node[and gate] (and1) at (5, 0.25) {};
+
+  % Inputs
+  \draw (or1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (or1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (notC.input) -- ++(-0.5,0) node[left] {$C$};
+  \draw (or2.input 2) -- ++(-0.5,0) node[left] {$D$};
+
+  % Connections
+  \draw (notC.output) |- (or2.input 1);
+  \draw (or1.output) -- ++(1,0) |- (and1.input 1);
+  \draw (or2.output) -- ++(1,0) |- (and1.input 2);
+  \draw (and1.output) -- ++(0.5,0) node[right] {$G$};
+
+\end{tikzpicture}
+\captionsetup{hypcap=false}
+\captionof{figure}{Rangkaian Gerbang untuk $G = (A + B)(C' + D)$}
+\end{center}
+
+\textbf{Penghitungan gerbang}: 1 NOT + 2 OR + 1 AND = \textbf{4 gerbang}.
+\end{contoh}
+
+\subsection{Konversi ke Rangkaian NAND-Only}
+
+Dalam praktik industri, rangkaian sering dikonversi ke bentuk yang hanya menggunakan gerbang NAND. Prosedur konversi dari bentuk SOP (AND-OR) ke NAND-NAND menggunakan prinsip involusi ($F = (F')'$) dan hukum De Morgan. Untuk ekspresi dalam bentuk SOP $F = P_1 + P_2 + \ldots + P_k$ (di mana $P_i$ adalah suku perkalian):
+
+\begin{align*}
+F &= P_1 + P_2 + \ldots + P_k \\
+  &= ((P_1 + P_2 + \ldots + P_k)')' \\
+  &= (P_1' \cdot P_2' \cdot \ldots \cdot P_k')' & \text{(De Morgan)}
+\end{align*}
+
+\begin{konsep}
+Setiap bentuk SOP dua tingkat (AND-OR) dapat dikonversi menjadi rangkaian NAND-NAND dua tingkat yang ekuivalen. Pada tingkat pertama, gerbang AND diganti dengan gerbang NAND. Pada tingkat kedua, gerbang OR diganti dengan gerbang NAND. Prinsip ini dikenal sebagai \logic{konversi NAND-NAND} dan merupakan teknik standar dalam sintesis rangkaian digital.
+\end{konsep}
+
+\begin{contoh}
+\textbf{Konversi $F = AB + CD$ ke NAND-Only}
+
+\begin{align*}
+F &= AB + CD \\
+  &= ((AB)' \cdot (CD)' )' & \text{(Involusi + De Morgan)} \\
+  &= (AB) \uparrow (CD) & \text{(NAND tingkat 2)}
+\end{align*}
+
+Di mana $(AB)$ dan $(CD)$ masing-masing dihasilkan oleh gerbang NAND ditambah inversi. Namun karena NAND pada tingkat 2 sudah menginversi, dan NAND pada tingkat 1 juga menginversi, inversi ganda membatalkan satu sama lain. Hasilnya: gunakan gerbang NAND di semua tingkat --- tingkat 1 menghasilkan $(AB)'$ dan $(CD)'$, dan tingkat 2 menghasilkan $((AB)' \cdot (CD)')' = AB + CD$. Total: \textbf{3 gerbang NAND}.
+\end{contoh}

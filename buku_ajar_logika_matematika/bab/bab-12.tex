@@ -1,0 +1,61 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Prinsip-prinsip dan Hukum-hukum Dasar Aljabar Boolean}
+
+\begin{subcpmk}
+  \item Mahasiswa mampu mendefinisikan peranan, abstraksi struktur sirkuit, dan hukum-hukum fundamental penyusunan matematika Aljabar Boolean.
+\end{subcpmk}
+
+\section{Terminologi Logika Komputer Hardware}
+Sebagaimana Logika Proposisional memanipulasi kebenaran faktual secara filosofis dan teoretis abstrak, \textbf{Aljabar Boolean (\textit{Boolean Algebra})} diciptakan untuk memanipulasi bilangan \textit{logic states} $0$ dan $1$ secara operasional mesin fisikal struktural. Dideskripsikan formal pada era 1850-an oleh George Boole, perangkat aturan ini barulah diadaptasikan oleh Bapak Komputasi Claude Shannon ke sirkuit panel elektronik (\textit{Switching Circuits relays}). Inilah awal kebangkitan Era Digital yang mengubah sakelar mesin biner $ON/OFF$ menjadi representasi otak kalkulasi logis tak berbatas.
+
+Aljabar Boolean terbangun eksklusif atas 3 instrumen operasi dasar elemen himpunan ganda biner komputatif:
+\begin{enumerate}
+    \item \textbf{Penjumlahan / OR (+)} setara dengan Disjungsi Logika ($\lor$).
+    \item \textbf{Perkalian / AND ($\cdot$)} setara dengan Konjungsi Logika ($\land$).
+    \item \textbf{Komplemen / NOT (' atau $\bar{}$)} setara dengan Negasi Logika ($\sim$).
+\end{enumerate}
+
+\section{Aksioma dan Teorema Fundamental Aljabar}
+Rangkaian mikroprosesor silikon dirakit untuk patuh murni dan taat sempurna mengalkulasi hukum matematis di bawah ini, yang merepresentasikan teknik abstraksi sirkuit komputasinya:
+
+\subsection{Hukum Identitas \& Dominasi}
+\begin{itemize}
+    \item $A + 0 = A$ ; $A \cdot 1 = A$ (\textit{Hukum Identitas netralitas sirkuit})
+    \item $A + 1 = 1$ ; $A \cdot 0 = 0$ (\textit{Hukum Dominasi Mutlak Terminal})
+\end{itemize}
+
+\subsection{Hukum Idempoten \& Involusi}
+Bahwasanya memodulasi paralel/seri dengan sirkuit bertegangan sama tak membuat efek keutuhan nilainya berlipat ganda, dan hukum \textit{Double Negation}.
+\begin{itemize}
+    \item $A + A = A$ ; $A \cdot A = A$
+    \item $(A')' = A$
+\end{itemize}
+
+\subsection{Hukum Komutatif, Asosiatif, dan Distributif}
+Menegaskan susunan atau \textit{layout} instalasi kabel tak krusial bilamana terminalnya berposisi silang / kurungan fungsi komputasinya setara. 
+\begin{itemize}
+    \item $A + B = B + A$
+    \item $A + (B + C) = (A + B) + C$
+    \item $A \cdot (B + C) = A \cdot B + A \cdot C$ (Dan identitas silangnya: $A + (B \cdot C) = (A + B) \cdot (A + C)$ komputasi sirkuit unik).
+\end{itemize}
+
+\subsection{Hukum De Morgan's}
+Alat andalan untuk memanipulasi integrasi sirkuit NAND menuju NOR fungsional.
+\begin{itemize}
+    \item $(A + B)' = A' \cdot B'$
+    \item $(A \cdot B)' = A' + B'$
+\end{itemize}
+
+\begin{latihan}
+  \item Berdasarkan Teorema Abstrak, buktikan sirkuit fungsional rancangan ini: Fungsi penyerapan \textit{Absorption Rule}: $A + (A \cdot B) = A$. \textit{(Tip komputasi: Fungsionalkan abstraksi distributif term matematis di depan pemetaan perkalian 1)}.
+\end{latihan}
+
+\begin{checklist}
+  \item Mengenal operator aritmatika ekuivalen struktur boolean (Titik = Adisi/AND, Plus = OR, Akses = Invers/NOT).
+  \item Menguasai Teori De Morgan dan meraba fungsi utilitas \textit{Absorption} yang memampat jumlah resistor dalam desain papan PCB perangkat lunak (\textit{hardware design}).
+\end{checklist}
+
+\end{document}

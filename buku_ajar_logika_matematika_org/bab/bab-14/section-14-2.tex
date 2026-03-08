@@ -1,0 +1,75 @@
+\section{Hoare Triple dan Aturan Inferensi Program}
+
+\logic{Hoare Triple} merupakan formalisasi yang dikembangkan oleh Sir Tony Hoare pada tahun 1969 untuk mendeskripsikan hubungan antara prekondisi, program, dan postkondisi secara logis. Hoare Triple menjadi fondasi bagi \logic{logika Hoare} (\textit{Hoare logic}), yaitu sistem formal untuk memverifikasi kebenaran program secara deduktif \cite{hoare1969}.
+
+\subsection{Definisi Formal Hoare Triple}
+
+\begin{definisi}[Hoare Triple]
+\logic{Hoare Triple} ditulis sebagai $\{p\}\ S\ \{q\}$, di mana:
+\begin{itemize}
+    \item $p$ adalah prekondisi (predikat pada keadaan sebelum eksekusi),
+    \item $S$ adalah program (sekuens perintah),
+    \item $q$ adalah postkondisi (predikat pada keadaan setelah eksekusi).
+\end{itemize}
+Hoare Triple $\{p\}\ S\ \{q\}$ dinyatakan \textbf{valid} jika: setiap kali eksekusi $S$ dimulai dalam keadaan yang memenuhi $p$ dan $S$ berterminasi, maka keadaan akhir memenuhi $q$.
+\end{definisi}
+
+\subsection{Aturan Assignment}
+
+Aturan assignment merupakan aturan inferensi paling dasar dalam logika Hoare. Untuk pernyataan assignment $x := E$ (variabel $x$ diberi nilai ekspresi $E$):
+
+\[ \{q[E/x]\}\ x := E\ \{q\} \]
+
+Notasi $q[E/x]$ berarti predikat $q$ dengan setiap kemunculan $x$ diganti oleh $E$. Aturan ini bekerja ``mundur'' dari postkondisi.
+
+\begin{contoh}
+\textbf{Assignment Sederhana}
+
+Hoare Triple: $\{x = 5\}\ x := x + 1\ \{x = 6\}$
+
+\textbf{Verifikasi}: Postkondisi $q$ adalah $x = 6$. Substitusi $x + 1$ ke dalam $q$: $(x + 1) = 6$, yaitu $x = 5$. Ini sama dengan prekondisi $p$. Valid. $\blacksquare$
+\end{contoh}
+
+\begin{contoh}
+\textbf{Pertukaran Nilai (Swap)}
+
+Program:
+\begin{enumerate}
+    \item $t := a$
+    \item $a := b$
+    \item $b := t$
+\end{enumerate}
+
+Hoare Triple: $\{a = A \wedge b = B\}\ S\ \{a = B \wedge b = A\}$
+
+\textbf{Verifikasi bertahap (forward reasoning):}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Setelah Perintah} & \textbf{Keadaan} \\ \hline
+(awal) & $a = A, b = B$ \\ \hline
+$t := a$ & $t = A, a = A, b = B$ \\ \hline
+$a := b$ & $t = A, a = B, b = B$ \\ \hline
+$b := t$ & $t = A, a = B, b = A$ \\ \hline
+\end{tabular}
+\end{center}
+
+Postkondisi $\{a = B \wedge b = A\}$ terpenuhi. $\blacksquare$
+\end{contoh}
+
+\subsection{Aturan Komposisi Sekuensial}
+
+Jika program $S$ terdiri dari dua bagian $S_1; S_2$ yang dijalankan berurutan, maka:
+
+\[ \frac{\{p\}\ S_1\ \{r\} \quad \{r\}\ S_2\ \{q\}}{\{p\}\ S_1; S_2\ \{q\}} \]
+
+Artinya, jika $S_1$ mengubah keadaan dari $p$ menjadi $r$, dan $S_2$ mengubah keadaan dari $r$ menjadi $q$, maka komposisi $S_1; S_2$ mengubah keadaan dari $p$ menjadi $q$. Predikat $r$ disebut \logic{antarkondisi} (\textit{midcondition}).
+
+\subsection{Aturan Kondisional (If-Then-Else)}
+
+Untuk pernyataan kondisional \texttt{if B then $S_1$ else $S_2$}:
+
+\[ \frac{\{p \wedge B\}\ S_1\ \{q\} \quad \{p \wedge \neg B\}\ S_2\ \{q\}}{\{p\}\ \texttt{if } B \texttt{ then } S_1 \texttt{ else } S_2\ \{q\}} \]
+
+Kedua cabang harus menghasilkan postkondisi $q$ yang sama. Perbedaannya terletak pada kondisi tambahan: cabang \texttt{then} diasumsikan memenuhi $B$, sedangkan cabang \texttt{else} diasumsikan memenuhi $\neg B$ \cite{wiki_hoare_logic}.

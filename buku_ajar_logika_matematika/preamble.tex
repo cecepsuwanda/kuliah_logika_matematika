@@ -1,5 +1,5 @@
 % ============================================================
-% Preamble untuk Buku Ajar OBE - Logika Matematika
+% Preamble untuk Buku Ajar OBE - Pemrograman Berorientasi Objek
 % ============================================================
 
 % --- Encoding dan Bahasa ---
@@ -12,36 +12,35 @@
 \usepackage{geometry}
 \geometry{a4paper, margin=2.5cm, headheight=15pt}
 
-% --- Matematika ---
-\usepackage{amsmath}
-\usepackage{amssymb}
-
 % --- Grafik dan Tabel ---
 \usepackage{graphicx}
-\graphicspath{{figures/}{../figures/}{bab/../figures/}}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{amsmath}
 
 % --- TikZ untuk Diagram ---
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning,calc}
 \tikzset{
-  proposisi/.style={
+  class/.style={
     rectangle,
     draw=black,
     fill=blue!10,
-    minimum width=2cm,
-    minimum height=0.8cm,
-    text centered
+    minimum width=3cm,
+    minimum height=1cm,
+    text centered,
+    font=\bfseries
   },
-  operator/.style={
-    diamond,
+  object/.style={
+    rectangle,
+    rounded corners,
     draw=black,
     fill=green!10,
-    minimum width=1.5cm,
+    minimum width=3cm,
     minimum height=1cm,
     text centered
   },
@@ -51,6 +50,7 @@
     >=stealth
   }
 }
+
 
 % --- List dan Enumerasi ---
 \usepackage{enumitem}
@@ -79,30 +79,26 @@
 \fancyhead[LO]{\rightmark}
 \renewcommand{\headrulewidth}{0.4pt}
 
-% --- Code Listings untuk Prolog ---
+% --- Code Listings untuk Java ---
 \usepackage{listings}
+\usepackage{xcolor}
 
 % Definisi warna untuk syntax highlighting
-\definecolor{prologred}{rgb}{0.6,0,0}
-\definecolor{prologgreen}{rgb}{0.25,0.5,0.35}
-\definecolor{prologpurple}{rgb}{0.5,0,0.35}
-\definecolor{prologblue}{rgb}{0.25,0.35,0.75}
+\definecolor{javared}{rgb}{0.6,0,0}
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
+\definecolor{javapurple}{rgb}{0.5,0,0.35}
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codebg}{rgb}{0.95,0.95,0.95}
 
-% Definisikan Prolog untuk listings (jika belum ada)
-\lstdefinelanguage{Prolog}{
-  morekeywords={is, not, fail, true, :-},
-  morecomment=[l]{\%},
-  sensitive=false
-}
-% Style untuk Prolog code
-\lstdefinestyle{prologstyle}{
-  language=Prolog,
+% Style untuk Java code
+\lstdefinestyle{javastyle}{
+  language=Java,
   basicstyle=\ttfamily\small,
-  keywordstyle=\color{prologpurple},
-  stringstyle=\color{prologred},
-  commentstyle=\color{prologgreen},
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
   numbers=left,
   numberstyle=\tiny\color{codegray},
   stepnumber=1,
@@ -110,45 +106,26 @@
   backgroundcolor=\color{codebg},
   showspaces=false,
   showstringspaces=false,
+  showtabs=false,
   frame=single,
   tabsize=2,
   captionpos=b,
   breaklines=true,
-  escapeinside={\%*}{*)},
+  breakatwhitespace=false,
+  escapeinside={(*@}{@*)},
   xleftmargin=15pt,
   xrightmargin=5pt
 }
 
-\renewcommand{\lstlistlistingname}{Daftar Kode Prolog}
-\renewcommand{\lstlistingname}{Kode Prolog}
-\lstset{style=prologstyle}
+     
+\renewcommand{\lstlistlistingname}{Daftar Kode Program}
+\renewcommand{\lstlistingname}{Kode Program}
+\lstset{style=javastyle}
 
-% Environment untuk Prolog code dengan caption
-\lstnewenvironment{prologcode}[1][]{
-  \lstset{style=prologstyle, #1}
+% Environment untuk Java code dengan caption
+\lstnewenvironment{javacode}[1][]{
+  \lstset{style=javastyle, #1}
 }{}
-
-% Style untuk Python code (Bab 2 dan bab lain)
-\lstdefinestyle{pythonstyle}{
-  language=Python,
-  basicstyle=\ttfamily\small,
-  keywordstyle=\color{prologpurple},
-  stringstyle=\color{prologred},
-  commentstyle=\color{prologgreen},
-  numbers=left,
-  numberstyle=\tiny\color{codegray},
-  stepnumber=1,
-  numbersep=10pt,
-  backgroundcolor=\color{codebg},
-  showspaces=false,
-  showstringspaces=false,
-  frame=single,
-  tabsize=4,
-  captionpos=b,
-  breaklines=true,
-  xleftmargin=15pt,
-  xrightmargin=5pt
-}
 
 % --- Boxes untuk Highlight ---
 \usepackage{tcolorbox}
@@ -265,17 +242,20 @@
 % Custom Commands
 % ============================================================
 
-% Command untuk highlight istilah logika
-\newcommand{\logic}[1]{\textbf{\textit{#1}}}
-
-% Command untuk proposisi (inline)
-\newcommand{\proposisi}[1]{\texttt{#1}}
+% Command untuk highlight istilah OOP
+\newcommand{\oop}[1]{\textbf{\textit{#1}}}
 
 % Command untuk code inline
 \newcommand{\code}[1]{\texttt{#1}}
 
-% Command untuk keyword Prolog
-\newcommand{\keyword}[1]{\textcolor{prologpurple}{\texttt{\textbf{#1}}}}
+% Command untuk class name
+\newcommand{\class}[1]{\texttt{\textbf{#1}}}
+
+% Command untuk method name
+\newcommand{\method}[1]{\texttt{#1()}}
+
+% Command untuk keyword Java
+\newcommand{\keyword}[1]{\textcolor{javapurple}{\texttt{\textbf{#1}}}}
 
 % ============================================================
 % Pengaturan Tambahan
@@ -284,9 +264,6 @@
 % Spacing untuk paragraf
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
-
-% Mengurangi underfull vbox pada halaman
-\raggedbottom
 
 % Depth untuk table of contents
 \setcounter{tocdepth}{2}

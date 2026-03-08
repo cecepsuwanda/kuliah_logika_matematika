@@ -1,0 +1,65 @@
+\section{Kebenaran Parsial dan Kebenaran Total}
+
+Terdapat perbedaan penting antara dua jenis kebenaran program yang harus dipahami. \logic{Kebenaran parsial} (\textit{partial correctness}) dan \logic{kebenaran total} (\textit{total correctness}) berbeda pada satu aspek krusial: apakah program dijamin berterminasi (berhenti) \cite{rosen2019}.
+
+\subsection{Kebenaran Parsial}
+
+\begin{definisi}[Kebenaran Parsial]
+Program $S$ dikatakan \textbf{benar secara parsial} terhadap prekondisi $p$ dan postkondisi $q$, ditulis $\{p\}\ S\ \{q\}$, jika: setiap kali eksekusi $S$ dimulai dalam keadaan yang memenuhi $p$ \textbf{dan $S$ berterminasi}, maka keadaan akhir memenuhi $q$.
+\end{definisi}
+
+Kata kunci dari kebenaran parsial adalah ``\textit{dan $S$ berterminasi}'' --- kebenaran parsial tidak memberikan jaminan bahwa program akan berhenti. Sebuah program yang mengandung infinite loop secara vakum memenuhi kebenaran parsial: karena program tidak pernah berterminasi, postkondisi trivially terpenuhi (tidak ada keadaan akhir yang perlu diperiksa).
+
+\subsection{Kebenaran Total}
+
+\begin{definisi}[Kebenaran Total]
+Program $S$ dikatakan \textbf{benar secara total} terhadap prekondisi $p$ dan postkondisi $q$, ditulis $[p]\ S\ [q]$, jika: setiap kali eksekusi $S$ dimulai dalam keadaan yang memenuhi $p$, maka $S$ \textbf{pasti berterminasi} dan keadaan akhir memenuhi $q$.
+\end{definisi}
+
+Kebenaran total = kebenaran parsial + terminasi. Untuk membuktikan kebenaran total, kita harus membuktikan \emph{dua} hal secara terpisah:
+\begin{enumerate}
+    \item Kebenaran parsial: $\{p\}\ S\ \{q\}$ (menggunakan Hoare Triple dan loop invariant).
+    \item Terminasi: program $S$ pasti berhenti ketika dimulai dari keadaan yang memenuhi $p$.
+\end{enumerate}
+
+\subsection{Bukti Terminasi}
+
+Untuk membuktikan bahwa perulangan \texttt{while $B$ do $S$} pasti berterminasi, digunakan \logic{fungsi pengurangan} (\textit{variant function} atau \textit{loop variant}):
+
+\begin{definisi}[Fungsi Pengurangan]
+\logic{Fungsi pengurangan} (loop variant) adalah fungsi $V$ yang memetakan keadaan program ke bilangan bulat non-negatif, dan memenuhi:
+\begin{enumerate}
+    \item $V \geq 0$ selama kondisi perulangan $B$ bernilai benar.
+    \item $V$ \textbf{menurun secara ketat} pada setiap iterasi perulangan.
+\end{enumerate}
+Karena bilangan bulat non-negatif tidak dapat menurun tanpa batas, perulangan harus berhenti setelah jumlah iterasi yang berhingga.
+\end{definisi}
+
+\begin{contoh}
+\textbf{Terminasi Penjumlahan Array}
+
+Pada program penjumlahan array (section sebelumnya), fungsi pengurangan adalah:
+\[ V = n - i \]
+
+\textbf{Verifikasi}:
+\begin{itemize}
+    \item Selama $i < n$ (kondisi loop): $V = n - i > 0$. $\checkmark$
+    \item Pada setiap iterasi: $i$ bertambah 1, sehingga $V$ berkurang 1. $\checkmark$
+\end{itemize}
+
+Karena $V$ selalu menurun dan bernilai non-negatif, loop pasti berterminasi setelah paling banyak $n$ iterasi. $\blacksquare$
+\end{contoh}
+
+\subsection{Ringkasan Hubungan}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{4cm}|p{4cm}|p{4.5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Kebenaran Parsial} & \textbf{Kebenaran Total} \\ \hline
+Notasi & $\{p\}\ S\ \{q\}$ & $[p]\ S\ [q]$ \\ \hline
+Jaminan terminasi & Tidak & Ya \\ \hline
+Jaminan postkondisi & Hanya jika berterminasi & Selalu (pasti berterminasi) \\ \hline
+Yang dibuktikan & Loop invariant & Loop invariant + fungsi pengurangan \\ \hline
+\end{tabular}
+\end{center}

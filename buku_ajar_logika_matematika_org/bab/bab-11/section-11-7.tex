@@ -1,0 +1,90 @@
+\section{Analisis Rangkaian: dari Diagram ke Ekspresi Boolean}
+
+Selain kemampuan mengonversi ekspresi Boolean menjadi rangkaian gerbang (sintesis), seorang perancang digital juga harus mampu melakukan proses kebalikannya: menganalisis rangkaian gerbang yang sudah ada dan menentukan ekspresi Boolean serta tabel kebenaran yang diimplementasikannya. Proses ini disebut \logic{analisis rangkaian} dan merupakan keterampilan yang sama pentingnya dengan sintesis \cite{rosen2019}.
+
+\subsection{Prosedur Analisis Rangkaian}
+
+Prosedur analisis rangkaian gerbang logika dilakukan secara sistematis dengan langkah-langkah berikut:
+
+\begin{enumerate}
+  \item \textbf{Beri label pada semua sinyal}: Identifikasi sinyal masukan primer, keluaran akhir, dan berikan label pada setiap sinyal antara (output dari setiap gerbang internal).
+  \item \textbf{Telusuri dari masukan ke keluaran}: Mulai dari gerbang yang langsung terhubung ke masukan primer, tentukan ekspresi Boolean untuk setiap sinyal antara.
+  \item \textbf{Substitusi berturut-turut}: Substitusikan ekspresi sinyal antara ke dalam ekspresi gerbang berikutnya, secara progresif menuju keluaran akhir.
+  \item \textbf{Sederhanakan (opsional)}: Sederhanakan ekspresi akhir menggunakan aljabar Boolean jika diperlukan.
+  \item \textbf{Verifikasi}: Buat tabel kebenaran dari ekspresi yang diperoleh dan bandingkan dengan perilaku rangkaian untuk beberapa kombinasi input.
+\end{enumerate}
+
+\subsection{Contoh Analisis Rangkaian}
+
+\begin{contoh}
+\textbf{Analisis Rangkaian Tiga Tingkat}
+
+Diberikan rangkaian dengan konfigurasi berikut:
+\begin{itemize}
+    \item Gerbang 1 (NOT): masukan $A$, keluaran $W = A'$
+    \item Gerbang 2 (AND): masukan $W$ dan $B$, keluaran $X = A'B$
+    \item Gerbang 3 (AND): masukan $A$ dan $B'$ (NOT pada $B$), keluaran $Y = AB'$
+    \item Gerbang 4 (OR): masukan $X$ dan $Y$, keluaran $F = X + Y = A'B + AB'$
+\end{itemize}
+
+\textbf{Analisis:}
+\begin{align*}
+W &= A' \\
+X &= W \cdot B = A'B \\
+Y &= A \cdot B' \\
+F &= X + Y = A'B + AB' = A \oplus B
+\end{align*}
+
+Kesimpulan: Rangkaian ini mengimplementasikan fungsi XOR ($A \oplus B$).
+
+\textbf{Verifikasi dengan tabel kebenaran:}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c||c|}
+\hline
+$A$ & $B$ & $W = A'$ & $X = A'B$ & $B'$ & $Y = AB'$ & $F = X + Y$ \\ \hline
+0 & 0 & 1 & 0 & 1 & 0 & 0 \\ \hline
+0 & 1 & 1 & 1 & 0 & 0 & 1 \\ \hline
+1 & 0 & 0 & 0 & 1 & 1 & 1 \\ \hline
+1 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+\end{tabular}
+\end{center}
+
+Hasilnya sesuai dengan tabel kebenaran XOR: output 1 jika dan hanya jika kedua masukan berbeda.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Analisis Rangkaian NAND-Only}
+
+Diberikan rangkaian yang terdiri dari tiga gerbang NAND:
+\begin{itemize}
+    \item Gerbang NAND 1: masukan $A$ dan $B$, keluaran $P = (AB)'$
+    \item Gerbang NAND 2: masukan $C$ dan $D$, keluaran $Q = (CD)'$
+    \item Gerbang NAND 3: masukan $P$ dan $Q$, keluaran $F = (PQ)'$
+\end{itemize}
+
+\textbf{Analisis:}
+\begin{align*}
+P &= (AB)' \\
+Q &= (CD)' \\
+F &= (PQ)' = ((AB)' \cdot (CD)')' \\
+  &= ((AB)')' + ((CD)')' & \text{(De Morgan)} \\
+  &= AB + CD & \text{(Involusi)}
+\end{align*}
+
+Kesimpulan: Rangkaian tiga gerbang NAND ini mengimplementasikan fungsi $F = AB + CD$, yaitu bentuk SOP dua suku. Ini mengonfirmasi bahwa rangkaian NAND-NAND dua tingkat mengimplementasikan fungsi SOP.
+\end{contoh}
+
+\subsection{Analisis Timing dan Propagation Delay}
+
+Selain analisis fungsional (ekspresi Boolean), analisis rangkaian juga mencakup analisis waktu (\textit{timing analysis}). Setiap gerbang logika memiliki waktu propagasi (\textit{propagation delay}), yaitu waktu yang diperlukan untuk perubahan pada masukan untuk tercermin pada keluaran. Delay total rangkaian ditentukan oleh jalur terpanjang (\textit{critical path}) dari masukan ke keluaran.
+
+\begin{definisi}[Critical Path]
+\logic{Critical path} (jalur kritis) adalah jalur sinyal dari masukan primer ke keluaran akhir yang melewati jumlah gerbang terbanyak. Delay total rangkaian sama dengan jumlah delay gerbang pada jalur kritis, dan ini menentukan frekuensi operasi maksimum rangkaian \cite{electronics_tutorials_gates}.
+\end{definisi}
+
+Sebagai contoh, jika setiap gerbang memiliki delay $t_d$ dan rangkaian memiliki 3 tingkat gerbang, maka delay total jalur kritis adalah $3 \cdot t_d$. Rangkaian dengan lebih sedikit tingkat gerbang (misalnya bentuk SOP dua tingkat) memiliki delay yang lebih kecil dibandingkan rangkaian multi-tingkat, meskipun mungkin memerlukan lebih banyak gerbang. Trade-off antara jumlah gerbang (area/biaya) dan delay (kecepatan) merupakan pertimbangan utama dalam optimasi rangkaian digital.
+
+\subsection{Jembatan ke Bab Selanjutnya}
+
+Tiga bab terakhir (Bab 9--11) telah membangun fondasi yang komprehensif mengenai aljabar Boolean dan implementasinya dalam rangkaian digital. Pada bab-bab berikutnya, fokus pembahasan akan bergeser dari logika digital ke metode pembuktian matematis, di mana keterampilan bernalar secara logis yang telah diasah melalui aljabar Boolean akan diterapkan dalam konteks yang lebih umum: membuktikan kebenaran klaim-klaim matematika dan algoritma.

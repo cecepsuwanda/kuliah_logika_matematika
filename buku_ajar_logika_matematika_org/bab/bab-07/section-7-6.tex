@@ -1,0 +1,45 @@
+\section{Negasi dan Hukum De Morgan Berkuantor}
+
+Ingkaran atau negasi dari kalimat berkuantor ternyata saling membalik satu sama lain \cite{rosen2019}. Jika logika proposisi disokong oleh \textit{Hukum De Morgan} (menukar AND menjadi OR, beserta negasi klausa), maka Logika Predikat Orde Pertama punya versi De Morgan yang lebih sakral untuk menanggulangi kuantifikasi.
+
+\subsection{Penyangkalan (Negasi) $\forall$}
+Pernyataan \textit{"Semua mahasiswa di kelas ini pandai"} tidak dikalahkan/disangkal dengan klausa hiperbolik \textit{"Semua mahasiswa dungu"}. Tidak perlu repot membuktikan seluruh 1 kelas bodoh. Klaim universal tersebut tumbang seketika persis tatkala kita mengudarakan negasi presisinya: \textit{"TIDAK semua mahasiswa pandai"} atau dengan kata lain \textit{"ADA (secuil) mahasiswa yang TIDAK pandai"}.
+
+Oleh karena itu hukum transmutasi negasi Kuantor Universal dipoles menjadi bentuk \textbf{Kuantor Eksistensial berpeluk Negasi Klausa}:
+\[ \neg \forall x \, P(x) \equiv \exists x \, \neg P(x) \]
+
+\subsection{Penyangkalan (Negasi) $\exists$}
+Pernyataan optimis bernada sumbang \textit{"Ada dosen di kampus ini yang killer"} memiliki sangkalan kuat secara lugas \textit{"Tidak ada satu pun dosen yang bersikap \textit{killer}"} atau ekuivalensi paripurnanya adalah \textit{"Secara universal (semua), dosen TIDAK ada yang killer"}.
+
+Hukum kebalikan kuantor Eksistensial dirombak wujudnya sebagai \textbf{Kuantor Universal bermuatan Negasi Formulasi Internal}:
+\[ \neg \exists x \, P(x) \equiv \forall x \, \neg P(x) \]
+
+\subsection{Aplikasi Matematis Tingkat Lanjut}
+
+Penyangkalan terhadap model algebra berjejaring kuantor dilakukan menggunakan teknik sapuan mundur alias melempar/mendistribusikan tanda $\neg$ terus-menerus ke relung sela dalam, satu per satu selaput dikupas, kuantor akan saling berganti identitas secara rantai domino.
+
+\begin{contoh}
+Negasi dari pernyataan bersarang: $\exists x \, \forall y \, \forall z \, P(x,y,z)$
+
+\begin{align*}
+    \neg \Big[ \exists x \ \forall y \ \forall z \ P(x,y,z) \Big] 
+    &\equiv \forall x \ \neg \Big[ \forall y \ \forall z \ P(x,y,z) \Big] \\
+    &\equiv \forall x \ \exists y \ \neg \Big[ \forall z \ P(x,y,z) \Big] \\
+    &\equiv \forall x \ \exists y \ \exists z \ \neg P(x,y,z)
+\end{align*}
+\end{contoh}
+
+\begin{contoh}
+Jika dikombinasikan dengan konektif ganda seperti rumusan kondisional "Semua Mahasiswa Baru masuk orientasi" ditranslasikan $\forall x \, (M(x) \rightarrow O(x))$.
+Bagaimana negasi / sangkalan telaknya?
+
+Bongkar terlebih dahulu sifat implikasi ($p \rightarrow q \equiv \neg p \lor q$).
+\begin{align*}
+    \neg \Big( \forall x \, (\,M(x) \rightarrow O(x)\,) \Big) 
+    &\equiv \exists x \, \neg \Big( M(x) \rightarrow O(x) \Big) \\
+    &\equiv \exists x \, \neg \Big( \neg M(x) \lor O(x) \Big) & \text{ (Hukum Implikasi)} \\
+    &\equiv \exists x \, \Big( \neg(\neg M(x)) \land \neg O(x) \Big) & \text{ (Hukum De Morgan murni)} \\
+    &\equiv \exists x \, \Big( M(x) \land \neg O(x) \Big)
+\end{align*}
+\textbf{Makna negasi:} "Terdapat oknum yang merupakan Mahasiswa Baru, \textbf{DAN (namun)} sialnya ia TIDAK masuk ruang orientasi."
+\end{contoh}

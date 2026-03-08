@@ -1,0 +1,81 @@
+\section[Rangkaian Kombinasional]{\raggedright Rangkaian Kombinasional: Multiplexer dan Decoder}
+
+Selain rangkaian aritmetika, terdapat dua kelas rangkaian kombinasional yang sangat penting dalam arsitektur komputer: \logic{multiplexer} (MUX) dan \logic{decoder}. Kedua rangkaian ini merupakan blok bangunan (\textit{building block}) standar yang digunakan secara masif dalam desain prosesor, memori, dan sistem bus digital \cite{rosen2019}.
+
+\subsection{Multiplexer (MUX)}
+
+\begin{definisi}[Multiplexer]
+\logic{Multiplexer} (MUX) adalah rangkaian kombinasional yang memilih satu dari $2^n$ jalur masukan data dan mengarahkannya ke satu jalur keluaran, berdasarkan kombinasi $n$ sinyal pemilih (\textit{select lines}). Multiplexer $2^n$-ke-$1$ memiliki $2^n$ masukan data, $n$ sinyal pemilih, dan 1 keluaran.
+\end{definisi}
+
+Multiplexer 2-ke-1 (MUX 2:1) adalah bentuk paling sederhana, dengan 2 masukan data ($D_0, D_1$), 1 sinyal pemilih ($S$), dan 1 keluaran ($Y$).
+
+Ekspresi Boolean MUX 2:1:
+\[ Y = S' \cdot D_0 + S \cdot D_1 \]
+
+Ketika $S = 0$, keluaran $Y = D_0$; ketika $S = 1$, keluaran $Y = D_1$. Tabel kebenaran:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c||c|l|}
+\hline
+$S$ & $Y$ & \textbf{Keterangan} \\ \hline
+0 & $D_0$ & Memilih masukan $D_0$ \\ \hline
+1 & $D_1$ & Memilih masukan $D_1$ \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{contoh}
+\textbf{Multiplexer 4-ke-1}
+
+MUX 4:1 memiliki 4 masukan data ($D_0, D_1, D_2, D_3$), 2 sinyal pemilih ($S_1, S_0$), dan 1 keluaran ($Y$).
+
+Ekspresi Boolean:
+\[ Y = S_1'S_0' \cdot D_0 + S_1'S_0 \cdot D_1 + S_1 S_0' \cdot D_2 + S_1 S_0 \cdot D_3 \]
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|}
+\hline
+$S_1$ & $S_0$ & $Y$ \\ \hline
+0 & 0 & $D_0$ \\ \hline
+0 & 1 & $D_1$ \\ \hline
+1 & 0 & $D_2$ \\ \hline
+1 & 1 & $D_3$ \\ \hline
+\end{tabular}
+\end{center}
+\end{contoh}
+
+\begin{konsep}
+MUX dapat digunakan untuk mengimplementasikan fungsi Boolean apa pun. Untuk fungsi $n$ variabel, hubungkan variabel-variabel sebagai sinyal pemilih pada MUX $2^n$:1, dan tetapkan setiap masukan data ke nilai fungsi (0 atau 1) sesuai tabel kebenaran. Teknik ini disebut \logic{implementasi MUX} dan sangat berguna dalam prototyping cepat.
+\end{konsep}
+
+\subsection{Decoder}
+
+\begin{definisi}[Decoder]
+\logic{Decoder} adalah rangkaian kombinasional yang mengubah kode biner $n$-bit menjadi paling banyak $2^n$ jalur keluaran yang unik, di mana tepat satu jalur keluaran aktif (bernilai 1) pada setiap saat berdasarkan kombinasi masukan. Decoder $n$-ke-$2^n$ memiliki $n$ masukan dan $2^n$ keluaran.
+\end{definisi}
+
+Decoder 2-ke-4 memiliki 2 masukan ($A, B$) dan 4 keluaran ($D_0, D_1, D_2, D_3$):
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c|}
+\hline
+$A$ & $B$ & $D_0$ & $D_1$ & $D_2$ & $D_3$ \\ \hline
+0 & 0 & 1 & 0 & 0 & 0 \\ \hline
+0 & 1 & 0 & 1 & 0 & 0 \\ \hline
+1 & 0 & 0 & 0 & 1 & 0 \\ \hline
+1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+Persamaan Boolean: $D_0 = A'B'$, $D_1 = A'B$, $D_2 = AB'$, $D_3 = AB$.
+
+\begin{catatan}
+Perhatikan bahwa setiap keluaran decoder berkorespondensi tepat dengan satu \textbf{minterm}. Decoder $n$-ke-$2^n$ menghasilkan seluruh $2^n$ minterm dari $n$ variabel masukannya. Oleh karena itu, fungsi Boolean apa pun dapat diimplementasikan menggunakan satu decoder dan satu gerbang OR: hubungkan keluaran decoder yang bersesuaian dengan minterm-minterm fungsi ke masukan gerbang OR.
+\end{catatan}
+
+\subsection{Hubungan Decoder dan Multiplexer}
+
+Decoder dan multiplexer saling melengkapi dalam arsitektur digital. Decoder mengonversi kode biner menjadi sinyal aktivasi individual (``satu-dari-banyak''), sedangkan multiplexer melakukan operasi sebaliknya: memilih satu dari banyak sinyal berdasarkan kode biner. Dalam sistem komputer, decoder digunakan untuk pemilihan alamat memori (\textit{address decoding}), sementara multiplexer digunakan untuk pemilihan jalur data pada bus \cite{wiki_multiplexer}.

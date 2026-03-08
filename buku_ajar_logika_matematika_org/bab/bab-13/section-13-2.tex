@@ -1,0 +1,68 @@
+\section{Struktur Formal Induksi Matematika Lemah}
+
+Induksi matematika ``lemah'' (\textit{weak induction}) atau disebut juga induksi biasa (\textit{ordinary induction}) merupakan bentuk induksi yang paling umum digunakan. Kata ``lemah'' bukan berarti metode ini kurang kuat, melainkan merujuk pada fakta bahwa langkah induksi hanya mengasumsikan kebenaran $P(k)$ untuk satu nilai $k$ (berbeda dengan induksi kuat yang mengasumsikan seluruh nilai sebelumnya) \cite{rosen2019}.
+
+\subsection{Template Bukti Induksi}
+
+Berikut template standar untuk menyusun bukti induksi:
+
+\begin{enumerate}
+    \item \textbf{Pernyataan}: Nyatakan dengan jelas apa yang hendak dibuktikan, misalnya ``Untuk semua $n \geq n_0$, $P(n)$.''
+
+    \item \textbf{Langkah Basis}: Verifikasi $P(n_0)$ secara langsung dengan substitusi $n = n_0$.
+    \begin{itemize}
+        \item Evaluasi ruas kiri dan ruas kanan secara terpisah.
+        \item Tunjukkan bahwa keduanya bernilai sama (atau bahwa pernyataan terpenuhi).
+    \end{itemize}
+
+    \item \textbf{Hipotesis Induksi}: Asumsikan $P(k)$ benar untuk sembarang bilangan bulat $k \geq n_0$.
+
+    \item \textbf{Langkah Induksi}: Buktikan $P(k+1)$ benar, menggunakan hipotesis induksi $P(k)$.
+    \begin{itemize}
+        \item Tuliskan ekspresi $P(k+1)$ secara eksplisit.
+        \item Hubungkan dengan $P(k)$ melalui manipulasi aljabar.
+        \item Substitusi hipotesis induksi dan sederhanakan.
+        \item Tunjukkan bahwa hasilnya memenuhi bentuk $P(k+1)$ yang diinginkan.
+    \end{itemize}
+
+    \item \textbf{Kesimpulan}: Berdasarkan prinsip induksi matematika, $P(n)$ terbukti untuk seluruh $n \geq n_0$. $\blacksquare$
+\end{enumerate}
+
+\subsection{Contoh Pertama: Jumlah Bilangan Ganjil}
+
+\begin{contoh}
+\textbf{Teorema}: Untuk setiap $n \geq 1$, jumlah $n$ bilangan ganjil pertama sama dengan $n^2$:
+\[ 1 + 3 + 5 + \ldots + (2n - 1) = n^2 \]
+
+\textbf{Bukti (Induksi):}
+
+\textbf{Langkah Basis} ($n = 1$):
+\begin{itemize}
+    \item Ruas kiri: suku pertama bilangan ganjil $= 1$.
+    \item Ruas kanan: $1^2 = 1$.
+    \item $1 = 1$. $\checkmark$
+\end{itemize}
+
+\textbf{Hipotesis Induksi}: Asumsikan untuk $n = k$:
+\[ 1 + 3 + 5 + \ldots + (2k - 1) = k^2 \]
+
+\textbf{Langkah Induksi}: Buktikan untuk $n = k + 1$:
+\[ 1 + 3 + 5 + \ldots + (2k - 1) + (2(k+1) - 1) = (k+1)^2 \]
+
+Ruas kiri:
+\begin{align*}
+&\underbrace{1 + 3 + 5 + \ldots + (2k - 1)}_{= k^2 \text{ (hipotesis induksi)}} + (2k + 1) \\
+&= k^2 + 2k + 1 \\
+&= (k + 1)^2
+\end{align*}
+
+Ruas kiri $= (k+1)^2 =$ ruas kanan. Langkah induksi terbukti. $\blacksquare$
+\end{contoh}
+
+\subsection{Pentingnya Langkah Basis}
+
+\begin{catatan}
+Langkah basis \textbf{tidak boleh dilewatkan}, meskipun tampak sepele. Tanpa langkah basis, ``rantai domino'' tidak memiliki titik awal. Langkah induksi hanya mengatakan ``\textit{jika} batu ke-$k$ jatuh, \textit{maka} batu ke-$(k+1)$ juga jatuh'' --- tetapi tanpa memastikan bahwa batu pertama benar-benar jatuh, tidak ada jaminan bahwa prosesnya dimulai.
+
+Contoh berbahaya: tanpa langkah basis, kita bisa ``membuktikan'' bahwa semua bilangan bulat positif sama (yang jelas salah). Ini menunjukkan bahwa kedua langkah (basis \textbf{dan} induksi) secara bersama-sama diperlukan agar bukti valid.
+\end{catatan}
