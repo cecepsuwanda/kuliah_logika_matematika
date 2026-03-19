@@ -1,38 +1,139 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{1}}{}
 \begin{document}
 
-\chapter{Pengenalan Mengenai Logika Matematika}
+\chapter{Landasan Teori dan Konsep Dasar Logika Matematika}
+
+Setelah menyelesaikan bab ini, mahasiswa diharapkan tidak lagi memandang logika matematika hanya sebagai hafalan teoretis. Bab ini memaparkan perkembangan logika dari fondasi filosofis hingga penerapannya dalam pengembangan perangkat lunak, kecerdasan buatan, dan rangkaian terpadu.
 
 \begin{subcpmk}
-  \item Mahasiswa mampu mengartikulasikan definisi logika secara umum dan matematika secara khusus.
-  \item Mahasiswa mampu menyadari pentingnya kedudukan logika matematika dalam ilmu komputasi dan teknik informatika.
+  \item \textbf{Sub-CPMK 1.1:} Mahasiswa mampu menjelaskan konsep dasar proposisi, nilai kebenaran, dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+  \item \textbf{Sub-CPMK 1.2:} Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
+  \item \textbf{Sub-CPMK 1.3:} Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi (modus ponens, modus tollens, silogisme) dalam memecahkan persoalan komputasi dasar.
+  \item \textbf{Sub-CPMK 2.1:} Mahasiswa mampu menjelaskan konsep dasar logika predikat, fungsi proposisional, dan ruang lingkup pembicaraan (\textit{universe of discourse}).
+  \item \textbf{Sub-CPMK 2.2:} Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial.
+  \item \textbf{Sub-CPMK 2.3:} Mahasiswa mampu memodelkan masalah komputasi yang terstruktur dengan merepresentasikan logika predikat sebagai basis perancangan algoritma.
+  \item \textbf{Sub-CPMK 3.1:} Mahasiswa mampu mendefinisikan prinsip-prinsip dan hukum-hukum dasar Aljabar Boolean.
+  \item \textbf{Sub-CPMK 3.2:} Mahasiswa mampu menyederhanakan fungsi logika menggunakan hukum Aljabar Boolean atau Peta Karnaugh (K-Map).
+  \item \textbf{Sub-CPMK 3.3:} Mahasiswa mampu mengonversi dan merepresentasikan fungsi logika yang telah disederhanakan ke dalam bentuk rangkaian gerbang logika dasar pembentuk sistem komputer.
+  \item \textbf{Sub-CPMK 4.1:} Mahasiswa mampu menerapkan berbagai metode pembuktian matematis dasar (pembuktian langsung, pembuktian tidak langsung/kontradiksi, dan kontraposisi).
+  \item \textbf{Sub-CPMK 4.2:} Mahasiswa mampu mengaplikasikan prinsip Induksi Matematika untuk membuktikan kebenaran sebuah deret atau properti dari algoritma rekursif sederhana.
+  \item \textbf{Sub-CPMK 4.3:} Mahasiswa mampu menyusun argumen matematis formal untuk memvalidasi langkah-langkah dalam penyelesaian masalah komputasi.
 \end{subcpmk}
 
-\section{Konsep dan Definisi Kunci}
-Logika berasal dari kata Yunani \textit{logos} yang berarti akal budi atau penalaran objektif. Logika Matematika merupakan satu cabang matematika diskrit yang menyediakan aturan-aturan yang diperlukan guna menetapkan, atau memutuskan, sah tidaknya suatu argumen formal, tanpa harus dibatasi keambiguan (ambiguity) bahasa sehari-hari.
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-02/section-2-1}
+\input{bab-02/section-2-2}
+\input{bab-02/section-2-3}
+\input{bab-02/section-2-4}
+\input{bab-02/section-2-5}
+\input{bab-02/section-2-6}
 
-Dalam sejarahnya, logika berinti pada gagasan ilmuwan di era klasik hingga tokoh-tokoh seperti George Boole dan Kurt Gödel yang mentransisi diskursus kefilsafatan menjadi struktur mekanik terhitung.
-
-\begin{konsep}
-Bidang ilmu komputer dan Informatika sangat bertumpu pada Logika Matematika karena sifat mesin komputasi (komputer digital) itu sendiri beroperasi murni berdasarkan rangkaian *Low-High* / *True-False* / \textit{1-0} yang dimanifestasikan sebagai implementasi nyata dari logika klasik biner.
-\end{konsep}
-
-\section{Bagan Domain Logika Matematika}
-Buku ini akan mendedah tiga lapisan utama domain logika yang harus dikuasai oleh mahasiswa Teknik Informatika Universitas Bale Bandung:
-\begin{enumerate}
-    \item \textbf{Logika Proposisional:} Mengelola fakta dan argumen sederhana. 
-    \item \textbf{Logika Predikat:} Penarikan kesimpulan di tingkat fungsi proposisional. Menggunakan kuantor yang memodelkan iterasi atau koleksi himpunan data komputasi kompleks.
-    \item \textbf{Aljabar Boolean (\textit{Boolean Logic}):} Inti perangkat keras yang mengubah premis matematis menjadi sirkuit kelistrikan logika gerbang sistem PC modern.
-\end{enumerate}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Identifikasi pada platform apa atau bahasa pemrograman apa prinsip "Logika Komputasional" banyak dioperasikan? (Mis.: instruksi seleksi \texttt{if-else}).
+  \item \textbf{Analisis Kesalahan Inferensi:} Rancang sebuah argumen (2 premis + 1 kesimpulan) yang tidak valid secara struktur namun isi kalimatnya dapat bernilai benar secara faktual. Tukarkan argumen Anda dengan argumen invalid milik rekan kelas. Identifikasi mengapa aturan inferensinya cacat di mata logika formal.
+  \item \textbf{Latihan Penyederhanaan Ekspresi Boolean:} Diberikan rumus sirkuit $(A \lor \text{False}) \land (B \land \text{True})$. Gunakan hukum identitas Aljabar Boolean untuk menyederhanakan ekspresi tersebut. Hitung pengurangan komponen gerbang dan estimasi efisiensi biaya material yang dapat dicapai.
+  \item \textbf{Evaluasi Ekspresi Boolean dengan Python:} Jalankan skrip Python: \texttt{print((4 > 2) and not (3 == 3))}. Sebelum mengeksekusi, perkirakan apakah output bernilai \texttt{True} atau \texttt{False} berdasarkan evaluasi operan. Verifikasi dengan menjalankan kode.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Mempertimbangkan kontribusi George Boole yang secara fundamental mentransformasikan penalaran manusia menjadi operasi biner 1 (True) dan 0 (False), uraikan: Bagaimana dampaknya terhadap perkembangan Internet, Web modern, dan arsitektur RAM apabila konsep Aljabar Boolean tidak pernah dikembangkan?
+  \item Jelaskan kaitan antara kesalahan inferensi (\textit{fallacious reasoning}) dengan kesalahan logika (\textit{logic bugs}) dalam penulisan kode perangkat lunak. Pada titik mana kesesatan ``Penegasan Konsekuen'' (\textit{affirming the consequent}) paling sering muncul dalam struktur percabangan \texttt{IF--ELSE}?
+  \item Bandingkan: Apa perbedaan operasi yang dilakukan oleh kuantor predikat ($\forall$) dalam algoritma basis data SQL saat mengeksekusi klausa \texttt{WHERE} terhadap jutaan baris data dibandingkan dengan evaluasi \texttt{IF--ELSE} terhadap satu entitas?
+  \item Uraikan \textbf{Fallacy of Affirming the Consequent} sebagai kesesatan inferensi yang tidak valid. Mengapa penalaran dari akibat ke sebab (B membuktikan A) dianggap tidak sah dalam logika formal?
+  \item \textbf{Refleksi:} Di antara aplikasi utama logika matematika---pengendali alur sintaks perangkat lunak, filter query basis data/inferensi AI, atau rancangan sirkuit perangkat keras---bidang manakah yang paling sesuai dengan minat rekayasa Anda? Jelaskan alasannya.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian untuk Sub-CPMK Bab 2}
+
+\textbf{A. Pemilihan Ganda Kritis}
+
+\begin{enumerate}
+  \item Kontribusi utama George Boole dalam \textit{The Laws of Thought} (1854) yang dapat dianggap sebagai fondasi bagi mikroprosesor transistor CPU di abad berikutnya adalah:
+  \begin{enumerate}
+    \item Merancang gerbang listrik 5 Volt.
+    \item Merumuskan hukum inferensi Modus Ponens dalam bahasa awam.
+    \item Mentransformasikan penalaran retorika menjadi operasi matematika biner (1/0) Boolean.
+    \item Menemukan arsitektur chip motherboard.
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Argumen: ``Jika Naga adalah mamalia, maka Naga betina bertelur di dasar samudera.'' Diberikan premis ``Naga adalah mamalia'' (bernilai benar dalam konteks fiksi). Status validitas argumen ini secara logika formal adalah:
+  \begin{enumerate}
+    \item Invalid, karena premis bersifat fiktif.
+    \item Valid secara struktur, karena mematuhi aturan inferensi terlepas dari kebenaran faktual premis.
+    \item Tidak dapat ditentukan karena variabel Naga belum didefinisikan dalam himpunan.
+    \item Sesat pikir penegasan berbalik.
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Diberikan percabangan \path{IF (Status_Dewa OR Armor_Emas) AND (NOT Terkena_Racun)}. Jika pemain terkena racun (\texttt{Terkena\_Racun = True}) tetapi memakai Armor Emas (\texttt{Armor\_Emas = True}), hasil evaluasi ekspresi Boolean untuk karakter tersebut adalah:
+  \begin{enumerate}
+    \item \texttt{True}, karena komponen OR terpenuhi.
+    \item \texttt{False}, karena komponen \texttt{AND NOT Terkena\_Racun} bernilai \texttt{False}.
+    \item \texttt{True}, karena Status Dewa menang.
+    \item Tidak dapat ditentukan.
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Studi Kasus Evaluasi}
+
+\begin{enumerate}
+  \item Spesifikasi sirkuit menetapkan dua Gerbang AND yang disambungkan ke satu Gerbang NOT pada PCB. Gunakan hukum idempoten atau absorpsi Aljabar Boolean untuk menyederhanakan sirkuit tersebut. Laporkan pengurangan komponen dan estimasi efisiensi biaya pengadaan material (\textit{Bill of Materials}). Tunjukkan langkah penyederhanaan dan hasil akhir.
+\end{enumerate}
+
+\textbf{Rubrik penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Memahami pengertian akar Logika Matematika secara formal.
-  \item Mampu menyebutkan komponen utama apa saja yang menyusun Logika Komputasi.
+  \item Saya mampu membedakan validitas inferensi aljabar (berdasarkan struktur) dengan kebenaran faktual premis dalam dunia empiris.
+  \item Saya menguasai peran operator Boolean (AND, OR, NOT) sebagai dasar pengendali \textit{control flow} dalam bahasa pemrograman.
+  \item Saya memahami bagaimana logika predikat orde pertama menjadi dasar algoritma query SQL relasional dan mesin inferensi sistem pakar AI.
+  \item Saya mampu mencapai efisiensi rancangan gerbang logika (AND, OR) melalui penyederhanaan ekspresi Aljabar Boolean.
+  \item Saya memahami alur silabus dari logika proposisional atomik hingga tautologi, ekuivalensi, dan rancangan sirkuit.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 2 menjelaskan landasan teoretis logika matematika dan penerapannya.
+
+\textbf{Poin-poin utama:}
+\begin{itemize}
+  \item Logika bermula dari analisis bahasa awam (\textit{syllogistic}) Aristoteles, kemudian dikembangkan menjadi operasi matematika biner oleh \textbf{George Boole}.
+  \item \textbf{Pembedaan validitas} memisahkan ketat antara kebenaran faktual dengan keabsahan struktur inferensi. Suatu argumen dapat valid secara formal meskipun premisnya bersifat fiktif, asalkan mematuhi aturan inferensi.
+  \item Kompiler perangkat lunak modern menggunakan prinsip kalkulus Boolean untuk mengendalikan percabangan \texttt{IF--ELSE} dalam algoritma.
+  \item Logika predikat (kuantor) menjadi dasar pencarian terstruktur pada basis data relasional (SQL) dan mesin inferensi sistem pakar AI.
+  \item Pemetaan tegangan listrik High (1) dan Low (0) menerjemahkan hukum abstrak Boolean ke dalam gerbang logika sirkuit silikon (AND, OR, NOT). Penyederhanaan ekspresi Boolean dapat mengurangi biaya produksi material secara signifikan.
+\end{itemize}
+
+\textbf{Kata kunci}: Silogisme Aristotelian, Aljabar Boolean, anatomi argumen, validitas struktural vs kebenaran faktual, percabangan kode perangkat lunak, gerbang logika, aljabar relasional.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

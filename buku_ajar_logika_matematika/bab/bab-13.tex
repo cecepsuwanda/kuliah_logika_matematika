@@ -1,45 +1,156 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{13}}{}
 \begin{document}
 
-\chapter{Penyederhanaan Fungsi Logika (Hukum Aljabar Boolean dan K-Map)}
+\chapter{Prinsip Induksi Matematika}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu mengoptimalkan unjuk kerja komputasional perangkat keras berbasis logika melalui penyederhanaan fungsi matematis Aljabar Boolean dan mereduksinya lewat metode visual Peta Karnaugh (\textit{Karnaugh Maps}).
+  \item \textbf{Sub-CPMK 4.2:} Mahasiswa mampu mengaplikasikan prinsip Induksi Matematika untuk membuktikan kebenaran sebuah deret atau properti dari algoritma rekursif sederhana.
 \end{subcpmk}
 
-\section{Urgensi Optimalisasi Spesifikasi Logika (Simplifikasi Sum of Products)}
-Menyusun langsung untaian logik Tabel Kebenaran faktual menjadi \textit{Sirkuit Boolean Sum of Products} / (Sum Of Minterms - SOP) acapkali melahirkan spesifikasi matematis yang memakan sangat banyak gerbang fisik kelistrikan IC (Integrated Circuits). Pengurangan redudansi/biaya dan panas (termodinamika mikroprosesor) amat krusial di Teknik Informatika \textit{Computer Engineering}. Oleh karenanya, \textit{Boolean Function Simplification} digarap secara sistematis baik lewat manipulasi aljabar teoretik 100\% rumus, maupun Peta Geometris \textit{K-Map}.
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-13/section-13-1}
+\input{bab-13/section-13-2}
+\input{bab-13/section-13-3}
+\input{bab-13/section-13-4}
+\input{bab-13/section-13-5}
+\input{bab-13/section-13-6}
+\input{bab-13/section-13-7}
 
-\begin{contoh}
-Reduksi Komputasional Sirkuit secara Aljabar Klasik:
-Fungsi $F(x, y, z) = x\cdot y\cdot z + x\cdot y'\cdot z + x\cdot y\cdot z'$
-1. Manipulatif asosiatif $x\cdot z \cdot (y + y') + x\cdot y\cdot z'$
-2. Karena $(y+y') = 1$ , fungsi termampat konklusinya $F = x\cdot z + x\cdot y\cdot z'$
-3. Terapkan hukum distributif $F = x \cdot (z + y\cdot z')$
-4. Teorema Redudansi memampatkannya kian kecil hingga fungsi ini diproses absolut $100\%$ sama akurasinya via: $F = x(z+y) = xz + xy$. Spesifikasi lebih sedikit kabel gerbang kelistrikan.
-\end{contoh}
-
-\section{Metodologi Karnaugh Map (K-Map/Peta Karnaugh)}
-K-Map adalah matrik visual/grafis memukau yang dieksplorasi sistematis oleh Maurice Karnaugh, yang mendaur bentuk susunan *Redudansi Input Boolean* menggunakan pemetaan letak sel (\textit{Spatial Gray Code Adjacency}).
-Metode ini paling efisien bagi jumlah spesifikasi *variable input* komputasional kecil (2-Var hingga optimal 4-Var logikal).
-
-\subsection{Pola Peraturan Klasifikasi Pembungkusan K-Map}
-1. \textbf{Pemetaan Minterm $1$}: Setelah mentabulasi deret output logis $F$ (berstatus True $1$) berdasar posisinya di K-Map, \textit{highlight/tandai} kotak cell $1$.
-2. \textbf{Perbungkusan Adjacency/Pengulungan (*Looping/Grouping*)}: Susun bungkusan sub-kumpulan secara horisontal atau vertikal dari sel yang diarsir $1$. \textit{Ukuran Bungkus wajib berbentuk komputasi kuadrat biner!} Yakni: boleh berisi 1 sel blok tunggal, 2 sel kembar (Sepasang), 4 sel bersebelahan/petak kuadran, 8 sel blok kubus utuh komputasi, dst.
-3. \textbf{Hukum Bungkus \textit{Overlapping} Diagonal}: DILARANG memblok kelompok grup K-map secara menyilang diagonal. Dan Boleh tumpang tindih grup, manfaatkan pembungkus \textit{Pac-Man Effect} (Sel tepi memutar mengikat sel pojok seberangnya).
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Desain rancangan fungsi $F(A,B,C) = \Sigma m(0, 1, 2, 5, 6, 7)$ (angka \textit{minterms}). Buat kisi/tabel pemetaan silang matriks $3$ Variabel K-Map ini dan demonstrasikan di hadapan sejawat Anda area kotak mana yang sah digabung jadi kuadran logikal 4!
+  \item \textbf{Induksi pada deret:} Buktikan dengan induksi: $\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$ untuk setiap $n \geq 1$.
+  \item \textbf{Pertidaksamaan:} Buktikan dengan induksi: $2^n > n$ untuk setiap $n \geq 1$.
+  \item \textbf{Keterbagian:} Buktikan dengan induksi: $3 \mid (n^3 - n)$ untuk setiap $n \geq 1$.
+  \item \textbf{Induksi kuat:} Buktikan dengan induksi kuat: setiap bilangan bulat $n \geq 2$ memiliki faktor prima.
+  \item \textbf{Kesalahan induksi:} Identifikasi dan jelaskan kesalahan pada ``bukti'' bahwa ``Semua kuda memiliki warna yang sama.'' (Petunjuk: periksa langkah induksi ketika $k = 1$.)
+  \item \textbf{Deret pecahan:} Buktikan dengan induksi: $\sum_{i=1}^{n} \frac{1}{i(i+1)} = \frac{n}{n+1}$ untuk setiap $n \geq 1$.
+  \item \textbf{Induksi lemah vs kuat:} Bandingkan bukti induksi lemah dan induksi kuat untuk: ``Setiap nilai $\geq 12$ sen dapat dibentuk dari perangko 4 sen dan 5 sen.'' Gunakan induksi kuat.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Mereduksi Fungsi Boolean 4-Variabel. Berikan sintesis ringkas reduksi dari fungsivariabel input $F(w,x,y,z)$ berderet sel \textit{minterms} (status bernilai True) di koordinat: $(1, 3, 5, 7, 12, 13, 14, 15)$. Tulis ringkasan rumus *SOP Optimized*-nya sesudah pengelompokan K-Map Anda.
+  \item Buktikan dengan induksi: $1 + 2 + 4 + \cdots + 2^n = 2^{n+1} - 1$ untuk setiap $n \geq 0$.
+  \item Buktikan dengan induksi: $\sum_{i=1}^{n} i^3 = \bigl(\frac{n(n+1)}{2}\bigr)^2$ untuk setiap $n \geq 1$.
+  \item Buktikan dengan induksi: $n^2 \leq 2^n$ untuk setiap $n \geq 4$.
+  \item Buktikan dengan induksi: $5 \mid (6^n - 1)$ untuk setiap $n \geq 0$.
+  \item Buktikan dengan induksi: jumlah sudut dalam poligon konveks dengan $n$ sisi ($n \geq 3$) adalah $(n-2) \cdot 180^\circ$.
+  \item Buktikan dengan induksi kuat: setiap bilangan bulat $n \geq 2$ dapat ditulis sebagai hasil kali bilangan prima (tidak harus berbeda).
+  \item Buktikan dengan induksi: $F_1 + F_2 + \cdots + F_n = F_{n+2} - 1$, dengan $F_n$ bilangan Fibonacci ke-$n$.
+  \item \textbf{Refleksi:} (a) Dalam analogi domino, mengapa cukup membuktikan basis dan langkah induksi agar seluruh pernyataan terbukti? Apa yang terjadi jika salah satu syarat tidak terpenuhi? (b) Dapatkah bilangan riil digunakan sebagai parameter dalam induksi matematika? Jelaskan batasan domain yang sesuai.
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 4.2)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Prinsip induksi matematika terdiri dari dua komponen:
+  \begin{enumerate}
+    \item Langkah basis dan langkah deduksi
+    \item Langkah basis dan langkah induksi
+    \item Hipotesis dan konklusi
+    \item Premis dan kontradiksi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Dalam langkah induksi, yang diasumsikan adalah:
+  \begin{enumerate}
+    \item $P(n)$ benar untuk semua $n$
+    \item $P(k)$ benar untuk sembarang $k \geq n_0$ (hipotesis induksi)
+    \item $P(k+1)$ benar
+    \item $P(n_0)$ benar
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Perbedaan utama induksi kuat dari induksi lemah adalah:
+  \begin{enumerate}
+    \item Induksi kuat tidak memerlukan langkah basis
+    \item Induksi kuat mengasumsikan kebenaran $P(n_0), \ldots, P(k)$
+    \item Induksi kuat hanya berlaku untuk bilangan ganjil
+    \item Induksi kuat selalu menghasilkan bukti lebih pendek
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Jika langkah induksi valid tetapi langkah basis gagal, maka:
+  \begin{enumerate}
+    \item Pernyataan terbukti benar
+    \item Pernyataan terbukti salah
+    \item Bukti induksi tidak valid
+    \item Diperlukan bukti langsung tambahan
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Induksi kuat sangat berguna untuk membuktikan:
+  \begin{enumerate}
+    \item Formula penjumlahan sederhana
+    \item Pertidaksamaan eksponensial
+    \item Sifat bilangan yang melibatkan partisi atau dekomposisi
+    \item Identitas trigonometri
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Jelaskan perbedaan induksi lemah dan induksi kuat. Berikan contoh pernyataan yang lebih tepat dibuktikan dengan induksi kuat.
+  \item Buktikan dengan induksi: $\sum_{i=0}^{n} 3^i = \frac{3^{n+1} - 1}{2}$ untuk setiap $n \geq 0$. Tulis setiap langkah dengan justifikasi.
+  \item Buktikan dengan induksi kuat: setiap bilangan bulat $n \geq 8$ dapat dinyatakan sebagai $n = 3a + 5b$ untuk bilangan bulat non-negatif $a$ dan $b$.
+\end{enumerate}
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Mampu mensitasi dan mencari simplifikasi manual abstraksi dengan rumus $xy + x' = (x+x')(y+x') \dots$
-  \item Bisa memblok (Grouping) kotak matriks pada dimensi 4-Var \textit{Gray Code} Peta K-Map tanpa ada kelompok silang *Error Grouping Diagonal*.
+  \item Saya memahami prinsip induksi matematika dan analogi efek domino.
+  \item Saya mampu menyusun bukti induksi dengan template standar: basis, hipotesis induksi, langkah induksi, kesimpulan.
+  \item Saya mampu membuktikan formula penjumlahan deret dengan induksi.
+  \item Saya mampu membuktikan pertidaksamaan dengan induksi.
+  \item Saya mampu membuktikan sifat keterbagian dengan induksi.
+  \item Saya memahami perbedaan induksi lemah dan induksi kuat serta kapan masing-masing digunakan.
+  \item Saya mampu menerapkan induksi kuat pada masalah faktorisasi dan rekursi.
+  \item Saya mampu mengidentifikasi kesalahan umum dalam bukti induksi (basis terlewat, hipotesis tidak digunakan, arah salah).
+  \item Saya memahami bahwa langkah basis dan langkah induksi keduanya wajib untuk bukti yang valid.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas induksi matematika sebagai teknik pembuktian fundamental untuk pernyataan yang melibatkan bilangan bulat.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Prinsip Induksi} dianalogikan dengan efek domino: jika batu pertama jatuh (basis) dan setiap batu yang jatuh menjatuhkan batu berikutnya (langkah induksi), maka seluruh batu akan jatuh.
+  \item \textbf{Induksi lemah} mengasumsikan hanya $P(k)$ pada hipotesis induksi dan membuktikan $P(k+1)$. Cocok untuk formula penjumlahan, pertidaksamaan, dan keterbagian di mana $P(k+1)$ hanya bergantung pada $P(k)$.
+  \item \textbf{Induksi kuat} mengasumsikan kebenaran $P(n_0), \ldots, P(k)$ secara serentak. Diperlukan ketika $P(k+1)$ bergantung pada beberapa nilai sebelumnya, seperti pada faktorisasi prima dan sifat deret Fibonacci.
+  \item Kedua langkah (basis \textbf{dan} induksi) wajib ada. Basis tanpa induksi tidak membuktikan apa-apa di luar nilai awal. Induksi tanpa basis adalah rantai implikasi tanpa titik awal.
+  \item Kesalahan umum: melupakan basis, tidak menggunakan hipotesis induksi, penalaran sirkuler, dan basis yang tidak tepat.
+\end{itemize}
+
+\textbf{Kata Kunci}: induksi matematika, langkah basis, langkah induksi, hipotesis induksi, induksi lemah, induksi kuat, efek domino, deret, pertidaksamaan, keterbagian, Fibonacci
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

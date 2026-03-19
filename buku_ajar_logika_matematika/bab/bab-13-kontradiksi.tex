@@ -1,0 +1,74 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{12}}{}
+\begin{document}
+
+\chapter{Pembuktian Tidak Langsung dan Kontradiksi}
+
+\begin{subcpmk}
+  \item \textbf{Sub-CPMK 4.1:} Mahasiswa mampu menerapkan berbagai metode pembuktian matematis dasar (pembuktian langsung, pembuktian tidak langsung/kontradiksi, dan kontraposisi).
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-12/section-12-5}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+\begin{aktivitas}
+  \item Buktikan secara kontradiksi: ``$\sqrt{3}$ adalah bilangan irasional.'' (Petunjuk: ikuti pola bukti irasionalitas $\sqrt{2}$.)
+  \item Buktikan dengan kontradiksi: ``Jika $n^2$ habis dibagi 3, maka $n$ habis dibagi 3.''
+  \item Diskusikan perbedaan antara bukti kontraposisi dan bukti kontradiksi. Kapan masing-masing lebih tepat digunakan?
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+\begin{latihan}
+  \item Buktikan secara kontradiksi: ``Tidak ada bilangan bulat terbesar.''
+  \item Buktikan: ``Jumlah bilangan rasional dan bilangan irasional adalah irasional'' (gunakan kontradiksi).
+  \item \textbf{Refleksi}: Dalam konteks verifikasi perangkat lunak, bagaimana konsep kontradiksi (asumsi salah mengarah ke kemustahilan) terkait dengan teknik \textit{model checking}?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+\begin{asesmen}
+\textbf{Instrumen untuk Sub-CPMK 4.1 (Pembuktian Kontradiksi)}
+
+\begin{enumerate}
+  \item Pembuktian bahwa $\sqrt{2}$ irasional menggunakan metode:
+  \begin{enumerate}
+    \item Bukti langsung \item Bukti kontraposisi \item Bukti kontradiksi \item Bukti exhaustif
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Buktikan dengan kontradiksi: ``Terdapat tak berhingga banyak bilangan prima.'' (Petunjuk: gunakan konstruksi $N = p_1 p_2 \cdots p_n + 1$.)
+\end{enumerate}
+
+\textbf{Rubrik}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+\begin{checklist}
+  \item Saya mampu menyusun bukti kontradiksi dengan mengasumsikan negasi dan menurunkan kemustahilan
+  \item Saya memahami perbedaan antara bukti kontraposisi dan bukti kontradiksi
+  \item Saya dapat memilih penggunaan kontradiksi untuk pernyataan eksistensial negatif atau ketidakmungkinan
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\begin{rangkuman}
+Bab ini membahas \textbf{pembuktian tidak langsung dengan kontradiksi}. Untuk membuktikan pernyataan $P$, kita mengasumsikan $\neg P$ benar lalu menurunkan suatu kontradiksi (pernyataan yang mustahil benar). Karena asumsi mengarah ke kemustahilan, $P$ harus benar. Kontradiksi sangat berguna untuk membuktikan irasionalitas (misalnya $\sqrt{2}$), ketidakberhinggaan (misalnya bilangan prima), dan pernyataan negatif. Kontradiksi berbeda dari kontraposisi: kontraposisi hanya berlaku untuk implikasi $p \rightarrow q$ dengan membuktikan $\neg q \rightarrow \neg p$; kontradiksi berlaku untuk semua jenis pernyataan.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

@@ -1,0 +1,80 @@
+\section{Pembuktian dengan Kontraposisi}
+
+Tidak jarang pembuktian langsung menghadapi hambatan teknis --- misalnya ketika manipulasi aljabar dari hipotesis $p$ menuju kesimpulan $q$ menjadi rumit atau tidak alami. Dalam situasi tersebut, pembuktian dengan \logic{kontraposisi} menjadi alternatif yang sangat efektif. Metode ini dilandasi oleh fakta bahwa implikasi $p \rightarrow q$ secara logis ekuivalen dengan kontraposisinya $\neg q \rightarrow \neg p$ \cite{rosen2019,forallx,libretexts_proofs}.
+
+\subsection{Landasan Logis}
+
+Ekuivalensi $p \rightarrow q \equiv \neg q \rightarrow \neg p$ dapat diverifikasi melalui tabel kebenaran:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c||c|c|c|c||c|}
+\hline
+$p$ & $q$ & $\neg p$ & $\neg q$ & $p \rightarrow q$ & $\neg q \rightarrow \neg p$ & Sama? \\ \hline
+T & T & F & F & T & T & Ya \\ \hline
+T & F & F & T & F & F & Ya \\ \hline
+F & T & T & F & T & T & Ya \\ \hline
+F & F & T & T & T & T & Ya \\ \hline
+\end{tabular}
+\end{center}
+
+Karena kedua kolom selalu menghasilkan nilai yang identik, keduanya merupakan ekspresi yang ekuivalen secara logis. Membuktikan kontraposisi $\neg q \rightarrow \neg p$ secara otomatis membuktikan implikasi asli $p \rightarrow q$.
+
+\subsection{Struktur Bukti Kontraposisi}
+
+Untuk membuktikan $p \rightarrow q$ melalui kontraposisi:
+
+\begin{enumerate}
+    \item \textbf{Asumsikan} $\neg q$ (negasi dari kesimpulan) bernilai benar.
+    \item \textbf{Gunakan} penalaran deduktif berdasarkan definisi, aksioma, dan teorema yang berlaku.
+    \item \textbf{Tunjukkan} bahwa $\neg p$ (negasi dari hipotesis) bernilai benar.
+\end{enumerate}
+
+\subsection{Kapan Menggunakan Kontraposisi?}
+
+Kontraposisi sangat berguna dalam situasi-situasi berikut:
+\begin{itemize}
+    \item Kesimpulan $q$ mengandung negasi atau kondisi ``tidak'' yang sulit diekspresikan secara positif.
+    \item Hipotesis $p$ bersifat kompleks sehingga sulit untuk memulai manipulasi aljabar darinya.
+    \item Negasi dari kesimpulan ($\neg q$) memberikan informasi yang lebih mudah diolah dibandingkan hipotesis aslinya.
+\end{itemize}
+
+\subsection{Contoh: Paritas \texorpdfstring{$3n+2$}{3n+2} dan \texorpdfstring{$n$}{n}}
+
+\begin{contoh}
+\textbf{Teorema}: Jika $3n+2$ adalah ganjil, maka $n$ adalah ganjil.
+
+\textbf{Mengapa bukti langsung sulit?} Dari $3n+2 = 2k+1$ (ganjil), didapat $n = \frac{2k-1}{3}$. Pembagian oleh 3 menyulitkan pembuktian bahwa hasilnya ganjil.
+
+\textbf{Bukti (Kontraposisi):} Buktikan kontraposisi: ``Jika $n$ genap, maka $3n+2$ genap.''
+
+\begin{enumerate}
+    \item Asumsikan $n$ genap ($\neg q$). Maka $n = 2k$ untuk suatu bilangan bulat $k$.
+    \item Hitung $3n + 2$:
+    \[ 3n + 2 = 3(2k) + 2 = 6k + 2 = 2(3k + 1) \]
+    \item Misalkan $m = 3k + 1$. Karena $k$ bilangan bulat, maka $m$ bilangan bulat.
+    \item Sehingga $3n + 2 = 2m$, yang berbentuk bilangan genap ($\neg p$).
+    \item Kontraposisi terbukti, maka teorema asli juga terbukti. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\subsection{Contoh: Kuadrat Genap Implies Bilangan Genap}
+
+\begin{contoh}
+\textbf{Teorema}: Jika $n^2$ genap, maka $n$ genap.
+
+\textbf{Bukti (Kontraposisi):} Buktikan: ``Jika $n$ ganjil, maka $n^2$ ganjil.''
+
+\begin{enumerate}
+    \item Asumsikan $n$ ganjil. Maka $n = 2k + 1$ untuk suatu bilangan bulat $k$.
+    \item Hitung $n^2$:
+    \[ n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1 \]
+    \item Misalkan $m = 2k^2 + 2k$, yang merupakan bilangan bulat.
+    \item Sehingga $n^2 = 2m + 1$, yang berbentuk bilangan ganjil.
+    \item Kontraposisi terbukti: $n$ ganjil $\Rightarrow$ $n^2$ ganjil. Maka kontraposisinya, ``$n^2$ genap $\Rightarrow$ $n$ genap,'' juga terbukti. $\blacksquare$
+\end{enumerate}
+\end{contoh}
+
+\begin{catatan}
+Perhatikan bahwa contoh kedua (``$n^2$ genap $\Rightarrow$ $n$ genap'') sangat sulit dibuktikan secara langsung karena dari $n^2 = 2k$ kita memperoleh $n = \sqrt{2k}$, dan tidak ada cara langsung untuk menyimpulkan bahwa $\sqrt{2k}$ genap. Kontraposisi menghindari akar kuadrat dan membuat bukti mengalir dengan natural.
+\end{catatan}

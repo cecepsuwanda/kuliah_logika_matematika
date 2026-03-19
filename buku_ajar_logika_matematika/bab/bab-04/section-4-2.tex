@@ -1,0 +1,40 @@
+\section{Konsep Ekuivalensi Logis Melalui Tabel Kebenaran}
+
+Dari sekian banyak tugas seorang matematikawan atau \textit{Software Engineer}, barangkali yang tersulit adalah memastikan bahwa dua buah argumen/rancangan kode yang zahirnya kelihatan jauh berbeda—baik secara panjang kata maupun pilihan strukturnya—ternyata ekuivalen melahirkan substansi dampak hasil (*output*) yang persis 100\% identik kembar siam \cite{rosen2019}.
+
+\subsection{Parameter Ekuivalensi Mutlak}
+
+\begin{definisi}[Ekuivalen Logis]
+Dua buah proposisi majemuk $P$ dan $Q$ dianugerahkan gelar mulia \logic{Ekuivalen Logis} (ditandai dengan simbol garpu tiga $\equiv$ atau kadangkala $\Leftrightarrow$) apabila dan hanya apabila keduanya mencetak lajur kolom nilai kebenaran yang kembar absolut mutlak di dalam pemetaan Tabel Kebenaran paripurna. \\
+Secara aljabar, ini setara dengan membuktikan bahwa susunan majemuk gabungan $(P \leftrightarrow Q)$ menelurkan sebuah pilar \textbf{Tautologi}.
+\end{definisi}
+
+\subsection{Uji Forensik Tabel Kebenaran Ekuivalensi}
+
+Tabel Kebenaran adalah metode observasi *brute-force* pamungkas. Mesin ini agak lambatm namun menggaransi kesahihan empiris tingkat Dewa. Mari kita adili klaim keruh sebuah Ekuivalensi Hukum De Morgan purba: 
+\begin{center}
+"Benarkah klaim dewa logika bahwa membalik Negasi kurung $\neg(p \wedge q)$ lantas melahirkan kembaran ekuivalen berupa $\neg p \vee \neg q$?"
+\end{center}
+
+Mari kita bentangkan arena Tabel Kebenaran dimensi 4-Baris berparameter $p$ dan $q$:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c||c|c||c|c||c|}
+\hline
+\textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$\neg q$} & \textbf{Langkah $p \wedge q$} & \textbf{Objek A: $\neg(p \wedge q)$} & \textbf{Objek B: $\neg p \vee \neg q$} \\
+\hline
+T & T & F & F & T & \textbf{F} & \textbf{F} \\
+T & F & F & T & F & \textbf{T} & \textbf{T} \\
+F & T & T & F & F & \textbf{T} & \textbf{T} \\
+F & F & T & T & F & \textbf{T} & \textbf{T} \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Bedah Hasil Pengadilan Forensik:} \\
+Arahkan fokus mikroskopis Anda pada Kolom **Objek A** mendampingi Kolom **Objek B**. Menakjubkan! Urutan cetakan genetik *(F, T, T, T)* dari Objek A bersalin rupa menjiplak dengan akurasi 100\% tak terdefleksi seujung rambutpun pada urutan *(F, T, T, T)* milik Objek B.
+
+Lantaran pemetaan di atas sinkron mutlak di kala senantiasa merespons 4 skenario realitas alam semesta inputan T dan F, Hakim Matematika memukul palu menyatakan sah status: \textbf{Keduanya adalah EKUIVALEN ($\equiv$)}. 
+
+Tabel Kebenaran ini sungguh ajaib membebaskan pikiran manusia dari debat kusir panjang. Tapi tentu kita bisa membayangkan; aduhai lelahnya jemari jika dipaksa harus melukis 16 baris Tabel Kebenaran rutin setiap mendapati soal 4 variabel abstrak ($p, q, r, s$). Untuk memitigasi derita buruh gambar tabel itulah, ilmuwan menciptakan sekumpulan relik sontekan rumus \textbf{Hukum Dasar Aljabar Logika} \cite{wiki_proplogic}.

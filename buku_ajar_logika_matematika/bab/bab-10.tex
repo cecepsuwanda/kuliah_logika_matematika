@@ -1,56 +1,165 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{9}}{}
 \begin{document}
 
-\chapter{Kuantor Universal dan Kuantor Eksistensial}
+\chapter{Penyederhanaan Fungsi Logika (Hukum Aljabar Boolean dan Peta Karnaugh)}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial secara lugas.
+  \item \textbf{Sub-CPMK 3.2:} Mahasiswa mampu menyederhanakan fungsi logika menggunakan hukum Aljabar Boolean atau Peta Karnaugh (K-Map).
 \end{subcpmk}
 
-\section{Pendahuluan Kuantifikasi Komputasi}
-Untuk mengatasi keterbatasan Logika Proposisi dalam merepresentasikan *collection of items* / himpunan instansiasi logik yang sangat besar di ilmu komputer (Database, Array iterasi fungsi), digunakan alat spesifikasi batas kuantitas yang berakar dari operator Kalkulus, yakni \textbf{Kuantor} (Quantifier).
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-10/section-10-1}
+\input{bab-10/section-10-2}
+\input{bab-10/section-10-3}
+\input{bab-10/section-10-4}
+\input{bab-10/section-10-5}
+\input{bab-10/section-10-6}
+\input{bab-10/section-10-7}
 
-Kuantor men-skala-kan properti "Kebenaran" milik suatu fungsi predikat $P(x)$ agar menjangkau / di\_binding ke setiap elemen domain *Universe Of Discourse* ($U$).
-
-\section{Kuantor Universal ($\forall$)}
-Frasa "Semua", "Setiap", "Seluruh", diterjemahkan formal dengan simbol Kuantor Universal ($\forall$, sebuah huruf A yang digambar terbalik dari kata "*All*").
-
-Ekspresinya ditulis matematis $\forall x \ P(x)$, dibaca: \textit{"Untuk semua x (di ranah himpunan $U$), berlaku sifat $P(x)$."}
-
-\begin{konsep}
-Kuantor Universal identik hubungannya dengan gerbang **Logika AND ($\land$)** yang diulang masif untuk seluruh anggota $U$.
-Bila $U = \{1, 2, 3\}$, maka klaim $\forall x \ P(x)$ secara teknis operasional adalah sintesis evaluasi logikal absolut dari: $P(1) \land P(2) \land P(3)$. Jika ada **Satu Saja** var data yang menyebabkan fungsi P salah (False), maka seluruh pernyataan Kuantor Universal ini sontak runtuh (*False loop breaker*).
-\end{konsep}
-
-\section{Kuantor Eksistensial ($\exists$)}
-Frasa longgar komputasi pencarian data/ \textit{query filter matching} seperti "Ada", "Terdapat setidaknya satu", atau "Beberapa", diwakili simbol Kuantor Eksistensial ($\exists$, huruf E simetrik dari kata "*Exists*").
-
-Notasi standar komputasinya adalah $\exists x \ P(x)$, secara semantik dinarasikan \textit{"Ada (setidaknya satu) $x$ sedemikian rupa sehingga sifat predikat $P(x)$ itu benar/True."}
-
-\begin{konsep}
-Kuantor Eksistensial sejajar dengan gerbang **Logika OR ($\lor$)** makro algoritmik. Bila $U = \{1, 2, 3\}$, klaim $\exists x \ P(x)$ setara ekspresi operasi mesin seleksi komparator Boolean: $P(1) \lor P(2) \lor P(3)$. Cukup kompilator menjumpai **satu saja** temuan data bernilai T, maka perulangan algoritma akan tervalidasi True sukses.
-\end{konsep}
-
-\begin{contoh}
-Terjemahan Bahasa Alami ke Logika Predikat Komputasi:
-- "Setiap \textit{process} komputasi ($P$) yang kelebihan *load* CPU ($L$) akan dibekukan oleh OS server ($B$)".
-Terjemahan: $\forall x \ (P(x) \land L(x) \rightarrow B(x))$
-- "Ada setidaknya satu \textit{file} ($F$) di \textit{Directory Root} ini yang terinfeksi \textit{malware} ($M$)".
-Terjemahan: $\exists x \ (F(x) \land M(x))$
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Berlatihlah di grup menerjemahkan negasi kompleks dari algoritma spesifikasi ini: Apa bedanya algoritma yang dideklarasikan dengan formal $\sim(\forall x P(x))$ dengan yang dikonstruksi secara formal sebagai eksistensial $\exists x (\sim P(x))$? Tunjukkan kesetaraannya secara logikal intuitif!
+  \item \textbf{Kode Gray:} Konstruksi urutan Kode Gray 4-bit secara rekursif (teknik refleksi). Verifikasi bahwa setiap pasangan bilangan berurutan hanya berbeda pada satu bit.
+  \item \textbf{K-Map 3 variabel:} Ubah $F(X,Y,Z) = X(Y' + Z)$ ke bentuk kanonik SOP ($\sum m$), petakan ke K-Map 3 variabel, lalu sederhanakan. Bandingkan hasil K-Map dengan penyederhanaan aljabar.
+  \item \textbf{K-Map 4 variabel:} Diberikan $G(A,B,C,D) = \sum m(0, 1, 2, 5, 8, 9, 10)$. Gambarkan K-Map 4 variabel, identifikasi prime implicant, tentukan essential prime implicant, dan tulis ekspresi minimal.
+  \item \textbf{Don't care:} Rancang fungsi Boolean untuk decoder BCD-ke-7-segmen (segmen ``a''). Manfaatkan 6 kondisi don't care ($m_{10}$--$m_{15}$) untuk mendapatkan ekspresi sesederhana mungkin.
+  \item \textbf{Quine-McCluskey:} Terapkan tahap pertama algoritma Quine-McCluskey pada $F(A,B,C) = \sum m(0, 1, 2, 5, 6, 7)$. Daftarkan semua prime implicant yang diperoleh.
+  \item \textbf{Verifikasi:} Bandingkan hasil penyederhanaan K-Map dan aljabar Boolean untuk $H(X,Y,Z) = \sum m(0, 2, 4, 5, 6)$. Jika berbeda, verifikasi ekuivalensinya dengan tabel kebenaran.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Ubah spesifikasi tekstual "Sistem komputasi melarang bahwa \textit{Ada user} yang memiliki kata sandi panjangnya di bawah 5 karakter" menjadi struktur Kuantor lengkap.
+  \item Diberikan $F(X,Y,Z) = \sum m(0, 1, 4, 5)$. Gambarkan Peta Karnaugh 3 variabel, identifikasi kelompok yang valid (termasuk wrap-around), dan tulis ekspresi minimal.
+  \item Buktikan bahwa $F = W'X'Y'Z + W'X'Y + WX'$ dapat disederhanakan menjadi tepat 2 suku dengan K-Map 4 variabel. Gambarkan K-Map dan tunjukkan kelompoknya.
+  \item Diberikan $G(A,B,C,D) = \sum m(0, 2, 3, 5, 7, 8, 10, 11, 14, 15)$.
+  \begin{enumerate}
+    \item Gambarkan K-Map 4 variabel.
+    \item Identifikasi semua prime implicant.
+    \item Tentukan essential prime implicant.
+    \item Tulis ekspresi Boolean minimal.
+  \end{enumerate}
+  \item Diberikan $H(A,B,C,D) = \sum m(1, 3, 5, 7, 9) + d(6, 12, 14)$. Gambarkan K-Map dan sederhanakan dengan memanfaatkan kondisi don't care secara optimal.
+  \item Jelaskan mengapa urutan label pada K-Map harus menggunakan Kode Gray dan bukan urutan biner standar. Berikan contoh kesalahan penyederhanaan jika urutan biner standar digunakan.
+  \item Diberikan $F(X,Y,Z) = \sum m(1, 2, 3, 4, 6, 7)$. Sederhanakan dengan: (a) K-Map, dan (b) aljabar Boolean. Verifikasi bahwa kedua hasil ekuivalen.
+  \item \textbf{Refleksi:} (a) Mengapa K-Map praktis hanya sampai 4--6 variabel? Adakah metode algoritmik yang lebih cocok untuk fungsi dengan banyak variabel? Bandingkan K-Map dengan Quine-McCluskey. (b) Dalam pemrograman, situasi apa yang menyerupai ``kondisi don't care''? Berikan contoh konkret di mana input tertentu tidak mungkin terjadi.
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 3.2)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Pada Peta Karnaugh, pengelompokan sel bernilai 1 yang bersebelahan harus berukuran:
+  \begin{enumerate}
+    \item Bebas
+    \item Kelipatan 2 (2, 4, 6, 8)
+    \item Pangkat 2 (1, 2, 4, 8, 16)
+    \item Angka ganjil
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Urutan label kolom pada K-Map 3 variabel yang benar (sesuai Kode Gray) adalah:
+  \begin{enumerate}
+    \item $00, 01, 10, 11$
+    \item $00, 01, 11, 10$
+    \item $00, 10, 01, 11$
+    \item $00, 11, 10, 01$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Pada K-Map 4 variabel, kelompok berukuran 4 sel mengeliminasi:
+  \begin{enumerate}
+    \item 1 variabel
+    \item 2 variabel
+    \item 3 variabel
+    \item 4 variabel
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Kondisi don't care pada Peta Karnaugh:
+  \begin{enumerate}
+    \item Harus selalu dianggap 0
+    \item Harus selalu dianggap 1
+    \item Dapat dianggap 0 atau 1 sesuai keuntungan penyederhanaan
+    \item Tidak boleh dimasukkan ke dalam kelompok
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Essential prime implicant adalah prime implicant yang:
+  \begin{enumerate}
+    \item Berukuran paling besar
+    \item Mencakup minterm yang tidak dicakup oleh prime implicant lainnya
+    \item Berisi paling sedikit literal
+    \item Mencakup sel don't care
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Jelaskan properti wrap-around pada Peta Karnaugh. Mengapa sel di kolom pertama bersebelahan dengan sel di kolom terakhir? Hubungkan dengan sifat Kode Gray.
+  \item Diberikan $F(A,B,C,D) = \sum m(0, 1, 4, 5, 8, 12)$. Sederhanakan dengan K-Map 4 variabel. Tunjukkan langkah, identifikasi prime implicant dan essential prime implicant.
+  \item Bandingkan metode K-Map dan algoritma Quine-McCluskey dari segi efektivitas, skalabilitas, dan kemudahan otomatisasi.
+\end{enumerate}
+
+\textbf{C. Coding (opsional)}
+
+Tulis program Python yang menerima daftar minterm dan jumlah variabel sebagai input, lalu menampilkan K-Map yang terisi dan mengidentifikasi kelompok yang mungkin.
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Paham fungsi pemetaan absolut fungsi AND / OR pada iterasi algoritmis.
-  \item Terampil merepresentasikan "Semua" ($\forall$) vs "Sebagian/Terdapat" ($\exists$).
+  \item Saya memahami keterbatasan metode aljabar dan motivasi penggunaan Peta Karnaugh.
+  \item Saya mampu mengonstruksi urutan Kode Gray dan menjelaskan sifat kedekatan satu-bit.
+  \item Saya mampu menggambar dan mengisi K-Map untuk 2, 3, dan 4 variabel.
+  \item Saya menguasai aturan pengelompokan: ukuran pangkat 2, bentuk persegi panjang, wrap-around, dan tumpang tindih.
+  \item Saya mampu mengidentifikasi kelompok, mengeliminasi variabel, dan memperoleh ekspresi minimal dari K-Map.
+  \item Saya mampu memanfaatkan kondisi don't care untuk mengoptimalkan hasil penyederhanaan.
+  \item Saya memahami prime implicant dan essential prime implicant serta dapat mengidentifikasinya pada K-Map.
+  \item Saya mengenal prinsip dasar algoritma Quine-McCluskey dan perbedaannya dengan K-Map.
+  \item Saya mampu memverifikasi hasil penyederhanaan K-Map dengan metode aljabar atau tabel kebenaran.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas Peta Karnaugh (K-Map) sebagai metode visual untuk menyederhanakan fungsi Boolean, yang melengkapi dan mengatasi keterbatasan metode penyederhanaan aljabar.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Peta Karnaugh dikembangkan oleh Maurice Karnaugh (1953) sebagai alat bantu visual yang memanfaatkan kemampuan pengenalan pola manusia untuk mengidentifikasi peluang penyederhanaan pada grid dua dimensi.
+  \item Kode Gray (\textit{Reflected Binary Code}) digunakan untuk memberi label baris dan kolom K-Map, memastikan bahwa sel-sel yang bersebelahan pada peta hanya berbeda pada satu variabel (jarak Hamming satu).
+  \item Aturan pengelompokan: kelompok harus berukuran pangkat 2 ($1, 2, 4, 8, \ldots$), berbentuk persegi panjang, dibuat sebesar mungkin, dan mencakup seluruh sel bernilai 1. Properti wrap-around menyatakan bahwa tepi kiri bersebelahan dengan tepi kanan, dan tepi atas bersebelahan dengan tepi bawah.
+  \item Kondisi don't care ($d$ atau $\times$) memungkinkan optimasi tambahan dengan memperlakukan sel tertentu sebagai 1 atau 0 sesuai keuntungan penyederhanaan.
+  \item Prime implicant adalah kelompok maksimal sel bernilai 1, dan essential prime implicant adalah prime implicant yang mencakup minterm yang tidak dicakup oleh prime implicant lainnya.
+  \item Algoritma Quine-McCluskey memberikan prosedur algoritmik (tabulasi) yang menjamin solusi optimal dan dapat diotomatisasi, cocok untuk fungsi dengan lebih dari 4 variabel di mana K-Map menjadi tidak praktis.
+\end{itemize}
+
+\textbf{Kata Kunci}: Peta Karnaugh, K-Map, Maurice Karnaugh, Kode Gray, kedekatan, wrap-around, pengelompokan, don't care, prime implicant, essential prime implicant, Quine-McCluskey
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

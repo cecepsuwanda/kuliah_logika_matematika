@@ -1,0 +1,59 @@
+\section{Modus Ponens dan Modus Tollens}
+
+Di antara setumpuk Aturan Inferensi baku yang ada sejak peradaban Yunani Kuno, formasi duo \textit{Modus} ini adalah yang paling sering berlalu-lalang di alam bawah sadar nalar manusia sehari-hari.
+
+\subsection{Modus Ponens (Hukum Pelepasan Positif)}
+
+Berasal dari lafal bahasa latin \textit{modus ponendo ponens} ("cara yang merumuskan dengan menetapkan"), Modus Ponens bertumpu kokoh pada karakteristik logis wajar dari operator Implikasi ($A \rightarrow B$). 
+
+\begin{teorema}[Modus Ponens]
+Bila kita telah memastikan ke absahan sebuah janji implikasi $p \rightarrow q$, dan secara bersamaan alam semesta mengonfirmasi bahwa pemicu asal sebab ($p$) sungguh terjadi nyata, maka kita diwajibkan menyimpulkan bahwa akibat ($q$) pasti akan mekar terjadi sesudahnya. 
+\end{teorema}
+
+\textbf{Anatomi Argumen Modus Ponens:}
+\[
+\begin{array}{cl}
+p \rightarrow q & \text{(Premis mayor: implikasi)} \\
+p & \text{(Premis minor: anteseden benar)} \\
+\hline
+\therefore q & \text{(Konklusi: konsekuen terwujud)}
+\end{array}
+\]
+
+\begin{contoh}
+Mari kita bedah validitas argumen kampus berikut:
+\begin{itemize}
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Jika Rini meraih skor TOEFL 500, maka Rini melenggang lulus syarat yudisium."
+    \item \textbf{Premis 2 ($p$)}: "Diketahui papan pengumuman membuktikan Rini menggenggam skor TOEFL 500."
+    \item \textbf{Kesimpulan Logis ($\therefore q$)}: "Maka Rini melenggang lulus syarat yudisium."
+\end{itemize}
+\end{contoh}
+Pembuktian tabel Tautologi dari $[(p \rightarrow q) \land p] \rightarrow q$ adalah nilai statis ALL-TRUE di keempat barisnya.
+
+\subsection{Modus Tollens (Hukum Penolakan Kontraposisi)}
+
+Modus berdarah latin \textit{modus tollendo tollens} ("cara menyangkal yang menyangkal") merupakan sisi keping mata uang sebelahnya. Jika Ponens menetapkan Akibat via kepastian Sebab, Modus Tollens menolak sebab ketika akibat gagal terwujud. Argumen ini menunggangi sifat Ekuivalensi Kontraposisi $(p \rightarrow q \equiv \neg q \rightarrow \neg p)$ yang telah dibuktikan pada Bab terdahulu \cite{rosen2019}.
+
+\begin{teorema}[Modus Tollens]
+Bila implikasi $p \rightarrow q$ benar dan kita mengetahui bahwa akibat bernilai salah ($\neg q$), maka dapat disimpulkan bahwa sebab juga bernilai salah ($\neg p$).
+\end{teorema}
+
+\textbf{Anatomi Argumen Modus Tollens:}
+\[
+\begin{array}{cl}
+p \rightarrow q & \text{(Premis mayor: implikasi)} \\
+\neg q & \text{(Premis minor: konsekuen salah)} \\
+\hline
+\therefore \neg p & \text{(Konklusi: anteseden salah)}
+\end{array}
+\]
+
+\begin{contoh}
+Simak argumen ala Detektif Sherlock Holmes:
+\begin{itemize}
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Jika Si Penjaga Kolam adalah sang pembunuh, maka sepatu boot miliknya hari ini pasti basah kuyup terkena lumpur parit."
+    \item \textbf{Premis 2 ($\neg q$)}: "Fakta Laboratorium Kepolisian membeberkan sepatu boot milik Penjaga Kolam kering kerontang menawan."
+    \item \textbf{Kesimpulan Logis ($\therefore \neg p$)}: "Maka Si Penjaga Kolam \textbf{Bukanlah} sang pembunuh berantai itu."
+\end{itemize}
+\end{contoh}
+Pembuktian tabel validitas Tautologi rumusan $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ menjamin konklusi ini mutlak benar seratus persen. Melalui pedoman ini aparat terpandu melepaskan sang Penjaga Kolam.

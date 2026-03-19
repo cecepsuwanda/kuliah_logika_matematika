@@ -1,51 +1,154 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{5}}{}
 \begin{document}
 
-\chapter{Tautologi, Kontradiksi, Ekivalensi Logis, dan Kontingensi}
+\chapter{Konsep Logika Predikat, Fungsi Proposisional, dan \textit{Universe of Discourse}}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu mengidentifikasi serta mengklasifikasikan formasi nilai proposisi ke dalam kelas validitas matematis (tautologi, kontradiksi, atau kontingensi).
-  \item Mahasiswa mampu membuktikan ekivalensi logis dari minimal dua pernyataan deklaratif program komputasi yang ekuivalen menggunakan manipulasi simbol.
+  \item \textbf{Sub-CPMK 2.1:} Mahasiswa mampu menjelaskan konsep dasar logika predikat, fungsi proposisional, dan ruang lingkup pembicaraan (\textit{universe of discourse}).
 \end{subcpmk}
 
-\section{Klasifikasi Kategori Komputasi Logis}
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-06/section-6-1}
+\input{bab-06/section-6-2}
+\input{bab-06/section-6-3}
+\input{bab-06/section-6-4}
+\input{bab-06/section-6-5}
+\input{bab-06/section-6-6}
+\input{bab-06/section-6-7}
 
-Berdasarkan nilai mutlak pada rekapitulasi kolom paling kanan Tabel Kebesarannya (evaluasi akhirnya), semua proposisi yang majemuk \textit{(compound propositions)} dapat dengan tegar diklasifikasikan ke tiga strata konseptual yang eksklusif satu sama lain. 
-
-\subsection{Tautologi}
-Tautologi (bahasa Inggris: \textit{Tautology}) dapat disederhanakan konsepnya menjadi proposisi majemuk dengan fungsi evaluasi yang bernilai \textbf{MUTLAK BENAR (TRUE/T)} untuk \textit{segala/keseluruhan} kombinasi pemetaan nilai-nilai kebenaran sub-preposisi elementernya. Ibarat pernyataan universal yang tak terkalahkan tanpa peduli prasyarat sistem manapun.
-
-Contoh ekspresi rasional yang paling mendasar: $p \lor \sim p$ (Apakah saat ini komputer sedang Nyala, ATAU komputer tidak Nyala). Kalimat logis ini pasti Tautologi absolut.
-
-\subsection{Kontradiksi}
-Lawan ontologis dari Tautologi adalah Kontradiksi. Ia dinistai selalu memberikan nilai \textbf{MUTLAK SALAH (FALSE/F)} pada tiap konstelasi \textit{truth assignment} untuk atom elemen independen di dalam sirkuit fungsi. \textit{Bug programming syntax rules semantik} yang umum adalah algoritma yang macet di *Logic Trap (Kontradiksi).*
-Contoh logis matematis: $p \land \sim p$ (Hal itu tak mungkin dapat terjadi secara bersamaan, ini adalah paradoks / \textit{error handler}).
-
-\subsection{Kontingensi}
-Mayoritas masalah real komputasi bukanlah bersifat absolut, dan bernaung dalam kelas Kontingensi. Kontingensi disederhanakan deskripsinya di mana ia punya setidaknya 1 baris hasil T dan setidaknya 1 baris hasil evaluasi berstatus F pada hasil tabel fungsi terminal akhirnya. Kebenarannya "BERGANTUNG" dari keadaan alam semesta logis preposisi sub-inputnya (\textit{state dependent conditional output}).
-
-\section{Ekivalensi Logis (Logical Equivalences)}
-Pada pengoptimalan algoritma kode baris \textit{(Compilers Semantic Analysis)}, pengembang mencari penulisan blok kode yang tercepat dikomputasikan namun "bernilai keluaran akhir identik dan tak beda nilainya di memori komputer". Dua sintaks proposisi majemuk komputasi direkognisi saling \textbf{Ekivalen secara logis} sekiranya susunan kolom di dalam pemetaan evaluasi \textit{Truth Table} finalnya menunjukkan hasil pencerminan nilai (\textit{T/F}) identik dan setara per baris iterasi secara totalnya.
-Disimbolisasi dengan bentuk ekuivalen tri-strip : $A \equiv B$.
-
-\begin{contoh}
-Hukum De Morgan: $\sim(p \lor q) \equiv \sim p \land \sim q$\\
-Kedua formasi matematis ini dipastikan ekuivalen alias berdimensi ekivalensi logis, membantah disjungsi setara nilainya dengan pemutakhiran konjungsi dari elemen dinegasikan paralel.
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Bentuklah argumen komputasi: $p \rightarrow q$. Apa pola ekivalensi logis untuk kalimat kondisional tersebut bila diubah ke dalam gabungan proposisi Disjungsi ($\lor$) atau Negasi dasar? (Petunjuk: Konversi Implikasi $\equiv \sim p \lor q$).
+  \item \textbf{Keterbatasan Logika Proposisi:} Diskusikan dalam kelompok mengapa logika proposisi ($\wedge, \vee, \rightarrow, \neg$) tidak dapat memvalidasi silogisme Aristoteles tentang Socrates. Jelaskan unsur apa yang hilang sehingga diperlukan logika predikat.
+  \item \textbf{Term, Konstanta, Variabel:} Pilih satu kalimat dari berita atau teks. Identifikasi mana yang berperan sebagai Konstanta, mana sebagai Variabel (jika ada), dan mana yang merupakan Predikat (atribut/relasi).
+  \item \textbf{Predikat dan Arity:} Buat tiga contoh: satu predikat unary $P(x)$, satu binary $Q(x,y)$, dan satu dengan tiga argumen $R(x,y,z)$. Tulis arti dalam bahasa alami dan tentukan arity masing-masing.
+  \item \textbf{Fungsi Proposisional:} Buat tiga kalimat terbuka (fungsi proposisional). Tunjukkan bahwa ketiganya tidak memiliki nilai benar atau salah sebelum variabelnya disubstitusi oleh konstanta dari semesta.
+  \item \textbf{Universe of Discourse:} Definisikan $C(x,y)$: ``Mahasiswa $x$ meraih IPK lebih tinggi dari $y$'' dengan semesta $\mathcal{U}$ = himpunan mahasiswa prodi Informatika. Diskusikan apa yang terjadi jika Anda mensubstitusi entitas di luar semesta (misalnya ``Kucing'') ke variabel $x$. Konsep apa yang dilanggar?
+  \item \textbf{Kalimat Tertutup:} Dari satu fungsi proposisional $P(x)$, tunjukkan dua cara memperoleh proposisi tertutup: (1) substitusi konstanta spesifik, (2) pengikatan dengan kuantor (disinggung saja; detail di Bab 7).
+  \item \textbf{Pemodelan Naratif:} Ambil satu paragraf pendek (dari berita atau cerita). Lakukan ekstraksi Term konstanta, daftar Predikat (unary dan binary), lalu tulis klausa proposisi formal yang merepresentasikan kalimat-kalimat dalam paragraf.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Analisis dan uji menggunakan deret validitas baris tabel kebenaran: "Buktikan secara algoritmik fomal bahwa $~ (p \rightarrow q) \equiv p \land \sim q$!"
+  \item Tentukan arity (jumlah argumen) dari predikat berikut:
+  \begin{enumerate}
+    \item $L(x) \equiv \text{``Tebing } x \text{ sangat curam.''}$
+    \item $A(x, y) \equiv \text{``Tuan } x \text{ menikah dengan Nyonya } y\text{.''}$
+    \item $P(a, b, c) \equiv \text{``Garis melalui titik } a \text{ dan } b \text{ memotong sumbu } c\text{.''}$
+  \end{enumerate}
+  \item Kalimat ``Bilangan $x$ jika ditambah 10 hasilnya prima'' termasuk proposisi atau fungsi proposisional? Jelaskan syarat agar ia menjadi proposisi (kalimat tertutup).
+  \item Diberikan semesta $\mathcal{U} = \mathbb{Z}^+$ dan predikat $G(n) \equiv \text{``}n \text{ habis dibagi 2''}$. Evaluasi kebenaran $G(5)$. Apa yang salah jika $\mathcal{U}$ tidak dibatasi (misalnya $n$ diganti objek bukan bilangan)?
+  \item \textbf{Pemodelan:} Narasi: ``Mahasiswi Aulia gemar makanan seblak; menu itu sangat pedas.'' Dengan semesta yang Anda tentukan, identifikasi Term (konstanta) dan rumuskan minimal dua predikat: satu unary dan satu binary (relasi dyadic), lalu tulis klausa FOL-nya.
+  \item \textbf{Refleksi:} Dalam sistem basis data program akademik, penetapan tipe data untuk setiap kolom sangat penting. Konsep apa dalam logika predikat yang analog dengan pembatasan tipe data tersebut? Jelaskan.
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 2.1)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Dalam logika predikat, elemen yang mewakili entitas utuh (kata benda), tidak bernilai benar/salah, dan dapat berupa nama spesifik atau variabel, disebut:
+  \begin{enumerate}
+    \item Predikat
+    \item Kuantor
+    \item Term
+    \item Implikasi
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Fungsi proposisional $F(x)$ belum memiliki nilai kebenaran. Agar menjadi proposisi (bernilai T atau F), variabel $x$ harus:
+  \begin{enumerate}
+    \item Dinegasi dengan hukum De Morgan
+    \item Disubstitusi oleh konstanta spesifik atau diikat oleh kuantor
+    \item Diubah arity-nya
+    \item Digabung dengan biimplikasi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Himpunan nilai konstanta yang diperbolehkan untuk mensubstitusi variabel dalam fungsi proposisional disebut:
+  \begin{enumerate}
+    \item Partisi subjek
+    \item Universe of Discourse (semesta pembicaraan)
+    \item Kuantor eksistensial
+    \item Resolusi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Kalimat ``Gunung Everest lebih tinggi daripada palung terdalam Samudra Pasifik'' memuat relasi antara dua objek. Dalam logika predikat, struktur ini paling tepat diwakili oleh:
+  \begin{enumerate}
+    \item Predikat unary (1-arity)
+    \item Predikat binary (2-arity)
+    \item Fungsi proposisional tanpa variabel
+    \item Disjungsi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Silogisme Aristoteles (Semua manusia fana; Socrates manusia; maka Socrates fana) tidak dapat divalidasi oleh logika proposisi murni karena:
+  \begin{enumerate}
+    \item Logika proposisi hanya mengenal konjungsi dan disjungsi
+    \item Logika proposisi memperlakukan tiap kalimat sebagai atom tanpa membedah struktur internal (subjek-predikat)
+    \item Logika proposisi tidak mengenal negasi
+    \item Silogisme memerlukan kuantor eksistensial saja
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Diberikan teks: ``Budi Setiawan bekerja di perusahaan Garuda Indonesia di kota Solo. Budi mahir menulis kode Python.'' Deskripsikan himpunan semesta pembicaraan yang wajar, daftar Term konstanta, dan transformasikan klaim dalam teks ke dalam predikat logika predikat (FOL) secara formal.
+\end{itemize}
+
+\textbf{Rubrik}: Pemetaan naratif ke FOL 50\%; akurasi definisi semesta pembicaraan 50\%. Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
 
 \begin{checklist}
-  \item Mengenali karakteristik kolom *output* absolut benar atau absolut palsu yang terasosiasi secara logik.
-  \item Terbiasa memeriksa penyebutan Hukum De Morgan dalam perbaikan blok parameter syarat kondisi pemrograman \textit{(Condition Refactoring)}.
+  \item Saya mampu menjelaskan keterbatasan logika proposisi dan motivasi logika predikat (FOL).
+  \item Saya mampu membedakan Term (Konstanta, Variabel, fungsi pemetaan) dan perannya sebagai subjek.
+  \item Saya mampu menjelaskan predikat serta arity (unary, binary, $n$-ary) dan menerapkannya pada contoh.
+  \item Saya mampu membedakan fungsi proposisional (kalimat terbuka) dari proposisi dan menjelaskan bahwa fungsi proposisional belum bernilai benar/salah sebelum substitusi atau kuantifikasi.
+  \item Saya mampu mendefinisikan semesta pembicaraan ($\mathcal{U}$) dan menjelaskan risiko evaluasi di luar semesta (kesalahan tipe/semantik).
+  \item Saya mampu menjelaskan dua cara memperoleh kalimat tertutup: substitusi konstanta dan pengikatan dengan kuantor.
+  \item Saya mampu memodelkan narasi bahasa alami ke dalam logika predikat (ekstraksi Term, Predikat, konstruksi klausa FOL).
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 6 meruntuhkan tembok stagnan Logika Proposisi klasik dan menuntun pergeseran metodis fundamental memasuki panggung agung Logika Predikat (Kalkulus Predikat Orde Pertama). 
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Logika Proposisi Gagal membedah anatomi klausa}, sehingga ia absen mengenali rujukan antar \textit{entitas subjek}. Hal ini melatari fajar era Logika Predikat.
+  \item \textbf{Term} duduk bertahta memimpin subjek kata benda. Ia tak punya sifat B/S. Ia menitis menjelma sebagai: (1) Konstanta/Individu Pasti, (2) Variabel Liar Anonim, dan (3) Output Fungsi pemetaan logis matematik.
+  \item \textbf{Predikat ($P$)} menahbiskan status atribut, sifat, perilaku bagi sesosok sekumpulan \textit{Term}. Relasi parameter diukur menggunakan \textit{kantung Arity} (dari dimensi-1 berwujud properti hingga relasi silang dimensi-n).
+  \item \textbf{Fungsi Proposisional / Kalimat Terbuka} dilarang keras diaudit validitas B/S-nya, hingga ia dibajak status keliarannya (Variabel digantikan \textbf{Konstanta} mutlak atau dikomando dengan Jaring Kuantifikasi makro).
+  \item \textbf{Semesta Pembicaraan / Universe of Discourse ($\mathcal{U}$)} merupakan wilayah demarkasi yang melerai kesahihan argumen. Sebaris perumusan jenius bisa luruh ditelan nilai salah total jika panggung domain semestanya tergelincir bergeser.
+\end{itemize}
+
+\textbf{Kata Kunci}: Logika Pertama / FOL (\textit{First-Order Logic}), Term, Konstanta, Variabel, Predikat, Arity (Dyadik, Monadik), Fungsi Proposisional, Kalimat Terbuka Tertutup, Universe of Discourse.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

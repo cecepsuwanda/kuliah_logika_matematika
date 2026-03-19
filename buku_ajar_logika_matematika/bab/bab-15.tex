@@ -1,68 +1,103 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{15}}{}
 \begin{document}
 
-\chapter{Metode Pembuktian Matematis (Langsung, Kontradiksi, Kontraposisi)}
+\chapter{Evaluasi, Refleksi, dan Integrasi Kompetensi}
 
-\begin{subcpmk}
-  \item Mahasiswa mampu menerapkan beragam kaidah dan spesifikasi dari metode pembuktian matematis terhadap analisis fungsi kalkulasi logis dan pembuktian algoritma komputasi awal.
-\end{subcpmk}
+Bab ini membantu mahasiswa mengukur pencapaian kompetensi secara keseluruhan dan menjadi dasar asesmen akhir buku ajar. Disajikan ringkasan lintas CPMK, latihan terpadu untuk penguatan, kumpulan asesmen akhir (Kuis, UTS, UAS, Tugas), rubrik penilaian komprehensif berbasis OBE, tinjauan pencapaian kompetensi, serta rekomendasi tindak lanjut. Tidak ada Sub-CPMK baru; semua indikator mengacu pada Sub-CPMK 1.1--4.3 yang telah dipelajari di Bab 3--14.
 
-\section{Urgensi Pembuktian (Proofs) dalam Pengembangan Perangkat Lunak}
+\section*{Ringkasan per CPMK}
 
-Mengapa seorang perancang algoritma Teknik Informatika wajib terbiasa dengan metode pembuktian matematis? Sebab validasi empiris komputasi kompilator / \text{Testing Kode Prosedural} belumlah cukup menjamin kekonsistenan perangkat lunak di masa depan. *Unit Test* dalam *software deployment* hanya menguji sejauh mana tebakan kondisi input yang programmer buat divaluasi *output* kebenarannya. Saat ruang input fungsi berjumlah milyaran kemungkinan iteratif, kita butuh "Bukti Formal (*Formal Verification*)" secara rasional dan aljabar logis bahwa sistem selamanya merespons iterasi parameter komputasional berdaya absolut sah (Selamanya tak bakal \textit{Crash} atau membiarkan malfungsi data komputasi bocor). Argumentasi \textit{mathematical proof}-lah piranti mumpuni jaminan matematis arsitektur ini.
+\textbf{CPMK1 (Logika Proposisional \& Analisis Argumen):} Proposisi, kata hubung logika, tabel kebenaran, tautologi/kontradiksi/kontingensi, aturan inferensi (modus ponens, modus tollens, silogisme).\\
+\textbf{CPMK2 (Logika Predikat \& Pemodelan):} Fungsi proposisional, \textit{universe of discourse}, kuantor universal dan eksistensial, penerjemahan bahasa alami ke ekspresi predikat, pemodelan masalah komputasi.\\
+\textbf{CPMK3 (Aljabar Boolean \& Gerbang Logika):} Hukum-hukum Aljabar Boolean, penyederhanaan dengan hukum atau Peta Karnaugh, representasi ke rangkaian gerbang logika dasar.\\
+\textbf{CPMK4 (Teknik Pembuktian \& Validasi):} Pembuktian langsung, kontraposisi, kontradiksi, induksi matematika, argumen matematis formal untuk validasi algoritma.
 
-Secara teknis, \textbf{Bukti (Proof)} dideskripsikan berupa urutan barisan klaim kebenaran (proposisi logikal absolut takterbantahkan $\to$ ke sebuah kebenaran baru $\to$ ditarik ke \textit{simpul kesimpulan fungsional}) yang secara solid merajarkan argumen algoritmanya sahih (valid). Komponen penyangga kebenaran berantai ini bersumber atas deduksi, dalil Tautologi ekivalensi, atau dari Aksioma yang sudah universal faktanya (Misal: "Sistem paritas aritmatika Genap bisa diejawantahkan ke perumusan $2k$ bil bulat").
+\section*{Latihan Terpadu}
 
-\section{Tipologi Teknik Pembuktian Dasar Formal}
-Buku ini mem-bina *student* menapaki alur utama 3 tipe teknik bukti: (Pembuktian Langsung), dan cara bukti tak-langsung (Via Kontra-posisi dan deduksi iterasi Kontradiksi logikal).
+\begin{enumerate}
+  \item Gabungkan logika proposisional dan predikat: Terjemahkan ke simbol dan periksa validitas argumen dengan tabel kebenaran atau aturan inferensi.
+  \item Dari spesifikasi sistem sederhana (misalnya aturan akses), modelkan dengan logika predikat (kuantor) lalu turunkan ke bentuk Boolean dan rangkaian gerbang jika relevan.
+  \item Pilih satu algoritma sederhana (misalnya penjumlahan deret atau rekursi dasar); buktikan kebenarannya dengan induksi matematika dan jelaskan prekondisi/postkondisi.
+\end{enumerate}
 
-\subsection{1. Bukti Langsung (Direct Proof)}
-Pada formasi fungsi hipotesis kausalitas logikal $(A \rightarrow B)$. Strategi pembuktian analitikal *Direct* mendikte ke kita: Terimalah dan asumsikan \textit{input} atau anteseden subjeknya (Klausa komputasional $A$) adalah BENAR secara murni. Lalu modifikasi spesifikasi rumus, faktorisasi persamaan / \textit{logical string} secara berurut valid hingga rumus itu menyala-nyala berkesudahan berbukti di posisi terminal absolut konklusi output *B* juga TERBUKTI murni (True T).
+\section*{Checklist Pengayaan}
 
-\textbf{Contoh (Klaim: Jika \textit{n} adalah parameter nilai algoritma tipe \textit{integer} ganjil, maka output \textit{kuadrat fungsi numerik parameternya} selalu berspesifikasi bilangan komputatif berpredikat ganjil) :}
-- Asumsikan input klausa A adalah Mutlak: "$n$ wajib bilangan Ganjil algoritmanya".
-- Ciri variabel numerik iterasi integer ganjil rasional dirumuskan definisi universal menjadi formula numerik dasar ($n = 2k + 1$).
-- Substitusikan ke bentuk klausa terminal fungsi komputasi algoritmanya \textit{(Output evaluatif $B$ yakni $n^2$)}.
-- Formula fungsi algoritmis akhir outputnya = $(2k+1)^2 = 4k^2 + 4k + 1$.
-- Sederhanakan faktorisasi parameter iteratif terminal fungsinya: tarik faktor persilangan komputatif menjadi bernilai $2(2k^2 + 2k) + 1$.
-- Karena $(2k^2 + 2k)$ secara absolut dinilai juga pasti bernilai \textit{Integer (variabel bulat)} kita misal rumuskan sebagai variabel konstanta $m$, kesimpulan rumusan komputasinya berekonstruksi kembali di pakem universal fungsi = $2(m) + 1$.
-- **Kesimpulan Valid Absolut**: Terbukti mutlak format formula $(2m + 1)$ selalu mendeskripsikan secara sah tipe sirkulasi var \textit{Ganjil}. Terbukti \textit{output $B$} benar.
+Gunakan checklist berikut untuk memastikan Anda siap menghadapi Kuis, UTS, UAS, dan Tugas:
+\begin{itemize}[label=$\square$]
+  \item Saya dapat menyusun tabel kebenaran dan mengidentifikasi tautologi/kontradiksi/kontingensi
+  \item Saya dapat menganalisis validitas argumen dengan modus ponens, modus tollens, dan silogisme
+  \item Saya dapat menerjemahkan pernyataan bahasa alami ke logika predikat dengan kuantor
+  \item Saya dapat menyederhanakan fungsi Boolean dengan hukum Aljabar Boolean atau K-Map
+  \item Saya dapat merepresentasikan fungsi logika ke rangkaian gerbang dasar
+  \item Saya dapat membuktikan pernyataan dengan metode langsung, kontraposisi, dan kontradiksi
+  \item Saya dapat menerapkan induksi matematika untuk deret atau properti algoritma
+  \item Saya dapat menyusun argumen formal untuk validasi langkah penyelesaian masalah komputasi
+\end{itemize}
 
-\subsection{2. Bukti Kontraposisi (Proof by Contraposition/Contrapositive)}
-Teknik validasi ini adalah "jalan belakang" sistematis. Kita menggunakan Hukum Ekivalensi Logikal bahwasanya relasi fungsional parameter komputasi $p \rightarrow q$ sesungguhnya bernilai logik kembar mutlak ekuivalensinya dengan membalik posisi serta menyangkali klausa term (\textit{Tollens mode manipulation}): $\sim q \rightarrow \sim p$.
-Metode: Mulai pengujian fungsional algoritmanya dengan mengandaikan Output Sistem komputasi Batal (B \textit{merupakan hal Salah / False}). Gunakan penjabaran deduktif sistematisnya menuju kesimpulan final bahwa Prasyarat var Input $A$ mestilah logikalnya ikut Batal (Salah / Negasi / \textit{False}). 
+% ============================================================
+% KUMPULAN ASESMEN AKHIR (Komponen Bab Akhir OBE)
+% ============================================================
 
-\textbf{Contoh (Klaim: Pada komputasi variabel numerik integer \textit{n}, jika resultan komputasi fungsi $3n + 2$ merender variabel balikan/output sirkulasi ganjil, maka logikal kepastian var \textit{n}-nya di pakem Input wajib ganjil mutlak).}
-- Ini format kausal parameter komputasional: ($3n+2$ GANJIL $\rightarrow$ \textit{n} GANJIL).
-- Buktikan relasi tak logis dengan Kontraposisi: (Asumsi kebalikan \textit{n} TIDAK GANJIL [Artinya komputasi bernilai *n Genap*], dan buktikan \textit{output} \textit{Resultan $3n + 2$ TIDAK GANJIL}).
-- Mulai dari negasi *output* hipotesis fungsi \textit{(yaitu n adalah berformat num komputatif Genap)} $\to n = 2k$.
-- Hitung evaluasi terminal parameter rumusnya: $3(2k) + 2$ algoritmanya dikonversi logikal menjadi formula algebraik konstan $= 6k + 2$.
-- Faktorkan parameternya rasional: format persamaan berwujud formula $2(3k + 1)$.
-- Konsekuensi akhir parameter: karena var konstan berbentuk \textit{kali 2 alias [2m]}, pasti tipe struktur formula memvonis bilangannya bernilai fungsional iteratif *GENAP*. 
-- Kesimpulan formal absolut \textit{software}: $\to$ Benar Negasi Input. (Jika \textit{n} bernilai Genap inputnya, logikal terbukti output bernilai predikatif Genap/Bukan Ganjil). Klaim original sistem algoritmiknya: VALiD diimplementasi nyata!
+\section{Komponen Evaluasi Mata Kuliah}
 
-\subsection{3. Bukti Kontradiksi (Proof by Contradiction / \textit{Reductio ad Absurdum})}
-Teknik validasi *Testing* \textit{Crash} ekstrem. Buktikan bahwa hal berkebalikan malah melahirkan Paradoks yang melanggar Aksioma universal logikal!
-Kita menyanggah total rasional kausal dari Klaim komputatif $(A \rightarrow B)$ secara utuh dengan cara memaksa sistem mengasumsikan input syarat A diset bernilai benar namun logikal output variabel B dikondisikan salah \textit{False/Negasi} mutlak $(A \land \sim B)$.
-Jika dari iterasi jalan perhitungan ini lantas secara formal tersandung konklusi \textit{error komputatif irrasional (contoh: kompilator mendapat nilai komputasional hitung bahwa $1 = 0$, atau hasil komputasi logis var $x$ bernilai paritas ganjil dan paritas angka genap SEKETIKA BERSAMAAN secara absolut [Sebuah kemustahilan sistemik kontradiksi paradox!!!])}, maka asumsi paradoks ini kita Coret/Tolak mentah-mentah!. Dan konklusi mutlak berbalik menyatakan secara tunggal hanya Klaim original Algoritma sistemlah yang VALID TERBUKTI dan SAH! \textit{Q.E.D (Quod Erat Demonstrandum - Which was to be demonstrated)}.
+Bab ini berisi komponen evaluasi sesuai RPS: \textbf{Kuis}, \textbf{UTS} (pertemuan ke-8), \textbf{UAS} (pertemuan ke-16), serta \textbf{Tugas Individu 1 \& 2} dan \textbf{Tugas Kelompok 1}. Setiap komponen dipetakan ke Sub-CPMK/CPMK dan bobot penilaian seperti pada tabel di bawah. Instrumen asesmen akhir komprehensif (Bagian A--D) dapat digunakan untuk keperluan Kuis, UAS, atau proyek akhir sesuai kebijakan dosen.
 
-\begin{aktivitas}
-  \item Diskusikan pada struktur blok tim komputasi logika: Kapan menurut tim logikal rasional bahwa metode pengandaian Contrapositive (\textit{Contraposition}) lebih gampang digunakan di fungsi algoritmik sistem numerik iteratif dibandingkan jalan membuktikan rumus fungsi var \textit{Direct Proof}?
-\end{aktivitas}
+\begin{table}[htbp]
+\centering
+\small
+\resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|c|}
+\hline
+\textbf{Komponen} & \textbf{Teknik Asesmen} & \textbf{Indikator/Sub-CPMK} & \textbf{Bobot (\%)} \\
+\hline
+Tugas Individu 1 & Latihan Soal Tautologi \& Argumen & Sub-CPMK 1.1, 1.2, 1.3 & 15 \\
+\hline
+Tugas Kelompok 1 & Studi Kasus Pemodelan Predikat & Sub-CPMK 2.1, 2.2, 2.3 & 10 \\
+\hline
+Kuis & Pilihan Ganda/Esai Singkat & Sub-CPMK 1.1--3.1 & 10 \\
+\hline
+UTS & Ujian Tulis (Proposisional, Predikat, Kuantor) & CPMK-1, CPMK-2 & 25 \\
+\hline
+Tugas Individu 2 & K-Map \& Rangkaian Gerbang Logika & Sub-CPMK 3.1, 3.2, 3.3 & 15 \\
+\hline
+UAS & Ujian Komprehensif (Boolean \& Pembuktian/Induksi) & CPMK-3, CPMK-4 & 25 \\
+\hline
+\textbf{Total} & & & \textbf{100} \\
+\hline
+\end{tabular}}
+\caption{Bobot dan pemetaan evaluasi (sesuai RPS)}
+\label{tab:eval}
+\end{table}
 
+\input{bab-15/section-15-1}
+\input{bab-15/section-15-2}
+\input{bab-15/section-15-3}
+\input{bab-15/section-15-4}
 
-\begin{latihan}
-  \item Validasilah *code-rule komputasi spesifikasi* logika \textit{array loop} ini menggunakan \textit{Metode Bukti Contraposisi (Tak-langsung)} mutlak: "Jika logikal komputasional bilangan bulat \textit{var integer} $x^2$ diinspeksi bertipe kalkulasi genap, maka sudah \textit{pasti dan absolut mutlak} parameter fungsi var mandirinya \textit{x} dispesifikasi sebagai bilangan bulat bertipe genap rasional!".
-\end{latihan}
+\begin{rangkuman}
+Selamat! Anda telah menyelesaikan perjalanan pembelajaran Logika Matematika. Bab ini mengintegrasikan seluruh materi Bab 3--14. Dari proposisi dan operator logika hingga logika predikat, metode bukti, induksi, dan validasi algoritma---Anda telah membangun fondasi penalaran formal yang penting untuk ilmu komputer.
 
-\begin{asesmen}
-Soal penalaran logika komputasi fungsional di portofolio kuis. Peniliaian ditelaah dari bagaimana tahapan algoritma penyajian baris \textit{argument assumption}-nya dibuat berstruktur dan valid runut tanpa menumpuk celah deduksi \textit{jump logic/fallacy} iteratif kalkulatifnya.
-\end{asesmen}
+\textbf{Apa yang Telah Anda Pelajari}:
+\begin{itemize}
+  \item Proposisi dan operator logika (negasi, konjungsi, disjungsi, implikasi, bikondisional)
+  \item Tabel kebenaran dan penentuan nilai kebenaran proposisi majemuk
+  \item Ekuivalensi logika dan hukum aljabar proposisi
+  \item Tautologi, kontradiksi, dan kontingensi
+  \item Translasi pernyataan bahasa alami ke simbol logika proposisional
+  \item Logika predikat dengan kuantifier universal dan eksistensial
+  \item Aturan inferensi (modus ponens, modus tollens, silogisme)
+  \item Metode bukti: langsung, kontraposisi, kontradiksi
+  \item Induksi matematika
+  \item Verifikasi kebenaran program (prekondisi, postkondisi, loop invariant, terminasi) dan pemodelan basis pengetahuan
+\end{itemize}
 
-\begin{checklist}
-  \item Tak bingung menetapkan formula parameter manipulasi genap komputasional $2k$ vs substitusi manipulasi algoritmis logik var variabel ganjil bernilai fungsional rasional $2k+1$.
-  \item Secara mahir dan fasih membedah argumen dengan pemisalan \textit{Contrapositive} bilamana *Direct Proof*-nya menyulitkan dan \textit{Stuck} faktorisasi persamaannya.
-\end{checklist}
+\textbf{Langkah Selanjutnya}:
+Terus praktik membangun bukti formal dan model inferensi tingkat pertama. Eksplorasi Open Logic Project dan forall x: Calgary untuk pendalaman. Logika Matematika adalah fondasi bagi Matematika Diskrit, Teori Komputasi, dan pengembangan AI (Artificial Intelligence) Klasik---terus lanjutkan perjalanan belajar Anda!
+\end{rangkuman}
 
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

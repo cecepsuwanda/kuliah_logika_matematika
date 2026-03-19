@@ -1,0 +1,34 @@
+\section{Gerbang Sirkuit Digital: Logika di Atas Keping Silikon}
+
+Pertanyaan mendasar: bagaimana Aljabar Boolean yang berupa tulisan di buku Boole dapat diimplementasikan dalam perangkat keras komputer?
+
+Jawabannya terletak pada perkembangan penting arsitektur fisika abad ke-20: penemuan \textbf{transistor} semikonduktor yang menerjemahkan nilai abstrak Boolean 1 (True) dan 0 (False) menjadi tegangan listrik---tegangan tinggi (misalnya 5 Volt) dan tegangan rendah (0 Volt) \cite{grinnell_logic,hackatronic}. 
+
+\subsection{Berdirinya Kekaisaran Gerbang Dasar Logika (\textit{Logic Gates})}
+
+Transistor berukuran nano disusun membentuk \textit{Logic Gates} yang mengimplementasikan operasi proposisional dasar AND, OR, dan NOT:
+
+\begin{itemize}
+    \item \textbf{Gerbang AND (Konjungsi):} Dua input (A, B). Output bernilai 1 hanya apabila kedua input bernilai 1. Jika salah satu input bernilai 0, output bernilai 0.
+    \item \textbf{Gerbang OR (Disjungsi):} Dua input (A, B). Output bernilai 1 apabila minimal satu input bernilai 1.
+    \item \textbf{Gerbang NOT (Inverter):} Satu input. Output membalik nilai input: input 1 menghasilkan output 0, input 0 menghasilkan output 1.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{logic-gates}
+\caption{Simbol standar gerbang logika: NOT (kiri), AND (tengah), OR (kanan) dalam arsitektur CPU \cite{hackatronic}.}
+\label{fig:logic-gates}
+\end{figure}
+
+\subsection{Optimasi Silikon: Uang Triliunan Rupiah dari Aljabar Tipis}
+
+Kenapa seorang insinyur *Hardware* dituntut kelulusan A kumlaude pada ujian mata kuliah Aljabar Logika Matematika? 
+
+Diberikan spesifikasi sirkuit: \textbf{$Y = (A \land B) \lor (A \land \neg B)$}. Tanpa analisis, rancangan awal memerlukan 2 Gerbang AND, 1 Gerbang NOT, dan 1 Gerbang OR---total 4 komponen \cite{levin_discrete}.
+
+Insinyur yang menguasai Aljabar Boolean melakukan penyederhanaan:
+$$ Y = A \land (B \lor \neg B) \equiv A \land \text{True} \equiv \textbf{A} $$
+
+Ekspresi dapat disederhanakan menjadi A saja. Sirkuit hanya memerlukan satu kabel penghubung dari input A ke output Y---tanpa gerbang AND, OR, maupun NOT. Biaya material dapat dikurangi signifikan.
+Inilah manifestasi penerapan Aljabar Proposisional: pengurangan \textbf{BOM (Bill of Materials)} melalui penyederhanaan ekspresi Boolean \cite{grinnell_logic,hackatronic}.

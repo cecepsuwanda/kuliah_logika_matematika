@@ -1,0 +1,45 @@
+\section{Pengantar Inferensi: Validitas Argumen dan Tautologi}
+
+Puncak pembelajaran tata bahasa simbolik proposisional pada empat bab sebelumnya adalah membuktikan apakah rentetan pola interaksi dalam meramu informasi sungguh valid atau sesat nalar. Kapabilitas matematika untuk menimbang berat kebenaran dari sebuah narasi inilah yang kita sebut sebagai proses \textbf{Inferensi} \cite{rosen2019}.
+
+\subsection{Filosofi Penarikan Kesimpulan (Inferensi)}
+
+Dalam percakapan dan debat intelektual, kita sering dituntut untuk menarik konklusi akhir dari serangkaian \textit{premis} (fakta-fakta prasyarat yang saling berkaitan) yang telah terlebih dahulu disepakati kebenarannya bersama.
+
+\begin{definisi}[Inferensi Logika]
+\logic{Inferensi} adalah mekanisme deduktif formal berdasarkan aturan matematika untuk mengekstraksi sebuah pernyataan kesimpulan baru (\textit{konklusi}) dari himpunan fakta penunjang (\textit{premis}).
+\end{definisi}
+
+Jika sebuah mesin inferensi berjalan sempurna, maka kita dijanjikan satu keniscayaan: \textit{"Selama seluruh fakta awal (premis) tidak ada satupun yang berbohong, maka Kesimpulan akhir yang dihasilkan MESIN ini mustahil keliru/salah."}
+
+\subsection{Anatomi Argumen Formal}
+
+Sebuah \textbf{Argumen} logis lazimnya dituliskan secara vertikal bersusun layaknya operasi penjumlahan zaman sekolah dasar. Bagian atas garis pembatas adalah barisan Premis, sementara di bawah garis (ditandai simbol $\therefore$ yang dibaca \textit{"Jadi"} atau \textit{"Oleh karenanya"}) diletakkan Konklusi.
+
+\[
+\begin{array}{ll}
+P_1 & \text{(Premis pertama)} \\
+P_2 & \text{(Premis kedua)} \\
+\vdots & \\
+P_n & \text{(Premis ke-} n) \\
+\hline
+\therefore Q & \text{(Kesimpulan)}
+\end{array}
+\]
+
+Jika diterjemahkan kembali ke dalam susunan horizontal linear aljabar proposisi layaknya merakit kereta api, susunan vertikal di atas sebenarnya merangkai rumusan raksasa berikut:
+\[ (P_1 \wedge P_2 \wedge \ldots \wedge P_n) \rightarrow Q \]
+
+\subsection{Syarat Mutlak Argumen Dinobatkan Valid}
+
+Tidak semua argumen \textit{valid} walau terdengar meyakinkan \cite{wiki_first_order_logic}. Ada syarat yang harus dipenuhi.
+
+\begin{teorema}
+Sebuah struktur Argumen dengan sekumpulan premis $P_1, P_2, \ldots, P_n$ dan konklusi sangkaan $Q$, sah disebut \logic{argumen valid} jika dan hanya jika bentuk implikasinya:
+\[ [P_1 \wedge P_2 \wedge \ldots \wedge P_n] \rightarrow Q \]
+adalah sebuah \textbf{Tautologi} mutlak (selalu T apa pun nilai kebenaran komponen atomiknya di tabel kebenaran).
+\end{teorema}
+
+Sebaliknya, jika terdapat minimal satu baris di mana seluruh premis bernilai T (benar) namun konklusi $Q$ bernilai F (salah), argumen diklasifikasikan sebagai \textbf{argumen invalid (fallacy)}.
+
+Untuk menghindari pembuatan tabel kebenaran berskala besar setiap kali mengevaluasi argumen, para matematikawan telah merumuskan bentuk-bentuk deduksi yang terbukti valid menjadi sekumpulan aturan siap pakai. Kumpulan pola baku ini populer disebut \textbf{Aturan Inferensi}. Bab ini menyoroti aturan-aturan tersebut.

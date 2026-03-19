@@ -1,57 +1,163 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{4}}{}
 \begin{document}
 
-\chapter{Evaluasi Pernyataan Majemuk dengan Tabel Kebenaran}
+\chapter{Aturan Inferensi dan Penarikan Kesimpulan (Modus Ponens, Modus Tollens, Silogisme)}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk yang kompleks.
-  \item Mahasiswa dapat merunut dan mensimulasikan nilai aljabar logika untuk banyak variabel komputasi.
+  \item \textbf{Sub-CPMK 1.3:} Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi (modus ponens, modus tollens, silogisme) dalam memecahkan persoalan komputasi dasar.
 \end{subcpmk}
 
-\section{Penggunaan Tabel Kebenaran (Truth Table)}
-Setiap proposisi elementer dibatasi atas dua keadaan (Benar atau Salah). Ketika terdapat sekumpulan sejumlah $n$ variabel proposisi deklarasi ($p_1, p_2, \ldots p_n$), kombinasi evaluasi total probabilitas nilai kebenaran akan memenuhi perumusan ruang probabilitas $2^n$ baris data di dalam Tabel Kebenaran.
-Tabel Kebenaran adalah peranti algoritmis grafis yang berdaya guna dalam mendeteksi dan mengeksekusi semantik Boolean secara terpusat dan tanpa ambiguitas operasional. Langkah iterasi ini serupa dengan algoritma pereduksi \textit{brute-force} guna me-list (\textit{enumeration}) probabilitas mutasi *state* / status dari \textit{software}.
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-05/section-5-1}
+\input{bab-05/section-5-2}
+\input{bab-05/section-5-3}
+\input{bab-05/section-5-4}
+\input{bab-05/section-5-5}
+\input{bab-05/section-5-6}
+\input{bab-05/section-5-7}
 
-\subsection{Tahapan Penyusunan Tabel}
-Misalkan sebuah mesin komputer mengevaluasi urutan ekspresi komposit:
-$X = (p \land \sim q) \lor r$
-\begin{enumerate}
-    \item Hitung iterasi $n$. Ada 3 buah var ($p, q, r$). Maka total baris wajib dicitrakan sebanyak $2^3 = 8$ baris konjugasi nilai (Kombinasi 000 hingga 111).
-    \item Gambarkan kolom untuk setiap unit atom dasarnya terlebih dahulu (kolom atomik primer).
-    \item Lanjutkan pembentukan kolom komponen secara sub-himpunan, yakni mengartikulasikan bentuk bersarang yang paling dalam tanda kurungnya dulu, contoh: $\sim q$, kemudian $(p \land \sim q)$.
-    \item Bentuk kolom evaluasi kumulatif keseluruhan: $(p \land \sim q) \lor r$.
-\end{enumerate}
-
-\begin{contoh}
-Tabel skematik untuk 2 var iterasi ($p, q$) membentuk 4 baris evaluasi:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{$p$} & \textbf{$q$} & \textbf{$\sim q$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \rightarrow \sim q$} \\
-\hline
-T & T & F & T & T & F \\
-T & F & T & F & T & T \\
-F & T & F & F & T & T \\
-F & F & T & F & F & T \\
-\hline
-\end{tabular}\\
-\textit{Contoh Tabel Kebenaran Sintesis $p \rightarrow \sim q$}
-\end{center}
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Simulasikanlah, bagaimana komputasi program jika ia menerima argumen Boolean yang lebih makroskopis, misalnya melibatkan susunan 5 variabel independen pengontrol navigasi pesawat (sebanyak $2^5 = 32$ permutasi). Apa kendala manusia yang diatasi melalui tabel kebenaran sistematis?
+  \item \textbf{Validitas Argumen dan Tautologi:} Pilih satu argumen pendek dari berita atau iklan. Tulis premis dan konklusinya dalam notasi proposisional. Verifikasi validitas dengan mengecek apakah bentuk $(P_1 \wedge P_2 \wedge \ldots) \rightarrow Q$ tautologi (tabel kebenaran).
+  \item \textbf{Modus Ponens dan Modus Tollens:} Berikan masing-masing satu contoh kehidupan sehari-hari yang memenuhi skema Modus Ponens dan satu contoh Modus Tollens. Tulis dalam bentuk premis–konklusi.
+  \item \textbf{Silogisme Hipotetis:} Tulis argumen ``Jika hujan maka jalanan licin. Jika jalanan licin maka kendaraan melambat'' ke notasi aljabar proposisi. Buktikan validitas Silogisme Hipotetis melalui tabel kebenaran (8 baris).
+  \item \textbf{Aturan Konjungsi, Penambahan, Simplifikasi:} Diskusikan dalam kelompok: dalam pembuktian berantai, kapan aturan Konjungsi dipakai? Kapan Penambahan (Addition) dan kapan Simplifikasi? Berikan satu contoh singkat untuk masing-masing.
+  \item \textbf{Aturan Resolusi:} Diberikan dua klausa $(p \vee q)$ dan $(\neg p \vee r)$. Tentukan resolvent-nya. Diskusikan mengapa aturan ini menjadi dasar inferensi dalam sistem seperti PROLOG.
+  \item \textbf{Fallacy:} Cari di media (debat, iklan, atau berita) minimal satu contoh yang menyerupai Fallacy of Affirming the Consequent dan satu contoh Denying the Antecedent. Tulis transkrip singkat dan jelaskan kelemahan logikanya.
+  \item \textbf{Bukti Formal Berantai:} Dari tiga premis yang diberikan dosen atau dari buku, susun bukti formal berantai menuju konklusi yang ditentukan. Setiap langkah harus disertai justifikasi (nama aturan dan nomor baris).
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Susunlah Tabel Kebenaran (T-F / 1-0) iteratif bagi fungsi majemuk komputasi $f(A,B,C): A \leftrightarrow (B \land \sim C)$. Ada berapa permutasi \textit{assignment} baris yang menjadikannya *True/Benar* pada finalisasinya?
+  \item Tentukan aturan inferensi yang digunakan pada argumen berikut:
+  \begin{enumerate}
+    \item Premis 1: ``Jika engkau kaya, maka engkau bebas.'' Premis 2: ``Engkau tidak bebas.'' Konklusi: ``Maka engkau tidak kaya.''
+    \item Premis 1: ``Ikan paus terdampar lapar atau ia menari.'' Premis 2: ``Dibuktikan paus tidak lapar.'' Konklusi: ``Maka paus sedang menari.''
+  \end{enumerate}
+  \item Diberikan premis: (1) $(P \vee Q) \rightarrow R$, (2) $S \rightarrow \neg R$, (3) $S$. Susun bukti formal berantai (tabel baris dengan justifikasi) untuk mencapai konklusi $\neg P$.
+  \item Diberikan dua klausa $(p \vee q)$ dan $(\neg p \vee r)$. Tuliskan resolvent-nya dan jelaskan aturan yang dipakai.
+  \item Jelaskan perbedaan antara Modus Ponens $(p \rightarrow q, p \vdash q)$ dengan pola invalid ``$p \rightarrow q$, $q$, maka $p$'' (Fallacy of Affirming the Consequent). Berikan satu contoh yang menunjukkan bahwa pola kedua tidak sah.
+  \item \textbf{Refleksi:} Mengapa Modus Ponens terasa natural dalam penalaran sehari-hari? Mengapa Fallacy of Denying the Antecedent sering menyesatkan? Kapan Anda memilih pengecekan validitas via tautologi dan kapan via aturan inferensi?
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 1.3)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Suatu argumen dengan premis $P_1, \ldots, P_n$ dan konklusi $Q$ disebut \textbf{valid} jika dan hanya jika:
+  \begin{enumerate}
+    \item Semua premis bernilai benar
+    \item $(P_1 \wedge P_2 \wedge \ldots \wedge P_n) \rightarrow Q$ merupakan tautologi
+    \item $Q$ bernilai benar
+    \item $P_1 \vee P_2 \vee \ldots \vee P_n$ bernilai benar
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Argumen dengan premis $(p \vee q)$ dan $\neg p$ yang menghasilkan konklusi $q$ menggunakan aturan:
+  \begin{enumerate}
+    \item Silogisme Disjungtif
+    \item Silogisme Hipotetis
+    \item Resolusi
+    \item Simplifikasi
+  \end{enumerate}
+  Jawaban: (a)
+
+  \item Dari implikasi $(p \rightarrow q)$, seseorang keliru menyimpulkan $p$ benar karena $q$ benar. Kesalahan ini disebut:
+  \begin{enumerate}
+    \item Fallacy of Denying the Antecedent
+    \item Fallacy of Affirming the Consequent
+    \item Modus Tollens
+    \item Silogisme Hipotetis
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Aturan Simplifikasi berlaku pada bentuk yang memuat operator:
+  \begin{enumerate}
+    \item Implikasi ($\rightarrow$)
+    \item Konjungsi ($\wedge$)
+    \item Disjungsi ($\vee$)
+    \item Biimplikasi ($\leftrightarrow$)
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Dari premis $p \rightarrow q$ dan $q \rightarrow r$, aturan Silogisme Hipotetis menyimpulkan:
+  \begin{enumerate}
+    \item $p \wedge r$
+    \item $p \rightarrow r$
+    \item $q \rightarrow p$
+    \item $\neg q$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Mekanisme inferensi yang menggabungkan dua klausa disjungsi dengan literal komplementer (misalnya $p \vee q$ dan $\neg p \vee r$) menghasilkan resolvent. Teknik ini menjadi dasar dalam:
+  \begin{enumerate}
+    \item Hanya Modus Ponens
+    \item Aturan Resolusi (sistem seperti PROLOG)
+    \item Fallacy of Affirming the Consequent
+    \item Simplifikasi
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Diberikan premis: ``Jika saya tidak melunasi pajak, mobil saya diderek.'' Fakta: mobil tidak diderek (aman di garasi). Formulasikan dalam notasi logika proposisional, gunakan aturan inferensi yang tepat untuk menyimpulkan status pajak, dan sebutkan nama aturan yang digunakan.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Memahami konsep probabilitas jumlah baris data $2^n$.
-  \item Mampu mensintesis tabel dan membongkar sub-kolom matematis fungsi bersarang tanpa salah iterasi nilai.
+  \item Saya mampu mengaitkan validitas argumen dengan tautologi $(P_1 \wedge \ldots \wedge P_n) \rightarrow Q$.
+  \item Saya mampu menerapkan Modus Ponens dan Modus Tollens serta menjelaskan skemanya.
+  \item Saya mampu menerapkan Silogisme Hipotetis dan Silogisme Disjungtif.
+  \item Saya mampu menerapkan aturan Konjungsi, Penambahan (Addition), dan Simplifikasi.
+  \item Saya mampu menjelaskan aturan Resolusi dan menentukan resolvent dari dua klausa.
+  \item Saya mampu mengidentifikasi Fallacy of Affirming the Consequent dan Denying the Antecedent.
+  \item Saya mampu menyusun bukti formal berantai dari premis ke konklusi dengan justifikasi tiap langkah.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 5 membahas penarikan kesimpulan inferensi yang sah tanpa fallacy.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Argumen valid} iff \textit{(Premis 1 $\land$ Premis 2 $\land$ $\ldots$) $\rightarrow$ Konklusi} tautologi.
+  \item \textbf{Modus Ponens}: menetapkan konsekuen dari implikasi dan anteseden. \textbf{Modus Tollens}: menolak anteseden dari implikasi dan negasi konsekuen (berdasarkan kontraposisi).
+  \item \textbf{Silogisme Hipotetis} mentransmisikan implikasi; \textbf{Silogisme Disjungtif} memilih dari disjungsi.
+  \item \textbf{Aturan Resolusi} merupakan dasar inferensi pada Knowledge Base AI (Sistem Pakar, PROLOG).
+  \item \textbf{Fallacy formal}: Affirming the Consequent (keliru menetapkan anteseden dari konsekuen); Denying the Antecedent (keliru menolak konsekuen dari negasi anteseden).
+  \item \textbf{Deduksi Formal} memerlukan justifikasi setiap langkah menuju konklusi.
+\end{itemize}
+
+\textbf{Kata Kunci}: Inferensi, Modus Ponens, Modus Tollens, Silogisme Hipotetis/Disjungtif, Aturan Resolusi, Fallacy, Bukti Berantai (\textit{Formal Proof of Validity}), Tautologi Argumen.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

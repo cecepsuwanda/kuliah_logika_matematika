@@ -1,0 +1,59 @@
+\section{Silogisme Hipotetis dan Silogisme Disjungtif}
+
+Silogisme mentransmisikan nilai logika antar beberapa implikasi bersyarat maupun disjungsi. Berbeda dengan Modus Ponens dan Tollens yang bekerja pada pernyataan tunggal, Silogisme menghubungkan beberapa proposisi \cite{rosen2019}.
+
+\subsection{Silogisme Hipotetis (Hukum Rantai Implikasi)}
+
+Bentuk inferensi ini memanfaatkan sifat transitif yang terdapat pada relasi implikasi. 
+
+\begin{teorema}[Silogisme Hipotetis]
+Jika $p$ mengimplikasikan $q$ dan $q$ mengimplikasikan $r$, maka dapat disimpulkan $p$ mengimplikasikan $r$ secara transitif. Variabel perantara $q$ tidak muncul dalam kesimpulan.
+\end{teorema}
+
+\textbf{Anatomi Argumen Silogisme Hipotetis:}
+\[
+\begin{array}{c}
+p \rightarrow q \\
+q \rightarrow r \\
+\hline
+\therefore p \rightarrow r
+\end{array}
+\]
+Variabel perantara $q$ dieliminasi dari kesimpulan sambil memindahkan transitivitas dari $p$ ke $r$.
+
+\begin{contoh}
+Argumen rantai motivasi belajar:
+\begin{itemize}
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Bila saya mengerahkan tekad merajut buku Logika di malam hari, maka gembok materi aljabar proposisi bakal berhasil dicerna otak."
+    \item \textbf{Premis 2 ($q \rightarrow r$)}: "Bila gembok aljabar proposisi lumat tercerna otak, maka besok fajar saya pasti lulus cemerlang mata kuliah bapak dosen."
+    \item \textbf{Kesimpulan ($\therefore p \rightarrow r$)}: "Jadi, bila saya mengerahkan tekad merajut buku Logika malam ini, maka besok fajar saya sanggup merengkuh lulus cemerlang."
+\end{itemize}
+\end{contoh}
+
+\subsection{Silogisme Disjungtif (Pemangkasan Cabang Alternatif)}
+
+Disjungsi menyatakan bahwa minimal satu dari dua proposisi bernilai benar.
+
+\begin{teorema}[Silogisme Disjungtif]
+Dari disjungsi ($p \lor q$) yang menjamin minimal satu klausa bernilai T, jika $p$ bernilai salah ($\neg p$), maka $q$ harus bernilai benar.
+\end{teorema}
+
+\textbf{Anatomi Argumen Silogisme Disjungtif Asimetris:}
+\[
+\begin{array}{ccc}
+p \vee q & & p \vee q\\
+\neg p   & \text{Atau varian sisi berlawanannya:} & \neg q \\
+\hline
+\therefore q & & \therefore p
+\end{array}
+\]
+
+\begin{contoh}
+Skenario kepastian alibi kriminalisasi:
+\begin{itemize}
+    \item \textbf{Premis 1 ($p \vee q$)}: "Oknum maling misterius melarikan diri menjebol jendela ($p$), ATAU maling tersebut lari menyelinap melalui lubang plafon atap ($q$)."
+    \item \textbf{Premis 2 ($\neg p$)}: "Investigasi di TKP menyatakan kusen maupun teralis seluruh jendela terkunci utuh segel tak ternoda (Maling \textbf{mustahil} lari pecahkan jendela)."
+    \item \textbf{Kesimpulan ($\therefore q$)}: "Fiks valid tiada tawar menawar! Maling itu sungguh menyelinap lari menggasak plafon atap."
+\end{itemize}
+\end{contoh}
+Bentuk argumen: $[(p \lor q) \land \neg p] \rightarrow q$. Verifikasi melalui tabel kebenaran 4 baris menunjukkan bahwa ekspresi ini tautologi.

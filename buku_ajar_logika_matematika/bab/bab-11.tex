@@ -1,52 +1,156 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{10}}{}
 \begin{document}
 
-\chapter{Pemodelan Masalah Komputasi menggunakan Logika Predikat}
+\chapter{Representasi Fungsi Logika ke Rangkaian Gerbang Logika Dasar}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu memodelkan masalah komputasi yang tak terstruktur di alam verbal manusia dengan merepresentasikannya menggunakan kerangka ekspresif logika predikat.
+  \item \textbf{Sub-CPMK 3.3:} Mahasiswa mampu mengonversi dan merepresentasikan fungsi logika yang telah disederhanakan ke dalam bentuk rangkaian gerbang logika dasar pembentuk sistem komputer.
 \end{subcpmk}
 
-\section{Pemodelan Sintaks *Query* dan Struktur Data}
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-11/section-11-1}
+\input{bab-11/section-11-2}
+\input{bab-11/section-11-3}
+\input{bab-11/section-11-4}
+\input{bab-11/section-11-5}
+\input{bab-11/section-11-6}
+\input{bab-11/section-11-7}
 
-Kemampuan menerjemahkan kebutuhan (*requirements*) menjadi model matematika diskrit merupakan fondasi arsitektur sistem Basis Data (*Relational Databases*) modern (merujuk pada *Relational Calculus*) maupun rekayasa *Knowledge-Based AI*. Logika Predikat menyumbang sintaks formalnya secara masif.
-
-Ketika programmer memformulasikan sintaks kueri penarikan *record*, misalnya SQL:
-\lstset{language=SQL}
-\begin{lstlisting}
-SELECT Email FROM Pengguna WHERE Umur > 18 AND Status = 'Aktif';
-\end{lstlisting}
-Secara diam-diam, sang programmer tengah merancang instruksi komputasi bertumpu evaluasi model Logika Predikat.
-Fungsi komputasional di \textit{backend database engine} memanifestasikan perintah tabel kolom tersebut menjadi pencarian yang memuaskan variabel kuantifikasi himpunan relasional.
-
-Domain $U$ = {Himpunan Entitas Tabel Pengguna Aktif}.
-Model Klausa Relasi Pemodelannya: $\{ x \in Pengguna \mid Umur(x) > 18 \land Status(x, Aktif) \}$.
-Di sini predikat \textit{Umur} adalah fungsi pemetaan variabel tunggal iteratif ($P(x)$) dan \textit{Status} adalah relasional argumen komputatif variabel ganda $R(x, y)$.
-
-\section{Pemodelan Logika Bersarang (*Nested Quantifiers*)}
-Masalah kompleks komputasi memerlukan Kuantor jamak tak merdeka (Bersarang).
-Misal pemodelan arsitektur enkripsi data komputatif: "Semua kata sandi, pasti di-enkripsi algoritma hash oleh sekurang-kurangnya sebuah server keamanan valid."
-
-Domain $P$ = Sandi, Domain $S$ = Server. Predikat Enkripsi $E(x, y)$ (sandi x di hash server y).
-Model Relasi Formal Komputasinya: $\forall x (P(x) \rightarrow \exists y (S(y) \land E(x, y)))$
-
-\begin{contoh}
-Menguraikan \textit{Deadlock Dependency}:
-Misalkan $T_i$ merepresentasikan \textit{Thread/Process} CPU, dan $R_a$ tipe *Resources Data*. $W(T_i, R_a)$ artinya Thread $i$ mem-blok menunggu \textit{Resource $a$}. Masalah *System Deadlock* dimodelkan terjadi bila: "Ada thread siklis yang saling blok satu dan yang lainnya abadi." Model pendeteksi awal yang di-skrip engineer Sistem Operasi mengecek apakah *status flag komputasionalnya* merujuk \textit{True} pada relasi: $\exists x \exists y (W(x, y) \land W(y, x))$.
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Pilih \textit{Rule} atau \textit{Guideline Form Validasi Password Sistem}. (Contoh: "Setiap sandi user setidaknya mengandung satu modifikasi atribut *special character*"). Formulasikan model kuantor berindeks logika predikatnya secara akurat di atas kanvas/kertas untuk divisualisasikan bersama sejawat Anda!
+  \item \textbf{Rangkaian AND-OR-NOT:} Rancang rangkaian gerbang untuk $F(X,Y,Z) = X(Y' + Z)$ menggunakan gerbang AND, OR, dan NOT. Hitung jumlah gerbang.
+  \item \textbf{Konversi NAND-only:} Konversikan rangkaian dari aktivitas sebelumnya ke rangkaian NAND-only. Bandingkan jumlah gerbang sebelum dan sesudah.
+  \item \textbf{Half-adder:} Implementasikan half-adder menggunakan hanya gerbang NAND. Gambarkan diagram dan verifikasi dengan tabel kebenaran.
+  \item \textbf{Analisis rangkaian:} Diberikan rangkaian: NOT pada $A$ (output $W$), AND($W$, $C$) = $X$, OR($B$, $X$) = $Y$, AND($Y$, $D$) = $F$. Tentukan ekspresi Boolean $F$ dan buat tabel kebenaran.
+  \item \textbf{Decoder:} Rancang decoder 3-ke-8 dengan gerbang AND dan NOT. Tulis ekspresi Boolean untuk setiap output.
+  \item \textbf{Implementasi dengan decoder:} Implementasikan $G(A,B,C) = \sum m(1, 2, 6, 7)$ dengan: (a) gerbang AND-OR-NOT, dan (b) decoder 3-ke-8 dan satu gerbang OR.
+  \item \textbf{Multiplexer:} Rancang multiplexer 4-ke-1 dengan gerbang AND, OR, dan NOT. Verifikasi untuk setiap kombinasi sinyal pemilih.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Representasikan $F = W'XY + WXZ + Y'Z'$ ke diagram rangkaian gerbang. Hitung jumlah gerbang (AND, OR, NOT).
+  \item Konversikan rangkaian pada soal sebelumnya ke NAND-only. Tunjukkan langkah konversi dan hitung jumlah gerbang NAND.
+  \item Rancang full-adder dan buktikan bahwa $C_{out} = AB + C_{in}(A \oplus B)$ ekuivalen dengan $C_{out} = AB + AC_{in} + BC_{in}$.
+  \item Diberikan rangkaian NAND-only: NAND($A,B$) = $P$, NAND($P,P$) = $Q$, NAND($C,D$) = $R$, NAND($R,R$) = $S$, NAND($Q,S$) = $F$. Tentukan $F$ dalam bentuk ekspresi Boolean yang disederhanakan.
+  \item Jelaskan perbedaan multiplexer dan decoder. Berikan contoh penggunaan masing-masing dalam arsitektur komputer.
+  \item Implementasikan $F(A,B) = A \oplus B$ (XOR) dengan: (a) hanya gerbang NAND, (b) hanya gerbang NOR. Gambarkan kedua rangkaian dan bandingkan jumlah gerbang.
+  \item \textbf{Refleksi:} (a) Mengapa banyak pabrikan semikonduktor mengonversi rangkaian ke NAND-only? Apa keuntungan dan kerugiannya dibanding campuran AND-OR-NOT? (b) Bagaimana critical path memengaruhi trade-off antara kecepatan dan biaya (jumlah gerbang) dalam desain rangkaian digital?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
 \begin{asesmen}
-Akurasi pendefinisian ruang himpunan *Universe (U)* pada tugas perancangan spesifikasi Logika *Database Relational* yang diberikan saat ujian portofolio terstruktur.
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 3.3)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Gerbang yang output-nya 1 jika dan hanya jika jumlah masukan bernilai 1 ganjil adalah:
+  \begin{enumerate}
+    \item OR
+    \item AND
+    \item XOR (Exclusive-OR)
+    \item NOR
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Gerbang yang secara individual lengkap secara fungsional (\textit{universal gate}) adalah:
+  \begin{enumerate}
+    \item AND dan OR
+    \item XOR dan XNOR
+    \item NAND dan NOR
+    \item AND dan NOT
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Rangkaian half-adder terdiri dari:
+  \begin{enumerate}
+    \item 1 gerbang AND dan 1 gerbang OR
+    \item 1 gerbang XOR dan 1 gerbang AND
+    \item 2 gerbang AND dan 1 gerbang OR
+    \item 1 gerbang NAND dan 1 gerbang NOR
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Decoder $n$-ke-$2^n$ menghasilkan:
+  \begin{enumerate}
+    \item $n$ sinyal output
+    \item $2n$ sinyal output
+    \item $2^n$ sinyal output, masing-masing berkorespondensi dengan satu minterm
+    \item $n^2$ sinyal output
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Jika rangkaian memiliki 4 tingkat gerbang dan setiap gerbang delay $t_d = 5$ ns, delay total jalur kritis adalah:
+  \begin{enumerate}
+    \item 5 ns
+    \item 10 ns
+    \item 15 ns
+    \item 20 ns
+  \end{enumerate}
+  Jawaban: (d)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Buktikan gerbang NOR lengkap secara fungsional dengan mengimplementasikan NOT, AND, dan OR hanya menggunakan gerbang NOR. Gambarkan rangkaian masing-masing.
+  \item Rancang full-adder 1-bit dan rangkaikan empat full-adder menjadi penjumlah 4-bit (ripple-carry adder). Jelaskan propagasi sinyal carry.
+  \item Diberikan rangkaian campuran gerbang AND, OR, NOT, dan NAND. Analisis rangkaian: tentukan ekspresi Boolean output, sederhanakan, dan verifikasi dengan tabel kebenaran.
+\end{enumerate}
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
 \end{asesmen}
 
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Mampu mengenali peranan $P(x)$ di dalam sintaks bahasa kueri \texttt{SQL} / pengkondisian data komputasi praktis *Array Filtering*.
-  \item Lancar mentransformasi kebutuhan verbal rumit \textit{System User} menjadi persamaan bersarang kuantor mutlak tanpa ambiguitas terjemahan.
+  \item Saya memahami fungsi dan simbol gerbang logika dasar (AND, OR, NOT).
+  \item Saya mengenal fungsi dan simbol gerbang turunan (NAND, NOR, XOR, XNOR) beserta tabel kebenarannya.
+  \item Saya memahami kelengkapan fungsional dan dapat membuktikan universalitas gerbang NAND dan NOR.
+  \item Saya mampu mengonversi ekspresi Boolean SOP ke rangkaian gerbang secara sistematis.
+  \item Saya mampu mengonversi rangkaian AND-OR-NOT ke rangkaian NAND-only atau NOR-only.
+  \item Saya memahami struktur dan persamaan Boolean half-adder dan full-adder.
+  \item Saya mengenal multiplexer dan decoder serta hubungannya dengan minterm.
+  \item Saya mampu menganalisis rangkaian gerbang dan menentukan ekspresi Boolean yang diimplementasikan.
+  \item Saya memahami critical path dan pengaruhnya terhadap kecepatan rangkaian.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas realisasi fisik konsep aljabar Boolean dalam bentuk rangkaian gerbang logika digital, menjembatani teori matematika dengan implementasi perangkat keras.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Tiga gerbang dasar (AND, OR, NOT) mengimplementasikan tiga operasi fundamental aljabar Boolean. Empat gerbang turunan (NAND, NOR, XOR, XNOR) memberikan efisiensi tambahan dalam implementasi.
+  \item Gerbang NAND dan NOR masing-masing bersifat \textit{lengkap secara fungsional} (universal): seluruh fungsi Boolean dapat diimplementasikan hanya menggunakan satu jenis gerbang. Hal ini memiliki implikasi penting dalam efisiensi fabrikasi semikonduktor.
+  \item Konversi ekspresi Boolean ke rangkaian gerbang bersifat mekanistik --- setiap operator menjadi satu gerbang, dan struktur ekspresi menentukan interkoneksi. Rangkaian SOP (AND-OR) dapat dikonversi ke NAND-NAND, dan POS (OR-AND) ke NOR-NOR.
+  \item Rangkaian aritmetika (half-adder, full-adder, ripple-carry adder) merupakan blok bangunan dasar untuk operasi penjumlahan biner dalam prosesor.
+  \item Multiplexer memilih satu dari banyak sinyal masukan berdasarkan kode pemilih, sementara decoder mengonversi kode biner menjadi sinyal aktivasi individual (satu-dari-banyak). Keduanya dapat digunakan untuk mengimplementasikan fungsi Boolean.
+  \item Analisis rangkaian (dari diagram ke ekspresi) dan analisis timing (critical path) merupakan keterampilan penting dalam verifikasi dan optimasi desain digital.
+\end{itemize}
+
+\textbf{Kata Kunci}: gerbang logika, AND, OR, NOT, NAND, NOR, XOR, XNOR, gerbang universal, kelengkapan fungsional, half-adder, full-adder, ripple-carry adder, multiplexer, decoder, analisis rangkaian, critical path
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

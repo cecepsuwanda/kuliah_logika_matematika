@@ -1,0 +1,56 @@
+\section{Kesalahan Umum dan Panduan Praktis Induksi}
+
+Meskipun struktur induksi tampak sederhana, terdapat beberapa kesalahan umum yang sering dilakukan oleh pemula. Memahami kesalahan-kesalahan ini sama pentingnya dengan memahami teknik itu sendiri, karena kesalahan dalam induksi dapat menghasilkan ``bukti'' yang tampak valid tetapi sebenarnya salah \cite{hammack2018}.
+
+\subsection{Kesalahan 1: Melupakan Langkah Basis}
+
+Langkah basis bukan formalitas --- ia memastikan bahwa ``domino pertama benar-benar jatuh.'' Tanpa langkah basis, langkah induksi hanya membangun rantai implikasi bersyarat yang tidak pernah ``dipicu.''
+
+\begin{contoh}
+\textbf{``Bukti'' Palsu}: ``Untuk semua $n \geq 1$, $n > n + 1$.''
+
+\textbf{``Langkah Induksi''}: Asumsikan $k > k + 1$. Tambahkan 1 pada kedua ruas: $k + 1 > k + 2$, yaitu $(k+1) > (k+1) + 1$. Terbukti?
+
+\textbf{Masalah}: Langkah induksi secara teknis valid (jika premis benar, konklusi benar). Tetapi langkah basis gagal --- tidak ada $n_0$ di mana $n_0 > n_0 + 1$ bernilai benar. Tanpa basis, rantai induksi tidak pernah dimulai.
+\end{contoh}
+
+\subsection{Kesalahan 2: Tidak Menggunakan Hipotesis Induksi}
+
+Langkah induksi \textbf{harus} menggunakan hipotesis induksi $P(k)$. Jika bukti $P(k+1)$ tidak pernah merujuk $P(k)$, maka itu bukan bukti induksi --- melainkan bukti langsung yang kebetulan menggunakan parameter $k+1$. Selain itu, jika $P(k+1)$ bisa dibuktikan tanpa $P(k)$, maka induksi sebenarnya tidak diperlukan.
+
+\subsection{Kesalahan 3: Membuktikan Arah yang Salah}
+
+\begin{contoh}
+\textbf{Kesalahan umum} pada pembuktian $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$:
+
+Mahasiswa kadang memulai dari persamaan yang hendak dibuktikan (ruas kanan) dan memanipulasinya \emph{mundur} menuju hipotesis induksi. Ini adalah penalaran sirkuler --- kita tidak boleh mengasumsikan apa yang hendak dibuktikan.
+
+\textbf{Pendekatan yang benar}: Mulai dari ruas kiri, substitusikan hipotesis induksi, lalu tunjukkan bahwa hasilnya \emph{sama dengan} ruas kanan.
+\end{contoh}
+
+\subsection{Kesalahan 4: Basis yang Tidak Tepat}
+
+Langkah basis harus menggunakan nilai $n_0$ yang sesuai dengan domain pernyataan. Jika teorema menyatakan ``untuk $n \geq 4$'', maka basis harus dimulai dari $n = 4$, bukan $n = 1$.
+
+\begin{contoh}
+Perhatikan kembali teorema $n! > 2^n$ untuk $n \geq 4$. Jika basis dimulai dari $n = 1$, maka $1! = 1 \not> 2 = 2^1$, dan langkah basis gagal. Ini bukan berarti teorema salah, melainkan domain pembuktian dimulai dari $n = 4$.
+\end{contoh}
+
+\subsection{Panduan Praktis}
+
+Berikut ringkasan panduan langkah demi langkah untuk menyusun bukti induksi:
+
+\begin{enumerate}
+  \item \textbf{Identifikasi $P(n)$}: Tuliskan dengan jelas pernyataan $P(n)$ yang bergantung pada $n$.
+  \item \textbf{Tentukan $n_0$}: Identifikasi nilai awal dari domain pernyataan.
+  \item \textbf{Verifikasi basis}: Evaluasi $P(n_0)$ secara eksplisit dan tunjukkan kebenarannya.
+  \item \textbf{Tuliskan hipotesis}: Nyatakan secara eksplisit: ``Asumsikan $P(k)$ benar untuk sembarang $k \geq n_0$.''
+  \item \textbf{Tuliskan tujuan}: Nyatakan secara eksplisit apa yang harus ditunjukkan: ``Buktikan $P(k+1)$.''
+  \item \textbf{Kerjakan langkah induksi}: Mulai dari ekspresi $P(k+1)$, hubungkan dengan $P(k)$, substitusi hipotesis induksi, dan sederhanakan.
+  \item \textbf{Gunakan hipotesis induksi}: Pastikan hipotesis induksi benar-benar digunakan dalam penalaran.
+  \item \textbf{Simpulkan}: ``Berdasarkan prinsip induksi matematika, $P(n)$ terbukti untuk seluruh $n \geq n_0$. $\blacksquare$''
+\end{enumerate}
+
+\subsection{Jembatan ke Bab Selanjutnya}
+
+Induksi matematika tidak hanya berguna untuk membuktikan formula matematika, tetapi juga menjadi alat utama dalam verifikasi program \cite{mit_6042}. Pada Bab~14, teknik induksi akan diterapkan untuk membuktikan kebenaran algoritma melalui konsep \logic{loop invariant} --- pernyataan yang dijaga tetap benar pada setiap iterasi perulangan, dengan analogi yang langsung terkait prinsip induksi: basis (sebelum loop dimulai) dan langkah induksi (setiap iterasi menjaga invariant).

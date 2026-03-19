@@ -1,51 +1,154 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{7}}{}
 \begin{document}
 
-\chapter{Analisis Validitas Argumen dalam Konteks Komputasi Dasar}
+\chapter{Pemodelan Masalah Komputasi berbasis Logika Predikat}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu membuktikan atau menjatuhkan sebuah sistem argumen fungsional dan teknologis secara metodologi \textit{Logic Tracing} matematis dasar komprehensif.
+  \item \textbf{Sub-CPMK 2.3:} Mahasiswa mampu memodelkan masalah komputasi yang terstruktur dengan merepresentasikan logika predikat sebagai basis perancangan algoritma.
 \end{subcpmk}
 
-\section{Studi Kasus Pembuktian Sistem Komputasi Argumentatif Murni}
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-08/section-8-1}
+\input{bab-08/section-8-2}
+\input{bab-08/section-8-3}
+\input{bab-08/section-8-4}
+\input{bab-08/section-8-5}
+\input{bab-08/section-8-6}
+\input{bab-08/section-8-7}
 
-Bab ini tak memperkenalkan teori dasar baru, tetapi memfasilitasi "Lab Sintesis" atas perpaduan komponen teknis diskursus deduktif bab 3 -- 7 sebelumnya. Algoritma modern menuntut kesahihan argumentasi spesifikasi \textit{System Information Flow} secara absolut dan tertulis (non-interpretatif manusiawi).
-
-Teknik pemecahan yang dominan berlaku di arsitektur rekayasa \textit{software}:
-\begin{itemize}
-    \item Substitusi / Mengabstraksi bahasa \textit{Requirement User/Client} ke simbolisme parameter logika murni algoritmik fungsional proposisi ($p, q, \land, \lor, \rightarrow$).
-    \item Evaluasi berantai untuk mereduksi proposisi abstrak itu melalui hukum dasar yang mapan seperti Ekivalensi, Ponens \& Tollens.
-    \item Bila secara matematis semua simpul premis mayor kompatibel dan *Tautologik* menuju hipotesisnya, \textit{architecture flowchart code software}-nya diklaim bebas kontradiksi/celah logika.
-\end{itemize}
-
-\begin{contoh}
-\textbf{Kasus Analisis Spesifikasi Keamanan Server:}\\
-Sebuah rancangan manual \textit{cyber-security} menyebut 3 hal prasyarat keamanan sbb:
-1. Jika Firewall Sistem Dioperasikan ($F$), Modul Pertahanan Aktif ($M$) atau Anomali Trafik Terblokir ($A$). $\rightarrow (F \rightarrow M \lor A)$
-2. Jika Sistem Audit Intrusif beroperasi optimal ($S$), Modul Pertahanan TIDAK Aktif. $\rightarrow (S \rightarrow \sim M)$
-3. Jika Sistem Firewall Dioperasikan dan Audit Sistem Optimal berjalan, buktikanlah deduksi apakah secara pasti Anomali Terblokir ($A$). ($\dots$ Buktikan apakah $(F \land S) \rightarrow A$ merupakan sistem deduksi argumen berskala rasional Valid).
-
-\textbf{Langkah Sintesis Komputasi Inferensial:}
-- (Premis Minor Faktanya): Kita ambil pemisalan Asumsi input $(F \land S)$ \textit{wajib nilainya mutlak bernilai Benar}. Otomatis $F$ adalah Benar, selaras pararel dengan $S$ \textit{adalah wajib} mutlak Benar.
-- Karena Inputnya mensyaratkan status mutlak $S$ bernilai \textit{True}/T, Modus Ponens spesifik pada premis (2) $S \rightarrow \sim M$,  Konsekuensi turunannya memvalidasi variabel turunan $\sim M$ berstatus benar mutlak!
-- Karena input juga mem-validasi $F$, sesuai turunan inferensi Modus Ponens rasional di aturan (1) $F \rightarrow (M \lor A)$, hal itu menarik kesimpulan turunannya yakni klausa gabungan logik rasional $(M \lor A)$ diwajibkan dikunci kebenarannya (\textit{True value function}).
-- Namun dari reduksi sebelumnya, fakta memvonis status $\sim M$ bernilai T (sehingga var independen iterasi nilainya adalah $M=F$ alias False logis!!).
-- Dari aturan pokok inferensial Silogisme Disjungtif logika, diketahui \textit{Expression Block} $(M \lor A)$ harus berwibawa \textit{True}, sedangkan $M$ berstatus deterministik logikal \textit{False}. Karena fungsi \textit{OR ($\lor$)} wajib memiliki sisa True untuk aktif fungsional paralelitasnya, secara alam logika mutlak konklusi algoritmanya menarik keniscayaan nilai semantik ke terminal fungsi variabel input murni $A$, mensahkan secara total $A$ wajib bereksistensial di posisi logikal Benar / T ("Anomali benar-benar pasti Terblokasi Formal!").
-- \textbf{Argumen/Spesifikasi Algoritma Server ini sahih 100\% logis secara komputasi fungsional rasional.}
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Rancang dan rumuskan algoritma spesifik *Error Trace Logging System* Anda bersendikan minimal 3 Premis dari operator majemuk dan inferensial. Analisis di depan kolega akademis komputatif.
+  \item \textbf{Basis pengetahuan:} Rancang basis pengetahuan untuk hierarki organisasi kampus (rektor, dekan, ketua prodi, dosen, mahasiswa). Daftarkan minimal 8 fakta ($\Delta$) dan 4 aturan ($\Gamma$) dalam notasi FOL.
+  \item \textbf{Resolusi query:} Gunakan KB dari aktivitas sebelumnya. Demonstrasikan forward chaining untuk menjawab query ``Siapa atasan langsung dari mahasiswa X?'' (atau query serupa yang Anda definisikan).
+  \item \textbf{Pemodelan aturan:} Modelkan aturan perpustakaan: ``Mahasiswa yang terdaftar dan tidak memiliki denda dapat meminjam buku.'' Tuliskan dalam FOL (fakta dan aturan).
+  \item \textbf{Inferensi kuantor:} Pada contoh yang Anda buat, tunjukkan penerapan keempat aturan inferensi kuantor (UI, UG, EI, EG) masing-masing minimal satu kali.
+  \item \textbf{CWA vs OWA:} Bandingkan CWA dan OWA pada basis pengetahuan perpustakaan: jika $Terdaftar(MahasiswaY)$ tidak ada dalam KB, apa kesimpulan sistem di bawah CWA dan di bawah OWA?
+  \item \textbf{Batasan FOL:} Identifikasi minimal dua batasan FOL yang relevan dalam pemodelan sistem informasi akademik. Jelaskan cara mengatasinya atau paradigma alternatif.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Translasi ke FOL: Tuliskan fakta berikut dalam bentuk predikat $Suka(x, y)$: ``Ali suka matematika. Budi suka informatika. Cici suka fisika. Ali suka informatika.''
+  \item Definisikan aturan $Rekan(x, y)$: ``$x$ adalah rekan $y$ jika keduanya menyukai mata kuliah yang sama dan $x \neq y$.'' Tunjukkan proses inferensi untuk domain $\{\text{Ali}, \text{Budi}, \text{Cici}\}$ hingga diperoleh pasangan rekan.
+  \item Diberikan aturan $\forall x, y\, (OrangTua(x, y) \wedge Laki(x) \rightarrow Ayah(x, y))$. Jika KB berisi $OrangTua(Hasan, Ali)$ dan $Laki(Hasan)$, tunjukkan langkah inferensi (UI dan Modus Ponens) untuk membuktikan $Ayah(Hasan, Ali)$.
+  \item Modelkan aturan e-commerce dalam FOL: ``Pengguna yang login, terverifikasi, dan memiliki saldo $\ge$ harga item dapat melakukan pembelian.'' Tuliskan fakta dan aturan, lalu demonstrasikan inferensi untuk satu contoh.
+  \item Jelaskan perbedaan Universal Instantiation (UI) dan Existential Instantiation (EI). Berikan satu contoh penggunaan masing-masing.
+  \item Apa yang terjadi jika dalam backward chaining konklusi yang dicari mengarah ke fakta yang tidak ada dalam KB, dan sistem menggunakan CWA?
+  \item \textbf{Refleksi:} (a) Berikan contoh masalah dunia nyata yang lebih mudah direpresentasikan dengan basis pengetahuan (deklaratif) daripada algoritma imperatif. (b) Mengapa basis data relasional (SQL) mengadopsi CWA sedangkan web semantik (OWL) mengadopsi OWA? Apa implikasinya bagi desain sistem?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
 \begin{asesmen}
-Aplikasi integratif perancangan (Project Mini) penyelesaian argumen teknikal sistem komputasional perangkat keras, yang akan direviu pada komponen formatif berkelompok di tahap penugasan formal selanjutnya.
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 2.3)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Dalam skema basis pengetahuan, pernyataan kebenaran spesifik tentang entitas (tanpa variabel) disebut:
+  \begin{enumerate}
+    \item Aturan
+    \item Fakta atomik (ground atom)
+    \item Variabel terikat
+    \item Kuantor eksistensial
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Untuk memodelkan aturan umum ``Semua manusia adalah mortal'' dalam FOL, bentuk yang tepat adalah:
+  \begin{enumerate}
+    \item Konjungsi tanpa variabel
+    \item Implikasi berkuantor universal $\forall x\, (P(x) \rightarrow Q(x))$
+    \item Biimplikasi
+    \item Hukum De Morgan
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Universal Instantiation (UI) memungkinkan:
+  \begin{enumerate}
+    \item Menggeneralisasi fakta spesifik menjadi aturan universal
+    \item Menurunkan fakta spesifik $P(c)$ dari $\forall x\, P(x)$
+    \item Membuktikan keberadaan entitas dengan properti tertentu
+    \item Menggabungkan dua aturan menjadi satu
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Di bawah Asumsi Dunia Tertutup (CWA), jika $Laki(Budi)$ tidak ada dalam KB, maka:
+  \begin{enumerate}
+    \item $Laki(Budi)$ bernilai benar
+    \item $Laki(Budi)$ bernilai tidak diketahui
+    \item $Laki(Budi)$ dianggap salah
+    \item Sistem menghasilkan error
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Strategi penalaran yang memulai dari query dan mencari aturan yang konsekuennya cocok dengan query secara mundur disebut:
+  \begin{enumerate}
+    \item Forward chaining
+    \item Backward chaining
+    \item Modus Ponens
+    \item Universal Generalization
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Buat skenario basis pengetahuan untuk organisasi kepanitiaan mahasiswa. Daftarkan $\Delta$ (fakta) dan $\Gamma$ (aturan). Tunjukkan alur inferensi untuk menjawab query ``Siapa yang bertanggung jawab atas tugas X?'' (atau query serupa).
+  \item Bandingkan hasil query pada KB yang sama di bawah CWA dan OWA. Berikan satu contoh query yang menghasilkan jawaban berbeda di bawah kedua asumsi.
+\end{enumerate}
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
 \end{asesmen}
 
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Tidak bingung mengkonversi dari paparan tekstual spesifikasi \textit{System Design} jadi rumus proposisional yang tepat simbolik sintaksnya matematis konklusif .
-  \item Secara terpandu mengurutkan deduksi kebenaran rantai tanpa cacat interpretatif kontradiktif.
+  \item Saya memahami konsep basis pengetahuan dan komponennya (fakta $\Delta$, aturan $\Gamma$, domain).
+  \item Saya mampu mengidentifikasi entitas, properti, dan relasi dari domain serta memodelkannya sebagai predikat dengan arity yang tepat.
+  \item Saya mampu membedakan fakta ground (atom tanpa variabel) dan aturan berkuantor universal.
+  \item Saya menguasai empat aturan inferensi kuantor (UI, UG, EI, EG) beserta syarat penggunaannya.
+  \item Saya mampu melakukan penalaran deduktif (forward chaining dan backward chaining) untuk resolusi query pada basis pengetahuan.
+  \item Saya mampu memodelkan studi kasus silsilah keluarga dan menyelesaikan query (misalnya Kakek, Saudara) di atasnya.
+  \item Saya mampu memodelkan aturan bisnis e-commerce dalam FOL dan melakukan inferensi.
+  \item Saya mampu menjelaskan perbedaan Asumsi Dunia Tertutup (CWA) dan Dunia Terbuka (OWA) serta dampaknya pada jawaban query.
+  \item Saya memahami batasan FOL dalam pemodelan (ketidakpastian, perubahan pengetahuan, kompleksitas, representasi temporal).
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas penerapan logika predikat orde pertama untuk memodelkan masalah komputasi dalam bentuk basis pengetahuan.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Basis Pengetahuan} terdiri dari fakta ($\Delta$, pernyataan atomik tanpa variabel) dan aturan ($\Gamma$, implikasi berkuantor universal). Pemodelan memerlukan identifikasi entitas, properti, dan relasi dari domain.
+  \item \textbf{Arity} predikat menentukan jumlah argumennya: arity-1 untuk properti, arity-2 untuk relasi biner, dan arity-$n$ untuk relasi multi-argumen.
+  \item \textbf{Empat aturan inferensi kuantor} (UI, UG, EI, EG) memungkinkan penalaran formal dengan membuka atau memasang kuantor.
+  \item \textbf{Resolusi query} menggunakan forward chaining (data-driven) atau backward chaining (goal-driven) untuk menurunkan kesimpulan baru dari fakta dan aturan.
+  \item \textbf{Asumsi Dunia Tertutup} (CWA) menganggap fakta yang tidak ada dalam KB sebagai salah, sementara \textbf{Asumsi Dunia Terbuka} (OWA) menganggapnya tidak diketahui.
+  \item FOL memiliki batasan dalam menangani ketidakpastian, perubahan pengetahuan, dan kompleksitas komputasi, tetapi tetap menjadi fondasi bagi representasi pengetahuan modern.
+\end{itemize}
+
+\textbf{Kata Kunci}: basis pengetahuan, fakta, aturan, predikat, arity, instansiasi universal, generalisasi, forward chaining, backward chaining, CWA, OWA
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

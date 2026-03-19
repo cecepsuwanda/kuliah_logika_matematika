@@ -1,62 +1,147 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{6}}{}
 \begin{document}
 
-\chapter{Aturan Inferensi dan Penarikan Kesimpulan}
+\chapter{Kuantor Universal ($\forall$) dan Eksistensial ($\exists$)}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi deduktif matematis murni (logika silogistik).
-  \item Mahasiswa mengenali pola Modus Ponens, Modus Tollens, dan skema Silogisme Hipotetis dalam memecahkan persoalan rasional.
+  \item \textbf{Sub-CPMK 2.2:} Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial.
 \end{subcpmk}
 
-\section{Pendahuluan Penarikan Simpulan Komputatif}
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-07/section-7-1}
+\input{bab-07/section-7-2}
+\input{bab-07/section-7-3}
+\input{bab-07/section-7-4}
+\input{bab-07/section-7-5}
+\input{bab-07/section-7-6}
+\input{bab-07/section-7-7}
 
-Sistem pengambil keputusan \textit{(Decision Support Systems)} dalam perangkat lunak modern digerakkan oleh *Inference Engines*. Di belakang *Inference Engines* (Mesin Inferensi komputasi *Artificial Intelligence* level awalan), bersemayam kemampuan dan kerangka untuk mengidentifikasi sekumpulan *Premis* aksiomatik maupun deklarasi faktual untuk, \textit{melalui penalaran silogistik deduktif presisi}, menarik dan memutuskan turunan berupa satu *Konklusi (Kesimpulan)* berdaya valid dan \textit{reliable} kuat.
-
-Aturan Inferensi (\textit{Rules of Inference}) memandu bagaimana dari kondisi-kondisi (premis-premis matematis) $P_1, P_2, P_3 \dots P_k$ berimbas ke Konklusi logis berdinamika konsisten ($Q$).
-
-Suatu inferensi (argumen) dijuluki \textbf{VALID} takkala, jika \textit{seluruh susunan dari premis-premis penggeraknya bernilai aktual Benar (T)}, maka keniscayaan akan memastikan Konklusi-nya wajib Bernilai \textbf{Benar (T)}. Pembuktian teknis ini direduksi setara ke ekivalensi dari Tautologi majemuk $(P_1 \land P_2 \land \dots \land P_k) \rightarrow Q$.
-
-\section{Aturan Pokok Inferensi Proposisional Dasar}
-
-\subsection{Modus Ponens (Hukum Pembenaran Khusus)}
-Juga termasyhur selaku \textit{The Rule of Detachment}. Esensinya menyatakan bilamana sebuah prasyarat kebenaran komputasional kausal dipenuhi premis bersyarat, dan pre-kondisi itu pun benar-benar konkret/terjadi mutlak, maka kesimpulan dan \textit{trigger} akibat bersyaratnya logis secara otomatis dieksekusi benar. Ekstraknya:\\
-Premis Mayor: $p \rightarrow q$ (Jika hujan interupsi, maka \textit{trigger sensor air} aktif) \\
-Premis Minor: $p$ (Memang turunlah curah hujan iterupsi) \\
-Kesimpulan: $\therefore q$ (Sirkuit menyatakan \textit{sensor air divalidasi aktif!})
-
-\subsection{Modus Tollens (Hukum Penolakan)}
-Menyitir dari Modus Ponens, namun diinisiasikan di sisi pengingkaran akibat semantik (\textit{The Law of Contrapositive Denial}). \\
-Premis Mayor: $p \rightarrow q$ \\
-Premis Minor: $\sim q$ (Diinspeksi ternyata: \textit{sensor air bernilai matifalse / False!}) \\
-Kesimpulan: $\therefore \sim p$ (Otomatis ditarik validitas inferensi komputasi Logis konklusinya: Saat ini Hujan Interupsi jelas tak berlaku = False / Negasi $p$).
-
-\subsection{Silogisme Hipotetis}
-Bila mesin algoritma AI disuplai rangkaian berantai kognisi berdimensi kontinuitas dari $p$ meluncur ke $q$, dibarengi $q$ bermuara meluncur pada $r$, logis mereduksi kesimpulan transisional silogisme (hukum transisi).\\
-Premis 1: $p \rightarrow q$ \\
-Premis 2: $q \rightarrow r$ \\
-Kesimpulan: $\therefore p \rightarrow r$
-
-\subsection{Silogisme Disjungtif}
-Menentukan keputusan dari gerbang komputasi persilangan OR (\textit{The Law of Disjunctive Inference}).\\
-Premis 1: $p \lor q$ (Sistem \textit{booting} memakai Partisi X Atau Sistem Partisi Induk Utama/Y)\\
-Premis 2: $\sim p$ (Log \textit{compiler} memindai tak ada \textit{booting} lewat partisi dasar X)\\
-Kesimpulan: $\therefore q$ (Secara deduksi logis, PC ini beroperasi \textit{booting} spesifik via Partisi Induk Y!)
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item \textbf{Diskusi Rasional AI Base}: Sistem navigasi taktis menyatakan \textit{(A1)} Jika bensin habis maka fungsi motor utama putus. \textit{(A2)} Ternyata saat ini fungsi motor utama tidak terputus beroperasi. Apa inferensi mutlak status bahan bensin Anda dan memakai logika aturan Aturan Pokok Inferensi manakah itu?
+  \item \textbf{Semesta dan nilai kebenaran:} Tentukan nilai kebenaran $\forall x \, (x^2 \ge x)$ jika $\mathcal{U} = \mathbb{Z}$. Ulangi untuk $\mathcal{U} = \mathbb{R}$. Berikan counterexample jika pernyataan salah.
+  \item \textbf{Kuantor eksistensial:} Buat minimal tiga pernyataan berkuantor eksistensial dalam konteks sistem basis data mahasiswa (misalnya: ada mahasiswa yang..., ada mata kuliah yang...).
+  \item \textbf{Universal dan implikasi:} Translasi kalimat ``Setiap burung bisa terbang'' ke logika predikat dengan semesta = semua hewan. Gunakan predikat $B(x)$ dan $F(x)$. Jelaskan mengapa $\forall x \, (B(x) \rightarrow F(x))$ dipilih, bukan $\forall x \, (B(x) \land F(x))$.
+  \item \textbf{Kuantor bersarang:} Diskusikan mengapa $\exists y \, \forall x \, P(x,y)$ lebih kuat (lebih sulit dibuktikan) daripada $\forall x \, \exists y \, P(x,y)$. Berikan contoh dengan $P(x,y)$ = ``$x$ mencintai $y$''.
+  \item \textbf{Negasi berkuantor:} Lakukan negasi bertahap pada: ``Semua mahasiswa baru wajib mengikuti orientasi atau mengumpulkan surat keterangan sakit.'' Gunakan hukum De Morgan untuk kuantor dan operator $\vee$.
+  \item \textbf{Translasi:} Dari kamus translasi (section 7-7), pilih dua frasa bahasa Indonesia berbeda dan tulis rumus FOL-nya beserta pola kuantor-operator yang digunakan.
+  \item \textbf{Evaluasi pada domain terhingga:} Jika $\mathcal{U} = \{1, 2, 3\}$, jabarkan $\forall x \, P(x)$ dan $\exists x \, P(x)$ menjadi bentuk konjungsi/disjungsi tanpa simbol kuantor.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Terjemahkan pola inferensial ini, tentukan ia tergolong Valid argumen dari aturan spesifik yang mana:
-  "Jika hari Senin, \textit{database cronjob backup} dieksekusi secara otomatis." (Premis Mayor).
-  "Dan juga \textit{Backup database cronjob} telah terevaluasi dan batal/tak berjalan di server (False)." (Premis Minor).
-  Kesimpulan : "Bisa disimpulkan dengan yakin formal algoritmanya hari jadwal saat ini *Bukan Senin*"
+  \item Misalkan $M(x)$: ``$x$ adalah mahasiswa'' dan $L(x)$: ``$x$ lulus kalkulus''. Translasi ke logika predikat:
+  \begin{enumerate}
+    \item Setiap mahasiswa lulus kalkulus.
+    \item Ada mahasiswa yang lulus kalkulus.
+    \item Tidak ada mahasiswa yang lulus kalkulus.
+    \item Beberapa mahasiswa tidak lulus kalkulus.
+  \end{enumerate}
+  \item Tentukan negasi dari $\exists x \, \forall y \, (x + y = 0)$ dan sederhanakan hingga tidak ada negasi di depan kuantor.
+  \item Jika $\mathcal{U} = \{1, 2, 3\}$, jabarkan $\forall x \, \exists y \, (x < y)$ menjadi bentuk konjungsi dan disjungsi tanpa simbol kuantor.
+  \item Jelaskan mengapa kuantor universal ($\forall$) lazim dipasangkan dengan implikasi ($\rightarrow$) dan kuantor eksistensial ($\exists$) dengan konjungsi ($\land$). Berikan satu contoh kesalahan translasi jika pasangan tersebut dibalik.
+  \item \textbf{Refleksi:} Berikan contoh kalimat dalam bahasa sehari-hari yang ambigu karena scope kuantitas (semua vs sebagian) tidak jelas. Bagaimana logika predikat mengatasi ambiguitas tersebut?
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 2.2)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Translasi formal yang tepat untuk ``Setiap burung ($B$) bisa terbang ($F$)'' adalah:
+  \begin{enumerate}
+    \item $\forall x \, (B(x) \land F(x))$
+    \item $\forall x \, (B(x) \rightarrow F(x))$
+    \item $\exists x \, (B(x) \rightarrow F(x))$
+    \item $\forall x \, (F(x) \rightarrow B(x))$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Jika $\mathcal{U}$ = himpunan semua hewan dan $B(x)$ = ``$x$ bisa berbicara'', terjemahan yang tepat untuk ``Ada hewan yang bisa berbicara'' adalah:
+  \begin{enumerate}
+    \item $\exists x \, B(x)$
+    \item $\forall x \, B(x)$
+    \item $\exists x \, \neg B(x)$
+    \item $\forall x \, \neg B(x)$
+  \end{enumerate}
+  Jawaban: (a)
+
+  \item Hukum De Morgan untuk kuantor: $\neg \forall x \, P(x)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $\forall x \, \neg P(x)$
+    \item $\exists x \, \neg P(x)$
+    \item $\neg \exists x \, P(x)$
+    \item $\exists x \, P(x)$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Pernyataan $\forall x \, \exists y \, P(x,y)$ bermakna:
+  \begin{enumerate}
+    \item Ada satu $y$ yang sama untuk semua $x$.
+    \item Untuk setiap $x$ terdapat (minimal satu) $y$ yang bergantung pada $x$ sehingga $P(x,y)$ benar.
+    \item Setiap pasangan $(x,y)$ memenuhi $P(x,y)$.
+    \item Pernyataan selalu benar di semesta mana pun.
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Dengan $S(x)$ = mahasiswa, $K(x)$ = komputer, $P(x,y)$ = $x$ memiliki $y$, translasikan ke logika predikat: ``Setiap mahasiswa memiliki sekurang-kurangnya satu komputer.''
+  \item Jabarkan proses negasi (De Morgan untuk kuantor) hingga ke dalam scope terdalam untuk: $\neg \big[ \exists x \, \forall y \, (P(x) \rightarrow Q(x,y)) \big]$.
+\end{enumerate}
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Mampu menspesifikan parameter deduktif pada pengkondisian skrip fungsional yang valid.
-  \item Hafal 4 Aturan Pokok: Ponens, Tollens, Transisi Silogisme Hipotetis dan Disjungtif Logis.
+  \item Saya mampu mendefinisikan semesta pembicaraan ($\mathcal{U}$) dan menyadari bahwa nilai kebenaran kalimat berkuantor bergantung pada $\mathcal{U}$.
+  \item Saya mampu membedakan kuantor universal ($\forall$) dan eksistensial ($\exists$) serta ekuivalensinya dengan konjungsi/disjungsi pada domain terhingga.
+  \item Saya mampu memadukan $\forall$ dengan implikasi ($\rightarrow$) dan $\exists$ dengan konjungsi ($\land$) dalam translasi yang benar.
+  \item Saya mampu menjelaskan makna kuantor bersarang $\forall x \, \exists y \, P(x,y)$ dan $\exists y \, \forall x \, P(x,y)$ serta perbedaan keduanya.
+  \item Saya mampu menerapkan hukum De Morgan untuk kuantor: $\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$ dan $\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$.
+  \item Saya mampu mendistribusikan negasi ke dalam scope kuantor bersarang (negasi bertahap).
+  \item Saya mampu menerjemahkan pernyataan bahasa alami ke ekspresi logika predikat menggunakan kuantor dan pola translasi yang sesuai.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 7 membangun jembatan fundamental dari logika proposisi menuju level yang lebih predikatif yakni Logika Orde Pertama (FOL) menggunakan operator kuantitas makro \textit{Quantifier}. Menelaah objek komputasi individual terlalu terbatas, sehingga dikenalkan model \textit{scoping} massal.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Semesta Pembicaraan (Universe of Discourse)} merujuk kepada himpunan wadah limit di mana batas iterasi setiap elemen konstanta diberlakukan.
+  \item \textbf{Kuantor Universal ($\forall$)} dirancang merepresentasikan kalimat absolut \textit{semua/setiap}. Pola translasinya mensyaratkan berpasangan dengan Implikasi agar maknanya valid.
+  \item \textbf{Kuantor Eksistensial ($\exists$)} dikonstruksi menjembatani pernyataan parsial \textit{sekurang-kurangnya spesimen tunggal} pembawa sifat (saksi kebenaran tunggal). Lazimnya tandem wajibnya adalah operator Konjungsi AND murni.
+  \item \textbf{Penempatan Tata Letak bersarang miring $\forall \exists$ berbeda absolut menantang struktur $\exists \forall$}. 
+  \item \textbf{Penarikan Negasi / Ingkaran De Morgan} untuk Kuantor memiliki karakter saling silih-berganti ($\neg \forall \equiv \exists \neg$ dan sebaliknya). 
+\end{itemize}
+
+\textbf{Kata Kunci}: Semesta Pembicaraan, Kuantor Universal, Kuantor Eksistensial, Implikasi, Konjungsi, Kuantor Bersarang, Kuantor De Morgan, Witness (Saksi), Counterexample (Penyangkal).
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

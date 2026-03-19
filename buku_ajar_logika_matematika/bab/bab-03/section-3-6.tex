@@ -1,0 +1,42 @@
+\section{Hirarki Prioritas Operator Logika \& Jembatan Ke Ekuivalensi}
+
+Sebuah ekspresi komputasi di layar layar *debugger* sering muntah tertulis polos telanjang berdempetan panjang kaku tanpa partisi dinding tanda kurung ($p \lor \neg q \land r \rightarrow s$). Jika mesin dibiarkan mencerna sintaks liar rupa begini tanpa dogma hierarki (*Precedence Law*), malapetaka *miscalculasi* bom nuklir nilai kebenaran acak akan menanti di ujung memori.
+
+Dunia sains sepakat bulat menerbitkan undang-undang kasta \textbf{Hierarki Prioritas Operator Logika} \cite{rosen2019}. Kasta ini wajib dilaksanakan membabi-buta layaknya kasta urutan Ku-Ka-Ba-Ta-Ku (Kurung, Kali, Bagi, Tambah, Kurang) di aritmatika SD. 
+
+\subsection{Piramida Takhta Eksekusi Biner}
+
+Mesin CPU compiler C/Java memegang kukuh stratifikasi pemotongan ekspresi (*Parsing*) majemuk dengan pakem suci:
+
+\begin{center}
+	\small
+	\begin{tabular}{|p{2.2cm}|p{1.2cm}|p{7.8cm}|}
+		\hline
+		\textbf{Tingkat Gelar} & \textbf{Simbol} & \textbf{Titah Eksekusi (\textit{Binding Power})} \\
+		\hline
+		\textit{Kasta Tertinggi} Dewa Ke-1 & $\neg$ & Negasi (Reaksi instan menggilas langsung variabel sandarannya) \\ \hline
+		Kasta Bangsawan Ke-2 & $\wedge$ & Konjungsi (Mengelem blok paling erat tanpa kompromi) \\ \hline
+		Kasta Militer Ke-3 & $\vee$ & Disjungsi (Toleransi ikatan jarak sedang) \\ \hline
+		Kasta Rakyat Ke-4 & $\rightarrow$ & Implikasi (Gerbong lori bersyarat merajut bentangan jarak jauh luwes) \\ \hline
+		Kasta Paling Dasar Ke-5 & $\leftrightarrow$ & Biimplikasi (Penyekat cermin terakhir paling lembek menahan ruang parsial) \\ \hline
+	\end{tabular}
+	\captionof{table}{Hirarki Kasta Resolusi Operator (\textit{Logic Precedence})}
+\end{center}
+
+\textbf{Catatan asosiativitas:} Untuk ekspresi berantai tanpa kurung, operator sejenis mengelompok menurut aturan berikut. Konjungsi $\wedge$ dan disjungsi $\vee$ bersifat \textit{asosiatif kiri}: $p \wedge q \wedge r$ dibaca $(p \wedge q) \wedge r$. Implikasi $\rightarrow$ dan biimplikasi $\leftrightarrow$ bersifat \textit{asosiatif kanan}: $p \rightarrow q \rightarrow r$ dibaca $p \rightarrow (q \rightarrow r)$. Dalam praktik, gunakan tanda kurung eksplisit untuk menghindari ambiguitas.
+
+\subsection{Bedah Otopsi Parsing Ekspresi Liar}
+
+Kita turun tangan membedah kalimat telanjang panjang berliku tanpa pembatas yang mengancam nyawa otak manusia semacam ini:
+\textbf{Misi Analisis:} Evaluasi jalinan komando eksekusi mesin dari rumus ruwet $\neg p \vee q \wedge r \rightarrow s \leftrightarrow t$ !
+
+\textbf{Langkah Resolusi CPU per Milidetik:}
+\begin{enumerate}
+    \item \textbf{Langkah Tikaman Negasi Dewa:} Palu kasta-1 menggebrak layar. Si kecil $\neg$ langsung menerkam variabel yang menempel terdekat di sisi perutnya seketika tanpa nunggu komando, membikin partisi ghaib di otaknya murni menjadi: **$(\neg p)$**.
+    \item \textbf{Langkah Perekat Kuat Konjungsi:} Mesin bergerak melacak letak operator kasta-2 $\wedge$. Ia diapit antara prajurit gurem $q$ dan asisten setianya $r$. Blok ini diikat las mati melebur tunggal abadi berkalang nyawa ke wujud partisi lapis baja: **$(q \wedge r)$**.
+    \item \textbf{Langkah Toleransi Longgar Disjungsi:} Mesin kini mensurvei letak sisa simbol kasta menengah $\vee$. Ia merangkul tetangga kiri bentukan $(\neg p)$ dan memboyong sang tetangga dikanan gerbong raksasa cor mulus $(q \wedge r)$ ke dalam jaringnya sembari takzim: **$( (\neg p) \vee (q \wedge r) )$**.
+    \item \textbf{Langkah Gerbong Janji Implikasi:} Radar CPU menabrak sisa tanda panah kiri panjang $\rightarrow$. Seluruh mahakarya kasta 1-3 barusan (yang menggembung tebal panjang) diraup dikerek menjadi blok Anteseden raksasa kiri, membidik tembakan tunggal imbasnya pada si miskin variabel di kanan $s$. Meneteskan selongsong komposit: **$(( (\neg p) \vee (q \wedge r) ) \rightarrow s)$**.
+    \item \textbf{Langkah Dinding Cermin Pamungkas Biimplikasi:} Tersisa sebatang besi lembek $\leftrightarrow$ yang menjembatani raksasa bentukan gempal panah Implikasi kita melawan makhluk t mungil sebatang kara nun memble santai di sana di paling ujung kanan tebing alam semesta. Pemisahan dinding ghaib paripurna akhir dibentangkan menutup selubung rumus: \textbf{$((( (\neg p) \vee (q \wedge r) ) \rightarrow s) \leftrightarrow t)$}. 
+\end{enumerate}
+
+Dengan menaati hirarki agung di atas, peranti lunak \textit{syntax analyzer} memitigasi ledakan \textit{Bug} interpretasi kode, menjamin logika matematis tersambung presisi murni tak peduli sesak padatnya jejal sintaks \textit{If-Else} triliun barisan teks pada rilis kode GitHub Anda di kala Subuh hari \cite{wiki_first_order_logic}.

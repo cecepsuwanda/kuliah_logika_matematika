@@ -1,44 +1,166 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{8}}{}
 \begin{document}
 
-\chapter{Pengantar Logika Predikat dan Semesta Pembicaraan (*Universe of Discourse*)}
+\chapter{Prinsip dan Hukum-hukum Dasar Aljabar Boolean}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu menjelaskan kekurangan logika proposisi pada spesifikasi argumen dinamis berskala iterasi data kompleks.
-  \item Mahasiswa mampu menjelaskan definisi konseptual Logika Kuantifikasional (*Predicate Logic/First-Order Logic*), variabel parameter fungsi objek, dan ruang pemetaan domain himpunan *Universe of Discourse*.
+  \item \textbf{Sub-CPMK 3.1:} Mahasiswa mampu mendefinisikan prinsip-prinsip dan hukum-hukum dasar Aljabar Boolean.
 \end{subcpmk}
 
-\section{Terbatasnya Komputasi Logika Proposisional Murni Dasar}
-Kalkulus Proposisional, selaras dengan pemaparan yang melandasi bab pembuka silabus struktur RPS kita terdahulu, dinilai memiliki fungsivitas dan batas analitikal arsitektur komputatif algoritma di tingkat dasar terbatas karena struktur konotasi klausa var bebas dan *inflexible* dalam menghadapi kelompok struktur data kolektif himpunan data/matriks spesifik \textit{(Arrays, Databases, Object Collections)}.
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-09/section-9-1}
+\input{bab-09/section-9-2}
+\input{bab-09/section-9-3}
+\input{bab-09/section-9-4}
+\input{bab-09/section-9-5}
+\input{bab-09/section-9-6}
+\input{bab-09/section-9-7}
 
-Analisis kasus "Semua Komputer Universitas Bale Bandung berjalan memakai *Kernel Linux*" di kalkulus proposisional tunggal dipaksa disimbolkan cukup ke dalam ekspresi deklarasi tunggal utuh tak parsial semisal $P$. Kekakuan komputasional itu akan mengakibatkan kita nihil / tak mampu menyimak penalaran rasional turunan algoritmik dari premis: "Server X itu adalah sebuah unit Komputer di Universitas Bale Bandung", lalu membuat spesifik konklusif "$\therefore$ Maka Server X tak tertolak diproses oleh komputasi logis berjalan di Kernel Linux mutlak otomatis". Tipe argumen ini tak bisa digarap dan ditracking fungsi penalarannya pada Modus tollens/ponens murni (logika proposisi murni buta atas \textit{Properti dari Subjek Objek Dalam Lingkup Klasifikasi Kelas}).
-
-\section{Pengayaan Semantik Melalui Logika Predikat (Kalkulus Kuantifikasional / FOL)}
-Disinilah \textit{First-Order Logic/Kalkulus Predikat} berperan krusial dalam mendefinisikan sifat dan obyek relasi rasional pemrograman kelas.
-
-Kalkulus algoritma matematika Predikat membedah keutuhan klausa $P$ dengan struktur "Subjek" pemetaan objek *Entity* $x$, dan memahat "Predikat" karakteristik pemetaan $P(x)$, dimana predikat komputatif berperan sebagai suatu Fungsi Proposisional (*Propositional Function*).
-Fungsi $P(x)$ baru dapat divaluasi mutlak bernilai True/False/T-F \textit{setelah nilai variabel komputasinya $x$ dideklarasikan dan diasistensikan nilai instansiasi nyata/objek himpunannya}.
-
-\subsection{Universe of Discourse / Semesta Pembicaraan Matematis Komputasi}
-Untuk mengatasi problem kekeliruan eksekusi domain tipe algoritmik komputasi *Error Data Type Range Iterations*, saat sistem mendefenisikan fungsi subjek variabel terbuka matematis terapan inputnya, misal "x adalah variabel ganjil algoritmik", maka pembuat algoritma/program komputatif rasional mutlak "mendefinisikan domain cakupan yang logik valid rasional yang secara himpunan matematis diperbolehkan untuk digunakan iteratif var $x$ tersebut". Hal tersebut disebut **Universe of Discourse (Semesta Pembicaraan)**. Misalkan *Universe Discourse* himpunan komputasional sistem dari $x$ tersebut digaris haruslah Himpunan Bilangan Bulat Positif/Asli mutlak, sehingga nilai pecahan di luarnya tertolak (*False type syntax errors exception* \textit{Out Of Bounds Scope Type Error}).
-
-\begin{contoh}
-Spesifikasikan parameter Logika fungsi predikat: "x lebih panjang kapasitas memorinya dari var struktur \textit{char y array size}".
-
-Predikat: Fungsi Komplementer Logis $M(x,y)$, dengan deklarasi makna algoritmik spesifikasi khusus komputatifnya "= x *memorinya* $>$ y".  
-Universe of discourse: Data Set tipe primitif di memori.
-Bila input: $M(\text{Array}[100], \text{Boolean})$. \\
-Fungsi logikal relasi evaluatif $M$ \textit{TRUE/T} sebab array \textit{100 index bytes} ukurannya komputatif algoritmanya rasional melibas variabel berkapasitas 1 *bit primitive type*.
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Temukan pola relasi dari deklarasi sistematis logik: Fungsi fungsi program \textit{IsEvenDigit($n$)}. Domain himpunan Universe of Discourse matematisnya apa saja yang rasional sah dieksekusi \textit{compile} sistem logikal algoritmik sistem numeriknya?
+  \item \textbf{Postulat Huntington:} Buktikan hukum idempoten $x + x = x$ secara aljabar menggunakan postulat Huntington (ketertutupan, identitas, komplemen, distributif). Tuliskan setiap langkah beserta justifikasi postulatnya.
+  \item \textbf{Tabel kebenaran:} Diberikan $F(x,y,z) = x'y + yz' + x'z$, buat tabel kebenaran lengkap (8 baris) dengan kolom antara untuk setiap subekspresi.
+  \item \textbf{Penyederhanaan:} Sederhanakan $G = x'y'z + x'yz + xy'z + xyz$ menggunakan hukum-hukum aljabar Boolean. Tuliskan setiap langkah dan hukum yang digunakan.
+  \item \textbf{Konversi SOP--POS:} Ubah $F(x,y,z) = \sum m(0, 2, 5, 7)$ ke bentuk kanonik POS ($\prod M$). Verifikasi dengan tabel kebenaran atau aljabar.
+  \item \textbf{Hukum konsensus:} Buktikan $xy + x'z + yz = xy + x'z$ dengan hukum aljabar Boolean. Jelaskan mengapa suku $yz$ redundan.
+  \item \textbf{Rangkaian gerbang:} Gambarkan rangkaian gerbang untuk $H = (A + B)(A' + C)$, sederhanakan ekspresi, lalu gambarkan rangkaian yang disederhanakan. Bandingkan jumlah gerbang sebelum dan sesudah.
+  \item \textbf{Desain:} Rancang rangkaian voting mayoritas untuk 3 pemilih menggunakan hanya gerbang NAND. Tunjukkan bahwa $F = AB + AC + BC$ dapat diimplementasikan seluruhnya dengan gerbang NAND.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Sederhanakan $F(x, y, z) = x'y'z + x'yz + xy'$ menggunakan hukum aljabar Boolean. Tuliskan justifikasi hukum pada setiap langkah.
+  \item Tuliskan bentuk minterm ($\sum m$) dan maxterm ($\prod M$) untuk $F(x, y, z) = xy + z'$. Verifikasi bahwa kedua representasi menghasilkan tabel kebenaran yang sama.
+  \item Diberikan $G(A, B, C) = \sum m(1, 2, 3, 5, 7)$.
+  \begin{enumerate}
+    \item Tuliskan bentuk kanonik SOP lengkap.
+    \item Konversikan ke bentuk kanonik POS ($\prod M$).
+    \item Sederhanakan bentuk SOP menggunakan aljabar Boolean.
+  \end{enumerate}
+  \item Buktikan dengan aljabar Boolean: $(x + y)(x' + z)(y + z) = (x + y)(x' + z)$ (hukum konsensus versi POS).
+  \item Tunjukkan bahwa gerbang NOR bersifat lengkap secara fungsional: implementasikan NOT, AND, dan OR hanya dengan gerbang NOR.
+  \item Rancang fungsi Boolean untuk kontrol lampu lalu lintas sederhana: 2 sensor $S_1$, $S_2$; output lampu hijau $G$ menyala jika minimal satu sensor mendeteksi kendaraan. Tulis ekspresi Boolean, sederhanakan, dan gambarkan rangkaian gerbang.
+  \item \textbf{Refleksi:} (a) Jelaskan kemiripan aljabar Boolean dengan logika proposisi dan teori himpunan; berikan contoh hukum De Morgan pada ketiga sistem. (b) Dalam pemrograman, kapan penyederhanaan ekspresi Boolean berguna? Berikan contoh kondisi \texttt{if} dalam Python yang dapat disederhanakan dengan hukum aljabar Boolean.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 3.1)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Hukum De Morgan untuk $(AB)'$ dalam aljabar Boolean adalah:
+  \begin{enumerate}
+    \item $A'B'$
+    \item $A' + B'$
+    \item $(A+B)'$
+    \item $A+B$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Yang \emph{bukan} postulat Huntington adalah:
+  \begin{enumerate}
+    \item Ketertutupan
+    \item Komutatif
+    \item Asosiatif
+    \item Distributif
+  \end{enumerate}
+  Jawaban: (c) --- Hukum asosiatif adalah teorema turunan.
+
+  \item Minterm $m_5$ untuk 3 variabel $(x, y, z)$ adalah:
+  \begin{enumerate}
+    \item $x'y'z$
+    \item $xy'z$
+    \item $xyz'$
+    \item $x'yz$
+  \end{enumerate}
+  Jawaban: (b) --- $5 = 101_2$ sehingga $x=1, y=0, z=1 \Rightarrow xy'z$.
+
+  \item Gerbang yang lengkap secara fungsional (\textit{functionally complete}) secara individual adalah:
+  \begin{enumerate}
+    \item AND
+    \item OR
+    \item NAND
+    \item XOR
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Dual dari $x + (y \cdot z) = (x + y) \cdot (x + z)$ adalah:
+  \begin{enumerate}
+    \item $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$
+    \item $x' + (y' \cdot z') = (x' + y') \cdot (x' + z')$
+    \item $x + (y + z) = (x + y) + z$
+    \item $(x \cdot y)' = x' + y'$
+  \end{enumerate}
+  Jawaban: (a)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Jelaskan perbedaan bentuk kanonik SOP dan POS. Kapan sebaiknya menggunakan SOP dan kapan POS?
+  \item Buktikan hukum absorpsi $x + xy = x$ menggunakan postulat Huntington. Tuliskan setiap langkah beserta justifikasi postulatnya.
+  \item Diberikan $F(A,B,C) = A'B'C' + A'BC + AB'C + ABC'$. Sederhanakan dengan aljabar Boolean, gambarkan rangkaian gerbang untuk ekspresi asli dan yang disederhanakan, lalu bandingkan jumlah gerbang.
+\end{enumerate}
+
+\textbf{C. Coding (opsional)}
+
+Tulis program Python yang: (1) menerima input fungsi Boolean sebagai daftar minterm (misalnya \texttt{[1, 4, 7]} untuk 3 variabel); (2) mencetak tabel kebenaran; (3) menampilkan bentuk kanonik SOP dan POS.
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Mampu menspesifikan komponen "Predikat" dan komponen data "Subjek Objeknya *variable parameter instance*".
-  \item Konstan tak abai akan batasan tipe \textit{Universe Of Discourse} sebagai fondasi komputabilitas logika eksekusinya di kalkulus ini.
+  \item Saya mampu menjelaskan sejarah dan motivasi aljabar Boolean serta relasinya dengan logika proposisi dan teori himpunan.
+  \item Saya memahami enam postulat Huntington dan dapat membedakannya dari teorema turunan.
+  \item Saya mampu mengevaluasi fungsi Boolean untuk input tertentu dengan urutan prioritas operator yang benar.
+  \item Saya menguasai hukum-hukum dasar aljabar Boolean (identitas, dominasi, idempoten, komplemen, involusi, komutatif, asosiatif, distributif, De Morgan, absorpsi, konsensus).
+  \item Saya mampu menyederhanakan ekspresi Boolean secara aljabar dengan justifikasi hukum pada setiap langkah.
+  \item Saya mampu membedakan literal, suku perkalian, suku penjumlahan, minterm, dan maxterm.
+  \item Saya mampu mengonversi fungsi Boolean antara bentuk kanonik SOP ($\sum m$) dan POS ($\prod M$).
+  \item Saya mengenal simbol dan fungsi gerbang logika dasar (AND, OR, NOT, NAND, NOR, XOR).
+  \item Saya memahami kelengkapan fungsional dan dapat menjelaskan mengapa NAND atau NOR bersifat universal.
+  \item Saya mampu menerjemahkan ekspresi Boolean ke rangkaian gerbang logika dan memperkirakan jumlah gerbang yang diperlukan.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini mengkaji Aljabar Boolean sebagai sistem aljabar fundamental yang beroperasi pada himpunan $B = \{0, 1\}$ dengan tiga operator dasar: penjumlahan Boolean (OR, $+$), perkalian Boolean (AND, $\cdot$), dan komplemen (NOT, $'$).
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item Aljabar Boolean diperkenalkan oleh George Boole (1854) dan diterapkan pada rangkaian digital oleh Claude Shannon (1938). Sistem ini bersifat isomorfik dengan logika proposisi dan teori himpunan, sehingga hukum-hukum pada satu sistem dapat diterjemahkan ke sistem lainnya.
+  \item Postulat Huntington (1904) mendefinisikan aljabar Boolean melalui enam aksioma: ketertutupan, identitas, komutatif, distributif, komplemen, dan eksistensi minimal. Seluruh hukum Boolean lainnya (termasuk asosiatif, idempoten, absorpsi, De Morgan, dan konsensus) merupakan teorema yang dapat diturunkan dari postulat-postulat ini.
+  \item Prinsip dualitas menyatakan bahwa setiap identitas Boolean tetap valid jika operator $+$ dan $\cdot$ ditukar, serta konstanta $0$ dan $1$ ditukar secara simultan.
+  \item Penyederhanaan ekspresi Boolean menggunakan hukum-hukum aljabar bertujuan meminimalkan jumlah literal dan operator, yang berimplikasi langsung pada pengurangan jumlah gerbang logika dalam implementasi rangkaian digital.
+  \item Fungsi Boolean dapat direpresentasikan dalam bentuk kanonik Sum of Products (SOP, menggunakan minterm $\sum m$) atau Product of Sums (POS, menggunakan maxterm $\prod M$), yang keduanya memberikan representasi unik dan dapat dikonversi satu sama lain.
+  \item Gerbang logika (AND, OR, NOT, NAND, NOR, XOR) merupakan implementasi fisik dari operator Boolean. Gerbang NAND dan NOR masing-masing bersifat lengkap secara fungsional (\textit{functionally complete}).
+\end{itemize}
+
+\textbf{Kata Kunci}: aljabar Boolean, George Boole, Claude Shannon, Postulat Huntington, prinsip dualitas, penyederhanaan aljabar, hukum konsensus, literal, minterm, maxterm, Sum of Products (SOP), Product of Sums (POS), gerbang logika, kelengkapan fungsional, NAND, NOR
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

@@ -1,39 +1,187 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{0}}{}
 \begin{document}
 
-\chapter{Pendahuluan dan Orientasi OBE}
+\chapter{Pendahuluan dan Orientasi Buku}
+
+Buku ajar ini disusun untuk mendukung mata kuliah \textbf{Logika Matematika} (2 SKS, 16 pertemuan) Program Studi Teknik Informatika, Fakultas Teknologi Informasi, Universitas Bale Bandung, berbasis \textbf{Outcome-Based Education (OBE)}. Setelah mempelajari bab ini, mahasiswa memahami tujuan buku, keterkaitannya dengan RPS, cara menggunakan buku, serta pemetaan CPL, CPMK, dan Sub-CPMK ke bab-bab dalam buku.
+
+\section*{Tujuan Buku Ajar dan Keterkaitan dengan RPS}
+
+Buku ini dirancang agar mahasiswa mencapai capaian pembelajaran mata kuliah (CPMK) dan sub-CPMK yang ditetapkan dalam RPS. Setiap bab unit materi inti (Bab 3--14) mencakup satu atau lebih Sub-CPMK dengan judul bab yang selaras 100\% dengan materi pembelajaran dalam silabus. Bab 15 berisi evaluasi, refleksi, dan integrasi kompetensi (Kuis, UTS, UAS, Tugas) sesuai bobot penilaian RPS.
+
+\section*{Capaian Pembelajaran Lulusan (CPL)}
+
+CPL yang dibebankan pada mata kuliah ini mencakup kompetensi lulusan dalam aspek pengetahuan, keterampilan, dan sikap:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPL01:} Kemampuan menganalisis persoalan computing yang kompleks serta menerapkan prinsip-prinsip computing dan disiplin ilmu relevan lainnya untuk mengidentifikasi solusi, dengan mempertimbangkan wawasan perkembangan ilmu transdisiplin.
+  \item \textbf{CPL02:} Memiliki pengetahuan yang memadai terkait dengan cara kerja sistem komputer dan mampu merancang dan mengembangkan berbagai algoritma metode untuk memecahkan masalah.
+\end{itemize}
+
+\section*{Capaian Pembelajaran Mata Kuliah (CPMK)}
+
+Kemampuan atau kompetensi spesifik yang diharapkan mahasiswa kuasai setelah menyelesaikan mata kuliah:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CPMK1 (Fokus Logika Proposisional \& Analisis Argumen -- Terkait CPL01):} Mahasiswa mampu menganalisis validitas argumen dan persoalan komputasi dasar dengan menerapkan prinsip-prinsip logika proposisional, tabel kebenaran, dan penarikan kesimpulan (silogisme, modus ponens, modus tollens) untuk mengidentifikasi solusi yang logis.
+  \item \textbf{CPMK2 (Fokus Logika Predikat \& Pemodelan -- Terkait CPL01 \& CPL02):} Mahasiswa mampu memodelkan persoalan yang lebih kompleks ke dalam bentuk ekspresi logika predikat (menggunakan kuantor universal dan eksistensial) sebagai langkah awal dalam merancang metode penyelesaian masalah yang terstruktur.
+  \item \textbf{CPMK3 (Fokus Aljabar Boolean \& Sistem Komputer -- Terkait CPL02):} Mahasiswa mampu menerapkan hukum-hukum aljabar Boolean untuk menyederhanakan fungsi logika dan merepresentasikannya ke dalam bentuk gerbang logika dasar, sebagai bentuk pemahaman terhadap cara kerja perangkat keras sistem komputer.
+  \item \textbf{CPMK4 (Fokus Teknik Pembuktian \& Validasi Algoritma -- Terkait CPL01 \& CPL02):} Mahasiswa mampu merancang argumen matematis dan membuktikan kebenaran suatu metode atau algoritma sederhana menggunakan teknik pembuktian formal (seperti deduksi, kontradiksi, atau induksi matematika) untuk memastikan solusi komputasi berjalan sesuai spesifikasi.
+\end{itemize}
+
+\section*{Sub-CPMK / Indikator Pencapaian}
+
+Penjabaran CPMK menjadi indikator yang lebih terukur dan dapat diuji (teks persis RPS):
 
 \begin{subcpmk}
-  \item Mahasiswa memahami kerangka orientasi buku ajar Logika Matematika.
-  \item Mahasiswa dapat mendeskripsikan tujuan penggunaan paradigma Outcome-Based Education (OBE) dalam proses perkuliahan.
+  \item \textbf{Sub-CPMK 1.1:} Mahasiswa mampu menjelaskan konsep dasar proposisi, nilai kebenaran, dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+  \item \textbf{Sub-CPMK 1.2:} Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
+  \item \textbf{Sub-CPMK 1.3:} Mahasiswa mampu menganalisis validitas argumen menggunakan aturan inferensi (modus ponens, modus tollens, silogisme) dalam memecahkan persoalan komputasi dasar.
+  \item \textbf{Sub-CPMK 2.1:} Mahasiswa mampu menjelaskan konsep dasar logika predikat, fungsi proposisional, dan ruang lingkup pembicaraan (\textit{universe of discourse}).
+  \item \textbf{Sub-CPMK 2.2:} Mahasiswa mampu menerjemahkan pernyataan bahasa alami ke dalam ekspresi logika predikat menggunakan kuantor universal dan eksistensial.
+  \item \textbf{Sub-CPMK 2.3:} Mahasiswa mampu memodelkan masalah komputasi yang terstruktur dengan merepresentasikan logika predikat sebagai basis perancangan algoritma.
+  \item \textbf{Sub-CPMK 3.1:} Mahasiswa mampu mendefinisikan prinsip-prinsip dan hukum-hukum dasar Aljabar Boolean.
+  \item \textbf{Sub-CPMK 3.2:} Mahasiswa mampu menyederhanakan fungsi logika menggunakan hukum Aljabar Boolean atau Peta Karnaugh (K-Map).
+  \item \textbf{Sub-CPMK 3.3:} Mahasiswa mampu mengonversi dan merepresentasikan fungsi logika yang telah disederhanakan ke dalam bentuk rangkaian gerbang logika dasar pembentuk sistem komputer.
+  \item \textbf{Sub-CPMK 4.1:} Mahasiswa mampu menerapkan berbagai metode pembuktian matematis dasar (pembuktian langsung, pembuktian tidak langsung/kontradiksi, dan kontraposisi).
+  \item \textbf{Sub-CPMK 4.2:} Mahasiswa mampu mengaplikasikan prinsip Induksi Matematika untuk membuktikan kebenaran sebuah deret atau properti dari algoritma rekursif sederhana.
+  \item \textbf{Sub-CPMK 4.3:} Mahasiswa mampu menyusun argumen matematis formal untuk memvalidasi langkah-langkah dalam penyelesaian masalah komputasi.
 \end{subcpmk}
 
-\section{Tujuan Buku Ajar Logika Matematika}
-Buku ajar Logika Matematika ini merupakan pedoman komprehensif yang diperuntukkan bagi mahasiswa S1 Teknik Informatika. Tujuannya adalah untuk meletakkan fondasi \textit{mathematical reasoning} dan penalaran deduktif yang sangat penting dalam:
-\begin{itemize}
-    \item Membangun kemampuan berpikir kritis (Critical Thinking).
-    \item Merancang dan membuktikan validitas suatu algoritma.
-    \item Membangun kerangka dasar perangkat keras (arsitektur sistem komputer melalui aljabar Boolean).
-    \item Memodelkan masalah dunia nyata ke bahasa pemrograman.
-\end{itemize}
+\section*{Pemetaan CPL, CPMK, dan Sub-CPMK ke Bab}
 
-\section{Keterkaitan dengan RPS Berbasis OBE}
-Di Universitas Bale Bandung, kerangka pencapaian mutu lulusan tertuang di dalam format OBE. Artinya, apa yang dipelajari dan diuji harus memiliki tolok ukur (outcome) yang terdefinisi dengan jelas sejak awal kuliah. Buku ini terhubung langsung dengan dokumen Rencana Pembelajaran Semester (RPS):
-\begin{itemize}
-    \item Silabus diatur ke dalam 14 unit kompetensi mikro.
-    \item Asesmen akhir berpusat pada seberapa mapan mahasiswa merespons Capaian Pembelajaran Lulusan (CPL) dan CPMK, alih-alih sekadar membaca bahan tanpa refleksi.
-\end{itemize}
+Tabel berikut memetakan setiap Sub-CPMK (dan bab unit materi) ke nomor bab dalam buku ini. Bab 1 dan 2 bersifat pengantar; Bab 3--14 merupakan unit materi inti sesuai 13 butir materi RPS; Bab 15 berisi evaluasi, refleksi, dan integrasi kompetensi (Kuis, UTS, UAS, Tugas).
 
-Seluruh bab di buku ini merujuk ke satuan ukur (Sub-CPMK) tersebut untuk memastikan mahasiswa secara eksplisit dapat membuktikan keterampilannya sebelum sesi berakhir.
+\begin{table}[htbp]
+\centering
+\small
+\resizebox{\textwidth}{!}{\begin{tabular}{|c|l|c|c|}
+\hline
+\textbf{Sub-CPMK} & \textbf{Judul Bab / Materi} & \textbf{CPMK} & \textbf{Bab} \\
+\hline
+1.1 & Konsep Dasar Proposisi dan Kata Hubung Logika & CPMK1 & 3 \\
+\hline
+1.2 & Tabel Kebenaran, Tautologi, Kontradiksi, dan Kontingensi & CPMK1 & 4 \\
+\hline
+1.3 & Aturan Inferensi dan Penarikan Kesimpulan & CPMK1 & 5 \\
+\hline
+2.1 & Konsep Logika Predikat, Fungsi Proposisional, UoD & CPMK2 & 6 \\
+\hline
+2.2 & Kuantor Universal dan Eksistensial & CPMK2 & 7 \\
+\hline
+2.3 & Pemodelan Masalah Komputasi berbasis Logika Predikat & CPMK2 & 8 \\
+\hline
+3.1 & Prinsip dan Hukum-hukum Dasar Aljabar Boolean & CPMK3 & 9 \\
+\hline
+3.2 & Penyederhanaan Fungsi Logika (Boolean dan K-Map) & CPMK3 & 10 \\
+\hline
+3.3 & Representasi Fungsi Logika ke Gerbang Logika Dasar & CPMK3 & 11 \\
+\hline
+4.1 & Metode Pembuktian Langsung dan Kontraposisi & CPMK4 & 12 \\
+\hline
+4.1 & Pembuktian Tidak Langsung dan Kontradiksi & CPMK4 & 13 \\
+\hline
+4.2 & Prinsip Induksi Matematika & CPMK4 & 14 \\
+\hline
+4.3 & Argumen Matematis Formal dan Validasi Algoritma & CPMK4 & 14 \\
+\hline
+-- & Evaluasi, Refleksi, dan Integrasi Kompetensi (Kuis, UTS, UAS, Tugas) & Semua & 15 \\
+\hline
+\end{tabular}}
+\caption{Pemetaan Sub-CPMK dan CPMK ke Nomor Bab}
+\end{table}
 
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-01/section-1-1}
+\input{bab-01/section-1-2}
+\input{bab-01/section-1-3}
+\input{bab-01/section-1-4}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 \begin{aktivitas}
-  \item Baca bab "Cara Menggunakan Buku Ini" pada halaman depan dan perhatikan urutan metode evaluasi apa yang akan dijumpai.
+  \item \textbf{Deklarasi \textit{Goal-Setting} Industri IT:} Coba buat satu target pribadi: di akhir kelas semester ini berlalu, kapabilitas super apa yang sangat Anda ingin pamerkan ke perekrut kerja berkat otot \textit{Logic} mematikan ini? (Bukan nilai A, tapi contoh aplikasi sintaks yang anti-\textit{bug}).
+  \item \textbf{\textit{Mindset Hacking}:} Dari Rute Peta Ekspedisi 4 Tahap di atas, di level tahap mana menurut Anda kepala mahasiswa paling banyak berguguran hancur tidak kuat naik pijakan? Mengapa tahapan tersebut terasa paling ganas?
+  \item \textbf{Penemu \& Filosuf IT Idola:} Sempat disinggung di dalam teks, carilah 2 profil tokoh utama \textit{pioneer} peletak landasan logika zaman kuno vs peletak fondasi Biner/Boolean zaman komputer. Diskusikan mengapa penemuan kuno merepotkan itu bisa dipakai ke *Smartphone* moderen di tangan kita ini.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+\begin{latihan}
+  \item Coba Anda jabarkan, apa musibah maut yang mungkin menimpa program *Mobile Banking* Anda jika sang *Programmer* nekat menganggap tabel Logika Tabel Kebenaran (AND/OR) "nggak penting ah untuk dihafal"?
+  \item Berikan pemaknaan *Output-based* (Gaya militer OBE) versus gaya pasif kuliah jadul: Jelaskan apa buktinya jika seorang mahasiswa diklaim "sukses" di buku ajar ini? Apakah dari catatannya yang tebal atau dari hasil rakitan kode kondisionalnya?
+  \item Mengapa buku *Survival* ini memaksa Anda haram melompati bab-bab secara acak? Berikan deskripsi "spiral ilmu" yang disinggung sebelumnya!
+  \item Refleksikan diri: Menurut Anda apakah *First-Order Predicate Logic* (Logika Kuantifier) adalah alat sihir masa depan penyusun Aturan *Artificial Intelligence* (AI) sungguhan, ataukah kelak AI akan berdiri jalan sendiri tanpa logika purba ini?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+\begin{asesmen}
+\textbf{Instrumen untuk Pemahaman Arah Navigasi Buku}
+
+\textbf{A. Kuiz Komando Mindset}
+
+\begin{enumerate}
+  \item Status "Valid" dari standar militer \textit{Outcome Based Education} (OBE) pada matakuliah komputasi sejati diukur berdasarkan...
+  \begin{enumerate}
+    \item Tebalnya daftar buku catatan di penghujung tahun ajaran.
+    \item Hasil demonstrasi kepiawaian meracik translasi kalimat bahasa alamiah menjadi sirkuit aljabar mutlak di ranah industri Tech.
+    \item Kelengkapan absensi kedatangan di kursi perkuliahan.
+    \item Hafalan persis angka nomor Bab di dalam buku ini.
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Puncak gunung ekspedisi terjauh (*Tahap IV*) dalam kurikulum Taksonomi Logika Informatika ini mengincar kompetensi apa?
+  \begin{enumerate}
+    \item Menghafal Sejarah Filsafat Aristoteles
+    \item Mendesain *Logic Bug* perusak sirkuit
+    \item Rekayasa Aturan Rantai Penalaran Medis AI (*Rules Engine*) \& Arsitektur Hardware Digital Kritis
+    \item Hitungan dasar tabel kebenaran T/F sederhana
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Essay Komitmen Diri}
+
+\begin{enumerate}
+  \item Tulis sumpah deklarasi komitmen (*Self-directed Learning*): "Bagaimana cara saya mengeksploitasi porsi *Latihan* dan *Tabel Kebenaran* di buku ini agar tidak sekadar menyuapi memori otak, namun sungguh mendidik insting saraf *Problem Solving* otak layaknya Insinyur Hardware sejati?"
+\end{enumerate}
+
+\textbf{Rubrik Penilaian Keselamatan}: Terlampir dalam kontrak awal pertemuan instruktur kelas.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
 \begin{checklist}
-  \item Memahami tujuan dari mata kuliah Logika Matematika.
-  \item Mengetahui bahwa setiap materi tertaut ke *Outcome* khusus (Sub-CPMK).
+  \item Saya mafhum dan tunduk pada urgensi membedah **Logika** sebagai modal \textit{Skill} terpenting pembeda Programmer Arsitek sejati lawan \textit{Coder} kacangan.
+  \item Saya rela meninggalkan format pasif catatan bangku lama demi menyongsong mode demonstrasi maut ala spesifikasi standar industri berbasis luaran \textit{OBE}.
+  \item Saya menguasai jalur rute mendaki Bab *(Roadmap)* buku ini, tahu dari mana ia lahir (Boolean dasar), hingga ke mana puncak mautnya (AI System Rules/SQL Predicates).
+  \item Saya berikrar pantang membaca loncat bab, serta pantang percaya mencontek kunci tabel penulis sebelum merobek lembaran kertas mencoba menaklukkan masalah secara sepihak.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\begin{rangkuman}
+Bab Pembuka ini tak sekadar menjejali teori, ini adalah \textbf{Kontrak Mental Ekspedisi Militer}. 
+
+Buku ini menanggalkan administrasi kampus, berfokus merombak cara pandang meremehkan *"ah logika kuno"* menjadi takzim kesadaran: **Logika Matematika murni adalah bahasa Ibu bagi Mesin AI dan miliaran keping transistor Sirkuit Silikon.** 
+
+*Framework Outcome-Based Education (OBE)* memaksa Dosen berganti posisi pamong menjadi Komandan \textit{Fasilitator}, sementara Anda dituntut aktif membelah tabel dan *bugs flowchart syntax* kode. Keselarasan Tahapan Ekspedisi ini dipetakan dari pilar panggung Proposisional murni abstrak, mendaki terjalnya metode bukti formal Inferensi Hakim mesin, menembus Kuantifier raksasa ranah Basis Data SQL, dan bertahta akhir pada rekayasa Perumusan Aturan Buatan di sistem Kecerdasan Buatan (AI) modern.
+
+\textbf{Sandi Kunci Orientasi}: Panduan Keselamatan \textit{Surveying}, Mindset Koding Arsitek vs Tukang Ketik, Paradigma Hasil Demonstrasi Industri (OBE), *Self-Directed Hacking*, dan Peta Taksonomi Logika Spiral.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

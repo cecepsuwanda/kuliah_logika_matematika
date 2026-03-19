@@ -1,0 +1,105 @@
+\section{Penyederhanaan Ekspresi Boolean}
+
+Penyederhanaan ekspresi Boolean merupakan salah satu keterampilan inti yang harus dikuasai oleh mahasiswa informatika. Tujuan utama penyederhanaan adalah mengubah ekspresi Boolean yang kompleks menjadi bentuk ekuivalen yang paling sederhana, yaitu bentuk dengan jumlah literal dan operator paling sedikit. Dalam konteks perancangan rangkaian digital, setiap literal dalam ekspresi Boolean berkorespondensi dengan sebuah input gerbang logika, dan setiap operator berkorespondensi dengan sebuah gerbang logika fisik. Dengan demikian, ekspresi yang lebih sederhana menghasilkan rangkaian dengan jumlah komponen yang lebih sedikit \cite{rosen2019}.
+
+Terdapat beberapa motivasi praktis untuk melakukan penyederhanaan ekspresi Boolean. Pertama, rangkaian yang lebih sederhana memerlukan biaya produksi yang lebih rendah karena menggunakan lebih sedikit gerbang logika. Kedua, rangkaian yang lebih sederhana mengkonsumsi daya listrik yang lebih kecil, sebuah pertimbangan kritis pada perangkat bertenaga baterai seperti telepon seluler dan perangkat IoT. Ketiga, rangkaian yang lebih sederhana memiliki waktu propagasi sinyal (\textit{propagation delay}) yang lebih pendek, sehingga dapat beroperasi pada frekuensi yang lebih tinggi \cite{allaboutcircuits_boolean}.
+
+\subsection{Strategi Penyederhanaan Aljabar}
+
+Tidak terdapat algoritma tunggal yang menjamin solusi optimal dalam penyederhanaan aljabar Boolean. Namun, beberapa strategi umum telah terbukti efektif dalam praktik. Pendekatan pertama adalah mencari faktor persekutuan menggunakan hukum distributif, yang memungkinkan penggabungan dua suku menjadi satu suku yang lebih sederhana. Pendekatan kedua adalah menerapkan hukum komplemen ($x + x' = 1$ atau $x \cdot x' = 0$) untuk mengeliminasi variabel. Pendekatan ketiga adalah menggunakan hukum absorpsi ($x + xy = x$) untuk menghilangkan suku-suku redundan.
+
+Berikut adalah langkah-langkah umum yang disarankan dalam proses penyederhanaan:
+
+\begin{enumerate}
+  \item Identifikasi suku-suku yang memiliki faktor persekutuan.
+  \item Terapkan hukum distributif untuk mengeluarkan faktor persekutuan.
+  \item Gunakan hukum komplemen untuk menyederhanakan faktor yang tersisa.
+  \item Terapkan hukum identitas atau dominasi untuk menyelesaikan.
+  \item Periksa apakah hukum absorpsi atau konsensus dapat diterapkan.
+  \item Ulangi proses hingga tidak ada penyederhanaan lebih lanjut yang dimungkinkan.
+\end{enumerate}
+
+\subsection{Contoh Penyederhanaan Tingkat Dasar}
+
+\begin{contoh}
+\textbf{Penyederhanaan dengan Faktorisasi dan Komplemen}
+
+Sederhanakan: $F = xy + xy'$
+
+\begin{align*}
+F &= xy + xy' \\
+  &= x(y + y') & \text{(Distributif)} \\
+  &= x \cdot 1 & \text{(Komplemen)} \\
+  &= x & \text{(Identitas)}
+\end{align*}
+
+Interpretasi: Fungsi $F$ bernilai 1 jika dan hanya jika $x = 1$, tidak bergantung pada nilai $y$. Penyederhanaan ini mengurangi rangkaian dari dua gerbang AND, satu gerbang OR, dan satu inverter menjadi hanya sebuah kabel langsung dari input $x$.
+\end{contoh}
+
+\subsection{Contoh Penyederhanaan Tingkat Menengah}
+
+\begin{contoh}
+\textbf{Penyederhanaan Ekspresi Tiga Variabel}
+
+Sederhanakan: $F = xy + xy' + x'yz$
+
+\begin{enumerate}
+    \item Kelompokkan suku-suku yang memiliki faktor persekutuan $x$:
+    \[ F = x(y + y') + x'yz \]
+    \item Terapkan hukum komplemen ($y + y' = 1$):
+    \[ F = x \cdot 1 + x'yz \]
+    \item Terapkan hukum identitas ($x \cdot 1 = x$):
+    \[ F = x + x'yz \]
+    \item Terapkan hukum absorpsi yang diperluas ($x + x'y = x + y$):
+    \[ F = x + yz \]
+\end{enumerate}
+
+Hasil akhir: $F = x + yz$. Ekspresi awal dengan 3 suku dan 7 literal disederhanakan menjadi 2 suku dengan 3 literal.
+\end{contoh}
+
+\subsection{Contoh Penyederhanaan Tingkat Lanjut}
+
+\begin{contoh}
+\textbf{Penyederhanaan dengan Penambahan Suku Redundan}
+
+Teknik yang lebih canggih melibatkan penambahan suku redundan secara strategis sebelum melakukan penyederhanaan. Hal ini dimungkinkan karena $x + x = x$ (idempoten).
+
+Sederhanakan: $F = x'y'z + x'yz + xy'z$
+
+Penyederhanaan dapat dilakukan sebagai berikut:
+\begin{align*}
+F &= x'y'z + x'yz + xy'z \\
+  &= x'z(y' + y) + xy'z & \text{(Distributif pada dua suku pertama)} \\
+  &= x'z \cdot 1 + xy'z & \text{(Komplemen)} \\
+  &= x'z + xy'z & \text{(Identitas)} \\
+  &= z(x' + xy') & \text{(Distributif)} \\
+  &= z(x' + y') & \text{(Absorpsi: } x' + xy' = x' + y') \\
+  &= z(xy)' & \text{(De Morgan)}
+\end{align*}
+
+Hasil akhir: $F = z(xy)' = z \cdot (xy)'$. Dua representasi ini ekuivalen dan menunjukkan bahwa fungsi bernilai 1 ketika $z = 1$ dan \emph{bukan} kasus $x = 1$ dan $y = 1$ secara bersamaan.
+\end{contoh}
+
+\subsection{Studi Kasus: Penyederhanaan Sistem Alarm}
+
+\begin{contoh}
+\textbf{Studi Kasus --- Sistem Alarm Sederhana}
+
+Sebuah sistem alarm rumah memiliki tiga sensor:
+\begin{itemize}
+    \item $D$ = sensor pintu (1 jika pintu terbuka)
+    \item $W$ = sensor jendela (1 jika jendela terbuka)
+    \item $M$ = mode malam (1 jika mode malam aktif)
+\end{itemize}
+
+Alarm berbunyi ($A = 1$) sesuai spesifikasi:
+\begin{itemize}
+    \item Pintu terbuka DAN mode malam aktif, ATAU
+    \item Jendela terbuka DAN mode malam aktif, ATAU
+    \item Pintu terbuka DAN jendela terbuka (siang atau malam)
+\end{itemize}
+
+Ekspresi awal: $A = DM + WM + DW$
+
+Perhatikan bahwa dengan hukum konsensus, suku $DW$ adalah suku konsensus dari $DM$ dan $WM$ (dengan $x = M$, $y = D$, $z = W$). Namun dalam kasus ini, suku konsensus justru menjadi bagian dari spesifikasi fungsional, sehingga kita perlu memeriksa apakah ia benar-benar redundan. Distribusi: $A = M(D + W) + DW$. Ekspresi ini sudah cukup sederhana dan merepresentasikan dua kondisi: (1) mode malam dengan pintu atau jendela terbuka, (2) pintu dan jendela terbuka kapan pun.
+\end{contoh}

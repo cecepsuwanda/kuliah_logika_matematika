@@ -1,59 +1,154 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{14}}{}
 \begin{document}
 
-\chapter{Representasi Fungsi Logika ke dalam Rangkaian Gerbang Logika Dasar}
+\chapter{Argumen Matematis Formal dan Validasi Algoritma/Solusi Komputasi}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu mengonversi dan merepresentasikan spesifikasi fungsi komputasi Boolean menjadi cetak biru sirkuit rangkaian gerbang logika (\textit{Logic Gates circuit}) standar perangkat keras.
+  \item \textbf{Sub-CPMK 4.3:} Mahasiswa mampu menyusun argumen matematis formal untuk memvalidasi langkah-langkah dalam penyelesaian masalah komputasi.
 \end{subcpmk}
 
-\section{Komponen Blok Gerbang Logika (Logic Gates)}
-Spesifikasi bahasa mesin dan representasi Aljabar Boolean, sekalipun sudah tereduksi \textit{minimal hardware requirements} dalam K-Map atau SOP \textit{(Sum Of Products)}, wajib dirancang pada \textit{draft} sirkuit fisik sebelum dicetak pada *silicon \textit{wafers}*. Elemen struktural elektronika ini dikenal sebagai \textbf{Gerbang Logika (Logic Gates)}.
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-14/section-14-1}
+\input{bab-14/section-14-2}
+\input{bab-14/section-14-3}
+\input{bab-14/section-14-4}
+\input{bab-14/section-14-5}
+\input{bab-14/section-14-6}
+\input{bab-14/section-14-7}
 
-Sirkuit logika *High \& Low* dibangun di atas blok pembangun (\textit{building block}) yang sangat minim:
-
-\subsection{Gerbang Primitif}
-\begin{enumerate}
-    \item \textbf{AND Gate ($\cdot$):} Akan mensuplai jalur kelistrikan *True* Output jika seluruh sakelar input sirkuit ditutup (kedua kondisi $A$ dan $B$ berstatus HIGH/$1$).
-    \item \textbf{OR Gate ($+$):} Akan meloloskan tegangan jika sekurangnya $1$ terminal inputnya terkoneksi HIGH.
-    \item \textbf{NOT Gate ($'$ atau $\sim$):} Berperan menginversi total status kebenaran awal (*Inverter Gate*). Terminal masuk LOW akan diputar *outputnya* menjadi arus HIGH.
-\end{enumerate}
-
-\subsection{Gerbang Kombinatorial/Derivatif Fungsional Universal}
-Mengakomodir abstraksi fabrikasi, komponen dasar di atas dilebur. Menariknya, dua gerbang derivatif berikut disebut berkapasitas **Universal Gate**, sebab dengan hanya menyusun gerbang tipe ini sendiri-sendiri, Anda tetap bisa mereplika sirkuit murni \textit{AND/OR/NOT}.
-\begin{enumerate}
-    \item \textbf{NAND Gate (Not-AND):} Fungsi $F=(A\cdot B)'$. Outputnya akan selalu meloloskan listrik sirkuit bernilai aktif / $1$, \textbf{kecuali} takkala seluruh kaki terminal inputnya berikan inputan angka $1$ murni, maka tegangan terputus mutlak (*False/Low*).
-    \item \textbf{NOR Gate (Not-OR):} Fungsi $F=(A+B)'$. Terminal komputasional ini selalu putus tegangan (Output=0), \textbf{kecuali} semata-mata bila *seluruh* masukan kakinya *Low* $0$ murni. (Sebaliknya dari fungsi OR).
-\end{enumerate}
-
-\subsection{Gerbang Eksklusif Komparator Bitwise}
-\begin{enumerate}
-    \item \textbf{XOR Gate (Exclusive OR) $\oplus$:} Fungsi komparator kesetaraan beda ganda: Output bernilai True ($1$) bilamana nilai kaki-kaki masukan sirkulasi input sistem tak serasi atau saling berbeda asimetris (contoh: Input 1 dan 0). Jika identik sama-sama $0$ atau kembar $1$ maka ia menolak kelistrikan alias $0$.
-    \item \textbf{XNOR (Exclusive NOR) $\odot$:} Kebalikan XOR, mendeteksi parameter fungsionalitas identik (*Equality Comparator*). Menyala ($1$) jika kaki sama-sama inputnya ($00 / 11$).
-\end{enumerate}
-
-\section{Translasi Sirkuit ke Diagram}
-Mempraktikkan pembuatan Diagram Perancangan Gerbang.
-\begin{contoh}
-Spesifikasi Fungsi Kunci Server: $F = A\cdot B + C'$
-- Buat \textit{wire} / Kawat masukan *Terminal* ($A,B,C$).
-- Hubungkan Terminal C menuju modul \textbf{Gerbang NOT/Inverter}. Namai arus keluarannya kawat komputasi $K_1$ (isinya $C'$).  
-- Hubungkan Terminal $A$ dan terminal \textit{wire} $B$ sebagai sakelar masukan gerbang \textbf{AND (\textit{D-shaped})}. Ambil kabel hasil tegangan kelistrikan kombinasinya, tandai $K_2$ (memuat relasi logis $A\cdot B$).
-- Pertemukan simpul konektor/kawat sambungan logikal $K_1$ dan kabel arsitektur $K_2$ mensuplai gerbang kombinasi final fungsi Penjumlahan komputasi \textbf{OR (\textit{Curved/Shield shape})}. Terminal kabel akhir yang ditarik menjadi port Output Mutlak $F$ pada PCB perangkat. 
-\end{contoh}
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Berkolaborasilah dan sketsakan susunan kawat arsitektur sirkuit bagi skrip fungsi $F = (X + Y') \cdot Z$. Tentukan berapa gerbang NAND minimum yang dibutuhkan untuk men-daur ulang spesifikasi sirkuit fungsional itu sepenuhnya (sistem Universal Gate)?
+  \item \textbf{Hoare Triple:} Tuliskan prekondisi dan postkondisi untuk fungsi yang menghitung nilai maksimum dari dua bilangan bulat. Verifikasi dengan Hoare Triple.
+  \item \textbf{Loop invariant:} Rancang algoritma pencarian linear pada array. Definisikan loop invariant dan verifikasi ketiga syarat (inisialisasi, pemeliharaan, terminasi).
+  \item \textbf{Perkalian berulang:} Tuliskan prekondisi dan postkondisi untuk fungsi perkalian dengan penjumlahan berulang ($a \times b = a + a + \cdots + a$ sebanyak $b$ kali). Tentukan loop invariant dan fungsi pengurangan.
+  \item \textbf{Insertion Sort:} Analisis program Insertion Sort. Buktikan kebenaran parsial invarian iterasi pertama: ``Setelah iterasi $j = 1$, subarray $A[0..1]$ terurut.''
+  \item \textbf{Terminasi:} Untuk program \texttt{while $x > 0$ do $x := x - 2$} dengan $x := n$ awal, tentukan apakah kebenaran total berlaku. Untuk $n$ genap positif dan $n$ ganjil positif, apakah program selalu berterminasi?
+  \item \textbf{Parsial vs total:} Berikan contoh program yang memenuhi kebenaran parsial tetapi tidak memenuhi kebenaran total. Jelaskan alasannya.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Jelaskan alasan matematis (menggunakan \textit{De Morgan Law}) mengapa sirkuit dengan terminal gerbang paralel AND yang diletakkan pasca Inverter konektor (Sirkuit $A' \cdot B'$) memiliki validitas komputasional identik ekuivalensinya jika fungsinya dialihkan arsitekturnya ke sebuah NOR Gate berspesifikasi input asli $(A, B)$!
+  \item Verifikasi Hoare Triple: $\{y = 3\}\ x := y + 2\ \{x = 5\}$ menggunakan aturan assignment.
+  \item Diberikan program: \texttt{$x := a + b$; $y := x * 2$}. Jika prekondisi $\{a = 3 \wedge b = 4\}$, tentukan postkondisi dengan aturan komposisi sekuensial.
+  \item Rancang loop invariant dan buktikan kebenaran parsial untuk program yang menghitung $a \times b$ ($b \geq 0$): \texttt{prod := 0; i := 0; while i < b do prod := prod + a; i := i + 1}.
+  \item Buktikan terminasi program pada soal sebelumnya menggunakan fungsi pengurangan.
+  \item Jelaskan mengapa ``$A$ merupakan permutasi dari masukan'' menjadi bagian penting dari postkondisi algoritma pengurutan.
+  \item Tentukan loop invariant untuk algoritma Bubble Sort dan verifikasi syarat inisialisasinya.
+  \item \textbf{Refleksi:} (a) Edsger Dijkstra: ``Program testing can show the presence of bugs, but never their absence.'' Jelaskan dalam konteks kebenaran parsial dan kebenaran total. (b) Dalam sistem mission-critical (aviasi, medis, antariksa), mengapa testing saja tidak cukup? Berikan contoh historis kegagalan verifikasi formal.
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Evaluasi Kinerja (Sub-CPMK 4.3)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Kondisi yang harus dipenuhi masukan sebelum eksekusi program disebut:
+  \begin{enumerate}
+    \item Postkondisi
+    \item Loop invariant
+    \item Prekondisi
+    \item Fungsi pengurangan
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Hoare Triple $\{p\}\ S\ \{q\}$ menyatakan:
+  \begin{enumerate}
+    \item $p$ benar jika dan hanya jika $q$ benar
+    \item Jika $p$ dipenuhi dan $S$ berterminasi, maka $q$ terpenuhi
+    \item $S$ selalu berterminasi
+    \item $p$ dan $q$ selalu benar
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Loop invariant harus memenuhi tiga syarat, kecuali:
+  \begin{enumerate}
+    \item Inisialisasi (benar sebelum loop)
+    \item Pemeliharaan (terjaga setiap iterasi)
+    \item Optimasi (menghasilkan loop tercepat)
+    \item Terminasi (bersama $\neg B$ mengimplikasikan postkondisi)
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Perbedaan kebenaran parsial dan kebenaran total adalah:
+  \begin{enumerate}
+    \item Kebenaran parsial hanya berlaku untuk sebagian input
+    \item Kebenaran total menjamin terminasi; kebenaran parsial tidak
+    \item Kebenaran parsial tidak memerlukan loop invariant
+    \item Kebenaran total tidak memerlukan postkondisi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Fungsi pengurangan (variant) digunakan untuk membuktikan:
+  \begin{enumerate}
+    \item Kebenaran parsial
+    \item Kebenaran postkondisi
+    \item Terminasi perulangan
+    \item Kebenaran prekondisi
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{enumerate}
+  \item Verifikasi kebenaran total program pencarian linear: tuliskan loop invariant, buktikan ketiga syaratnya, dan buktikan terminasi dengan fungsi pengurangan.
+  \item Jelaskan hubungan antara loop invariant dan induksi matematika. Mengapa keduanya secara struktural analog?
+  \item Bandingkan pendekatan testing dan verifikasi formal. Kapan masing-masing lebih tepat digunakan?
+\end{enumerate}
+
+\textbf{Rubrik}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Terbiasa dan ingat wujud skematik bentuk simbol gerbang (AND $D$, OR $Shield$, NOT Segitiga Bulat, dsb.)
-  \item Sigap mengaitkan spesifikasi aljabar SOP fungsi term K-Map kembali ke susunan kabel hierarkis.
+  \item Saya memahami konsep prekondisi dan postkondisi sebagai spesifikasi formal program.
+  \item Saya mampu menulis dan memverifikasi Hoare Triple untuk pernyataan assignment dan komposisi sekuensial.
+  \item Saya memahami aturan inferensi Hoare untuk kondisional (if-then-else) dan perulangan (while).
+  \item Saya mampu mendefinisikan loop invariant yang tepat untuk algoritma iteratif.
+  \item Saya mampu memverifikasi ketiga syarat loop invariant: inisialisasi, pemeliharaan, terminasi.
+  \item Saya memahami perbedaan kebenaran parsial dan kebenaran total.
+  \item Saya mampu membuktikan terminasi perulangan menggunakan fungsi pengurangan.
+  \item Saya dapat memverifikasi algoritma pencarian linear dan insertion sort secara formal.
+  \item Saya memahami relevansi verifikasi formal dalam konteks sistem mission-critical.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab ini membahas verifikasi kebenaran program sebagai aplikasi puncak dari seluruh konsep logika matematika yang telah dipelajari.
+
+\textbf{Poin Kunci:}
+\begin{itemize}
+  \item \textbf{Spesifikasi program} dinyatakan melalui pasangan prekondisi-postkondisi, yang berfungsi sebagai ``kontrak'' antara pemanggil dan implementasi program.
+  \item \textbf{Hoare Triple} $\{p\}\ S\ \{q\}$ memformalisasi hubungan antara prekondisi $p$, program $S$, dan postkondisi $q$. Aturan inferensi (assignment, komposisi, kondisional, perulangan) memungkinkan verifikasi deduktif.
+  \item \textbf{Loop invariant} adalah predikat yang dijaga sepanjang eksekusi perulangan, diverifikasi melalui tiga syarat: inisialisasi, pemeliharaan, dan terminasi. Konsep ini analog langsung dengan induksi matematika.
+  \item \textbf{Kebenaran parsial} menjamin postkondisi jika program berterminasi; \textbf{kebenaran total} menambahkan jaminan terminasi melalui fungsi pengurangan.
+  \item Verifikasi formal sangat penting dalam mission-critical systems di mana kegagalan tidak dapat ditoleransi. Testing menunjukkan keberadaan bug; verifikasi formal membuktikan ketiadaannya.
+\end{itemize}
+
+\textbf{Kata Kunci}: prekondisi, postkondisi, Hoare Triple, logika Hoare, aturan assignment, loop invariant, kebenaran parsial, kebenaran total, fungsi pengurangan, terminasi, verifikasi formal
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}

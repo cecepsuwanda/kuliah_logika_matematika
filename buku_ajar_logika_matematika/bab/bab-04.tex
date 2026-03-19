@@ -1,51 +1,167 @@
-\documentclass[../main.tex]{subfiles}
-
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{3}}{}
 \begin{document}
 
-\chapter{Kata Hubung Logika: Konjungsi, Disjungsi, Negasi, Implikasi, Biimplikasi}
+\chapter{Tabel Kebenaran, Tautologi, Kontradiksi, dan Kontingensi}
 
 \begin{subcpmk}
-  \item Mahasiswa mampu menggunakan operator dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
-  \item Mahasiswa dapat menerjemahkan \textit{logical operators} tersebut di tingkat penulisan struktur sintaks kode percabangan umum.
+  \item \textbf{Sub-CPMK 1.2:} Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
 \end{subcpmk}
 
-\section{Operator Dasar Logika Proposisional}
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-04/section-4-1}
+\input{bab-04/section-4-2}
+\input{bab-04/section-4-3}
+\input{bab-04/section-4-4}
+\input{bab-04/section-4-5}
+\input{bab-04/section-4-6}
+\input{bab-04/section-4-7}
 
-Dalam merancang sirkuit komputasi, suatu proposisi tunggal tak ubahnya sekeping transistor tunggal; terlalu sederhana dan nirfungsi logis yang panjang. Manusia dan mesin merangkai simpulan rumit dari penggabungan proposisi yang disusun menggunakan perangkai \textit{(Logical Connectives)}. Terdapat lima \textit{connective} terpenting, yaitu \textbf{Negasi ($\sim$)}, \textbf{Konjungsi ($\land$)}, \textbf{Disjungsi ($\lor$)}, \textbf{Implikasi ($\rightarrow$)}, dan \textbf{Biimplikasi ($\leftrightarrow$)}.
-
-\subsection{Negasi (NOT / Penyangkalan)}
-Negasi, didefinisikan secara harfiah dengan "TIDAK", yaitu operasi matematis \textit{unary} (melibatkan 1 proposisi tunggal). Jika proposisi $p$ bernilai T (benar), maka $\sim p$ akan berbalik arah nilainya menjadi F (salah). Di sintaks pemrograman (seperti Java/C++), notasi negasi umum ditulis dengan tanda \texttt{!}.
-
-\subsection{Konjungsi (AND / Dan)}
-Suatu proposisi gabungan $p \land q$ yang disebut \textbf{Konjungsi} ini bernilai T secara eksklusif hanya jika "KEDUA" elemen asal, baik preposisi kiri maupun preposisi kanan (keduanya $p$ maupun $q$) bernilai mutlak T. Selain dari klausa interaktif itu, seluruh kombinasinya bernilai F. Operator AND di beberapa bahasa pemrograman disimbolkan \texttt{\&\&}.
-
-\subsection{Disjungsi (OR / Atau)}
-Operasi Disjungsi digambarkan sebagai "ATAU", dinotasikan $p \lor q$. Bernilai T jika terdapat minimal salah satu proposisi pembentuk bernilai T. Operator OR di bahasa C/C++/Java biasanya disimbolkan \texttt{||}.
-
-\subsection{Implikasi (If... Then / Bersyarat)}
-Pada kalimat deklarasi, implikasi kerap diterjemahkan menggunakan kalimat majemuk komputasi "JIKA \textit{kondisi p} MAKA \textit{kesimpulan q}". Implikasi yang dinotasikan $p \rightarrow q$ (dengan $p$ sebagai \textit{anteseden} dan $q$ sebagai \textit{konsekuen}) akan bernilai Salah (F) pada satu konfigurasi langka: yakni jika hipotesisnya ($p$) ditepati (Benar) namun kesimpulannya dikhianati ($q$ dinilai Salah). Dalam semua kasus hipotesis lainnya, ia menoleransi nilai Benar.
-
-\subsection{Biimplikasi (If and Only If / Ekuivalensi Dua Arah)}
-Disimbolkan secara ekuivalen $p \leftrightarrow q$, diartikan secara formal sebagai "p jika dan hanya jika q". Pernyataan logika biimplikasi sangat tertutup—ia hanya mengeksekusi penilaian T bila pasangan preposisinya kompak (kembar); $p$ dan $q$ wajib sama-sama bernilai T atau harus identik sama-sama F. Sangat sering diterapkan untuk \textit{Equality Match}.
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
 
 \begin{aktivitas}
-  \item Diskusikan dalam satu grup: Terjemahkan kata hubung bahasa sehari-hari: "Karena lelah, maka Saya butuh kopi" dan carilah pola \textit{anteseden} (penyebab) serta \textit{konsekuennya}. Bagaimana terjemahan formal simbol operatornya?
+  \item \textbf{Identifikasi Tautologi, Kontradiksi, Kontingensi:} Buat tabel kebenaran untuk $p \vee \neg p$, $p \wedge \neg p$, dan $p \rightarrow q$. Klasifikasikan masing-masing sebagai tautologi, kontradiksi, atau kontingensi.
+  \item \textbf{Uji Ekuivalensi:} Buat tabel kebenaran untuk $\neg(p \wedge q)$ dan $\neg p \vee \neg q$. Buktikan bahwa keduanya ekuivalen.
+  \item \textbf{Diskusi QA Sirkuit:} Berikan satu ekspresi logika (misalnya $A \wedge (A \vee B)$). Sederhanakan menggunakan hukum Absorpsi atau Dominasi. Bandingkan hasil dengan teman kelas.
+  \item \textbf{Praktik Python:} Tulis fungsi \texttt{check\_equivalence(stmt1, stmt2)} yang memverifikasi $A \rightarrow B \equiv \neg A \vee B$ melalui tabel kebenaran 4 baris.
+  \item \textbf{Prosedur Penyederhanaan:} Rangkum prosedur 4 langkah penyederhanaan (lucuti panah, De Morgan, Absorpsi, Distributif) dalam bagan alur vertikal.
+  \item \textbf{Refactoring Kode:} Pilih potongan kode IF-ELSE dari program sederhana. Translasi ke logika proposisional, sederhanakan dengan hukum aljabar, tulis ulang kode yang bersih.
 \end{aktivitas}
 
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
 \begin{latihan}
-  \item Diketahui proposisi:\\
-  $p$: Hardware adalah perangkat keras.\\
-  $q$: Java adalah bahasa assembly instruksi mikroprosesor.\\
-  Tuliskan ekspresi dan estimasi semantik kebenaran dari $(p \lor \sim q)$.
+  \item Buat tabel kebenaran untuk $p \vee \neg p$ dan $p \wedge \neg p$. Klasifikasikan masing-masing sebagai tautologi atau kontradiksi.
+  \item Buat tabel kebenaran 8 baris (untuk $p, q, r$) untuk membuktikan Hukum Distributif: $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$.
+  \item Sederhanakan $\neg((\neg p \wedge q) \vee (p \vee \neg q))$ dengan hukum De Morgan, Asosiatif, dan Negasi Ganda (tanpa tabel).
+  \item Buktikan $A \rightarrow (A \vee B)$ tautologi dengan mengubah ke bentuk $\neg A \vee (A \vee B)$ dan menerapkan hukum aljabar.
+  \item Diberikan kode: \texttt{if (saldo\_cukup and (bukan\_kredit or bukan\_saldo\_cukup))}. Translasi ke variabel logika $s$ (saldo cukup) dan $k$ (kredit). Sederhanakan dan tulis refactoring kode yang bersih.
+  \item \textbf{Refleksi:} Kapan Anda memilih tabel kebenaran dan kapan manipulasi aljabar untuk membuktikan ekuivalensi? Jelaskan kelebihan masing-masing.
 \end{latihan}
 
+% ============================================================
+% ASESMEN
+% ============================================================
+
 \begin{asesmen}
-Asesmen Formatif: Jawaban konversi preposisi komputasi di rubrik mini (bobot evaluasi UTS parsial 5\%).
+\textbf{Instrumen Penilaian Evaluasi Kinerja (Sub-CPMK 1.2)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Hukum yang menyederhanakan $A \wedge (A \vee B)$ menjadi $A$ adalah:
+  \begin{enumerate}
+    \item Hukum De Morgan
+    \item Hukum Idempoten
+    \item Hukum Absorpsi
+    \item Hukum Distributif
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Proposisi $(p \vee \neg p) \rightarrow (q \wedge \neg q)$ bernilai kontradiksi karena sisi kiri tautologi dan sisi kanan kontradiksi, sehingga $(T \rightarrow F)$ bernilai:
+  \begin{enumerate}
+    \item Tautologi
+    \item Kontingensi
+    \item Disjungsi
+    \item Kontradiksi
+  \end{enumerate}
+  Jawaban: (d)
+
+  \item Hukum Komutatif berlaku untuk operasi yang sejenis, yaitu:
+  \begin{enumerate}
+    \item Implikasi
+    \item Konjungsi dan disjungsi (AND atau OR)
+    \item Negasi
+    \item Biimplikasi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Pernyataan yang selalu benar disebut tautologi; selalu salah disebut kontradiksi. Pernyataan $p \rightarrow q$ termasuk:
+  \begin{enumerate}
+    \item Tautologi
+    \item Kontradiksi
+    \item Kontingensi
+    \item Ekuivalensi
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Ekuivalensi yang benar untuk implikasi $p \rightarrow q$ adalah:
+  \begin{enumerate}
+    \item $p \wedge \neg q$
+    \item $\neg p \vee q$
+    \item $\neg p \wedge q$
+    \item $p \vee \neg q$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Menurut Hukum De Morgan, $\neg(p \wedge q)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $p \vee q$
+    \item $\neg p \wedge \neg q$
+    \item $\neg p \vee \neg q$
+    \item $p \wedge q$
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Bentuk $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$ merupakan:
+  \begin{enumerate}
+    \item Hukum De Morgan
+    \item Hukum Asosiatif
+    \item Hukum Distributif
+    \item Hukum Absorpsi
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Diberikan rumus $A \rightarrow (A \vee B)$. Ubah ke bentuk $\neg A \vee (A \vee B)$, terapkan hukum aljabar proposisi, dan tentukan apakah hasilnya tautologi, kontradiksi, atau kontingensi. Paparkan langkah penyelesaian dan justifikasi.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Merujuk Lampiran Buku.
 \end{asesmen}
 
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
 \begin{checklist}
-  \item Mengetahui tanda matematis/simbol dari seluruh 5 kata hubung dasar.
-  \item Mengerti karakter penilaian dari tabel Implikasi versus Biimplikasi.
+  \item Saya mampu membedakan tautologi, kontradiksi, dan kontingensi.
+  \item Saya mampu menggunakan tabel kebenaran untuk membuktikan ekuivalensi dua proposisi.
+  \item Saya mampu menerapkan hukum Dominasi, Identitas, Negasi, Involusi, Idempoten, dan Absorpsi.
+  \item Saya mampu menerapkan hukum Komutatif, Asosiatif, Distributif, dan De Morgan.
+  \item Saya mampu mengubah implikasi $p \rightarrow q$ ke bentuk $\neg p \vee q$.
+  \item Saya mampu menyederhanakan ekspresi dengan prosedur 4 langkah (panah, De Morgan, Absorpsi, Distributif).
+  \item Saya mampu menerjemahkan kode IF-ELSE ke logika dan melakukan refactoring.
 \end{checklist}
 
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 4 ini merupakan ajang unjuk senam otak paling vital merakit landasan presisi ekuivalensi matematika komputer murni di era silikon masa depan!
+
+\textbf{Sorotan Poin Kunci Esensial:}
+\begin{itemize}
+  \item \textbf{Trinitas Kasta Nilai} diklasifikasikan final ke dalam sang ratu abadi \textit{Tautologi (Selalu Benar)}, sang raja kelam \textit{Kontradiksi (Selalu Salah)}, dan abdi dalem realitas dinamisnya si \textit{Kontingensi}.
+  \item \textbf{Forensik Ekuivalensi ($\equiv$)} diinisiasi validasi sah manakala kolom pencetak akhir Tabel Kebenaran dua proposisi beda entitas ditasbihkan akurat kembar seratus persen menjiplak.
+  \item Operasi turunan penyederhanaan disumbangkan secara cuma-cuma dari gudang peluru \textbf{Aljabar Proposisi} meliputi: pemotongan Idempoten/Involusi dobel, pencincang Distributif kurung silang silang gerbang, dan pembongkar gembok ganda De Morgan nan sakti.
+  \item \textbf{Ekuivalensi Modifikasi} menyumbangkan sihir ilusi menembus topeng Implikasi bersyarat semu mengubahnya ringkas ke model biner $\neg p \lor q$.
+  \item Segenap penatnya keringat menghafal belasan Aljabar di atas ini sejatinya \textbf{Terbayar Lunas Ratusan Juta Rupiah} kelak di dunia industri riil menyedot paksa pemotongan biaya pencetakan gerbang kabel Semikonduktor / memotong kusutnya memori verifikasi persilangan kode \textit{software If-Else bercabang}.
+\end{itemize}
+
+\textbf{Sandi Kunci Pembatas}: Ekuivalensi Logis Mutlak, Tabel Kebenaran Forensik, Modifikasi De Morgan, Aljabar Proposisi silang \textit{Boolean}, Pemangkasan *Dead Code* Industri, Kontradiksi hampa.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
 \end{document}
