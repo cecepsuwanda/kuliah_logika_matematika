@@ -1,0 +1,70 @@
+\section{Strategi Pemilihan Metode Bukti}
+
+Salah satu tantangan terbesar dalam pembuktian matematis bukanlah melaksanakan langkah-langkah bukti itu sendiri, melainkan memutuskan \emph{metode mana} yang paling tepat untuk digunakan. Pemilihan metode yang tepat dapat membuat perbedaan antara bukti yang elegan dan ringkas dengan upaya yang panjang dan berbelit-belit, atau bahkan jalan buntu \cite{velleman2019}.
+
+\subsection{Matriks Perbandingan Strategi}
+
+Tabel~\ref{tab:perbandingan-strategi-bukti} menyajikan perbandingan komprehensif kelima metode pembuktian yang telah dibahas.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.25cm}|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{5.1cm}|}
+\hline
+\textbf{Metode} & \textbf{Asumsi Awal} & \textbf{Tujuan} & \textbf{Kapan Digunakan?} \\ \hline
+\textbf{Langsung} & $p$ benar & Tunjukkan $q$ benar & Manipulasi aljabar mengalir natural dari hipotesis ke konklusi \\ \hline
+\textbf{Kontraposisi} & $\neg q$ benar & Tunjukkan $\neg p$ benar & Konklusi mengandung negasi; hipotesis kompleks; $\neg q$ mudah diolah \\ \hline
+\textbf{Kontradiksi} & $p \wedge \neg q$ benar & Temukan kontradiksi ($\bot$) & Pernyataan eksistensial negatif; irasionalitas; ketidakberhinggaan \\ \hline
+\textbf{Kasus} & Partisi domain & Buktikan per kasus & Domain terbagi alami (genap/ganjil, positif/negatif/nol) \\ \hline
+\textbf{Kontra-contoh} & --- & Temukan $x_0$ dengan $\neg P(x_0)$ & Menyangkal pernyataan universal \\ \hline
+\end{tabular}
+\caption{Matriks Perbandingan Strategi Pembuktian}
+\label{tab:perbandingan-strategi-bukti}
+\end{table}
+
+\subsection{Panduan Praktis Pemilihan Metode}
+
+Berikut panduan langkah demi langkah untuk memilih metode bukti yang tepat:
+
+\begin{enumerate}
+  \item \textbf{Identifikasi struktur pernyataan}: Apakah pernyataan merupakan implikasi ($p \rightarrow q$), biimplikasi ($p \leftrightarrow q$), atau pernyataan umum?
+
+  \item \textbf{Coba bukti langsung terlebih dahulu}: Mulai dengan mengasumsikan hipotesis dan mencoba memanipulasi menuju konklusi. Jika langkah-langkah mengalir secara natural, lanjutkan.
+
+  \item \textbf{Jika terhambat, pertimbangkan kontraposisi}: Apakah memulai dari $\neg q$ memberikan ekspresi yang lebih mudah diolah? Apakah konklusi $q$ mengandung negasi yang menyulitkan?
+
+  \item \textbf{Jika kedua metode di atas gagal, coba kontradiksi}: Asumsikan $p \wedge \neg q$ dan cari apakah muncul pernyataan yang mustahil. Metode ini terutama berguna untuk pernyataan tentang irasionalitas atau ketidakberhinggaan.
+
+  \item \textbf{Pertimbangkan pembuktian kasus}: Apakah domain terbagi secara alami menjadi beberapa kategori? Apakah pernyataan lebih mudah dibuktikan per kasus?
+
+  \item \textbf{Jika curiga pernyataan salah}: Cari kontra-contoh sebelum berusaha membuktikan.
+\end{enumerate}
+
+\subsection{Contoh Pemilihan Strategi}
+
+\begin{contoh}
+\textbf{Pernyataan}: ``Jika $n^3 + 5$ genap, maka $n$ ganjil.''
+
+\textbf{Analisis strategi:}
+\begin{itemize}
+    \item \textbf{Bukti langsung?} Dari $n^3 + 5 = 2k$, didapat $n^3 = 2k - 5$. Sulit menentukan paritas $n$ dari $n^3$.
+    \item \textbf{Kontraposisi?} Buktikan: ``Jika $n$ genap, maka $n^3 + 5$ ganjil.'' Jika $n = 2m$, maka $n^3 + 5 = 8m^3 + 5 = 2(4m^3 + 2) + 1$. Ini berbentuk ganjil. \checkmark
+\end{itemize}
+
+Kontraposisi memberikan bukti yang langsung dan sederhana, sedangkan pendekatan langsung menghadapi hambatan aljabar. $\blacksquare$
+\end{contoh}
+
+\subsection{Bukti Biimplikasi}
+
+Untuk membuktikan biimplikasi $p \leftrightarrow q$ (``$p$ jika dan hanya jika $q$''), perlu dibuktikan \emph{dua} implikasi:
+\begin{enumerate}
+    \item $p \rightarrow q$ (arah ``jika $p$ maka $q$'')
+    \item $q \rightarrow p$ (arah ``jika $q$ maka $p$'')
+\end{enumerate}
+
+Masing-masing arah dapat menggunakan metode pembuktian yang berbeda. Misalnya, arah pertama mungkin menggunakan bukti langsung, sementara arah kedua menggunakan kontraposisi. Fleksibilitas ini memungkinkan perancang bukti memilih metode terbaik untuk setiap arah secara independen \cite{hammack2018}.
+
+\subsection{Jembatan ke Bab Selanjutnya}
+
+Metode-metode pembuktian yang telah dibahas dalam bab ini merupakan fondasi bagi teknik pembuktian yang lebih lanjut, khususnya \logic{induksi matematika} yang akan dibahas pada Bab~13. Induksi matematika merupakan metode pembuktian khusus yang dirancang untuk membuktikan pernyataan yang bergantung pada bilangan bulat berurutan, dan menggabungkan elemen-elemen dari bukti langsung (langkah induksi) dengan verifikasi kasus dasar (langkah basis).

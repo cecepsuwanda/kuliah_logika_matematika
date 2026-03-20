@@ -1,0 +1,32 @@
+\section{Akar Filosofis: Dari Silogisme hingga Logika Simbolik}
+
+Sebelum mesin-mesin modern mampu memproses data dalam skala sangat besar, landasan ilmu komputer (*Computer Science*) telah dirumuskan terlebih dahulu oleh para filsuf kuno melalui gagasan \textbf{"Hukum Pasti Berpikir"} \cite{wiki_proplogic}.
+
+\logic{Logika Matematika} merupakan instrumen untuk mengalihkan pernyataan dalam bahasa alamiah yang mengandung ambiguitas menjadi rumus yang deterministik, terdefinisi dengan jelas, dan dapat diproses oleh mesin \cite{rosen2019,copi2014,forallx}.
+
+\subsection{Fajar Logika Yunani: Era Silogisme Aristoteles}
+
+Pada rentang tahun 384--322 SM, Aristoteles merintis karya intelektual yang membakukan struktur perdebatan manusia menjadi rumus deduksi yang ketat, yang kemudian disebut \textbf{Silogisme} \cite{iep_logic_history}. Era ini menandai terobosan ketika keabsahan suatu pernyataan dinilai berdasarkan struktur penalarannya, terlepas dari kebenaran faktual isi pernyataan tersebut.
+
+\begin{contoh}[Bentuk Klasik Silogisme Aristoteles]
+\indent \textbf{Premis Mayor:} Semua mamalia wajib mengembuskan karbon dioksida. \\
+\indent \textbf{Premis Minor:} Seekor kucing perak tergolong bangsa mamalia. \\
+\indent \textbf{Validasi Kesimpulan:} Dengan demikian, kucing perak tersebut mengembuskan karbon dioksida.
+\end{contoh}
+
+Sumbangan bangsa Yunani Kuno (khususnya penerus filosofi Stoik) melahirkan dasar-dasar hubungan kondisional "Jika-Maka" (\textit{If-Then}). Namun, selama berabad-abad, analisis logika mereka belum dituangkan secara sistematis dalam bentuk matematis yang transparan.
+
+\subsection{Era Revolusi Simbolik: George Boole \& Gottlob Frege}
+
+Pada abad ke-19, logika berkembang menjadi disiplin yang berorientasi pada ketegasan penalaran matematis \cite{openlogic,copi2014}. Tokoh utamanya ialah matematikawan Inggris, \textbf{George Boole (1815-1864)}.
+
+Dalam karyanya \textit{The Laws of Thought (1854)}, Boole mengemukakan gagasan bahwa nilai kebenaran suatu kalimat dapat direduksi menjadi rumus matematika, analog dengan operasi penjumlahan (+) dan perkalian ($\times$). Boole memperkenalkan \textbf{Aljabar Boolean}. Melalui gagasan ini, penalaran bahasa dapat dipandang sebagai operasi biner 1 (True) dan 0 (False).
+
+Gagasan tersebut kemudian dikembangkan oleh \textbf{Gottlob Frege (1879)} melalui karyanya \textit{Begriffsschrift} \cite{copi2014}. Frege mengembangkan logika Boole dengan memperkenalkan \textbf{Logika Predikat}. Ia memperkenalkan kuantifier universal ``Semua'' ($\forall$) dan eksistensial ``Sebagian'' ($\exists$). Dengan demikian, pencarian kondisi majemuk pada basis data relasional (misalnya SQL) dapat dieksekusi secara presisi dalam sistem digital modern.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{timeline-logika}
+\caption{Timeline evolusi Logika Matematika: dari perkembangan pemikiran filsuf hingga penerapannya pada perangkat elektronik \cite{wiki_proplogic}.}
+\label{fig:timeline-logika}
+\end{figure}

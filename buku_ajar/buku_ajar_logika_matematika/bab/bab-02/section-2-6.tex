@@ -1,0 +1,44 @@
+\section{Peta Jalur Materi: Taksonomi Buku Ajar}
+
+Untuk mencapai kompetensi sarjana ilmu komputer, mahasiswa tidak hanya mempelajari tabel kebenaran dasar \cite{rosen2019,levin_discrete}.
+
+Silabus buku ajar ``Logika Informatika'' ini disusun secara bertahap dengan pola spiral (Gambar~\ref{fig:peta-konsep}). Berikut adalah peta jalan materi yang akan dipelajari:
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm and 1cm,
+  box/.style={rectangle, draw=black, rounded corners, fill=blue!10, text width=2.2cm, minimum height=0.7cm, align=center, font=\small},
+  root/.style={rectangle, draw=black, rounded corners, fill=green!20, text width=3.2cm, minimum height=0.8cm, align=center, font=\small\bfseries},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[root] (root) {Fondasi Logika Matematika};
+  \node[box, below left=1.2cm and 0.5cm of root] (b3) {Bab 3 \& 4 \\Fondasi Proposisional Evaluatif};
+  \node[box, below=1.2cm of root] (b4) {Bab 5 \& 6 \\ Aturan Inferensi Valid dan Sistem Pembuktian};
+  \node[box, below right=1.2cm and 0.5cm of root] (b5) {Bab 7 \& 8\\Semesta Kuantifier Logika Predikat};
+  \node[box, below=1.8cm of b4] (b6) {Bab 9 \& 10\\Induksi \& Rekursi Algoritma};
+  \draw[arrow] (root) -- (b3);
+  \draw[arrow] (root) -- (b4);
+  \draw[arrow] (root) -- (b5);
+  \draw[arrow] (b3) -- (b4);
+  \draw[arrow] (b4) -- (b5);
+  \draw[arrow] (b5) -- (b6);
+  \draw[arrow] (b4) -- (b6);
+\end{tikzpicture}
+\caption{Spiral taksonomi hirarki logika: setiap tingkat mendukung pilar bab pada tingkat berikutnya.}
+\label{fig:peta-konsep-bab2}
+\end{figure}
+
+\subsection{Pondasi Biner: Bab III--IV}
+Dimulai dengan \textbf{Logika Proposisional} (nilai atomik) dan \textbf{Ekuivalensi/Tautologi} menggunakan tabel kebenaran serta hukum Aljabar Boolean (De Morgan). Kompetensi ini berguna untuk mendeteksi kesalahan logika dalam percabangan sintaks \texttt{IF--ELSE} perangkat lunak.
+
+\subsection{Penarikan Konklusi: Bab V--VI}
+Mahasiswa dilatih \textbf{Modus Ponens}, \textbf{Modus Tollens}, dan \textbf{pembuktian bertahap}. Materi mencakup Pembuktian Langsung (\textit{Direct Proof}), Pembuktian Kontradiksi, dan Kontraposisi.
+
+\subsection{Logika Predikat: Bab VII--VIII}
+Setelah menguasai proposisi atomik, mahasiswa mempelajari \textbf{Logika Predikat (kuantor $\forall$/$\exists$)}. Hal ini merupakan dasar perumusan kueri (\texttt{WHERE EXISTS}) basis data relasional dan pemodelan penalaran pada sistem pakar AI.
+
+\subsection{Induksi dan Rekursi: Bab IX--X}
+Bagian akhir mempelajari \textbf{Induksi Matematika} dan \textbf{Rekursi}. Mahasiswa diharapkan mampu membuktikan keabsahan algoritma iteratif (seperti \textit{sorting}/\textit{searching}) yang menggunakan perulangan.
+
+Setiap bab merupakan prasyarat bagi bab berikutnya. Urutan materi hendaknya diikuti secara konsisten \cite{levin_discrete,rosen2019}.

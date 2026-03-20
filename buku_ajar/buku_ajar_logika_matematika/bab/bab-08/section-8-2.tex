@@ -1,0 +1,78 @@
+\section{Fakta, Predikat, dan Arity dalam Pemodelan}
+
+Pemilihan predikat yang tepat beserta \textit{arity}-nya merupakan keputusan desain fundamental dalam pemodelan basis pengetahuan. Predikat yang dipilih harus mampu menangkap informasi domain secara cukup (\textit{expressive}) tanpa menjadi terlalu rumit (\textit{parsimonious}) \cite{rosen2019}.
+
+\subsection{Predikat Arity-1: Properti}
+
+Predikat dengan satu argumen menyatakan properti atau klasifikasi suatu entitas:
+
+\begin{itemize}
+    \item $Manusia(x)$: ``$x$ adalah manusia''
+    \item $Laki(x)$: ``$x$ berjenis kelamin laki-laki''
+    \item $Prima(n)$: ``$n$ adalah bilangan prima''
+    \item $Login(u)$: ``pengguna $u$ telah login''
+\end{itemize}
+
+Predikat arity-1 analog dengan himpunan: $Manusia(x)$ berarti $x \in \text{Himpunan Manusia}$.
+
+\subsection{Predikat Arity-2: Relasi Biner}
+
+Predikat dengan dua argumen menyatakan relasi antara dua entitas:
+
+\begin{itemize}
+    \item $OrangTua(x, y)$: ``$x$ adalah orang tua dari $y$''
+    \item $Suka(x, y)$: ``$x$ menyukai $y$''
+    \item $LebihBesar(x, y)$: ``$x$ lebih besar dari $y$''
+    \item $Teman(x, y)$: ``$x$ adalah teman $y$''
+\end{itemize}
+
+Perhatikan bahwa urutan argumen sangat penting. $OrangTua(Hasan, Ahmad)$ berbeda maknanya dari $OrangTua(Ahmad, Hasan)$.
+
+\subsection{Predikat Arity-$n$ ($n \geq 3$): Relasi Multi-Argumen}
+
+Untuk relasi yang melibatkan lebih dari dua entitas atau parameter, digunakan predikat dengan arity yang lebih tinggi:
+
+\begin{itemize}
+    \item $Tewas(x, penyebab, tahun)$: arity-3
+    \item $Penerbangan(maskapai, asal, tujuan, waktu)$: arity-4
+    \item $Nilai(mahasiswa, matakuliah, semester, skor)$: arity-4
+\end{itemize}
+
+\begin{catatan}
+Dalam praktik pemodelan, arity yang terlalu tinggi (misalnya $> 5$) seringkali menandakan bahwa predikat perlu didekomposisi menjadi beberapa predikat yang lebih sederhana. Decomposisi ini mirip dengan proses normalisasi dalam desain basis data relasional.
+\end{catatan}
+
+\subsection{Fakta Ground vs Kalimat Berkuantor}
+
+Perbedaan fundamental antara fakta dan aturan:
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{3.5cm}|p{4cm}|p{4.5cm}|}
+\hline
+\textbf{Aspek} & \textbf{Fakta (Ground Atom)} & \textbf{Aturan (Klausa Horn)} \\ \hline
+Variabel & Tidak ada (semua konstanta) & Mengandung variabel terikat \\ \hline
+Kuantor & Tidak diperlukan & Kuantor universal $\forall$ \\ \hline
+Interpretasi & Kebenaran spesifik & Generalisasi / hukum \\ \hline
+Contoh & $Laki(Hasan)$ & $\forall x\,(Laki(x) \rightarrow \neg Perempuan(x))$ \\ \hline
+\end{tabular}
+\caption{Perbandingan Fakta dan Aturan dalam KB}
+\end{table}
+
+\begin{contoh}
+\textbf{Pemodelan Hobi Mahasiswa}
+
+Fakta:
+\begin{align*}
+&Suka(Ali, Matematika), \quad Suka(Budi, Informatika), \\
+&Suka(Cici, Fisika), \quad Suka(Ali, Informatika)
+\end{align*}
+
+Aturan:
+\[ \forall x, y, z\, (Suka(x, z) \wedge Suka(y, z) \wedge (x \neq y) \rightarrow Rekan(x, y)) \]
+
+Artinya: ``$x$ adalah rekan $y$ jika keduanya menyukai mata kuliah yang sama dan merupakan entitas yang berbeda.''
+
+Dari fakta dan aturan di atas, kita dapat menurunkan: $Rekan(Ali, Budi)$ (karena keduanya menyukai Informatika).
+\end{contoh}

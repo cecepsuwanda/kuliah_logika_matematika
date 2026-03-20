@@ -1,0 +1,73 @@
+\section{Aturan Konjungsi, Penambahan, dan Penyederhanaan}
+
+Selain aturan implikasi, diperlukan aturan yang menyasar operator fundamental (konjungsi, disjungsi). Tiga aturan pelengkap ini vital untuk membangun pembuktian berantai: Konjungsi, Penambahan, dan Penyederhanaan.
+
+\subsection{Aturan Konjungsi (Conjunction)}
+
+Terkadang dua kebenaran otonom bersliweran tanpa ikatan. Tugas logikawan mengamalkan tali pelindung di antara mereka berdua tanpa menodai esensi kesucian orisinalitas argumen.
+
+\begin{teorema}[Konjungsi]
+Andaikan realita mentah di atas panggung meyakinkan kita berturut-turut bahwa frasa merdeka pertama nyata Benar adanya ($p$), serta frasa merdeka tetangganya juga tak disangkal kebenarannya ($q$). Berjabat tangan tulus mengizinkan mereka diikat paksa dalam satu bahtera berlabel konjungsi AND bersatu utuh ($p \land q$).
+\end{teorema}
+
+\textbf{Anatomi Argumen Konjungsi:}
+\[
+\begin{array}{c}
+p \\
+q \\
+\hline
+\therefore p \wedge q
+\end{array}
+\]
+
+\begin{contoh}
+Premis 1: Jakarta ialah Ibukota menawan letak geografis Indonesia. ($p$) \\
+Premis 2: Bangkok menahbiskan ia dikukuhkan jemaat sebagai Ibukota eksotis negera Thailand. ($q$) \\
+Maka, tiada larangan merajut simpulan: \\
+\textit{"Jakarta adalah panglima letak ibukota Indonesia, DAN Bangkok memimpin ibukota Thailand" ($p \land q$)}
+\end{contoh}
+
+\subsection{Aturan Penambahan Disjungsi (Addition)}
+
+Aturan Penambahan memungkinkan menyambung proposisi $q$ apa pun (bernilai T atau F) ke proposisi $p$ yang sudah benar, tanpa mengubah kebenaran keseluruhan.
+
+\begin{teorema}[Penambahan Disjungtif]
+Sifat disjungsi ($\lor$) menjamin bahwa jika $p$ bernilai T, maka $p \lor q$ bernilai T terlepas dari nilai $q$.
+\end{teorema}
+
+\textbf{Anatomi Argumen Penambahan:}
+\[
+\begin{array}{c}
+p \\
+\hline
+\therefore p \vee q
+\end{array}
+\]
+
+\begin{contoh}
+Premis absolut: "Bowo rutin senantiasa mandi basah guyur di saat mentari terbit menyapa bumi pagi." ($p$) \\
+Kesimpulan tambahan sakti: "Entah Bowo asyik mandi air di pagi buta, ATAU Budi tiba-tiba terbang menembus rasi bintang Andromeda menyapa parit Saturnus." ($p \lor q$) \\
+Gara-gara keaslian $p$ sudah T mutlak, keseluruhan statemen bongsor di atas \textbf{Legal Valid}!
+\end{contoh}
+
+\subsection{Aturan Penyederhanaan Konjungsi (Simplification)}
+
+Kebalikan dari aturan Konjungsi. Dari konjungsi ($p \land q$) yang bernilai T, kita dapat menyimpulkan salah satu komponennya ($p$ atau $q$) secara terpisah.
+
+\begin{teorema}[Penyederhanaan]
+Dari konjungsi ($p \land q$) yang bernilai T, kedua komponen $p$ dan $q$ harus bernilai T. Oleh karena itu, kita dapat menyimpulkan $p$ saja atau $q$ saja.
+\end{teorema}
+
+\textbf{Anatomi Argumen Pemangkasan:}
+\[
+\begin{array}{ccc}
+p \wedge q & \text{atau} & p \wedge q\\
+\hline
+\therefore p & & \therefore q
+\end{array}
+\]
+
+\begin{contoh}
+Premis Besar: "Air zamzam berkhasiat sejuk jernih, DAN api kompor mambakar hangus niscaya pijar melukai telapak kulit tangan semata." ($p \land q$) \\
+Kesimpulan: Dapat diambil ``Air zamzam berkhasiat sejuk jernih'' ($\therefore p$) atau ``Api kompor membakar'' ($\therefore q$). Keduanya valid \cite{rosen2019}.
+\end{contoh}

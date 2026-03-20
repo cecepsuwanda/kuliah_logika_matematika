@@ -1,0 +1,57 @@
+\section{Strategi Membangun Bukti Formal Berantai}
+
+Kompetensi inferensi yang sejati teruji ketika kita dihadapkan pada puluhan premis dan diminta membangun bukti berantai menuju kesimpulan \cite{rosen2019}.
+
+Seni merekatkan puluhan bongkah bata deduksi inilah yang dipanggil dengan \textbf{Seni Bukti Formal Berantai} (\textit{Formal Proof of Validity}).
+
+\subsection{Prosedur Standar Menyusun Bukti}
+
+Setiap langkah dalam bukti berantai harus disertai justifikasi: baris mana yang dirujuk dan aturan inferensi mana yang diterapkan.
+
+\begin{contoh}[Studi Kasus Argumen Majemuk]
+Diberikan tiga premis berikut:
+\begin{enumerate}
+    \item \textit{"Apabila mahasiswa ini tidak getol merangkum diktat logika ($\neg p$), niscaya kepalanya rontok digebuk Ujian Kuis besok ($q$)"}
+    \item \textit{"Asal usut punya sadar, Kepala mahasiswa itu ternyata sakti kebal, BUKAN digebuk malang oleh kuis esok hari ($\neg q$)"}
+    \item \textit{"Seandainya narasi menyatakan si malang lolos dari palu kuis esok ($\neg q$), Maka ini mengisyaratkan si cemerlang ini niscaya berpredikat mahasiswa kelewat Cerdas ($r$)"}
+\end{enumerate}
+\textbf{Tujuan:} Buktikan ($r \land p$) dari ketiga premis di atas.
+\end{contoh}
+
+\subsection{Alur Langkah Pengerjaan Pembuktian Bertingkat}
+
+\textbf{Langkah 0: Formulasi Simbolik} \\
+Terjemahkan ke bentuk formal: 
+\begin{itemize}
+    \item 1. $\neg p \rightarrow q$ \quad (Premis 1 asal)
+    \item 2. $\neg q$ \quad (Premis 2 saksi)
+    \item 3. $\neg q \rightarrow r$ \quad (Premis 3 fakta)
+    \item \textbf{Konklusi yang dibuktikan}: \quad $r \land p$
+\end{itemize}
+
+\textbf{Langkah Ekskusi Ekstraksi Bertahap:}
+
+Tabel bukti formal:
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{1.0cm}|p{3.1cm}|p{6.8cm}|}
+\hline
+\textbf{Baris} & \textbf{Ekspresi} & \textbf{Justifikasi/Alasan} \\
+\hline
+1. & $\neg p \rightarrow q$ & Premis 1 \\
+2. & $\neg q$                 & Premis 2 \\
+3. & $\neg q \rightarrow r$   & Premis 3 \\
+\hline
+4. & $\neg (\neg p)$          & Modus Tollens (1), (2) \\
+5. & $p$                      & Double Negation (4) \\
+6. & $r$                      & Modus Ponens (3), (2) \\
+\hline
+7. & \textbf{$\therefore r \land p$} & Konjungsi (5), (6) \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Kesimpulan}: Konklusi ($r \land p$) terbukti valid dari ketiga premis. Argumen valid.
+
+Metode pembuktian baris-demi-baris dengan justifikasi ini disebut \textbf{Deduksi Formal}. Metode ini digunakan dalam verifikasi perangkat lunak dan model checking \cite{wiki_first_order_logic}.

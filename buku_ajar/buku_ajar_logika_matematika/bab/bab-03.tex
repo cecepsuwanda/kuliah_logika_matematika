@@ -1,0 +1,190 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{2}}{}
+\begin{document}
+
+\chapter{Konsep Dasar Proposisi dan Kata Hubung Logika (Konjungsi, Disjungsi, Negasi, Implikasi, Biimplikasi)}
+
+\begin{subcpmk}
+  \item \textbf{Sub-CPMK 1.1:} Mahasiswa mampu menjelaskan konsep dasar proposisi, nilai kebenaran, dan kata hubung logika (konjungsi, disjungsi, negasi, implikasi, biimplikasi).
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-03/section-3-1}
+\input{bab-03/section-3-2}
+\input{bab-03/section-3-3}
+\input{bab-03/section-3-4}
+\input{bab-03/section-3-5}
+\input{bab-03/section-3-6}
+\input{bab-03/section-3-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+\begin{aktivitas}
+  \item \textbf{Investigasi Proposisi di Lingkungan Kampus:} Perhatikan mading pengumuman fakultas. Salin 3 kalimat yang merupakan proposisi (deklaratif) dan 3 kalimat yang bukan proposisi (misalnya perintah atau pertanyaan). Jelaskan mengapa kalimat non-proposisi tidak dapat dinilai benar atau salah.
+  \item \textbf{Diskusi Epistemologi:} Pilih dua proposisi---satu yang diverifikasi secara empiris (observasi/eksperimen) dan satu yang diverifikasi secara derivasi matematis. Jelaskan mengapa keduanya tetap disebut proposisi meskipun metode verifikasinya berbeda.
+  \item \textbf{Tabel Kebenaran Operator Dasar:} Buat tabel kebenaran untuk $p \wedge q$, $p \vee q$, dan $\neg p$. Identifikasi kombinasi nilai $p$ dan $q$ yang menghasilkan T dan yang menghasilkan F.
+  \item \textbf{Praktik Python:} Tulis kode Python untuk filter data karyawan: lolos jika ``Lulusan S1'' \textbf{ATAU} ``Gaji di bawah 5 juta''. Jika Bowo lulusan S1 dan gajinya 3 juta, apakah ia lolos filter? Verifikasi dengan menjalankan skrip.
+  \item \textbf{Analisis Vacuous Truth:} Berikan contoh implikasi $p \rightarrow q$ di mana $p$ bernilai salah. Mengapa implikasi tersebut bernilai benar? Diskusikan dengan rekan.
+  \item \textbf{Varian Implikasi:} Dari $p \rightarrow q$, tuliskan Konvers, Invers, dan Kontraposisi. Bandingkan ketiganya; manakah yang ekuivalen dengan implikasi asli?
+  \item \textbf{Parsing Ekspresi:} Uraikan pengelompokan ekspresi $\neg p \vee q \wedge r$ sesuai hierarki prioritas operator. Tunjukkan langkah parsing dari operator prioritas tertinggi hingga terendah.
+  \item \textbf{Translasi ``Hanya Jika'':} Terjemahkan ke notasi implikasi: ``Mahasiswa diizinkan mengulang Ujian Remedial \textbf{hanya jika} nilai kehadiran di atas 80\%.'' Tentukan anteseden ($p$) dan konsekuen ($q$).
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+\begin{latihan}
+  \item Manakah yang merupakan \textbf{kalimat terbuka} (mengandung variabel yang harus disubstitusi agar bernilai benar/salah)?
+    \begin{enumerate}
+      \item ``Gunung Everest terletak di benua Eropa.''
+      \item ``$2y + 8 > 100$''
+      \item ``Mereka bersepakat melegalkan hukum pajak.''
+      \item ``Pohon pisang berfotosintesis menggunakan karbon dioksida.''
+    \end{enumerate}
+  \item Berikan contoh dua proposisi $p$ dan $q$ sehingga $p \wedge q$ bernilai F dan $p \vee q$ bernilai T.
+  \item Kapan $p \leftrightarrow q$ bernilai T? Berikan satu contoh pasangan nilai $p$ dan $q$ yang memenuhi.
+  \item Buat tabel kebenaran 4 baris untuk membandingkan Invers $(\neg p \rightarrow \neg q)$ dengan implikasi asli $(p \rightarrow q)$. Buktikan bahwa Invers \textit{tidak ekuivalen} dengan implikasi asli.
+  \item Buktikan dengan tabel kebenaran bahwa $\neg(p \rightarrow q) \equiv p \wedge \neg q$.
+  \item Aplikasikan hukum negasi implikasi pada pernyataan: ``Bila Pangeran datang, maka Putri kabur.'' Tuliskan terjemahan negasinya (pelucutan janji).
+  \item Terjemahkan ke notasi implikasi: ``Anda lulus ujian hanya jika skor minimal 60.'' Tentukan $p$ dan $q$, lalu tulis bentuk $p \rightarrow q$ atau $q \rightarrow p$.
+  \item Uraikan pengelompokan ekspresi $\neg p \wedge q \vee r \rightarrow s \leftrightarrow t$ berdasarkan hierarki operator. Tunjukkan urutan parsing (prioritas tertinggi: Negasi; terendah: Biimplikasi).
+  \item \textbf{Refleksi:} Kapan validasi proposisi dilakukan secara empiris (observasi/eksperimen) dan kapan secara derivasi matematis? Apa perbedaan kepastian keduanya?
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+\begin{asesmen}
+\textbf{Instrumen untuk Sub-CPMK 1.1}
+
+\textbf{A. Pilihan Ganda}
+
+\begin{enumerate}
+  \item Mengapa kalimat interogatif (misalnya: ``Siapakah pembunuh presiden?'') tidak dapat diproses oleh logika proposisional?
+  \begin{enumerate}
+    \item Karena kekurangan predikat subjek
+    \item Karena mesin tidak memedulikan konteks
+    \item Karena tidak memenuhi Hukum Eksklusif: tidak dapat dinilai True atau False
+    \item Karena bersifat empiris
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Varian implikasi manakah yang \textbf{ekuivalen} dengan $(p \rightarrow q)$?
+  \begin{enumerate}
+    \item Konvers $(q \rightarrow p)$
+    \item Biimplikasi $(p \leftrightarrow q)$
+    \item Invers $(\neg p \rightarrow \neg q)$
+    \item Kontraposisi $(\neg q \rightarrow \neg p)$
+  \end{enumerate}
+  Jawaban: (d)
+
+  \item Diberikan implikasi: ``Jika saya menang ($p$), maka BBM turun ($q$).'' Realitasnya $p$ salah (kalah). Status implikasi tersebut:
+  \begin{enumerate}
+    \item Salah (F)
+    \item Kontradiksi
+    \item Benar (T) --- \textit{Vacuous Truth}
+    \item Tidak bernilai
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item $p \wedge q$ bernilai F apabila:
+  \begin{enumerate}
+    \item Keduanya benar
+    \item Minimal salah satu benar
+    \item Minimal salah satu salah
+    \item Keduanya salah
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item $p \vee q$ bernilai T apabila:
+  \begin{enumerate}
+    \item Keduanya benar
+    \item Minimal salah satu benar
+    \item Keduanya salah
+    \item Hanya $p$ yang benar
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Manakah yang \textbf{bukan} proposisi?
+  \begin{enumerate}
+    \item $x > 5$
+    \item $2 + 2 = 4$
+    \item ``Tolong buka pintu''
+    \item ``Semua bilangan prima ganjil''
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Urutan prioritas operator logika dari tertinggi ke terendah adalah:
+  \begin{enumerate}
+    \item $\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$
+    \item $\wedge$, $\vee$, $\neg$, $\rightarrow$, $\leftrightarrow$
+    \item $\leftrightarrow$, $\rightarrow$, $\vee$, $\wedge$, $\neg$
+    \item $\vee$, $\wedge$, $\neg$, $\rightarrow$, $\leftrightarrow$
+  \end{enumerate}
+  Jawaban: (a)
+
+  \item Jika ``A hanya jika B'', maka bentuk implikasinya:
+  \begin{enumerate}
+    \item $B \rightarrow A$
+    \item $A \rightarrow B$
+    \item $A \leftrightarrow B$
+    \item $\neg A \rightarrow \neg B$
+  \end{enumerate}
+  Jawaban: (b)
+\end{enumerate}
+
+\textbf{B. Essay}
+
+\begin{enumerate}
+  \item Seorang arsitek jaringan menulis requirement: ``Server menyalakan alarm \textbf{hanya bila} suhu \textit{processor} tembus 90 derajat.'' Tentukan anteseden dan konsekuen, lalu tulis translasi implikasinya. Jelaskan konsekuensi jika panah dibalik salah.
+  \item Buktikan dengan tabel kebenaran 4 baris bahwa $\neg(p \rightarrow q) \equiv p \wedge \neg q$.
+  \item Jelaskan perbedaan Konvers, Invers, dan Kontraposisi dari $p \rightarrow q$. Manakah yang ekuivalen dengan implikasi asli?
+\end{enumerate}
+
+\textbf{Rubrik Penilaian}: Lihat Lampiran.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+\begin{checklist}
+  \item Saya mampu membedakan proposisi (deklaratif) dengan kalimat interogatif, imperatif, dan kalimat terbuka (bervariabel).
+  \item Saya dapat menjelaskan perbedaan verifikasi empiris dan derivasi matematis sebagai sumber nilai kebenaran.
+  \item Saya dapat menggunakan operator $\neg$, $\wedge$, $\vee$ serta menjelaskan tabel kebenarannya.
+  \item Saya dapat menjelaskan tabel kebenaran implikasi dan biimplikasi, termasuk Vacuous Truth.
+  \item Saya dapat membedakan Konvers, Invers, dan Kontraposisi; hanya Kontraposisi ekuivalen dengan implikasi asli.
+  \item Saya dapat menerapkan $\neg(p \rightarrow q) \equiv p \wedge \neg q$.
+  \item Saya dapat menerapkan hierarki operator ($\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$) untuk menguraikan ekspresi.
+  \item Saya dapat menerjemahkan ``A jika B'' sebagai $B \rightarrow A$ dan ``A hanya jika B'' sebagai $A \rightarrow B$.
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\begin{rangkuman}
+Bab 3 membahas fondasi logika proposisional: proposisi, nilai kebenaran, operator penghubung, implikasi, serta aturan penerjemahan narasi ke bentuk simbolik.
+
+\textbf{Poin-poin utama:}
+\begin{itemize}
+  \item \textbf{Proposisi} adalah kalimat deklaratif yang memiliki tepat satu nilai kebenaran (benar atau salah). Kalimat tanya, perintah, seru, serta kalimat terbuka yang mengandung variabel belum dipetakan sebagai proposisi sebelum konteksnya lengkap.
+  \item \textbf{Epistemologi nilai kebenaran} membedakan antara penentuan fakta melalui observasi empiris dan penentuan melalui derivasi deduktif (matematika).
+  \item \textbf{Operator dasar} meliputi negasi ($\neg$), konjungsi ($\wedge$), dan disjungsi ($\vee$), masing-masing dengan tabel kebenaran yang telah disepakati.
+  \item \textbf{Implikasi} ($\rightarrow$) dan \textbf{biimplikasi} ($\leftrightarrow$) memodelkan hubungan bersyarat; implikasi bernilai salah hanya ketika anteseden benar dan konsekuen salah. Fenomena \textit{vacuous truth} muncul ketika anteseden salah.
+  \item Dari implikasi $p \rightarrow q$, bentuk \textbf{konvers} dan \textbf{invers} tidak ekuivalen dengan implikasi asli; \textbf{kontraposisi} $\neg q \rightarrow \neg p$ ekuivalen dengan $p \rightarrow q$.
+  \item \textbf{Hukum De Morgan} dan identitas $\neg(p \rightarrow q) \equiv p \wedge \neg q$ digunakan untuk menyederhanakan negasi bentuk majemuk.
+  \item \textbf{Hirarki prioritas operator} ($\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$) menentukan pengelompokan ekspresi tanpa kurung; penggunaan kurung eksplisit disarankan untuk menghindari ambiguitas.
+  \item \textbf{Translasi bahasa alami} memerlukan konsistensi definisi proposisi, terutama untuk frasa ``jika'', ``hanya jika'', dan ``jika dan hanya jika''.
+\end{itemize}
+
+\textbf{Kata kunci}: Proposisi, kalimat terbuka, operator logika, implikasi, biimplikasi, kontraposisi, hukum De Morgan, hirarki operator, translasi simbolik.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

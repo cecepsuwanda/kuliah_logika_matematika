@@ -1,0 +1,41 @@
+\section{Operator Fundamental Logika Dasar (Negasi, Konjungsi, Disjungsi)}
+
+Proposisi atomik dapat digabungkan membentuk \textbf{proposisi majemuk} dengan menggunakan \textbf{operator penghubung logika} (*logical connectives*) \cite{rosen2019}. Tiga operator dasar yang paling sering dipakai adalah negasi, konjungsi, dan disjungsi.
+
+\subsection{Negasi (NOT / $\neg$ / $\sim$)}
+
+Negasi adalah operator uner: ia hanya beroperasi pada satu proposisi dan menghasilkan nilai kebenaran yang berlawanan.
+
+Dengan simbol $(\neg)$, negasi dari $p$ ditulis $\neg p$ (dibaca: ``bukan $p$'' atau ``tidak $p$'').
+
+\begin{definisi}[Nilai kebenaran negasi]
+Jika $p$ bernilai benar (T), maka $\neg p$ bernilai salah (F). Jika $p$ bernilai salah (F), maka $\neg p$ bernilai benar (T).
+\end{definisi}
+
+\begin{contoh}[Negasi dalam bahasa alami]
+Misalkan $p$ : ``Saya suka apel hijau.''\\
+Negasi yang setara secara logika bukan sekadar menempelkan kata ``tidak'' secara sembarang, melainkan menyangkal klaim secara utuh, misalnya: ``Tidak benar bahwa saya suka apel hijau'' atau ``Pernyataan bahwa saya suka apel hijau tidak benar.''
+\end{contoh}
+
+\subsection{Konjungsi (AND / $\wedge$)}
+
+Konjungsi menggabungkan dua proposisi $p$ dan $q$ menjadi $p \wedge q$ (dibaca: ``$p$ dan $q$'').
+
+\begin{definisi}[Nilai kebenaran konjungsi]
+Proposisi $p \wedge q$ bernilai benar (T) \textbf{hanya jika} $p$ dan $q$ keduanya benar (T). Jika salah satu saja bernilai salah (F), maka $p \wedge q$ bernilai salah (F).
+\end{definisi}
+
+Dalam penerapan, konjungsi sering muncul ketika suatu sistem mensyaratkan beberapa kondisi sekaligus, misalnya filter pencarian yang mengharuskan dua kriteria terpenuhi bersamaan \cite{wiki_first_order_logic}.
+
+\subsection{Disjungsi (OR / $\vee$)}
+
+Disjungsi menggabungkan dua proposisi $p$ dan $q$ menjadi $p \vee q$ (dibaca: ``$p$ atau $q$''). Dalam logika proposisional standar, yang digunakan adalah \textbf{disjungsi inklusif}.
+
+\begin{definisi}[Nilai kebenaran disjungsi inklusif]
+Proposisi $p \vee q$ bernilai benar (T) jika \textbf{minimal salah satu} dari $p$ atau $q$ bernilai benar (T). Proposisi $p \vee q$ baru bernilai salah (F) jika $p$ dan $q$ keduanya salah (F).
+\end{definisi}
+
+\begin{contoh}[Disjungsi dalam syarat administrasi]
+Misalkan aturan menyatakan: ``Pemohon kredit harus menyerahkan BPKB kendaraan \textbf{atau} bukti kepemilikan rumah yang memenuhi persyaratan.''\\
+Jika pemohon hanya memenuhi salah satu dari dua dokumen tersebut, syarat disjungsi dapat terpenuhi; jika keduanya tidak terpenuhi, syarat tidak terpenuhi.
+\end{contoh}

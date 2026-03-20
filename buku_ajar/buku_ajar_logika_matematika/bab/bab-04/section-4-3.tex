@@ -1,0 +1,62 @@
+\section{Hukum-hukum Dasar Aljabar Proposisi}
+
+Hukum-hukum aljabar proposisi digunakan untuk menyederhanakan ekspresi logika tanpa harus selalu membuat tabel kebenaran lengkap. Hukum-hukum ini telah tervalidasi secara formal dan banyak dipakai dalam analisis logika, pemrograman, serta perancangan rangkaian digital \cite{rosen2019}.
+
+Secara praktis, hukum-hukum tersebut dapat dikelompokkan menurut fungsinya.
+
+\subsection{Hukum Pengaruh Absolut (Dominasi \& Identitas)}
+Nilai konstan benar (T) atau salah (F) dapat memengaruhi hasil ekspresi secara langsung melalui hukum dominasi dan identitas.
+
+\begin{itemize}
+    \item \textbf{Hukum Dominasi (Dominasi Mutlak / Null Laws)} \\
+    Pada disjungsi dengan T, hasil selalu T. Pada konjungsi dengan F, hasil selalu F.
+    \begin{align*}
+        p \vee \mathbf{T} &\equiv \mathbf{T} \\
+        p \wedge \mathbf{F} &\equiv \mathbf{F}
+    \end{align*}
+
+    \item \textbf{Hukum Identitas (Hukum Cermin Transparan)} \\
+    Pada konjungsi dengan T atau disjungsi dengan F, nilai variabel tetap.
+    \begin{align*}
+        p \wedge \mathbf{T} &\equiv p \\
+        p \vee \mathbf{F} &\equiv p
+    \end{align*}
+\end{itemize}
+
+\subsection{Hukum Konflik Internal (Negasi \& Komplemen)}
+Bagian ini menjelaskan relasi variabel dengan negasinya.
+
+\begin{itemize}
+    \item \textbf{Hukum Negasi (Komplemen Akhir)} \\
+    Kombinasi variabel dengan negasinya menghasilkan tautologi atau kontradiksi.
+    \begin{align*}
+        p \vee \neg p &\equiv \mathbf{T} \quad \text{(Hukum Tiada Jalan Tengah)} \\
+        p \wedge \neg p &\equiv \mathbf{F} \quad \text{(Hukum Non-Kontradiksi)}
+    \end{align*}
+
+    \item \textbf{Hukum Involusi (Pembatalan Negasi Ganda)} \\
+    Negasi ganda mengembalikan nilai semula.
+    \begin{align*}
+        \neg(\neg p) &\equiv p 
+    \end{align*}
+\end{itemize}
+
+\subsection{Hukum Redundansi Berlebihan (Idempoten \& Absorpsi)}
+Hukum ini dipakai untuk menghilangkan pengulangan yang tidak diperlukan.
+
+\begin{itemize}
+    \item \textbf{Hukum Idempoten (Sia-sia Kembar Identik)} \\
+    Pengulangan variabel yang sama pada operator sejenis tidak mengubah nilai.
+    \begin{align*}
+        p \vee p &\equiv p \\
+        p \wedge p &\equiv p
+    \end{align*}
+
+    \item \textbf{Hukum Absorpsi (Penyerapan Raksasa Hitam)} \\
+    Variabel utama dapat menyerap bentuk majemuk yang memuat variabel itu sendiri.
+    \begin{align*}
+        p \vee (p \wedge q) &\equiv p \\
+        p \wedge (p \vee q) &\equiv p
+    \end{align*}
+\end{itemize}
+Hukum-hukum di atas sangat membantu dalam penyederhanaan ekspresi logika secara sistematis \cite{wiki_proplogic}.

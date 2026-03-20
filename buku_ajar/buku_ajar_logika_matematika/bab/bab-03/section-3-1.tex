@@ -1,0 +1,53 @@
+\section{Pengantar Proposisi dan Pemodelan Kalimat Deklaratif}
+
+Bahasa memiliki peran penting dalam menyampaikan ide, fakta, emosi, dan perintah. Namun bagi matematikawan maupun perancang sistem komputasi (*computer scientist*), tidak semua bentuk ujaran bahasa alamiah dapat diproses secara fungsional sebagai objek logika \cite{rosen2019}. Mesin tidak menafsirkan emosi atau ambiguitas; mesin hanya dapat beroperasi pada nilai \textbf{benar (True)} dan \textbf{salah (False)}.
+
+Untuk menyampaikan informasi kepada sistem biner, bahasa alamiah perlu disaring menjadi unit pernyataan yang memiliki nilai kebenaran yang tegas. Unit elementer tersebut disebut \textbf{proposisi}.
+
+\subsection{Definisi Proposisi}
+
+\begin{definisi}[Proposisi Logika]
+\logic{Proposisi} (sering disebut \textbf{kalimat tertutup}) adalah \textbf{kalimat deklaratif}, yakni pernyataan yang mengemukakan suatu fakta atau klaim, yang \textbf{hanya memiliki satu nilai kebenaran}: benar (True) atau salah (False), dan tidak mungkin benar sekaligus salah pada konteks yang sama.
+\end{definisi}
+
+Ketegasan nilai tunggal ini sejalan dengan prinsip \textit{Law of Excluded Middle} dalam kerangka logika klasik: untuk setiap proposisi, tidak terdapat ``wilayah abu-abu'' di antara benar dan salah.
+
+\begin{contoh}[Kalimat yang merupakan proposisi]
+Berikut beberapa contoh kalimat deklaratif:
+\begin{enumerate}
+    \item ``Menara Eiffel terletak di pusat ibu kota Jepang.'' $\rightarrow$ \textit{Ini merupakan proposisi; meskipun isinya salah secara geografis, nilai kebenarannya dapat ditetapkan sebagai salah.}
+    \item ``Tiga ditambah dua sama dengan lima ($3 + 2 = 5$).'' $\rightarrow$ \textit{Proposisi yang benar menurut aritmetika.}
+    \item ``Kucing bernapas menggunakan paru-paru seperti mamalia pada umumnya.'' $\rightarrow$ \textit{Proposisi yang dapat divalidasi melalui pengetahuan biologi.}
+    \item ``Jumlah populasi gajah Sumatra di suatu kawasan konservasi pada hari ini tepat 14.238 ekor.'' $\rightarrow$ \textit{Tetap merupakan proposisi empiris: meskipun nilai pastinya mungkin belum diketahui pembaca, pada kenyataan objektif terdapat jawaban benar atau salah.}
+\end{enumerate}
+\end{contoh}
+
+\subsection{Kategori \textit{Non-Proposisi}}
+
+Bila proposisi mensyaratkan bentuk deklaratif dengan nilai kebenaran tunggal, maka sejumlah bentuk ujaran lain tidak diproses sebagai proposisi dalam logika proposisional \cite{wiki_first_order_logic}.
+
+\begin{contoh}[Kalimat yang bukan proposisi]
+Contoh berikut tidak memenuhi syarat proposisi:
+\begin{enumerate}
+    \item \textbf{Kalimat tanya (\textit{interogatif}):} ``Berapakah suhu di permukaan Mars pada siang hari ini?'' \textit{Pertanyaan meminta informasi, bukan mengemukakan klaim yang langsung bernilai benar atau salah.}
+    \item \textbf{Kalimat perintah (\textit{imperatif}):} ``Simpan berkas dokumen tersebut segera.'' \textit{Perintah tidak memiliki nilai kebenaran dalam arti logika proposisional.}
+    \item \textbf{Kalimat seru (\textit{eksklamatif}):} ``Alangkah indahnya patung di museum itu!'' \textit{Ungkapan subjektif keindahan tidak dipetakan secara universal ke benar/salah.}
+\end{enumerate}
+\end{contoh}
+
+\subsection{Kalimat Terbuka (\textit{Open Sentences})}
+
+Perlu dibedakan antara kalimat deklaratif yang sudah tertutup dan \textbf{kalimat terbuka}.
+
+\begin{definisi}[Kalimat Terbuka]
+Kalimat terbuka adalah rangkaian simbol atau narasi yang \textbf{mengandung variabel bebas (peubah)}, sehingga nilai kebenarannya belum dapat ditentukan hingga variabel tersebut disubstitusi dengan nilai tertentu.
+\end{definisi}
+
+\begin{contoh}[Kalimat terbuka]
+    \begin{itemize}
+        \item ``$x + 7 = 12$'' \quad $\rightarrow$ Bukan proposisi sebelum $x$ ditetapkan. Jika $x = 5$, kalimat menjadi benar; jika $x = 10$, kalimat menjadi salah.
+        \item ``Dia adalah mahasiswa teladan di kelas logika.'' \quad $\rightarrow$ Kata ``dia'' belum merujuk pada individu tertentu; sebelum referensinya jelas, ujaran ini belum dapat dinilai benar atau salah secara proposisional.
+    \end{itemize}
+\end{contoh}
+
+Kemampuan membedakan proposisi tertutup dari kalimat terbuka serta dari ujaran non-deklaratif merupakan dasar penyusunan spesifikasi algoritma yang tidak ambigu.

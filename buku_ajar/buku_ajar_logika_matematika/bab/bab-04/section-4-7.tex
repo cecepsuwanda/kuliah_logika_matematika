@@ -1,0 +1,55 @@
+\section{Studi Kasus: Optimasi Kode Bercabang \textit{If-Else} dan Gerbang Logika}
+
+Penerapan aljabar logika tidak berhenti pada pembuktian teoritis. Dalam praktik, aljabar logika digunakan untuk menyederhanakan percabangan program (\textit{software}) dan mengoptimalkan rancangan gerbang digital (\textit{hardware}) \cite{rosen2019}.
+
+\subsection{Penyederhanaan Percabangan \textit{If-Else}}
+
+Ekspresi logika yang terlalu kompleks dalam kode dapat menyulitkan pemeliharaan dan meningkatkan risiko kesalahan.
+
+\textbf{Skenario Kode Asli Mentah:}
+\begin{lstlisting}[style=pythonstyle]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  
+  # Validasi kualifikasi nasabah (versi ruwet):
+  if not (not a_kerja and b_jaminan):
+      # Cek tambahan di dalam:
+      if a_kerja and (b_jaminan or not c_bebas_utang):
+          return True
+  return False
+\end{lstlisting}
+
+Representasi logikanya:
+\[
+\neg(\neg A \wedge B) \wedge (A \wedge (B \vee \neg C))
+\]
+
+\textbf{Langkah penyederhanaan:}
+\begin{align*}
+    1.\ & \neg(\neg A \wedge B) \wedge A \wedge (B \vee \neg C) & \text{\parbox[t]{5.8cm}{Bentuk awal}} \\
+    2.\ & (A \vee \neg B) \wedge A \wedge (B \vee \neg C) & \text{\parbox[t]{5.8cm}{De Morgan}} \\
+    3.\ & A \wedge (A \vee \neg B) \wedge (B \vee \neg C) & \text{\parbox[t]{5.8cm}{Komutatif}} \\
+    4.\ & \mathbf{A} \wedge (B \vee \neg C) & \text{\parbox[t]{5.8cm}{Absorpsi}}
+\end{align*}
+
+\textbf{Transformasi Kode Bersih Pasca-Penyulingan (Refactoring):}
+\begin{lstlisting}[style=pythonstyle]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  
+  # Filter Ekuivalensi Ceria nan Minimalis:
+  return a_kerja and (b_jaminan or not c_bebas_utang)
+\end{lstlisting}
+Hasil refactoring menghasilkan logika yang lebih ringkas, lebih mudah dibaca, dan lebih mudah diuji.
+
+\subsection{Aplikasi pada Rangkaian Gerbang Logika Digital}
+
+Logika proposisional juga menjadi dasar optimasi rangkaian digital. Misalkan rancangan sinyal mengikuti ekspresi:
+$$ Q_{output} = (A \land B) \lor (A \land \neg B) $$
+
+\textbf{Penyederhanaan:}
+\begin{align*}
+    (A \wedge B) \vee (A \wedge \neg B) &\equiv A \wedge (B \vee \neg B) \quad \text{(Distributif)} \\
+    &\equiv A \wedge \mathbf{T} \quad \text{(Hukum Negasi)} \\
+    &\equiv \mathbf{A} \quad \text{(Identitas)}
+\end{align*}
+
+Dengan demikian, $Q_{output} \equiv A$. Artinya, rangkaian dapat disederhanakan secara signifikan karena keluaran cukup mengikuti sinyal $A$ \cite{wiki_proplogic}.

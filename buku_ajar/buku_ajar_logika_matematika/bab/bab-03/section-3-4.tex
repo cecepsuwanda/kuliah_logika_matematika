@@ -1,0 +1,35 @@
+\section{Relasi Logika Bersyarat: Implikasi dan Biimplikasi}
+
+Setelah operator dasar, struktur logika pemrograman dan matematika banyak memakai \textbf{implikasi} dan \textbf{biimplikasi} (*bikondisional*) \cite{rosen2019}.
+
+\subsection{Implikasi: ``Jika \ldots, maka \ldots'' ($\rightarrow$)}
+
+Struktur ``\texttt{IF \ldots THEN \ldots}'' dalam bahasa pemrograman berpadanan dengan implikasi $p \rightarrow q$.
+
+Dalam $p \rightarrow q$, proposisi $p$ disebut \textbf{anteseden} (hipotesis) dan $q$ disebut \textbf{konsekuen} (kesimpulan).
+
+\begin{definisi}[Nilai kebenaran implikasi]
+Implikasi $p \rightarrow q$ bernilai salah (F) \textbf{hanya pada satu kasus}: ketika $p$ benar (T) dan $q$ salah (F).\\
+Untuk kasus lainnya, $p \rightarrow q$ bernilai benar (T)---termasuk ketika $p$ salah (F), baik $q$ benar maupun salah.
+\end{definisi}
+
+\textbf{Contoh: \textit{Vacuous Truth}} \cite{rosen2019,forallx} \\
+Misalkan seorang calon pejabat menyatakan: ``Jika saya terpilih ($p$), maka saya akan menyelenggarakan program distribusi perangkat komputer ($q$).''
+
+\begin{itemize}
+    \item \textbf{Kasus $T \rightarrow T$:} Terpilih dan program dilaksanakan sesuai janji. Implikasi bernilai benar (janji dipenuhi).
+    \item \textbf{Kasus $T \rightarrow F$:} Terpilih tetapi program tidak dilaksanakan. Implikasi bernilai salah (pelanggaran janji terhadap struktur ``jika $p$ maka $q$'').
+    \item \textbf{Kasus $F \rightarrow T$ atau $F \rightarrow F$:} Tidak terpilih ($p$ salah). Dalam logika proposisional standar, implikasi tetap bernilai benar: karena anteseden tidak terpenuhi, tidak ada kewajiban pembuktian terhadap konsekuen menurut definisi tabel kebenaran ini (\textit{vacuous truth}).
+\end{itemize}
+
+\subsection{Biimplikasi ($\leftrightarrow$)}
+
+Biimplikasi $p \leftrightarrow q$ menyatakan bahwa $p$ dan $q$ memiliki nilai kebenaran yang sama: keduanya benar atau keduanya salah. Dalam bahasa alami sering diungkapkan sebagai ``$p$ jika dan hanya jika $q$''.
+
+\begin{definisi}[Nilai kebenaran biimplikasi]
+$p \leftrightarrow q$ bernilai benar (T) jika $p$ dan $q$ sama-sama benar atau sama-sama salah. Jika $p$ dan $q$ berbeda nilainya, maka $p \leftrightarrow q$ bernilai salah (F).
+\end{definisi}
+
+\begin{contoh}[Otentikasi sistem]
+Pernyataan ``Sesi login berhasil diberikan jika dan hanya jika kredensial dan verifikasi biometrik cocok'' dapat dimodelkan sebagai biimplikasi antara kondisi akses dan kondisi verifikasi lengkap \cite{wiki_first_order_logic}.
+\end{contoh}

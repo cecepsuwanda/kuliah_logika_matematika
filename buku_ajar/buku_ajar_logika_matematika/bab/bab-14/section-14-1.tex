@@ -1,0 +1,64 @@
+\section{Spesifikasi Program: Prekondisi dan Postkondisi}
+
+Dalam rekayasa perangkat lunak, suatu program dianggap \textbf{benar} (\textit{correct}) jika secara konsisten menghasilkan keluaran yang sesuai dengan spesifikasi yang telah ditetapkan. Namun, apa yang dimaksud dengan ``sesuai spesifikasi''? Untuk menjawab pertanyaan ini secara formal, diperlukan bahasa matematis yang dapat mendeskripsikan perilaku yang diharapkan dari suatu program secara presisi. Konsep \logic{prekondisi} dan \logic{postkondisi} menyediakan kerangka formal tersebut \cite{rosen2019}.
+
+\subsection{Prekondisi dan Postkondisi}
+
+\begin{definisi}[Prekondisi]
+\logic{Prekondisi} (\textit{precondition}) adalah predikat yang menyatakan kondisi yang \textbf{harus dipenuhi} oleh masukan dan keadaan program \textbf{sebelum} suatu blok kode dijalankan. Jika prekondisi tidak dipenuhi, maka tidak ada jaminan mengenai kebenaran keluaran program. Prekondisi dinyatakan sebagai predikat $p$.
+\end{definisi}
+
+\begin{definisi}[Postkondisi]
+\logic{Postkondisi} (\textit{postcondition}) adalah predikat yang menyatakan kondisi yang \textbf{harus terpenuhi} oleh keluaran dan keadaan program \textbf{setelah} blok kode selesai dijalankan (dengan asumsi prekondisi terpenuhi). Postkondisi dinyatakan sebagai predikat $q$.
+\end{definisi}
+
+Pasangan prekondisi-postkondisi berfungsi sebagai ``kontrak'' (\textit{contract}) antara pemanggil program dan implementasi program. Pemanggil menjamin bahwa prekondisi dipenuhi, dan sebagai imbalannya, program menjamin bahwa postkondisi terpenuhi setelah eksekusi.
+
+\subsection{Contoh Prekondisi dan Postkondisi}
+
+\begin{contoh}
+\textbf{Fungsi Akar Kuadrat}
+
+Spesifikasi fungsi $\texttt{sqrt}(x)$:
+\begin{itemize}
+    \item \textbf{Prekondisi}: $x \geq 0$ (masukan harus non-negatif)
+    \item \textbf{Postkondisi}: Hasil $r$ memenuhi $r \geq 0$ dan $r^2 = x$
+\end{itemize}
+
+Jika pemanggil memberikan $x = -4$ (melanggar prekondisi), maka perilaku fungsi tidak terdefinisi --- bisa menghasilkan error, nilai tak terduga, atau \textit{undefined behavior}.
+\end{contoh}
+
+\begin{contoh}
+\textbf{Fungsi Pembagian}
+
+Spesifikasi fungsi $\texttt{divide}(a, b)$:
+\begin{itemize}
+    \item \textbf{Prekondisi}: $b \neq 0$
+    \item \textbf{Postkondisi}: Hasil $q$ dan $r$ memenuhi $a = b \cdot q + r$ dengan $0 \leq r < |b|$
+\end{itemize}
+\end{contoh}
+
+\subsection{Diagram Alur Spesifikasi}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=2.5cm,
+    io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!10},
+    process/.style={rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!10},
+    arrow/.style={thick,->,>=stealth}
+]
+    \node[io] (pre) {\textbf{Prekondisi} ($p$) dipenuhi};
+    \node[process, below of=pre] (prog) {\textbf{Eksekusi Program} ($S$)};
+    \node[io, below of=prog] (post) {\textbf{Postkondisi} ($q$) terjamin};
+
+    \draw[arrow] (pre) -- node[anchor=west] {Masukan valid} (prog);
+    \draw[arrow] (prog) -- node[anchor=west] {Terminasi} (post);
+
+    \node[right=2cm of prog, font=\Large\bfseries, text=red!70!black] {$p \{S\} q$};
+\end{tikzpicture}
+\caption{Alur Spesifikasi Program: dari Prekondisi melalui Eksekusi ke Postkondisi}
+\label{fig:spesifikasi-program}
+\end{figure}
+
+Notasi $p \{S\} q$ menyatakan bahwa jika prekondisi $p$ dipenuhi sebelum eksekusi program $S$, dan $S$ berterminasi, maka postkondisi $q$ terjamin setelah eksekusi. Notasi ini dikenal sebagai \logic{Hoare Triple}, yang akan dibahas secara mendalam pada section berikutnya.

@@ -1,0 +1,167 @@
+\documentclass[../main]{subfiles}
+\ifSubfilesClassLoaded{\setcounter{chapter}{3}}{}
+\begin{document}
+
+\chapter{Tabel Kebenaran, Tautologi, Kontradiksi, dan Kontingensi}
+
+\begin{subcpmk}
+  \item \textbf{Sub-CPMK 1.2:} Mahasiswa mampu menggunakan tabel kebenaran untuk mengevaluasi pernyataan majemuk serta mengidentifikasi tautologi, kontradiksi, dan kontingensi.
+\end{subcpmk}
+
+% ============================================================
+% MATERI POKOK
+% ============================================================
+\input{bab-04/section-4-1}
+\input{bab-04/section-4-2}
+\input{bab-04/section-4-3}
+\input{bab-04/section-4-4}
+\input{bab-04/section-4-5}
+\input{bab-04/section-4-6}
+\input{bab-04/section-4-7}
+
+% ============================================================
+% AKTIVITAS PEMBELAJARAN
+% ============================================================
+
+\begin{aktivitas}
+  \item \textbf{Identifikasi Tautologi, Kontradiksi, Kontingensi:} Buat tabel kebenaran untuk $p \vee \neg p$, $p \wedge \neg p$, dan $p \rightarrow q$. Klasifikasikan masing-masing sebagai tautologi, kontradiksi, atau kontingensi.
+  \item \textbf{Uji Ekuivalensi:} Buat tabel kebenaran untuk $\neg(p \wedge q)$ dan $\neg p \vee \neg q$. Buktikan bahwa keduanya ekuivalen.
+  \item \textbf{Diskusi QA Sirkuit:} Berikan satu ekspresi logika (misalnya $A \wedge (A \vee B)$). Sederhanakan menggunakan hukum Absorpsi atau Dominasi. Bandingkan hasil dengan teman kelas.
+  \item \textbf{Praktik Python:} Tulis fungsi \texttt{check\_equivalence(stmt1, stmt2)} yang memverifikasi $A \rightarrow B \equiv \neg A \vee B$ melalui tabel kebenaran 4 baris.
+  \item \textbf{Prosedur Penyederhanaan:} Rangkum prosedur 4 langkah penyederhanaan (lucuti panah, De Morgan, Absorpsi, Distributif) dalam bagan alur vertikal.
+  \item \textbf{Refactoring Kode:} Pilih potongan kode IF-ELSE dari program sederhana. Translasi ke logika proposisional, sederhanakan dengan hukum aljabar, tulis ulang kode yang bersih.
+\end{aktivitas}
+
+% ============================================================
+% LATIHAN DAN REFLEKSI
+% ============================================================
+
+\begin{latihan}
+  \item Buat tabel kebenaran untuk $p \vee \neg p$ dan $p \wedge \neg p$. Klasifikasikan masing-masing sebagai tautologi atau kontradiksi.
+  \item Buat tabel kebenaran 8 baris (untuk $p, q, r$) untuk membuktikan Hukum Distributif: $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$.
+  \item Sederhanakan $\neg((\neg p \wedge q) \vee (p \vee \neg q))$ dengan hukum De Morgan, Asosiatif, dan Negasi Ganda (tanpa tabel).
+  \item Buktikan $A \rightarrow (A \vee B)$ tautologi dengan mengubah ke bentuk $\neg A \vee (A \vee B)$ dan menerapkan hukum aljabar.
+  \item Diberikan kode: \texttt{if (saldo\_cukup and (bukan\_kredit or bukan\_saldo\_cukup))}. Translasi ke variabel logika $s$ (saldo cukup) dan $k$ (kredit). Sederhanakan dan tulis refactoring kode yang bersih.
+  \item \textbf{Refleksi:} Kapan Anda memilih tabel kebenaran dan kapan manipulasi aljabar untuk membuktikan ekuivalensi? Jelaskan kelebihan masing-masing.
+\end{latihan}
+
+% ============================================================
+% ASESMEN
+% ============================================================
+
+\begin{asesmen}
+\textbf{Instrumen Penilaian Evaluasi Kinerja (Sub-CPMK 1.2)}
+
+\textbf{A. Pilihan Ganda}
+\begin{enumerate}
+  \item Hukum yang menyederhanakan $A \wedge (A \vee B)$ menjadi $A$ adalah:
+  \begin{enumerate}
+    \item Hukum De Morgan
+    \item Hukum Idempoten
+    \item Hukum Absorpsi
+    \item Hukum Distributif
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Proposisi $(p \vee \neg p) \rightarrow (q \wedge \neg q)$ bernilai kontradiksi karena sisi kiri tautologi dan sisi kanan kontradiksi, sehingga $(T \rightarrow F)$ bernilai:
+  \begin{enumerate}
+    \item Tautologi
+    \item Kontingensi
+    \item Disjungsi
+    \item Kontradiksi
+  \end{enumerate}
+  Jawaban: (d)
+
+  \item Hukum Komutatif berlaku untuk operasi yang sejenis, yaitu:
+  \begin{enumerate}
+    \item Implikasi
+    \item Konjungsi dan disjungsi (AND atau OR)
+    \item Negasi
+    \item Biimplikasi
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Pernyataan yang selalu benar disebut tautologi; selalu salah disebut kontradiksi. Pernyataan $p \rightarrow q$ termasuk:
+  \begin{enumerate}
+    \item Tautologi
+    \item Kontradiksi
+    \item Kontingensi
+    \item Ekuivalensi
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Ekuivalensi yang benar untuk implikasi $p \rightarrow q$ adalah:
+  \begin{enumerate}
+    \item $p \wedge \neg q$
+    \item $\neg p \vee q$
+    \item $\neg p \wedge q$
+    \item $p \vee \neg q$
+  \end{enumerate}
+  Jawaban: (b)
+
+  \item Menurut Hukum De Morgan, $\neg(p \wedge q)$ ekuivalen dengan:
+  \begin{enumerate}
+    \item $p \vee q$
+    \item $\neg p \wedge \neg q$
+    \item $\neg p \vee \neg q$
+    \item $p \wedge q$
+  \end{enumerate}
+  Jawaban: (c)
+
+  \item Bentuk $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$ merupakan:
+  \begin{enumerate}
+    \item Hukum De Morgan
+    \item Hukum Asosiatif
+    \item Hukum Distributif
+    \item Hukum Absorpsi
+  \end{enumerate}
+  Jawaban: (c)
+\end{enumerate}
+
+\textbf{B. Tugas Praktik}
+\begin{itemize}
+  \item Diberikan rumus $A \rightarrow (A \vee B)$. Ubah ke bentuk $\neg A \vee (A \vee B)$, terapkan hukum aljabar proposisi, dan tentukan apakah hasilnya tautologi, kontradiksi, atau kontingensi. Paparkan langkah penyelesaian dan justifikasi.
+\end{itemize}
+
+\textbf{Rubrik Penilaian}: Merujuk Lampiran Buku.
+\end{asesmen}
+
+% ============================================================
+% CHECKLIST KOMPETENSI
+% ============================================================
+
+\begin{checklist}
+  \item Saya mampu membedakan tautologi, kontradiksi, dan kontingensi.
+  \item Saya mampu menggunakan tabel kebenaran untuk membuktikan ekuivalensi dua proposisi.
+  \item Saya mampu menerapkan hukum Dominasi, Identitas, Negasi, Involusi, Idempoten, dan Absorpsi.
+  \item Saya mampu menerapkan hukum Komutatif, Asosiatif, Distributif, dan De Morgan.
+  \item Saya mampu mengubah implikasi $p \rightarrow q$ ke bentuk $\neg p \vee q$.
+  \item Saya mampu menyederhanakan ekspresi dengan prosedur 4 langkah (panah, De Morgan, Absorpsi, Distributif).
+  \item Saya mampu menerjemahkan kode IF-ELSE ke logika dan melakukan refactoring.
+\end{checklist}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+
+\begin{rangkuman}
+Bab 4 membahas evaluasi proposisi majemuk melalui tabel kebenaran dan manipulasi aljabar logika untuk menentukan sifat serta ekuivalensinya.
+
+\textbf{Poin-poin utama:}
+\begin{itemize}
+  \item Proposisi majemuk diklasifikasikan menjadi \textit{tautologi}, \textit{kontradiksi}, dan \textit{kontingensi} berdasarkan pola nilai kebenarannya.
+  \item Ekuivalensi logis ($\equiv$) dapat dibuktikan dengan tabel kebenaran, yaitu ketika dua ekspresi memiliki kolom hasil yang identik pada seluruh kombinasi variabel.
+  \item Hukum aljabar proposisi (dominasi, identitas, negasi, involusi, idempoten, absorpsi, komutatif, asosiatif, distributif, dan De Morgan) digunakan untuk menyederhanakan ekspresi secara sistematis.
+  \item Implikasi dan biimplikasi dapat ditransformasikan ke bentuk operator dasar, misalnya $p \rightarrow q \equiv \neg p \vee q$.
+  \item Strategi penyederhanaan bertahap membantu menghasilkan ekspresi yang lebih ringkas untuk analisis logika, refactoring kode, dan optimasi rangkaian digital.
+\end{itemize}
+
+\textbf{Kata kunci}: Tautologi, kontradiksi, kontingensi, ekuivalensi logis, tabel kebenaran, hukum aljabar proposisi, De Morgan, implikasi, biimplikasi.
+\end{rangkuman}
+
+\ifSubfilesClassLoaded{
+  \renewcommand{\bibname}{Daftar Pustaka}
+  \bibliographystyle{plain}
+  \bibliography{../references}
+}{}
+\end{document}

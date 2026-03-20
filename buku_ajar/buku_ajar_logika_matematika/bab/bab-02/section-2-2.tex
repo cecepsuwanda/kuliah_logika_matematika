@@ -1,0 +1,73 @@
+\section{Anatomi Argumen: Premis, Konklusi, dan Penilaian Validitas}
+
+Inti disiplin Logika Matematika bermuara pada kesanggupan untuk menentukan status sahih suatu argumen \cite{forallx,copi2014}. Mahasiswa diharapkan memahami bahwa pemetaan informasi ke dalam tiga entitas dilakukan melalui proposisi, aturan inferensi, dan kesimpulan.
+
+\subsection{Komponen Pembangun Argumen Formal}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.8cm}|>{\raggedright\arraybackslash}p{9.4cm}|}
+\hline
+\textbf{Terminologi} & \textbf{Anatomi Fungsional di Semesta Logika} \\
+\hline
+\textbf{1. Proposisi} & Satuan terkecil kalimat asertif yang tidak dapat dibelah; bernilai kebenaran BENAR (T) atau SALAH (F) \cite{rosen2019}. \\
+\hline
+\textbf{2. Premis} & Kumpulan hipotesis atau \textit{bukti} yang diasumsikan benar di awal untuk mengecek keutuhan pondasi argumen \cite{copi2014}. \\
+\hline
+\textbf{3. Kesimpulan (\textit{output})} & Kesimpulan yang dihasilkan dari penerapan aturan inferensi terhadap premis. \\
+\hline
+\textbf{4. Aturan Inferensi} & Aturan yang memverifikasi apakah langkah dari premis menuju kesimpulan mematuhi hukum logika \cite{iep_natded}. \\
+\hline
+\end{tabular}
+\caption{Tinjauan anatomi argumen formal}
+\label{tab:konsep-logika}
+\end{table}
+
+Secara visual, proses pembuktian teorema matematis dapat digambarkan sebagai alur penyusunan (Gambar~\ref{fig:struktur-argumen}). Premis diteruskan ke aturan inferensi. Jika aturan tersebut valid, kesimpulan yang dihasilkan adalah benar.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=1.2cm,
+  premis/.style={rectangle, draw=black, fill=blue!15, rounded corners, minimum width=2.5cm, minimum height=0.8cm, font=\bfseries},
+  inferensi/.style={rectangle, draw=black, fill=green!15, rounded corners, text width=3.2cm, minimum height=1cm, align=center, font=\bfseries},
+  kesimpulan/.style={rectangle, draw=black, fill=orange!15, rounded corners, text width=2.3cm, minimum height=0.8cm, align=center, font=\bfseries},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[premis] (p1) {Premis Induk 1 (Diasumsi T)};
+  \node[premis, below=0.7cm of p1] (p2) {Premis Sub 2 (Diasumsi T)};
+  \node[inferensi, right=2.5cm of $(p1)!0.5!(p2)$] (inf) {Proses \newline ATURAN INFERENSI};
+  \node[kesimpulan, right=2.5cm of inf] (k) {Konklusi Akhir};
+  \draw[arrow] (p1.east) -- (inf.west);
+  \draw[arrow] (p2.east) -- (inf.west);
+  \draw[arrow] (inf.east) -- (k.west);
+\end{tikzpicture}
+\caption{Visualisasi alur penyusunan argumen: dari premis menuju kesimpulan yang valid.}
+\label{fig:struktur-argumen}
+\end{figure}
+
+\subsection{Perbedaan antara Fakta Empiris dan Validitas Aljabar}
+
+Bagian yang paling sulit dalam pembelajaran logika adalah konsep validitas. \textbf{Suatu argumen dapat diberi predikat ``valid'' berdasarkan bentuk aljabarnya tanpa perlu selaras dengan fakta empiris maupun hukum fisika/biologi di dunia nyata.} \cite{forallx,copi2014}
+
+\begin{definisi}[Hukum Absolut Argumen Valid]
+Argumen dinyatakan \logic{valid} apabila struktur sintaksnya menjamin: jika semua premis diasumsikan Benar (T), maka tidak mungkin kesimpulan bernilai Salah (F). Kesahihan validitas ditentukan semata dari ketepatan jalur inferensinya, bukan dari kebenaran material premis.
+\end{definisi}
+
+\begin{contoh}[Valid Secara Struktur meskipun Isinya Tidak Realistis]
+\textbf{Premis 1:} Jika Budi makan durian, maka Budi melahirkan alien. \\
+\textbf{Premis 2:} Budi sedang makan durian. \\
+\textbf{Kesimpulan:} Budi melahirkan alien. \\
+\textbf{Penilaian: Argumen valid secara struktur.} \\
+Penjelasan: Meskipun kesimpulan tidak sesuai fakta empiris (manusia tidak dapat melahirkan alien), struktur inferensi \textit{Modus Ponens} bekerja sesuai ketentuan. Jika (A) mengakibatkan (B) dan (A) benar, maka (B) harus benar. Validitas logika tidak bergantung pada kebenaran faktual premis.
+\end{contoh}
+
+\begin{contoh}[Argumen Terdengar Realistis namun Invalid---Fallacy of Affirming the Consequent]
+\textbf{Premis 1:} Jika badai halilintar turun, maka stasiun TV mati. \\
+\textbf{Premis 2:} Stasiun TV mati. \\
+\textbf{Kesimpulan:} Badai halilintar turun. \\
+\textbf{Penilaian: Argumen invalid.} \\
+Penjelasan: Meskipun premis terdengar realistis, susunan argumen ini mengalami \textit{Fallacy of Affirming the Consequent} (Penegasan Konsekuen). Stasiun TV dapat mati karena sebab lain (misalnya kerusakan peralatan); kesimpulan tidak dijamin oleh premis. Aturan inferensinya tidak sesuai \cite{iep_natded}.
+\end{contoh}
+Mengkaji kesalahan inferensi seperti pada contoh di atas merupakan kompetensi penting bagi auditor sistem informasi saat menyusun spesifikasi persyaratan alur aplikasi.

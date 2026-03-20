@@ -1,0 +1,59 @@
+\section{Logika Boolean dalam Relung Arsitektur Perangkat Lunak}
+
+Beranjak dari konteks filosofis, bagian ini membahas penerapan logika langsung di layar terminal komputasi \cite{levin_discrete,saylor_cs202}. Pengembangan perangkat lunak di abad ke-21 bergantung pada \textbf{Aljabar Logika Boolean}.
+
+\subsection{Boolean sebagai Dasar \textit{Control Flow}}
+
+Struktur \textit{Control Flow} dan \textit{Branching Decision} (keputusan bercabang) pada setiap program ditentukan oleh evaluasi ekspresi logika Boolean, yang menyatakan nilai benar (1/\textit{True}) atau nilai salah (0/\textit{False}).
+
+Tanpa evaluasi kondisi logika, program hanya mengeksekusi pernyataan secara berurutan tanpa percabangan. Evaluasi syarat logika (\texttt{IF}, \texttt{ELSE IF}, repetisi \texttt{WHILE}) memungkinkan terjadinya percabangan alur eksekusi. Mesin dapat mengelola alur berdasarkan hasil evaluasi \texttt{True} dan \texttt{False} \cite{levin_discrete}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm,
+  decision/.style={diamond, draw=black, fill=red!15, aspect=2, align=center, font=\bfseries\small, text width=2.2cm},
+  process/.style={rectangle, draw=black, fill=blue!15, rounded corners, minimum height=0.8cm, text width=2.8cm, align=center},
+  start/.style={ellipse, draw=black, fill=green!20, font=\bfseries},
+  arrow/.style={->, thick, >=stealth}
+]
+  \node[start] (start) {Mesin aktif (mulai)};
+  \node[decision, below=of start] (cond) {Verifikasi Kondisi Boolean?};
+  \node[process, below left=1cm and 1.2cm of cond] (t) {Eksekusi Cabang True};
+  \node[process, below right=1cm and 1.2cm of cond] (f) {Lewati Cabang False};
+  \node[process, below=2.5cm of cond] (end) {Penyatuan Alur Eksekusi};
+  \draw[arrow] (start) -- (cond);
+  \draw[arrow] (cond) -| node[near start, left, font=\bfseries, text=blue] {Terpenuhi} (t);
+  \draw[arrow] (cond) -| node[near start, right, font=\bfseries, text=red] {Tidak Terpenuhi} (f);
+  \draw[arrow] (t) |- (end);
+  \draw[arrow] (f) |- (end);
+\end{tikzpicture}
+\caption{Visualisasi keputusan bercabang berdasarkan evaluasi Boolean.}
+\label{fig:alur-boolean}
+\end{figure}
+
+\subsection{Menyusun Kondisi Kompleks dengan Operator}
+
+Misalkan sebuah sistem diminta memverifikasi kelayakan pelamar kerja berdasarkan sejumlah persyaratan logika. Dalam industri \textit{Google} dan \textit{Mobile Banking}, algoritma penyaringan memproses banyak kondisi secara bersamaan yang menuntut penggunaan operator logika \textbf{AND (Konjungsi), OR (Disjungsi), dan NOT (Negasi)} \cite{python_docs_boolean}.
+
+\begin{contoh}[Simulasi Prosedur Pengamanan Sistem]
+Kasus \textit{Cyber Security}: akses brankas transfer dana diberikan hanya kepada pengguna yang memenuhi persyaratan berikut: pengguna memiliki alamat IP domestik (\textbf{ATAU} berstatus staf VIP) \textbf{SERTA} usianya tidak termasuk kelompok balita bebas rekening.
+
+\begin{lstlisting}[style=pythonstyle, caption={Operasi Filter Keamanan dengan Operator Boolean}]
+# Skema Filter Keamanan Finansial:
+staf_vip = False
+ip_domestik = True
+usia_akun_tahun = 3
+
+# Menyusun ekspresi evaluasi Boolean:
+# Status evaluasi -> (True OR False) AND (NOT False)
+# Status evaluasi -> (True) AND (True)
+izin_lolos = (ip_domestik or staf_vip) and not (usia_akun_tahun < 12)
+
+if izin_lolos:
+    print("Akses brankas diberikan. Validasi sah.")
+else:
+    print("Akses ditolak.")
+\end{lstlisting}
+Melalui penguasaan hukum ekuivalensi (misalnya Hukum De Morgan), perancang basis data dapat menyederhanakan ekspresi \texttt{if} yang kompleks menjadi bentuk yang lebih ringkas dan efisien.
+\end{contoh}

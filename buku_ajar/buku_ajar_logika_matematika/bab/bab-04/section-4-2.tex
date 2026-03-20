@@ -1,0 +1,41 @@
+\section{Konsep Ekuivalensi Logis Melalui Tabel Kebenaran}
+
+Dua ekspresi logika dapat tampak berbeda secara bentuk, tetapi tetap memiliki makna logis yang sama. Dalam konteks matematika maupun rekayasa perangkat lunak, pengujian kesetaraan tersebut disebut uji ekuivalensi logis \cite{rosen2019}.
+
+\subsection{Parameter Ekuivalensi Mutlak}
+
+\begin{definisi}[Ekuivalen Logis]
+Dua proposisi majemuk $P$ dan $Q$ disebut \logic{ekuivalen logis} (ditulis $\equiv$) apabila dan hanya apabila kolom nilai kebenaran keduanya identik untuk seluruh kombinasi nilai variabel penyusun. \\
+Secara aljabar, hal ini setara dengan menunjukkan bahwa $(P \leftrightarrow Q)$ merupakan \textbf{tautologi}.
+\end{definisi}
+
+\subsection{Verifikasi Ekuivalensi dengan Tabel Kebenaran}
+
+Tabel kebenaran merupakan metode langsung untuk memverifikasi ekuivalensi. Meskipun bersifat enumeratif, metode ini memberikan hasil yang pasti. Perhatikan pengujian berikut untuk salah satu bentuk Hukum De Morgan:
+\begin{center}
+``Apakah $\neg(p \wedge q)$ ekuivalen dengan $\neg p \vee \neg q$?''
+\end{center}
+
+Berikut tabel kebenaran untuk variabel $p$ dan $q$:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c||c|c||c|c||c|}
+\hline
+\textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$\neg q$} & \textbf{Langkah $p \wedge q$} & \textbf{Objek A: $\neg(p \wedge q)$} & \textbf{Objek B: $\neg p \vee \neg q$} \\
+\hline
+T & T & F & F & T & \textbf{F} & \textbf{F} \\
+T & F & F & T & F & \textbf{T} & \textbf{T} \\
+F & T & T & F & F & \textbf{T} & \textbf{T} \\
+F & F & T & T & F & \textbf{T} & \textbf{T} \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Analisis hasil:} \\
+Kolom \textbf{Objek A} dan \textbf{Objek B} menghasilkan pola nilai yang sama, yaitu $(F, T, T, T)$. Karena nilainya identik pada seluruh baris, dapat disimpulkan bahwa:
+\[
+\neg(p \wedge q) \equiv \neg p \vee \neg q
+\]
+
+Untuk ekspresi dengan banyak variabel, jumlah baris tabel kebenaran meningkat secara eksponensial. Oleh sebab itu, selain tabel kebenaran, digunakan pula hukum-hukum aljabar logika untuk pembuktian yang lebih efisien \cite{wiki_proplogic}.

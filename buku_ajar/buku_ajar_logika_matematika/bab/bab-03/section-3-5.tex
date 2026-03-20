@@ -1,0 +1,70 @@
+\section{Varian Implikasi (Konvers, Invers) dan Negasi Majemuk}
+
+Dari implikasi $p \rightarrow q$ (``Jika $p$, maka $q$''), dapat dibentuk beberapa kalimat turunan. Memahami perbedaannya penting untuk menghindari kesalahan penalaran (*fallacy*) dan kesalahan spesifikasi logika dalam perangkat lunak \cite{rosen2019}.
+
+Tiga bentuk yang sering dibahas adalah \textbf{konvers}, \textbf{invers}, dan \textbf{kontraposisi}.
+
+\subsection{Konvers ($q \rightarrow p$)}
+
+\textbf{Konvers} diperoleh dengan menukar posisi anteseden dan konsekuen: dari $p \rightarrow q$ menjadi $q \rightarrow p$.
+
+\begin{contoh}[Konvers tidak ekuivalen dengan implikasi asli]
+\textbf{Implikasi asli:} ``Jika seseorang bertempat tinggal di Kota Depok ($p$), maka ia berada di Provinsi Jawa Barat ($q$).'' (Dalam konteks administratif yang standar, implikasi ini dapat dianggap benar.)
+
+\textbf{Konvers:} ``Jika seseorang berada di Provinsi Jawa Barat ($q$), maka ia bertempat tinggal di Kota Depok ($p$).''
+
+Konvers tidak perlu benar: seseorang dapat berada di Jawa Barat tanpa tinggal di Depok (misalnya di kota lain).\\
+\textbf{Kesimpulan:} Secara umum, konvers \textbf{tidak ekuivalen} dengan implikasi asli \cite{wiki_first_order_logic}.
+\end{contoh}
+
+\subsection{Invers ($\neg p \rightarrow \neg q$)}
+
+\textbf{Invers} diperoleh dengan menegasi kedua proposisi: dari $p \rightarrow q$ menjadi $\neg p \rightarrow \neg q$.
+
+\begin{contoh}[Invers tidak ekuivalen dengan implikasi asli]
+\textbf{Implikasi asli:} ``Jika hujan lebat di suatu wilayah ($p$), maka permukaan jalan di lokasi tersebut basah ($q$).''
+
+\textbf{Invers:} ``Jika tidak hujan lebat ($\neg p$), maka jalan tidak basah ($\neg q$).''
+
+Invers belum tentu benar: jalan dapat basah karena penyebab lain (misalnya penyiraman atau kebocoran pipa), meskipun tidak hujan.\\
+\textbf{Kesimpulan:} Invers \textbf{tidak ekuivalen} dengan implikasi asli \cite{wiki_first_order_logic}.
+\end{contoh}
+
+\subsection{Kontraposisi ($\neg q \rightarrow \neg p$)}
+
+\textbf{Kontraposisi} diperoleh dengan menukar posisi dan menegasi keduanya: dari $p \rightarrow q$ menjadi $\neg q \rightarrow \neg p$.
+
+\begin{contoh}[Kontraposisi ekuivalen dengan implikasi asli]
+Dengan implikasi ``Jika $p$ maka $q$'' pada contoh hujan-jalan di atas, kontraposisinya berbunyi secara intuitif: ``Jika jalan tidak basah ($\neg q$), maka tidak terjadi hujan lebat sesuai yang dimaksud pada $p$ ($\neg p$)''---setelah dinyatakan dengan teliti sesuai konteks.
+
+\textbf{Kesimpulan:} Dalam logika proposisional, berlaku ekuivalensi
+\[
+p \rightarrow q \equiv \neg q \rightarrow \neg p
+\]
+(hukum kontraposisi) \cite{rosen2019}.
+\end{contoh}
+
+\subsection{Negasi Majemuk dan Negasi Implikasi}
+
+Untuk menyederhanakan negasi pada bentuk majemuk, sering digunakan hukum De Morgan, serta ekuivalensi material untuk implikasi.
+
+\begin{itemize}
+    \item \textbf{Hukum De Morgan}
+    \begin{align*}
+        \neg(p \wedge q) &\equiv \neg p \vee \neg q \\
+        \neg(p \vee q) &\equiv \neg p \wedge \neg q
+    \end{align*}
+    
+    \item \textbf{Ekuivalensi material dan negasi implikasi}\\
+    Implikasi dapat ditulis sebagai disjungsi:
+    \begin{equation*}
+        p \rightarrow q \equiv \neg p \vee q
+    \end{equation*}
+    (Hal ini dapat dibuktikan dengan tabel kebenaran: keduanya bernilai salah hanya ketika $p$ benar dan $q$ salah.)
+
+    Dengan demikian,
+    \begin{align*}
+        \neg(p \rightarrow q) &\equiv \neg(\neg p \vee q) \\
+                              &\equiv p \wedge \neg q
+    \end{align*}
+\end{itemize}

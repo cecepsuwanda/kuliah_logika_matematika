@@ -1,0 +1,39 @@
+\section{Fondasi Kecerdasan Buatan dan Basis Data Relasional}
+
+Logika matematika bukan sekadar instrumen untuk menganalisis percabangan \texttt{IF--ELSE} di perangkat lunak. Pada level makroskopis, arsitektur penyimpanan data (seperti Oracle dan PostgreSQL) maupun sistem kecerdasan buatan dibangun berbasis Logika Predikat Orde Satu (\textit{First-Order Logic}) \cite{mit_6042,rosen2019}.
+
+\subsection{Pemrosesan Data Presisi dengan Aljabar Relasional (SQL)}
+
+Sejumlah besar baris \textit{record} tabungan nasabah di bank tidak ditangani secara manual. Data tersebut diproses melalui \textbf{Aljabar Relasional} yang pada hakikatnya merupakan turunan langsung dari operasi \textit{Konjungsi (AND)} dan \textit{Disjungsi (OR)} serta kuantifikasi predikat dari Logika Matematika pada abad ke-19.
+
+\begin{contoh}[Eksplorasi Kueri Bahasa Basis Data SQL]
+Sebuah \textit{kueri} dirancang untuk mengambil profil tertentu: ``Tampilkan seluruh mahasiswa Fakultas MIPA yang umurnya di bawah 30 tahun dan tidak memiliki jejak skorsing kriminal.''
+
+Sintaks SQL (\textit{Structured Query Language}) murni mengadopsi struktur Proposisi Biner di atas:
+\begin{lstlisting}[language=SQL, basicstyle=\ttfamily\small, frame=single, caption={Analisis Klausa \texttt{WHERE} dengan Operator Logika Boolean}]
+SELECT nama_lengkap, nim 
+FROM Tabel_Mahasiswa_Nasional
+WHERE (fakultas = 'MIPA') 
+  AND (usia_tahun < 30) 
+  AND NOT (status_skorsing = 'Kriminal');
+\end{lstlisting}
+Struktur kurung serta operator \texttt{AND}, \texttt{OR}, dan \texttt{NOT} memastikan presisi basis data dalam menyaring kandidat \cite{rosen2019}.
+\end{contoh}
+
+\subsection{Landasan Penalaran pada *Rules Engine* Kecerdasan Buatan (AI)}
+
+Memasuki ranah kecerdasan buatan, ditemukan cabang *Sistem Pakar (Expert Systems)* yang menggunakan *Knowledge-based System Reasoning Engine*. Pada dunia kedokteran, sistem pakar bekerja menurunkan deduksi \textit{Modus Ponens} dari kumpulan fakta yang tersedia untuk menghasilkan kesimpulan yang menjadi dasar pengambilan keputusan \cite{mit_6042,saylor_cs202}.
+
+\begin{contoh}[Mesin Inferensi Medis---Proses Inferensi Berbasis Aturan]
+
+\textbf{Basis aturan (\textit{rule base}) dari protokol WHO:}\\
+Aturan 1: \textbf{JIKA} $Pasien_{x}$ memiliki suhu $> 39$ Celsius \textbf{DAN} bercak kulit \textbf{MAKA} diagnosis Cacar Akut.\\
+Aturan 2: \textbf{JIKA} $Pasien_{x}$ didiagnosis menderita Cacar Akut \textbf{DAN} usia $< 5$ tahun \textbf{MAKA} prioritas Karantina ICU.
+
+\textbf{Fakta premis tambahan:} \\
+Anak A memiliki suhu 40 Celsius, bercak kulit, dan usia 4 tahun.
+
+\textbf{Proses inferensi (\textit{Reasoning Engine}):} 
+Berdasarkan \textit{Modus Ponens}, mesin melakukan deduksi bertahap dan menghasilkan rekomendasi: \textbf{Anak A diprioritaskan untuk Karantina ICU rawat inap.} \\
+Kemampuan menghubungkan fakta yang tersirat menjadi rangkaian sebab-akibat merupakan pencapaian \textit{Inference Logic} yang dirintis oleh Aristoteles 20 abad lalu \cite{stanford_cs103}.
+\end{contoh}

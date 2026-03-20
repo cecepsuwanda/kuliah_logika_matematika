@@ -1,0 +1,116 @@
+\section{Bentuk Fungsi Boolean: SOP dan POS}
+
+Sebuah fungsi Boolean dapat ditulis dalam berbagai bentuk ekspresi yang ekuivalen secara fungsional. Meskipun bentuk-bentuk tersebut menghasilkan output yang identik untuk setiap kombinasi input yang sama, struktur sintaksisnya dapat sangat berbeda. Untuk menstandarisasi representasi fungsi Boolean, diperkenalkan dua bentuk kanonik utama: \logic{Sum of Products} (SOP) dan \logic{Product of Sums} (POS). Kedua bentuk kanonik ini memiliki peran sentral dalam perancangan rangkaian digital, karena memberikan representasi yang unik dan sistematik untuk setiap fungsi Boolean \cite{rosen2019}.
+
+\subsection{Literal, Suku, dan Terminologi Dasar}
+
+Sebelum membahas bentuk kanonik, perlu dipahami beberapa terminologi dasar yang digunakan secara konsisten dalam aljabar Boolean dan perancangan rangkaian digital.
+
+\begin{definisi}[Literal]
+Sebuah \logic{literal} adalah variabel Boolean atau komplemennya. Misalnya, $x$, $y'$, $z$, dan $w'$ masing-masing adalah literal. Jika fungsi Boolean memiliki $n$ variabel, maka terdapat $2n$ literal yang berbeda.
+\end{definisi}
+
+\begin{definisi}[Suku Perkalian (Product Term)]
+Sebuah \logic{suku perkalian} adalah literal tunggal atau perkalian Boolean (AND) dari dua atau lebih literal. Contoh suku perkalian: $x$, $xy'$, $x'yz$, $wxyz'$.
+\end{definisi}
+
+\begin{definisi}[Suku Penjumlahan (Sum Term)]
+Sebuah \logic{suku penjumlahan} adalah literal tunggal atau penjumlahan Boolean (OR) dari dua atau lebih literal. Contoh suku penjumlahan: $x$, $(x + y')$, $(x' + y + z)$.
+\end{definisi}
+
+Perbedaan antara suku perkalian dan suku penjumlahan terletak pada operator yang menghubungkan literal-literalnya. Suku perkalian menggunakan AND, sedangkan suku penjumlahan menggunakan OR. Pemahaman terminologi ini menjadi prasyarat untuk memahami bentuk SOP dan POS yang akan dibahas selanjutnya.
+
+\subsection{Minterm dan Maxterm}
+
+\begin{definisi}[Minterm]
+Sebuah \logic{minterm} adalah suku perkalian yang mengandung tepat semua $n$ variabel dari fungsi Boolean, masing-masing muncul \emph{tepat satu kali} dalam bentuk asli atau komplemennya. Minterm bernilai 1 untuk tepat satu kombinasi input dan bernilai 0 untuk semua kombinasi input lainnya. Minterm dinotasikan sebagai $m_j$, dengan $j$ adalah nilai desimal dari kombinasi input yang menghasilkan output 1.
+\end{definisi}
+
+Pembentukan minterm mengikuti aturan sederhana: jika variabel bernilai $1$ pada kombinasi input tertentu, maka variabel tersebut muncul dalam bentuk aslinya (tanpa komplemen); jika variabel bernilai $0$, maka variabel muncul dalam bentuk komplemennya.
+
+\begin{definisi}[Maxterm]
+Sebuah \logic{maxterm} adalah suku penjumlahan yang mengandung tepat semua $n$ variabel dari fungsi Boolean, masing-masing muncul \emph{tepat satu kali} dalam bentuk asli atau komplemennya. Maxterm bernilai 0 untuk tepat satu kombinasi input dan bernilai 1 untuk semua kombinasi input lainnya. Maxterm dinotasikan sebagai $M_j$, dengan $j$ adalah nilai desimal dari kombinasi input yang menghasilkan output 0.
+\end{definisi}
+
+Pembentukan maxterm mengikuti aturan yang berkebalikan dengan minterm: jika variabel bernilai $0$, maka variabel muncul dalam bentuk aslinya; jika variabel bernilai $1$, maka variabel muncul dalam bentuk komplemennya. Tabel~\ref{tab:minterm-maxterm-lengkap} menyajikan definisi lengkap minterm dan maxterm untuk fungsi 3 variabel.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c||c|c||c|c|}
+\hline
+\multicolumn{3}{|c||}{\textbf{Variabel Input}} & \multicolumn{2}{c||}{\textbf{Minterm (SOP)}} & \multicolumn{2}{c|}{\textbf{Maxterm (POS)}} \\ \hline
+$x$ & $y$ & $z$ & \textbf{Term} & \textbf{Notasi} & \textbf{Term} & \textbf{Notasi} \\ \hline
+0 & 0 & 0 & $x'y'z'$ & $m_0$ & $x+y+z$ & $M_0$ \\ \hline
+0 & 0 & 1 & $x'y'z$ & $m_1$ & $x+y+z'$ & $M_1$ \\ \hline
+0 & 1 & 0 & $x'yz'$ & $m_2$ & $x+y'+z$ & $M_2$ \\ \hline
+0 & 1 & 1 & $x'yz$ & $m_3$ & $x+y'+z'$ & $M_3$ \\ \hline
+1 & 0 & 0 & $xy'z'$ & $m_4$ & $x'+y+z$ & $M_4$ \\ \hline
+1 & 0 & 1 & $xy'z$ & $m_5$ & $x'+y+z'$ & $M_5$ \\ \hline
+1 & 1 & 0 & $xyz'$ & $m_6$ & $x'+y'+z$ & $M_6$ \\ \hline
+1 & 1 & 1 & $xyz$ & $m_7$ & $x'+y'+z'$ & $M_7$ \\ \hline
+\end{tabular}
+\caption{Definisi Minterm dan Maxterm untuk 3 Variabel}
+\label{tab:minterm-maxterm-lengkap}
+\end{table}
+
+\begin{catatan}
+Terdapat hubungan komplementer antara minterm dan maxterm: $m_j = (M_j)'$ dan $M_j = (m_j)'$. Sebagai contoh, $m_3 = x'yz$ dan $M_3 = x + y' + z'$, di mana $(x'yz)' = x + y' + z'$ berdasarkan Hukum De Morgan.
+\end{catatan}
+
+\subsection{Bentuk Kanonik Sum of Products (SOP)}
+
+\begin{definisi}[Bentuk Kanonik SOP]
+Bentuk kanonik \logic{Sum of Products} adalah representasi fungsi Boolean sebagai penjumlahan (OR) dari minterm-minterm yang berkorespondensi dengan kombinasi input di mana fungsi bernilai 1. Bentuk ini dinotasikan menggunakan simbol sigma: $F(x, y, z) = \sum m(j_1, j_2, \ldots)$, di mana $j_1, j_2, \ldots$ adalah indeks desimal dari minterm-minterm yang membentuk fungsi \cite{geeksforgeeks_sop_pos}.
+\end{definisi}
+
+Proses pembentukan bentuk kanonik SOP dari tabel kebenaran bersifat langsung: identifikasi semua baris pada tabel kebenaran yang menghasilkan output 1, tuliskan minterm untuk setiap baris tersebut, kemudian jumlahkan (OR-kan) semua minterm yang diperoleh.
+
+\begin{contoh}
+\textbf{Pembentukan SOP dari Tabel Kebenaran}
+
+Diberikan fungsi Boolean dengan tabel kebenaran berikut:
+
+\begin{center}
+\begin{tabular}{|c|c|c||c|}
+\hline
+$x$ & $y$ & $z$ & $F$ \\ \hline
+0 & 0 & 0 & 0 \\ \hline
+0 & 0 & 1 & 1 \\ \hline
+0 & 1 & 0 & 0 \\ \hline
+0 & 1 & 1 & 0 \\ \hline
+1 & 0 & 0 & 1 \\ \hline
+1 & 0 & 1 & 0 \\ \hline
+1 & 1 & 0 & 0 \\ \hline
+1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+Fungsi bernilai 1 pada baris $m_1$, $m_4$, dan $m_7$, sehingga:
+\[ F(x,y,z) = \sum m(1, 4, 7) = x'y'z + xy'z' + xyz \]
+\end{contoh}
+
+\subsection{Bentuk Kanonik Product of Sums (POS)}
+
+\begin{definisi}[Bentuk Kanonik POS]
+Bentuk kanonik \logic{Product of Sums} adalah representasi fungsi Boolean sebagai perkalian (AND) dari maxterm-maxterm yang berkorespondensi dengan kombinasi input di mana fungsi bernilai 0. Bentuk ini dinotasikan menggunakan simbol pi: $F(x, y, z) = \prod M(j_1, j_2, \ldots)$ \cite{geeksforgeeks_sop_pos}.
+\end{definisi}
+
+Pembentukan bentuk kanonik POS dilakukan dengan mengidentifikasi semua baris pada tabel kebenaran yang menghasilkan output 0, menuliskan maxterm untuk setiap baris tersebut, kemudian mengalikan (AND-kan) semua maxterm yang diperoleh.
+
+\begin{contoh}
+\textbf{Pembentukan POS dari Tabel Kebenaran yang Sama}
+
+Menggunakan tabel kebenaran yang sama pada contoh sebelumnya, fungsi bernilai 0 pada baris $M_0$, $M_2$, $M_3$, $M_5$, dan $M_6$, sehingga:
+\begin{align*}
+F(x,y,z) &= \prod M(0, 2, 3, 5, 6) \\
+          &= (x+y+z)(x+y'+z)(x+y'+z')(x'+y+z')(x'+y'+z)
+\end{align*}
+\end{contoh}
+
+\subsection{Konversi antar Bentuk SOP dan POS}
+
+Hubungan komplementer antara minterm dan maxterm memudahkan konversi antara bentuk SOP dan POS. Jika sebuah fungsi 3 variabel memiliki representasi SOP $F = \sum m(1, 4, 7)$, maka representasi POS-nya diperoleh dengan mengambil indeks-indeks yang \emph{tidak} terdapat dalam representasi SOP, yaitu $F = \prod M(0, 2, 3, 5, 6)$. Hal ini berlaku karena setiap fungsi Boolean bernilai 1 untuk sejumlah kombinasi input (yang ditangkap oleh minterm) dan bernilai 0 untuk sisanya (yang ditangkap oleh maxterm) \cite{rosen2019}.
+
+Secara formal, jika $F = \sum m(S)$ dengan $S \subseteq \{0, 1, \ldots, 2^n - 1\}$, maka $F = \prod M(\bar{S})$ dengan $\bar{S} = \{0, 1, \ldots, 2^n - 1\} \setminus S$. Konversi ini sangat berguna karena terkadang representasi SOP lebih ringkas daripada POS untuk suatu fungsi tertentu, atau sebaliknya, sehingga perancang dapat memilih representasi yang paling efisien.

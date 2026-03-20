@@ -1,0 +1,37 @@
+\section{Tautologi, Kontradiksi, dan Kontingensi}
+
+Klasifikasi proposisi majemuk berdasarkan nilai kebenarannya merupakan fondasi penting sebelum membahas ekuivalensi logis dan inferensi formal \cite{rosen2019}. Secara umum, proposisi majemuk dikelompokkan menjadi tiga jenis, yaitu tautologi, kontradiksi, dan kontingensi.
+
+\subsection{Tautologi}
+
+\begin{definisi}[Tautologi]
+\logic{Tautologi} adalah proposisi majemuk yang \textbf{selalu bernilai benar (True)} untuk setiap kombinasi nilai kebenaran proposisi atomik penyusunnya.
+\end{definisi}
+
+Dalam konteks pemrograman atau basis data, ekspresi yang selalu benar tidak memberikan penyaringan kondisi yang efektif karena hasil evaluasinya selalu meloloskan.
+
+\begin{contoh}
+Contoh tautologi paling sederhana adalah \textbf{hukum tiada jalan tengah}: $p \vee \neg p$. \\
+Pernyataan ini selalu bernilai benar, apa pun nilai kebenaran $p$.
+\end{contoh}
+
+\subsection{Kontradiksi}
+
+\begin{definisi}[Kontradiksi]
+\logic{Kontradiksi} adalah proposisi majemuk yang \textbf{selalu bernilai salah (False)} untuk setiap kombinasi nilai kebenaran proposisi atomik penyusunnya.
+\end{definisi}
+
+Dalam penerapan komputasi, kondisi kontradiktif dapat menyebabkan cabang program tidak pernah dieksekusi (\textit{dead code}).
+
+\begin{contoh}
+Contoh kontradiksi paling sederhana adalah \textbf{hukum non-kontradiksi}: $p \wedge \neg p$. \\
+Pernyataan ini selalu bernilai salah karena $p$ dan $\neg p$ tidak mungkin benar pada saat yang sama.
+\end{contoh}
+
+\subsection{Kontingensi}
+
+\begin{definisi}[Kontingensi]
+\logic{Kontingensi} adalah proposisi majemuk yang nilai kebenarannya \textbf{bergantung} pada kombinasi nilai proposisi atomik penyusunnya; pada sebagian kombinasi bernilai benar, dan pada kombinasi lain bernilai salah.
+\end{definisi}
+
+Sebagian besar ekspresi logika dalam praktik, seperti $p \rightarrow q$ atau $(p \vee q) \wedge \neg r$, termasuk kontingensi. Oleh karena itu, evaluasi umumnya memerlukan tabel kebenaran atau manipulasi aljabar yang tepat.

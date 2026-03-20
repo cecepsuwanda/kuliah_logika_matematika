@@ -1,0 +1,39 @@
+\section{Strategi Penyederhanaan Ekspresi Bertahap}
+
+Ketika jumlah variabel bertambah, tabel kebenaran menjadi semakin besar. Oleh karena itu, penyederhanaan aljabar dilakukan secara bertahap dengan memanfaatkan hukum-hukum logika \cite{wiki_proplogic,rosen2019}. Tujuannya adalah memperoleh bentuk yang lebih ringkas tanpa mengubah nilai logis ekspresi.
+
+\subsection{Urutan Operasi Penyederhanaan Aljabar Boolean}
+
+Salah satu urutan kerja yang umum digunakan adalah sebagai berikut:
+\begin{enumerate}
+    \item \textbf{Ubah implikasi/biimplikasi}: transformasikan $\rightarrow$ dan $\leftrightarrow$ ke bentuk $\wedge, \vee, \neg$.
+    \item \textbf{Dorong negasi ke dalam}: gunakan Hukum De Morgan dan negasi ganda bila ada bentuk $\neg(\cdots)$.
+    \item \textbf{Sederhanakan pola langsung}: terapkan identitas, dominasi, idempoten, dan absorpsi.
+    \item \textbf{Gunakan distributif bila diperlukan}: lakukan ekspansi atau faktorisasi untuk membuka pola yang lebih sederhana.
+\end{enumerate}
+
+\subsection{Contoh Penyederhanaan Langkah Demi Langkah}
+
+\begin{contoh}[Penyederhanaan Ekspresi]
+Sederhanakan ekspresi berikut:
+\[
+\neg(p \vee \neg q) \vee (p \wedge q \wedge \neg r)
+\]
+
+\textbf{Langkah penyelesaian:}
+\vspace{2mm}
+    
+\begin{tabular}{p{0.4cm} p{6.2cm} p{6.5cm}}
+    1. & $\neg(p \vee \neg q) \vee (p \wedge (q \wedge \neg r))$ & Asosiatif untuk merapikan bagian kanan. \\ 
+    2. & $(\neg p \wedge \neg(\neg q)) \vee (p \wedge (q \wedge \neg r))$ & De Morgan pada bagian kiri. \\ 
+    3. & $(\neg p \wedge q) \vee (p \wedge (q \wedge \neg r))$ & Involusi, $\neg(\neg q)\equiv q$. \\ 
+    4. & $(\neg p \wedge q) \vee ((p \wedge \neg r) \wedge q)$ & Komutatif pada bagian kanan. \\ 
+    5. & $q \wedge ( \neg p \vee (p \wedge \neg r) )$ & Faktorisasi distributif. \\
+    6. & $q \wedge ( (\neg p \vee p) \wedge (\neg p \vee \neg r) )$ & Distributif pada bagian dalam. \\
+    7. & $q \wedge ( \mathbf{T} \wedge (\neg p \vee \neg r) )$ & Hukum negasi, $\neg p \vee p \equiv \mathbf{T}$. \\
+    8. & $\mathbf{q \wedge (\neg p \vee \neg r)}$ & Hukum identitas.
+\end{tabular} 
+\vspace{2mm}
+
+Hasil akhir yang lebih sederhana adalah $\mathbf{q \wedge (\neg p \vee \neg r)}$. Bentuk ini ekuivalen dengan ekspresi awal, tetapi lebih efisien untuk dianalisis dan diimplementasikan.
+\end{contoh}

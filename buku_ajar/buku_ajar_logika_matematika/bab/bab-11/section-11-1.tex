@@ -1,0 +1,78 @@
+\section{Gerbang Logika Dasar: AND, OR, NOT}
+
+Gerbang logika (\textit{logic gate}) merupakan komponen fundamental dalam arsitektur komputer dan sistem digital. Setiap gerbang logika mengimplementasikan satu operasi aljabar Boolean pada sinyal-sinyal biner, menerima satu atau lebih masukan dan menghasilkan tepat satu keluaran. Pada tingkat fisik, gerbang logika direalisasikan menggunakan transistor semikonduktor, namun pada tingkat konseptual, kita merepresentasikannya sebagai simbol grafis standar yang mengikuti konvensi IEEE/ANSI \cite{allaboutcircuits_gates}.
+
+\subsection{Gerbang AND}
+
+\begin{definisi}[Gerbang AND]
+Gerbang AND adalah gerbang logika biner yang menghasilkan keluaran bernilai $1$ \textbf{jika dan hanya jika seluruh} masukannya bernilai $1$. Jika salah satu atau lebih masukan bernilai $0$, maka keluaran bernilai $0$. Operasi ini berkorespondensi dengan perkalian Boolean ($\cdot$) dan konjungsi ($\wedge$) pada logika proposisi.
+\end{definisi}
+
+Gerbang AND dapat memiliki dua atau lebih masukan. Untuk gerbang AND dengan $n$ masukan, keluaran bernilai $1$ hanya jika seluruh $n$ masukan bernilai $1$. Tabel kebenaran gerbang AND 2-masukan ditampilkan pada Tabel~\ref{tab:and-gate}.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c||c|}
+\hline
+$A$ & $B$ & $F = A \cdot B$ \\ \hline
+0 & 0 & 0 \\ \hline
+0 & 1 & 0 \\ \hline
+1 & 0 & 0 \\ \hline
+1 & 1 & 1 \\ \hline
+\end{tabular}
+\caption{Tabel Kebenaran Gerbang AND}
+\label{tab:and-gate}
+\end{table}
+
+\subsection{Gerbang OR}
+
+\begin{definisi}[Gerbang OR]
+Gerbang OR adalah gerbang logika biner yang menghasilkan keluaran bernilai $1$ \textbf{jika sekurang-kurangnya satu} masukannya bernilai $1$. Keluaran bernilai $0$ hanya jika seluruh masukan bernilai $0$. Operasi ini berkorespondensi dengan penjumlahan Boolean ($+$) dan disjungsi ($\vee$) pada logika proposisi.
+\end{definisi}
+
+Analoginya, gerbang OR bekerja seperti rangkaian listrik paralel: jika salah satu sakelar ditutup (bernilai 1), arus dapat mengalir (keluaran 1). Gerbang OR juga dapat memiliki lebih dari dua masukan, di mana keluaran bernilai $1$ jika setidaknya satu dari $n$ masukan bernilai $1$.
+
+\subsection{Gerbang NOT (Inverter)}
+
+\begin{definisi}[Gerbang NOT]
+Gerbang NOT (inverter) adalah gerbang logika uner yang memiliki tepat satu masukan dan menghasilkan keluaran yang merupakan \textbf{komplemen} (negasi) dari masukan tersebut. Jika masukan 0, keluaran 1; jika masukan 1, keluaran 0. Operasi ini berkorespondensi dengan komplemen ($'$) dan negasi ($\neg$) pada logika proposisi.
+\end{definisi}
+
+Gerbang NOT adalah satu-satunya gerbang dengan tepat satu masukan. Pada simbol standar, gerbang NOT direpresentasikan sebagai segitiga dengan lingkaran kecil (\textit{bubble}) pada keluarannya. Lingkaran ini menandakan operasi inversi dan juga digunakan pada simbol gerbang turunan seperti NAND dan NOR.
+
+\subsection{Simbol Standar dan Representasi}
+
+Gambar~\ref{fig:gerbang-dasar-11} menampilkan simbol grafis standar IEEE/ANSI untuk ketiga gerbang logika dasar. Simbol-simbol ini digunakan secara universal dalam diagram rangkaian digital.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[circuit logic US, huge circuit symbols,
+                    every circuit symbol/.style={fill=blue!10, draw=blue!50!black, thick}]
+
+  % Gerbang AND
+  \node[and gate] (and1) at (0,0) {};
+  \draw (and1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (and1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (and1.output) -- ++(0.5,0) node[right] {$A \cdot B$};
+  \node[below=0.5cm of and1] {AND};
+
+  % Gerbang OR
+  \node[or gate] (or1) at (4.5,0) {};
+  \draw (or1.input 1) -- ++(-0.5,0) node[left] {$A$};
+  \draw (or1.input 2) -- ++(-0.5,0) node[left] {$B$};
+  \draw (or1.output) -- ++(0.5,0) node[right] {$A + B$};
+  \node[below=0.5cm of or1] {OR};
+
+  % Gerbang NOT
+  \node[not gate] (not1) at (9,0) {};
+  \draw (not1.input) -- ++(-0.5,0) node[left] {$A$};
+  \draw (not1.output) -- ++(0.5,0) node[right] {$A'$};
+  \node[below=0.5cm of not1] {NOT};
+
+\end{tikzpicture}
+\caption{Simbol Standar IEEE/ANSI Gerbang Logika Dasar}
+\label{fig:gerbang-dasar-11}
+\end{figure}
+
+Dalam praktik perancangan rangkaian, ketiga gerbang dasar ini sudah mencukupi untuk mengimplementasikan fungsi Boolean apa pun, karena himpunan $\{AND, OR, NOT\}$ bersifat lengkap secara fungsional (\textit{functionally complete}). Setiap fungsi Boolean dapat ditulis dalam bentuk Sum of Products (SOP) yang hanya menggunakan operator AND, OR, dan NOT \cite{rosen2019}. Namun, dalam praktik produksi semikonduktor, gerbang turunan dan universal lebih sering digunakan karena alasan efisiensi fabrikasi, sebagaimana akan dibahas pada section berikutnya.

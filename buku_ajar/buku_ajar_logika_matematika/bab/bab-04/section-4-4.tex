@@ -1,0 +1,48 @@
+\section{Hukum Lanjutan: Pertukaran, Distributif, dan De Morgan}
+
+Setelah memahami hukum dasar, langkah berikutnya adalah menggunakan hukum lanjutan untuk mengubah susunan ekspresi tanpa mengubah maknanya. Hukum yang utama pada bagian ini adalah komutatif, asosiatif, distributif, dan De Morgan \cite{rosen2019}.
+
+\subsection{Sifat Komutatif dan Asosiatif}
+
+Sebagaimana pada aljabar aritmetika, operator AND dan OR memiliki sifat pertukaran urutan dan pengelompokan tertentu.
+
+\begin{itemize}
+    \item \textbf{Hukum Komutatif} \\
+    Urutan operand dapat ditukar tanpa mengubah hasil.
+    \begin{align*}
+        p \vee q &\equiv q \vee p \\
+        p \wedge q &\equiv q \wedge p 
+    \end{align*}
+
+    \item \textbf{Hukum Asosiatif} \\
+    Pengelompokan operand pada operator sejenis dapat diubah tanpa memengaruhi nilai akhir.
+    \begin{align*}
+        (p \vee q) \vee r &\equiv p \vee (q \vee r) \\
+        (p \wedge q) \wedge r &\equiv p \wedge (q \wedge r) 
+    \end{align*}
+\end{itemize}
+
+\subsection{Hukum Distributif}
+
+Hukum distributif memungkinkan operator di luar kurung didistribusikan ke masing-masing komponen di dalam kurung, seperti analogi distributif pada aljabar aritmetika.
+
+\begin{align*}
+    p \vee (q \wedge r) &\equiv (p \vee q) \wedge (p \vee r) \\
+    p \wedge (q \vee r) &\equiv (p \wedge q) \vee (p \wedge r) 
+\end{align*}
+Kedua bentuk distributif di atas dapat digunakan dua arah: untuk mengembangkan ekspresi maupun untuk melakukan faktorisasi.
+
+\subsection{Hukum De Morgan}
+
+Hukum De Morgan menjelaskan bagaimana negasi bekerja pada ekspresi majemuk yang mengandung operator AND atau OR \cite{wiki_proplogic}.
+
+\begin{teorema}[Hukum De Morgan]
+Negasi yang masuk ke dalam kurung mengubah setiap komponen menjadi negasinya dan menukar operator utama: AND menjadi OR, serta OR menjadi AND.
+\end{teorema}
+
+\begin{align*}
+    \neg(p \wedge q) &\equiv \neg p \vee \neg q \\
+    \neg(p \vee q) &\equiv \neg p \wedge \neg q
+\end{align*}
+
+Penguasaan hukum distributif dan De Morgan sangat penting untuk penyederhanaan ekspresi logika, baik pada analisis matematis maupun perancangan sirkuit digital.

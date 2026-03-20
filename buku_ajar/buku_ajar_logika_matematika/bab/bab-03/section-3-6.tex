@@ -1,0 +1,39 @@
+\section{Hirarki Prioritas Operator Logika dan Ekuivalensi}
+
+Ekspresi logika sering ditulis tanpa kurung eksplisit, misalnya $p \lor \neg q \land r \rightarrow s$. Agar interpretasinya tunggal, digunakan aturan \textbf{precedence} (prioritas) operator \cite{rosen2019}. Prinsipnya analog dengan aturan operasi aritmetika (misalnya perkalian lebih dahulu daripada penjumlahan), namun untuk operator logika.
+
+\subsection{Urutan prioritas operator}
+
+Berikut urutan prioritas dari \textbf{tertinggi} ke \textbf{terendah} yang umum dipakai:
+
+\begin{center}
+	\small
+	\begin{tabular}{|p{2.2cm}|p{1.4cm}|p{7.6cm}|}
+		\hline
+		\textbf{Prioritas} & \textbf{Simbol} & \textbf{Keterangan} \\
+		\hline
+		1 (tertinggi) & $\neg$ & Negasi (operator uner) \\ \hline
+		2 & $\wedge$ & Konjungsi \\ \hline
+		3 & $\vee$ & Disjungsi \\ \hline
+		4 & $\rightarrow$ & Implikasi \\ \hline
+		5 (terendah) & $\leftrightarrow$ & Biimplikasi \\ \hline
+	\end{tabular}
+	\captionof{table}{Hirarki prioritas operator logika (\textit{logic precedence})}
+\end{center}
+
+\textbf{Catatan asosiativitas:} Untuk rangkaian operator sejenis tanpa kurung, konjungsi $\wedge$ dan disjungsi $\vee$ umumnya dikelompokkan ke kiri: $p \wedge q \wedge r$ berarti $(p \wedge q) \wedge r$. Untuk implikasi $\rightarrow$ dan biimplikasi $\leftrightarrow$, perhatikan konvensi yang dipakai; banyak teks mendefinisikan asosiativitas kanan untuk implikasi berantai: $p \rightarrow q \rightarrow r$ berarti $p \rightarrow (q \rightarrow r)$. Dalam praktik penyusunan spesifikasi, disarankan menggunakan \textbf{kurung eksplisit} untuk menghindari ambiguitas.
+
+\subsection{Contoh penguraian ekspresi}
+
+\textbf{Contoh:} Tentukan pengelompokan ekspresi $\neg p \vee q \wedge r \rightarrow s \leftrightarrow t$ menurut prioritas di atas.
+
+\textbf{Langkah:}
+\begin{enumerate}
+    \item Terapkan negasi pada $p$: diperoleh $(\neg p)$.
+    \item Evaluasi konjungsi antara $q$ dan $r$: diperoleh $(q \wedge r)$.
+    \item Evaluasi disjungsi: $(\neg p) \vee (q \wedge r)$.
+    \item Evaluasi implikasi dengan konsekuen $s$: $\big((\neg p) \vee (q \wedge r)\big) \rightarrow s$.
+    \item Evaluasi biimplikasi dengan $t$: $\Big(\big((\neg p) \vee (q \wedge r)\big) \rightarrow s\Big) \leftrightarrow t$.
+\end{enumerate}
+
+Dengan mengikuti hirarki ini, analisis sintaks (misalnya pada \textit{parser} atau penyusunan spesifikasi formal) menjadi konsisten dan dapat diprediksi \cite{wiki_first_order_logic}.

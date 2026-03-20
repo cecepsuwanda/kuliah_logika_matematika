@@ -1,0 +1,54 @@
+\section{Transformasi Ekuivalensi Bersyarat (Implikasi \& Biimplikasi)}
+
+Ekspresi logika sering menggunakan operator implikasi ($\rightarrow$) dan biimplikasi ($\leftrightarrow$). Untuk menyederhanakannya, kedua bentuk tersebut dapat ditransformasikan ke operator dasar AND, OR, dan NOT \cite{rosen2019}.
+
+\subsection{Transformasi Implikasi}
+
+Implikasi $(p \rightarrow q)$ merepresentasikan pernyataan ``Jika $p$, maka $q$''. Bentuk ini mempunyai ekuivalensi standar berikut:
+
+\begin{teorema}[Ekuivalensi Implikasi]
+Struktur $(p \rightarrow q)$ ekuivalen dengan bentuk disjungsi $(\neg p \vee q)$.
+\end{teorema}
+
+Bentuk yang sama juga dapat dituliskan sebagai:
+\[
+p \rightarrow q \equiv \neg (p \wedge \neg q)
+\]
+
+\textbf{Contoh singkat:} \\
+``Jika Anda menyumbang darah ($p$), maka saya memberi apresiasi ($q$).'' \\
+Secara logika, pernyataan tersebut ekuivalen dengan ``Anda tidak menyumbang darah ($\neg p$), atau saya memberi apresiasi ($q$)'', yaitu $\neg p \vee q$.
+
+\subsection{Transformasi Biimplikasi}
+
+Biimplikasi menyatakan hubungan dua arah: ``jika dan hanya jika''.
+
+\begin{teorema}[Ekuivalensi Biimplikasi]
+Struktur $(p \leftrightarrow q)$ dapat diuraikan sebagai:
+\begin{align*}
+    p \leftrightarrow q &\equiv (p \rightarrow q) \wedge (q \rightarrow p) \\
+    \text{dengan substitusi implikasi: } & \\
+    p \leftrightarrow q &\equiv (\neg p \vee q) \wedge (\neg q \vee p)
+\end{align*}
+\end{teorema}
+Bentuk ekuivalen lain yang lazim digunakan adalah:
+\[
+p \leftrightarrow q \equiv (p \wedge q) \vee (\neg p \wedge \neg q)
+\]
+
+\subsection{Pola Penyederhanaan Campuran}
+
+Dalam praktik, terdapat bentuk campuran yang sering muncul dan dapat disederhanakan secara cepat:
+
+\begin{align*}
+    p \vee (\neg p \wedge q) &\equiv (p \vee q) \\
+    p \wedge (\neg p \vee q) &\equiv (p \wedge q)
+\end{align*}
+
+Pembuktian untuk bentuk pertama:
+\begin{enumerate}
+    \item Terapkan distributif: $\equiv (p \vee \neg p) \wedge (p \vee q)$
+    \item Terapkan hukum negasi: $\equiv \mathbf{T} \wedge (p \vee q)$
+    \item Terapkan identitas: $\therefore \equiv (p \vee q)$
+\end{enumerate}
+Pola-pola ini bermanfaat untuk mempercepat penyederhanaan ekspresi pada analisis logika maupun refactoring kode.

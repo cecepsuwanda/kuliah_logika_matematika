@@ -1,0 +1,75 @@
+\section{Kode Gray dan Prinsip Kedekatan}
+
+\subsection{Pengertian Kode Gray}
+
+\begin{definisi}[Kode Gray]
+\logic{Kode Gray} (atau \textit{Reflected Binary Code}) adalah sistem pengkodean biner di mana dua bilangan berurutan hanya berbeda pada tepat satu digit (satu bit). Properti ini disebut \logic{jarak Hamming satu} (\textit{Hamming distance one}), dan merupakan fitur kunci yang digunakan dalam penataan baris dan kolom Peta Karnaugh \cite{wiki_gray_code}.
+\end{definisi}
+
+Dalam sistem biner standar, transisi antara bilangan berurutan dapat melibatkan perubahan pada beberapa bit secara bersamaan. Sebagai contoh, transisi dari $3_{10} = 011_2$ ke $4_{10} = 100_2$ memerlukan perubahan pada ketiga bit secara simultan. Dalam konteks rangkaian digital, perubahan multibiter semacam ini dapat menimbulkan kondisi transien (\textit{glitch}) karena tidak semua bit berubah pada saat yang bersamaan persis. Kode Gray mengeliminasi masalah ini dengan memastikan hanya satu bit yang berubah pada setiap transisi.
+
+\subsection{Konstruksi Kode Gray}
+
+Kode Gray dapat dikonstruksi secara rekursif menggunakan teknik refleksi (\textit{reflection}). Proses konstruksi untuk $n$ bit adalah sebagai berikut:
+
+\begin{enumerate}
+  \item Mulai dengan kode Gray 1-bit: $\{0, 1\}$.
+  \item Untuk menambah satu bit, \textit{refleksikan} (cerminkan) urutan yang ada.
+  \item Tambahkan prefiks $0$ pada urutan asli dan prefiks $1$ pada urutan yang direfleksikan.
+  \item Gabungkan kedua urutan tersebut.
+\end{enumerate}
+
+\begin{contoh}
+\textbf{Konstruksi Kode Gray 3-bit secara Rekursif}
+
+\textbf{Langkah 1 --- Kode Gray 1-bit:} $0, 1$
+
+\textbf{Langkah 2 --- Kode Gray 2-bit:}
+\begin{itemize}
+  \item Urutan asli: $0, 1$ $\rightarrow$ tambah prefiks $0$: $00, 01$
+  \item Refleksi: $1, 0$ $\rightarrow$ tambah prefiks $1$: $11, 10$
+  \item Hasil: $00, 01, 11, 10$
+\end{itemize}
+
+\textbf{Langkah 3 --- Kode Gray 3-bit:}
+\begin{itemize}
+  \item Urutan asli: $00, 01, 11, 10$ $\rightarrow$ tambah prefiks $0$: $000, 001, 011, 010$
+  \item Refleksi: $10, 11, 01, 00$ $\rightarrow$ tambah prefiks $1$: $110, 111, 101, 100$
+  \item Hasil: $000, 001, 011, 010, 110, 111, 101, 100$
+\end{itemize}
+\end{contoh}
+
+\subsection{Perbandingan Biner Standar dan Kode Gray}
+
+Tabel~\ref{tab:biner-vs-gray} menyajikan perbandingan antara representasi biner standar dan Kode Gray untuk bilangan 0 sampai 7 (3-bit). Kolom ``Bit yang berubah'' menunjukkan posisi bit yang berbeda dibandingkan baris sebelumnya.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Desimal} & \textbf{Biner Standar} & \textbf{Kode Gray} & \textbf{Bit yang Berubah} \\ \hline
+0 & 000 & 000 & --- \\ \hline
+1 & 001 & 001 & bit ke-3 \\ \hline
+2 & 010 & 011 & bit ke-2 \\ \hline
+3 & 011 & 010 & bit ke-3 \\ \hline
+4 & 100 & 110 & bit ke-1 \\ \hline
+5 & 101 & 111 & bit ke-3 \\ \hline
+6 & 110 & 101 & bit ke-2 \\ \hline
+7 & 111 & 100 & bit ke-3 \\ \hline
+\end{tabular}
+\caption{Perbandingan Representasi Biner Standar dan Kode Gray (3-bit)}
+\label{tab:biner-vs-gray}
+\end{table}
+
+Dapat diamati bahwa pada kolom Kode Gray, setiap baris hanya berbeda satu bit dari baris sebelumnya. Properti ini juga berlaku secara \textit{siklis} (circular): baris terakhir ($100$) dan baris pertama ($000$) juga hanya berbeda satu bit. Sifat siklis ini penting untuk properti \textit{wrap-around} pada Peta Karnaugh.
+
+\subsection{Peran Kode Gray dalam Peta Karnaugh}
+
+Kode Gray digunakan untuk memberi label pada baris dan kolom Peta Karnaugh sehingga setiap pasangan sel yang bersebelahan secara fisik pada peta juga bersebelahan secara logis, yaitu hanya berbeda pada satu variabel. Pengaturan ini memungkinkan pengelompokan sel yang bersebelahan secara langsung berkorespondensi dengan penyederhanaan aljabar Boolean --- dua sel bersebelahan yang sama-sama bernilai 1 menandakan bahwa variabel pembedanya bersifat redundan \cite{wiki_karnaugh}.
+
+\begin{catatan}
+Pada K-Map, urutan label kolom bukan $00, 01, 10, 11$ (biner standar), melainkan $00, 01, 11, 10$ (Kode Gray). Kesalahan dalam urutan label merupakan kesalahan paling umum yang dilakukan oleh mahasiswa yang pertama kali mempelajari K-Map, dan dapat menghasilkan penyederhanaan yang salah.
+\end{catatan}
+
+Properti ``wrap-around'' menyatakan bahwa sel-sel pada tepi paling kiri secara logis bersebelahan dengan sel-sel pada tepi paling kanan, dan demikian pula sel-sel pada baris paling atas bersebelahan dengan sel-sel pada baris paling bawah. Hal ini merupakan konsekuensi langsung dari sifat siklis Kode Gray: label pada tepi kanan dan tepi kiri (serta atas dan bawah) hanya berbeda satu bit, sehingga keduanya mewakili minterm yang bersebelahan secara logis.

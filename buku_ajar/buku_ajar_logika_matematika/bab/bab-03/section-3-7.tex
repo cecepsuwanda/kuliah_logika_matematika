@@ -1,0 +1,38 @@
+\section{Studi Kasus: Translasi Bahasa Alami ke Logika Simbolik}
+
+Salah satu keterampilan penting dalam penerapan logika proposisional adalah menerjemahkan narasi bahasa alami ke bentuk simbolik yang tidak ambigu. Kemampuan ini menjadi dasar penyusunan aturan pada sistem berbasis pengetahuan dan pemrograman logika \cite{rosen2019}.
+
+\subsection{Konjungsi dalam bahasa alami}
+
+Konjungsi sering muncul tidak hanya dengan kata ``dan'', tetapi juga melalui kata penghubung atau struktur yang menyatakan dua klaim harus dipenuhi bersamaan.
+
+\textbf{Contoh:} \\
+\textit{``Ibu memerintahkan adik menanak nasi, tetapi adik memilih menumis ayam.''} \\
+Kata ``tetapi'' di sini tetap mengindikasikan dua peristiwa yang ditetapkan sekaligus; secara logika dapat dimodelkan sebagai konjungsi. Misalnya, jika \\
+$P$: ``Adik menanak nasi sesuai perintah'', dan \\
+$T$: ``Adik menumis ayam'', \\
+maka narasi tersebut dapat direpresentasikan sebagai $P \wedge T$ (setelah definisi $P$ dan $T$ disepakati secara konsisten).
+
+\subsection{Implikasi dan frasa ``hanya jika''}
+
+Frasa seperti ``hanya jika'' atau ``hanya bila'' sering membingungkan karena menentukan anteseden dan konsekuen harus teliti.
+
+\textbf{Contoh:} \\
+\textit{``Anda dapat mengajukan klaim garansi resmi \textbf{hanya jika} kerusakan layar tidak menembus hingga sirkuit internal.''}
+
+Aturan praktis yang sering dipakai dalam terjemahan formal:
+\begin{itemize}
+    \item ``$A$ jika $B$'' biasanya diterjemahkan sebagai $B \rightarrow A$.
+    \item ``$A$ hanya jika $B$'' biasanya diterjemahkan sebagai $A \rightarrow B$.
+\end{itemize}
+
+Misalkan \\
+$K$: ``Anda dapat mengajukan klaim garansi resmi'', dan \\
+$R$: ``Kerusakan layar menembus hingga sirkuit internal''.\\
+Maka ``dapat klaim hanya jika tidak menembus sirkuit'' dapat dimodelkan sebagai
+\[
+K \rightarrow \neg R
+\]
+(klaim hanya diperbolehkan ketika $\neg R$ benar, sesuai interpretasi kalimat tersebut) \cite{wiki_first_order_logic}.
+
+Penulisan simbol harus mengikuti definisi proposisi yang disepakati; jika definisi $K$ dan $R$ diubah, bentuk implikasinya harus disesuaikan kembali agar setara secara makna.
