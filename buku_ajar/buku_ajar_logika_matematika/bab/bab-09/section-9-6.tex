@@ -65,7 +65,7 @@ Terdapat hubungan komplementer antara minterm dan maxterm: $m_j = (M_j)'$ dan $M
 Bentuk kanonik \logic{Sum of Products} adalah representasi fungsi Boolean sebagai penjumlahan (OR) dari minterm-minterm yang berkorespondensi dengan kombinasi input di mana fungsi bernilai 1. Bentuk ini dinotasikan menggunakan simbol sigma: $F(x, y, z) = \sum m(j_1, j_2, \ldots)$, di mana $j_1, j_2, \ldots$ adalah indeks desimal dari minterm-minterm yang membentuk fungsi \cite{geeksforgeeks_sop_pos}.
 \end{definisi}
 
-Proses pembentukan bentuk kanonik SOP dari tabel kebenaran bersifat langsung: identifikasi semua baris pada tabel kebenaran yang menghasilkan output 1, tuliskan minterm untuk setiap baris tersebut, kemudian jumlahkan (OR-kan) semua minterm yang diperoleh.
+Proses pembentukan bentuk kanonik SOP dari tabel kebenaran bersifat langsung: identifikasi semua baris pada tabel kebenaran yang menghasilkan output 1, tuliskan minterm untuk setiap baris tersebut, kemudian jumlahkan (operasi OR) semua minterm yang diperoleh.
 
 \begin{contoh}
 \textbf{Pembentukan SOP dari Tabel Kebenaran}
@@ -97,7 +97,7 @@ Fungsi bernilai 1 pada baris $m_1$, $m_4$, dan $m_7$, sehingga:
 Bentuk kanonik \logic{Product of Sums} adalah representasi fungsi Boolean sebagai perkalian (AND) dari maxterm-maxterm yang berkorespondensi dengan kombinasi input di mana fungsi bernilai 0. Bentuk ini dinotasikan menggunakan simbol pi: $F(x, y, z) = \prod M(j_1, j_2, \ldots)$ \cite{geeksforgeeks_sop_pos}.
 \end{definisi}
 
-Pembentukan bentuk kanonik POS dilakukan dengan mengidentifikasi semua baris pada tabel kebenaran yang menghasilkan output 0, menuliskan maxterm untuk setiap baris tersebut, kemudian mengalikan (AND-kan) semua maxterm yang diperoleh.
+Pembentukan bentuk kanonik POS dilakukan dengan mengidentifikasi semua baris pada tabel kebenaran yang menghasilkan output 0, menuliskan maxterm untuk setiap baris tersebut, kemudian mengalikan (operasi AND) semua maxterm yang diperoleh.
 
 \begin{contoh}
 \textbf{Pembentukan POS dari Tabel Kebenaran yang Sama}

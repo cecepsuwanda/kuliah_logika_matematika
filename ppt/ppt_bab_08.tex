@@ -1,0 +1,338 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Pemodelan Komputasi]{Pemodelan Masalah Komputasi Berbasis Logika Predikat}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 8-1: Basis Pengetahuan
+% ============================================================
+\section{Basis Pengetahuan}
+
+\begin{frame}
+\frametitle{Basis Pengetahuan (Knowledge Base)}
+\begin{definisi}[Basis Pengetahuan]
+\logic{Basis Pengetahuan} (KB) adalah himpunan kalimat logis (FOL) yang merepresentasikan pengetahuan tentang domain. Setiap kalimat berupa fakta atom (ground) atau aturan berkuantor (implikasi universal).
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Komponen KB}
+\begin{enumerate}
+  \item \textbf{Himpunan Fakta ($\Delta$)}: Pernyataan atomik spesifik.
+  \item \textbf{Himpunan Aturan ($\Gamma$)}: Implikasi berkuantor universal.
+\end{enumerate}
+\begin{block}{Contoh}
+$\Delta$: $Manusia(Marcus)$, $OrangTua(Hasan, Ahmad)$\\
+$\Gamma$: $\forall x\, (Manusia(x) \rightarrow Mortal(x))$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Komponen Pemodelan}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Komponen} & \textbf{FOL} & \textbf{Contoh} \\ \hline
+Entitas & Konstanta & $Marcus$, $Hasan$ \\ \hline
+Properti & Predikat Arity-1 & $Manusia(x)$, $Laki(x)$ \\ \hline
+Relasi & Predikat Arity $\geq 2$ & $OrangTua(x,y)$ \\ \hline
+Aturan & $\forall$ implikasi & $\forall x\, (P(x) \rightarrow Q(x))$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Translasi}
+``Marcus manusia'', ``Marcus penduduk Pompeii'', ``Semua penduduk Pompeii tewas 79''.\\
+\textbf{Formal:}
+\begin{itemize}
+  \item $Manusia(Marcus)$, $Penduduk(Marcus, Pompeii)$
+  \item $\forall x\, (Penduduk(x, Pompeii) \rightarrow Tewas(x, LetusanGunung, 79))$
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 8-2: Fakta, Predikat, Arity
+% ============================================================
+\section{Fakta dan Predikat}
+
+\begin{frame}
+\frametitle{Predikat Arity-1, 2, $n$}
+\begin{block}{Arity-1 (Properti)}
+$Manusia(x)$, $Laki(x)$, $Prima(n)$, $Login(u)$
+\end{block}
+\begin{block}{Arity-2 (Relasi Biner)}
+$OrangTua(x,y)$, $Suka(x,y)$, $Teman(x,y)$. Urutan argumen penting!
+\end{block}
+\begin{block}{Arity-$n$}
+$Tewas(x, penyebab, tahun)$; $Nilai(mhs, mk, semester, skor)$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fakta Ground vs Aturan}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspek} & \textbf{Fakta} & \textbf{Aturan} \\ \hline
+Variabel & Tidak ada & Variabel terikat \\ \hline
+Kuantor & Tidak perlu & $\forall$ \\ \hline
+Contoh & $Laki(Hasan)$ & $\forall x\,(Laki(x) \rightarrow \neg Perempuan(x))$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Pemodelan Hobi}
+\textbf{Fakta:} $Suka(Ali, Mat)$, $Suka(Budi, Info)$, $Suka(Ali, Info)$\\
+\textbf{Aturan:} $\forall x,y,z\, (Suka(x,z) \wedge Suka(y,z) \wedge x \neq y \rightarrow Rekan(x,y))$\\
+\textbf{Kesimpulan:} $Rekan(Ali, Budi)$ (sama-sama suka Informatika)
+\end{frame}
+
+% ============================================================
+% SECTION 8-3: Aturan Inferensi Kuantor
+% ============================================================
+\section{Aturan Inferensi Kuantor}
+
+\begin{frame}
+\frametitle{Universal Instantiation (UI)}
+$\forall x\, P(x) \Rightarrow P(c)$ untuk setiap $c \in \mathcal{U}$
+\begin{contoh}
+$\forall x\, (Manusia(x) \rightarrow Mortal(x))$, $Manusia(Socrates)$\\
+UI: $Manusia(Socrates) \rightarrow Mortal(Socrates)$\\
+Modus Ponens: $Mortal(Socrates)$
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{UG, EI, EG}
+\begin{block}{Universal Generalization (UG)}
+$P(c)$ untuk $c$ sembarang $\Rightarrow$ $\forall x\, P(x)$
+\end{block}
+\begin{block}{Existential Instantiation (EI)}
+$\exists x\, P(x) \Rightarrow P(c)$ untuk konstanta baru $c$ (witness)
+\end{block}
+\begin{block}{Existential Generalization (EG)}
+$P(c) \Rightarrow \exists x\, P(x)$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ringkasan Empat Aturan}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aturan} & \textbf{Arah} & \textbf{Syarat} \\ \hline
+UI & $\forall \Rightarrow P(c)$ & $c$ sembarang \\ \hline
+UG & $P(c) \Rightarrow \forall$ & $c$ sembarang (tanpa asumsi) \\ \hline
+EI & $\exists \Rightarrow P(c)$ & $c$ konstanta baru \\ \hline
+EG & $P(c) \Rightarrow \exists$ & $c$ memenuhi $P$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% SECTION 8-4: Resolusi Query
+% ============================================================
+\section{Resolusi Query}
+
+\begin{frame}
+\frametitle{Proses Resolusi Query}
+\begin{enumerate}
+  \item Terima query (mis. $Kakek(Hasan, Ali)$?)
+  \item Cek apakah query ada di $\Delta$
+  \item Cari aturan dengan konsekuen cocok
+  \item Instansiasi aturan (UI)
+  \item Evaluasi anteseden (rekursif jika perlu)
+  \item Modus Ponens $\Rightarrow$ simpulkan
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Forward vs Backward Chaining}
+\begin{block}{Forward Chaining (Data-driven)}
+Mulai dari fakta $\Delta$, terapkan aturan, turunkan fakta baru hingga query terjawab.
+\end{block}
+\begin{block}{Backward Chaining (Goal-driven)}
+Mulai dari query, cari aturan dengan konsekuen cocok, buktikan anteseden secara rekursif.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Marcus Legenda}
+$\Delta$: $Manusia(Marcus)$, $Penduduk(Marcus, Pompeii)$\\
+$\Gamma$: $\forall x\,(Manusia \rightarrow Mortal)$, $\forall x\,(Penduduk(x,Pompeii) \rightarrow Tewas(...))$, $\forall x\,(Mortal \wedge Tewas \rightarrow Legenda)$\\
+\textbf{Forward:} UI $\Rightarrow$ $Mortal(Marcus)$, $Tewas(...)$, $Legenda(Marcus)$ $\checkmark$
+\end{frame}
+
+% ============================================================
+% SECTION 8-5: Silsilah Keluarga
+% ============================================================
+\section{Studi Kasus: Silsilah}
+
+\begin{frame}
+\frametitle{Pemodelan Silsilah}
+\textbf{Fakta:} $OrangTua(x,y)$, $Laki(x)$, $Perempuan(x)$\\
+\textbf{Aturan:}
+\begin{itemize}
+  \item $Ayah(x,y)$ jika $OrangTua(x,y) \wedge Laki(x)$
+  \item $Kakek(x,z)$ jika $Ayah(x,y) \wedge OrangTua(y,z)$
+  \item $Saudara(x,y)$ jika $\exists z\, (OrangTua(z,x) \wedge OrangTua(z,y) \wedge x \neq y)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Query: Kakek dari Ali?}
+\textbf{Backward chaining} dari $R_3$: $Kakek(x,z)$ jika $Ayah(x,y) \wedge OrangTua(y,z)$.\\
+$z=Ali$ $\Rightarrow$ $OrangTua(Ahmad, Ali)$ dari $\Delta$.\\
+Cari $Ayah(x, Ahmad)$: $OrangTua(Hasan, Ahmad) \wedge Laki(Hasan)$ $\Rightarrow$ $Ayah(Hasan, Ahmad)$.\\
+$\Rightarrow$ $Kakek(Hasan, Ali)$ \textbf{Benar}.
+\end{frame}
+
+% ============================================================
+% SECTION 8-6: E-Commerce
+% ============================================================
+\section{Studi Kasus: E-Commerce}
+
+\begin{frame}
+\frametitle{Aturan Bisnis E-Commerce}
+\begin{itemize}
+  \item Login $\wedge$ Terverifikasi $\rightarrow$ BolehSimpan
+  \item BolehSimpan $\wedge$ Simpan(item) $\wedge$ Saldo $\geq$ Harga $\rightarrow$ BolehCheckout
+  \item BolehCheckout $\wedge$ Premium $\rightarrow$ Diskon 10\%
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inferensi: UserA Diskon?}
+$\Delta$: $Login(UserA)$, $Terverifikasi$, $Premium$, $Saldo(500k)$, $HargaItem(Laptop, 450k)$, $Simpan(Laptop)$\\
+$R_1$ $\Rightarrow$ $BolehSimpan(UserA)$\\
+$R_2$ (500k $\geq$ 450k) $\Rightarrow$ $BolehCheckout(UserA, Laptop)$\\
+$R_3$ $\Rightarrow$ $Diskon(UserA, Laptop, 10\%)$ \textbf{Benar}
+\end{frame}
+
+% ============================================================
+% SECTION 8-7: CWA, OWA, Batasan
+% ============================================================
+\section{CWA, OWA, dan Batasan}
+
+\begin{frame}
+\frametitle{CWA vs OWA}
+\begin{definisi}[CWA]
+Fakta yang \textbf{tidak} ada di KB dianggap \textbf{salah}. KB dianggap lengkap.
+\end{definisi}
+\begin{definisi}[OWA]
+Ketiadaan fakta \textbf{tidak} berarti salah; status \textbf{tidak diketahui}. KB mungkin tidak lengkap.
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Perbandingan CWA dan OWA}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspek} & \textbf{CWA} & \textbf{OWA} \\ \hline
+Fakta tidak ada & Dianggap salah & Tidak diketahui \\ \hline
+Contoh & SQL, basis data & Web Semantik, OWL \\ \hline
+\end{tabular}
+\end{center}
+\begin{block}{Contoh}
+Query $Laki(Budi)$? CWA: Salah. OWA: Tidak diketahui.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Batasan FOL}
+\begin{itemize}
+  \item \textbf{Ketidakpastian}: Tidak menangani probabilitas (perlu fuzzy, Bayesian)
+  \item \textbf{Perubahan}: Bersifat monoton; tidak ada \textit{defeasible reasoning}
+  \item \textbf{Kompleksitas}: Semi-decidable; waktu komputasi signifikan
+  \item \textbf{Temporal}: Tidak ada mekanisme bawaan untuk waktu
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item KB = Fakta ($\Delta$) + Aturan ($\Gamma$)
+  \item Arity predikat: 1 = properti, 2+ = relasi
+  \item UI, UG, EI, EG: instansiasi dan generalisasi kuantor
+  \item Forward chaining (data-driven) vs Backward chaining (goal-driven)
+  \item CWA: tidak ada = salah; OWA: tidak ada = tidak diketahui
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+basis pengetahuan $\bullet$ fakta $\bullet$ aturan $\bullet$ predikat $\bullet$ arity\\
+UI $\bullet$ UG $\bullet$ EI $\bullet$ EG $\bullet$ forward chaining $\bullet$ backward chaining\\
+CWA $\bullet$ OWA
+\end{center}
+\end{frame}
+
+\end{document}

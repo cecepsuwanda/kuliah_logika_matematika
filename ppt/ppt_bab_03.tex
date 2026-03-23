@@ -1,0 +1,377 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Proposisi dan Kata Hubung Logika]{Konsep Dasar Proposisi dan Kata Hubung Logika}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}{Daftar Isi}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 3-1: Pengantar Proposisi
+% ============================================================
+\section{Pengantar Proposisi dan Kalimat Deklaratif}
+
+\begin{frame}
+\frametitle{Dari Bahasa ke Logika}
+\begin{itemize}
+  \item Mesin hanya beroperasi pada nilai \textbf{benar (True)} dan \textbf{salah (False)}.
+  \item Bahasa alamiah perlu disaring menjadi unit pernyataan dengan nilai kebenaran tegas.
+  \item Unit elementer tersebut disebut \textbf{proposisi}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Definisi Proposisi}
+\begin{definisi}[Proposisi / Kalimat Tertutup]
+\textbf{Proposisi} adalah \textbf{kalimat deklaratif} yang \textbf{hanya memiliki satu nilai kebenaran}: benar (T) atau salah (F), dan tidak mungkin benar sekaligus salah pada konteks yang sama.\\
+Ketegasan ini sejalan dengan \textit{Law of Excluded Middle}.
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Proposisi}
+\begin{contoh}
+\begin{enumerate}
+  \item ``Menara Eiffel terletak di pusat ibu kota Jepang.'' $\rightarrow$ Proposisi (salah secara geografis).
+  \item ``Tiga ditambah dua sama dengan lima.'' $\rightarrow$ Proposisi benar.
+  \item ``Kucing bernapas menggunakan paru-paru.'' $\rightarrow$ Proposisi (divalidasi biologi).
+\end{enumerate}
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kategori Non-Proposisi}
+\begin{contoh}[Bukan Proposisi]
+\begin{itemize}
+  \item \textbf{Kalimat tanya:} ``Berapakah suhu di Mars?'' --- meminta informasi, bukan klaim.
+  \item \textbf{Kalimat perintah:} ``Simpan berkas tersebut.'' --- tidak memiliki nilai kebenaran.
+  \item \textbf{Kalimat seru:} ``Alangkah indahnya patung itu!'' --- ungkapan subjektif.
+\end{itemize}
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kalimat Terbuka}
+\begin{definisi}[Kalimat Terbuka]
+Kalimat yang \textbf{mengandung variabel bebas}, sehingga nilai kebenarannya belum dapat ditentukan hingga variabel disubstitusi.
+\end{definisi}
+\begin{contoh}
+\begin{itemize}
+  \item ``$x + 7 = 12$'' --- jika $x = 5$ benar; jika $x = 10$ salah.
+  \item ``Dia adalah mahasiswa teladan.'' --- kata ``dia'' belum merujuk individu tertentu.
+\end{itemize}
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 3-2: Epistemologi Nilai Kebenaran
+% ============================================================
+\section{Epistemologi Nilai Kebenaran}
+
+\begin{frame}
+\frametitle{Sumber Nilai Kebenaran}
+\begin{itemize}
+  \item Notasi: $\tau(p) = \mathbf{T}$ berarti ``proposisi $p$ bernilai benar''.
+  \item Dua jalur epistemologis:
+  \begin{itemize}
+    \item \textbf{Observasi empiris} --- pengamatan fakta di dunia nyata.
+    \item \textbf{Derivasi deduktif} --- dari definisi, aksioma, dan aturan inferensi.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dasar Empiris}
+\begin{contoh}
+$q$: ``Air pada tekanan atmosfer di Himalaya tidak mendidih pada $80^\circ$C.''\\
+Untuk menetapkan $\tau(q)$: pengamatan dan pengukuran (percobaan pemanasan air), bukan sekadar rumus tanpa konteks.
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dasar Derivasi (Rasionalisme Matematis)}
+\begin{contoh}
+$r$: ``Penyelesaian $3x - 1 = 5$ adalah $x = 2$.''\\
+Bukti deduktif: $3x - 1 = 5 \Rightarrow 3x = 6 \Rightarrow x = 2$.\\
+Tanpa observasi lapangan, kesimpulan diperoleh dari manipulasi aljabar.
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 3-3: Operator Fundamental
+% ============================================================
+\section{Operator Fundamental: Negasi, Konjungsi, Disjungsi}
+
+\begin{frame}
+\frametitle{Negasi ($\neg$)}
+\begin{definisi}[Negasi]
+Operator uner: $\neg p$ bernilai kebalikan dari $p$.\\
+Jika $p$ = T maka $\neg p$ = F; jika $p$ = F maka $\neg p$ = T.
+\end{definisi}
+\begin{block}{Tabel Kebenaran}
+\begin{tabular}{|c|c|}
+\hline
+$p$ & $\neg p$ \\ \hline
+T & F \\ \hline
+F & T \\ \hline
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Konjungsi ($\wedge$) --- AND}
+\begin{definisi}[Konjungsi]
+$p \wedge q$ bernilai benar \textbf{hanya jika} $p$ dan $q$ keduanya benar.
+\end{definisi}
+\begin{block}{Tabel Kebenaran}
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p \wedge q$ \\ \hline
+T & T & T \\ \hline
+T & F & F \\ \hline
+F & T & F \\ \hline
+F & F & F \\ \hline
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Disjungsi ($\vee$) --- OR}
+\begin{definisi}[Disjungsi Inklusif]
+$p \vee q$ bernilai benar jika \textbf{minimal salah satu} $p$ atau $q$ benar.\\
+Bernilai salah hanya jika keduanya salah.
+\end{definisi}
+\begin{block}{Tabel Kebenaran}
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p \vee q$ \\ \hline
+T & T & T \\ \hline
+T & F & T \\ \hline
+F & T & T \\ \hline
+F & F & F \\ \hline
+\end{tabular}
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 3-4: Implikasi dan Biimplikasi
+% ============================================================
+\section{Implikasi dan Biimplikasi}
+
+\begin{frame}
+\frametitle{Implikasi ($\rightarrow$) --- Jika ... Maka ...}
+\begin{itemize}
+  \item $p \rightarrow q$: $p$ = anteseden (hipotesis), $q$ = konsekuen.
+  \item Berpadanan dengan \texttt{IF ... THEN ...} dalam pemrograman.
+\end{itemize}
+\begin{definisi}
+$p \rightarrow q$ bernilai salah \textbf{hanya} ketika $p$ = T dan $q$ = F.\\
+Untuk kasus lain (termasuk $p$ = F), bernilai benar.
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Vacuous Truth}
+\begin{block}{Kasus Implikasi}
+\begin{itemize}
+  \item \textbf{$T \rightarrow T$:} Janji dipenuhi $\Rightarrow$ benar.
+  \item \textbf{$T \rightarrow F$:} Janji dilanggar $\Rightarrow$ salah.
+  \item \textbf{$F \rightarrow T$, $F \rightarrow F$:} Anteseden tidak terpenuhi $\Rightarrow$ \textit{vacuous truth} (benar).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Biimplikasi ($\leftrightarrow$) --- Jika dan Hanya Jika}
+\begin{definisi}[Biimplikasi]
+$p \leftrightarrow q$ bernilai benar jika $p$ dan $q$ sama nilainya (keduanya T atau keduanya F). Bernilai salah jika berbeda.
+\end{definisi}
+\begin{block}{Tabel Kebenaran}
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p \leftrightarrow q$ \\ \hline
+T & T & T \\ \hline
+T & F & F \\ \hline
+F & T & F \\ \hline
+F & F & T \\ \hline
+\end{tabular}
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 3-5: Varian Implikasi dan Negasi Majemuk
+% ============================================================
+\section{Varian Implikasi dan Negasi Majemuk}
+
+\begin{frame}
+\frametitle{Konvers, Invers, Kontraposisi}
+\begin{block}{Dari $p \rightarrow q$:}
+\begin{itemize}
+  \item \textbf{Konvers:} $q \rightarrow p$ --- \textbf{tidak ekuivalen}
+  \item \textbf{Invers:} $\neg p \rightarrow \neg q$ --- \textbf{tidak ekuivalen}
+  \item \textbf{Kontraposisi:} $\neg q \rightarrow \neg p$ --- \textbf{ekuivalen} dengan implikasi asli
+\end{itemize}
+\end{block}
+\[
+p \rightarrow q \equiv \neg q \rightarrow \neg p
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Hukum De Morgan}
+\begin{block}{Negasi Konjungsi dan Disjungsi}
+\begin{align*}
+\neg(p \wedge q) &\equiv \neg p \vee \neg q \\
+\neg(p \vee q) &\equiv \neg p \wedge \neg q
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Negasi Implikasi}
+\begin{block}{Ekuivalensi}
+\begin{align*}
+p \rightarrow q &\equiv \neg p \vee q \\
+\neg(p \rightarrow q) &\equiv p \wedge \neg q
+\end{align*}
+\end{block}
+Negasi implikasi = anteseden benar DAN konsekuen salah.
+\end{frame}
+
+% ============================================================
+% SECTION 3-6: Hirarki Prioritas Operator
+% ============================================================
+\section{Hirarki Prioritas Operator}
+
+\begin{frame}
+\frametitle{Urutan Prioritas (Tertinggi ke Terendah)}
+\begin{table}
+\small
+\begin{tabular}{|c|l|l|}
+\hline
+\textbf{Prioritas} & \textbf{Simbol} & \textbf{Nama} \\ \hline
+1 (tertinggi) & $\neg$ & Negasi \\ \hline
+2 & $\wedge$ & Konjungsi \\ \hline
+3 & $\vee$ & Disjungsi \\ \hline
+4 & $\rightarrow$ & Implikasi \\ \hline
+5 (terendah) & $\leftrightarrow$ & Biimplikasi \\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Penguraian Ekspresi}
+\begin{block}{Ekspresi: $\neg p \vee q \wedge r \rightarrow s \leftrightarrow t$}
+\begin{enumerate}
+  \item Negasi: $(\neg p)$
+  \item Konjungsi: $(q \wedge r)$
+  \item Disjungsi: $(\neg p) \vee (q \wedge r)$
+  \item Implikasi: $\big((\neg p) \vee (q \wedge r)\big) \rightarrow s$
+  \item Biimplikasi: $\Big(\big((\neg p) \vee (q \wedge r)\big) \rightarrow s\Big) \leftrightarrow t$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 3-7: Translasi Bahasa Alami
+% ============================================================
+\section{Translasi Bahasa Alami ke Logika Simbolik}
+
+\begin{frame}
+\frametitle{Konjungsi dalam Bahasa Alami}
+\begin{contoh}
+``Ibu memerintahkan adik menanak nasi, \textbf{tetapi} adik memilih menumis ayam.''\\
+Kata ``tetapi'' mengindikasikan dua peristiwa sekaligus $\Rightarrow$ konjungsi.\\
+$P \wedge T$ (dengan $P$ dan $T$ didefinisikan konsisten).
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{``Jika'' dan ``Hanya Jika''}
+\begin{block}{Aturan Praktis}
+\begin{itemize}
+  \item ``$A$ jika $B$'' $\Rightarrow$ $B \rightarrow A$
+  \item ``$A$ hanya jika $B$'' $\Rightarrow$ $A \rightarrow B$
+\end{itemize}
+\end{block}
+\begin{contoh}
+``Anda dapat klaim garansi \textbf{hanya jika} kerusakan tidak menembus sirkuit.''\\
+$K \rightarrow \neg R$
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Proposisi: kalimat deklaratif dengan satu nilai kebenaran (T atau F).
+  \item Kalimat terbuka mengandung variabel; non-proposisi: tanya, perintah, seru.
+  \item Epistemologi: empiris vs derivasi deduktif.
+  \item Operator: $\neg$, $\wedge$, $\vee$, $\rightarrow$, $\leftrightarrow$.
+  \item Kontraposisi ekuivalen dengan implikasi asli; Konvers dan Invers tidak.
+  \item Hukum De Morgan dan $\neg(p \rightarrow q) \equiv p \wedge \neg q$.
+  \item Hirarki: $\neg$ $>$ $\wedge$ $>$ $\vee$ $>$ $\rightarrow$ $>$ $\leftrightarrow$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+Proposisi $\bullet$ Kalimat Terbuka $\bullet$ Operator Logika $\bullet$ Implikasi $\bullet$ Biimplikasi\\
+Kontraposisi $\bullet$ Hukum De Morgan $\bullet$ Hirarki Operator $\bullet$ Translasi Simbolik
+\end{center}
+\end{frame}
+
+\end{document}

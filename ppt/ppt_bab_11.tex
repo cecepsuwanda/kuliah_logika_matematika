@@ -1,0 +1,264 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Rangkaian Gerbang]{Representasi Fungsi Logika ke Rangkaian Gerbang}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 11-1: Gerbang Dasar
+% ============================================================
+\section{Gerbang Logika Dasar}
+
+\begin{frame}
+\frametitle{AND, OR, NOT}
+\begin{definisi}[AND]
+Output 1 \textbf{jika dan hanya jika} semua input 1. $F = A \cdot B$
+\end{definisi}
+\begin{definisi}[OR]
+Output 1 jika \textbf{minimal satu} input 1. $F = A + B$
+\end{definisi}
+\begin{definisi}[NOT]
+Output = komplemen input. $F = A'$
+\end{definisi}
+Himpunan $\{$AND, OR, NOT$\}$ \textbf{functionally complete}.
+\end{frame}
+
+% ============================================================
+% SECTION 11-2: Gerbang Turunan
+% ============================================================
+\section{Gerbang Turunan}
+
+\begin{frame}
+\frametitle{NAND, NOR, XOR, XNOR}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Gerbang} & \textbf{Ekspresi} & \textbf{Fungsi} \\ \hline
+NAND & $(AB)' = A'+B'$ & Output 0 hanya jika semua input 1 \\ \hline
+NOR & $(A+B)' = A'B'$ & Output 1 hanya jika semua input 0 \\ \hline
+XOR & $A \oplus B = A'B+AB'$ & Output 1 jika input berbeda \\ \hline
+XNOR & $A \odot B = AB+A'B'$ & Output 1 jika input sama \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tabel Kebenaran 2-Input}
+\begin{center}
+\small
+\begin{tabular}{|c|c||c|c|c|c|c|c|}
+\hline
+$A$ & $B$ & AND & OR & NAND & NOR & XOR & XNOR \\ \hline
+0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\ \hline
+0 & 1 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 \\ \hline
+1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% SECTION 11-3: Gerbang Universal
+% ============================================================
+\section{Gerbang Universal}
+
+\begin{frame}
+\frametitle{NAND dan NOR: Universal}
+\begin{block}{NOT dari NAND}
+$A \uparrow A = (AA)' = A'$
+\end{block}
+\begin{block}{AND dari NAND}
+$AB = ((AB)')' = (A \uparrow B) \uparrow (A \uparrow B)$
+\end{block}
+\begin{block}{OR dari NAND}
+$A+B = (A'B')' = (A \uparrow A) \uparrow (B \uparrow B)$
+\end{block}
+Hanya NAND dan NOR yang universal secara individual.
+\end{frame}
+
+\begin{frame}
+\frametitle{Konversi ke NAND-Only}
+SOP (AND-OR) $\rightarrow$ NAND-NAND:\\
+$F = P_1 + P_2 + \ldots = (P_1' \cdot P_2' \cdot \ldots)'$ (De Morgan)\\
+Contoh: $F = AB + CD$ $\Rightarrow$ 3 gerbang NAND
+\end{frame}
+
+% ============================================================
+% SECTION 11-4: Konversi Ekspresi
+% ============================================================
+\section{Konversi ke Rangkaian}
+
+\begin{frame}
+\frametitle{Prosedur Konversi}
+\begin{enumerate}
+  \item Identifikasi operator terluar (prioritas terendah) = gerbang output
+  \item Dekomposisi rekursif: setiap operand dianalisis
+  \item Komplemen $\Rightarrow$ gerbang NOT
+  \item Variabel dipakai di banyak tempat $\Rightarrow$ fan-out
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: $F = A'B + AB'$ (XOR)}
+Operator terluar: OR. Operand kiri $A'B$: AND dengan NOT pada $A$. Operand kanan $AB'$: AND dengan NOT pada $B$.\\
+Total: 2 NOT + 2 AND + 1 OR = 5 gerbang.
+\end{frame}
+
+% ============================================================
+% SECTION 11-5: Half-Adder, Full-Adder
+% ============================================================
+\section{Rangkaian Aritmetika}
+
+\begin{frame}
+\frametitle{Half-Adder}
+\begin{definisi}[Half-Adder]
+Menjumlahkan 2 bit ($A$, $B$). Output: \textbf{Sum} $S = A \oplus B$, \textbf{Carry} $C_{out} = AB$.
+\end{definisi}
+\begin{center}
+\small
+\begin{tabular}{|c|c||c|c|}
+\hline
+$A$ & $B$ & $S$ & $C_{out}$ \\ \hline
+0 & 0 & 0 & 0 \\ \hline
+0 & 1 & 1 & 0 \\ \hline
+1 & 0 & 1 & 0 \\ \hline
+1 & 1 & 0 & 1 \\ \hline
+\end{tabular}
+\end{center}
+1 XOR + 1 AND
+\end{frame}
+
+\begin{frame}
+\frametitle{Full-Adder dan Ripple-Carry}
+\begin{definisi}[Full-Adder]
+Menjumlahkan 3 bit: $A$, $B$, $C_{in}$. $S = A \oplus B \oplus C_{in}$, $C_{out} = AB + C_{in}(A \oplus B)$
+\end{definisi}
+\begin{block}{Ripple-Carry Adder}
+$n$ full-adder dirangkai kaskade; carry mengalir dari LSB ke MSB. Delay $\approx O(n)$.
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 11-6: MUX dan Decoder
+% ============================================================
+\section{Multiplexer dan Decoder}
+
+\begin{frame}
+\frametitle{Multiplexer}
+\begin{definisi}[MUX]
+Memilih satu dari $2^n$ input berdasarkan $n$ sinyal pemilih. MUX $2^n$:1 punya $2^n$ input data, $n$ select, 1 output.
+\end{definisi}
+MUX 2:1: $Y = S'D_0 + SD_1$\\
+MUX 4:1: $Y = S_1'S_0'D_0 + S_1'S_0 D_1 + S_1 S_0' D_2 + S_1 S_0 D_3$
+\end{frame}
+
+\begin{frame}
+\frametitle{Decoder}
+\begin{definisi}[Decoder]
+Mengubah kode $n$-bit menjadi $2^n$ output; tepat satu output aktif. Decoder $n$-ke-$2^n$.
+\end{definisi}
+Setiap output decoder = satu minterm. Fungsi Boolean: decoder + OR (hubungkan output minterm yang relevan).
+\end{frame}
+
+% ============================================================
+% SECTION 11-7: Analisis Rangkaian
+% ============================================================
+\section{Analisis Rangkaian}
+
+\begin{frame}
+\frametitle{Prosedur Analisis}
+\begin{enumerate}
+  \item Beri label semua sinyal (input, output, antara)
+  \item Telusuri dari input ke output
+  \item Substitusi berturut-turut
+  \item Sederhanakan; verifikasi tabel kebenaran
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Critical Path}
+\begin{definisi}[Critical Path]
+Jalur sinyal dari input ke output yang melewati gerbang terbanyak. Delay total = jumlah delay gerbang pada jalur kritis. Menentukan frekuensi operasi maksimum.
+\end{definisi}
+4 tingkat $\times$ $t_d$ = $4 t_d$ delay total.
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item AND, OR, NOT: dasar; NAND, NOR: universal
+  \item Konversi SOP $\rightarrow$ rangkaian AND-OR; SOP $\rightarrow$ NAND-NAND
+  \item Half-adder: $S=A\oplus B$, $C=AB$; Full-adder: + $C_{in}$
+  \item MUX: pilih 1 dari banyak; Decoder: kode $\rightarrow$ aktivasi minterm
+  \item Critical path menentukan kecepatan
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+gerbang logika $\bullet$ NAND $\bullet$ NOR $\bullet$ XOR $\bullet$ universal $\bullet$ half-adder $\bullet$ full-adder $\bullet$ ripple-carry $\bullet$ multiplexer $\bullet$ decoder $\bullet$ critical path
+\end{center}
+\end{frame}
+
+\end{document}

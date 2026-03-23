@@ -143,19 +143,19 @@ Tulis program Python yang: (1) menerima input fungsi Boolean sebagai daftar mint
 % ============================================================
 
 \begin{rangkuman}
-Bab ini mengkaji Aljabar Boolean sebagai sistem aljabar fundamental yang beroperasi pada himpunan $B = \{0, 1\}$ dengan tiga operator dasar: penjumlahan Boolean (OR, $+$), perkalian Boolean (AND, $\cdot$), dan komplemen (NOT, $'$).
+Bab ini mengkaji aljabar Boolean sebagai sistem aljabar yang beroperasi pada himpunan $B = \{0, 1\}$ dengan tiga operator dasar: penjumlahan Boolean (OR, $+$), perkalian Boolean (AND, $\cdot$), dan komplemen (NOT, $'$).
 
-\textbf{Poin Kunci:}
+\textbf{Poin kunci:}
 \begin{itemize}
-  \item Aljabar Boolean diperkenalkan oleh George Boole (1854) dan diterapkan pada rangkaian digital oleh Claude Shannon (1938). Sistem ini bersifat isomorfik dengan logika proposisi dan teori himpunan, sehingga hukum-hukum pada satu sistem dapat diterjemahkan ke sistem lainnya.
-  \item Postulat Huntington (1904) mendefinisikan aljabar Boolean melalui enam aksioma: ketertutupan, identitas, komutatif, distributif, komplemen, dan eksistensi minimal. Seluruh hukum Boolean lainnya (termasuk asosiatif, idempoten, absorpsi, De Morgan, dan konsensus) merupakan teorema yang dapat diturunkan dari postulat-postulat ini.
-  \item Prinsip dualitas menyatakan bahwa setiap identitas Boolean tetap valid jika operator $+$ dan $\cdot$ ditukar, serta konstanta $0$ dan $1$ ditukar secara simultan.
-  \item Penyederhanaan ekspresi Boolean menggunakan hukum-hukum aljabar bertujuan meminimalkan jumlah literal dan operator, yang berimplikasi langsung pada pengurangan jumlah gerbang logika dalam implementasi rangkaian digital.
-  \item Fungsi Boolean dapat direpresentasikan dalam bentuk kanonik Sum of Products (SOP, menggunakan minterm $\sum m$) atau Product of Sums (POS, menggunakan maxterm $\prod M$), yang keduanya memberikan representasi unik dan dapat dikonversi satu sama lain.
-  \item Gerbang logika (AND, OR, NOT, NAND, NOR, XOR) merupakan implementasi fisik dari operator Boolean. Gerbang NAND dan NOR masing-masing bersifat lengkap secara fungsional (\textit{functionally complete}).
+  \item Aljabar Boolean dikembangkan oleh George Boole (1854) dan diterapkan pada analisis rangkaian digital oleh Claude Shannon (1938). Struktur ini bersifat isomorfik dengan logika proposisi dan teori himpunan, sehingga hukum pada satu kerangka dapat diterjemahkan ke kerangka lain.
+  \item Postulat Huntington (1904) mendefinisikan aljabar Boolean melalui enam postulat: ketertutupan, identitas, komutatif, distributif, komplemen, dan eksistensi minimal. Hukum lain (asosiatif, idempoten, absorpsi, De Morgan, konsensus, dan sebagainya) merupakan teorema turunan.
+  \item Prinsip dualitas: setiap identitas Boolean tetap valid jika $+$ dan $\cdot$ saling ditukar serta $0$ dan $1$ saling ditukar secara serentak.
+  \item Penyederhanaan ekspresi dengan hukum aljabar bertujuan meminimalkan literal dan operator, sehingga mengurangi kebutuhan gerbang logika pada implementasi rangkaian.
+  \item Bentuk kanonik \textit{Sum of Products} (SOP, $\sum m$) dan \textit{Product of Sums} (POS, $\prod M$) memberikan representasi standar dan saling dapat dikonversi.
+  \item Gerbang logika (AND, OR, NOT, NAND, NOR, XOR) merealisasikan operator Boolean; NAND dan NOR masing-masing \textit{functionally complete}.
 \end{itemize}
 
-\textbf{Kata Kunci}: aljabar Boolean, George Boole, Claude Shannon, Postulat Huntington, prinsip dualitas, penyederhanaan aljabar, hukum konsensus, literal, minterm, maxterm, Sum of Products (SOP), Product of Sums (POS), gerbang logika, kelengkapan fungsional, NAND, NOR
+\textbf{Kata kunci:} aljabar Boolean, George Boole, Claude Shannon, postulat Huntington, prinsip dualitas, penyederhanaan aljabar, hukum konsensus, literal, minterm, maxterm, SOP, POS, gerbang logika, kelengkapan fungsional, NAND, NOR
 \end{rangkuman}
 
 \ifSubfilesClassLoaded{

@@ -1,0 +1,328 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Kuantor]{\texorpdfstring{Kuantor Universal ($\forall$) dan Eksistensial ($\exists$)}{Kuantor Universal dan Eksistensial}}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 7-1: Pengantar Kuantifikasi
+% ============================================================
+\section{Pengantar Kuantifikasi}
+
+\begin{frame}
+\frametitle{Kuantifikasi}
+\begin{definisi}[Kuantifikasi]
+\logic{Kuantifikasi} adalah proses pemberian kuantor pada fungsi proposisional untuk menyatakan jangkauan objek. Operator disebut \logic{kuantor}.
+\end{definisi}
+Melalui kuantifikasi, pernyataan dapat menyatakan sifat untuk \textbf{seluruh} atau \textbf{sebagian} elemen domain.
+\end{frame}
+
+\begin{frame}
+\frametitle{Semesta Pembicaraan ($\mathcal{U}$)}
+\begin{definisi}[Semesta Pembicaraan]
+Himpunan semua nilai yang diperbolehkan untuk menggantikan variabel pada fungsi proposisional.
+\end{definisi}
+\begin{contoh}
+``Semua elemen $x$ memenuhi $x^2 > 0$''
+\begin{itemize}
+  \item $\mathcal{U} = \mathbb{R}$: \textbf{Salah} (counterexample: $x=0$)
+  \item $\mathcal{U} = \mathbb{Z}^+$: \textbf{Benar}
+\end{itemize}
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dua Kuantor Utama}
+\begin{enumerate}
+  \item \textbf{Kuantor universal} ($\forall$): properti berlaku bagi \textbf{seluruh} elemen domain.
+  \item \textbf{Kuantor eksistensial} ($\exists$): ada \textbf{sekurang-kurangnya satu} elemen yang memenuhi properti.
+\end{enumerate}
+\end{frame}
+
+% ============================================================
+% SECTION 7-2: Kuantor Universal
+% ============================================================
+\section{Kuantor Universal}
+
+\begin{frame}
+\frametitle{Definisi Kuantor Universal}
+$\forall x \, P(x)$ = ``$P(x)$ benar untuk \textbf{semua} $x$ di $\mathcal{U}$''
+\begin{itemize}
+  \item Dibaca: ``Untuk setiap $x$, $P(x)$'' atau ``Untuk semua $x$, berlaku $P(x)$''
+\end{itemize}
+\begin{block}{Domain Terhingga}
+$\mathcal{U} = \{a_1, \ldots, a_n\}$ $\Rightarrow$ $\forall x \, P(x) \equiv P(a_1) \land P(a_2) \land \ldots \land P(a_n)$
+\end{block}
+Satu \textit{counterexample} $P(c)$ = Salah $\Rightarrow$ klaim universal salah.
+\end{frame}
+
+\begin{frame}
+\frametitle{Universal + Implikasi}
+Pola ``Setiap A adalah B'' $\Rightarrow$ $\forall x \, (M(x) \rightarrow P(x))$
+\begin{contoh}
+``Setiap mahasiswa mematuhi peraturan''\\
+$\mathcal{U}$ = mahasiswa: $\forall x \, P(x)$\\
+$\mathcal{U}$ = makhluk hidup: $\forall x \, (M(x) \rightarrow P(x))$
+\end{contoh}
+\begin{alertblock}{Perhatian}
+Jangan gunakan $\forall x \, (M(x) \land P(x))$ untuk ``setiap A adalah B''. Itu berarti seluruh semesta adalah A dan B.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Matematis Universal}
+$\mathcal{U} = \mathbb{R}$:
+\begin{itemize}
+  \item $\forall x \, (x^2 \geq 0)$: \textbf{Benar}
+  \item $\forall x \, (x + 1 > x)$: \textbf{Benar}
+  \item $\forall x \, (x^2 > x)$: \textbf{Salah} (counterexample: $x = 0.5$)
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 7-3: Kuantor Eksistensial
+% ============================================================
+\section{Kuantor Eksistensial}
+
+\begin{frame}
+\frametitle{Definisi Kuantor Eksistensial}
+$\exists x \, P(x)$ = ``Terdapat \textbf{setidaknya satu} $x$ di $\mathcal{U}$ sehingga $P(x)$ benar''
+\begin{itemize}
+  \item Dibaca: ``Ada $x$ dengan sifat $P(x)$'' atau ``Sekurang-kurangnya satu $x$ memenuhi $P(x)$''
+\end{itemize}
+\begin{block}{Domain Terhingga}
+$\exists x \, P(x) \equiv P(a_1) \lor P(a_2) \lor \ldots \lor P(a_n)$
+\end{block}
+Satu \textit{witness} $P(c)$ = Benar $\Rightarrow$ klaim eksistensial benar.
+\end{frame}
+
+\begin{frame}
+\frametitle{Eksistensial + Konjungsi}
+Pola ``Sebagian A adalah B'' $\Rightarrow$ $\exists x \, (A(x) \land B(x))$
+\begin{contoh}
+``Sebagian buah terasa asam''\\
+$\mathcal{U}$ = buah: $\exists x \, A(x)$\\
+$\mathcal{U}$ = benda di dapur: $\exists x \, (B(x) \land A(x))$
+\end{contoh}
+\begin{alertblock}{Perhatian}
+Jangan gunakan $\exists x \, (B(x) \rightarrow A(x))$---\textit{vacuous truth}: elemen bukan $B$ sudah cukup membuat implikasi benar.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Matematis Eksistensial}
+$\mathcal{U} = \mathbb{R}$:
+\begin{itemize}
+  \item $\exists x \, (x^2 = 9)$: \textbf{Benar} (witness: $x=3$)
+  \item $\exists x \, (x = x + 1)$: \textbf{Salah}
+  \item $\exists x \, (x^2 < 0)$: \textbf{Salah} di $\mathbb{R}$; Benar di $\mathbb{C}$ ($x=i$)
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 7-4: Kuantor Bersarang
+% ============================================================
+\section{Kuantor Bersarang}
+
+\begin{frame}
+\frametitle{Definisi Kuantor Bersarang}
+\begin{definisi}[Kuantor Bersarang]
+Kuantor diletakkan di dalam \textit{scope} kuantor lain. Penulisan ditumpuk dari luar (kiri) ke dalam (kanan).
+\end{definisi}
+$\forall x \, \exists y \, P(x,y)$: untuk setiap $x$, terdapat $y$ (bergantung pada $x$) sehingga $P(x,y)$ benar.
+\end{frame}
+
+\begin{frame}
+\frametitle{Empat Konfigurasi Bersarang}
+\begin{center}
+\small
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Ekspresi} & \textbf{Makna} \\ \hline
+$\forall x \forall y \, P(x,y)$ & $P(x,y)$ benar untuk semua pasangan $(x,y)$ \\ \hline
+$\forall x \exists y \, P(x,y)$ & Untuk setiap $x$, ada $y$ (bergantung $x$) \\ \hline
+$\exists x \forall y \, P(x,y)$ & Ada satu $x$ sehingga $P(x,y)$ benar untuk semua $y$ \\ \hline
+$\exists x \exists y \, P(x,y)$ & Ada minimal satu pasangan $(x,y)$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Matematis Bersarang}
+$\mathcal{U} = \mathbb{R}$:
+\begin{itemize}
+  \item $\forall x \forall y \, (x+y = y+x)$: \textbf{Benar} (komutatif)
+  \item $\forall x \exists y \, (x+y = 0)$: \textbf{Benar} (pilih $y = -x$)
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 7-5: Urutan Kuantor
+% ============================================================
+\section{Urutan Kuantor}
+
+\begin{frame}
+\frametitle{Asimetri Urutan}
+$L(x,y)$ = ``$x$ mencintai $y$'', $\mathcal{U}$ = manusia
+\begin{block}{$\forall x \, \exists y \, L(x,y)$}
+Setiap orang punya minimal satu orang yang dicintai. Nilai $y$ dapat berbeda untuk setiap $x$.
+\end{block}
+\begin{block}{$\exists y \, \forall x \, L(x,y)$}
+Ada satu orang yang dicintai oleh \textbf{semua} orang. Klaim lebih kuat!
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kaidah Implikasi Urutan}
+\[ \exists y \, \forall x \, P(x,y) \implies \forall x \, \exists y \, P(x,y) \]
+Jika ada satu $y$ untuk semua $x$, maka setiap $x$ punya minimal satu $y$.
+
+\begin{block}{Sebaliknya tidak berlaku}
+``Setiap mahasiswa punya pacar'' $\not\Rightarrow$ ``Ada satu orang berpacaran dengan seluruh mahasiswa''
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 7-6: Negasi dan De Morgan
+% ============================================================
+\section{Negasi Berkuantor}
+
+\begin{frame}
+\frametitle{Hukum De Morgan untuk Kuantor}
+\begin{block}{Negasi Universal}
+$\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$\\
+``Bukan semua pandai'' = ``Ada yang tidak pandai''
+\end{block}
+\begin{block}{Negasi Eksistensial}
+$\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$\\
+``Tidak ada yang tegas berlebihan'' = ``Semua tidak tegas berlebihan''
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Negasi Bersarang}
+Setiap kuantor dilalui: $\forall \leftrightarrow \exists$
+\begin{align*}
+\neg \big[ \exists x \, \forall y \, \forall z \, P(x,y,z) \big] &\equiv \forall x \, \exists y \, \exists z \, \neg P(x,y,z)
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Negasi dengan Implikasi}
+``Semua mahasiswa baru mengikuti orientasi'': $\forall x \, (M(x) \rightarrow O(x))$
+\begin{align*}
+\neg\big(\forall x \, (M \rightarrow O)\big) &\equiv \exists x \, (M(x) \land \neg O(x))
+\end{align*}
+\textbf{Makna:} ``Terdapat mahasiswa baru yang tidak mengikuti orientasi.''
+\end{frame}
+
+% ============================================================
+% SECTION 7-7: Panduan Translasi
+% ============================================================
+\section{Panduan Translasi}
+
+\begin{frame}
+\frametitle{Kamus Translasi (1/2)}
+\begin{center}
+\small
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Frasa} & \textbf{Formal} \\ \hline
+Setiap $P$ itu $Q$ & $\forall x \, (P(x) \rightarrow Q(x))$ \\ \hline
+Ada/Beberapa $P$ yang $Q$ & $\exists x \, (P(x) \land Q(x))$ \\ \hline
+Tidak ada $P$ yang $Q$ & $\forall x \, (P(x) \rightarrow \neg Q(x))$ \\ \hline
+Beberapa $P$ TIDAK $Q$ & $\exists x \, (P(x) \land \neg Q(x))$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Translasi}
+$\mathcal{U}$ = makhluk. $A(x)$=atlet, $S(x)$=sehat, $K(x)$=perokok.
+\begin{itemize}
+  \item Setiap atlet pasti sehat: $\forall x \, (A(x) \rightarrow S(x))$
+  \item Tidak ada perokok yang atlet: $\forall x \, (K(x) \rightarrow \neg A(x))$
+  \item Beberapa atlet sehat juga perokok: $\exists x \, (A(x) \land S(x) \land K(x))$
+  \item Sebagian atlet tidak sehat: $\exists x \, (A(x) \land \neg S(x))$
+  \item Hanya yang tidak merokok yang sehat: $\forall x \, (S(x) \rightarrow \neg K(x))$
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item $\mathcal{U}$ menentukan domain; memengaruhi nilai kebenaran.
+  \item $\forall$ + implikasi untuk ``setiap A adalah B''; $\exists$ + konjungsi untuk ``ada A yang B''.
+  \item Urutan kuantor penting: $\forall x \exists y \neq \exists y \forall x$.
+  \item De Morgan: $\neg\forall \equiv \exists\neg$; $\neg\exists \equiv \forall\neg$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+semesta pembicaraan $\bullet$ kuantor universal $\bullet$ kuantor eksistensial\\
+implikasi $\bullet$ konjungsi $\bullet$ kuantor bersarang $\bullet$ negasi kuantor\\
+witness $\bullet$ counterexample
+\end{center}
+\end{frame}
+
+\end{document}

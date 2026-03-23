@@ -1,6 +1,6 @@
 \section{Penyangkalan dengan Kontra-Contoh}
 
-Sejauh ini, pembahasan difokuskan pada cara \emph{membuktikan} bahwa suatu pernyataan benar. Namun, dalam matematika dan ilmu komputer, kemampuan untuk menunjukkan bahwa suatu pernyataan \emph{salah} sama pentingnya. Untuk menyangkal pernyataan universal (``untuk semua $x$, $P(x)$''), cukup menemukan satu elemen domain yang tidak memenuhi $P$ --- elemen tersebut disebut \logic{kontra-contoh} (\textit{counterexample}) \cite{rosen2019}.
+Sejauh ini, pembahasan difokuskan pada cara \emph{membuktikan} bahwa suatu pernyataan benar. Namun, dalam matematika dan ilmu komputer, kemampuan untuk menunjukkan bahwa suatu pernyataan \emph{salah} sama pentingnya dengan pembuktian kebenaran. Untuk menyangkal pernyataan universal (``untuk semua $x$, $P(x)$''), cukup menemukan satu elemen domain yang tidak memenuhi $P$ --- elemen tersebut disebut \logic{kontra-contoh} (\textit{counterexample}) \cite{rosen2019}.
 
 \subsection{Landasan Logis}
 
@@ -49,9 +49,7 @@ Karena $x^2 < x$ (bukan $x^2 > x$), maka klaim tersebut \textbf{salah}. $\blacks
 \subsection{Peringatan: Kontra-Contoh vs Bukti}
 
 \begin{konsep}
-\textbf{Asimetri fundamental}: Satu kontra-contoh cukup untuk menyangkal pernyataan universal, tetapi seribu contoh yang mendukung \emph{tidak cukup} untuk membuktikan pernyataan universal. Membuktikan $\forall x\, P(x)$ memerlukan argumentasi yang berlaku untuk seluruh domain, bukan hanya sampel.
-
-Analogi: Untuk membuktikan bahwa ``semua angsa berwarna putih'', memeriksa jutaan angsa putih tidak cukup. Tetapi menemukan satu angsa hitam sudah cukup untuk menyangkalnya.
+\textbf{Asimetri fundamental}: Satu kontra-contoh cukup untuk menyangkal pernyataan universal, tetapi banyak contoh pendukung \emph{tidak} memadai untuk membuktikan pernyataan universal. Membuktikan $\forall x\, P(x)$ memerlukan argumentasi yang berlaku untuk seluruh domain, bukan hanya sampel. Secara analogi: satu pengecualian menyangkal generalisasi universal, sementara banyak kasus yang konsisten dengan hipotesis tidak membuktikan bahwa hipotesis berlaku tanpa pengecualian.
 \end{konsep}
 
-Kemampuan membedakan antara verifikasi empiris dan bukti formal sangat penting dalam ilmu komputer. Pengujian perangkat lunak (\textit{testing}) menunjukkan keberadaan bug (mirip kontra-contoh), tetapi test yang lulus seluruhnya tidak membuktikan ketiadaan bug --- sama seperti contoh-contoh yang mendukung tidak membuktikan pernyataan universal \cite{velleman2019}.
+Membedakan antara verifikasi empiris dan bukti formal merupakan aspek penting dalam ilmu komputer. Pengujian perangkat lunak (\textit{testing}) menunjukkan keberadaan bug (mirip kontra-contoh), tetapi test yang lulus seluruhnya tidak membuktikan ketiadaan bug --- sama seperti contoh-contoh yang mendukung tidak membuktikan pernyataan universal \cite{velleman2019}.

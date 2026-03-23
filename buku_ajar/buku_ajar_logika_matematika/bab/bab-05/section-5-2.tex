@@ -1,59 +1,59 @@
 \section{Modus Ponens dan Modus Tollens}
 
-Di antara setumpuk Aturan Inferensi baku yang ada sejak peradaban Yunani Kuno, formasi duo \textit{Modus} ini adalah yang paling sering berlalu-lalang di alam bawah sadar nalar manusia sehari-hari.
+Di antara aturan inferensi, \textit{Modus Ponens} dan \textit{Modus Tollens} termasuk yang paling sering dipakai, baik dalam matematika maupun dalam penalaran sehari-hari.
 
-\subsection{Modus Ponens (Hukum Pelepasan Positif)}
+\subsection{Modus Ponens}
 
-Berasal dari lafal bahasa latin \textit{modus ponendo ponens} ("cara yang merumuskan dengan menetapkan"), Modus Ponens bertumpu kokoh pada karakteristik logis wajar dari operator Implikasi ($A \rightarrow B$). 
+Istilah \textit{modus ponendo ponens} (bahasa Latin) merujuk pada cara menetapkan konsekuen dari implikasi yang telah dianggap benar.
 
 \begin{teorema}[Modus Ponens]
-Bila kita telah memastikan ke absahan sebuah janji implikasi $p \rightarrow q$, dan secara bersamaan alam semesta mengonfirmasi bahwa pemicu asal sebab ($p$) sungguh terjadi nyata, maka kita diwajibkan menyimpulkan bahwa akibat ($q$) pasti akan mekar terjadi sesudahnya. 
+Jika $p \rightarrow q$ benar dan $p$ benar, maka $q$ benar.
 \end{teorema}
 
-\textbf{Anatomi Argumen Modus Ponens:}
+\textbf{Skema argumen Modus Ponens:}
 \[
 \begin{array}{cl}
-p \rightarrow q & \text{(Premis mayor: implikasi)} \\
-p & \text{(Premis minor: anteseden benar)} \\
+p \rightarrow q & \text{(Premis: implikasi)} \\
+p & \text{(Premis: anteseden benar)} \\
 \hline
-\therefore q & \text{(Konklusi: konsekuen terwujud)}
+\therefore q & \text{(Konklusi: konsekuen benar)}
 \end{array}
 \]
 
 \begin{contoh}
-Mari kita bedah validitas argumen kampus berikut:
 \begin{itemize}
-    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Jika Rini meraih skor TOEFL 500, maka Rini melenggang lulus syarat yudisium."
-    \item \textbf{Premis 2 ($p$)}: "Diketahui papan pengumuman membuktikan Rini menggenggam skor TOEFL 500."
-    \item \textbf{Kesimpulan Logis ($\therefore q$)}: "Maka Rini melenggang lulus syarat yudisium."
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: ``Jika Rini memperoleh skor TOEFL 500, maka Rini memenuhi persyaratan yudisium.''
+    \item \textbf{Premis 2 ($p$)}: ``Rini memperoleh skor TOEFL 500.''
+    \item \textbf{Konklusi ($\therefore q$)}: ``Rini memenuhi persyaratan yudisium.''
 \end{itemize}
 \end{contoh}
-Pembuktian tabel Tautologi dari $[(p \rightarrow q) \land p] \rightarrow q$ adalah nilai statis ALL-TRUE di keempat barisnya.
 
-\subsection{Modus Tollens (Hukum Penolakan Kontraposisi)}
+Ekspresi $[(p \rightarrow q) \land p] \rightarrow q$ merupakan tautologi, sehingga skema Modus Ponens selalu menghasilkan argumen yang valid.
 
-Modus berdarah latin \textit{modus tollendo tollens} ("cara menyangkal yang menyangkal") merupakan sisi keping mata uang sebelahnya. Jika Ponens menetapkan Akibat via kepastian Sebab, Modus Tollens menolak sebab ketika akibat gagal terwujud. Argumen ini menunggangi sifat Ekuivalensi Kontraposisi $(p \rightarrow q \equiv \neg q \rightarrow \neg p)$ yang telah dibuktikan pada Bab terdahulu \cite{rosen2019}.
+\subsection{Modus Tollens}
+
+Istilah \textit{modus tollendo tollens} merujuk pada penolakan anteseden ketika konsekuen dari implikasi ditetapkan salah. Aturan ini sejalan dengan ekuivalensi kontraposisi $p \rightarrow q \equiv \neg q \rightarrow \neg p$ yang telah dibahas pada bab sebelumnya \cite{rosen2019}.
 
 \begin{teorema}[Modus Tollens]
-Bila implikasi $p \rightarrow q$ benar dan kita mengetahui bahwa akibat bernilai salah ($\neg q$), maka dapat disimpulkan bahwa sebab juga bernilai salah ($\neg p$).
+Jika $p \rightarrow q$ benar dan $\neg q$ benar, maka $\neg p$ benar.
 \end{teorema}
 
-\textbf{Anatomi Argumen Modus Tollens:}
+\textbf{Skema argumen Modus Tollens:}
 \[
 \begin{array}{cl}
-p \rightarrow q & \text{(Premis mayor: implikasi)} \\
-\neg q & \text{(Premis minor: konsekuen salah)} \\
+p \rightarrow q & \text{(Premis: implikasi)} \\
+\neg q & \text{(Premis: konsekuen salah)} \\
 \hline
 \therefore \neg p & \text{(Konklusi: anteseden salah)}
 \end{array}
 \]
 
 \begin{contoh}
-Simak argumen ala Detektif Sherlock Holmes:
 \begin{itemize}
-    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Jika Si Penjaga Kolam adalah sang pembunuh, maka sepatu boot miliknya hari ini pasti basah kuyup terkena lumpur parit."
-    \item \textbf{Premis 2 ($\neg q$)}: "Fakta Laboratorium Kepolisian membeberkan sepatu boot milik Penjaga Kolam kering kerontang menawan."
-    \item \textbf{Kesimpulan Logis ($\therefore \neg p$)}: "Maka Si Penjaga Kolam \textbf{Bukanlah} sang pembunuh berantai itu."
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: ``Jika si penjaga kolam adalah pelaku, maka sepatu bot miliknya basah oleh lumpur.''
+    \item \textbf{Premis 2 ($\neg q$)}: ``Sepatu bot milik penjaga kolam kering (tidak basah oleh lumpur).''
+    \item \textbf{Konklusi ($\therefore \neg p$)}: ``Penjaga kolam bukan pelaku.''
 \end{itemize}
 \end{contoh}
-Pembuktian tabel validitas Tautologi rumusan $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ menjamin konklusi ini mutlak benar seratus persen. Melalui pedoman ini aparat terpandu melepaskan sang Penjaga Kolam.
+
+Ekspresi $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ merupakan tautologi, sehingga skema Modus Tollens valid.

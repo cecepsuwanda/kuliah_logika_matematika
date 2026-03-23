@@ -1,56 +1,51 @@
 \section{Fungsi Proposisional (Kalimat Terbuka)}
 
-Di ranah Logika Proposisi, kepingan huruf seperti $p, q, r$ mewakili secara utuh satu kalimat tunggal deklaratif yang kebetulan memiliki sifat absolut \textbf{sudah tertutup} (memiliki 1 entitas pasti nilai kebenaran). Namun, begitu kita mencampuradukkan Term dari genus Variabel Anonim ke dalam pelukan Predikat, kita melahirkan wujud \textbf{Fungsi Proposisional} \cite{rosen2019}.
+Dalam logika proposisi, simbol seperti $p$, $q$, $r$ menyatakan proposisi utuh yang sudah tertutup, yakni sudah memiliki (atau siap diberi) satu nilai kebenaran. Jika predikat dikombinasikan dengan variabel bebas, diperoleh bentuk yang disebut \textbf{fungsi proposisional} \cite{rosen2019}.
 
-\subsection{Definisi Klasik Fungsi Proposisional}
+\subsection{Definisi Fungsi Proposisional}
 
 \begin{definisi}[Fungsi Proposisional]
-\logic{Fungsi Proposisional} (atau sering diekuivalensikan dalam bahasa linguistik awam sebagai *Kalimat Terbuka*) adalah perpaduan simbiosis mutlak antara sesosok Predikat dengan sekurang-kurangnya sebuah (atau lebih) Variabel tak teridentifikasi bebas ($x, y, z$). 
+\logic{Fungsi proposisional} (sering disamakan dengan \textit{kalimat terbuka} dalam pembahasan informal) adalah ekspresi yang terbentuk dari sebuah predikat yang mengikat setidaknya satu variabel bebas ($x$, $y$, $z$, dan sebagainya).
 \end{definisi}
 
-Konsekuensi paling kritis dari definisi ini adalah: \textbf{Sebuah Fungsi Proposisional TIDAK memiliki dan dipastikan gagal dievaluasi nilai kebenarannya (True/False)}. Ini disebabkan karena subjek/aktor yang ingin dievaluasi oleh predikat masih menyembunyikan identitas aslinya di balik topeng variabel (anonim). Nilai kebenarannya masih ``ngambang'' bergantung pada identitas asli dari huruf $x$ kelak.
+Akibat langsungnya: \textbf{fungsi proposisional, secara umum, belum dapat ditetapkan nilai kebenarannya (benar/salah)} selama variabel bebasnya belum diinterpretasikan (misalnya melalui substitusi konstanta atau kuantifikasi). Nilai kebenaran bergantung pada pilihan objek yang menggantikan variabel.
 
-\subsection{Evolusi dari Kalimat Terbuka Menuju Tertutup}
+\subsection{Dari Kalimat Terbuka ke Kalimat Tertutup}
 
 \begin{contoh}
-Misalkan diberikan contoh kalimat verbal: \textit{"Dia adalah Presiden Pertama Republik Indonesia"}. 
+Perhatikan kalimat: \textit{``Dia adalah presiden pertama Republik Indonesia''}.
 
-Dalam frasa di atas, kata ganti peranti tunjuk \textbf{"Dia"} menduduki peran sentral Variabel bebas ($x$). Di sisi berlawanan, susunan frasa verba klaim \textbf{"...adalah Presiden Pertama Republik Indonesia"} ditahbiskan menduduki fungsi Predikat sentral, dinotasikan kapital $P$. 
+Kata ganti \textbf{``dia''} berperan seperti variabel bebas $x$, sedangkan bagian \textbf{``adalah presiden pertama Republik Indonesia''} berperan sebagai predikat, misalnya $P$. Struktur formalnya: $P(x)$.
 
-Sehingga struktur rangka kerangka aslinya hanyalah: $P(\text{Dia})$ atau lebih lazim ditulis secara matematis akademis menjadi $P(x)$. 
-
-Pada wujud mentah seperti ini, kita jelas takkan bernyali menjatuhkan palu hakim putusan True atau False. Kita tak tahu siapa si \textbf{x} tersebut. Bentuk luntang-lantung inilah yang disahkan sebagai \textbf{Kalimat Terbuka (Fungsi Proposisional)}.
+Selama $x$ tidak ditetapkan, $P(x)$ adalah \textbf{kalimat terbuka}; belum layak diberi label benar atau salah secara tunggal.
 \end{contoh}
 
-\subsection{Mensubstitusi dengan Konstanta Absolut}
+\subsection{Substitusi dengan Konstanta}
 
-Dari statusnya yang masih menjadi pergunjingan ambigu, Fungsi Proposisional $P(x)$ dapat menetas bermetamorfosis menjadi sebuah \textbf{Proposisi Sempurna} (Kalimat Tertutup) hanya dan hanya jika kita mengeksekusi proses **Substitusi Identitas Konstanta** pada variabel pengembara $x$ tersebut.
+Fungsi proposisional $P(x)$ menjadi \textbf{proposisi tertutup} apabila setiap variabel bebas yang relevan diganti oleh konstanta dari semesta yang sesuai (\textbf{substitusi konstanta}).
 
 \begin{contoh}
-Melanjutkan contoh $P(x)$ sebelumnya. Mari kita tembak variabel $x$ secara membabi buta menggunakan 3 sampel selongsong uji Konstanta berbeda:
+Lanjutkan $P(x) \equiv \text{``}x \text{ adalah presiden pertama Republik Indonesia''}$. Uji beberapa substitusi:
 
 \begin{enumerate}
-    \item \textbf{Subjek Konstanta Pertama:} $a = \text{B.J. Habibie}$
+    \item \textbf{Konstanta pertama:} $a = \text{B.J. Habibie}$
     \begin{itemize}
-        \item Substitusi ke wajan predikat: $P(a)$
-        \item Kalimat merangkai utuh menjadi: \textit{"B.J. Habibie adalah Presiden Pertama Republik Indonesia."}
-        \item Evaluasi Verifikator: Kalimat merangkai sempurna (Tertutup). Secara historis bernilai \textbf{SALAH (F)}.
+        \item Hasil: $P(a)$, yakni \textit{``B.J. Habibie adalah presiden pertama Republik Indonesia.''}
+        \item Menurut fakta sejarah, pernyataan ini \textbf{salah (F)}.
     \end{itemize}
 
-    \item \textbf{Subjek Konstanta Kedua:} $b = \text{Megawati Soekarnoputri}$
+    \item \textbf{Konstanta kedua:} $b = \text{Megawati Soekarnoputri}$
     \begin{itemize}
-        \item Substitusi: $P(b)$
-        \item Formasi Utuh: \textit{"Megawati Soekarnoputri adalah Presiden Pertama Republik Indonesia."}
-        \item Evaluasi Fakta Dokumen: Menghasilkan vonis \textbf{SALAH (F)}.
+        \item Hasil: $P(b)$
+        \item Pernyataan tersebut \textbf{salah (F)}.
     \end{itemize}
-    
-    \item \textbf{Subjek Konstanta Pamungkas:} $s = \text{Ir. Soekarno}$
+
+    \item \textbf{Konstanta ketiga:} $s = \text{Ir. Soekarno}$
     \begin{itemize}
-        \item Substitusi Akhir: $P(s)$
-        \item Kalimat berbunyi merdu: \textit{"Ir. Soekarno adalah Presiden Pertama Republik Indonesia."}
-        \item Evaluasi Fakta Final: Memperoleh mahkota kebenaran sakral bernilai \textbf{BENAR (T)}.
+        \item Hasil: $P(s)$, yakni \textit{``Ir. Soekarno adalah presiden pertama Republik Indonesia.''}
+        \item Menurut fakta sejarah, pernyataan ini \textbf{benar (T)}.
     \end{itemize}
 \end{enumerate}
 \end{contoh}
 
-Melalui runtutan eksperimen di atas, kita memaknai kaidah tertinggi FOL pertama kali: Sebagaimana mesin cetak gol \textit{striker} sepakbola takkan mengkonversi poin tanpa umpan cantik bola, maka **Predikat takkan pernah sanggup melontarkan kesimpulan Benar/Salah sebelum ada Subjek Variabel yang disubstitusi tuntas membumi di tangannya**. Transformasi \textbf{Kalimat Terbuka $\longrightarrow$ Proposisi} mensyaratkan penuangan Konstanta definitif padanya.
+Dengan demikian, predikat baru menghasilkan nilai kebenaran yang pasti setelah variabel diganti konstanta yang sesuai dalam semesta pembicaraan. Perubahan dari \textbf{kalimat terbuka} menjadi \textbf{proposisi} mensyaratkan substitusi konstanta (atau pengikatan kuantor, dibahas pada Bab 7).

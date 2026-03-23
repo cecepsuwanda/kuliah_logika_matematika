@@ -132,18 +132,18 @@
 % ============================================================
 
 \begin{rangkuman}
-Bab ini membahas verifikasi kebenaran program sebagai aplikasi puncak dari seluruh konsep logika matematika yang telah dipelajari.
+Bab ini membahas verifikasi kebenaran program sebagai penerapan yang mengintegrasikan konsep logika matematika yang telah dipelajari.
 
-\textbf{Poin Kunci:}
+\textbf{Poin kunci:}
 \begin{itemize}
   \item \textbf{Spesifikasi program} dinyatakan melalui pasangan prekondisi-postkondisi, yang berfungsi sebagai ``kontrak'' antara pemanggil dan implementasi program.
   \item \textbf{Hoare Triple} $\{p\}\ S\ \{q\}$ memformalisasi hubungan antara prekondisi $p$, program $S$, dan postkondisi $q$. Aturan inferensi (assignment, komposisi, kondisional, perulangan) memungkinkan verifikasi deduktif.
   \item \textbf{Loop invariant} adalah predikat yang dijaga sepanjang eksekusi perulangan, diverifikasi melalui tiga syarat: inisialisasi, pemeliharaan, dan terminasi. Konsep ini analog langsung dengan induksi matematika.
   \item \textbf{Kebenaran parsial} menjamin postkondisi jika program berterminasi; \textbf{kebenaran total} menambahkan jaminan terminasi melalui fungsi pengurangan.
-  \item Verifikasi formal sangat penting dalam mission-critical systems di mana kegagalan tidak dapat ditoleransi. Testing menunjukkan keberadaan bug; verifikasi formal membuktikan ketiadaannya.
+  \item Verifikasi formal menjadi prioritas dalam mission-critical systems di mana kegagalan tidak dapat ditoleransi. Testing menunjukkan keberadaan bug; verifikasi formal membuktikan ketiadaannya.
 \end{itemize}
 
-\textbf{Kata Kunci}: prekondisi, postkondisi, Hoare Triple, logika Hoare, aturan assignment, loop invariant, kebenaran parsial, kebenaran total, fungsi pengurangan, terminasi, verifikasi formal
+\textbf{Kata kunci:} prekondisi, postkondisi, Hoare Triple, logika Hoare, aturan assignment, loop invariant, kebenaran parsial, kebenaran total, fungsi pengurangan, terminasi, verifikasi formal
 \end{rangkuman}
 
 \ifSubfilesClassLoaded{

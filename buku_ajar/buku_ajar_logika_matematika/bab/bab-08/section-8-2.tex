@@ -39,7 +39,7 @@ Untuk relasi yang melibatkan lebih dari dua entitas atau parameter, digunakan pr
 \end{itemize}
 
 \begin{catatan}
-Dalam praktik pemodelan, arity yang terlalu tinggi (misalnya $> 5$) seringkali menandakan bahwa predikat perlu didekomposisi menjadi beberapa predikat yang lebih sederhana. Decomposisi ini mirip dengan proses normalisasi dalam desain basis data relasional.
+Dalam praktik pemodelan, arity yang terlalu tinggi (misalnya $> 5$) seringkali menandakan bahwa predikat perlu didekomposisi menjadi beberapa predikat yang lebih sederhana. Dekomposisi ini sejalan dengan prinsip normalisasi dalam desain basis data relasional.
 \end{catatan}
 
 \subsection{Fakta Ground vs Kalimat Berkuantor}
@@ -51,7 +51,7 @@ Perbedaan fundamental antara fakta dan aturan:
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|p{3.5cm}|p{4cm}|p{4.5cm}|}
 \hline
-\textbf{Aspek} & \textbf{Fakta (Ground Atom)} & \textbf{Aturan (Klausa Horn)} \\ \hline
+\textbf{Aspek} & \textbf{Fakta (Ground Atom)} & \textbf{Aturan (implikasi berkuantor)} \\ \hline
 Variabel & Tidak ada (semua konstanta) & Mengandung variabel terikat \\ \hline
 Kuantor & Tidak diperlukan & Kuantor universal $\forall$ \\ \hline
 Interpretasi & Kebenaran spesifik & Generalisasi / hukum \\ \hline

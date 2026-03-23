@@ -8,12 +8,12 @@ Keterbatasan kedua berkaitan dengan skalabilitas. Untuk fungsi Boolean dengan ju
 
 \subsection{Sejarah Peta Karnaugh}
 
-\logic{Peta Karnaugh} (K-Map) diperkenalkan oleh Maurice Karnaugh, seorang insinyur telekomunikasi di Bell Labs, melalui publikasinya pada tahun 1953 yang berjudul \textit{The Map Method for Synthesis of Combinational Logic Circuits} \cite{karnaugh1953}. Metode ini merupakan pengembangan dari teknik diagram Veitch yang diusulkan oleh Edward W. Veitch pada tahun 1952. Karnaugh menyempurnakan penataan baris dan kolom diagram menggunakan Kode Gray, sehingga menghasilkan pemetaan yang lebih teratur dan mudah digunakan.
+\logic{Peta Karnaugh} (K-Map) diperkenalkan oleh Maurice Karnaugh, seorang insinyur telekomunikasi di Bell Labs, melalui publikasinya pada tahun 1953 yang berjudul \textit{The Map Method for Synthesis of Combinational Logic Circuits} \cite{karnaugh1953}. Metode ini merupakan pengembangan dari teknik diagram Veitch yang diusulkan oleh Edward W. Veitch pada tahun 1952. Karnaugh menyempurnakan penataan baris dan kolom diagram menggunakan Kode Gray, sehingga menghasilkan pemetaan yang lebih teratur dan memudahkan identifikasi sel yang bersebelahan.
 
-Kontribusi fundamental Karnaugh adalah mengubah proses penyederhanaan dari manipulasi simbol aljabar yang abstrak menjadi pengenalan pola visual pada peta dua dimensi. Dengan K-Map, perancang cukup mengidentifikasi kelompok-kelompok sel yang bersebelahan untuk menemukan bentuk sederhana, tanpa perlu menguasai teknik-teknik manipulasi aljabar yang canggih. Pendekatan visual ini sangat efektif hingga empat variabel dan masih dapat digunakan untuk lima hingga enam variabel dengan penyesuaian tertentu \cite{wiki_karnaugh}.
+Kontribusi fundamental Karnaugh adalah mengubah proses penyederhanaan dari manipulasi simbol aljabar yang abstrak menjadi pengenalan pola visual pada peta dua dimensi. Dengan K-Map, perancang cukup mengidentifikasi kelompok-kelompok sel yang bersebelahan untuk menemukan bentuk sederhana, tanpa perlu menguasai teknik-teknik manipulasi aljabar yang canggih. Pendekatan visual ini efektif hingga empat variabel dan masih dapat digunakan untuk lima hingga enam variabel dengan penyesuaian tertentu \cite{wiki_karnaugh}.
 
 \begin{konsep}
-Peta Karnaugh bukanlah pengganti aljabar Boolean, melainkan alat bantu komplementer yang memanfaatkan kemampuan pengenalan pola visual manusia. Untuk fungsi dengan lebih dari 6 variabel, metode algoritmik seperti Quine-McCluskey lebih sesuai karena dapat diotomatisasi oleh komputer.
+Peta Karnaugh bukanlah pengganti aljabar Boolean, melainkan alat bantu komplementer yang memanfaatkan pengenalan pola visual. Untuk fungsi dengan lebih dari 6 variabel, metode algoritmik seperti Quine--McCluskey lebih sesuai karena dapat diotomatisasi oleh komputer.
 \end{konsep}
 
 \subsection{Gambaran Umum Metode K-Map}

@@ -1,10 +1,10 @@
 \section{Panduan Praktis Translasi Bahasa Alami}
 
-Translasi statemen bahasa keseharian manusia, ke alam rumus Logika Predikat acap kali dinodai kesalahpahaman karena ambiguitas semantik kalimat verbal. Bagian ini merupakan matriks pedoman (ringkasan instan) kompas penerjemahan berbasis korelasi kuantor dan operator logika, guna menangkal kesalahan gramatika pemodelan fundamental \cite{rosen2019}.
+Translasi pernyataan bahasa alami ke rumus logika predikat sering menimbulkan kesalahan karena ambiguitas makna. Bagian ini menyajikan pedoman praktis untuk memilih pasangan kuantor dan operator secara tepat \cite{rosen2019}.
 
 \subsection{Kamus Konstruksi Proposisi}
 
-Matriks berikut menuntun pemakaian kombinasi operator kuantor dan proposisi yang legal dan stabil beroperasi. Asumsikan semesta wacana adalah \textit{seluruh elemen} tanpa dipotong / tanpa disaring.
+Tabel berikut merangkum pola translasi yang umum digunakan. Diasumsikan semesta wacana mencakup seluruh elemen relevan sesuai konteks.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{|p{4cm}|p{6cm}|p{4.5cm}|}
@@ -27,7 +27,7 @@ Matriks berikut menuntun pemakaian kombinasi operator kuantor dan proposisi yang
 
 ``Beberapa / Sebagian / Ada entitas $P$ yang tergolong $Q$'' & $\exists x \, (P(x) \land Q(x))$ & Eksistensial $+$ Konjungsi \newline ($\exists, \land$) \\ \hline
 
-``Tak satupun entitas $P$ yang tergolong $Q$'' & $\forall x \, (P(x) \rightarrow \neg Q(x))$ \newline \textit{atau} \newline $\neg \exists x \, (P(x) \land Q(x))$ & Universal $+$ $\neg$Konsekuen \newline ($\forall, \rightarrow, \neg$) \\ \hline
+``Tak satupun entitas $P$ yang tergolong $Q$'' & $\forall x \, (P(x) \rightarrow \neg Q(x))$ \newline \textit{atau} \newline $\neg \exists x \, (P(x) \land Q(x))$ & Universal $+$ negasi konsekuen \newline ($\forall, \rightarrow, \neg$) \\ \hline
 
 ``Semua entitas $P$ itu karakternya TIDAK $Q$'' & Identik / Sinonim dgn nomor urut 3 di atas & Identik \\ \hline
 
@@ -49,16 +49,16 @@ Lakukan translasi formal:
 \begin{enumerate}
     \item \textbf{Setiap atlet pasti sehat.} \\
     $\forall x \, (A(x) \rightarrow S(x))$
-    \item \textbf{Seorang perokok takkan pernah menjadi atlet.} \\
-    "Takkan pernah" bermakna Tak Satupun. Rujuk nomor 3 di tabel. \\
+    \item \textbf{Tidak ada perokok yang menjadi atlet.} \\
+    Frasa ``tidak ada'' mengikuti pola pada baris ketiga tabel. \\
     $\forall x \, (K(x) \rightarrow \neg A(x))$
-    \item \textbf{Beberapa atlet sehat, yang bodohnya juga perokok.} \\
-    "Beberapa" + konjungsi bertumpuk. \\
+    \item \textbf{Beberapa atlet sehat juga perokok.} \\
+    Frasa ``beberapa'' menggunakan kuantor eksistensial dengan konjungsi. \\
     $\exists x \, (A(x) \land S(x) \land K(x))$
-    \item \textbf{Sebagian atlet ada yang sakit-sakitan (tidak sehat).} \\
+    \item \textbf{Sebagian atlet tidak sehat.} \\
     $\exists x \, (A(x) \land \neg S(x))$
-    \item \textbf{Syarat telak sehat secara utuh (di organisasi ini), adalah ia tak merokok.} \\
-    Hanya yang tak merokok bersertifikat sehat. Jadi: "setiap yg direkomendasikan sehat $\implies$ harus bebas tembakau". \\
+    \item \textbf{Dalam organisasi ini, hanya yang tidak merokok yang sehat.} \\
+    Polanya: setiap objek yang sehat harus memenuhi syarat tidak merokok. \\
     $\forall x \, (S(x) \rightarrow \neg K(x))$
 \end{enumerate}
 \end{contoh}

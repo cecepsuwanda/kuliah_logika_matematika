@@ -1,0 +1,349 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Tabel Kebenaran, Tautologi, Kontradiksi]{Tabel Kebenaran, Tautologi, Kontradiksi, dan Kontingensi}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}{Daftar Isi}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 4-1: Tautologi, Kontradiksi, Kontingensi
+% ============================================================
+\section{Tautologi, Kontradiksi, dan Kontingensi}
+
+\begin{frame}
+\frametitle{Klasifikasi Proposisi Majemuk}
+Proposisi majemuk dikelompokkan menjadi tiga jenis berdasarkan pola nilai kebenarannya:
+\begin{itemize}
+  \item \textbf{Tautologi} --- selalu benar
+  \item \textbf{Kontradiksi} --- selalu salah
+  \item \textbf{Kontingensi} --- bergantung kombinasi
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tautologi}
+\begin{definisi}[Tautologi]
+Proposisi majemuk yang \textbf{selalu bernilai benar (T)} untuk setiap kombinasi nilai kebenaran proposisi atomik penyusunnya.
+\end{definisi}
+\begin{contoh}
+$p \vee \neg p$ (hukum tiada jalan tengah) --- selalu benar, apa pun nilai $p$.
+\end{contoh}
+\begin{block}{Aplikasi}
+Ekspresi selalu benar tidak memberikan penyaringan kondisi yang efektif (hasil evaluasi selalu lolos).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kontradiksi}
+\begin{definisi}[Kontradiksi]
+Proposisi majemuk yang \textbf{selalu bernilai salah (F)} untuk setiap kombinasi nilai kebenaran proposisi atomik penyusunnya.
+\end{definisi}
+\begin{contoh}
+$p \wedge \neg p$ (hukum non-kontradiksi) --- selalu salah; $p$ dan $\neg p$ tidak mungkin benar bersamaan.
+\end{contoh}
+\begin{block}{Aplikasi}
+Kondisi kontradiktif dapat menyebabkan \textit{dead code} (cabang program tidak pernah dieksekusi).
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kontingensi}
+\begin{definisi}[Kontingensi]
+Proposisi majemuk yang nilai kebenarannya \textbf{bergantung} pada kombinasi nilai proposisi atomik; pada sebagian kombinasi bernilai benar, pada kombinasi lain bernilai salah.
+\end{definisi}
+\begin{contoh}
+$p \rightarrow q$, $(p \vee q) \wedge \neg r$ --- sebagian besar ekspresi praktik termasuk kontingensi.
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 4-2: Ekuivalensi Logis
+% ============================================================
+\section{Ekuivalensi Logis Melalui Tabel Kebenaran}
+
+\begin{frame}
+\frametitle{Definisi Ekuivalen Logis}
+\begin{definisi}[Ekuivalen Logis]
+Dua proposisi $P$ dan $Q$ \textbf{ekuivalen logis} ($\equiv$) apabila kolom nilai kebenaran keduanya identik untuk seluruh kombinasi nilai variabel.\\
+Secara aljabar: $(P \leftrightarrow Q)$ merupakan \textbf{tautologi}.
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Verifikasi Ekuivalensi: Hukum De Morgan}
+\begin{block}{Pertanyaan}
+Apakah $\neg(p \wedge q)$ ekuivalen dengan $\neg p \vee \neg q$?
+\end{block}
+\begin{center}
+\small
+\begin{tabular}{|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $\neg(p \wedge q)$ & $\neg p \vee \neg q$ & \\ \hline
+T & T & F & F & \\ \hline
+T & F & T & T & \\ \hline
+F & T & T & T & \\ \hline
+F & F & T & T & \\ \hline
+\end{tabular}
+\end{center}
+Kedua kolom identik $(F,T,T,T)$ $\Rightarrow$ $\neg(p \wedge q) \equiv \neg p \vee \neg q$
+\end{frame}
+
+% ============================================================
+% SECTION 4-3: Hukum Dasar Aljabar Proposisi
+% ============================================================
+\section{Hukum Dasar Aljabar Proposisi}
+
+\begin{frame}
+\frametitle{Hukum Dominasi dan Identitas}
+\begin{block}{Hukum Dominasi}
+$p \vee \mathbf{T} \equiv \mathbf{T}$ \quad $p \wedge \mathbf{F} \equiv \mathbf{F}$
+\end{block}
+\begin{block}{Hukum Identitas}
+$p \wedge \mathbf{T} \equiv p$ \quad $p \vee \mathbf{F} \equiv p$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hukum Negasi dan Involusi}
+\begin{block}{Hukum Negasi}
+$p \vee \neg p \equiv \mathbf{T}$ \quad (Tiada Jalan Tengah)\\
+$p \wedge \neg p \equiv \mathbf{F}$ \quad (Non-Kontradiksi)
+\end{block}
+\begin{block}{Hukum Involusi}
+$\neg(\neg p) \equiv p$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hukum Idempoten dan Absorpsi}
+\begin{block}{Hukum Idempoten}
+$p \vee p \equiv p$ \quad $p \wedge p \equiv p$
+\end{block}
+\begin{block}{Hukum Absorpsi}
+$p \vee (p \wedge q) \equiv p$\\
+$p \wedge (p \vee q) \equiv p$
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 4-4: Hukum Lanjutan
+% ============================================================
+\section{Hukum Lanjutan: Komutatif, Distributif, De Morgan}
+
+\begin{frame}
+\frametitle{Hukum Komutatif dan Asosiatif}
+\begin{block}{Komutatif}
+$p \vee q \equiv q \vee p$ \quad $p \wedge q \equiv q \wedge p$
+\end{block}
+\begin{block}{Asosiatif}
+$(p \vee q) \vee r \equiv p \vee (q \vee r)$\\
+$(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hukum Distributif}
+\begin{align*}
+p \vee (q \wedge r) &\equiv (p \vee q) \wedge (p \vee r) \\
+p \wedge (q \vee r) &\equiv (p \wedge q) \vee (p \wedge r)
+\end{align*}
+Dapat digunakan dua arah: ekspansi atau faktorisasi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Hukum De Morgan}
+\begin{block}{Teorema}
+Negasi masuk ke dalam kurung: AND $\leftrightarrow$ OR, tiap komponen dinegasi.
+\end{block}
+\begin{align*}
+\neg(p \wedge q) &\equiv \neg p \vee \neg q \\
+\neg(p \vee q) &\equiv \neg p \wedge \neg q
+\end{align*}
+\end{frame}
+
+% ============================================================
+% SECTION 4-5: Transformasi Implikasi dan Biimplikasi
+% ============================================================
+\section{Transformasi Implikasi dan Biimplikasi}
+
+\begin{frame}
+\frametitle{Transformasi Implikasi}
+\begin{block}{Ekuivalensi}
+\begin{align*}
+p \rightarrow q &\equiv \neg p \vee q \\
+p \rightarrow q &\equiv \neg(p \wedge \neg q)
+\end{align*}
+\end{block}
+\begin{contoh}
+``Jika Anda menyumbang darah ($p$), maka saya memberi apresiasi ($q$).''\\
+$\equiv$ ``Anda tidak menyumbang ($\neg p$) ATAU saya memberi apresiasi ($q$)''
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformasi Biimplikasi}
+\begin{align*}
+p \leftrightarrow q &\equiv (p \rightarrow q) \wedge (q \rightarrow p) \\
+&\equiv (\neg p \vee q) \wedge (\neg q \vee p) \\
+p \leftrightarrow q &\equiv (p \wedge q) \vee (\neg p \wedge \neg q)
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pola Penyederhanaan Campuran}
+\begin{align*}
+p \vee (\neg p \wedge q) &\equiv (p \vee q) \\
+p \wedge (\neg p \vee q) &\equiv (p \wedge q)
+\end{align*}
+\textbf{Bukti} pertama: distributif $\to$ negasi $\to$ identitas.
+\end{frame}
+
+% ============================================================
+% SECTION 4-6: Strategi Penyederhanaan
+% ============================================================
+\section{Strategi Penyederhanaan Bertahap}
+
+\begin{frame}
+\frametitle{Urutan Operasi Penyederhanaan}
+\begin{enumerate}
+  \item \textbf{Ubah implikasi/biimplikasi}: $\rightarrow$, $\leftrightarrow$ $\to$ $\wedge$, $\vee$, $\neg$
+  \item \textbf{Dorong negasi ke dalam}: De Morgan, negasi ganda
+  \item \textbf{Sederhanakan pola langsung}: identitas, dominasi, idempoten, absorpsi
+  \item \textbf{Gunakan distributif}: ekspansi atau faktorisasi
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Penyederhanaan}
+Sederhanakan: $\neg(p \vee \neg q) \vee (p \wedge q \wedge \neg r)$
+\begin{enumerate}
+  \item De Morgan: $(\neg p \wedge q) \vee (p \wedge (q \wedge \neg r))$
+  \item Involusi: $\neg(\neg q) \equiv q$
+  \item Distributif dan negasi: $q \wedge (\neg p \vee \neg r)$
+\end{enumerate}
+\textbf{Hasil:} $\mathbf{q \wedge (\neg p \vee \neg r)}$
+\end{frame}
+
+% ============================================================
+% SECTION 4-7: Studi Kasus
+% ============================================================
+\section{Studi Kasus: Optimasi Kode dan Gerbang Logika}
+
+\begin{frame}[fragile]
+\frametitle{Kode Asli (Ruwet)}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, frame=single]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  if not (not a_kerja and b_jaminan):
+      if a_kerja and (b_jaminan or not c_bebas_utang):
+          return True
+  return False
+\end{lstlisting}
+Logika: $\neg(\neg A \wedge B) \wedge (A \wedge (B \vee \neg C))$
+\end{frame}
+
+\begin{frame}
+\frametitle{Penyederhanaan Logika}
+\begin{align*}
+\neg(\neg A \wedge B) \wedge A \wedge (B \vee \neg C) &\xrightarrow{\text{De Morgan}} (A \vee \neg B) \wedge A \wedge (B \vee \neg C) \\
+&\xrightarrow{\text{Komutatif}} A \wedge (A \vee \neg B) \wedge (B \vee \neg C) \\
+&\xrightarrow{\text{Absorpsi}} \mathbf{A} \wedge (B \vee \neg C)
+\end{align*}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Kode Refactoring}
+\begin{lstlisting}[basicstyle=\ttfamily\scriptsize, frame=single]
+def cek_validitas_pinjaman(a_kerja, b_jaminan, c_bebas_utang):
+  return a_kerja and (b_jaminan or not c_bebas_utang)
+\end{lstlisting}
+Logika lebih ringkas, mudah dibaca, mudah diuji.
+\end{frame}
+
+\begin{frame}
+\frametitle{Optimasi Gerbang Logika}
+\begin{block}{Rancangan Awal}
+$Q_{output} = (A \wedge B) \vee (A \wedge \neg B)$
+\end{block}
+\begin{align*}
+&\equiv A \wedge (B \vee \neg B) \quad \text{(Distributif)} \\
+&\equiv A \wedge \mathbf{T} \quad \text{(Negasi)} \\
+&\equiv \mathbf{A} \quad \text{(Identitas)}
+\end{align*}
+Rangkaian cukup mengikuti sinyal $A$ saja.
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Tautologi (selalu T), kontradiksi (selalu F), kontingensi (bergantung).
+  \item Ekuivalensi logis: kolom identik $\Leftrightarrow$ $(P \leftrightarrow Q)$ tautologi.
+  \item Hukum dasar: dominasi, identitas, negasi, involusi, idempoten, absorpsi.
+  \item Hukum lanjutan: komutatif, asosiatif, distributif, De Morgan.
+  \item Implikasi: $p \rightarrow q \equiv \neg p \vee q$.
+  \item Prosedur 4 langkah penyederhanaan; aplikasi refactoring kode dan optimasi sirkuit.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+Tautologi $\bullet$ Kontradiksi $\bullet$ Kontingensi $\bullet$ Ekuivalensi Logis\\
+Tabel Kebenaran $\bullet$ Hukum Aljabar $\bullet$ De Morgan $\bullet$ Refactoring
+\end{center}
+\end{frame}
+
+\end{document}

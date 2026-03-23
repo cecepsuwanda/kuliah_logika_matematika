@@ -2,7 +2,7 @@
 
 Studi kasus ini menyajikan pemodelan silsilah keluarga menggunakan logika predikat orde pertama. Kasus ini dipilih karena mengilustrasikan secara jelas bagaimana entitas, properti, relasi, dan aturan saling berinteraksi dalam basis pengetahuan \cite{rosen2019}.
 
-\subsection{Requirement Pemodelan}
+\subsection{Kebutuhan pemodelan}
 
 Basis pengetahuan silsilah dimodelkan dengan relasi-relasi berikut:
 
@@ -66,5 +66,5 @@ R_4&: \forall x, y, z \; (OrangTua(z, x) \wedge OrangTua(z, y) \wedge (x \neq y)
 \end{contoh}
 
 \begin{konsep}
-Studi kasus ini menunjukkan bagaimana entitas (Hasan, Ahmad, dll.) dimodelkan sebagai konstanta, relasi (OrangTua) sebagai predikat arity-2, sifat (Laki, Perempuan) sebagai predikat arity-1, dan semua aturan ditranslasikan dalam bingkai implikasi berkuantor universal ($\forall$). Kemampuan penalaran otomatis ini menjadi fondasi bagi sistem pakar dan basis data deduktif.
+Studi kasus ini menunjukkan bahwa entitas (Hasan, Ahmad, dan lain-lain) dimodelkan sebagai konstanta, relasi (\textit{OrangTua}) sebagai predikat arity-2, sifat (\textit{Laki}, \textit{Perempuan}) sebagai predikat arity-1, dan aturan dinyatakan sebagai implikasi berkuantor universal ($\forall$). Pola penalaran demikian menjadi dasar sistem pakar dan basis data deduktif.
 \end{konsep}

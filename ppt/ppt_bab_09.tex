@@ -1,0 +1,313 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Aljabar Boolean]{Prinsip dan Hukum-hukum Dasar Aljabar Boolean}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 9-1: Pendahuluan
+% ============================================================
+\section{Pendahuluan Aljabar Boolean}
+
+\begin{frame}
+\frametitle{Sejarah Aljabar Boolean}
+\begin{itemize}
+  \item \textbf{George Boole} (1854): \textit{An Investigation of the Laws of Thought}. Aljabar untuk penalaran logis.
+  \item \textbf{Claude Shannon} (1938): \textit{A Symbolic Analysis of Relay and Switching Circuits}. Aplikasi ke rangkaian sakelar.
+\end{itemize}
+\begin{block}{Sistem}
+Himpunan $\{0, 1\}$ dengan tiga operasi: OR ($+$), AND ($\cdot$), NOT ($'$). Fondasi komputasi digital.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Relasi Isomorfik}
+Logika Proposisi $\leftrightarrow$ Teori Himpunan $\leftrightarrow$ Aljabar Boolean
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Konsep} & \textbf{Logika} & \textbf{Himpunan} & \textbf{Boolean} \\ \hline
+Benar & T & $U$ & 1 \\ \hline
+Salah & F & $\emptyset$ & 0 \\ \hline
+AND & $\wedge$ & $\cap$ & $\cdot$ \\ \hline
+OR & $\vee$ & $\cup$ & $+$ \\ \hline
+NOT & $\neg$ & $^c$ & $'$ \\ \hline
+\end{tabular}
+\end{center}
+De Morgan: $\neg(p \wedge q) \equiv \neg p \vee \neg q$ $\Leftrightarrow$ $(xy)' = x' + y'$
+\end{frame}
+
+\begin{frame}
+\frametitle{Definisi Aljabar Boolean}
+\begin{definisi}[Aljabar Boolean]
+Sistem $\langle B, +, \cdot, ', 0, 1 \rangle$: himpunan $B$, operator biner $+$ dan $\cdot$, operator uner $'$, elemen identitas 0 dan 1, yang memenuhi Postulat Huntington.
+\end{definisi}
+\end{frame}
+
+% ============================================================
+% SECTION 9-2: Postulat Huntington
+% ============================================================
+\section{Postulat Huntington}
+
+\begin{frame}
+\frametitle{Enam Postulat Huntington (1904)}
+\begin{enumerate}
+  \item \textbf{Ketertutupan}: $a+b \in B$, $a \cdot b \in B$
+  \item \textbf{Identitas}: $a+0=a$, $a \cdot 1 = a$
+  \item \textbf{Komutatif}: $a+b=b+a$, $a \cdot b = b \cdot a$
+  \item \textbf{Distributif}: $a \cdot (b+c) = ab + ac$; $a + (bc) = (a+b)(a+c)$
+  \item \textbf{Komplemen}: $a + a' = 1$, $a \cdot a' = 0$
+  \item \textbf{Eksistensi minimal}: $0 \neq 1$
+\end{enumerate}
+Hukum asosiatif \textbf{bukan} postulat; merupakan teorema turunan.
+\end{frame}
+
+\begin{frame}
+\frametitle{Boolean vs Aljabar Konvensional}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspek} & \textbf{Konvensional} & \textbf{Boolean} \\ \hline
+Domain & $\mathbb{R}$ & $\{0,1\}$ \\ \hline
+Distributif & Hanya $\times$ atas $+$ & Keduanya ($+$ atas $\cdot$ juga) \\ \hline
+Idempoten & $a+a \neq a$ & $a+a=a$, $a \cdot a = a$ \\ \hline
+Invers & Ada ($-a$, $a^{-1}$) & Tidak ada; hanya komplemen \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% SECTION 9-3: Operasi dan Evaluasi
+% ============================================================
+\section{Operasi Dasar dan Evaluasi}
+
+\begin{frame}
+\frametitle{Tiga Operasi Fundamental}
+\begin{center}
+\small
+\begin{tabular}{|c|c||c|c|c|}
+\hline
+$x$ & $y$ & $x+y$ (OR) & $x \cdot y$ (AND) & $x'$ (NOT) \\ \hline
+0 & 0 & 0 & 0 & 1 \\ \hline
+0 & 1 & 1 & 0 & 1 \\ \hline
+1 & 0 & 1 & 0 & 0 \\ \hline
+1 & 1 & 1 & 1 & 0 \\ \hline
+\end{tabular}
+\end{center}
+\begin{block}{Prioritas}
+NOT ($'$) $>$ AND ($\cdot$) $>$ OR ($+$). Contoh: $x + yz' = x + (y \cdot (z'))$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluasi Fungsi Boolean}
+$F(x,y,z) = x \cdot (y + z')$ untuk $(1,0,1)$:\\
+$F = 1 \cdot (0 + 1') = 1 \cdot (0+0) = 1 \cdot 0 = 0$\\
+Fungsi $n$ variabel: $2^n$ kombinasi input.
+\end{frame}
+
+% ============================================================
+% SECTION 9-4: Hukum Fundamental
+% ============================================================
+\section{Hukum-Hukum Fundamental}
+
+\begin{frame}
+\frametitle{Rangkuman Hukum Boolean}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Hukum} & \textbf{OR} & \textbf{AND} \\ \hline
+Identitas & $x+0=x$ & $x \cdot 1 = x$ \\ \hline
+Dominasi & $x+1=1$ & $x \cdot 0 = 0$ \\ \hline
+Idempoten & $x+x=x$ & $x \cdot x = x$ \\ \hline
+Komplemen & $x+x'=1$ & $x \cdot x' = 0$ \\ \hline
+De Morgan & $(x+y)' = x'y'$ & $(xy)' = x' + y'$ \\ \hline
+Absorpsi & $x + xy = x$ & $x(x+y) = x$ \\ \hline
+Konsensus & $xy + x'z + yz = xy + x'z$ & \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Prinsip Dualitas}
+\begin{definisi}[Dualitas]
+Setiap identitas tetap valid jika $+ \leftrightarrow \cdot$ dan $0 \leftrightarrow 1$ ditukar secara simultan.
+\end{definisi}
+Contoh: dual dari $x+0=x$ adalah $x \cdot 1 = x$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Penyederhanaan}
+$(x+y)(x+y') = x + (y \cdot y') = x + 0 = x$\\
+$xy + xy' = x(y+y') = x \cdot 1 = x$
+\end{frame}
+
+% ============================================================
+% SECTION 9-5: Penyederhanaan
+% ============================================================
+\section{Penyederhanaan}
+
+\begin{frame}
+\frametitle{Strategi Penyederhanaan}
+\begin{enumerate}
+  \item Faktor persekutuan (distributif)
+  \item Hukum komplemen untuk eliminasi
+  \item Hukum absorpsi untuk menghilangkan redundan
+  \item Hukum konsensus
+\end{enumerate}
+Tujuan: minimal literal dan operator $\Rightarrow$ sedikit gerbang.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: $xy + xy' + x'yz$}
+$F = x(y+y') + x'yz = x \cdot 1 + x'yz = x + x'yz = x + yz$ (absorpsi)
+\end{frame}
+
+% ============================================================
+% SECTION 9-6: SOP dan POS
+% ============================================================
+\section{Bentuk Kanonik SOP dan POS}
+
+\begin{frame}
+\frametitle{Literal, Minterm, Maxterm}
+\begin{block}{Literal}
+Variabel atau komplemennya: $x$, $y'$, $z$
+\end{block}
+\begin{block}{Minterm $m_j$}
+Suku perkalian dengan semua $n$ variabel (asli/komplemen). Bernilai 1 untuk tepat satu kombinasi. Contoh: $m_5 = xy'z$ (101)
+\end{block}
+\begin{block}{Maxterm $M_j$}
+Suku penjumlahan dengan semua $n$ variabel. Bernilai 0 untuk tepat satu kombinasi. $m_j = (M_j)'$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{SOP dan POS}
+\begin{definisi}[SOP]
+$F = \sum m(j_1, j_2, \ldots)$ = OR dari minterm di mana $F=1$
+\end{definisi}
+\begin{definisi}[POS]
+$F = \prod M(j_1, j_2, \ldots)$ = AND dari maxterm di mana $F=0$
+\end{definisi}
+Konversi: $F = \sum m(1,4,7)$ $\Leftrightarrow$ $F = \prod M(0,2,3,5,6)$ (indeks komplementer)
+\end{frame}
+
+% ============================================================
+% SECTION 9-7: Rangkaian Digital
+% ============================================================
+\section{Rangkaian Digital}
+
+\begin{frame}
+\frametitle{Gerbang Logika}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Gerbang} & \textbf{Ekspresi} & \textbf{Fungsi} \\ \hline
+AND & $x \cdot y$ & Output 1 jika semua input 1 \\ \hline
+OR & $x + y$ & Output 1 jika salah satu 1 \\ \hline
+NOT & $x'$ & Membalik nilai \\ \hline
+NAND & $(xy)'$ & NOT-AND \\ \hline
+NOR & $(x+y)'$ & NOT-OR \\ \hline
+XOR & $x \oplus y$ & 1 jika jumlah input-1 ganjil \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kelengkapan Fungsional}
+\begin{block}{Functionally Complete}
+Himpunan $\{AND, OR, NOT\}$ lengkap. \textbf{NAND} dan \textbf{NOR} masing-masing lengkap secara individual (Sheffer 1913).
+\end{block}
+NOT: $x' = (xx)'$; AND: $xy = ((xy)')'$; OR: $x+y = (x'y')'$
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Voting Mayoritas 3-Input}
+$F=1$ jika $\geq 2$ dari 3 pemilih setuju.\\
+$F = \sum m(3,5,6,7) = A'BC + AB'C + ABC' + ABC$\\
+Sederhanakan: $F = AB + AC + BC$ (3 AND, 1 OR)
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Aljabar Boolean: $\{0,1\}$, operator $+$, $\cdot$, $'$. Isomorfik dengan logika dan himpunan.
+  \item Postulat Huntington: 6 aksioma dasar. Hukum lain = teorema turunan.
+  \item Prinsip dualitas: tukar $+ \leftrightarrow \cdot$, $0 \leftrightarrow 1$.
+  \item SOP ($\sum m$) dan POS ($\prod M$); saling konversi.
+  \item NAND dan NOR masing-masing functionally complete.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+aljabar Boolean $\bullet$ Boole $\bullet$ Shannon $\bullet$ Postulat Huntington $\bullet$ dualitas\\
+literal $\bullet$ minterm $\bullet$ maxterm $\bullet$ SOP $\bullet$ POS $\bullet$ gerbang logika $\bullet$ NAND $\bullet$ NOR
+\end{center}
+\end{frame}
+
+\end{document}

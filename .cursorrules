@@ -1,0 +1,37 @@
+# Cursor Rules untuk Proyek Kuliah Logika Matematika
+
+Proyek ini adalah repositori bahan ajar mata kuliah **Logika Matematika** berbasis *Outcome-Based Education* (OBE). Proyek ini menggunakan **LaTeX** untuk dokumen utama (buku ajar, silabus, kontrak kuliah, presentasi) dan **Python/Batch** untuk skrip automasi.
+
+Harap selalu patuhi instruksi berikut ketika membaca, mengedit, atau menghasilkan kode/konten untuk repositori ini.
+
+## 1. Aturan Bahasa & Nada (*Tone & Language*)
+- Gunakan **Bahasa Indonesia** yang baku, formal, dan akademis (sesuai Pedoman Umum Ejaan Bahasa Indonesia/PUEBI).
+- Hindari bahasa kasual atau teknis slank.
+- Saat menjelaskan konsep logika (misal: *propositional logic*, *predicate logic*, *inference*), gunakan padanan istilah bahasa Indonesia yang lazim (logika proposisi, logika predikat, penarikan kesimpulan/inferensi).
+
+## 2. Aturan Struktur Konten OBE (*Outcome-Based Education*)
+- **Referensi Capaian Pembelajaran**: Setiap materi yang ditulis, ringkasan, atau soal evaluasi harus sesuai dengan CPL dan CPMK yang terdapat di `docs/cpl_cpmk.md`.
+- **Struktur Bab**: Jika menambahkan atau memperbesar cakupan (*deepening*) suatu bab, **wajib mematuhi kerangka** yang tertera pada `docs/struktur_bab_buku_ajar_OBE.text`.
+- **Sitasi & Daftar Pustaka**: 
+  - Selalu pastikan klaim ilmiah merujuk pada `buku_ajar/buku_ajar_logika_matematika/references.bib`.
+  - Dilarang keras melakukan halusinasi sitasi. Jika mencari referensi dari luar, langsung tambahkan entri bibtex baru ke `references.bib` dan sitasi pada (*section*) terkait.
+- **Baca Prompt Awal**: Pahami panduan tambahan untuk asisten bahasa dari `docs/prompt.txt`.
+
+## 3. Aturan Penulisan Kode LaTeX
+- **Semantic Line Breaks**: Pisahkan setiap kalimat dengan satu baris baru (*One Sentence Per Line*). Jangan gunakan format paragraf panjang menyamping (*long wrap-lines*). Ini akan mempermudah pelacakan konflik Git (*Git diff*).
+- **Format Label & Referensi Silang**: Gunakan standar penamaan (*prefix*):
+  - Gambar: `\label{fig:nama-gambar}`
+  - Tabel: `\label{tab:nama-tabel}`
+  - Bab/Subbab: `\label{sec:nama-bab}`
+  - Persamaan: `\label{eq:nama-persamaan}`
+- **Modularitas**: Jangan masukkan preambel baru (seperti perintah `\usepackage{}`) secara sporadis ke dalam file bab (contoh `bab-01.tex`). Lakukan konfigurasi lingkungan LaTeX hanya di dalam file `preamble.tex`.
+- Eksekusi/simulasikan kompilasi terisolasi dari *batch file* (seperti `compile_bab.bat`) sebelum memastikan suatu kode `.tex` benar.
+
+## 4. Aturan Skrip (Python & Batch)
+- Direktori kerja untuk skrip Python adalah folder `scripts/`.
+- Skrip yang mengunduh atau menghasilkan visualisasi untuk buku ajar harus selalu diarahkan (*path output*) masuk ke dalam `buku_ajar/buku_ajar_logika_matematika/bab/figures/` (atau direktori `figures/` yang sesuai di bab tujuan).
+- Pastikan penggunaan *library* seperti `matplotlib`, `numpy`, atau alat lain didokumentasikan dengan memperbarui file `requirements.txt`.
+
+## 5. Aturan Manajemen Versi (Git Workflow)
+- Selalu hargai aturan `.gitignore`. Jangan pernah menambahkan secara paksa (*force add*) *file-file temporary* hasil *build* LaTeX seperti `*.aux`, `*.log`, `*.toc`, `*.out`, maupun produk biner `*.pdf` ke dalam komit Git kecuali diminta secara spesifik (untuk tujuan rilis).
+- Pastikan kode bisa dikompilasi hingga menjadi PDF sebelum menyarankan *commit*.

@@ -1,6 +1,6 @@
 \section{Kuantor Bersarang (Nested Quantifiers)}
 
-Pemodelan logika dunia nyata jarang berhenti pada proposisi satu subjek tunggal. Kerap sebuah predikat matematika terdiri atas berbagai argumen kompleks ($n$-arity) seperti pada formula algebra multi-variabel (Materi Bab 8). Tatkala sebuah fungsi proposisional melibatkan dua atau lebih variabel, lazim digunakan serangkaian kuantor untuk menutup masing-masing variabel dari kebebasannya. Inilah yang lazim dijuluki \logic{Kuantor Bersarang} (\textit{Nested Quantifiers}) \cite{rosen2019}.
+Dalam banyak kasus, fungsi proposisional melibatkan dua atau lebih variabel. Untuk menutup seluruh variabel bebas tersebut, digunakan beberapa kuantor secara berurutan. Struktur ini disebut \logic{kuantor bersarang} (\textit{nested quantifiers}) \cite{rosen2019}.
 
 \subsection{Konsep Kuantor Bersarang}
 
@@ -8,39 +8,36 @@ Pemodelan logika dunia nyata jarang berhenti pada proposisi satu subjek tunggal.
 \logic{Kuantor Bersarang} ditemui ketika sebuah operator kuantor diletakkan di dalam ruang lingkup (\textit{scope}) operator kuantor lainnya. Penulisan standarnya ditumpuk urut dari luar (kiri) menuju ke dalam (kanan).
 \end{definisi}
 
-Pernyataan bersarang $\forall x \, \exists y \, P(x, y)$ berarti menempatkan kuantor eksistensial pada subordinat kuantor universal.
-
-Berdasarkan hirarki \textit{scoping}, kita membedah maksudnya: ``Untuk sembarang elemen $x$, dapat dijodohkan satu/lebih properti dari fungsi proposisional eksistensial $\exists y \, P(x, y)$''. Atau, jika dikembalikan secara murni ke bahasa matematika:
-``Setiap $x$ bebas memilih elemen $y$ (bisa beda-beda $y$ untuk tiap $x$) asalkan hal tersebut mewujudkan formula $P(x, y)$ selalu Benar''.
+Pernyataan $\forall x \, \exists y \, P(x, y)$ berarti: untuk setiap nilai $x$, terdapat paling sedikit satu nilai $y$ (yang dapat bergantung pada $x$) sehingga $P(x,y)$ benar.
 
 \subsection{Tipe Bersarang Dua Variabel}
 
-Misalkan $P(x, y)$ menyatakan fungsi relasi antientitas $x$ dan $y$. Dalam ranah dua variabel, terdapat empat konfigurasi fundamental kombo kuantifikasi:
+Misalkan $P(x, y)$ adalah relasi antara entitas $x$ dan $y$. Untuk dua variabel, terdapat empat konfigurasi kuantor utama:
 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|p{3cm}|p{5.5cm}|p{5.5cm}|}
 \hline
-\textbf{Ekspresi Logika} & \textbf{Syarat Bernilai BENAR} & \textbf{Syarat Bernilai SALAH} \\ \hline
+\textbf{Ekspresi Logika} & \textbf{Syarat Bernilai Benar} & \textbf{Syarat Bernilai Salah} \\ \hline
 
 $\forall x \, \forall y \, P(x,y)$ 
 \newline $\equiv \forall y \, \forall x \, P(x,y)$ & 
-$P(x,y)$ selalu benar dan pantang cacat untuk seluruh relasi pemasangan pasangan elemen $(x, y)$. & 
-Ada sepasang $(x,y)$ yang menyalahi $P(x,y)$ (counterexample). \\ \hline
+$P(x,y)$ benar untuk seluruh pasangan $(x,y)$. & 
+Ada pasangan $(x,y)$ yang membuat $P(x,y)$ salah (\textit{counterexample}). \\ \hline
 
 $\forall x \, \exists y \, P(x,y)$ & 
-Untuk setiap $x$ yang ditarik, terdapat minimal satu nilai $y$ yang membuat $P(x,y)$ benar. & 
-Terbukti terdapat elemen $x$ sedemikian sehingga untuk setiap $y$, $P(x,y)$ bernilai salah. \\ \hline
+Untuk setiap $x$, terdapat paling sedikit satu nilai $y$ yang membuat $P(x,y)$ benar. & 
+Ada nilai $x$ tertentu sehingga untuk semua $y$, $P(x,y)$ bernilai salah. \\ \hline
 
 $\exists x \, \forall y \, P(x,y)$ & 
-Terdapat elemen $x$ (witness universal) sedemikian sehingga $P(x,y)$ benar untuk setiap $y$. & 
-Tepat berapapun aktor $x$ diklaim, dia akan senantiasa gagal/kalah ketika direlasikan terhadap setidaknya sebuah nilai $y$ acak. \\ \hline
+Terdapat satu elemen $x$ (\textit{witness}) sehingga $P(x,y)$ benar untuk setiap $y$. & 
+Untuk setiap nilai $x$ yang dicoba, selalu ada paling sedikit satu nilai $y$ yang membuat $P(x,y)$ salah. \\ \hline
 
 $\exists x \, \exists y \, P(x,y)$
 \newline $\equiv \exists y \, \exists x \, P(x,y)$ & 
-Sekurang-kurangnya sebuah saja skrup pasangan nilai $(x,y)$ pas merekatkan kebenaran subjek $P(x,y)$. & 
-Untuk semua probabilitas kemungkinan pemasangan $(x,y)$ tidak menghasilkan interaksi benar sedikitpun. \\ \hline
+Terdapat paling sedikit satu pasangan $(x,y)$ yang membuat $P(x,y)$ benar. & 
+Untuk seluruh pasangan $(x,y)$, nilai $P(x,y)$ salah. \\ \hline
 
 \end{tabular}
 \caption{Konfigurasi Logika dan Evaluasi Bersarang}
@@ -49,14 +46,14 @@ Untuk semua probabilitas kemungkinan pemasangan $(x,y)$ tidak menghasilkan inter
 \subsection{Pemodelan Bersarang Matematika}
 
 \begin{contoh}
-Diberikan domain Bilangan Riil ($\mathbb{R}$). Telaah validitas klausa bersarang di bawah ini.
+Diberikan domain bilangan riil ($\mathbb{R}$). Tinjau validitas klausa berikut.
 \begin{enumerate}
     \item \textbf{Penjumlahan Komutatif:} \quad $\forall x \, \forall y \; (x + y = y + x)$ \\
-    Bermakna: ``Hukum penjumlahan bolak-balik valid untuk sembarang dua angka real apa pun.''
-    \textbf{Validasi:} Benar absolut berdasarkan taksonomi \textit{ring} bilangan real. Boleh saling tukar penulisan kuantor setipe (komutatif letak kuantor identik).
+    Bermakna: ``Untuk setiap dua bilangan riil, penjumlahan bersifat komutatif.''
+    \textbf{Validasi:} Benar. Posisi kuantor yang sejenis dapat dipertukarkan.
     
     \item \textbf{Eksistensi Invers Aditif:} \quad $\forall x \, \exists y \; (x + y = 0)$ \\
-    Bermakna: ``Entah angka apapun itu $x$ nya, pastilah di alam semulajadi real kita temukan padanannya bernilai $y$ yang apabila dijumlahkan luruh menjadi 0 nol.''
-    \textbf{Validasi:} Benar. Untuk sebuah subjek tetap $x=10$, saksi balan-nya adalah memformulasikan peubah dinamis dependen $y = -x$, yakni $y=-10$. Untuk subjek $x=1203$, padanan yang menjawab ialah memilin pelatuk $y=-1203$.
+    Bermakna: ``Untuk setiap bilangan riil $x$, ada bilangan riil $y$ sehingga jumlahnya 0.''
+    \textbf{Validasi:} Benar, karena untuk setiap $x$ dapat dipilih $y=-x$.
 \end{enumerate}
 \end{contoh}

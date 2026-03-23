@@ -33,6 +33,11 @@ for %%F in (bab-*.tex) do (
     ) else (
         echo ERROR compiling !FILE_NAME!.
     )
+
+    if exist "!FILE_NAME!.log" (
+        move /y "!FILE_NAME!.log" "%OUTPUT_DIR%\!FILE_NAME!.log" >nul
+        echo Log: !FILE_NAME!.log moved to output.
+    )
 )
 
 popd
@@ -41,7 +46,8 @@ echo Cleaning up intermediate files...
 call :cleanup "%SOURCE_DIR%"
 
 echo.
-echo Operation Completed. Check the output folder for PDFs.
+echo Operation Completed. Check the output folder for PDFs and logs.
+echo Output Folder: %OUTPUT_DIR%
 goto :end
 
 :cleanup

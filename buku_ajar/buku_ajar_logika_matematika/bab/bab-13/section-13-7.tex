@@ -1,6 +1,6 @@
 \section{Kesalahan Umum dan Panduan Praktis Induksi}
 
-Meskipun struktur induksi tampak sederhana, terdapat beberapa kesalahan umum yang sering dilakukan oleh pemula. Memahami kesalahan-kesalahan ini sama pentingnya dengan memahami teknik itu sendiri, karena kesalahan dalam induksi dapat menghasilkan ``bukti'' yang tampak valid tetapi sebenarnya salah \cite{hammack2018}.
+Meskipun struktur induksi tampak sederhana, terdapat beberapa kesalahan yang sering muncul dalam bukti induksi. Memahami pola kesalahan ini setara pentingnya dengan memahami teknik itu sendiri, karena kesalahan dalam induksi dapat menghasilkan ``bukti'' yang tampak valid tetapi sebenarnya salah \cite{hammack2018}.
 
 \subsection{Kesalahan 1: Melupakan Langkah Basis}
 
@@ -23,7 +23,7 @@ Langkah induksi \textbf{harus} menggunakan hipotesis induksi $P(k)$. Jika bukti 
 \begin{contoh}
 \textbf{Kesalahan umum} pada pembuktian $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$:
 
-Mahasiswa kadang memulai dari persamaan yang hendak dibuktikan (ruas kanan) dan memanipulasinya \emph{mundur} menuju hipotesis induksi. Ini adalah penalaran sirkuler --- kita tidak boleh mengasumsikan apa yang hendak dibuktikan.
+Dalam latihan, pembuktian sering memulai dari persamaan yang hendak dibuktikan (ruas kanan) dan memanipulasinya \emph{mundur} menuju hipotesis induksi. Ini adalah penalaran sirkuler --- kita tidak boleh mengasumsikan apa yang hendak dibuktikan.
 
 \textbf{Pendekatan yang benar}: Mulai dari ruas kiri, substitusikan hipotesis induksi, lalu tunjukkan bahwa hasilnya \emph{sama dengan} ruas kanan.
 \end{contoh}
@@ -51,6 +51,6 @@ Berikut ringkasan panduan langkah demi langkah untuk menyusun bukti induksi:
   \item \textbf{Simpulkan}: ``Berdasarkan prinsip induksi matematika, $P(n)$ terbukti untuk seluruh $n \geq n_0$. $\blacksquare$''
 \end{enumerate}
 
-\subsection{Jembatan ke Bab Selanjutnya}
+\subsection{Hubungan dengan bab berikutnya}
 
-Induksi matematika tidak hanya berguna untuk membuktikan formula matematika, tetapi juga menjadi alat utama dalam verifikasi program \cite{mit_6042}. Pada Bab~14, teknik induksi akan diterapkan untuk membuktikan kebenaran algoritma melalui konsep \logic{loop invariant} --- pernyataan yang dijaga tetap benar pada setiap iterasi perulangan, dengan analogi yang langsung terkait prinsip induksi: basis (sebelum loop dimulai) dan langkah induksi (setiap iterasi menjaga invariant).
+Induksi matematika berperan dalam verifikasi program \cite{mit_6042}. Bab~14 menerapkan ide yang terkait---\logic{loop invariant}---dalam membuktikan kebenaran algoritma: pernyataan yang tetap benar pada setiap iterasi, bersesuaian dengan basis (kondisi awal) dan langkah induksi (pemeliharaan invariant).

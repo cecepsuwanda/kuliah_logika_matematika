@@ -1,0 +1,283 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Logika Predikat]{Logika Predikat, Fungsi Proposisional, dan Universe of Discourse}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 6-1: Keterbatasan Logika Proposisi
+% ============================================================
+\section{Keterbatasan Logika Proposisi}
+
+\begin{frame}
+\frametitle{Argumen Silogisme Klasik}
+\begin{block}{Argumen Aristoteles}
+\textbf{Premis 1:} Semua manusia pasti akan mati.\\
+\textbf{Premis 2:} Socrates adalah manusia.\\
+\textbf{Kesimpulan:} Socrates pasti akan mati.
+\end{block}
+Secara intuitif valid. Uji dengan logika proposisi?
+\end{frame}
+
+\begin{frame}
+\frametitle{Mengapa Logika Proposisi Gagal?}
+Representasi atomik: $p$ = semua manusia mati, $q$ = Socrates manusia, $r$ = Socrates mati.\\
+Struktur: $p, q \vdash r$
+\begin{block}{Keterbatasan}
+Logika proposisi memperlakukan setiap kalimat sebagai \textit{black box}---struktur internal (subjek--predikat) tidak dianalisis. Tidak ada hubungan inferensial langsung antara $p$, $q$, $r$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Logika Predikat (FOL)}
+\begin{definisi}[Logika Predikat / First-Order Logic]
+Perluasan logika proposisional yang memungkinkan penguraian kalimat menjadi \textbf{subjek} (objek) dan \textbf{predikat} (sifat/relasi). Memperkenalkan variabel dan kuantifikasi.
+\end{definisi}
+Representasi: $\text{Manusia}(\text{Socrates})$, $\text{LebihBesar}(5, 3)$.
+\end{frame}
+
+% ============================================================
+% SECTION 6-2: Term, Konstanta, Variabel
+% ============================================================
+\section{Struktur: Term, Konstanta, Variabel}
+
+\begin{frame}
+\frametitle{Definisi Term}
+\begin{definisi}[Term]
+Elemen/entitas yang menjadi subjek pernyataan, sifat, atau relasi. Berperan sebagai \textbf{kata benda}; tidak bernilai benar/salah.
+\end{definisi}
+Tiga kategori: \textbf{konstanta}, \textbf{variabel}, hasil \textbf{aplikasi fungsi} terhadap term.
+\end{frame}
+
+\begin{frame}
+\frametitle{Konstanta dan Variabel}
+\begin{block}{Konstanta}
+Penamaan spesifik objek: ``Socrates'', ``Jakarta'', $1$, $\pi$.
+\end{block}
+\begin{block}{Variabel}
+Subjek belum ditetapkan; dapat disubstitusi. Simbol: $x$, $y$, $z$. Kata ganti ``ia'' berperan seperti variabel.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fungsi Pemetaan}
+Fungsi memetakan term $\to$ term baru (bukan nilai kebenaran).
+\begin{contoh}
+\begin{itemize}
+  \item $f(x) = x^2 + 1$; untuk $x=3$ $\Rightarrow$ term $f(3)=10$.
+  \item $ayah(x)$ = ``ayah kandung dari $x$''.
+  \item $dekan(F)$ = individu yang menjabat dekan fakultas $F$.
+\end{itemize}
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 6-3: Predikat dan Arity
+% ============================================================
+\section{Predikat dan Arity}
+
+\begin{frame}
+\frametitle{Definisi Predikat}
+\begin{definisi}[Predikat]
+Atribut, klasifikasi, properti, atau relasi yang dilekatkan pada satu atau lebih term. Menentukan nilai kebenaran (T/F) bersama interpretasi.
+\end{definisi}
+\begin{contoh}
+``Socrates adalah manusia'': $M(s)$ dengan $M(x) \equiv x$ manusia, $s \equiv$ Socrates.
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arity: Unary, Binary, $n$-ary}
+\begin{block}{Unary (1-arity)}
+$G(n) \equiv n$ bilangan genap. $W(x) \equiv x$ warga Afrika.
+\end{block}
+\begin{block}{Binary (2-arity)}
+$L(x,y) \equiv x$ lebih besar daripada $y$. Urutan argumen penting!
+$L(100,2)$ = T; $L(2,100)$ = F.
+\end{block}
+\begin{block}{$n$-ary}
+$B(x,y,z)$ = kota $x$ terletak antara kota $y$ dan $z$.
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 6-4: Fungsi Proposisional
+% ============================================================
+\section{Fungsi Proposisional}
+
+\begin{frame}
+\frametitle{Definisi Fungsi Proposisional}
+\begin{definisi}[Fungsi Proposisional / Kalimat Terbuka]
+Ekspresi dari predikat yang mengikat setidaknya satu \textbf{variabel bebas}. Secara umum \textbf{belum} bernilai benar/salah hingga variabel diinterpretasikan.
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dari Kalimat Terbuka ke Tertutup}
+\begin{contoh}
+$P(x) \equiv$ ``$x$ adalah presiden pertama RI.''\\
+Selama $x$ tidak ditetapkan $\Rightarrow$ kalimat terbuka.
+\end{contoh}
+\begin{block}{Substitusi Konstanta}
+$P(a)$ dengan $a$ = B.J. Habibie $\Rightarrow$ F.\\
+$P(s)$ dengan $s$ = Ir. Soekarno $\Rightarrow$ T.
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 6-5: Semesta Pembicaraan
+% ============================================================
+\section{Semesta Pembicaraan}
+
+\begin{frame}
+\frametitle{Universe of Discourse ($\mathcal{U}$)}
+\begin{definisi}[Semesta Pembicaraan]
+Himpunan objek yang \textbf{diperbolehkan} dan \textbf{relevan} sebagai nilai substitusi untuk variabel. Menetapkan domain yang sah.
+\end{definisi}
+Tanpa $\mathcal{U}$: ambiguitas, substitusi tidak selaras (mis. ``Gunung Merapi'' ke predikat aritmetika $\Rightarrow$ \textit{type mismatch}).
+\end{frame}
+
+\begin{frame}
+\frametitle{Pengaruh Semesta}
+\begin{contoh}
+$M$: $x^2 \geq 0$ untuk setiap $x$.
+\begin{itemize}
+  \item $\mathcal{U} = \mathbb{R}$ $\Rightarrow$ True.
+  \item $\mathcal{U} = \mathbb{C}$, $x = 3i$ $\Rightarrow$ $x^2 = -9$, tidak terpenuhi.
+\end{itemize}
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 6-6: Kalimat Tertutup
+% ============================================================
+\section{Kalimat Tertutup (Proposisi)}
+
+\begin{frame}
+\frametitle{Dua Cara Memperoleh Kalimat Tertutup}
+\begin{enumerate}
+  \item \textbf{Substitusi konstanta}: semua variabel bebas diganti konstanta sesuai semesta.
+  \item \textbf{Kuantifikasi}: variabel diikat dengan $\forall$ atau $\exists$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh}
+\begin{block}{Substitusi}
+$L(x,y)$ = ``$x$ berlari lebih cepat daripada $y$''.\\
+$L(\text{Snoopy}, \text{Kura-Kura Ninja})$ = proposisi tertutup.
+\end{block}
+\begin{block}{Kuantifikasi}
+$P(x)$ = ``$x$ tidak hidup abadi'' ($\mathcal{U}$ = organisme).\\
+$\forall x\, P(x)$, $\exists x\, P(x)$ = proposisi tertutup.
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 6-7: Studi Kasus Pemodelan
+% ============================================================
+\section{Studi Kasus: Pemodelan Naratif}
+
+\begin{frame}
+\frametitle{Skenario}
+\textit{``Anton mahasiswa Informatika di Universitas Nusantara. Univ. Nusantara berlokasi di Jakarta. Anton menyukai Logika Matematika. Anton bukan ketua BEM; Sinta ketua BEM. Anton IPK lebih tinggi dari Sinta. Budi sahabat Anton.''}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ekstraksi Term dan Predikat}
+\begin{block}{Konstanta}
+$a$=Anton, $b$=Budi, $s$=Sinta, $u$=Univ. Nusantara, $j$=Jakarta, $m$=Logika Matematika
+\end{block}
+\begin{block}{Predikat}
+Unary: $M(x)$, $B(x)$. Binary: $K(x,y)$, $L(x,y)$, $S(x,z)$, $P(x,y)$, $H(x,y)$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Klausa Formal}
+\begin{itemize}
+  \item $M(a) \wedge K(a,u)$ --- Anton mahasiswa di Univ. Nusantara
+  \item $L(u,j)$ --- Univ. berlokasi di Jakarta
+  \item $S(a,m)$ --- Anton suka Logika Matematika
+  \item $B(s) \wedge \neg B(a)$ --- Sinta ketua BEM, Anton bukan
+  \item $P(a,s)$ --- IPK Anton lebih tinggi dari Sinta
+  \item $H(b,a)$ --- Budi sahabat Anton
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Logika proposisi tidak menganalisis struktur internal (subjek--predikat).
+  \item \textbf{Term}: konstanta, variabel, aplikasi fungsi; tidak bernilai T/F.
+  \item \textbf{Predikat}: sifat/relasi; arity = banyaknya argumen.
+  \item \textbf{Fungsi proposisional}: predikat + variabel bebas; belum T/F.
+  \item \textbf{Universe of Discourse}: domain substitusi yang sah.
+  \item Kalimat tertutup: substitusi konstanta atau kuantifikasi.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+FOL $\bullet$ Term $\bullet$ Konstanta $\bullet$ Variabel $\bullet$ Predikat $\bullet$ Arity\\
+Fungsi Proposisional $\bullet$ Kalimat Terbuka $\bullet$ Universe of Discourse
+\end{center}
+\end{frame}
+
+\end{document}

@@ -1,35 +1,35 @@
 \section{Keterbatasan Logika Proposisi dan Kebutuhan Logika Predikat}
 
-Logika proposisi (disebut juga kalkulus proposisional) yang telah kita pelajari dari Bab 1 hingga Bab 5 menyediakan kerangka kerja yang solid untuk merangkai dan mengevaluasi pernyataan-pernyataan berbasis kebenaran utuh (Benar atau Salah). Namun, bahasa proposisi murni memiliki kelemahan ekspresivitas yang signifikan ketika berhadapan dengan struktur klaim yang lebih detail atau melibatkan kuantitas \cite{rosen2019}.
+Logika proposisi (disebut juga kalkulus proposisional) yang telah dibahas dari Bab 1 hingga Bab 5 menyediakan kerangka kerja yang memadai untuk merangkai dan mengevaluasi pernyataan yang bernilai benar atau salah secara utuh. Namun, bahasa proposisi murni memiliki keterbatasan ekspresivitas yang nyata apabila struktur klaim lebih rinci atau melibatkan kuantitas \cite{rosen2019}.
 
 \subsection{Argumen Silogisme Klasik}
 
-Perhatikan argumen deduktif yang paling terkenal dalam sejarah filsafat logika, warisan Aristoteles:
+Perhatikan argumen deduktif klasik yang terkenal dalam tradisi logika Aristoteles:
 \begin{enumerate}
     \item \textbf{Premis 1}: Semua manusia pasti akan mati (mortal).
     \item \textbf{Premis 2}: Socrates adalah seorang manusia.
     \item \textbf{Kesimpulan}: Oleh karena itu, Socrates pasti akan mati.
 \end{enumerate}
 
-Secara intuitif dan rasional, silogisme di atas mutlak valid. Kesimpulan lahir secara niscaya dari dua premis di atasnya. Mari kita uji menggunakan logika proposisi biasa. 
-Jika kita merepresentasikan tiap baris kalimat sebagai proposisi atomik: \\
+Secara intuitif, silogisme di atas valid: kesimpulan mengikuti dari premis-premisnya. Uji representasinya dengan logika proposisi biasa.
+Jika setiap kalimat diwakili oleh satu proposisi atomik: \\
 $p \equiv \text{Semua manusia pasti akan mati.}$ \\
 $q \equiv \text{Socrates adalah seorang manusia.}$ \\
 $r \equiv \text{Socrates pasti akan mati.}$
 
-Maka struktur argumen formalnya hanyalah sekumpulan proposisi acak:
+Maka struktur argumen formalnya berbentuk:
 \[ p, q \vdash r \]
 
-Secara aljabar proposisional, tidak ada relasi matematis (seperti Implikasi, Konjungsi, Modus Ponens) yang menghubungkan huruf $p$, $q$, dan $r$. Logika proposisi murni \textbf{gagal total} mendeteksi dan memvalidasi kebenaran argumen ini, karena ia memperlakukan setiap kalimat utuh sebagai satu unit \textit{black box} (kotak hitam) yang tidak bisa dibedah \cite{wiki_first_order_logic}.
+Dalam aljabar proposisional, tidak terdapat hubungan inferensial langsung (misalnya implikasi, konjungsi, atau skema seperti \textit{modus ponens}) yang menghubungkan $p$, $q$, dan $r$ sebagai huruf atom yang saling terpisah. Logika proposisi murni \textbf{tidak mampu} mendeteksi dan memvalidasi validitas argumen ini, karena setiap kalimat utuh diperlakukan sebagai satu unit \textit{black box} (modul tertutup) yang struktur internalnya tidak dianalisis \cite{wiki_first_order_logic}.
 
-\subsection{Kelahiran Logika Orde Pertama (First-Order Logic)}
+\subsection{Perkembangan Logika Orde Pertama (\textit{First-Order Logic})}
 
-Kegagalan di atas berasal dari ketidakmampuan logika proposisi dalam "melihat ke dalam" struktur kalimat. Argumen Socrates valid karena ada irisan makna antara kata "manusia", "mati", dan "Socrates" di dalam kalimat-kalimat tersebut.
+Keterbatasan tersebut timbul dari ketidakmampuan logika proposisi untuk menganalisis struktur internal kalimat. Argumen mengenai Socrates valid karena terdapat hubungan makna antara konsep ``manusia'', ``mati'', dan nama ``Socrates'' di dalam pernyataan-pernyataan tersebut.
 
-Untuk mengatasi paradoks dan kebutaan ini, para logikawan abad ke-19 (terutama dipelopori oleh Gottlob Frege dan Charles Sanders Peirce) mengembangkan sistem logika yang jauh lebih tajam dan analitis. Sistem ini disebut \logic{Logika Predikat} atau lazim dijuluki \logic{Logika Orde Pertama} (\textit{First-Order Logic} - FOL).
+Untuk mengatasi hal itu, para logikawan abad ke-19---terutama melalui karya Gottlob Frege dan Charles Sanders Peirce---mengembangkan sistem yang lebih analitis, yang disebut \logic{Logika Predikat} atau \logic{Logika Orde Pertama} (\textit{First-Order Logic}, FOL).
 
 \begin{definisi}[Logika Predikat]
-\logic{Logika Predikat} adalah perluasan dari logika proposisional yang mengizinkan pembedahan internal sebuah kalimat ke dalam subjek penyusunnya (objek yang dibicarakan) dan predikatnya (sifat atau relasi dari objek tersebut). Ia juga mengenalkan konsep variabel dan kuantitas untuk menaungi kumpulan entitas tanpa perlu menyebutkannya satu per satu.
+\logic{Logika Predikat} adalah perluasan logika proposisional yang memungkinkan penguraian internal kalimat menjadi subjek (objek yang dibicarakan) dan predikat (sifat atau relasi terhadap objek tersebut). Sistem ini juga memperkenalkan variabel dan kuantifikasi atas kumpulan entitas tanpa harus menamai setiap entitas secara tunggal.
 \end{definisi}
 
-Dengan masuk ke Logika Predikat, kita beralih dari sekadar merangkai huruf $p \land q$, menjadi menulis fungsi matematis deskriptif seperti $\text{Manusia(Socrates)}$ atau $\text{LebihBesar(5, 3)}$. Bab ini akan meletakkan bata demi bata fondasi bahasa formal baru tersebut.
+Dalam logika predikat, representasi bergeser dari sekadar merangkai $p \land q$ menuju bentuk seperti $\text{Manusia}(\text{Socrates})$ atau $\text{LebihBesar}(5, 3)$. Bab ini memaparkan fondasi bahasa formal tersebut secara bertahap.

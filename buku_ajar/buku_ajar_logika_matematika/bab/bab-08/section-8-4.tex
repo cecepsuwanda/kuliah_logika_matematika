@@ -7,7 +7,9 @@ Tujuan utama membangun basis pengetahuan adalah untuk dapat menjawab pertanyaan 
 Resolusi query mengikuti langkah-langkah sistematis:
 
 \begin{enumerate}
-    \item \textbf{Terima query}: Identifikasi apa yang ingin dibuktikan, misalnya $Kakek(Hasan, Ali)$?
+    \item \textbf{Terima query:}\newline
+    Identifikasi apa yang ingin dibuktikan, misalnya\newline
+    $Kakek(\text{Hasan}, \text{Ali})$?
     \item \textbf{Cari fakta langsung}: Apakah query sudah merupakan fakta dalam $\Delta$? Jika ya, jawab ``benar''.
     \item \textbf{Cari aturan yang relevan}: Identifikasi aturan dalam $\Gamma$ yang konsekuennya cocok dengan query.
     \item \textbf{Instansiasi aturan}: Terapkan UI untuk mengikat variabel dengan konstanta yang sesuai.
@@ -53,5 +55,5 @@ Aturan ($\Gamma$):
 \end{contoh}
 
 \begin{konsep}
-Perhatikan bahwa rantai penalaran di atas menunjukkan bagaimana fakta-fakta baru ($Mortal(Marcus)$, $Tewas(Marcus, Erupsi, 79)$, $Legenda(Marcus)$) tidak secara eksplisit ada dalam KB, tetapi dapat \textbf{diturunkan} melalui inferensi logis. Inilah kekuatan utama pendekatan basis pengetahuan: kemampuan menemukan implikasi tersembunyi dari informasi yang tersedia.
+Rantai penalaran di atas menunjukkan bahwa fakta-fakta baru ($Mortal(Marcus)$, $Tewas(Marcus, Erupsi, 79)$, $Legenda(Marcus)$) tidak tercantum secara eksplisit dalam KB, tetapi dapat \textbf{diturunkan} melalui inferensi logis. Hal ini menggambarkan keunggulan pendekatan basis pengetahuan: menurunkan kesimpulan yang tidak langsung tersirat dari fakta dan aturan yang ada.
 \end{konsep}

@@ -28,7 +28,7 @@
   \item \textbf{K-Map 3 variabel:} Ubah $F(X,Y,Z) = X(Y' + Z)$ ke bentuk kanonik SOP ($\sum m$), petakan ke K-Map 3 variabel, lalu sederhanakan. Bandingkan hasil K-Map dengan penyederhanaan aljabar.
   \item \textbf{K-Map 4 variabel:} Diberikan $G(A,B,C,D) = \sum m(0, 1, 2, 5, 8, 9, 10)$. Gambarkan K-Map 4 variabel, identifikasi prime implicant, tentukan essential prime implicant, dan tulis ekspresi minimal.
   \item \textbf{Don't care:} Rancang fungsi Boolean untuk decoder BCD-ke-7-segmen (segmen ``a''). Manfaatkan 6 kondisi don't care ($m_{10}$--$m_{15}$) untuk mendapatkan ekspresi sesederhana mungkin.
-  \item \textbf{Quine-McCluskey:} Terapkan tahap pertama algoritma Quine-McCluskey pada $F(A,B,C) = \sum m(0, 1, 2, 5, 6, 7)$. Daftarkan semua prime implicant yang diperoleh.
+  \item \textbf{Quine--McCluskey:} Terapkan tahap pertama algoritma Quine--McCluskey pada $F(A,B,C) = \sum m(0, 1, 2, 5, 6, 7)$. Daftarkan semua prime implicant yang diperoleh.
   \item \textbf{Verifikasi:} Bandingkan hasil penyederhanaan K-Map dan aljabar Boolean untuk $H(X,Y,Z) = \sum m(0, 2, 4, 5, 6)$. Jika berbeda, verifikasi ekuivalensinya dengan tabel kebenaran.
 \end{aktivitas}
 
@@ -49,7 +49,7 @@
   \item Diberikan $H(A,B,C,D) = \sum m(1, 3, 5, 7, 9) + d(6, 12, 14)$. Gambarkan K-Map dan sederhanakan dengan memanfaatkan kondisi don't care secara optimal.
   \item Jelaskan mengapa urutan label pada K-Map harus menggunakan Kode Gray dan bukan urutan biner standar. Berikan contoh kesalahan penyederhanaan jika urutan biner standar digunakan.
   \item Diberikan $F(X,Y,Z) = \sum m(1, 2, 3, 4, 6, 7)$. Sederhanakan dengan: (a) K-Map, dan (b) aljabar Boolean. Verifikasi bahwa kedua hasil ekuivalen.
-  \item \textbf{Refleksi:} (a) Mengapa K-Map praktis hanya sampai 4--6 variabel? Adakah metode algoritmik yang lebih cocok untuk fungsi dengan banyak variabel? Bandingkan K-Map dengan Quine-McCluskey. (b) Dalam pemrograman, situasi apa yang menyerupai ``kondisi don't care''? Berikan contoh konkret di mana input tertentu tidak mungkin terjadi.
+  \item \textbf{Refleksi:} (a) Mengapa K-Map praktis hanya sampai 4--6 variabel? Adakah metode algoritmik yang lebih cocok untuk fungsi dengan banyak variabel? Bandingkan K-Map dengan Quine--McCluskey. (b) Dalam pemrograman, situasi apa yang menyerupai ``kondisi don't care''? Berikan contoh konkret di mana input tertentu tidak mungkin terjadi.
 \end{latihan}
 
 % ============================================================
@@ -111,7 +111,7 @@
 \begin{enumerate}
   \item Jelaskan properti wrap-around pada Peta Karnaugh. Mengapa sel di kolom pertama bersebelahan dengan sel di kolom terakhir? Hubungkan dengan sifat Kode Gray.
   \item Diberikan $F(A,B,C,D) = \sum m(0, 1, 4, 5, 8, 12)$. Sederhanakan dengan K-Map 4 variabel. Tunjukkan langkah, identifikasi prime implicant dan essential prime implicant.
-  \item Bandingkan metode K-Map dan algoritma Quine-McCluskey dari segi efektivitas, skalabilitas, dan kemudahan otomatisasi.
+  \item Bandingkan metode K-Map dan algoritma Quine--McCluskey dari segi efektivitas, skalabilitas, dan kemudahan otomatisasi.
 \end{enumerate}
 
 \textbf{C. Coding (opsional)}
@@ -133,7 +133,7 @@ Tulis program Python yang menerima daftar minterm dan jumlah variabel sebagai in
   \item Saya mampu mengidentifikasi kelompok, mengeliminasi variabel, dan memperoleh ekspresi minimal dari K-Map.
   \item Saya mampu memanfaatkan kondisi don't care untuk mengoptimalkan hasil penyederhanaan.
   \item Saya memahami prime implicant dan essential prime implicant serta dapat mengidentifikasinya pada K-Map.
-  \item Saya mengenal prinsip dasar algoritma Quine-McCluskey dan perbedaannya dengan K-Map.
+  \item Saya mengenal prinsip dasar algoritma Quine--McCluskey dan perbedaannya dengan K-Map.
   \item Saya mampu memverifikasi hasil penyederhanaan K-Map dengan metode aljabar atau tabel kebenaran.
 \end{checklist}
 
@@ -144,17 +144,17 @@ Tulis program Python yang menerima daftar minterm dan jumlah variabel sebagai in
 \begin{rangkuman}
 Bab ini membahas Peta Karnaugh (K-Map) sebagai metode visual untuk menyederhanakan fungsi Boolean, yang melengkapi dan mengatasi keterbatasan metode penyederhanaan aljabar.
 
-\textbf{Poin Kunci:}
+\textbf{Poin kunci:}
 \begin{itemize}
-  \item Peta Karnaugh dikembangkan oleh Maurice Karnaugh (1953) sebagai alat bantu visual yang memanfaatkan kemampuan pengenalan pola manusia untuk mengidentifikasi peluang penyederhanaan pada grid dua dimensi.
+  \item Peta Karnaugh dikembangkan oleh Maurice Karnaugh (1953) sebagai alat bantu visual yang memanfaatkan pengenalan pola pada grid dua dimensi untuk mengidentifikasi peluang penyederhanaan.
   \item Kode Gray (\textit{Reflected Binary Code}) digunakan untuk memberi label baris dan kolom K-Map, memastikan bahwa sel-sel yang bersebelahan pada peta hanya berbeda pada satu variabel (jarak Hamming satu).
-  \item Aturan pengelompokan: kelompok harus berukuran pangkat 2 ($1, 2, 4, 8, \ldots$), berbentuk persegi panjang, dibuat sebesar mungkin, dan mencakup seluruh sel bernilai 1. Properti wrap-around menyatakan bahwa tepi kiri bersebelahan dengan tepi kanan, dan tepi atas bersebelahan dengan tepi bawah.
-  \item Kondisi don't care ($d$ atau $\times$) memungkinkan optimasi tambahan dengan memperlakukan sel tertentu sebagai 1 atau 0 sesuai keuntungan penyederhanaan.
-  \item Prime implicant adalah kelompok maksimal sel bernilai 1, dan essential prime implicant adalah prime implicant yang mencakup minterm yang tidak dicakup oleh prime implicant lainnya.
-  \item Algoritma Quine-McCluskey memberikan prosedur algoritmik (tabulasi) yang menjamin solusi optimal dan dapat diotomatisasi, cocok untuk fungsi dengan lebih dari 4 variabel di mana K-Map menjadi tidak praktis.
+  \item Aturan pengelompokan: kelompok harus berukuran pangkat 2 ($1, 2, 4, 8, \ldots$), berbentuk persegi panjang, dibuat sebesar mungkin, dan mencakup seluruh sel bernilai 1. Properti \textit{wrap-around} menyatakan bahwa tepi kiri bersebelahan dengan tepi kanan, dan tepi atas bersebelahan dengan tepi bawah.
+  \item Kondisi \textit{don't care} ($d$ atau $\times$) memungkinkan optimasi tambahan dengan memperlakukan sel tertentu sebagai 1 atau 0 sesuai keuntungan penyederhanaan.
+  \item \textit{Prime implicant} adalah kelompok maksimal sel bernilai 1, dan \textit{essential prime implicant} adalah prime implicant yang mencakup minterm yang tidak dicakup oleh prime implicant lainnya.
+  \item Algoritma Quine--McCluskey memberikan prosedur algoritmik (tabulasi) yang menjamin solusi optimal dan dapat diotomatisasi, cocok untuk fungsi dengan lebih dari 4 variabel di mana K-Map menjadi tidak praktis.
 \end{itemize}
 
-\textbf{Kata Kunci}: Peta Karnaugh, K-Map, Maurice Karnaugh, Kode Gray, kedekatan, wrap-around, pengelompokan, don't care, prime implicant, essential prime implicant, Quine-McCluskey
+\textbf{Kata kunci:} Peta Karnaugh, K-Map, Maurice Karnaugh, Kode Gray, kedekatan, wrap-around, pengelompokan, don't care, prime implicant, essential prime implicant, Quine--McCluskey
 \end{rangkuman}
 
 \ifSubfilesClassLoaded{

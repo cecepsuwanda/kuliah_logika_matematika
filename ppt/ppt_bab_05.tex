@@ -1,0 +1,365 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Aturan Inferensi]{Aturan Inferensi dan Penarikan Kesimpulan}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}{Daftar Isi}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 5-1: Pengantar Inferensi
+% ============================================================
+\section{Pengantar Inferensi}
+
+\begin{frame}
+\frametitle{Inferensi}
+\begin{definisi}[Inferensi Logika]
+Mekanisme deduktif formal yang memanfaatkan aturan matematika untuk memperoleh konklusi baru dari himpunan premis.
+\end{definisi}
+\begin{block}{Jaminan}
+Apabila semua premis benar, maka konklusi yang dihasilkan juga benar.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Struktur Argumen Formal}
+\begin{center}
+\begin{tabular}{ll}
+$P_1$ & (Premis pertama) \\
+$P_2$ & (Premis kedua) \\
+$\vdots$ & \\
+$P_n$ & (Premis ke-$n$) \\
+\hline
+$\therefore Q$ & (Konklusi)
+\end{tabular}
+\end{center}
+\vspace{0.3cm}
+Secara horizontal: $(P_1 \wedge P_2 \wedge \ldots \wedge P_n) \rightarrow Q$
+\end{frame}
+
+\begin{frame}
+\frametitle{Validitas Argumen}
+\begin{block}{Teorema}
+Argumen dengan premis $P_1, \ldots, P_n$ dan konklusi $Q$ disebut \textbf{valid} jika dan hanya jika
+\[ [P_1 \wedge P_2 \wedge \ldots \wedge P_n] \rightarrow Q \]
+merupakan \textbf{tautologi}.
+\end{block}
+\begin{block}{}
+Jika ada interpretasi: semua premis benar tetapi $Q$ salah $\Rightarrow$ argumen \textbf{tidak valid} (fallacy).
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 5-2: Modus Ponens dan Modus Tollens
+% ============================================================
+\section{Modus Ponens dan Modus Tollens}
+
+\begin{frame}
+\frametitle{Modus Ponens}
+\begin{block}{Skema}
+\begin{tabular}{cl}
+$p \rightarrow q$ & (Implikasi) \\
+$p$ & (Anteseden benar) \\
+\hline
+$\therefore q$ & (Konsekuen benar)
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \rightarrow q$: ``Jika Rini skor TOEFL 500, maka memenuhi yudisium.''\\
+$p$: ``Rini skor TOEFL 500.''\\
+$\therefore q$: ``Rini memenuhi yudisium.''
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Modus Tollens}
+\begin{block}{Skema}
+\begin{tabular}{cl}
+$p \rightarrow q$ & (Implikasi) \\
+$\neg q$ & (Konsekuen salah) \\
+\hline
+$\therefore \neg p$ & (Anteseden salah)
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \rightarrow q$: ``Jika penjaga kolam pelaku, maka sepatunya basah lumpur.''\\
+$\neg q$: ``Sepatu penjaga kering.''\\
+$\therefore \neg p$: ``Penjaga kolam bukan pelaku.''
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 5-3: Silogisme
+% ============================================================
+\section{Silogisme Hipotetis dan Disjungtif}
+
+\begin{frame}
+\frametitle{Silogisme Hipotetis}
+\begin{block}{Skema (sifat transitif implikasi)}
+\begin{tabular}{c}
+$p \rightarrow q$ \\
+$q \rightarrow r$ \\
+\hline
+$\therefore p \rightarrow r$
+\end{tabular}
+\end{block}
+\begin{contoh}
+``Jika belajar logika $\Rightarrow$ paham aljabar.''\\
+``Jika paham aljabar $\Rightarrow$ lulus ujian.''\\
+$\therefore$ ``Jika belajar logika $\Rightarrow$ lulus ujian.''
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Silogisme Disjungtif}
+\begin{block}{Skema}
+\begin{tabular}{ccc}
+$p \vee q$ & \quad & $p \vee q$ \\
+$\neg p$ & atau & $\neg q$ \\
+\hline
+$\therefore q$ & & $\therefore p$
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \vee q$: ``Pelaku lari lewat jendela ATAU plafon.''\\
+$\neg p$: ``Tidak ada bukti lewat jendela.''\\
+$\therefore q$: ``Pelaku lari lewat plafon.''
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 5-4: Konjungsi, Penambahan, Simplifikasi
+% ============================================================
+\section{Aturan Konjungsi, Penambahan, Simplifikasi}
+
+\begin{frame}
+\frametitle{Aturan Konjungsi}
+\begin{block}{Skema}
+\begin{tabular}{c}
+$p$ \\
+$q$ \\
+\hline
+$\therefore p \wedge q$
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p$: Jakarta ibu kota Indonesia.\\
+$q$: Bangkok ibu kota Thailand.\\
+$\therefore p \wedge q$: Jakarta ibu kota Indonesia DAN Bangkok ibu kota Thailand.
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aturan Penambahan (Addition)}
+\begin{block}{Skema}
+\begin{tabular}{c}
+$p$ \\
+\hline
+$\therefore p \vee q$
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p$: ``Budi berolahraga setiap pagi.''\\
+$\therefore p \vee q$: ``Budi berolahraga setiap pagi ATAU hujan di kutub selatan.''
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aturan Simplifikasi}
+\begin{block}{Skema}
+\begin{tabular}{ccc}
+$p \wedge q$ & \quad atau \quad & $p \wedge q$ \\
+\hline
+$\therefore p$ & & $\therefore q$
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \wedge q$: ``Air mendidih 100°C DAN api membakar.''\\
+$\therefore p$: ``Air mendidih 100°C.'' \quad atau \quad $\therefore q$: ``Api membakar.''
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 5-5: Aturan Resolusi
+% ============================================================
+\section{Aturan Resolusi}
+
+\begin{frame}
+\frametitle{Prinsip Resolusi}
+\begin{block}{Mekanisme}
+Dua klausa disjungsi dengan literal komplementer ($p$ dan $\neg p$). Eliminasi pasangan $\Rightarrow$ resolvent.
+\end{block}
+\begin{block}{Skema}
+\begin{tabular}{cl}
+$p \vee q$ & (Klausa 1) \\
+$\neg p \vee r$ & (Klausa 2) \\
+\hline
+$\therefore q \vee r$ & (Resolvent)
+\end{tabular}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Resolusi}
+\begin{contoh}
+$p \vee q$: ``Andi di Surabaya ATAU bertugas di Jakarta.''\\
+$\neg p \vee r$: ``Andi tidak di Surabaya ATAU mobilnya di jalan tol.''\\
+$\therefore q \vee r$: ``Andi bertugas di Jakarta ATAU mobilnya di jalan tol.''
+\end{contoh}
+\begin{block}{}
+Dasar inferensi pada PROLOG dan sistem berbasis logika.
+\end{block}
+\end{frame}
+
+% ============================================================
+% SECTION 5-6: Fallacy
+% ============================================================
+\section{Kesesatan Berpikir (Fallacy)}
+
+\begin{frame}
+\frametitle{Fallacy of Affirming the Consequent}
+\begin{block}{Skema yang TIDAK VALID}
+\begin{tabular}{cl}
+$p \rightarrow q$ & (Premis) \\
+$q$ & (Premis) \\
+\hline
+$\therefore p$ & (Kesimpulan salah)
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \rightarrow q$: ``Jika kompor meledak $\Rightarrow$ gedung terbakar.''\\
+$q$: ``Gedung terbakar.''\\
+$\therefore p$ (salah): ``Pasti kompor meledak.''\\
+\textit{Kebakaran bisa dari faktor lain.}
+\end{contoh}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fallacy of Denying the Antecedent}
+\begin{block}{Skema yang TIDAK VALID}
+\begin{tabular}{cl}
+$p \rightarrow q$ & (Premis) \\
+$\neg p$ & (Premis) \\
+\hline
+$\therefore \neg q$ & (Kesimpulan salah)
+\end{tabular}
+\end{block}
+\begin{contoh}
+$p \rightarrow q$: ``Jika dapat bonus $\Rightarrow$ tabungan bertambah.''\\
+$\neg p$: ``Tidak dapat bonus.''\\
+$\therefore \neg q$ (salah): ``Tabungan tidak bertambah.''\\
+\textit{Tabungan bisa bertambah dari sumber lain.}
+\end{contoh}
+\end{frame}
+
+% ============================================================
+% SECTION 5-7: Bukti Formal Berantai
+% ============================================================
+\section{Bukti Formal Berantai}
+
+\begin{frame}
+\frametitle{Prosedur Bukti Formal}
+\begin{itemize}
+  \item Setiap langkah harus memiliki justifikasi: nomor baris + nama aturan inferensi.
+  \item Metode: \textbf{deduksi formal} (formal proof of validity).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Bukti Berbaris}
+Premis: (1) $\neg p \rightarrow q$, (2) $\neg q$, (3) $\neg q \rightarrow r$. Konklusi: $r \wedge p$
+\begin{center}
+\small
+\begin{tabular}{|c|l|l|}
+\hline
+\textbf{Baris} & \textbf{Ekspresi} & \textbf{Justifikasi} \\
+\hline
+1. & $\neg p \rightarrow q$ & Premis 1 \\
+2. & $\neg q$ & Premis 2 \\
+3. & $\neg q \rightarrow r$ & Premis 3 \\
+\hline
+4. & $\neg(\neg p)$ & Modus Tollens (1,2) \\
+5. & $p$ & Involusi (4) \\
+6. & $r$ & Modus Ponens (3,2) \\
+\hline
+7. & $\therefore r \wedge p$ & Konjungsi (5,6) \\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Argumen valid $\Leftrightarrow$ $(P_1 \wedge \ldots \wedge P_n) \rightarrow Q$ tautologi.
+  \item Modus Ponens: $p \rightarrow q$, $p$ $\vdash$ $q$; Modus Tollens: $p \rightarrow q$, $\neg q$ $\vdash$ $\neg p$.
+  \item Silogisme Hipotetis: $p \rightarrow q$, $q \rightarrow r$ $\vdash$ $p \rightarrow r$.
+  \item Silogisme Disjungtif: $p \vee q$, $\neg p$ $\vdash$ $q$.
+  \item Konjungsi, Penambahan, Simplifikasi, Resolusi.
+  \item Fallacy: Affirming Consequent, Denying Antecedent.
+  \item Bukti formal berantai mensyaratkan justifikasi tiap langkah.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+Inferensi $\bullet$ Validitas $\bullet$ Modus Ponens $\bullet$ Modus Tollens $\bullet$ Silogisme\\
+Resolusi $\bullet$ Fallacy $\bullet$ Bukti Formal Berantai $\bullet$ Deduksi
+\end{center}
+\end{frame}
+
+\end{document}

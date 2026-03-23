@@ -69,7 +69,7 @@ Dapat diamati bahwa pada kolom Kode Gray, setiap baris hanya berbeda satu bit da
 Kode Gray digunakan untuk memberi label pada baris dan kolom Peta Karnaugh sehingga setiap pasangan sel yang bersebelahan secara fisik pada peta juga bersebelahan secara logis, yaitu hanya berbeda pada satu variabel. Pengaturan ini memungkinkan pengelompokan sel yang bersebelahan secara langsung berkorespondensi dengan penyederhanaan aljabar Boolean --- dua sel bersebelahan yang sama-sama bernilai 1 menandakan bahwa variabel pembedanya bersifat redundan \cite{wiki_karnaugh}.
 
 \begin{catatan}
-Pada K-Map, urutan label kolom bukan $00, 01, 10, 11$ (biner standar), melainkan $00, 01, 11, 10$ (Kode Gray). Kesalahan dalam urutan label merupakan kesalahan paling umum yang dilakukan oleh mahasiswa yang pertama kali mempelajari K-Map, dan dapat menghasilkan penyederhanaan yang salah.
+Pada K-Map, urutan label kolom bukan $00, 01, 10, 11$ (biner standar), melainkan $00, 01, 11, 10$ (Kode Gray). Kesalahan dalam urutan label merupakan kesalahan umum pada penggunaan awal K-Map dan dapat menghasilkan penyederhanaan yang salah.
 \end{catatan}
 
 Properti ``wrap-around'' menyatakan bahwa sel-sel pada tepi paling kiri secara logis bersebelahan dengan sel-sel pada tepi paling kanan, dan demikian pula sel-sel pada baris paling atas bersebelahan dengan sel-sel pada baris paling bawah. Hal ini merupakan konsekuensi langsung dari sifat siklis Kode Gray: label pada tepi kanan dan tepi kiri (serta atas dan bawah) hanya berbeda satu bit, sehingga keduanya mewakili minterm yang bersebelahan secara logis.

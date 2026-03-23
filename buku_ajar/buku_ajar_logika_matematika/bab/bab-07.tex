@@ -125,18 +125,18 @@
 % ============================================================
 
 \begin{rangkuman}
-Bab 7 membangun jembatan fundamental dari logika proposisi menuju level yang lebih predikatif yakni Logika Orde Pertama (FOL) menggunakan operator kuantitas makro \textit{Quantifier}. Menelaah objek komputasi individual terlalu terbatas, sehingga dikenalkan model \textit{scoping} massal.
+Bab 7 membahas kuantor universal dan eksistensial sebagai perangkat utama dalam logika predikat untuk menutup variabel bebas dan menyatakan cakupan objek pada suatu domain.
 
 \textbf{Poin Kunci:}
 \begin{itemize}
-  \item \textbf{Semesta Pembicaraan (Universe of Discourse)} merujuk kepada himpunan wadah limit di mana batas iterasi setiap elemen konstanta diberlakukan.
-  \item \textbf{Kuantor Universal ($\forall$)} dirancang merepresentasikan kalimat absolut \textit{semua/setiap}. Pola translasinya mensyaratkan berpasangan dengan Implikasi agar maknanya valid.
-  \item \textbf{Kuantor Eksistensial ($\exists$)} dikonstruksi menjembatani pernyataan parsial \textit{sekurang-kurangnya spesimen tunggal} pembawa sifat (saksi kebenaran tunggal). Lazimnya tandem wajibnya adalah operator Konjungsi AND murni.
-  \item \textbf{Penempatan Tata Letak bersarang miring $\forall \exists$ berbeda absolut menantang struktur $\exists \forall$}. 
-  \item \textbf{Penarikan Negasi / Ingkaran De Morgan} untuk Kuantor memiliki karakter saling silih-berganti ($\neg \forall \equiv \exists \neg$ dan sebaliknya). 
+  \item \textbf{Semesta pembicaraan ($\mathcal{U}$)} menentukan himpunan nilai yang diperbolehkan untuk variabel, sehingga memengaruhi nilai kebenaran proposisi berkuantor.
+  \item \textbf{Kuantor universal ($\forall$)} menyatakan ``setiap/semua'' dan, dalam translasi umum, dipadukan dengan implikasi untuk pola ``setiap $P$ adalah $Q$''.
+  \item \textbf{Kuantor eksistensial ($\exists$)} menyatakan ``ada/sebagian'' dan, dalam translasi umum, dipadukan dengan konjungsi untuk pola ``ada $P$ yang $Q$''.
+  \item \textbf{Urutan kuantor} memengaruhi makna; bentuk $\forall x \, \exists y \, P(x,y)$ tidak ekuivalen dengan $\exists y \, \forall x \, P(x,y)$.
+  \item \textbf{Negasi kuantor} mengikuti hukum De Morgan: $\neg \forall x \, P(x) \equiv \exists x \, \neg P(x)$ dan $\neg \exists x \, P(x) \equiv \forall x \, \neg P(x)$.
 \end{itemize}
 
-\textbf{Kata Kunci}: Semesta Pembicaraan, Kuantor Universal, Kuantor Eksistensial, Implikasi, Konjungsi, Kuantor Bersarang, Kuantor De Morgan, Witness (Saksi), Counterexample (Penyangkal).
+\textbf{Kata Kunci}: semesta pembicaraan, kuantor universal, kuantor eksistensial, implikasi, konjungsi, kuantor bersarang, negasi kuantor, \textit{witness}, \textit{counterexample}.
 \end{rangkuman}
 
 \ifSubfilesClassLoaded{

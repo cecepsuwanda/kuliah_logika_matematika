@@ -1,0 +1,312 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Metode Pembuktian]{Metode Pembuktian Langsung dan Kontraposisi}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 12-1: Terminologi
+% ============================================================
+\section{Teorema, Bukti, dan Terminologi}
+
+\begin{frame}
+\frametitle{Teorema dan Bukti}
+\begin{definisi}[Teorema]
+Pernyataan matematika yang kebenarannya telah dibuktikan secara formal melalui penalaran logis yang valid.
+\end{definisi}
+\begin{definisi}[Bukti]
+Demonstrasi deduktif langkah demi langkah berdasarkan aksioma, definisi, dan aturan inferensi yang sah.
+\end{definisi}
+Struktur teorema: ``Jika $p$ maka $q$'' ($p \to q$). $p$ = hipotesis, $q$ = kesimpulan.
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminologi Terkait}
+\begin{itemize}
+  \item \textbf{Aksioma}: Kebenaran mendasar tanpa pembuktian
+  \item \textbf{Definisi}: Makna istilah (bukan klaim)
+  \item \textbf{Lemma}: Teorema bantu untuk teorema utama
+  \item \textbf{Akibat}: Mengikuti langsung dari teorema
+  \item \textbf{Konjektur}: Dugaan belum terbukti (mis. Goldbach)
+\end{itemize}
+Hierarki: Aksioma $\to$ Lemma $\to$ Teorema $\to$ Akibat. Simbol akhir bukti: $\blacksquare$ (Q.E.D.)
+\end{frame}
+
+% ============================================================
+% SECTION 12-2: Bukti Langsung
+% ============================================================
+\section{Pembuktian Langsung}
+
+\begin{frame}
+\frametitle{Struktur Bukti Langsung}
+Untuk membuktikan $p \to q$:
+\begin{enumerate}
+  \item Asumsikan hipotesis $p$ benar
+  \item Terapkan definisi, aksioma, lemma
+  \item Lakukan manipulasi aljabar/penalaran
+  \item Tunjukkan kesimpulan $q$ benar
+\end{enumerate}
+Setiap langkah harus dijustifikasi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Jika $n$ ganjil maka $n^2$ ganjil}
+\begin{enumerate}
+  \item Asumsikan $n$ ganjil $\Rightarrow n = 2k + 1$
+  \item $n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2+2k) + 1$
+  \item Misal $m = 2k^2 + 2k$ (bulat) $\Rightarrow n^2 = 2m + 1$
+  \item Kesimpulan: $n^2$ ganjil $\blacksquare$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Jika $a,b$ genap maka $a+b$ genap}
+$a = 2j$, $b = 2k$ $\Rightarrow$ $a+b = 2(j+k) = 2m$ (genap).
+\end{frame}
+
+% ============================================================
+% SECTION 12-3: Kontraposisi
+% ============================================================
+\section{Pembuktian Kontraposisi}
+
+\begin{frame}
+\frametitle{Landasan Logis}
+Ekuivalensi: $p \to q \equiv \neg q \to \neg p$
+\begin{center}
+\small
+\begin{tabular}{|c|c||c|c|}
+\hline
+$p$ & $q$ & $p \to q$ & $\neg q \to \neg p$ \\ \hline
+T & T & T & T \\ \hline
+T & F & F & F \\ \hline
+F & T & T & T \\ \hline
+F & F & T & T \\ \hline
+\end{tabular}
+\end{center}
+Membuktikan $\neg q \to \neg p$ membuktikan $p \to q$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Struktur dan Kapan Digunakan}
+\begin{enumerate}
+  \item Asumsikan $\neg q$ benar
+  \item Gunakan penalaran deduktif
+  \item Tunjukkan $\neg p$ benar
+\end{enumerate}
+\textbf{Kapan?:} Konklusi mengandung negasi; hipotesis kompleks; $\neg q$ lebih mudah diolah.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Jika $3n+2$ ganjil maka $n$ ganjil}
+Buktikan kontraposisi: ``Jika $n$ genap maka $3n+2$ genap.''
+\begin{itemize}
+  \item $n = 2k \Rightarrow 3n+2 = 6k+2 = 2(3k+1)$ (genap) $\blacksquare$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Jika $n^2$ genap maka $n$ genap}
+Kontraposisi: ``Jika $n$ ganjil maka $n^2$ ganjil.''\\
+$n = 2k+1 \Rightarrow n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$ (ganjil) $\blacksquare$
+\end{frame}
+
+% ============================================================
+% SECTION 12-4: Kontradiksi
+% ============================================================
+\section{Pembuktian Kontradiksi}
+
+\begin{frame}
+\frametitle{Landasan dan Struktur}
+Untuk $p \to q$: $p \to q \equiv \neg(p \wedge \neg q)$. Asumsikan $p \wedge \neg q$, cari kontradiksi.
+\begin{enumerate}
+  \item Asumsikan negasi pernyataan
+  \item Lakukan penalaran deduktif
+  \item Tunjukkan kontradiksi (mustahil)
+  \item Simpulkan pernyataan asli benar
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: $\sqrt{2}$ irasional}
+\begin{enumerate}
+  \item Asumsikan $\sqrt{2} = a/b$ dengan $\gcd(a,b)=1$
+  \item $2 = a^2/b^2 \Rightarrow a^2 = 2b^2$ $\Rightarrow$ $a$ genap
+  \item $a = 2c \Rightarrow b^2 = 2c^2$ $\Rightarrow$ $b$ genap
+  \item $a,b$ genap $\Rightarrow \gcd \geq 2$ \textbf{kontradiksi} dengan $\gcd(a,b)=1$
+  \item $\sqrt{2}$ irasional $\blacksquare$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kontraposisi vs Kontradiksi}
+\begin{itemize}
+  \item \textbf{Kontraposisi}: Buktikan $\neg q \to \neg p$ (ekuivalen). Hanya untuk implikasi.
+  \item \textbf{Kontradiksi}: Asumsikan negasi, cari kemustahilan. Untuk \emph{semua} jenis pernyataan (irasionalitas, ketakberhinggaan).
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 12-5: Bukti Kasus dan Exhaustif
+% ============================================================
+\section{Bukti Kasus dan Exhaustif}
+
+\begin{frame}
+\frametitle{Pembuktian dengan Kasus}
+\begin{definisi}[Proof by Cases]
+Domain dipartisi $C_1, C_2, \ldots, C_n$ saling lepas dan lengkap; buktikan per kasus. $(C_1 \vee \cdots \vee C_n) \to q$.
+\end{definisi}
+Contoh: ``$n^2+n$ genap.'' Kasus 1: $n$ genap; Kasus 2: $n$ ganjil. Keduanya $\Rightarrow n^2+n = 2m$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Pembuktian Exhaustif}
+\begin{definisi}[Exhaustive Proof]
+Verifikasi untuk \textbf{setiap} elemen domain. Hanya untuk domain berhingga dan kecil.
+\end{definisi}
+Contoh: $1 \leq n \leq 4$, $n^2 \leq 2^n \cdot n$: periksa $n=1,2,3,4$ satu per satu.
+\end{frame}
+
+% ============================================================
+% SECTION 12-6: Kontra-Contoh
+% ============================================================
+\section{Kontra-Contoh}
+
+\begin{frame}
+\frametitle{Penyangkalan dengan Kontra-Contoh}
+$\neg[\forall x\, P(x)] \equiv \exists x\, \neg P(x)$
+\begin{definisi}[Kontra-Contoh]
+Elemen $x_0$ sehingga $P(x_0)$ salah. \textbf{Satu} kontra-contoh cukup menyangkal $\forall x\, P(x)$.
+\end{definisi}
+Asimetri: Satu pengecualian menyangkal; banyak contoh tidak membuktikan.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Kontra-Contoh}
+\begin{itemize}
+  \item ``$n^2 - n + 41$ prima untuk setiap $n$ positif.'' Kontra: $n=41 \Rightarrow 41^2 = 1681 = 41 \times 41$.
+  \item ``$x^2 > x$ untuk setiap real $x$.'' Kontra: $x = 1/2 \Rightarrow x^2 = 1/4 < 1/2$.
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 12-7: Strategi Pemilihan
+% ============================================================
+\section{Strategi Pemilihan Metode}
+
+\begin{frame}
+\frametitle{Matriks Perbandingan}
+\begin{center}
+\scriptsize
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Metode} & \textbf{Asumsi} & \textbf{Kapan?} \\ \hline
+Langsung & $p$ benar & Rantai deduksi langsung \\ \hline
+Kontraposisi & $\neg q$ benar & Konklusi negasi; $\neg q$ mudah \\ \hline
+Kontradiksi & $p \wedge \neg q$ & Irasionalitas; ketakberhinggaan \\ \hline
+Kasus & Partisi domain & Domain terbagi alami \\ \hline
+Kontra-contoh & --- & Menyangkal universal \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Panduan Praktis}
+\begin{enumerate}
+  \item Identifikasi struktur ($p \to q$, biimplikasi, umum)
+  \item Coba bukti langsung dulu
+  \item Terhambat $\Rightarrow$ pertimbangkan kontraposisi
+  \item Gagal $\Rightarrow$ coba kontradiksi
+  \item Domain terbagi $\Rightarrow$ bukti kasus
+  \item Curiga salah $\Rightarrow$ cari kontra-contoh
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bukti Biimplikasi}
+$p \leftrightarrow q$: Buktikan \textbf{dua} arah:
+\begin{enumerate}
+  \item $p \to q$
+  \item $q \to p$
+\end{enumerate}
+Masing-masing dapat pakai metode berbeda.
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Teorema = pernyataan terbukti; Bukti = demonstrasi deduktif
+  \item Langsung: asumsikan $p$, tunjukkan $q$
+  \item Kontraposisi: $p \to q \equiv \neg q \to \neg p$
+  \item Kontradiksi: asumsikan negasi, cari kemustahilan
+  \item Kasus: partisi domain; Exhaustif: periksa setiap elemen
+  \item Kontra-contoh: satu cukup menyangkal universal
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+teorema $\bullet$ bukti $\bullet$ aksioma $\bullet$ lemma $\bullet$ akibat $\bullet$ konjektur $\bullet$ bukti langsung $\bullet$ kontraposisi $\bullet$ kontradiksi $\bullet$ bukti kasus $\bullet$ exhaustive $\bullet$ kontra-contoh $\bullet$ biimplikasi
+\end{center}
+\end{frame}
+
+\end{document}

@@ -1,6 +1,6 @@
 \section{Gerbang Universal dan Kelengkapan Fungsional}
 
-Konsep kelengkapan fungsional (\textit{functional completeness}) merupakan salah satu hasil paling penting dalam teori rangkaian digital. Suatu himpunan gerbang logika dikatakan lengkap secara fungsional jika setiap fungsi Boolean dapat diimplementasikan hanya menggunakan gerbang-gerbang dalam himpunan tersebut. Hasil yang sangat signifikan secara praktis adalah bahwa gerbang NAND secara tunggal bersifat lengkap secara fungsional, dan demikian pula gerbang NOR. Kedua gerbang ini disebut \logic{gerbang universal} \cite{rosen2019}.
+Konsep kelengkapan fungsional (\textit{functional completeness}) merupakan salah satu hasil sentral dalam teori rangkaian digital. Suatu himpunan gerbang logika dikatakan lengkap secara fungsional jika setiap fungsi Boolean dapat diimplementasikan hanya menggunakan gerbang-gerbang dalam himpunan tersebut. Secara praktis, gerbang NAND secara tunggal bersifat lengkap secara fungsional, dan demikian pula gerbang NOR. Kedua gerbang ini disebut \logic{gerbang universal} \cite{rosen2019}.
 
 \subsection{Pembuktian Universalitas NAND}
 
@@ -82,6 +82,6 @@ XNOR & Tidak & Tidak dapat menghasilkan AND \\ \hline
 
 \subsection{Implikasi Praktis dalam Produksi}
 
-Universalitas NAND dan NOR memiliki konsekuensi praktis yang sangat penting bagi industri semikonduktor. Dalam proses fabrikasi chip (\textit{wafer fabrication}), memproduksi satu jenis gerbang secara massal jauh lebih efisien dibandingkan memproduksi beragam jenis gerbang pada satu chip. Keluarga logika TTL (\textit{Transistor-Transistor Logic}) menggunakan NAND sebagai komponen primitif, sementara keluarga logika ECL (\textit{Emitter-Coupled Logic}) menggunakan NOR \cite{electronics_tutorials_gates}.
+Universalitas NAND dan NOR memiliki konsekuensi praktis yang besar bagi industri semikonduktor. Dalam proses fabrikasi chip (\textit{wafer fabrication}), memproduksi satu jenis gerbang secara massal jauh lebih efisien dibandingkan memproduksi beragam jenis gerbang pada satu chip. Keluarga logika TTL (\textit{Transistor-Transistor Logic}) menggunakan NAND sebagai komponen primitif, sementara keluarga logika ECL (\textit{Emitter-Coupled Logic}) menggunakan NOR \cite{electronics_tutorials_gates}.
 
 Selain efisiensi fabrikasi, penggunaan satu jenis gerbang juga menyederhanakan proses verifikasi dan pengujian. Alat-alat EDA modern secara otomatis mengonversi desain dari bentuk AND-OR-NOT ke dalam bentuk NAND-only atau NOR-only melalui proses yang disebut \logic{technology mapping}. Proses ini merupakan bagian integral dari alur desain VLSI (\textit{Very Large Scale Integration}) yang menghasilkan chip-chip terintegrasi modern.

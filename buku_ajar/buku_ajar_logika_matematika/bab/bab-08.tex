@@ -2,7 +2,7 @@
 \ifSubfilesClassLoaded{\setcounter{chapter}{7}}{}
 \begin{document}
 
-\chapter{Pemodelan Masalah Komputasi berbasis Logika Predikat}
+\chapter{Pemodelan Masalah Komputasi Berbasis Logika Predikat}
 
 \begin{subcpmk}
   \item \textbf{Sub-CPMK 2.3:} Mahasiswa mampu memodelkan masalah komputasi yang terstruktur dengan merepresentasikan logika predikat sebagai basis perancangan algoritma.
@@ -133,17 +133,17 @@
 \begin{rangkuman}
 Bab ini membahas penerapan logika predikat orde pertama untuk memodelkan masalah komputasi dalam bentuk basis pengetahuan.
 
-\textbf{Poin Kunci:}
+\textbf{Poin kunci:}
 \begin{itemize}
-  \item \textbf{Basis Pengetahuan} terdiri dari fakta ($\Delta$, pernyataan atomik tanpa variabel) dan aturan ($\Gamma$, implikasi berkuantor universal). Pemodelan memerlukan identifikasi entitas, properti, dan relasi dari domain.
-  \item \textbf{Arity} predikat menentukan jumlah argumennya: arity-1 untuk properti, arity-2 untuk relasi biner, dan arity-$n$ untuk relasi multi-argumen.
-  \item \textbf{Empat aturan inferensi kuantor} (UI, UG, EI, EG) memungkinkan penalaran formal dengan membuka atau memasang kuantor.
-  \item \textbf{Resolusi query} menggunakan forward chaining (data-driven) atau backward chaining (goal-driven) untuk menurunkan kesimpulan baru dari fakta dan aturan.
-  \item \textbf{Asumsi Dunia Tertutup} (CWA) menganggap fakta yang tidak ada dalam KB sebagai salah, sementara \textbf{Asumsi Dunia Terbuka} (OWA) menganggapnya tidak diketahui.
-  \item FOL memiliki batasan dalam menangani ketidakpastian, perubahan pengetahuan, dan kompleksitas komputasi, tetapi tetap menjadi fondasi bagi representasi pengetahuan modern.
+  \item \textbf{Basis pengetahuan} terdiri dari fakta ($\Delta$, atom ground tanpa variabel bebas) dan aturan ($\Gamma$, umumnya implikasi berkuantor universal). Pemodelan memerlukan identifikasi entitas, properti, dan relasi pada domain.
+  \item \textbf{Arity} predikat menentukan banyaknya argumen: arity-1 untuk properti, arity-2 untuk relasi biner, dan arity-$n$ untuk relasi multi-argumen.
+  \item \textbf{Aturan inferensi kuantor} (UI, UG, EI, EG) mendukung instansiasi dan generalisasi atas kuantor dalam penalaran formal.
+  \item \textbf{Resolusi query} memakai \textit{forward chaining} (berbasis data) atau \textit{backward chaining} (berbasis tujuan) untuk menurunkan kesimpulan dari fakta dan aturan.
+  \item \textbf{Asumsi dunia tertutup} (CWA) menganggap fakta yang tidak tercantum dalam KB bernilai salah; \textbf{asumsi dunia terbuka} (OWA) menganggap status tersebut tidak diketahui.
+  \item FOL memiliki batasan dalam menangani ketidakpastian, revisi pengetahuan, dan kompleksitas komputasi, namun tetap menjadi fondasi representasi pengetahuan modern.
 \end{itemize}
 
-\textbf{Kata Kunci}: basis pengetahuan, fakta, aturan, predikat, arity, instansiasi universal, generalisasi, forward chaining, backward chaining, CWA, OWA
+\textbf{Kata kunci:} basis pengetahuan, fakta, aturan, predikat, arity, instansiasi universal (UI), generalisasi universal (UG), instansiasi eksistensial (EI), generalisasi eksistensial (EG), \textit{forward chaining}, \textit{backward chaining}, CWA, OWA
 \end{rangkuman}
 
 \ifSubfilesClassLoaded{

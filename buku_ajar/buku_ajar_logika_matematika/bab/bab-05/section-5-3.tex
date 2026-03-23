@@ -1,16 +1,16 @@
 \section{Silogisme Hipotetis dan Silogisme Disjungtif}
 
-Silogisme mentransmisikan nilai logika antar beberapa implikasi bersyarat maupun disjungsi. Berbeda dengan Modus Ponens dan Tollens yang bekerja pada pernyataan tunggal, Silogisme menghubungkan beberapa proposisi \cite{rosen2019}.
+Silogisme menghubungkan beberapa proposisi melalui implikasi atau disjungsi. Berbeda dengan Modus Ponens dan Modus Tollens yang bekerja pada satu implikasi utama, silogisme sering digunakan untuk merangkai beberapa premis \cite{rosen2019}.
 
-\subsection{Silogisme Hipotetis (Hukum Rantai Implikasi)}
+\subsection{Silogisme Hipotetis}
 
-Bentuk inferensi ini memanfaatkan sifat transitif yang terdapat pada relasi implikasi. 
+Bentuk ini memanfaatkan sifat transitif pada implikasi.
 
 \begin{teorema}[Silogisme Hipotetis]
-Jika $p$ mengimplikasikan $q$ dan $q$ mengimplikasikan $r$, maka dapat disimpulkan $p$ mengimplikasikan $r$ secara transitif. Variabel perantara $q$ tidak muncul dalam kesimpulan.
+Jika $p \rightarrow q$ dan $q \rightarrow r$, maka dapat disimpulkan $p \rightarrow r$. Proposisi perantara $q$ tidak muncul pada konklusi.
 \end{teorema}
 
-\textbf{Anatomi Argumen Silogisme Hipotetis:}
+\textbf{Skema argumen Silogisme Hipotetis:}
 \[
 \begin{array}{c}
 p \rightarrow q \\
@@ -19,41 +19,39 @@ q \rightarrow r \\
 \therefore p \rightarrow r
 \end{array}
 \]
-Variabel perantara $q$ dieliminasi dari kesimpulan sambil memindahkan transitivitas dari $p$ ke $r$.
 
 \begin{contoh}
-Argumen rantai motivasi belajar:
 \begin{itemize}
-    \item \textbf{Premis 1 ($p \rightarrow q$)}: "Bila saya mengerahkan tekad merajut buku Logika di malam hari, maka gembok materi aljabar proposisi bakal berhasil dicerna otak."
-    \item \textbf{Premis 2 ($q \rightarrow r$)}: "Bila gembok aljabar proposisi lumat tercerna otak, maka besok fajar saya pasti lulus cemerlang mata kuliah bapak dosen."
-    \item \textbf{Kesimpulan ($\therefore p \rightarrow r$)}: "Jadi, bila saya mengerahkan tekad merajut buku Logika malam ini, maka besok fajar saya sanggup merengkuh lulus cemerlang."
+    \item \textbf{Premis 1 ($p \rightarrow q$)}: ``Jika saya belajar logika setiap malam, maka saya memahami aljabar proposisi.''
+    \item \textbf{Premis 2 ($q \rightarrow r$)}: ``Jika saya memahami aljabar proposisi, maka saya lulus ujian.''
+    \item \textbf{Konklusi ($\therefore p \rightarrow r$)}: ``Jika saya belajar logika setiap malam, maka saya lulus ujian.''
 \end{itemize}
 \end{contoh}
 
-\subsection{Silogisme Disjungtif (Pemangkasan Cabang Alternatif)}
+\subsection{Silogisme Disjungtif}
 
-Disjungsi menyatakan bahwa minimal satu dari dua proposisi bernilai benar.
+Disjungsi menyatakan bahwa paling sedikit salah satu dari dua proposisi bernilai benar.
 
 \begin{teorema}[Silogisme Disjungtif]
-Dari disjungsi ($p \lor q$) yang menjamin minimal satu klausa bernilai T, jika $p$ bernilai salah ($\neg p$), maka $q$ harus bernilai benar.
+Dari $p \vee q$ dan $\neg p$, dapat disimpulkan $q$. Secara simetris, dari $p \vee q$ dan $\neg q$, dapat disimpulkan $p$.
 \end{teorema}
 
-\textbf{Anatomi Argumen Silogisme Disjungtif Asimetris:}
+\textbf{Skema argumen Silogisme Disjungtif:}
 \[
 \begin{array}{ccc}
 p \vee q & & p \vee q\\
-\neg p   & \text{Atau varian sisi berlawanannya:} & \neg q \\
+\neg p   & \text{atau} & \neg q \\
 \hline
 \therefore q & & \therefore p
 \end{array}
 \]
 
 \begin{contoh}
-Skenario kepastian alibi kriminalisasi:
 \begin{itemize}
-    \item \textbf{Premis 1 ($p \vee q$)}: "Oknum maling misterius melarikan diri menjebol jendela ($p$), ATAU maling tersebut lari menyelinap melalui lubang plafon atap ($q$)."
-    \item \textbf{Premis 2 ($\neg p$)}: "Investigasi di TKP menyatakan kusen maupun teralis seluruh jendela terkunci utuh segel tak ternoda (Maling \textbf{mustahil} lari pecahkan jendela)."
-    \item \textbf{Kesimpulan ($\therefore q$)}: "Fiks valid tiada tawar menawar! Maling itu sungguh menyelinap lari menggasak plafon atap."
+    \item \textbf{Premis 1 ($p \vee q$)}: ``Pelaku melarikan diri melalui jendela ($p$) atau melalui plafon ($q$).''
+    \item \textbf{Premis 2 ($\neg p$)}: ``Tidak ada bukti pelaku melarikan diri melalui jendela.''
+    \item \textbf{Konklusi ($\therefore q$)}: ``Pelaku melarikan diri melalui plafon.''
 \end{itemize}
 \end{contoh}
-Bentuk argumen: $[(p \lor q) \land \neg p] \rightarrow q$. Verifikasi melalui tabel kebenaran 4 baris menunjukkan bahwa ekspresi ini tautologi.
+
+Bentuk $[(p \vee q) \land \neg p] \rightarrow q$ dapat diverifikasi sebagai tautologi melalui tabel kebenaran empat baris.

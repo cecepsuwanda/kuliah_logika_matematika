@@ -1,16 +1,16 @@
 \section{Aturan Konjungsi, Penambahan, dan Penyederhanaan}
 
-Selain aturan implikasi, diperlukan aturan yang menyasar operator fundamental (konjungsi, disjungsi). Tiga aturan pelengkap ini vital untuk membangun pembuktian berantai: Konjungsi, Penambahan, dan Penyederhanaan.
+Selain aturan yang berkaitan dengan implikasi, diperlukan pula aturan untuk operator konjungsi dan disjungsi. Tiga aturan berikut sering dipakai dalam pembuktian berantai: konjungsi, penambahan (\textit{addition}), dan penyederhanaan (\textit{simplification}).
 
-\subsection{Aturan Konjungsi (Conjunction)}
+\subsection{Aturan Konjungsi}
 
-Terkadang dua kebenaran otonom bersliweran tanpa ikatan. Tugas logikawan mengamalkan tali pelindung di antara mereka berdua tanpa menodai esensi kesucian orisinalitas argumen.
+Jika dua proposisi masing-masing telah ditetapkan benar, keduanya dapat digabung menjadi satu konjungsi.
 
 \begin{teorema}[Konjungsi]
-Andaikan realita mentah di atas panggung meyakinkan kita berturut-turut bahwa frasa merdeka pertama nyata Benar adanya ($p$), serta frasa merdeka tetangganya juga tak disangkal kebenarannya ($q$). Berjabat tangan tulus mengizinkan mereka diikat paksa dalam satu bahtera berlabel konjungsi AND bersatu utuh ($p \land q$).
+Jika $p$ benar dan $q$ benar, maka $p \land q$ benar.
 \end{teorema}
 
-\textbf{Anatomi Argumen Konjungsi:}
+\textbf{Skema argumen Konjungsi:}
 \[
 \begin{array}{c}
 p \\
@@ -21,21 +21,20 @@ q \\
 \]
 
 \begin{contoh}
-Premis 1: Jakarta ialah Ibukota menawan letak geografis Indonesia. ($p$) \\
-Premis 2: Bangkok menahbiskan ia dikukuhkan jemaat sebagai Ibukota eksotis negera Thailand. ($q$) \\
-Maka, tiada larangan merajut simpulan: \\
-\textit{"Jakarta adalah panglima letak ibukota Indonesia, DAN Bangkok memimpin ibukota Thailand" ($p \land q$)}
+Premis 1: Jakarta adalah ibu kota Indonesia. ($p$) \\
+Premis 2: Bangkok adalah ibu kota Thailand. ($q$) \\
+Konklusi: Jakarta adalah ibu kota Indonesia, dan Bangkok adalah ibu kota Thailand. ($p \land q$)
 \end{contoh}
 
-\subsection{Aturan Penambahan Disjungsi (Addition)}
+\subsection{Aturan Penambahan Disjungsi (\textit{Addition})}
 
-Aturan Penambahan memungkinkan menyambung proposisi $q$ apa pun (bernilai T atau F) ke proposisi $p$ yang sudah benar, tanpa mengubah kebenaran keseluruhan.
+Aturan ini memungkinkan penambahan disjungsi terhadap proposisi yang telah ditetapkan benar.
 
 \begin{teorema}[Penambahan Disjungtif]
-Sifat disjungsi ($\lor$) menjamin bahwa jika $p$ bernilai T, maka $p \lor q$ bernilai T terlepas dari nilai $q$.
+Jika $p$ benar, maka $p \vee q$ benar untuk sembarang proposisi $q$.
 \end{teorema}
 
-\textbf{Anatomi Argumen Penambahan:}
+\textbf{Skema argumen Penambahan:}
 \[
 \begin{array}{c}
 p \\
@@ -45,20 +44,20 @@ p \\
 \]
 
 \begin{contoh}
-Premis absolut: "Bowo rutin senantiasa mandi basah guyur di saat mentari terbit menyapa bumi pagi." ($p$) \\
-Kesimpulan tambahan sakti: "Entah Bowo asyik mandi air di pagi buta, ATAU Budi tiba-tiba terbang menembus rasi bintang Andromeda menyapa parit Saturnus." ($p \lor q$) \\
-Gara-gara keaslian $p$ sudah T mutlak, keseluruhan statemen bongsor di atas \textbf{Legal Valid}!
+Premis: ``Budi berolahraga setiap pagi.'' ($p$) \\
+Konklusi: ``Budi berolahraga setiap pagi, atau hujan turun di kutub selatan hari ini.'' ($p \vee q$) \\
+Konklusi tetap valid karena $p$ benar menjamin $p \vee q$ benar, terlepas dari nilai kebenaran $q$.
 \end{contoh}
 
-\subsection{Aturan Penyederhanaan Konjungsi (Simplification)}
+\subsection{Aturan Penyederhanaan Konjungsi (\textit{Simplification})}
 
-Kebalikan dari aturan Konjungsi. Dari konjungsi ($p \land q$) yang bernilai T, kita dapat menyimpulkan salah satu komponennya ($p$ atau $q$) secara terpisah.
+Dari konjungsi yang benar, salah satu komponennya dapat diambil sebagai konklusi.
 
 \begin{teorema}[Penyederhanaan]
-Dari konjungsi ($p \land q$) yang bernilai T, kedua komponen $p$ dan $q$ harus bernilai T. Oleh karena itu, kita dapat menyimpulkan $p$ saja atau $q$ saja.
+Jika $p \land q$ benar, maka $p$ benar dan $q$ benar. Oleh karena itu, dapat disimpulkan $p$ saja atau $q$ saja.
 \end{teorema}
 
-\textbf{Anatomi Argumen Pemangkasan:}
+\textbf{Skema argumen Penyederhanaan:}
 \[
 \begin{array}{ccc}
 p \wedge q & \text{atau} & p \wedge q\\
@@ -68,6 +67,6 @@ p \wedge q & \text{atau} & p \wedge q\\
 \]
 
 \begin{contoh}
-Premis Besar: "Air zamzam berkhasiat sejuk jernih, DAN api kompor mambakar hangus niscaya pijar melukai telapak kulit tangan semata." ($p \land q$) \\
-Kesimpulan: Dapat diambil ``Air zamzam berkhasiat sejuk jernih'' ($\therefore p$) atau ``Api kompor membakar'' ($\therefore q$). Keduanya valid \cite{rosen2019}.
+Premis: ``Air mendidih pada suhu 100$^\circ$C pada tekanan standar, dan api dapat membakar bahan mudah terbakar.'' ($p \land q$) \\
+Konklusi yang valid: ``Air mendidih pada suhu 100$^\circ$C pada tekanan standar.'' ($\therefore p$), atau ``Api dapat membakar bahan mudah terbakar.'' ($\therefore q$) \cite{rosen2019}.
 \end{contoh}

@@ -1,0 +1,271 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Induksi Matematika]{Prinsip Induksi Matematika}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 13-1: Prinsip dan domino
+% ============================================================
+\section{Prinsip Induksi}
+
+\begin{frame}
+\frametitle{Kapan Induksi Digunakan?}
+\begin{itemize}
+  \item Pernyataan untuk bilangan bulat berurutan ($n \geq n_0$)
+  \item Deret, formula penjumlahan, pertidaksamaan, keterbagian
+  \item Domain tak berhingga (bukan verifikasi exhaustif)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analogi Efek Domino}
+\begin{enumerate}
+  \item \textbf{Basis}: Batu pertama jatuh ($P(n_0)$ benar)
+  \item \textbf{Induksi}: Jika batu ke-$k$ jatuh, batu ke-$(k+1)$ jatuh
+\end{enumerate}
+Kedua syarat wajib; tanpa basis, rantai tidak dimulai.
+\end{frame}
+
+\begin{frame}
+\frametitle{Prinsip Induksi Matematika}
+\begin{definisi}[Prinsip Induksi]
+Jika (1) $P(n_0)$ benar \textbf{(basis)}, dan\\
+(2) $\forall k \geq n_0$: $P(k) \Rightarrow P(k+1)$ \textbf{(langkah induksi)},\\
+maka $P(n)$ benar untuk semua $n \geq n_0$.
+\end{definisi}
+\[
+\bigl[ P(n_0) \wedge \forall k \geq n_0\, (P(k) \to P(k+1)) \bigr] \to \forall n \geq n_0\, P(n)
+\]
+$n_0$ tidak harus 1 (bisa 0, 2, \ldots).
+\end{frame}
+
+% ============================================================
+% SECTION 13-2: Induksi lemah / template
+% ============================================================
+\section{Induksi Lemah}
+
+\begin{frame}
+\frametitle{Template Bukti Induksi}
+\begin{enumerate}
+  \item Nyatakan $P(n)$ yang dibuktikan
+  \item \textbf{Basis}: verifikasi $P(n_0)$
+  \item \textbf{Hipotesis induksi}: asumsikan $P(k)$ untuk $k \geq n_0$
+  \item \textbf{Langkah induksi}: tunjukkan $P(k+1)$ memakai $P(k)$
+  \item Kesimpulan: menurut induksi, $P(n)$ untuk semua $n \geq n_0$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Jumlah $n$ Bilangan Ganjil Pertama}
+$1 + 3 + 5 + \cdots + (2n-1) = n^2$\\
+Basis $n=1$: $1 = 1^2$.\\
+Induksi: $k^2 + (2k+1) = (k+1)^2$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Pentingnya Langkah Basis}
+Tanpa basis, rantai implikasi tidak pernah ``dipicu''.\\
+Induksi tanpa basis = domino tanpa dorongan pertama (tidak valid).
+\end{frame}
+
+% ============================================================
+% SECTION 13-3: Deret
+% ============================================================
+\section{Induksi pada Deret}
+
+\begin{frame}
+\frametitle{Jumlah Bilangan 1 sampai $n$}
+$\displaystyle\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$\\
+Pola induksi: pisahkan suku $(k+1)$, pakai hipotesis pada $1+\cdots+k$, sederhanakan ke bentuk formula untuk $n=k+1$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Jumlah Kuadrat dan Deret Geometri}
+\begin{itemize}
+  \item $\displaystyle\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$
+  \item $\displaystyle\sum_{i=0}^{n} r^i = \frac{r^{n+1}-1}{r-1}$ ($r \neq 1$, basis $n=0$)
+\end{itemize}
+\end{frame}
+
+% ============================================================
+% SECTION 13-4: Pertidaksamaan
+% ============================================================
+\section{Induksi pada Pertidaksamaan}
+
+\begin{frame}
+\frametitle{Contoh: $2^n > n$ untuk $n \geq 1$}
+Basis: $2^1 > 1$.\\
+Induksi: $2^{k+1} = 2 \cdot 2^k > 2k \geq k+1$ (untuk $k \geq 1$).
+\end{frame}
+
+\begin{frame}
+\frametitle{Basis Sesuai Domain}
+Contoh: $n! > 2^n$ untuk $n \geq 4$ --- basis di $n=4$, bukan $n=1$.\\
+Bernoulli: $(1+x)^n \geq 1+nx$ untuk $x \geq -1$, $n \geq 1$.
+\end{frame}
+
+% ============================================================
+% SECTION 13-5: Keterbagian
+% ============================================================
+\section{Induksi pada Keterbagian}
+
+\begin{frame}
+\frametitle{Contoh: $3 \mid (n^3 - n)$}
+Basis: $1^3-1=0$.\\
+Induksi: $(k+1)^3-(k+1) = (k^3-k) + 3(k^2+k)$ = kelipatan 3.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Lain}
+\begin{itemize}
+  \item $6 \mid n(n+1)(n+2)$ untuk $n \geq 1$
+  \item $3 \mid (4^n - 1)$ untuk $n \geq 0$
+\end{itemize}
+Teknik: pemfaktoran + substitusi hipotesis induksi.
+\end{frame}
+
+% ============================================================
+% SECTION 13-6: Induksi kuat
+% ============================================================
+\section{Induksi Kuat}
+
+\begin{frame}
+\frametitle{Prinsip Induksi Kuat}
+\begin{definisi}[Induksi Kuat]
+(1) $P(n_0)$ benar;\\
+(2) Untuk $k \geq n_0$: jika $P(n_0),\ldots,P(k)$ benar maka $P(k+1)$ benar.\\
+$\Rightarrow$ $P(n)$ benar untuk semua $n \geq n_0$.
+\end{definisi}
+Hipotesis: \textbf{semua} $P(i)$ dari $n_0$ sampai $k$, bukan hanya $P(k)$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Lemah vs Kuat}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+ & \textbf{Lemah} & \textbf{Kuat} \\ \hline
+Asumsi & $P(k)$ & $P(n_0),\ldots,P(k)$ \\ \hline
+Kapan & $P(k+1)$ dari $P(k)$ saja & Bergantung beberapa nilai sebelumnya \\ \hline
+Contoh & Deret, pertidaksamaan & Faktor prima, Fibonacci \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Faktorisasi Prima}
+Setiap $n \geq 2$ = hasil kali prima.\\
+Jika $k+1$ komposit: $k+1 = ab$ dengan $a,b \leq k$ --- perlu $P(a), P(b)$ (induksi kuat).
+\end{frame}
+
+\begin{frame}
+\frametitle{Fibonacci: $F_n < 2^n$}
+Dua basis: $F_1 < 2^1$, $F_2 < 2^2$.\\
+$F_{k+1} = F_k + F_{k-1} < 2^k + 2^{k-1} < 2^{k+1}$.
+\end{frame}
+
+% ============================================================
+% SECTION 13-7: Kesalahan umum
+% ============================================================
+\section{Kesalahan Umum}
+
+\begin{frame}
+\frametitle{Kesalahan yang Sering Terjadi}
+\begin{enumerate}
+  \item Melupakan langkah basis
+  \item Tidak memakai hipotesis induksi pada langkah induksi
+  \item Arah salah / sirkuler (mulai dari yang ingin dibuktikan)
+  \item Basis salah (mis.\ $n \geq 4$ tetapi basis di $n=1$)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Panduan Praktis}
+Identifikasi $P(n)$ dan $n_0$ $\to$ verifikasi basis $\to$ tulis hipotesis $\to$ tujuan $P(k+1)$ $\to$ kerjakan dari kiri, substitusi $P(k)$ $\to$ simpulkan.
+\end{frame}
+
+\begin{frame}
+\frametitle{Hubungan ke Bab Berikutnya}
+Bab 14: \textbf{loop invariant} --- analogi basis (kondisi awal) dan langkah induksi (pemeliharaan tiap iterasi).
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Basis \textbf{dan} langkah induksi keduanya wajib
+  \item Induksi lemah: asumsikan $P(k)$, buktikan $P(k+1)$
+  \item Induksi kuat: asumsikan $P(n_0),\ldots,P(k)$
+  \item Aplikasi: deret, pertidaksamaan, keterbagian, rekursi
+  \item Hindari basis terlewat, hipotesis tidak dipakai, basis salah
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+induksi matematika $\bullet$ langkah basis $\bullet$ langkah induksi $\bullet$ hipotesis induksi $\bullet$ induksi lemah $\bullet$ induksi kuat $\bullet$ efek domino $\bullet$ deret $\bullet$ pertidaksamaan $\bullet$ keterbagian $\bullet$ Fibonacci
+\end{center}
+\end{frame}
+
+\end{document}

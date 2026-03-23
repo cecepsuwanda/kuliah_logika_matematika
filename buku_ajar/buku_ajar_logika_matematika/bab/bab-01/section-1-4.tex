@@ -1,22 +1,20 @@
-\section{Peta Kartografi Ekspedisi Logika}
+\section{Alur materi dan peta konsep}
 
-Bagaikan seorang panglima perang yang mensurvei gulungan Peta Topografi sebelum mengerahkan armada kompurasi *Software*, mahasiswa pun dituntut menghafal arah \textit{Roadmap} Taksonomi di buku ini dari fondasi lembah terbawah hingga menembus stratosfer awan \textit{Artificial Intelligence} (AI) \cite{openlogic,levin_discrete}.
-
-Buku Logika Informatika ini dikawinkan dengan kerangka silabus elit OBE (Gambar~\ref{fig:peta-konsep}), ditata berjenjang dalam 4 tingkat pendakian kawah candradimuka:
+Bab-bab materi inti tersusun secara berjenjang sesuai pemetaan Sub-CPMK (Gambar~\ref{fig:peta-konsep}). Alur ini membantu menempatkan setiap topik dalam konteks keseluruhan kurikulum OBE \cite{openlogic,levin_discrete}.
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
   node distance=0.6cm and 1cm,
-  box/.style={rectangle, draw=black, rounded corners, fill=blue!10, text width=2.2cm, minimum height=0.7cm, align=center, font=\small},
-  root/.style={rectangle, draw=black, rounded corners, fill=green!20, text width=3.2cm, minimum height=0.8cm, align=center, font=\small\bfseries},
+  box/.style={rectangle, draw=black, rounded corners, fill=blue!10, text width=2.6cm, minimum height=0.85cm, align=center, font=\small},
+  root/.style={rectangle, draw=black, rounded corners, fill=green!20, text width=3.4cm, minimum height=0.9cm, align=center, font=\small\bfseries},
   arrow/.style={->, thick, >=stealth}
 ]
-  \node[root] (root) {Kawah Candradimuka Logika Matematika};
-  \node[box, below left=1.2cm and 0.5cm of root] (b3) {Tahap I (Bab 3-5) \\Fondasi Biner \& Logika Kuantifier Proposisi};
-  \node[box, below=1.2cm of root] (b4) {Tahap II (Bab 6-8) \\ Metode Bukti Inferensi Valid Tahan Banting};
-  \node[box, below right=1.2cm and 0.5cm of root] (b5) {Tahap III (Bab 9-11)\\Ilmu Kerapian Boolean \& Tabel Karnaugh};
-  \node[box, below=1.8cm of b4] (b6) {Tahap IV (Bab 12-14)\\Puncak Gunung Artificial Rules Engine \& RAG AI};
+  \node[root] (root) {Logika Matematika\\(alur kurikulum)};
+  \node[box, below left=1.2cm and 0.4cm of root] (b3) {Tahap I\\Bab 3--5:\\Proposisi, tabel, inferensi};
+  \node[box, below=1.2cm of root] (b4) {Tahap II\\Bab 6--8:\\Predikat dan pemodelan};
+  \node[box, below right=1.2cm and 0.4cm of root] (b5) {Tahap III\\Bab 9--11:\\Boolean, K-Map, gerbang};
+  \node[box, below=1.8cm of b4] (b6) {Tahap IV\\Bab 12--14:\\Bukti, induksi, validasi};
   \draw[arrow] (root) -- (b3);
   \draw[arrow] (root) -- (b4);
   \draw[arrow] (root) -- (b5);
@@ -25,20 +23,18 @@ Buku Logika Informatika ini dikawinkan dengan kerangka silabus elit OBE (Gambar~
   \draw[arrow] (b5) -- (b6);
   \draw[arrow] (b4) -- (b6);
 \end{tikzpicture}
-\caption{Spiral Taksonomi Hirarki Logika Ekspedisi Komputasi Modern}
+\caption{Skema tahapan materi inti dan nomor bab}
 \label{fig:peta-konsep}
 \end{figure}
 
-\subsection{Tahap I: Manipulasi Fondasi Atomik dan Semesta SQL}
-Dibuka oleh **Bab 3 dan 4 (Proposisi Tautologi)**. Meletakkan fondasi absolut menguliti *Junk Sentence*, mendedah relasi *If-Then*, dan melatih kelincahan Aljabar murni meredam jebakan "Penegasan Konsekuen". Merangkak ke **Bab 5**, misil ditembak meluas ke ranah **Logika Predikat Orde Pertama**, menjinakkan kata "Hanya Jika Sebagian $y$" sebagai pondasi \textit{Query Database SQL} jutaan baris keranda relasional.
+\subsection{Tahap I (Bab 3--5): Proposisi dan inferensi}
+Bab 3 dan 4 membahas proposisi, operator logika, serta tabel kebenaran dan klasifikasi formula. Bab 5 memperdalam aturan inferensi dan penarikan kesimpulan pada logika proposisional.
 
-\subsection{Tahap II: Pembangunan Benteng Pembuktian}
-**Bab 6 hingga 8** akan menyudutkan Anda menjadi hakim pengadilan sirkuit di mana Anda harus mendemonstrasikan kelayakan operasi komputasi. Menggunakan **Aturan Inferensi (*Modus Ponens*)**, \textbf{Pembuktian Derivatif}, serta membuktikan bahwa jutaan ulangan \textit{looping software} tidak akan lari mati konyol alias masuk jurang galat dengan melancarkan peluru gaib pamungkas **Induksi Matematika Matematika Berulang**.
+\subsection{Tahap II (Bab 6--8): Predikat, kuantifier, dan pemodelan}
+Bab 6--8 mengembangkan logika predikat, kuantifier, serta contoh pemodelan masalah komputasi. Konsep ini menjadi landasan untuk menerjemahkan persyaratan informal ke bahasa formal.
 
-\subsection{Tahap III: Insinyur Peramping Papan Sirkuit Silikon}
-Kembali membedah fisik Komputer lewat **Bab 9 hingga 11 (*Boolean Algebra \& Karnaugh Maps*)**. Fase ini mengkultur insinyur sejati. Mengiris membelah bengkaknya kabel tembaga *logic gates CPU (Hardware)* menjadi cip mungil termurah, tercepat, dengan memanfaatkan pisau cukur Faktorisasi K-Maps grafis dan metode brilian \textit{Quine-McCluskey} layaknya insinyur INTEL Microchips kelas kakap.
+\subsection{Tahap III (Bab 9--11): Aljabar Boolean dan rangkaian}
+Bab 9--11 membahas hukum aljabar Boolean, penyederhanaan (termasuk K-Map), dan representasi ke gerbang logika sebagai jembatan ke pemahaman struktur rangkaian digital.
 
-\subsection{Tahap Puncak (IV): Perumusan Aturan Buatan *Tech-Mastery*}
-**Bab 12 hingga 14** merupakan singgasana emas. Mentransfer keseluruhan deduksi logika teoritis menjadi aplikasi murni kejam. Mendesain Aturan Rantai Pencarian Pakar Medis (\textit{Prolog Logic Programming}), \textbf{Konversi Arsitektur Digital (Flip-Flops Register)}, hingga menyentuh puncaknya: Membangun kedaulatan penalaran otomatis dan *Deployment Vector Store Retrieval-Augmented Generation* (RAG-AI) raksasa menggunakan *Machine Framework* dunia nyata modern.
-
-Selamat menancapkan pedang nalar Logika Anda di medan sirkuit dan kode sumber. \textit{May the compilation bug-free be with you.}
+\subsection{Tahap IV (Bab 12--14): Pembuktian dan validasi}
+Bab 12--14 menempatkan teknik pembuktian, induksi matematika, serta argumen formal untuk validasi algoritma dan verifikasi program sesuai Sub-CPMK 4.x, termasuk konsep prekondisi, postkondisi, dan loop invariant pada bagian validasi.

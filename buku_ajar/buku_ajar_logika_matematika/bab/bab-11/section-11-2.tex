@@ -1,6 +1,6 @@
 \section{Gerbang Logika Turunan: NAND, NOR, XOR, XNOR}
 
-Selain tiga gerbang dasar, terdapat empat gerbang logika turunan yang sangat penting dalam perancangan digital. Gerbang-gerbang ini disebut ``turunan'' karena fungsinya dapat diekspresikan menggunakan kombinasi gerbang AND, OR, dan NOT. Namun, dalam implementasi fisik, gerbang turunan justru seringkali memerlukan lebih sedikit transistor dibandingkan kombinasi gerbang dasar yang ekuivalennya, menjadikannya lebih efisien secara perangkat keras \cite{allaboutcircuits_gates}.
+Selain tiga gerbang dasar, terdapat empat gerbang logika turunan yang penting dalam perancangan digital. Gerbang-gerbang ini disebut ``turunan'' karena fungsinya dapat diekspresikan menggunakan kombinasi gerbang AND, OR, dan NOT. Namun, dalam implementasi fisik, gerbang turunan justru seringkali memerlukan lebih sedikit transistor dibandingkan kombinasi gerbang dasar yang ekuivalennya, menjadikannya lebih efisien secara perangkat keras \cite{allaboutcircuits_gates}.
 
 \subsection{Gerbang NAND (NOT-AND)}
 
@@ -24,7 +24,7 @@ Gerbang NOR juga merupakan gerbang universal. Secara historis, komputer panduan 
 Gerbang XOR (\textit{Exclusive-OR}) menghasilkan keluaran bernilai $1$ jika dan hanya jika \textbf{jumlah masukan bernilai $1$ bersifat ganjil}. Untuk gerbang 2-masukan, keluaran bernilai $1$ hanya jika kedua masukan memiliki nilai yang \textbf{berbeda}. Ekspresi Boolean: $F = A \oplus B = A'B + AB'$.
 \end{definisi}
 
-Gerbang XOR memiliki aplikasi yang sangat luas dalam sistem digital:
+Gerbang XOR memiliki aplikasi yang luas dalam sistem digital:
 \begin{itemize}
     \item \textbf{Penjumlah biner}: XOR menghasilkan bit jumlah (sum) pada rangkaian half-adder dan full-adder.
     \item \textbf{Detektor paritas}: XOR dari beberapa bit menghitung paritas (genap/ganjil) dari data.

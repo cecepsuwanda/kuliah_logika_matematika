@@ -35,7 +35,7 @@ Tabel~\ref{tab:hukum-boolean-lengkap} menyajikan rangkuman lengkap hukum-hukum f
 Dualitas dalam aljabar Boolean menyatakan bahwa setiap identitas aljabar Boolean tetap valid apabila secara simultan dilakukan penukaran: (1) operator $+$ diganti $\cdot$ dan sebaliknya, serta (2) konstanta $0$ diganti $1$ dan sebaliknya. Ekspresi yang dihasilkan dari penukaran tersebut disebut \logic{dual} dari ekspresi aslinya \cite{rosen2019}.
 \end{definisi}
 
-Prinsip dualitas sangat memudahkan proses pembuktian, karena setelah satu teorema dibuktikan, dual-nya otomatis berlaku tanpa perlu pembuktian terpisah. Sebagai contoh, jika hukum identitas versi OR ($x + 0 = x$) telah terbukti, maka dual-nya yaitu hukum identitas versi AND ($x \cdot 1 = x$) juga langsung berlaku. Mahasiswa perlu memperhatikan bahwa dualitas hanya menukar operator dan konstanta, tetapi \emph{tidak} menukar variabel --- variabel $x$, $y$, $z$ tetap sama pada ekspresi asli dan dual-nya.
+Prinsip dualitas mempermudah pembuktian, karena setelah satu teorema dibuktikan, dualnya otomatis berlaku tanpa pembuktian terpisah. Sebagai contoh, jika hukum identitas versi OR ($x + 0 = x$) telah terbukti, maka dualnya, yaitu hukum identitas versi AND ($x \cdot 1 = x$), juga langsung berlaku. Perlu diperhatikan bahwa dualitas hanya menukar operator dan konstanta, tetapi \emph{tidak} menukar variabel: variabel $x$, $y$, $z$ tetap sama pada ekspresi asli dan dualnya.
 
 \subsection{Pembuktian Hukum Idempoten}
 
@@ -69,14 +69,14 @@ Hukum konsensus (konsep diperkenalkan Archie Blake, 1937; istilah ``consensus'' 
 \begin{align*}
 xy + x'z + yz &= xy + x'z + yz(x + x') & \text{(Komplemen: } x + x' = 1) \\
               &= xy + x'z + xyz + x'yz & \text{(Distributif)} \\
-              &= (xy + xyz) + (x'z + x'yz) & \text{(Regrouping)} \\
+              &= (xy + xyz) + (x'z + x'yz) & \text{(Pengelompokan ulang)} \\
               &= xy(1 + z) + x'z(1 + y) & \text{(Distributif)} \\
               &= xy \cdot 1 + x'z \cdot 1 & \text{(Dominasi)} \\
               &= xy + x'z & \text{(Identitas)}
 \end{align*}
 
 \begin{konsep}
-Hukum konsensus memiliki interpretasi intuitif: suku $yz$ disebut redundan karena informasi yang dikandungnya sudah ``ter-cover'' oleh gabungan suku $xy$ dan $x'z$. Jika $y = 1$ dan $z = 1$, maka baik $x = 0$ maupun $x = 1$ sudah ditangkap oleh salah satu dari dua suku pertama.
+Hukum konsensus memiliki interpretasi intuitif: suku $yz$ disebut redundan karena informasi yang dikandungnya sudah tercakup oleh gabungan suku $xy$ dan $x'z$. Jika $y = 1$ dan $z = 1$, maka baik $x = 0$ maupun $x = 1$ sudah ditangkap oleh salah satu dari dua suku pertama.
 \end{konsep}
 
 \subsection{Penerapan Hukum-Hukum dalam Penyederhanaan}

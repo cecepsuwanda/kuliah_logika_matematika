@@ -1,6 +1,6 @@
 \section{Studi Kasus: Verifikasi Algoritma Pengurutan}
 
-Algoritma pengurutan (\textit{sorting}) merupakan salah satu topik paling fundamental dalam ilmu komputer. Verifikasi formal algoritma pengurutan menyediakan studi kasus yang lebih kompleks dibandingkan pencarian linear, karena melibatkan loop bersarang (\textit{nested loops}) dan properti yang lebih rumit \cite{rosen2019}.
+Algoritma pengurutan (\textit{sorting}) merupakan topik fundamental dalam ilmu komputer. Verifikasi formal algoritma pengurutan menyediakan studi kasus yang lebih kompleks dibandingkan pencarian linear, karena melibatkan loop bersarang (\textit{nested loops}) dan properti yang lebih rumit \cite{rosen2019}.
 
 \subsection{Insertion Sort: Algoritma}
 
@@ -53,4 +53,4 @@ Perhatikan bahwa postkondisi pengurutan memiliki dua komponen:
     \item \textbf{Permutasi}: Array hasil merupakan permutasi dari array masukan (tidak ada elemen yang hilang atau ditambahkan).
 \end{enumerate}
 
-Properti kedua sering diabaikan oleh pemula tetapi sangat penting. Program yang mengganti seluruh elemen array menjadi $0$ menghasilkan output terurut, tetapi jelas salah karena bukan permutasi dari masukan.
+Properti kedua sering terabaikan dalam penyusunan spesifikasi, padahal penting untuk kebenaran semantik pengurutan. Program yang mengganti seluruh elemen array menjadi $0$ menghasilkan output terurut, tetapi jelas salah karena bukan permutasi dari masukan.

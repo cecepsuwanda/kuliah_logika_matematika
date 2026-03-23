@@ -1,6 +1,6 @@
 \section{Kuantor Universal: Properti Global dan Implikasi}
 
-Kuantor universal adalah instrumen matematika untuk mendeklarasikan fakta yang berlaku secara komprehensif tanpa kecuali \cite{rosen2019}.
+Kuantor universal digunakan untuk menyatakan bahwa suatu sifat berlaku untuk semua elemen dalam domain \cite{rosen2019}.
 
 \subsection{Definisi Formal Kuantor Universal}
 
@@ -17,10 +17,10 @@ Dibaca:
     \item ``Berapapun $x$ yang dipilih, $P(x)$ benar''
 \end{itemize}
 
-Jika semesta pembicaraan $\mathcal{U}$ berbentuk himpunan terhingga $\mathcal{U} = \{a_1, a_2, \ldots, a_n\}$, maka kuantor universal ekuivalen secara logis dengan konjungsi massal dari sekujur elemen domain:
+Jika semesta pembicaraan $\mathcal{U}$ berbentuk himpunan terhingga $\mathcal{U} = \{a_1, a_2, \ldots, a_n\}$, maka kuantor universal ekuivalen secara logis dengan konjungsi seluruh elemen domain:
 \[ \forall x \, P(x) \equiv P(a_1) \land P(a_2) \land \ldots \land P(a_n) \]
 
-Oleh karena dihubungkan dengan operator AND ($\land$), maka $\forall x \, P(x)$ bernilai \textbf{Benar} jika dan hanya jika $P(x)$ benar untuk \emph{setiap} elemen. Cukup temukan \textbf{satu saja} elemen $c$ di mana $P(c)$ bernilai Salah (elemen ini disebut \textit{counterexample} atau contoh penyangkal), maka runtuhlah keseluruhan klaim universal tersebut menjadi Salah.
+Karena ekuivalen dengan konjungsi, $\forall x \, P(x)$ bernilai \textbf{Benar} jika dan hanya jika $P(x)$ benar untuk \emph{setiap} elemen. Jika ditemukan satu elemen $c$ dengan $P(c)$ bernilai salah (disebut \textit{counterexample} atau contoh penyangkal), klaim universal bernilai salah.
 
 \subsection{Kombinasi dengan Implikasi ($\rightarrow$)}
 
@@ -29,16 +29,16 @@ Dalam translasi dari bahasa alami, kuantor universal sangat erat kaitannya denga
 \begin{contoh}
 Translasi proposisi: ``Setiap mahasiswa mematuhi peraturan.''
 \begin{itemize}
-    \item \textbf{Opsi 1: Domain terbatas}. Jika tetapkan semesta $\mathcal{U}$ = himpunan seluruh mahasiswa, let $P(x) \equiv \text{``}x \text{ mematuhi peraturan''}$. Maka notasinya cukup:
+    \item \textbf{Opsi 1: Domain terbatas}. Jika semesta $\mathcal{U}$ adalah himpunan seluruh mahasiswa, dengan $P(x) \equiv \text{``}x \text{ mematuhi peraturan''}$, notasinya:
     \[ \forall x \, P(x) \]
     
-    \item \textbf{Opsi 2: Domain luas}. Jika semesta $\mathcal{U}$ = himpunan seluruh makhluk hidup di bumi, kita harus memfilter terlebih dahulu subjek yang berstatus mahasiswa. Misal $M(x) \equiv \text{``}x \text{ mahasiswa''}$. Maka notasinya menjadi bersyarat:
+    \item \textbf{Opsi 2: Domain luas}. Jika semesta $\mathcal{U}$ adalah himpunan seluruh makhluk hidup, subjek mahasiswa perlu dinyatakan eksplisit. Misal $M(x) \equiv \text{``}x \text{ mahasiswa''}$. Notasinya:
     \[ \forall x \, (M(x) \rightarrow P(x)) \]
 \end{itemize}
 \end{contoh}
 
 \begin{catatan}
-\textbf{Perhatian!} Kuantor universal sebaiknya \textbf{tidak} dikombinasikan dengan konjungsi ($\land$) untuk menyatakan klaim kepemilikan. Menulis $\forall x \, (M(x) \land P(x))$ bermakna ``Semua entitas di alam semesta ini adalah mahasiswa, \textbf{DAN} seluruh alam semesta mematuhi peraturan.'' Ini klaim arogan yang nilainya jelas salah (seekor kucing di alam semesta akan membuat proposisi ini runtuh). Pilihan yang benar selalu menggunakan implikasi.
+\textbf{Perhatian!} Kuantor universal umumnya \textbf{tidak} dipasangkan dengan konjungsi ($\land$) untuk pola ``setiap A adalah B''. Bentuk $\forall x \, (M(x) \land P(x))$ berarti seluruh entitas di semesta adalah mahasiswa dan sekaligus mematuhi peraturan. Untuk pola kategoris ``setiap A adalah B'', bentuk yang tepat adalah implikasi: $\forall x \, (M(x) \rightarrow P(x))$.
 \end{catatan}
 
 \subsection{Contoh Matematis Universal}
@@ -46,8 +46,8 @@ Translasi proposisi: ``Setiap mahasiswa mematuhi peraturan.''
 \begin{contoh}
 Diberikan domain $\mathcal{U} = \text{Bilangan Real } (\mathbb{R})$.
 \begin{enumerate}
-    \item $\forall x \ (x^2 \geq 0)$ \\ \textbf{Nilai: Benar}. Kuadrat bilangan riil apapun (positif, negatif, koma, nol) tidak pernah kurang dari 0.
-    \item $\forall x \ (x + 1 > x)$ \\ \textbf{Nilai: Benar}. Sisi kiri selalu lebih besar secara ketat 1 angka atas sisi kanan.
-    \item $\forall x \ (x^2 > x)$ \\ \textbf{Nilai: Salah}. Meskipun berlaku untuk banyak angka (seperti $2^2 > 2$), kalimat ini gugur jika $x = 0.5$. $0.5^2 = 0.25$, dan $0.25 \not> 0.5$. Nilai $x=0.5$ adalah \textit{counterexample}.
+    \item $\forall x \ (x^2 \geq 0)$ \\ \textbf{Nilai: Benar}. Kuadrat setiap bilangan riil tidak kurang dari 0.
+    \item $\forall x \ (x + 1 > x)$ \\ \textbf{Nilai: Benar}. Menambahkan 1 selalu menghasilkan nilai yang lebih besar.
+    \item $\forall x \ (x^2 > x)$ \\ \textbf{Nilai: Salah}. Untuk $x = 0.5$, diperoleh $0.5^2 = 0.25$ dan $0.25 \not> 0.5$. Nilai $x=0.5$ adalah \textit{counterexample}.
 \end{enumerate}
 \end{contoh}

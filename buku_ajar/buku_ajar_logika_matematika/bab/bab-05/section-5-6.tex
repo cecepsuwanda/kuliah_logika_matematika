@@ -1,58 +1,57 @@
-\section{Kesesatan Berpikir Formal (Logical Fallacies)}
+\section{Kesesatan Berpikir Formal (\textit{Logical Fallacies})}
 
-Selain argumen valid, terdapat pola \textbf{inferensi invalid} yang sering mengecoh. Dua fallacy formal yang menyerupai Modus Ponens dan Modus Tollens—namun tidak sah—disebut \textit{Fallacy} \cite{rosen2019,iep_natded,libretexts_proofs}.
+Selain argumen valid, terdapat pola inferensi yang \textbf{tidak sah} namun sering muncul dalam argumen sehari-hari. Dua contoh penting yang menyerupai Modus Ponens dan Modus Tollens---tetapi tidak valid---adalah \textit{fallacy of affirming the consequent} dan \textit{fallacy of denying the antecedent} \cite{rosen2019,iep_natded,libretexts_proofs}.
 
-\subsection{Menetapkan Konsekuen (Fallacy of Affirming the Consequent)}
+\subsection{\textit{Fallacy of Affirming the Consequent}}
 
-Fallacy ini terjadi ketika seseorang keliru menganggap implikasi ($p \rightarrow q$) bersifat dua arah (bikondisional). 
+Kesalahan ini terjadi ketika seseorang menganggap implikasi $p \rightarrow q$ dapat dibalik seolah-olah ekuivalen dengan bikondisional.
 
-\begin{teorema}[Jebakan Menetapkan Akibat]
-Dari implikasi ($p \rightarrow q$) dan fakta bahwa konsekuen ($q$) benar, seseorang keliru menyimpulkan anteseden ($p$) benar. \textbf{Argumen tidak sah (invalid)}. 
+\begin{teorema}[Kesalahan: Menetapkan Konsekuen]
+Dari $p \rightarrow q$ dan $q$, menyimpulkan $p$ adalah \textbf{tidak valid}.
 \end{teorema}
 
-\textbf{Anatomi Argumen Sesat:}
+\textbf{Skema yang tidak sah:}
 \[
 \begin{array}{cl}
-p \rightarrow q & \text{(Premis Mayor)} \\
-q & \text{(Sang Akibat justru digandakan/dibenarkan)} \\
+p \rightarrow q & \text{(Premis)} \\
+q & \text{(Premis)} \\
 \hline
-\therefore p & \text{\xcancel{(KESIMPULAN CACAT! SESAT)}}
+\therefore p & \text{(Konklusi tidak sah)}
 \end{array}
 \]
 
 \begin{contoh}
-Perhatikan dan resapi kesalahan fatal berikut:
 \begin{itemize}
-    \item \textbf{Janji ($p \rightarrow q$)}: "Jika kompor di dapur meledak, maka seluruh gedung apartemen ini ludes terbakar." (Sangat Benar).
-    \item \textbf{Fakta Tragedi ($q$)}: "Di siaran TV Breaking News, Apartemen kita disiarkan ludes terbakar jadi abu."
-    \item \textbf{Kesimpulan Sesat ($\therefore p$)}: "Astaga! Pasti Kompor pemicunya yang meledak mengawali ini semua."
+    \item \textbf{Premis ($p \rightarrow q$)}: ``Jika kompor meledak, maka gedung terbakar.''
+    \item \textbf{Fakta ($q$)}: ``Gedung terbakar.''
+    \item \textbf{Kesimpulan yang keliru ($\therefore p$)}: ``Pasti kompor yang meledak.''
 \end{itemize}
-\textbf{Mengapa cacat?} Apartemen terbakar ($q$) dapat disebabkan banyak hal selain kompor (petir, korsleting, dll). Kebenaran $q$ tidak menggaransi kebenaran $p$.
+\textbf{Alasan:} Kebakaran dapat disebabkan oleh banyak faktor lain; kebenaran $q$ tidak menjamin kebenaran $p$.
 \end{contoh}
 
-\subsection{Menyangkal Anteseden (Fallacy of Denying the Antecedent)}
+\subsection{\textit{Fallacy of Denying the Antecedent}}
 
-Fallacy ini merupakan versi keliru dari Modus Tollens.
+Kesalahan ini menyerupai Modus Tollens, tetapi menarik kesimpulan yang salah terhadap konsekuen.
 
-\begin{teorema}[Jebakan Menyangkal Sebab]
-Dari implikasi ($p \rightarrow q$) dan fakta bahwa anteseden salah ($\neg p$), seseorang keliru menyimpulkan konsekuen juga salah ($\neg q$). \textbf{Argumen invalid}.
+\begin{teorema}[Kesalahan: Menyangkal Anteseden]
+Dari $p \rightarrow q$ dan $\neg p$, menyimpulkan $\neg q$ adalah \textbf{tidak valid}.
 \end{teorema}
 
-\textbf{Anatomi Argumen Sesat:}
+\textbf{Skema yang tidak sah:}
 \[
 \begin{array}{cl}
-p \rightarrow q & \text{(Premis Mayor)} \\
-\neg p & \text{(Sang Penulis Sebab digugurkan)} \\
+p \rightarrow q & \text{(Premis)} \\
+\neg p & \text{(Premis)} \\
 \hline
-\therefore \neg q & \text{\xcancel{(KESIMPULAN CACAT! SESAT)}}
+\therefore \neg q & \text{(Konklusi tidak sah)}
 \end{array}
 \]
 
 \begin{contoh}
 \begin{itemize}
-    \item \textbf{Janji ($p \rightarrow q$)}: "Jika saya hari ini diguyur gajian bonus akhir tahun miliaran, maka tabungan bank BCA saya meluber lubis kaya raya."
-    \item \textbf{Fakta Kemiskinan ($\neg p$)}: "Sial, pak bos tidak memberi saya secuil pun gaji bonus."
-    \item \textbf{Kesimpulan Sesat ($\therefore \neg q$)}: "Ya sudah fix, berarti saya ditakdirkan selamanya miskin, tabungan BCA saya akan terus mengkerut tidak bisa membesar raya alias gagal gajian!"
+    \item \textbf{Premis ($p \rightarrow q$)}: ``Jika saya menerima bonus tahun ini, maka tabungan saya bertambah.''
+    \item \textbf{Fakta ($\neg p$)}: ``Saya tidak menerima bonus tahun ini.''
+    \item \textbf{Kesimpulan yang keliru ($\therefore \neg q$)}: ``Maka tabungan saya tidak dapat bertambah.''
 \end{itemize}
-\textbf{Mengapa cacat?} Kekayaan ($q$) dapat diperoleh melalui banyak cara (warisan, investasi, dll). Ketidakbenaran $p$ tidak mengimplikasikan ketidakbenaran $q$.
+\textbf{Alasan:} Tabungan dapat bertambah melalui sumber pendapatan lain; $\neg p$ tidak mengimplikasikan $\neg q$.
 \end{contoh}

@@ -1,0 +1,295 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Peta Karnaugh]{Penyederhanaan Fungsi Logika: Aljabar Boolean dan Peta Karnaugh}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 10-1: Motivasi
+% ============================================================
+\section{Motivasi dan K-Map}
+
+\begin{frame}
+\frametitle{Keterbatasan Metode Aljabar}
+\begin{itemize}
+  \item Tidak ada algoritma deterministik yang menjamin solusi optimal
+  \item Keberhasilan bergantung pada intuisi dan pengalaman
+  \item Untuk 5+ variabel: manipulasi rumit dan rentan kesalahan
+\end{itemize}
+\begin{block}{Peta Karnaugh (Maurice Karnaugh, 1953)}
+Metode visual berbasis pengenalan pola pada grid 2D. Menggunakan Kode Gray. Efektif hingga 4 variabel; 5--6 variabel dengan penyesuaian. Untuk $>$6 variabel: Quine--McCluskey.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Prinsip Kerja K-Map}
+\begin{enumerate}
+  \item Kombinasi input dipetakan ke sel grid 2D (setiap sel = 1 minterm)
+  \item Tata letak: sel bersebelahan hanya berbeda 1 variabel (Kode Gray)
+  \item Dua sel bersebelahan bernilai 1 $\Rightarrow$ variabel pembeda dieliminasi (hukum komplemen $x+x'=1$)
+  \item Semakin besar kelompok $\Rightarrow$ semakin banyak variabel dieliminasi
+\end{enumerate}
+\end{frame}
+
+% ============================================================
+% SECTION 10-2: Kode Gray
+% ============================================================
+\section{Kode Gray}
+
+\begin{frame}
+\frametitle{Definisi Kode Gray}
+\begin{definisi}[Kode Gray]
+Sistem pengkodean biner di mana dua bilangan berurutan hanya berbeda pada tepat satu digit. Properti: \logic{jarak Hamming satu}.
+\end{definisi}
+Urutan label K-Map: $00, 01, 11, 10$ (bukan biner standar $00, 01, 10, 11$). Sifat siklis: baris terakhir dan pertama juga berbeda 1 bit $\Rightarrow$ \textbf{wrap-around}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Konstruksi Rekursif}
+\begin{enumerate}
+  \item Mulai: 1-bit $\{0, 1\}$
+  \item Refleksikan urutan; tambah prefiks 0 pada asli, 1 pada refleksi
+  \item Gabungkan
+\end{enumerate}
+2-bit: $00, 01, 11, 10$\\
+3-bit: $000, 001, 011, 010, 110, 111, 101, 100$
+\end{frame}
+
+% ============================================================
+% SECTION 10-3: K-Map 2 Variabel
+% ============================================================
+\section{K-Map 2 dan 3 Variabel}
+
+\begin{frame}
+\frametitle{Aturan Pengelompokan}
+\begin{enumerate}
+  \item Ukuran kelompok: pangkat 2 ($1, 2, 4, 8, \ldots$)
+  \item Bentuk persegi/persegi panjang (bukan diagonal/L)
+  \item Maksimalkan ukuran kelompok
+  \item Minimalkan jumlah kelompok
+  \item Semua sel 1 harus tercakup
+  \item Tumpang tindih diperbolehkan
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Eliminasi Variabel}
+\begin{center}
+\small
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Ukuran} & \textbf{Eliminasi} & \textbf{Suku} \\ \hline
+1 sel & 0 var & Minterm lengkap \\ \hline
+2 sel & 1 var & $(n-1)$ literal \\ \hline
+4 sel & 2 var & $(n-2)$ literal \\ \hline
+$2^k$ sel & $k$ var & $(n-k)$ literal \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh K-Map 2 Var: $F = \sum m(0,1,3)$}
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|}
+\hline
+ & $Y=0$ & $Y=1$ \\ \hline
+$X=0$ & 1 ($m_0$) & 1 ($m_1$) \\ \hline
+$X=1$ & 0 & 1 ($m_3$) \\ \hline
+\end{tabular}
+\end{center}
+Kelompok 1: $\{m_0, m_1\}$ $\Rightarrow$ $X'$\\
+Kelompok 2: $\{m_1, m_3\}$ $\Rightarrow$ $Y$\\
+\textbf{Hasil}: $F = X' + Y$
+\end{frame}
+
+% ============================================================
+% SECTION 10-4: K-Map 3 Variabel
+% ============================================================
+\begin{frame}
+\frametitle{K-Map 3 Variabel}
+Grid $2 \times 4$. Kolom: $00, 01, 11, 10$ (Gray). \textbf{Wrap-around}: kolom pertama $\leftrightarrow$ kolom terakhir.
+\begin{block}{Contoh: $F = \sum m(1,3,5,7)$}
+Keempat sel 1 di kolom $Z=1$ $\Rightarrow$ $X,Y$ berubah $\Rightarrow$ $F = Z$
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Wrap-Around: $F = \sum m(0,2,4,5)$}
+$\{m_0, m_2\}$: wrap kolom $00 \leftrightarrow 10$, $X'Z'$ konstan $\Rightarrow$ $X'Z'$\\
+$\{m_4, m_5\}$: $XY'$ konstan $\Rightarrow$ $XY'$\\
+\textbf{Hasil}: $F = X'Z' + XY'$
+\end{frame}
+
+% ============================================================
+% SECTION 10-5: K-Map 4 Variabel
+% ============================================================
+\section{K-Map 4 Variabel}
+
+\begin{frame}
+\frametitle{K-Map 4 Variabel}
+Grid $4 \times 4$; baris dan kolom mengikuti Gray. Wrap pada kedua sumbu. Empat sudut ($m_0, m_2, m_8, m_{10}$) bersebelahan logis.
+\begin{center}
+\small
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Ukuran} & \textbf{Eliminasi} & \textbf{Contoh} \\ \hline
+4 sel & 2 var & $A'B'$, $C'D$ \\ \hline
+8 sel & 3 var & $A'$, $D$ \\ \hline
+16 sel & 4 var & $1$ (tautologi) \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Empat Sudut}
+$F = \sum m(0,2,8,10)$: 4 sel di pojok $\Rightarrow$ $C'D'$ (double wrap)\\
+$F = \sum m(0,2,5,7,8,10,13,15)$: pojok $C'D'$ + tengah $CD$ $\Rightarrow$ $F = C'D' + CD$ (XNOR)
+\end{frame}
+
+% ============================================================
+% SECTION 10-6: Don't Care
+% ============================================================
+\section{Don't Care dan Prime Implicant}
+
+\begin{frame}
+\frametitle{Kondisi Don't Care}
+\begin{definisi}[Don't Care]
+Kombinasi input yang tidak memiliki spesifikasi output. Dinotasikan $d$ atau $\times$. Perancang bebas pilih 0 atau 1 untuk optimasi.
+\end{definisi}
+Contoh: BCD menggunakan 4 bit untuk 0--9; kombinasi 10--15 = don't care.
+\end{frame}
+
+\begin{frame}
+\frametitle{Prime Implicant dan Essential}
+\begin{definisi}[Prime Implicant]
+Kelompok sel 1 yang \textbf{maksimal}: tidak dapat diperbesar tanpa menyertakan sel 0.
+\end{definisi}
+\begin{definisi}[Essential Prime Implicant]
+Prime implicant yang mencakup minimal satu sel 1 yang \textbf{tidak dicakup} prime implicant lain. Wajib disertakan.
+\end{definisi}
+Prosedur: identifikasi prime implicant $\rightarrow$ tentukan essential $\rightarrow$ pilih tambahan untuk sisa minterm.
+\end{frame}
+
+% ============================================================
+% SECTION 10-7: Quine-McCluskey
+% ============================================================
+\section{Quine--McCluskey}
+
+\begin{frame}
+\frametitle{Keterbatasan K-Map}
+\begin{center}
+\small
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Var} & \textbf{Sel} & \textbf{Keterangan} \\ \hline
+2--4 & 4--16 & Praktis \\ \hline
+5 & 32 & Dua peta 4-var \\ \hline
+6 & 64 & Empat peta \\ \hline
+7+ & 128+ & Tidak praktis; perlu algoritma \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algoritma Quine--McCluskey}
+\begin{definisi}[Quine--McCluskey]
+Prosedur algoritmik (tabulasi) untuk menemukan semua prime implicant dan memilih himpunan minimum. Quine (1952), McCluskey (1956).
+\end{definisi}
+Tahap 1: gabungkan minterm yang berbeda 1 bit, ulangi hingga selesai. Tahap 2: pilih himpunan minimal dengan tabel cakupan.
+\end{frame}
+
+\begin{frame}
+\frametitle{K-Map vs Quine--McCluskey}
+\begin{center}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Aspek} & \textbf{K-Map} & \textbf{Q--M} \\ \hline
+Pendekatan & Visual & Algoritmik \\ \hline
+Variabel efektif & 2--6 & Tidak terbatas \\ \hline
+Optimalitas & Bergantung pengguna & Dijamin minimal \\ \hline
+Otomatisasi & Kurang & Mendukung \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item K-Map: metode visual; label dengan Kode Gray; sel bersebelahan = berbeda 1 var
+  \item Aturan: kelompok pangkat 2, persegi panjang, wrap-around
+  \item Don't care: fleksibel 0/1 untuk optimasi
+  \item Prime implicant maksimal; essential wajib disertakan
+  \item Quine--McCluskey: algoritmik, skala ke banyak variabel
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+Peta Karnaugh $\bullet$ Kode Gray $\bullet$ wrap-around $\bullet$ pengelompokan\\
+don't care $\bullet$ prime implicant $\bullet$ essential prime implicant $\bullet$ Quine--McCluskey
+\end{center}
+\end{frame}
+
+\end{document}

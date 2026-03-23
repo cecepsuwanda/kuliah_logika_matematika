@@ -1,0 +1,284 @@
+\documentclass[handout]{beamer}
+\mode<presentation>
+\usepackage{xcolor}
+\usepackage[toc]{multitoc}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{../buku_ajar/buku_ajar_logika_matematika/figures/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usetheme[secheader]{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\logic}[1]{\textbf{\textit{#1}}}
+
+\theoremstyle{definition}
+\newtheorem{definisi}[theorem]{Definisi}
+\theoremstyle{example}
+\newtheorem{contoh}[theorem]{Contoh}
+
+\renewcommand*{\multicolumntoc}{2}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.433333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.233333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em} \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\subtitle[Logika Matematika]{Logika Matematika}
+\title[Validasi Algoritma]{Argumen Formal dan Validasi Algoritma}
+\author{Cecep Suwanda, S.Si., M.Kom.}
+\date{Maret 2025}
+\institute{Universitas Bale Bandung}
+
+\begin{document}
+
+\maketitle
+
+\section*{Daftar Isi}
+\begin{frame}
+\frametitle{Daftar Isi}
+\tableofcontents
+\end{frame}
+
+% ============================================================
+% SECTION 14-1: Pre/Post
+% ============================================================
+\section{Prekondisi dan Postkondisi}
+
+\begin{frame}
+\frametitle{Prekondisi dan Postkondisi}
+\begin{definisi}[Prekondisi]
+Predikat yang harus dipenuhi \textbf{sebelum} blok kode dijalankan.
+\end{definisi}
+\begin{definisi}[Postkondisi]
+Predikat yang harus terpenuhi \textbf{setelah} blok selesai (jika pre terpenuhi).
+\end{definisi}
+``Kontrak'' antara pemanggil dan implementasi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh Spesifikasi}
+\begin{itemize}
+  \item \texttt{sqrt}($x$): pre $x \geq 0$; post $r \geq 0$ dan $r^2 = x$
+  \item \texttt{divide}($a,b$): pre $b \neq 0$; post $a = bq + r$, $0 \leq r < |b|$
+\end{itemize}
+Melanggar pre $\Rightarrow$ perilaku tidak dijamin.
+\end{frame}
+
+% ============================================================
+% SECTION 14-2: Hoare
+% ============================================================
+\section{Hoare Triple}
+
+\begin{frame}
+\frametitle{Hoare Triple}
+\begin{definisi}[Hoare Triple]
+$\{p\}\ S\ \{q\}$ valid jika: setiap eksekusi $S$ dari keadaan yang memenuhi $p$ yang \textbf{berterminasi} menghasilkan keadaan yang memenuhi $q$.
+\end{definisi}
+Logika Hoare (Tony Hoare, 1969).
+\end{frame}
+
+\begin{frame}
+\frametitle{Aturan Assignment}
+$\{q[E/x]\}\ x := E\ \{q\}$\\
+Contoh: $\{x = 5\}\ x := x+1\ \{x = 6\}$ (substitusi mundur).
+\end{frame}
+
+\begin{frame}
+\frametitle{Komposisi dan If}
+\textbf{Komposisi:} $\dfrac{\{p\}\ S_1\ \{r\} \quad \{r\}\ S_2\ \{q\}}{\{p\}\ S_1; S_2\ \{q\}}$\\
+\textbf{If:} kedua cabang dari $p \wedge B$ dan $p \wedge \neg B$ ke post $q$ yang sama.
+\end{frame}
+
+% ============================================================
+% SECTION 14-3: Loop invariant
+% ============================================================
+\section{Loop Invariant}
+
+\begin{frame}
+\frametitle{Tiga Syarat Loop Invariant}
+\begin{definisi}[Loop Invariant]
+Predikat $I$ untuk loop \texttt{while $B$ do $S$}:
+\begin{enumerate}
+  \item \textbf{Inisialisasi}: $I$ benar sebelum iterasi pertama
+  \item \textbf{Pemeliharaan}: $\{I \wedge B\}\ S\ \{I\}$
+  \item \textbf{Terminasi}: $I \wedge \neg B$ mengimplikasikan postkondisi
+\end{enumerate}
+\end{definisi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Aturan While}
+$\dfrac{\{I \wedge B\}\ S\ \{I\}}{\{I\}\ \texttt{while } B \texttt{ do } S\ \{I \wedge \neg B\}}$
+\end{frame}
+
+\begin{frame}
+\frametitle{Analogi dengan Induksi}
+\begin{center}
+\small
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Induksi} & \textbf{Loop invariant} \\ \hline
+Basis $P(n_0)$ & Inisialisasi $I$ \\ \hline
+$P(k) \Rightarrow P(k+1)$ & Pemeliharaan \\ \hline
+Kesimpulan $P(n)$ & $I \wedge \neg B$ \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Contoh: Penjumlahan Array}
+\texttt{sum := 0; i := 0; while i < n do sum := sum + A[i]; i := i+1}\\
+$I$: $sum = \sum_{j=0}^{i-1} A[j]$ dan $0 \leq i \leq n$.\\
+Setelah loop: $i = n \Rightarrow$ post $sum = \sum_{j=0}^{n-1} A[j]$.
+\end{frame}
+
+% ============================================================
+% SECTION 14-4: Parsial vs total
+% ============================================================
+\section{Kebenaran Parsial dan Total}
+
+\begin{frame}
+\frametitle{Kebenaran Parsial}
+$\{p\}\ S\ \{q\}$: jika $p$ dan $S$ \textbf{berterminasi}, maka $q$.\\
+Tidak menjamin terminasi (infinite loop: vakum terpenuhi).
+\end{frame}
+
+\begin{frame}
+\frametitle{Kebenaran Total}
+$[p]\ S\ [q]$: dari $p$, $S$ \textbf{pasti} berterminasi dan $q$ terpenuhi.\\
+Total = parsial + bukti terminasi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Fungsi Pengurangan (Variant)}
+\begin{definisi}[Fungsi pengurangan]
+$V \geq 0$ selama $B$ benar; $V$ turun ketat tiap iterasi $\Rightarrow$ loop berhenti.
+\end{definisi}
+Contoh penjumlahan array: $V = n - i$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Ringkasan}
+\begin{center}
+\scriptsize
+\begin{tabular}{|l|l|l|}
+\hline
+ & \textbf{Parsial} $\{p\}S\{q\}$ & \textbf{Total} $[p]S[q]$ \\ \hline
+Terminasi & Tidak dijamin & Dijamin \\ \hline
+Post & Jika berhenti & Selalu \\ \hline
+Bukti & Invariant & Invariant + variant \\ \hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+% ============================================================
+% SECTION 14-5: Linear search
+% ============================================================
+\section{Pencarian Linear}
+
+\begin{frame}
+\frametitle{Loop Invariant Pencarian Linear}
+$I$: untuk semua $j$, $0 \leq j < i \Rightarrow A[j] \neq key$, dan $0 \leq i \leq n$.\\
+Inisialisasi $i=0$: vakum.\\
+Terminasi normal: $i=n \Rightarrow$ key tidak ada, return $-1$.
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminasi}
+$V = n - i$; tiap iterasi (tanpa return) $i$ naik $\Rightarrow$ terminasi.
+\end{frame}
+
+% ============================================================
+% SECTION 14-6: Insertion sort
+% ============================================================
+\section{Insertion Sort}
+
+\begin{frame}
+\frametitle{Spesifikasi Pengurutan}
+Post: (1) $A[0] \leq \cdots \leq A[n-1]$ terurut;\\
+(2) $A$ = \textbf{permutasi} array masukan (penting!).
+\end{frame}
+
+\begin{frame}
+\frametitle{Invariant Loop Luar}
+Pada awal iterasi $j$: $A[0..j-1]$ terurut dan permutasi elemen asli $A[0..j-1]$.\\
+$j=n$: seluruh array terurut dan permutasi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Loop Dalam}
+Invariant: $A[i+2..j]$ berisi elemen $>$ key terurut; key akan ke $A[i+1]$.\\
+Variant: $V = i + 1$ (turun saat $i$ turun).
+\end{frame}
+
+% ============================================================
+% SECTION 14-7: Industri
+% ============================================================
+\section{Verifikasi Formal}
+
+\begin{frame}
+\frametitle{Testing vs Verifikasi Formal}
+\begin{itemize}
+  \item Testing: sampel kasus; menunjukkan \textbf{keberadaan} bug
+  \item Formal: bukti untuk semua input; ketiadaan bug (dalam model)
+\end{itemize}
+Dijkstra: testing tidak pernah membuktikan ketiadaan bug.
+\end{frame}
+
+\begin{frame}
+\frametitle{Mission-Critical}
+Aviasi, medis, antariksa (Ariane 5), radioterapi (Therac-25), kriptografi.
+\end{frame}
+
+\begin{frame}
+\frametitle{Alat Bantu}
+Static analyzers; model checkers (SPIN, NuSMV); theorem provers (Coq, Isabelle, Lean); Design by Contract (Eiffel, JML).
+\end{frame}
+
+\begin{frame}
+\frametitle{Konvergensi Materi Buku}
+Proposisi/predikat $\to$ spesifikasi; pembuktian $\to$ parsial; induksi $\to$ invariant.
+\end{frame}
+
+% ============================================================
+% RANGKUMAN
+% ============================================================
+\section{Rangkuman}
+
+\begin{frame}
+\frametitle{Rangkuman}
+\begin{itemize}
+  \item Pre/post = kontrak; Hoare $\{p\}S\{q\}$
+  \item Invariant: inisialisasi, pemeliharaan, terminasi
+  \item Parsial vs total; variant untuk terminasi
+  \item Pengurutan: terurut + permutasi
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kata Kunci}
+\begin{center}
+\small
+prekondisi $\bullet$ postkondisi $\bullet$ Hoare Triple $\bullet$ assignment $\bullet$ loop invariant $\bullet$ kebenaran parsial $\bullet$ kebenaran total $\bullet$ fungsi pengurangan $\bullet$ verifikasi formal
+\end{center}
+\end{frame}
+
+\end{document}
