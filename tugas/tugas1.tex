@@ -1,0 +1,297 @@
+% Format tugas kuliah berbasis pola umum template "homework/assignment"
+% (article + identitas mahasiswa + daftar soal), mirip gaya Overleaf
+% Professional Assignment / course problem set.
+% Soal disalin dari ppt/Logika_Preposisi.tex (bagian Latihan Soal).
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% Font TeX Live/MiKTeX skalabel (menghindari konflik ekspansi font microtype + CM bitmap)
+\usepackage{lmodern}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+% --- Isian identitas (ubah sesuai kebutuhan) ---
+\newcommand{\JudulTugas}{Tugas 1}
+\newcommand{\KodeMK}{TIF-xxx}
+\newcommand{\NamaMK}{Logika Matematika}
+\newcommand{\NamaMahasiswa}{[Nama Lengkap Mahasiswa]}
+\newcommand{\NIMMhs}{[NIM]}
+\newcommand{\Kelas}{[Kelas / Kelompok]}
+\newcommand{\Prodi}{Teknik Informatika}
+\newcommand{\Fakultas}{Fakultas Teknologi Informasi}
+\newcommand{\Institusi}{Universitas Bale Bandung}
+\newcommand{\DosenPengampu}{[Nama Dosen Pengampu]}
+\newcommand{\TanggalKumpul}{[DD Bulan YYYY]}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\NamaMahasiswa\ --- \NIMMhs}
+\fancyhead[R]{\small\JudulTugas\ --- \NamaMK}
+\fancyfoot[C]{\small Halaman \thepage\ dari \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% Jarak vertikal antar lingkungan soal (di atas/di bawah setiap \begin{soal}...\end{soal})
+\newtheoremstyle{soaljarak}%
+  {1.25ex plus 0.2ex minus 0.1ex}% ruang di atas
+  {1.75ex plus 0.35ex minus 0.1ex}% ruang di bawah
+  {\normalfont}% isi
+  {0pt}%
+  {\bfseries}%
+  {.}%
+  {0.5em}%
+  {}
+\theoremstyle{soaljarak}
+\newtheorem{soal}{Soal}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries \JudulTugas}\\[0.35em]
+  {\large \NamaMK\ (\KodeMK)}\\[1em]
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{4.8cm} @{\hspace{0.35em}:\hspace{0.65em}} >{\raggedright\arraybackslash}X@{}}
+  Nama Mahasiswa            & \NamaMahasiswa \\
+  Nomor Induk Mahasiswa     & \NIMMhs \\
+  Program Studi             & \Prodi \\
+  Fakultas                  & \Fakultas \\
+  Institusi                 & \Institusi \\
+  Kelas / Kelompok          & \Kelas \\
+  Dosen Pengampu            & \DosenPengampu \\
+  Batas tanggal pengumpulan & \TanggalKumpul \\
+\end{tabularx}
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\section*{Petunjuk Umum}
+\begin{itemize}[leftmargin=*]
+  \item Jawaban \textbf{dianjurkan dikerjakan dalam format \LaTeX}; penggunaan \textit{Microsoft Word} atau aplikasi pengolah kata sejenis \textbf{dibolehkan}.
+  \item Setelah selesai, \textbf{simpan atau ekspor jawaban menjadi berkas PDF}.
+  \item \textbf{Unggah berkas PDF} tersebut ke \textbf{Edlink} sesuai tenggat di kontrak kuliah/RPS.
+  \item Tugas ini membahas \textbf{logika proposisional}. Gunakan huruf proposisional (\textit{p}, \textit{q}, \textit{r}, \ldots) sesuai soal, dan simbol \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\) secara konsisten. Nilai kebenaran boleh dilambangkan \(T/F\) atau Benar/Salah; jika memakai \(\tau(\cdot)\), tunjukkan langkah substitusinya.
+  \item \textbf{Terjemahan bahasa Indonesia \(\leftrightarrow\) bentuk simbol:} perhatikan kata penghubung (``dan'', ``atau'', ``jika \ldots\ maka \ldots'', ``jika dan hanya jika'', ``tidak'') dan susunan yang ekuivalen (misalnya ``\(p\) jika \(q\)'' vs ``jika \(q\) maka \(p\)'').
+  \item \textbf{Tabel kebenaran:} lengkapi kolom per sub-ekspresi secara berurutan (sesuai hirarki operator: negasi, konjungsi, disjungsi, implikasi, biimplikasi). Untuk pertanyaan ``apakah sama \ldots?'', bandingkan kolom hasil akhir kedua rumus atau beri argumen ringkas dari tabel.
+  \item \textbf{Substitusi nilai \(\tau\):} gantikan setiap proposisi dengan \(T\) atau \(F\), lalu hitung dari dalam kurung ke luar. Sebutkan aturan \(\wedge\), \(\vee\), \(\neg\), \(\rightarrow\), \(\leftrightarrow\) pada setiap langkah jika diperlukan agar jawaban dapat diikuti.
+  \item \textbf{Kurung dan ambiguitas:} tuliskan ungkapan yang setara secara jelas dengan tanda kurung, sesuai maksud yang ingin diprioritaskan (lihat urutan hirarki operator pada materi kuliah).
+  \item \textbf{Penyederhanaan dan pembuktian ekuivalensi:} tunjukkan rangkaian \(\equiv\) dengan menyebut \textbf{nama hukum} yang dipakai (misalnya identitas, De Morgan, distributif, absorpsi, \(p\rightarrow q \equiv \neg p \vee q\), dan sebagainya). Hindari melompat beberapa langkah tanpa alasan.
+  \item \textbf{Tautologi:} untuk Soal 15, sederhanakan ekspresi hingga \(\equiv T\) atau tunjukkan bahwa hasil akhir bukan tautologi (berilah kontra-contoh lewat satu baris tabel kebenaran bila perlu).
+  \item Tulis jawaban rapi per nomor soal dan per butir; gambar atau tabel boleh difotokopi rapi dari buku catatan asalkan terbaca.
+\end{itemize}
+
+\section*{Soal}
+
+\begin{soal}[\normalfont Sumber: \textit{Logika Preposisi} (slide kuliah)]
+  Gunakan konstanta proposisional berikut:
+  \begin{center}
+    \begin{tabular}{l c l}
+      \textit{p} & = & Bowo kaya raya\\
+      \textit{q} & = & Bowo hidup bahagia
+    \end{tabular}
+  \end{center}
+  Selanjutnya, ubah pernyataan-pernyataan berikut ini menjadi bentuk logika:
+  \begin{enumerate}
+    \item Bowo tidak kaya.
+    \item Bowo kaya raya dan hidup bahagia.
+    \item Bowo kaya raya atau tidak hidup bahagia.
+    \item Jika Bowo kaya raya, maka ia hidup bahagia.
+    \item Bowo hidup bahagia jika dan hanya jika ia kaya raya.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Misalkan \textit{p}, \textit{q} dan \textit{r} adalah variabel proposisional:
+  \begin{center}
+    \begin{tabular}{l c l}
+      \textit{p} & = & Anda sakit flu\\
+      \textit{q} & = & Anda ujian\\
+      \textit{r} & = & Anda lulus
+    \end{tabular}
+  \end{center}
+  Ubahlah ekspresi berikut menjadi pernyataan dalam bahasa Indonesia:
+  \begin{enumerate}
+    \item $p \rightarrow \neg q$
+    \item $q \rightarrow \neg r$
+    \item $\neg q \rightarrow r$
+    \item $(p \wedge q) \rightarrow r$
+    \item $(p \rightarrow \neg r) \vee (q \rightarrow \neg r)$
+    \item $(p \wedge q) \vee (\neg q \wedge r)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Ubahlah pernyataan-pernyataan berikut menjadi bentuk logika:
+  \begin{enumerate}
+    \item Jika Bowo berada di Malioboro, maka Dewi juga ada di Malioboro.
+    \item Pintu rumah Dewi berwarna merah atau coklat.
+    \item Berita itu tidak menyenangkan.
+    \item Bowo akan datang jika ia mempunyai kesempatan.
+    \item Jika Dewi rajin kuliah, maka ia pasti pandai.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Dengan menggunakan tabel kebenaran, jawab pertanyaan-pertanyaan berikut:
+  \begin{enumerate}
+    \item Apakah nilai kebenaran dari $p \wedge p$?
+    \item Apakah nilai kebenaran dari $p \vee p$?
+    \item Apakah nilai kebenaran dari $(p \wedge \neg p)$ dan $(p \vee \neg p)$?
+    \item Apakah $(p \rightarrow q)$ mempunyai nilai kebenaran yang sama dengan $(q \rightarrow p)$?
+    \item Apakah $(p \rightarrow q) \rightarrow r$ mempunyai nilai kebenaran yang sama dengan $p \rightarrow (q \rightarrow r)$?
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Buatlah tabel kebenaran untuk ekspresi-ekspresi logika berikut:
+  \begin{enumerate}
+    \item $\neg (\neg p \wedge \neg q)$
+    \item $p \wedge (p \vee q)$
+    \item $((\neg p \wedge (\neg q \wedge r))\vee (q \wedge r))\vee (p \wedge r)$
+    \item $(p \wedge q)\vee (((\neg p \wedge q) \rightarrow p)\wedge \neg q)$
+    \item $(p \rightarrow q)\leftrightarrow (\neg q \rightarrow \neg p)$
+    \item $p \wedge ((r \vee q) \leftrightarrow \neg r)$
+    \item $\neg((p \wedge q)\rightarrow \neg r)\vee p$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Ubahlah pernyataan-pernyataan berikut menjadi ekspresi logika berupa proposisi majemuk:
+  \begin{enumerate}
+    \item Jika tikus itu waspada dan bergerak cepat, maka kucing atau anjing itu tidak mampu menangkapnya.
+    \item Jika saya tidak keliru, Dewi sudah diwisuda dan pacarnya atau orangtuanya berada di sampingnya.
+    \item Bowo membeli saham dan membeli properti untuk investasinya, atau dia dapat menanamkan uang di deposito bank dan menerima bunga uang.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Masukkan tanda kurung biasa ke dalam ekspresi logika berikut ini sehingga tidak terjadi ambiguitas:
+  \begin{enumerate}
+    \item $p \wedge q \wedge r \rightarrow s$
+    \item $p \vee q \vee r \leftrightarrow \neg s$
+    \item $\neg p \wedge q \rightarrow \neg r \vee s$
+    \item $p \rightarrow q \leftrightarrow \neg r \rightarrow \neg s$
+    \item $p \vee q \wedge r \rightarrow p \wedge q \vee r$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Jika $\tau(p)=T$ dan $\tau(q)=T$, sedangkan $\tau(r)=F$ dan $\tau(s)=F$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut:
+  \begin{enumerate}
+    \item $p \wedge (q \vee r)$
+    \item $(p \vee q) \wedge r$
+    \item $((p\vee q)\wedge r) \vee \neg((p \vee q)\wedge (q\vee s))$
+    \item $(\neg(p \wedge q)\vee \neg r) \vee (((\neg p \wedge q)\vee \neg s) \wedge r)$
+    \item $(p \leftrightarrow r) \wedge (\neg q \rightarrow s)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Jika $\tau(p)=F$ dan $\tau(q)=F$, sedangkan $\tau(r)=T$ dan $\tau(s)=T$, carilah nilai kebenaran dari ekspresi-ekspresi logika berikut:
+  \begin{enumerate}
+    \item $\neg(p \leftrightarrow q)\wedge (\neg r \rightarrow s)$
+    \item $(\neg p \wedge (q \vee \neg r)\vee (q \leftrightarrow \neg p)) \leftrightarrow (s \wedge r)$
+    \item $(p \vee (q \rightarrow (r \wedge \neg p))) \leftrightarrow \neg (q \vee \neg s)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Buktikan bahwa ekspresi-ekspresi logika berikut ini ekuivalen dengan menggunakan tabel kebenaran:
+  \begin{enumerate}
+    \item $\neg p \leftrightarrow q \equiv (\neg p \vee q)\wedge (\neg q \vee p)$
+    \item $q \leftrightarrow (\neg p \rightarrow q) \equiv T$
+    \item $(p \vee \neg q)\rightarrow r \equiv (\neg p \wedge q)\vee r$
+    \item $p \rightarrow (q \rightarrow r) \equiv (p \rightarrow r)\rightarrow r$
+    \item $p \rightarrow q \equiv \neg (p \wedge \neg q)$
+    \item $\neg (\neg(p \wedge q)\vee q) \equiv F$
+    \item $((p \wedge (q\rightarrow r))\wedge(p \rightarrow(q \rightarrow \neg r)))\rightarrow p \equiv T$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Sederhanakan ekspresi-ekspresi logika berikut ini menjadi bentuk paling sederhana:
+  \begin{enumerate}
+    \item $p \wedge (\neg p \rightarrow p)$
+    \item $\neg (\neg p \wedge (q\vee \neg q))$
+    \item $(p \rightarrow q)\rightarrow((p \rightarrow \neg q)\rightarrow \neg p)$
+    \item $(p \rightarrow(p \vee \neg r))\wedge \neg p \wedge q$
+    \item $(\neg p \wedge \neg (q \rightarrow r))\wedge \neg (p \rightarrow (q \rightarrow \neg r))$
+    \item $(\neg p \rightarrow q)\rightarrow ((\neg p \rightarrow \neg q)\rightarrow p)$
+    \item $(p \wedge (\neg p \vee q))\vee q \vee (p \wedge (p \vee q))$
+    \item $(p \wedge \neg q \wedge p \wedge \neg r)\vee (r \wedge p \wedge \neg r)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Buktikan \textit{absorption laws} berikut ini dengan penyederhanaan:
+  \begin{enumerate}
+    \item $(p \wedge q)\vee(\neg p \wedge q) \equiv q$
+    \item $(p \vee q)\wedge(\neg p \vee q) \equiv q$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Sederhanakan ekspresi-ekspresi logika berikut ini menjadi bentuk paling sederhana:
+  \begin{enumerate}
+    \item $\neg p \rightarrow \neg q$
+    \item $(p \rightarrow q) \wedge (q \rightarrow r)$
+    \item $(p \rightarrow q)\leftrightarrow ((p \wedge q) \leftrightarrow p)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Buktikan dua ekspresi logika berikut ekuivalen dengan penyederhanaan:
+  \begin{enumerate}
+    \item $(p \wedge q)\vee (q \wedge r) \equiv q \wedge (p \vee r)$
+    \item $\neg(\neg(p \wedge q)\vee p) \equiv T$
+    \item $\neg(\neg p \vee \neg(r \vee s))\equiv (p \wedge r)\vee (p \wedge s)$
+    \item $p \wedge (\neg p \vee q)\equiv p \wedge q$
+    \item $\neg(\neg p \wedge \neg q)\equiv p \vee q$
+    \item $(p \wedge q)\vee(p \wedge \neg q)\equiv p$
+    \item $p \leftrightarrow q \equiv \neg(\neg(\neg p \vee q)\vee \neg(\neg q \vee p))$
+    \item $p \leftrightarrow q \equiv (\neg p \vee q) \wedge (\neg q \vee p)$
+    \item $\neg(\neg p \vee \neg(q \vee r))\equiv (p \wedge q) \vee (p \wedge r)$
+    \item $(p \vee r)\wedge(q \vee s)\equiv (p \wedge q)\vee(p \wedge s)\vee(q \wedge r)\vee(r \wedge s)$
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}
+  Dengan menggunakan penyederhanaan, periksa apakah ekspresi logika berikut merupakan tautologi:
+  \begin{enumerate}
+    \item $p \wedge (\neg p \rightarrow p)$
+    \item $(p \rightarrow q)\rightarrow((p \rightarrow \neg q)\rightarrow \neg p)$
+    \item $((p \rightarrow (q \vee \neg r))\wedge \neg p)\wedge q$
+    \item $(\neg p \rightarrow q)\rightarrow((\neg p \rightarrow \neg q)\rightarrow p)$
+    \item $((p \wedge (q \rightarrow r))\wedge(p \rightarrow(q \rightarrow \neg r)))\rightarrow p$
+    \item $((p \rightarrow q)\wedge(q \rightarrow r))\rightarrow((p \wedge q)\rightarrow r)$
+    \item $p \rightarrow (q \rightarrow p)$
+    \item $(q \rightarrow p) \rightarrow p$
+    \item $\neg \neg p \rightarrow p$
+    \item $(\neg p \rightarrow \neg q)\rightarrow(q \rightarrow p)$
+    \item $(p \rightarrow (q \rightarrow r))\rightarrow((p \rightarrow q)\rightarrow(p \rightarrow r))$
+  \end{enumerate}
+\end{soal}
+
+\end{document}

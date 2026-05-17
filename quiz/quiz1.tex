@@ -1,0 +1,370 @@
+% Kuis 1 --- Logika Proposisional
+% Satu soal PG per bahasan di ppt/Logika_Preposisi.tex (bukan dari Latihan Soal).
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\newcommand{\JudulKuis}{Kuis 1}
+\newcommand{\KodeMK}{TIF-xxx}
+\newcommand{\NamaMK}{Logika Matematika}
+\newcommand{\MateriKuis}{Logika Proposisional}
+\newcommand{\WaktuKuis}{90 menit}
+\newcommand{\NilaiMaksimal}{100}
+\newcommand{\Prodi}{Teknik Informatika}
+\newcommand{\Fakultas}{Fakultas Teknologi Informasi}
+\newcommand{\Institusi}{Universitas Bale Bandung}
+\newcommand{\DosenPengampu}{[Nama Dosen Pengampu]}
+\newcommand{\TanggalKuis}{[DD Bulan YYYY]}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \JudulKuis\ --- \NamaMK}
+\fancyhead[R]{\small \MateriKuis}
+\fancyfoot[C]{\small Halaman \thepage\ dari \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\newlist{pilihan}{enumerate}{1}
+\setlist[pilihan]{label=\textbf{\Alph*.}, leftmargin=2.2em, align=left, itemsep=0.35em, topsep=0.35em}
+
+\newcommand{\kuncijawaban}[2]{%
+  \par\vspace{0.25em}%
+  {\small
+  \textit{\textbf{Kunci jawaban:} #1}\par
+  \textit{\textbf{Penjelasan:} #2}%
+  \par\vspace{0.55em}}%
+}
+
+\newcounter{soalkuis}
+\newcommand{\soalkuis}{%
+  \refstepcounter{soalkuis}%
+  \par\vspace{0.6ex plus 0.15ex}%
+  \noindent\textbf{Soal \thesoalkuis.}\quad
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries \JudulKuis}\\[0.3em]
+  {\large \NamaMK\ (\KodeMK)}\\[0.25em]
+  {\normalsize Materi: \MateriKuis}\\[0.35em]
+  {\normalsize\textit{(Lembar kunci jawaban dan pembahasan)}}\\[0.8em]
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{4.5cm} @{\hspace{0.35em}:\hspace{0.65em}} >{\raggedright\arraybackslash}X@{}}
+  Nama Mahasiswa        & \rule{0.72\linewidth}{0.4pt} \\
+  Nomor Induk Mahasiswa & \rule{0.72\linewidth}{0.4pt} \\
+  Kelas / Kelompok      & \rule{0.72\linewidth}{0.4pt} \\
+  Program Studi         & \Prodi \\
+  Fakultas              & \Fakultas \\
+  Institusi             & \Institusi \\
+  Dosen Pengampu        & \DosenPengampu \\
+  Tanggal kuis          & \TanggalKuis \\
+  Waktu pengerjaan      & \WaktuKuis \\
+  Nilai maksimal        & \NilaiMaksimal \\
+\end{tabularx}
+
+\vspace{0.8em}
+\hrule
+\vspace{0.8em}
+
+\section*{Petunjuk}
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+  \item Kuis ini terdiri atas \textbf{22 soal pilihan ganda} (satu jawaban benar per soal), mencakup seluruh bahasan \textit{Logika Proposisional} pada materi perkuliahan: pengertian logika, kalimat tertutup/terbuka, nilai kebenaran, lambang pernyataan dan \(\tau\), operator \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\), varian implikasi, tautologi, negasi pernyataan majemuk, hirarki operator, ekuivalen logis, hukum logika, serta penyederhanaan ekspresi.
+  \item Isi \textbf{nama, NIM, dan kelas} pada bagian identitas di atas sebelum mengerjakan.
+  \item Bacalah teks soal dan label bahasan (cetak miring di awal soal) untuk memastikan konteks pertanyaan.
+  \item Pilih \textbf{satu} jawaban terbaik; lingkari atau tulis huruf pilihan (A, B, C, atau D) dengan jelas pada lembar jawaban.
+  \item Soal bertipe konsep dan perhitungan singkat nilai kebenaran: gunakan pengertian tabel kebenaran, hukum De Morgan, negasi implikasi (\(p \wedge \neg q\)), kontraposisi, serta hirarki operator sesuai slide kuliah---tanpa perlu menuliskan tabel lengkap kecuali diminta secara eksplisit.
+  \item Perangkat elektronik, catatan, dan komunikasi antar peserta \textbf{tidak diperbolehkan} kecuali diizinkan pengawas.
+  \item Lembar kuis \textbf{wajib dikumpulkan} kepada pengawas segera setelah waktu \WaktuKuis\ habis; keterlambatan mengikuti aturan kelas.
+\end{itemize}
+
+\section*{Soal}
+
+% --- Definisi Logika ---
+\soalkuis
+\textit{(Definisi Logika)}\\
+Menurut pengertian logika matematika dalam materi kuliah, bidang ini terutama digunakan untuk \ldots
+\begin{pilihan}
+  \item Menghitung luas bangun datar tanpa bukti
+  \item Menentukan nilai kebenaran pernyataan dan penarikan kesimpulan menurut aturan yang berlaku
+  \item Menerjemahkan teks sastra ke puisi
+  \item Mengganti semua argumen dengan opini pribadi
+\end{pilihan}
+\kuncijawaban{B}{Logika matematika mempelajari penentuan nilai kebenaran pernyataan serta penarikan kesimpulan berdasarkan aturan logika yang berlaku, bukan sekadar perhitungan geometri atau opini subjektif.}
+
+% --- Kalimat Tertutup ---
+\soalkuis
+\textit{(Kalimat Tertutup / Preposisi)}\\
+Kalimat tertutup (preposisi) didefinisikan sebagai kalimat yang \ldots
+\begin{pilihan}
+  \item Bernilai benar dan salah sekaligus pada situasi yang sama
+  \item Hanya berupa pertanyaan retoris
+  \item Bernilai benar saja atau salah saja (tidak keduanya sekaligus)
+  \item Selalu mengandung kata tanya
+\end{pilihan}
+\kuncijawaban{C}{Preposisi (kalimat tertutup) hanya boleh bernilai benar atau salah, tidak boleh keduanya pada konteks yang sama; ini ciri kalimat deklaratif yang dapat ditentukan kebenarannya.}
+
+% --- Kalimat Terbuka ---
+\soalkuis
+\textit{(Kalimat Terbuka)}\\
+Manakah yang merupakan contoh \textbf{kalimat terbuka}?
+\begin{pilihan}
+  \item \(7\) adalah bilangan prima
+  \item \(n + 4 > 10\)
+  \item Semua mamalia bernapas
+  \item \(2 \times 3 = 6\)
+\end{pilihan}
+\kuncijawaban{B}{Kalimat \(n + 4 > 10\) memuat variabel \(n\); nilai kebenarannya belum tetap sehingga termasuk kalimat terbuka, berbeda dari pernyataan tanpa peubah.}
+
+% --- Nilai Kebenaran ---
+\soalkuis
+\textit{(Nilai Kebenaran Suatu Pernyataan)}\\
+Menentukan kebenaran pernyataan ``Ibukota Australia adalah Sydney'' dengan memeriksa fakta geografis terkini termasuk dalam pendekatan \ldots
+\begin{pilihan}
+  \item Dasar empiris
+  \item Dasar tak empiris semata (hanya simbol)
+  \item Hukum De Morgan
+  \item Kontraposisi
+\end{pilihan}
+\kuncijawaban{A}{Pernyataan tentang ibukota diuji dengan fakta di dunia nyata; itu contoh penentuan kebenaran secara \textbf{dasar empiris}, bukan hanya manipulasi simbol.}
+
+% --- Lambang Pernyataan ---
+\soalkuis
+\textit{(Lambang Suatu Pernyataan)}\\
+Penulisan \(r\) : ``Cuaca hari ini cerah'' mengikuti konvensi bahwa huruf kecil \(r\) berfungsi sebagai \ldots
+\begin{pilihan}
+  \item Lambang untuk seluruh kalimat pernyataan tersebut
+  \item Lambang nilai kebenaran \(\tau\)
+  \item Operator biimplikasi
+  \item Variabel bebas yang tidak boleh diganti
+\end{pilihan}
+\kuncijawaban{A}{Notasi \(r\) : ``\ldots'' memakai huruf kecil sebagai \textbf{lambang pernyataan} (bukan \(\tau\) yang khusus untuk nilai kebenaran).}
+
+% --- Lambang tau ---
+\soalkuis
+\textit{(Lambang Nilai Kebenaran)}\\
+Jika diketahui \(\tau(p) = F\), maka pernyataan yang dilambangkan \(p\) adalah \ldots
+\begin{pilihan}
+  \item Pernyataan benar
+  \item Pernyataan salah
+  \item Kalimat terbuka
+  \item Tautologi
+\end{pilihan}
+\kuncijawaban{B}{\(\tau(p) = F\) berarti pernyataan \(p\) \textbf{salah} (nilai kebenaran False), sesuai pembacaan lambang \(\tau\) pada materi.}
+
+% --- Pernyataan Majemuk ---
+\soalkuis
+\textit{(Pernyataan Majemuk)}\\
+Dalam tabel kata sambung logika, simbol \(\leftrightarrow\) sesuai dengan kata sambung \ldots
+\begin{pilihan}
+  \item Dan
+  \item Atau
+  \item Jika dan hanya jika
+  \item Tidak
+\end{pilihan}
+\kuncijawaban{C}{Simbol \(\leftrightarrow\) adalah \textbf{biimplikasi}, yaitu kata sambung ``jika dan hanya jika'' dalam tabel operator logika.}
+
+% --- Konjungsi ---
+\soalkuis
+\textit{(Nilai Kebenaran Konjungsi)}\\
+Jika \(\tau(p) = T\) dan \(\tau(q) = F\), maka \(\tau(p \wedge q)\) adalah \ldots
+\begin{pilihan}
+  \item \(T\)
+  \item \(F\)
+  \item Tidak dapat ditentukan
+  \item Selalu \(T\)
+\end{pilihan}
+\kuncijawaban{B}{Konjungsi \(p \wedge q\) benar hanya jika kedua komponen benar; dengan \(\tau(p)=T\) dan \(\tau(q)=F\) diperoleh \(\tau(p \wedge q)=F\).}
+
+% --- Disjungsi ---
+\soalkuis
+\textit{(Nilai Kebenaran Disjungsi)}\\
+Jika \(\tau(p) = F\) dan \(\tau(q) = F\), maka \(\tau(p \vee q)\) adalah \ldots
+\begin{pilihan}
+  \item \(T\)
+  \item \(F\)
+  \item \(T\) hanya jika \(p\) dan \(q\) ekuivalen
+  \item Sama dengan \(\tau(p \rightarrow q)\)
+\end{pilihan}
+\kuncijawaban{B}{Disjungsi \(p \vee q\) salah hanya jika \(p\) dan \(q\) keduanya salah; jadi \(\tau(p \vee q)=F\) ketika keduanya \(F\).}
+
+% --- Negasi ---
+\soalkuis
+\textit{(Nilai Kebenaran Negasi)}\\
+Jika \(\tau(p) = F\), maka \(\tau(\neg p)\) adalah \ldots
+\begin{pilihan}
+  \item \(F\)
+  \item \(T\)
+  \item \(F\) atau \(T\) bergantung konteks
+  \item Sama dengan \(\tau(p)\)
+\end{pilihan}
+\kuncijawaban{B}{Negasi membalik nilai kebenaran: jika \(\tau(p)=F\) maka \(\tau(\neg p)=T\).}
+
+% --- Implikasi ---
+\soalkuis
+\textit{(Nilai Kebenaran Implikasi)}\\
+Implikasi \(p \rightarrow q\) bernilai \textbf{salah} pada baris tabel kebenaran ketika \ldots
+\begin{pilihan}
+  \item \(p\) salah dan \(q\) benar
+  \item \(p\) benar dan \(q\) salah
+  \item \(p\) salah dan \(q\) salah
+  \item \(p\) benar dan \(q\) benar
+\end{pilihan}
+\kuncijawaban{B}{Pada tabel implikasi, satu-satunya baris yang menghasilkan nilai salah adalah anteceden benar (\(p\) benar) dan konsekuen salah (\(q\) salah).}
+
+% --- Biimplikasi ---
+\soalkuis
+\textit{(Nilai Kebenaran Biimplikasi)}\\
+Jika \(\tau(p) = T\) dan \(\tau(q) = F\), maka \(\tau(p \leftrightarrow q)\) adalah \ldots
+\begin{pilihan}
+  \item \(T\)
+  \item \(F\)
+  \item \(T\) karena \(p\) benar
+  \item Sama dengan \(\tau(p \rightarrow q)\)
+\end{pilihan}
+\kuncijawaban{B}{Biimplikasi benar hanya jika \(p\) dan \(q\) sama-sama benar atau sama-sama salah; kombinasi \(T,F\) memberikan \(\tau(p \leftrightarrow q)=F\).}
+
+% --- Varian Implikasi ---
+\soalkuis
+\textit{(Varian dari Implikasi)}\\
+Kontraposisi dari implikasi \(p \rightarrow q\) adalah \ldots
+\begin{pilihan}
+  \item \(q \rightarrow p\)
+  \item \(\neg p \rightarrow \neg q\)
+  \item \(\neg q \rightarrow \neg p\)
+  \item \(p \leftrightarrow q\)
+\end{pilihan}
+\kuncijawaban{C}{Kontraposisi dari \(p \rightarrow q\) adalah \(\neg q \rightarrow \neg p\); bentuk ini ekuivalen dengan implikasi asli, berbeda dari konvers atau invers.}
+
+% --- Tautologi dan Kontradiksi ---
+\soalkuis
+\textit{(Tautologi dan Kontradiksi)}\\
+Pernyataan majemuk \(p \vee \neg p\) termasuk jenis \ldots
+\begin{pilihan}
+  \item Tautologi
+  \item Kontradiksi
+  \item Kontingensi saja (bukan tautologi)
+  \item Kalimat terbuka
+\end{pilihan}
+\kuncijawaban{A}{\(p \vee \neg p\) selalu benar untuk semua nilai \(p\), sehingga termasuk \textbf{tautologi} (hukum eksklusi ketiga).}
+
+% --- Negasi Konjungsi ---
+\soalkuis
+\textit{(Negasi Konjungsi)}\\
+Bentuk yang ekuivalen dengan \(\neg(p \wedge q)\) menurut hukum De Morgan adalah \ldots
+\begin{pilihan}
+  \item \(\neg p \wedge \neg q\)
+  \item \(\neg p \vee \neg q\)
+  \item \(p \vee q\)
+  \item \(\neg p \rightarrow \neg q\)
+\end{pilihan}
+\kuncijawaban{B}{Hukum De Morgan untuk konjungsi: \(\neg(p \wedge q) \equiv \neg p \vee \neg q\).}
+
+% --- Negasi Disjungsi ---
+\soalkuis
+\textit{(Negasi Disjungsi)}\\
+Negasi dari \(p \vee q\) dapat ditulis sebagai \ldots
+\begin{pilihan}
+  \item \(\neg p \vee \neg q\)
+  \item \(\neg p \wedge \neg q\)
+  \item \(p \wedge q\)
+  \item \(\neg(p \wedge q)\)
+\end{pilihan}
+\kuncijawaban{B}{Hukum De Morgan untuk disjungsi: \(\neg(p \vee q) \equiv \neg p \wedge \neg q\).}
+
+% --- Negasi Implikasi ---
+\soalkuis
+\textit{(Negasi Implikasi)}\\
+Negasi dari \(p \rightarrow q\) secara logis sama dengan \ldots
+\begin{pilihan}
+  \item \(\neg p \rightarrow \neg q\)
+  \item \(p \wedge \neg q\)
+  \item \(\neg p \vee \neg q\)
+  \item \(q \rightarrow p\)
+\end{pilihan}
+\kuncijawaban{B}{Negasi implikasi tidak sama dengan invers; \(\neg(p \rightarrow q) \equiv p \wedge \neg q\) (anteceden benar tetapi konsekuen salah).}
+
+% --- Negasi Biimplikasi ---
+\soalkuis
+\textit{(Negasi Biimplikasi)}\\
+Salah satu bentuk yang ekuivalen dengan \(\neg(p \leftrightarrow q)\) adalah \ldots
+\begin{pilihan}
+  \item \((p \wedge \neg q) \vee (q \wedge \neg p)\)
+  \item \(p \leftrightarrow \neg q\) saja, tanpa disjungsi
+  \item \(\neg p \leftrightarrow \neg q\)
+  \item \(p \rightarrow q\)
+\end{pilihan}
+\kuncijawaban{A}{\(\neg(p \leftrightarrow q)\) ekuivalen dengan ``salah satu benar, yang lain salah'', yaitu \((p \wedge \neg q) \vee (q \wedge \neg p)\), sesuai materi negasi biimplikasi.}
+
+% --- Hirarki Operator ---
+\soalkuis
+\textit{(Hirarki Operator Logika)}\\
+Menurut hirarki pada materi kuliah, operator yang \textbf{pertama kali} dievaluasi (prioritas tertinggi) adalah \ldots
+\begin{pilihan}
+  \item \(\neg\) (negasi)
+  \item \(\wedge\) (konjungsi)
+  \item \(\vee\) (disjungsi)
+  \item \(\rightarrow\) (implikasi)
+\end{pilihan}
+\kuncijawaban{A}{Hirarki operator: \textbf{negasi} (\(\neg\)) dievaluasi lebih dulu (prioritas tertinggi), baru konjungsi, disjungsi, implikasi, dan biimplikasi.}
+
+% --- Ekuivalen Logis ---
+\soalkuis
+\textit{(Ekuivalen Logis)}\\
+Dua preposisi \(p\) dan \(q\) disebut ekuivalen logis (\(p \equiv q\)) jika \ldots
+\begin{pilihan}
+  \item Keduanya memakai huruf proposisional yang sama
+  \item \(\tau(p) = \tau(q)\) pada setiap kombinasi nilai kebenaran
+  \item Keduanya merupakan tautologi
+  \item \(p \rightarrow q\) selalu benar
+\end{pilihan}
+\kuncijawaban{B}{Dua preposisi ekuivalen jika kolom nilai kebenaran mereka sama pada \textbf{setiap} baris tabel kebenaran (\(\tau(p)=\tau(q)\) untuk semua interpretasi).}
+
+% --- Hukum Logika ---
+\soalkuis
+\textit{(Hukum-hukum Logika)}\\
+Menurut hukum involusi (negasi ganda), ekspresi \(\neg(\neg p)\) ekuivalen dengan \ldots
+\begin{pilihan}
+  \item \(\neg p\)
+  \item \(p\)
+  \item \(T\)
+  \item \(F\)
+\end{pilihan}
+\kuncijawaban{B}{Hukum involusi menyatakan bahwa negasi ganda mengembalikan pernyataan semula: \(\neg(\neg p) \equiv p\).}
+
+% --- Penyederhanaan ---
+\soalkuis
+\textit{(Penyederhanaan Ekspresi Logika)}\\
+Penyederhanaan ekspresi logika pada materi kuliah dilakukan dengan menerapkan \ldots
+\begin{pilihan}
+  \item Hukum-hukum logika secara berurutan hingga bentuk lebih sederhana
+  \item Hanya tabel kebenaran tanpa aturan
+  \item Mengabaikan tanda kurung
+  \item Mengganti semua \(\vee\) menjadi \(\wedge\) secara acak
+\end{pilihan}
+\kuncijawaban{A}{Penyederhanaan dilakukan dengan menerapkan hukum-hukum logika (identitas, De Morgan, distributif, absorpsi, dan lain-lain) secara sistematis hingga bentuk ekspresi lebih ringkas.}
+
+\end{document}
