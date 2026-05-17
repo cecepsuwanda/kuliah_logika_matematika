@@ -1,4 +1,4 @@
-% UTS Logika Proposisional --- soal uraian per bahasan slide (bukan dari Latihan Soal).
+% UTS Logika Proposisional --- soal uraian (pola latihan slide, tingkat dasar).
 \documentclass[12pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
@@ -91,109 +91,108 @@
 
 \section*{Petunjuk Umum}
 \begin{itemize}[leftmargin=*, itemsep=0.25em]
-  \item Ujian terdiri atas \textbf{13 soal uraian} (Soal 1--13) yang mencakup materi \textit{Logika Proposisional} pada slide perkuliahan: pengertian logika, preposisi dan kalimat terbuka, nilai kebenaran, lambang pernyataan dan \(\tau\), operator logika, tabel kebenaran, implikasi dan biimplikasi, konvers/invers/kontraposisi, tautologi dan kontradiksi, negasi pernyataan majemuk, hirarki operator, ekuivalen logis, serta penyederhanaan ekspresi.
-  \item Isi \textbf{nama, NIM, dan kelas} pada bagian identitas sebelum mulai; periksa label bahasan (cetak miring) di awal tiap soal agar jawaban sesuai konteks yang diminta.
-  \item Jawab \textbf{per nomor soal} secara berurutan pada garis jawaban yang disediakan; jika tidak mencukupi, lanjutkan di lembar tambahan yang dilekatkan dan beri penanda nomor soal.
-  \item Gunakan notasi logika secara konsisten: \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\), serta \(\tau(p)=T/F\) atau istilah Benar/Salah.
-  \item \textbf{Soal konsep} (Soal 1--5, 7a, 9 bagian penjelasan): tulis definisi, klasifikasi, atau contoh kalimat yang \textbf{Anda buat sendiri} bila diminta, bukan menyalin contoh latihan slide.
-  \item \textbf{Soal tabel kebenaran} (Soal 6, 8c, 9, 12, dan verifikasi Soal 13): tuliskan kolom untuk setiap sub-ekspresi bila perlu; lengkapi keempat baris kombinasi \(T/F\) untuk dua peubah, atau baris sesuai jumlah peubah pada soal.
-  \item \textbf{Soal negasi dan varian implikasi} (Soal 8, 10): nyatakan bentuk bahasa Indonesia dan bentuk simbol; sebutkan hukum yang dipakai (misalnya De Morgan, negasi implikasi).
-  \item \textbf{Soal hirarki operator} (Soal 11): tunjukkan penempatan kurung, urutan evaluasi sesuai prioritas \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\), lalu hitung nilai kebenaran untuk nilai \(\tau\) yang diberikan.
-  \item \textbf{Soal penyederhanaan} (Soal 13): tulis rangkaian \(\equiv\) dengan \textbf{nama hukum} di setiap langkah; akhiri dengan verifikasi singkat (satu baris tabel atau substitusi) bila diminta.
+  \item Ujian terdiri atas \textbf{10 soal uraian} (Soal 1--10) pada materi \textit{Logika Proposisional}. Setiap soal memuat label bahasan (cetak miring); jawab sesuai butir \textbf{a, b, c, \ldots} bila ada.
+  \item Isi \textbf{nama, NIM, dan kelas} pada bagian identitas sebelum mulai. Tulis jawaban \textbf{berurutan per nomor soal} pada garis yang disediakan; bila tidak cukup, lanjutkan di lembar tambahan yang dilekatkan dan beri penanda ``Soal X''.
+  \item Gunakan simbol \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\) secara konsisten. Nilai kebenaran boleh ditulis \(T/F\), Benar/Salah, atau \(\tau(\cdot)\) sesuai permintaan soal.
   \item Ujian bersifat \textbf{individual}; dilarang bekerja sama, menyalin, atau menggunakan perangkat elektronik serta catatan kecuali diizinkan tertulis pengawas.
-  \item Alokasi waktu disarankan sekitar 8--10 menit per soal dalam \WaktuUjian; prioritaskan menyelesaikan semua nomor meskipun jawaban ringkas pada bagian yang sulit.
-  \item Lembar ujian \textbf{wajib dikumpulkan} kepada pengawas segera setelah waktu habis.
+  \item Alokasi waktu disarankan sekitar 10--12 menit per soal dalam \WaktuUjian; prioritaskan menyelesaikan semua nomor.
+  \item Lembar ujian \textbf{wajib dikumpulkan} kepada pengawas segera setelah waktu \WaktuUjian\ habis.
 \end{itemize}
 
 \section*{Soal Uraian}
 
 \soaluts
-\textit{(Definisi Logika)}\\
-Jelaskan perbedaan pengertian \textbf{logika} (cara berpikir logis) dan \textbf{logika matematika} menurut materi kuliah. Berikan masing-masing satu contoh kalimat yang menunjukkan kegunaan logika matematika dalam konteks informatika.
+\textit{(Pengertian Proposisi)}\\
+Jelaskan pengertian \textbf{proposisi} (kalimat tertutup) menurut materi kuliah. Berikan \textbf{dua} contoh kalimat tertutup dan \textbf{satu} contoh kalimat terbuka (kalimat yang mengandung peubah bebas), masing-masing dengan alasan singkat.
 \ruangjawaban[7cm]
 
 \soaluts
-\textit{(Kalimat Tertutup dan Kalimat Terbuka)}\\
-Klasifikasikan kalimat-kalimat berikut sebagai \textbf{kalimat tertutup (preposisi)} atau \textbf{kalimat terbuka}, beri alasan singkat:
+\textit{(Terjemahan ke Simbol)}\\
+Gunakan konstanta proposisional berikut:
+\begin{center}
+  \begin{tabular}{l c l}
+    \(p\) & \(=\) & Bowo memiliki tabungan cukup besar\\
+    \(q\) & \(=\) & Bowo membeli laptop baru
+  \end{tabular}
+\end{center}
+Ubah pernyataan berikut menjadi bentuk logika (tulis simbol saja):
 \begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.2em]
-  \item Program kompilasi berhasil dijalankan tanpa \textit{error}.
-  \item \(x^2 - 4 = 0\).
-  \item Semua server aktif merespons dalam 200 ms.
-  \item Berapakah kompleksitas algoritma pengurutan ini?
+  \item Bowo tidak memiliki tabungan cukup besar.
+  \item Bowo memiliki tabungan cukup besar dan membeli laptop baru.
+  \item Bowo memiliki tabungan cukup besar atau tidak membeli laptop baru.
+  \item Jika Bowo memiliki tabungan cukup besar, maka ia membeli laptop baru.
 \end{enumerate}
-Untuk satu kalimat terbuka yang Anda pilih, tunjukkan satu substitusi nilai peubah sehingga menjadi preposisi dan sebutkan nilai kebenarannya.
-\ruangjawaban[8cm]
+\ruangjawaban[6cm]
 
 \soaluts
-\textit{(Nilai Kebenaran Suatu Pernyataan)}\\
-Bedakan \textbf{dasar empiris} dan \textbf{dasar tak empiris} dalam menentukan nilai kebenaran pernyataan. Masing-masing beri \textbf{dua} contoh pernyataan berbeda (bukan contoh pada slide latihan) beserta penentuan \(T/F\)-nya.
-\ruangjawaban[8cm]
-
-\soaluts
-\textit{(Lambang Pernyataan dan Lambang \(\tau\))}\\
-Diberikan:
-\begin{itemize}[leftmargin=2em, itemsep=0.15em]
-  \item \(s\) : ``Basis data relasional menyimpan data dalam tabel.''
-  \item \(t\) : ``128 adalah bilangan genap.''
-\end{itemize}
-Tuliskan notasi \(s\) dan \(t\), tentukan \(\tau(s)\) dan \(\tau(t)\), lalu bentuklah pernyataan majemuk ``\(s\) dan \(t\)'' dalam simbol logika lengkap dengan penentuan nilai kebenarannya.
+\textit{(Simbol ke Bahasa Indonesia)}\\
+Misalkan \(p\), \(q\), dan \(r\) adalah variabel proposisional:
+\begin{center}
+  \begin{tabular}{l c l}
+    \(p\) & \(=\) & Anda sakit flu\\
+    \(q\) & \(=\) & Anda mengikuti ujian\\
+    \(r\) & \(=\) & Anda dinyatakan lulus
+  \end{tabular}
+\end{center}
+Ubahlah ekspresi berikut menjadi pernyataan dalam bahasa Indonesia:
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.2em]
+  \item \(p \rightarrow \neg q\)
+  \item \((p \wedge q) \rightarrow r\)
+  \item \((p \wedge q) \vee (\neg q \wedge r)\)
+\end{enumerate}
 \ruangjawaban[7cm]
 
 \soaluts
-\textit{(Pernyataan Majemuk --- Operator Logika)}\\
-Jelaskan pengertian \textbf{pernyataan majemuk}. Buat tabel yang memuat lima kata sambung logika (dan, atau, tidak, jika\ldots maka\ldots, jika dan hanya jika), simbolnya, dan \textbf{satu} contoh kalimat konteks sistem informasi untuk masing-masing operator.
-\ruangjawaban[9cm]
-
-\soaluts
-\textit{(Konjungsi, Disjungsi, dan Negasi)}\\
-Buatlah tabel kebenaran lengkap untuk ekspresi \(\neg p \vee (q \wedge \neg p)\). Dari tabel tersebut, tentukan apakah ekspresi tersebut \textbf{tautologi}, \textbf{kontradiksi}, atau \textbf{kontingensi}, dengan penjelasan singkat.
-\ruangjawaban[8cm]
-
-\soaluts
-\textit{(Implikasi dan Biimplikasi)}\\
-\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
-  \item Jelaskan kapan implikasi \(p \rightarrow q\) bernilai \textbf{salah} dan berikan satu contoh kalimat sehari-hari (bukan contoh latihan slide) yang memodelkan implikasi tersebut beserta interpretasi \(T/F\)-nya.
-  \item Untuk \(p\): ``Paket \textit{software} terinstal'' dan \(q\): ``Aplikasi dapat dijalankan'', tuliskan \(p \leftrightarrow q\) dalam bahasa Indonesia dan tentukan \(\tau(p \leftrightarrow q)\) jika \(\tau(p)=T\) dan \(\tau(q)=F\).
+\textit{(Bahasa Indonesia ke Simbol)}\\
+Tentukan sendiri huruf proposisional yang sesuai, lalu ubah pernyataan berikut menjadi bentuk logika:
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.2em]
+  \item Jika Bowo berada di Malioboro, maka Dewi juga berada di Malioboro.
+  \item Pintu rumah Dewi berwarna merah atau hijau.
+  \item Berita di koran itu tidak akurat.
 \end{enumerate}
-\ruangjawaban[9cm]
-
-\soaluts
-\textit{(Varian Implikasi)}\\
-Misalkan \(p\): ``Pengguna lulus verifikasi identitas'' dan \(q\): ``Pengguna dapat mengakses modul premium''.
-\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
-  \item Tuliskan implikasi \(p \rightarrow q\) dalam bahasa Indonesia.
-  \item Tuliskan \textbf{konvers}, \textbf{invers}, dan \textbf{kontraposisi} dalam bentuk simbol logika dan bahasa Indonesia.
-  \item Buktikan dengan tabel kebenaran bahwa \(p \rightarrow q\) ekuivalen dengan kontraposisinya.
-\end{enumerate}
-\ruangjawaban[10cm]
-
-\soaluts
-\textit{(Tautologi dan Kontradiksi)}\\
-Tanpa menghitung seluruh tabel untuk ekspresi panjang, jelaskan mengapa \(p \vee \neg p\) merupakan \textbf{tautologi} dan \(p \wedge \neg p\) merupakan \textbf{kontradiksi}. Selanjutnya, buatlah tabel kebenaran untuk \((p \rightarrow q) \vee (q \rightarrow p)\) dan klasifikasikan jenisnya.
-\ruangjawaban[8cm]
-
-\soaluts
-\textit{(Negasi Pernyataan Majemuk)}\\
-\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
-  \item Nyatakan negasi dari ``Rina belajar algoritma \textbf{dan} menyelesaikan praktikum tepat waktu'' dalam bahasa Indonesia, lalu tuliskan bentuk simbolnya jika \(a\): Rina belajar algoritma, \(b\): Rina menyelesaikan praktikum tepat waktu.
-  \item Nyatakan negasi dari ``Jika suhu CPU melebihi ambang batas, maka kipas pendingin menyala'' dalam bahasa Indonesia dan bentuk simbol \(\neg(p \rightarrow q)\) yang ekuivalen (tunjukkan hukum yang dipakai).
-\end{enumerate}
-\ruangjawaban[9cm]
-
-\soaluts
-\textit{(Hirarki Operator Logika)}\\
-Tambahkan tanda kurung pada ekspresi \(\neg a \vee b \wedge c \rightarrow d\) sehingga diinterpretasikan sebagai ``\((\neg a \vee b) \wedge c\) mengimplikasikan \(d\)''. Tuliskan ekspresi berkurung tersebut, uraikan urutan evaluasi operator, dan hitung nilai kebenarannya jika \(\tau(a)=F\), \(\tau(b)=T\), \(\tau(c)=T\), \(\tau(d)=T\).
-\ruangjawaban[8cm]
-
-\soaluts
-\textit{(Ekuivalen Logis)}\\
-Buktikan dengan \textbf{tabel kebenaran} bahwa \(p \rightarrow q \equiv \neg p \vee q\). Pada baris mana saja kedua kolom hasil sama?
 \ruangjawaban[7cm]
 
 \soaluts
-\textit{(Hukum-hukum Logika dan Penyederhanaan Ekspresi Logika)}\\
-Sederhanakan ekspresi \((p \vee q) \wedge (\neg p \vee q)\) menjadi bentuk paling sederhana dengan menuliskan rangkaian \(\equiv\) dan menyebutkan nama hukum pada tiap langkah (misalnya distributif, absorpsi, dan sebagainya). Verifikasi hasil akhir dengan satu baris tabel kebenaran.
+\textit{(Tabel Kebenaran Dasar)}\\
+Dengan menggunakan tabel kebenaran, jawablah:
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Apakah nilai kebenaran dari \(p \wedge p\) sama dengan nilai kebenaran \(p\)? Jelaskan singkat dari tabel.
+  \item Apakah nilai kebenaran dari \(p \vee p\) sama dengan nilai kebenaran \(p\)? Jelaskan singkat dari tabel.
+  \item Klasifikasikan \((p \wedge \neg p)\) dan \((p \vee \neg p)\): manakah \textbf{kontradiksi} dan manakah \textbf{tautologi}?
+\end{enumerate}
 \ruangjawaban[9cm]
+
+\soaluts
+\textit{(Implikasi)}\\
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Pada implikasi \(p \rightarrow q\), dalam kondisi apa saja nilainya \textbf{salah}? Beri satu contoh kalimat sehari-hari yang memodelkan \(p \rightarrow q\) beserta penentuan \(T/F\)-nya.
+  \item Dengan tabel kebenaran, apakah \((p \rightarrow q)\) mempunyai nilai kebenaran yang sama dengan \((q \rightarrow p)\) untuk semua baris? Jawab ya atau tidak, lalu dukung dengan membandingkan kolom hasil pada tabel.
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluts
+\textit{(Tabel Kebenaran Satu Ekspresi)}\\
+Buatlah tabel kebenaran lengkap untuk ekspresi \(\neg(\neg p \wedge \neg q)\). Tuliskan kolom untuk \(p\), \(q\), \(\neg p\), \(\neg q\), \((\neg p \wedge \neg q)\), dan hasil akhir.
+\ruangjawaban[8cm]
+
+\soaluts
+\textit{(Kurung dan Hirarki Operator)}\\
+Masukkan tanda kurung pada ekspresi \(p \vee q \wedge r \rightarrow s\) sehingga diinterpretasikan sebagai: ``\textbf{disjungsi} \(p \vee q\) terlebih dahulu, hasilnya dikonjungsikan dengan \(r\), lalu seluruhnya mengimplikasikan \(s\)''. Tuliskan ekspresi berkurung tersebut.
+\ruangjawaban[6cm]
+
+\soaluts
+\textit{(Substitusi Nilai \(\tau\))}\\
+Jika \(\tau(p)=T\), \(\tau(q)=T\), \(\tau(r)=F\), dan \(\tau(s)=F\), tentukan nilai kebenaran ekspresi \(p \wedge (q \vee r)\). Tunjukkan langkah substitusi dari dalam kurung ke luar.
+\ruangjawaban[7cm]
+
+\soaluts
+\textit{(Negasi Sederhana)}\\
+Misalkan \(p\): Bowo kaya raya, \(q\): Bowo hidup bahagia, \(r\): Anda ujian, \(t\): Anda lulus.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Nyatakan negasi dari ``Bowo kaya raya \textbf{dan} hidup bahagia'' dalam bahasa Indonesia dan bentuk simbol.
+  \item Nyatakan negasi dari ``Jika Anda ujian, maka Anda lulus'' dalam bahasa Indonesia. Tuliskan bentuk simbol \(\neg(r \rightarrow t)\) yang ekuivalen dengan bentuk tanpa implikasi, dan sebutkan satu hukum logika yang Anda pakai.
+\end{enumerate}
+\ruangjawaban[8cm]
 
 \vspace{1em}
 \begin{center}
