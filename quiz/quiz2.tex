@@ -1,0 +1,328 @@
+% Kuis 2 --- Logika Predikat
+% Satu soal PG per bahasan utama di ppt/Logika_Predikat.tex.
+% Skenario berbeda dari tugas/tugas2.tex dan UAS/uas.tex.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\newcommand{\JudulKuis}{Kuis 2}
+\newcommand{\KodeMK}{TIF-xxx}
+\newcommand{\NamaMK}{Logika Matematika}
+\newcommand{\MateriKuis}{Logika Predikat}
+\newcommand{\WaktuKuis}{90 menit}
+\newcommand{\NilaiMaksimal}{100}
+\newcommand{\Prodi}{Teknik Informatika}
+\newcommand{\Fakultas}{Fakultas Teknologi Informasi}
+\newcommand{\Institusi}{Universitas Bale Bandung}
+\newcommand{\DosenPengampu}{[Nama Dosen Pengampu]}
+\newcommand{\TanggalKuis}{[DD Bulan YYYY]}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small \JudulKuis\ --- \NamaMK}
+\fancyhead[R]{\small \MateriKuis}
+\fancyfoot[C]{\small Halaman \thepage\ dari \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\newlist{pilihan}{enumerate}{1}
+\setlist[pilihan]{label=\textbf{\Alph*.}, leftmargin=2.2em, align=left, itemsep=0.35em, topsep=0.35em}
+
+\newcommand{\kuncijawaban}[2]{%
+  \par\vspace{0.25em}%
+  {\small
+  \textit{\textbf{Kunci jawaban:} #1}\par
+  \textit{\textbf{Penjelasan:} #2}%
+  \par\vspace{0.55em}}%
+}
+
+\newcounter{soalkuis}
+\newcommand{\soalkuis}{%
+  \refstepcounter{soalkuis}%
+  \par\vspace{0.6ex plus 0.15ex}%
+  \noindent\textbf{Soal \thesoalkuis.}\quad
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries \JudulKuis}\\[0.3em]
+  {\large \NamaMK\ (\KodeMK)}\\[0.25em]
+  {\normalsize Materi: \MateriKuis}\\[0.35em]
+  {\normalsize\textit{(Lembar kunci jawaban dan pembahasan)}}\\[0.8em]
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{4.5cm} @{\hspace{0.35em}:\hspace{0.65em}} >{\raggedright\arraybackslash}X@{}}
+  Nama Mahasiswa        & \rule{0.72\linewidth}{0.4pt} \\
+  Nomor Induk Mahasiswa & \rule{0.72\linewidth}{0.4pt} \\
+  Kelas / Kelompok      & \rule{0.72\linewidth}{0.4pt} \\
+  Program Studi         & \Prodi \\
+  Fakultas              & \Fakultas \\
+  Institusi             & \Institusi \\
+  Dosen Pengampu        & \DosenPengampu \\
+  Tanggal kuis          & \TanggalKuis \\
+  Waktu pengerjaan      & \WaktuKuis \\
+  Nilai maksimal        & \NilaiMaksimal \\
+\end{tabularx}
+
+\vspace{0.8em}
+\hrule
+\vspace{0.8em}
+
+\section*{Petunjuk}
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+  \item Kuis ini terdiri atas \textbf{18 soal pilihan ganda} (satu jawaban benar per soal), mencakup bahasan utama \textit{Logika Predikat} pada materi perkuliahan: motivasi kalkulus predikat, simbol, term, proposisi, kalimat, ekspresi, subterm/subkalimat, representasi bahasa alami, variabel bebas/terikat, kalimat tertutup, simbol bebas, interpretasi, arti kalimat, aturan semantik kuantor, interpretasi diperluas, kecocokan, dan validitas.
+  \item Isi \textbf{nama, NIM, dan kelas} pada bagian identitas di atas sebelum mengerjakan.
+  \item Bacalah teks soal dan label bahasan (cetak miring di awal soal) untuk memastikan konteks pertanyaan.
+  \item Pilih \textbf{satu} jawaban terbaik; lingkari atau tulis huruf pilihan (A, B, C, atau D) dengan jelas pada lembar jawaban.
+  \item Gunakan pengertian predikat, kuantor \(\forall\) dan \(\exists\), variabel bebas/terikat, serta aturan semantik sesuai slide kuliah.
+  \item Perangkat elektronik, catatan, dan komunikasi antar peserta \textbf{tidak diperbolehkan} kecuali diizinkan pengawas.
+  \item Lembar kuis \textbf{wajib dikumpulkan} kepada pengawas segera setelah waktu \WaktuKuis\ habis; keterlambatan mengikuti aturan kelas.
+\end{itemize}
+
+\section*{Soal}
+
+% --- 1 Pendahuluan ---
+\soalkuis
+\textit{(Pendahuluan / Motivasi)}\\
+Kalimat ``Semua burung dapat terbang'' sulit dinyatakan secara memadai hanya dengan kalkulus proposisi karena \ldots
+\begin{pilihan}
+  \item Kalimat tersebut bukan pernyataan sama sekali
+  \item Kalimat tersebut mengandung kuantisasi atas objek beserta sifat/relasinya
+  \item Kalkulus proposisi tidak mengenal simbol \(\neg\)
+  \item Nilai kebenaran selalu indeterminate
+\end{pilihan}
+\kuncijawaban{B}{Kalkulus proposisi tidak merepresentasikan objek dan kuantor (``semua''/``ada''); untuk itu diperlukan kalkulus predikat.}
+
+% --- 2 Definisi Simbol ---
+\soalkuis
+\textit{(Definisi Simbol)}\\
+Manakah yang termasuk \textbf{simbol predikat} dalam kalkulus predikat?
+\begin{pilihan}
+  \item \(x, y, z\)
+  \item \(a, b, c\)
+  \item \(P, Q, R\) (dengan arity tertentu) yang menyatakan sifat atau relasi
+  \item \(\mathit{true}\) dan \(\mathit{false}\) saja
+\end{pilihan}
+\kuncijawaban{C}{Simbol predikat menyatakan sifat atau relasi antar objek dan memiliki arity; variabel adalah \(x,y,\ldots\), konstanta \(a,b,\ldots\).}
+
+% --- 3 Definisi Term ---
+\soalkuis
+\textit{(Definisi Term)}\\
+Asumsikan \(a\) konstanta, \(x\) variabel, dan \(f\) fungsi unary.
+Manakah yang merupakan \textbf{term}?
+\begin{pilihan}
+  \item \(P(a)\)
+  \item \(f(a)\)
+  \item \(\forall x\,P(x)\)
+  \item \(P(x) \wedge Q(a)\)
+\end{pilihan}
+\kuncijawaban{B}{Term menyatakan objek: konstanta, variabel, atau aplikasi fungsi atas term. \(P(a)\) adalah proposisi/kalimat atomik, bukan term.}
+
+% --- 4 Definisi Proposisi ---
+\soalkuis
+\textit{(Definisi Proposisi)}\\
+Jika \(t_1,\ldots,t_n\) adalah term dan \(P\) predikat \(n\)-ary, maka \(P(t_1,\ldots,t_n)\) adalah \ldots
+\begin{pilihan}
+  \item Fungsi
+  \item Konstanta
+  \item Proposisi (atomik) yang merepresentasikan relasi antar objek
+  \item Kuantor
+\end{pilihan}
+\kuncijawaban{C}{Menurut definisi, predikat yang diterapkan pada term menghasilkan proposisi yang menyatakan relasi antar objek.}
+
+% --- 5 Definisi Kalimat ---
+\soalkuis
+\textit{(Definisi Kalimat)}\\
+Jika \(A\) adalah kalimat dan \(x\) variabel, maka \((\forall x)\,A\) adalah \ldots
+\begin{pilihan}
+  \item Term
+  \item Fungsi
+  \item Kalimat
+  \item Bukan ekspresi yang terbentuk dengan baik
+\end{pilihan}
+\kuncijawaban{C}{Aturan pembentukan kalimat mencakup kuantifikasi: jika \(A\) kalimat maka \((\forall x)\,A\) dan \((\exists x)\,A\) juga kalimat.}
+
+% --- 6 Definisi Ekspresi ---
+\soalkuis
+\textit{(Definisi Ekspresi)}\\
+Dalam kalkulus predikat, suatu \textbf{ekspresi} dapat berupa \ldots
+\begin{pilihan}
+  \item Hanya kuantor
+  \item Hanya konstanta kebenaran
+  \item Kalimat atau term
+  \item Hanya tabel kebenaran
+\end{pilihan}
+\kuncijawaban{C}{Materi mendefinisikan ekspresi sebagai kalimat atau term (misalnya \(x\), \(f(x,y)\), atau \((\exists x)\,P(x)\)).}
+
+% --- 7 Subterm / Subkalimat ---
+\soalkuis
+\textit{(Subterm / Subkalimat)}\\
+Pada ekspresi \(E :\; R\bigl(g(b), h(w)\bigr)\), manakah himpunan yang memuat \textbf{semua subterm} yang jelas tampak?
+\begin{pilihan}
+  \item Hanya \(R(g(b), h(w))\)
+  \item \(b\), \(w\), \(g(b)\), \(h(w)\), dan \(R(g(b), h(w))\) sebagai term/subterm terkait objek (bukan predikat sebagai term)
+  \item \(b\), \(w\), \(g(b)\), \(h(w)\)
+  \item Hanya \(R\)
+\end{pilihan}
+\kuncijawaban{C}{Subterm adalah term antara yang membangun ekspresi: konstanta/variabel \(b,w\) dan aplikasi fungsi \(g(b)\), \(h(w)\). Predikat \(R(\ldots)\) adalah proposisi/kalimat, bukan term.}
+
+% --- 8 Representasi: semua ---
+\soalkuis
+\textit{(Representasi Kalimat --- ``Semua'')}\\
+Misalkan \(B(x)\): ``\(x\) adalah kelelawar'', \(F(x)\): ``\(x\) adalah lalat'', \(E(y,x)\): ``\(y\) memakan \(x\)''.
+Terjemahan terbaik untuk ``Hanya kelelawar yang memakan lalat'' adalah \ldots
+\begin{pilihan}
+  \item \(\forall x\,(F(x) \rightarrow \forall y\,(E(y,x) \rightarrow B(y)))\)
+  \item \(\forall x\,(B(x) \rightarrow F(x))\)
+  \item \(\exists x\,(B(x) \wedge F(x))\)
+  \item \(\forall x\,(F(x) \wedge B(x))\)
+\end{pilihan}
+\kuncijawaban{A}{``Hanya kelelawar memakan lalat'' berarti: untuk setiap lalat \(x\), setiap pemakan \(y\) dari \(x\) adalah kelelawar; ini cocok dengan \(\forall x\,(F(x)\rightarrow\forall y\,(E(y,x)\rightarrow B(y)))\).}
+
+% --- 9 Representasi: ada / tidak semua ---
+\soalkuis
+\textit{(Representasi Kalimat --- ``Tidak semua'')}\\
+Pernyataan ``Tidak semua bilangan bulat adalah genap'' paling tepat dinyatakan sebagai \ldots
+(gunakan \(Z(x)\): ``\(x\) bilangan bulat'', \(G(x)\): ``\(x\) genap'')
+\begin{pilihan}
+  \item \(\forall x\,(Z(x) \rightarrow G(x))\)
+  \item \(\exists x\,(Z(x) \wedge \neg G(x))\)
+  \item \(\neg\exists x\,(Z(x) \wedge G(x))\)
+  \item \(\forall x\,(Z(x) \wedge G(x))\)
+\end{pilihan}
+\kuncijawaban{B}{``Tidak semua bilangan bulat genap'' ekuivalen dengan ``ada bilangan bulat yang tidak genap'': \(\exists x\,(Z(x)\wedge\neg G(x))\).}
+
+% --- 10 Variabel bebas/terikat ---
+\soalkuis
+\textit{(Variabel Bebas atau Terikat)}\\
+Pada formula \(\forall x\,P(x,y)\), variabel yang \textbf{bebas} adalah \ldots
+\begin{pilihan}
+  \item Hanya \(x\)
+  \item Hanya \(y\)
+  \item \(x\) dan \(y\)
+  \item Tidak ada; keduanya terikat
+\end{pilihan}
+\kuncijawaban{B}{Kuantor \(\forall x\) mengikat kemunculan \(x\); \(y\) tidak berada dalam cakupan kuantor atas \(y\), sehingga \(y\) bebas.}
+
+% --- 11 Kalimat tertutup ---
+\soalkuis
+\textit{(Kalimat Tertutup)}\\
+Manakah yang merupakan \textbf{kalimat tertutup}?
+\begin{pilihan}
+  \item \(\forall x\,P(x,y)\)
+  \item \(P(a,b) \wedge Q(x)\)
+  \item \(\forall x\,\exists y\,R(x,y)\)
+  \item \(\exists y\,R(x,y)\)
+\end{pilihan}
+\kuncijawaban{C}{Kalimat tertutup tidak memiliki variabel bebas. Pada \(\forall x\,\exists y\,R(x,y)\) semua kemunculan \(x\) dan \(y\) terikat.}
+
+% --- 12 Simbol bebas ---
+\soalkuis
+\textit{(Simbol Bebas)}\\
+Simbol bebas dari suatu ekspresi \(A\) mencakup \ldots
+\begin{pilihan}
+  \item Hanya kuantor yang muncul di \(A\)
+  \item Variabel bebas, konstanta, simbol fungsi, dan simbol predikat dari \(A\)
+  \item Hanya variabel terikat
+  \item Hanya domain interpretasi
+\end{pilihan}
+\kuncijawaban{B}{Menurut materi, simbol bebas meliputi variabel bebas serta semua konstanta, fungsi, dan predikat yang muncul pada ekspresi.}
+
+% --- 13 Interpretasi ---
+\soalkuis
+\textit{(Interpretasi)}\\
+Sebuah interpretasi \(I\) untuk kalimat predikat harus menyediakan \ldots
+\begin{pilihan}
+  \item Hanya tabel kebenaran proposisional
+  \item Domain tak kosong serta pemetaan nilai untuk setiap simbol bebas yang relevan
+  \item Hanya daftar kuantor
+  \item Hanya nama mahasiswa
+\end{pilihan}
+\kuncijawaban{B}{Interpretasi mendefinisikan domain objek tak kosong dan memberi nilai pada konstanta, variabel bebas, fungsi, serta predikat (simbol bebas).}
+
+% --- 14 Arti kalimat ---
+\soalkuis
+\textit{(Arti Kalimat)}\\
+Misalkan domain \(D=\{0,1,2\}\), \(a_I=0\), dan \(P_I=\{0,2\}\) (ekstensi predikat unary \(P\)).
+Nilai dari \((\exists x)\,P(x)\) berdasarkan \(I\) adalah \ldots
+\begin{pilihan}
+  \item Salah, karena \(1\notin P_I\)
+  \item Benar, karena ada elemen (misalnya \(0\)) di \(D\) yang memenuhi \(P\)
+  \item Tidak dapat ditentukan tanpa kuantor \(\forall\)
+  \item Selalu salah pada domain berhingga
+\end{pilihan}
+\kuncijawaban{B}{Aturan FOR SOME: kalimat benar jika ada setidaknya satu elemen domain yang membuat \(P(x)\) benar; di sini \(0\) (dan \(2\)) memenuhi.}
+
+% --- 15 Aturan semantik kuantor ---
+\soalkuis
+\textit{(Aturan Semantik untuk Kuantor)}\\
+Kalimat \((\forall x)\,A\) bernilai \textbf{salah} berdasarkan interpretasi \(I\) dengan domain \(D\) jika dan hanya jika \ldots
+\begin{pilihan}
+  \item Untuk setiap \(d\in D\), \(A\) benar pada \(\langle x\leftarrow d\rangle\circ I\)
+  \item Ada \(d\in D\) sedemikian sehingga \(A\) salah pada \(\langle x\leftarrow d\rangle\circ I\)
+  \item \(A\) tidak mengandung variabel \(x\)
+  \item Domain \(D\) kosong
+\end{pilihan}
+\kuncijawaban{B}{Menurut aturan FOR ALL: \(\forall x\,A\) salah tepat ketika ada elemen \(d\) yang membuat \(A\) salah di bawah interpretasi diperluas \(\langle x\leftarrow d\rangle\circ I\).}
+
+% --- 16 Interpretasi diperluas ---
+\soalkuis
+\textit{(Interpretasi yang Diperluas)}\\
+Notasi \(\langle x \leftarrow d\rangle \circ I\) berarti \ldots
+\begin{pilihan}
+  \item Menghapus seluruh domain \(I\)
+  \item Interpretasi yang sama dengan \(I\), kecuali variabel \(x\) diberi nilai elemen \(d\)
+  \item Mengganti semua predikat menjadi konstanta
+  \item Menegasikan seluruh kalimat
+\end{pilihan}
+\kuncijawaban{B}{Interpretasi diperluas mempertahankan domain dan pemetaan lain dari \(I\), tetapi menetapkan (atau menimpa) nilai variabel \(x\) menjadi \(d\).}
+
+% --- 17 Kecocokan ---
+\soalkuis
+\textit{(Kecocokan)}\\
+Misalkan \(I\) dan \(J\) memberi nilai yang sama untuk konstanta \(a\) dan fungsi \(f\), tetapi \(I\) memberi \(x\mapsto 1\) sedangkan \(J\) memberi \(x\mapsto 3\).
+Kesimpulan yang tepat adalah \ldots
+\begin{pilihan}
+  \item \(I\) dan \(J\) cocok untuk ekspresi \(f(a)\)
+  \item \(I\) dan \(J\) cocok untuk ekspresi \(f(x)\)
+  \item \(I\) dan \(J\) selalu cocok untuk segala ekspresi
+  \item \(I\) dan \(J\) tidak cocok untuk konstanta \(a\)
+\end{pilihan}
+\kuncijawaban{A}{Kecocokan mensyaratkan nilai sama pada simbol yang relevan. Untuk \(f(a)\) hanya \(f\) dan \(a\) dibutuhkan (keduanya sama); untuk \(f(x)\) nilai \(x\) berbeda sehingga tidak cocok.}
+
+% --- 18 Validitas ---
+\soalkuis
+\textit{(Validitas)}\\
+Manakah pernyataan yang benar tentang validitas dalam kalkulus predikat?
+\begin{pilihan}
+  \item Setiap kalimat dengan \(\exists\) otomatis valid
+  \item Kalimat tertutup \(A\) valid jika \(A\) bernilai benar pada \textbf{setiap} interpretasi untuk \(A\)
+  \item Validitas hanya ditentukan dari satu baris tabel kebenaran proposisi
+  \item Kalimat dengan variabel bebas selalu valid
+\end{pilihan}
+\kuncijawaban{B}{Validitas didefinisikan untuk kalimat tertutup: \(A\) valid bila benar berdasarkan setiap interpretasi. Untuk menunjukkan tidak valid cukup satu interpretasi kontra.}
+
+\end{document}

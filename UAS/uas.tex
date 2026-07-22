@@ -1,0 +1,281 @@
+% UAS Logika Predikat --- soal uraian (format mengikuti UTS/uts.tex).
+% Soal diadaptasi dari sumber daring; skenario berbeda dari tugas/tugas2.tex.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+\newcommand{\JudulUjian}{Ujian Akhir Semester (UAS)}
+\newcommand{\KodeMK}{TIF-xxx}
+\newcommand{\NamaMK}{Logika Matematika}
+\newcommand{\Semester}{Gasal 2025/2026}
+\newcommand{\MateriUjian}{Logika Predikat (kalkulus predikat)}
+\newcommand{\WaktuUjian}{120 menit}
+\newcommand{\NilaiMaksimal}{100}
+\newcommand{\Prodi}{Teknik Informatika}
+\newcommand{\Fakultas}{Fakultas Teknologi Informasi}
+\newcommand{\Institusi}{Universitas Bale Bandung}
+\newcommand{\DosenPengampu}{[Nama Dosen Pengampu]}
+\newcommand{\TanggalUjian}{[DD Bulan YYYY]}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small UAS --- \NamaMK}
+\fancyhead[R]{\small \Semester}
+\fancyfoot[C]{\small Halaman \thepage\ dari \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\newcounter{soaluas}
+\newcommand{\soaluas}{%
+  \refstepcounter{soaluas}%
+  \par\vspace{0.8ex plus 0.15ex}%
+  \noindent\textbf{Soal \thesoaluas.}\quad
+}
+
+\newcommand{\ruangjawaban}[1][6cm]{%
+  \par\vspace{0.4em}%
+  \noindent\rule{\linewidth}{0.4pt}\\[0.35em]%
+  \rule{\linewidth}{0.4pt}\\[0.35em]%
+  \ifdim#1>6cm\rule{\linewidth}{0.4pt}\\[0.35em]\fi
+  \ifdim#1>8cm\rule{\linewidth}{0.4pt}\\[0.35em]\fi
+  \par\vspace{0.7em}%
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries \JudulUjian}\\[0.35em]
+  {\large \NamaMK\ (\KodeMK)}\\[0.25em]
+  {\normalsize \Semester}\\[0.8em]
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{4.8cm} @{\hspace{0.35em}:\hspace{0.65em}} >{\raggedright\arraybackslash}X@{}}
+  Nama Mahasiswa        & \rule{0.72\linewidth}{0.4pt} \\
+  Nomor Induk Mahasiswa & \rule{0.72\linewidth}{0.4pt} \\
+  Kelas / Kelompok      & \rule{0.72\linewidth}{0.4pt} \\
+  Program Studi         & \Prodi \\
+  Fakultas              & \Fakultas \\
+  Institusi             & \Institusi \\
+  Dosen Pengampu        & \DosenPengampu \\
+  Tanggal ujian         & \TanggalUjian \\
+  Waktu pengerjaan      & \WaktuUjian \\
+  Nilai maksimal        & \NilaiMaksimal \\
+  Cakupan materi        & \MateriUjian \\
+\end{tabularx}
+
+\vspace{0.8em}
+\hrule
+\vspace{0.8em}
+
+\section*{Petunjuk Umum}
+\begin{itemize}[leftmargin=*, itemsep=0.25em]
+  \item Ujian terdiri atas \textbf{10 soal uraian} (Soal 1--10) pada materi \textit{Logika Predikat}.
+        Setiap soal memuat label bahasan (cetak miring); jawab sesuai butir \textbf{a, b, c, \ldots} bila ada.
+  \item Isi \textbf{nama, NIM, dan kelas} pada bagian identitas sebelum mulai.
+        Tulis jawaban \textbf{berurutan per nomor soal} pada garis yang disediakan; bila tidak cukup, lanjutkan di lembar tambahan yang dilekatkan dan beri penanda ``Soal X''.
+  \item Gunakan predikat, konstanta, fungsi, variabel, serta kuantor \(\forall\) dan \(\exists\) secara konsisten.
+        Penghubung logik: \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\).
+        Nilai kebenaran boleh ditulis \(T/F\) atau Benar/Salah.
+  \item Definisikan predikat/fungsi/konstanta yang Anda pakai sebelum menuliskan formula, kecuali soal sudah menyediakan kunci terjemahan.
+  \item Ujian bersifat \textbf{individual}; dilarang bekerja sama, menyalin, atau menggunakan perangkat elektronik serta catatan kecuali diizinkan tertulis pengawas.
+  \item Alokasi waktu disarankan sekitar 10--12 menit per soal dalam \WaktuUjian; prioritaskan menyelesaikan semua nomor.
+  \item Lembar ujian \textbf{wajib dikumpulkan} kepada pengawas segera setelah waktu \WaktuUjian\ habis.
+\end{itemize}
+
+\section*{Soal Uraian}
+
+\soaluas
+\textit{(Pendahuluan / Motivasi)}\\
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Jelaskan mengapa kalkulus proposisi \textbf{tidak memadai} untuk menyatakan kalimat seperti
+        ``Semua mahasiswa TI wajib mengambil mata kuliah logika'' atau
+        ``Ada dosen yang mengajar dua kelas sekaligus''.
+        Sebutkan peran \textbf{objek} dan \textbf{kuantor} dalam jawaban Anda.
+  \item Berikan \textbf{satu} contoh predikat unary dan \textbf{satu} contoh predikat biner dari konteks kampus,
+        lalu tuliskan aritas masing-masing.
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluas
+\textit{(Terjemahan ke Formula)}\\
+Terjemahkan pernyataan berikut ke logika predikat.
+Definisikan predikat (dan konstanta bila perlu) yang Anda gunakan.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.2em]
+  \item Ada orang yang merupakan kakek/nenek dari dirinya sendiri
+        (gunakan \(\mathit{Person}(p)\) dan \(\mathit{ParentOf}(p_1,p_2)\):
+        \(p_1\) adalah orang tua dari \(p_2\)).
+  \item Hanya asisten laboratorium yang boleh membuka ruang server.
+  \item Tidak ada orang yang mengagumi siapa pun
+        (domain: orang; gunakan \(\mathit{Admires}(x,y)\)).
+  \item Tidak ada yang berbentuk limas kecuali benda itu kecil
+        (pola ``nothing \ldots unless \ldots''; ganti konteks: \(\mathit{Pyramid}(x)\), \(\mathit{Small}(x)\)).
+  \item Politisi dapat menipu sebagian rakyat sepanjang waktu,
+        dan dapat menipu seluruh rakyat pada sebagian waktu,
+        tetapi tidak dapat menipu seluruh rakyat sepanjang waktu
+        (gunakan \(\mathit{Politician}(x)\), \(\mathit{Citizen}(y)\), \(\mathit{Time}(t)\), \(\mathit{Fools}(x,y,t)\)).
+\end{enumerate}
+\ruangjawaban[9cm]
+
+\soaluas
+\textit{(Formula ke Bahasa Indonesia)}\\
+Ubahlah formula berikut menjadi pernyataan bahasa Indonesia yang alami (hindari menyebut nama variabel secara eksplisit).
+Gunakan kunci:
+\(M(x)\): \(x\) adalah mahasiswa,
+\(D(x)\): \(x\) adalah dosen,
+\(C(y)\): \(y\) adalah mata kuliah,
+\(T(x,y)\): \(x\) mengambil mata kuliah \(y\),
+\(A(x,y)\): \(x\) mengajukan pertanyaan kepada \(y\),
+\(L(x,y)\): \(x\) lebih tinggi nilainya daripada \(y\).
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item \(\forall x\,(M(x) \rightarrow \exists y\,(C(y) \wedge T(x,y)))\)
+  \item \(\exists x\,\bigl(M(x) \wedge \forall y\,((M(y) \wedge \neg(x=y)) \rightarrow L(x,y))\bigr)\)
+  \item \(\forall x\,\bigl(M(x) \rightarrow \exists y\,(D(y) \wedge A(x,y))\bigr)\)
+  \item \(\forall x\,\forall y\,\bigl((\mathit{Adjoins}(x,y) \wedge \mathit{Cube}(y)) \rightarrow \mathit{Tet}(x)\bigr)\)
+        (boleh diterjemahkan bebas: ``hanya tetrahedron yang bersebelahan dengan kubus'' atau padanan yang setara).
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluas
+\textit{(Negasi Kuantor)}\\
+Untuk setiap pernyataan berikut:
+(i)~tuliskan formula logika predikat,
+(ii)~negasikan formula tersebut dan dorong \(\neg\) sedalam mungkin,
+(iii)~terjemahkan hasil negasi kembali ke bahasa Indonesia.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Semua dosen di program studi ini bergelar doktor.
+  \item Ada mahasiswa yang lulus semua mata kuliah wajib.
+  \item Tidak ada asisten yang terlambat lebih dari dua kali.
+\end{enumerate}
+\ruangjawaban[9cm]
+
+\soaluas
+\textit{(Term, Proposisi, Kalimat)}\\
+Asumsikan: \(c,d\) konstanta; \(u,v\) variabel; \(h\) fungsi unary; \(k\) fungsi biner; \(R\) predikat biner; \(S\) predikat unary.
+Untuk setiap ekspresi, tentukan apakah ia \textbf{term}, \textbf{proposisi}, \textbf{kalimat}, atau \textbf{bukan ekspresi yang terbentuk dengan baik}.
+Berikan alasan singkat.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.2em]
+  \item \(k(c,h(d))\)
+  \item \(R(h(u),c)\)
+  \item \(\forall u\,S(u)\)
+  \item \(S(R(c,d))\)
+  \item \(\mathit{if}\; S(c)\; \mathit{then}\; h(d)\; \mathit{else}\; k(c,d)\)
+  \item \(R(c) \vee S(d)\)
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluas
+\textit{(Variabel Bebas / Terikat \& Kalimat Tertutup)}\\
+Untuk setiap formula, tandai setiap kemunculan variabel sebagai \textbf{bebas} atau \textbf{terikat}.
+Jika terikat, sebutkan kuantor yang mengikatnya.
+Nyatakan pula apakah formula merupakan \textbf{kalimat tertutup}.
+Perhatikan cakupan tanda kurung.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item \((\forall u)\,R(u,v) \wedge S(u)\)
+  \item \((\forall u)\,(R(u,v) \wedge S(u))\)
+  \item \((\exists u)\,S(u) \rightarrow R(u,c)\)
+  \item \((\exists u)\,(S(u) \rightarrow R(u,c))\)
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluas
+\textit{(Interpretasi \& Arti Kalimat)}\\
+Diberikan ekspresi
+\[
+G :\;
+(\forall u)\,(S(u) \rightarrow R(u,c)).
+\]
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Misalkan interpretasi \(I\) dengan domain \(D=\{1,2,3\}\),
+        \(c_I = 2\),
+        \(S_I = \{1,3\}\) (ekstensi predikat \(S\)),
+        dan \(R_I = \{(1,2),(3,2),(2,2)\}\).
+        Tuliskan arti \(G\) berdasarkan \(I\), lalu tentukan nilai kebenarannya.
+        Tunjukkan pemeriksaan untuk setiap elemen domain.
+  \item Misalkan interpretasi \(J\) dengan domain semua mata kuliah di kampus,
+        \(c_J =\) ``Logika Matematika'',
+        \(S_J(u)\): ``\(u\) adalah mata kuliah wajib'',
+        \(R_J(u,v)\): ``\(u\) menjadi prasyarat bagi \(v\)''.
+        Tuliskan arti \(G\) berdasarkan \(J\) dalam bahasa Indonesia.
+\end{enumerate}
+\ruangjawaban[9cm]
+
+\soaluas
+\textit{(Semantik Kuantor \& Urutan Kuantor)}\\
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Domain \(D=\{\mathit{Andi}, \mathit{Dina}, \mathit{Citra}\}\).
+        Predikat \(Loves(x,y)\) diinterpretasikan sebagai relasi
+        \(\{(\mathit{Andi},\mathit{Dina}), (\mathit{Dina},\mathit{Citra}), (\mathit{Citra},\mathit{Citra})\}\).
+        Tentukan nilai kebenaran:
+        \begin{enumerate}[label=\roman*., itemsep=0.15em]
+          \item \(\exists x\,\forall y\,Loves(x,y)\)
+          \item \(\forall x\,\exists y\,Loves(x,y)\)
+        \end{enumerate}
+        Jelaskan singkat dengan menelusuri elemen domain.
+  \item Misalkan \(Less(x,y)\) berarti ``\(x < y\)'' pada domain bilangan bulat.
+        Bandingkan dua formula berikut:
+        \[
+        \forall x\,\exists y\,Less(x,y)
+        \qquad\text{dan}\qquad
+        \exists y\,\forall x\,Less(x,y).
+        \]
+        Manakah yang benar, manakah yang salah?
+        Mengapa urutan kuantor penting?
+\end{enumerate}
+\ruangjawaban[9cm]
+
+\soaluas
+\textit{(Kecocokan / Simbol Bebas)}\\
+Misalkan interpretasi \(I\) meliputi bilangan bulat dengan:
+\(c \mapsto 0\), \(d \mapsto 5\), \(u \mapsto 2\),
+\(h_I(n)=n+1\).
+Interpretasi \(J\) meliputi bilangan bulat dengan:
+\(c \mapsto 0\), \(u \mapsto 4\),
+\(h_J(n)=n-1\).
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item Sebutkan simbol bebas dari ekspresi \(R(h(u),c)\).
+  \item Apakah \(I\) dan \(J\) \textbf{cocok} untuk konstanta \(c\)? Untuk variabel \(u\)? Jelaskan.
+  \item Apakah \(I\) dan \(J\) cocok untuk ekspresi \(h(c)\)? Untuk ekspresi \(h(d)\)? Jelaskan.
+\end{enumerate}
+\ruangjawaban[8cm]
+
+\soaluas
+\textit{(Validitas)}\\
+Untuk setiap kalimat tertutup berikut, tentukan apakah \textbf{valid}.
+Jika valid, berikan sketsa pembuktian singkat berdasarkan aturan semantik.
+Jika tidak valid, berikan \textbf{satu} interpretasi yang membuat kalimat bernilai salah.
+\begin{enumerate}[label=\alph*., leftmargin=2em, itemsep=0.25em]
+  \item \(\forall u\,(S(u) \rightarrow S(u))\)
+  \item \(\bigl(\exists u\,S(u)\bigr) \rightarrow \bigl(\forall u\,S(u)\bigr)\)
+  \item \(\forall u\,\exists v\,R(u,v) \rightarrow \exists v\,\forall u\,R(u,v)\)
+\end{enumerate}
+\ruangjawaban[9cm]
+
+\vspace{1em}
+\begin{center}
+  \textit{--- Selamat mengerjakan ---}
+\end{center}
+
+\end{document}

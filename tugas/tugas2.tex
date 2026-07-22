@@ -1,0 +1,404 @@
+% Format tugas kuliah berbasis pola umum template "homework/assignment"
+% (article + identitas mahasiswa + daftar soal), mirip gaya Overleaf
+% Professional Assignment / course problem set.
+% Soal diadaptasi dari sumber daring sesuai susunan materi ppt/Logika_Predikat.tex.
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[indonesian]{babel}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% Font TeX Live/MiKTeX skalabel (menghindari konflik ekspansi font microtype + CM bitmap)
+\usepackage{lmodern}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{microtype}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-2pt}
+
+\usepackage[hidelinks,breaklinks]{hyperref}
+
+% --- Isian identitas (ubah sesuai kebutuhan) ---
+\newcommand{\JudulTugas}{Tugas 2}
+\newcommand{\KodeMK}{TIF-xxx}
+\newcommand{\NamaMK}{Logika Matematika}
+\newcommand{\NamaMahasiswa}{[Nama Lengkap Mahasiswa]}
+\newcommand{\NIMMhs}{[NIM]}
+\newcommand{\Kelas}{[Kelas / Kelompok]}
+\newcommand{\Prodi}{Teknik Informatika}
+\newcommand{\Fakultas}{Fakultas Teknologi Informasi}
+\newcommand{\Institusi}{Universitas Bale Bandung}
+\newcommand{\DosenPengampu}{[Nama Dosen Pengampu]}
+\newcommand{\TanggalKumpul}{[DD Bulan YYYY]}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\NamaMahasiswa\ --- \NIMMhs}
+\fancyhead[R]{\small\JudulTugas\ --- \NamaMK}
+\fancyfoot[C]{\small Halaman \thepage\ dari \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+% Jarak vertikal antar lingkungan soal (di atas/di bawah setiap \begin{soal}...\end{soal})
+\newtheoremstyle{soaljarak}%
+  {1.25ex plus 0.2ex minus 0.1ex}% ruang di atas
+  {1.75ex plus 0.35ex minus 0.1ex}% ruang di bawah
+  {\normalfont}% isi
+  {0pt}%
+  {\bfseries}%
+  {.}%
+  {0.5em}%
+  {}
+\theoremstyle{soaljarak}
+\newtheorem{soal}{Soal}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries \JudulTugas}\\[0.35em]
+  {\large \NamaMK\ (\KodeMK)}\\[1em]
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}p{4.8cm} @{\hspace{0.35em}:\hspace{0.65em}} >{\raggedright\arraybackslash}X@{}}
+  Nama Mahasiswa            & \NamaMahasiswa \\
+  Nomor Induk Mahasiswa     & \NIMMhs \\
+  Program Studi             & \Prodi \\
+  Fakultas                  & \Fakultas \\
+  Institusi                 & \Institusi \\
+  Kelas / Kelompok          & \Kelas \\
+  Dosen Pengampu            & \DosenPengampu \\
+  Batas tanggal pengumpulan & \TanggalKumpul \\
+\end{tabularx}
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\section*{Petunjuk Umum}
+\begin{itemize}[leftmargin=*]
+  \item Jawaban \textbf{dianjurkan dikerjakan dalam format \LaTeX}; penggunaan \textit{Microsoft Word} atau aplikasi pengolah kata sejenis \textbf{dibolehkan}.
+  \item Setelah selesai, \textbf{simpan atau ekspor jawaban menjadi berkas PDF}.
+  \item \textbf{Unggah berkas PDF} tersebut ke \textbf{Edlink} sesuai tenggat di kontrak kuliah/RPS.
+  \item Tugas ini membahas \textbf{logika predikat} (kalkulus predikat).
+        Gunakan predikat, konstanta, fungsi, variabel, serta kuantor \(\forall\) (untuk semua) dan \(\exists\) (ada/untuk suatu) secara konsisten.
+        Penghubung logik: \(\neg\), \(\wedge\), \(\vee\), \(\rightarrow\), \(\leftrightarrow\).
+  \item \textbf{Terjemahan bahasa Indonesia \(\leftrightarrow\) formula:}
+        perhatikan kata kuantifikasi (``semua'', ``setiap'', ``ada'', ``tidak semua'', ``hanya'', ``barang siapa'') dan urutan kuantor bersarang.
+        Definisikan predikat/fungsi/konstanta yang Anda pakai sebelum menuliskan formula.
+  \item \textbf{Term, proposisi, dan kalimat:}
+        bedakan objek (term) dari pernyataan relasi (proposisi/kalimat).
+        Sebutkan alasan singkat berdasarkan definisi pada materi kuliah.
+  \item \textbf{Variabel bebas dan terikat:}
+        tandai setiap kemunculan variabel; sebutkan kuantor mana yang mengikatnya (kuantor terdekat).
+        Kalimat tertutup tidak memiliki variabel bebas.
+  \item \textbf{Interpretasi:}
+        nyatakan domain \(D\), lalu berikan nilai untuk setiap simbol bebas (konstanta, variabel bebas, fungsi, predikat).
+        Tuliskan arti ekspresi dalam bahasa Indonesia berdasarkan interpretasi tersebut.
+  \item \textbf{Aturan semantik kuantor:}
+        evaluasi \(\forall x\,A\) dan \(\exists x\,A\) dengan interpretasi yang diperluas \(\langle x \leftarrow d \rangle \circ I\).
+        Tunjukkan langkah penalaran, bukan hanya jawaban \(T\) atau \(F\).
+  \item \textbf{Validitas:}
+        hanya untuk kalimat tertutup.
+        Untuk membuktikan valid: tunjukkan bernilai benar pada setiap interpretasi.
+        Untuk membuktikan tidak valid: berikan \textbf{satu} interpretasi yang membuat kalimat bernilai salah.
+  \item Tulis jawaban rapi per nomor soal dan per butir; gambar atau diagram domain boleh digambar tangan asalkan terbaca.
+\end{itemize}
+
+\section*{Soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari AIMA FOL Exercises, Ex.~11]
+  Diberikan kosakata berikut.
+  \begin{itemize}[leftmargin=*]
+    \item \(\mathit{Occupation}(p,o)\): orang \(p\) memiliki pekerjaan \(o\).
+    \item \(\mathit{Customer}(p_1,p_2)\): orang \(p_1\) adalah pelanggan orang \(p_2\).
+    \item \(\mathit{Boss}(p_1,p_2)\): orang \(p_1\) adalah atasan orang \(p_2\).
+    \item Konstanta pekerjaan: \(\mathit{Doctor}\), \(\mathit{Surgeon}\), \(\mathit{Lawyer}\), \(\mathit{Actor}\).
+    \item Konstanta orang: \(\mathit{Emily}\), \(\mathit{Joe}\).
+  \end{itemize}
+  Tuliskan pernyataan-pernyataan berikut dalam logika predikat.
+  \begin{enumerate}
+    \item Emily adalah ahli bedah atau pengacara.
+    \item Joe adalah aktor, tetapi ia juga memiliki pekerjaan lain.
+    \item Semua ahli bedah adalah dokter.
+    \item Joe tidak memiliki pengacara (bukan pelanggan dari pengacara mana pun).
+    \item Emily memiliki atasan yang merupakan pengacara.
+    \item Ada seorang pengacara yang semua pelanggannya adalah dokter.
+    \item Setiap ahli bedah memiliki seorang pengacara.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari Saarland Semantic Theory, Exercise~1.1; Rosen Discrete Mathematics §1.4--1.5]
+  Terjemahkan kalimat-kalimat berikut ke dalam logika predikat.
+  Definisikan predikat yang Anda gunakan.
+  Usahakan mempertahankan struktur kalimat sebaik mungkin.
+  \begin{enumerate}
+    \item Budi pandai tetapi malas.
+    \item Meskipun Budi adalah mahasiswa yang pandai, ia tidak akan lulus kecuali ia belajar keras.
+    \item Setiap mahasiswa yang belajar keras akan lulus.
+    \item Jika ada orang yang ribut, maka semua orang merasa terganggu.
+    \item Jika seorang mahasiswa belajar keras, maka ia akan lulus.
+    \item Paus adalah mamalia.
+    \item Anjing yang menggonggong tidak menggigit.
+    \item Setiap bilangan genap adalah kelipatan dari \(2\) (domain: bilangan bulat; gunakan predikat \(E(x)\): ``\(x\) genap'').
+    \item Setiap mahasiswa memiliki setidaknya satu teman yang berkencan dengan penggemar sepak bola.
+    \item Jika seseorang adalah orang tua dan laki-laki, maka ia adalah ayah dari seorang anak.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari Saarland Semantic Theory, Exercise~1.2; AIMA FOL Exercises, Ex.~13]
+  Ubahlah formula berikut menjadi pernyataan bahasa Indonesia yang alami (hindari menyebut nama variabel secara eksplisit).
+  Gunakan kunci terjemahan:
+  \(j =\) John, \(m =\) Mary,
+  \(S(x)\): \(x\) adalah mahasiswa,
+  \(R(x)\): \(x\) kaya,
+  \(L(x,y)\): \(x\) berhubungan dengan \(y\),
+  \(F(x)\): \(x\) adalah burung,
+  \(G(x)\): \(x\) terbang,
+  \(\mathit{SpeaksLanguage}(x,l)\): \(x\) berbicara bahasa \(l\),
+  \(\mathit{Understands}(x,y)\): \(x\) memahami \(y\).
+  \begin{enumerate}
+    \item \(S(j) \vee R(m)\)
+    \item \(\forall x\,(R(x) \vee S(x))\)
+    \item \(\exists x\,(\neg S(x) \wedge \forall y\,(\neg(x=y) \rightarrow S(y)))\)
+    \item \(\forall x\,(S(x) \rightarrow \exists y\,(R(y) \wedge L(x,y)))\)
+    \item \(\exists x\,\neg(F(x) \rightarrow (F(x) \wedge G(x)))\)
+    \item
+          \[
+          \begin{aligned}
+          &\forall x\,\forall y\,\forall l\,\bigl(
+            \mathit{SpeaksLanguage}(x,l) \wedge \mathit{SpeaksLanguage}(y,l)\\
+          &\qquad\rightarrow \mathit{Understands}(x,y) \wedge \mathit{Understands}(y,x)
+          \bigr)
+          \end{aligned}
+          \]
+  \end{enumerate}
+  Selain itu, terjemahkan ke logika predikat (definisikan predikat yang dipakai):
+  \begin{enumerate}[resume]
+    \item Pemahaman menghasilkan persahabatan.
+    \item Persahabatan bersifat transitif.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari AIMA FOL Exercises, Ex.~10]
+  Pada setiap butir, diberikan kalimat bahasa Indonesia beserta beberapa kandidat ekspresi logika.
+  Untuk setiap kandidat, nyatakan apakah ekspresi tersebut:
+  (1)~benar-benar menyatakan makna kalimat;
+  (2)~tidak valid secara sintaksis sehingga tidak bermakna; atau
+  (3)~valid secara sintaksis tetapi tidak menyatakan makna kalimat.
+  Predikat yang dipakai: \(\mathit{In}(x,y)\), \(\mathit{Borders}(x,y)\), \(\mathit{Country}(x)\), serta konstanta geografis yang sesuai.
+  \begin{enumerate}
+    \item Paris dan Marseille keduanya berada di Prancis.
+    \begin{enumerate}
+      \item \(\mathit{In}(\mathit{Paris} \wedge \mathit{Marseille}, \mathit{France})\)
+      \item \(\mathit{In}(\mathit{Paris},\mathit{France}) \wedge \mathit{In}(\mathit{Marseille},\mathit{France})\)
+      \item \(\mathit{In}(\mathit{Paris},\mathit{France}) \vee \mathit{In}(\mathit{Marseille},\mathit{France})\)
+    \end{enumerate}
+    \item Ada negara yang berbatasan dengan Irak dan Pakistan.
+    \begin{enumerate}
+      \item \(\exists c\,\bigl(\mathit{Country}(c) \wedge \mathit{Borders}(c,\mathit{Iraq}) \wedge \mathit{Borders}(c,\mathit{Pakistan})\bigr)\)
+      \item \(\exists c\,\bigl(\mathit{Country}(c) \rightarrow (\mathit{Borders}(c,\mathit{Iraq}) \wedge \mathit{Borders}(c,\mathit{Pakistan}))\bigr)\)
+      \item \(\bigl(\exists c\,\mathit{Country}(c)\bigr) \rightarrow \bigl(\mathit{Borders}(c,\mathit{Iraq}) \wedge \mathit{Borders}(c,\mathit{Pakistan})\bigr)\)
+      \item \(\exists c\,\mathit{Borders}(\mathit{Country}(c), \mathit{Iraq} \wedge \mathit{Pakistan})\)
+    \end{enumerate}
+    \item Semua negara yang berbatasan dengan Ekuador berada di Amerika Selatan.
+    \begin{enumerate}
+      \item \(\forall c\,\bigl(\mathit{Country}(c) \wedge \mathit{Borders}(c,\mathit{Ecuador}) \rightarrow \mathit{In}(c,\mathit{SouthAmerica})\bigr)\)
+      \item \(\forall c\,\bigl(\mathit{Country}(c) \rightarrow (\mathit{Borders}(c,\mathit{Ecuador}) \rightarrow \mathit{In}(c,\mathit{SouthAmerica}))\bigr)\)
+      \item \(\forall c\,\bigl((\mathit{Country}(c) \rightarrow \mathit{Borders}(c,\mathit{Ecuador})) \rightarrow \mathit{In}(c,\mathit{SouthAmerica})\bigr)\)
+      \item \(\forall c\,\bigl(\mathit{Country}(c) \wedge \mathit{Borders}(c,\mathit{Ecuador}) \wedge \mathit{In}(c,\mathit{SouthAmerica})\bigr)\)
+    \end{enumerate}
+    \item Tidak ada wilayah di Amerika Selatan yang berbatasan dengan wilayah mana pun di Eropa.
+    \begin{enumerate}
+      \item \(\neg\bigl(\exists c\,\exists d\,(\mathit{In}(c,\mathit{SouthAmerica}) \wedge \mathit{In}(d,\mathit{Europe}) \wedge \mathit{Borders}(c,d))\bigr)\)
+      \item \(\forall c\,\forall d\,\bigl((\mathit{In}(c,\mathit{SouthAmerica}) \wedge \mathit{In}(d,\mathit{Europe})) \rightarrow \neg\mathit{Borders}(c,d)\bigr)\)
+      \item \(\neg\forall c\,\bigl(\mathit{In}(c,\mathit{SouthAmerica}) \rightarrow \exists d\,(\mathit{In}(d,\mathit{Europe}) \wedge \neg\mathit{Borders}(c,d))\bigr)\)
+      \item \(\forall c\,\bigl(\mathit{In}(c,\mathit{SouthAmerica}) \rightarrow \forall d\,(\mathit{In}(d,\mathit{Europe}) \rightarrow \neg\mathit{Borders}(c,d))\bigr)\)
+    \end{enumerate}
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari AIMA FOL Exercises, Ex.~12]
+  Sama seperti Soal~4: klasifikasikan setiap kandidat sebagai (1), (2), atau (3).
+  \begin{enumerate}
+    \item Setiap kucing mencintai ibu atau ayahnya.
+    \begin{enumerate}
+      \item \(\forall x\,\bigl(\mathit{Cat}(x) \rightarrow \mathit{Loves}(x, \mathit{Mother}(x) \vee \mathit{Father}(x))\bigr)\)
+      \item \(\forall x\,\bigl(\neg\mathit{Cat}(x) \vee \mathit{Loves}(x,\mathit{Mother}(x)) \vee \mathit{Loves}(x,\mathit{Father}(x))\bigr)\)
+      \item \(\forall x\,\bigl(\mathit{Cat}(x) \wedge (\mathit{Loves}(x,\mathit{Mother}(x)) \vee \mathit{Loves}(x,\mathit{Father}(x)))\bigr)\)
+    \end{enumerate}
+    \item Setiap anjing yang mencintai salah satu saudaranya adalah bahagia.
+    \begin{enumerate}
+      \item \(\forall x\,\bigl(\mathit{Dog}(x) \wedge (\exists y\,(\mathit{Brother}(y,x) \wedge \mathit{Loves}(x,y))) \rightarrow \mathit{Happy}(x)\bigr)\)
+      \item \(\forall x\,\forall y\,\bigl(\mathit{Dog}(x) \wedge \mathit{Brother}(y,x) \wedge \mathit{Loves}(x,y) \rightarrow \mathit{Happy}(x)\bigr)\)
+      \item \(\forall x\,\bigl(\mathit{Dog}(x) \wedge (\forall y\,(\mathit{Brother}(y,x) \leftrightarrow \mathit{Loves}(x,y))) \rightarrow \mathit{Happy}(x)\bigr)\)
+    \end{enumerate}
+    \item Tidak ada anjing yang menggigit anak dari pemiliknya.
+    \begin{enumerate}
+      \item \(\forall x\,\bigl(\mathit{Dog}(x) \rightarrow \neg\mathit{Bites}(x, \mathit{Child}(\mathit{Owner}(x)))\bigr)\)
+      \item \(\neg\exists x\,\exists y\,\bigl(\mathit{Dog}(x) \wedge \mathit{Child}(y,\mathit{Owner}(x)) \wedge \mathit{Bites}(x,y)\bigr)\)
+      \item \(\forall x\,\bigl(\mathit{Dog}(x) \rightarrow \forall y\,(\mathit{Child}(y,\mathit{Owner}(x)) \rightarrow \neg\mathit{Bites}(x,y))\bigr)\)
+      \item \(\neg\exists x\,\bigl(\mathit{Dog}(x) \rightarrow (\exists y\,(\mathit{Child}(y,\mathit{Owner}(x)) \wedge \mathit{Bites}(x,y)))\bigr)\)
+    \end{enumerate}
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari materi sintaks logika predikat (CS Waterloo / pola definisi pada slide kuliah)]
+  Berdasarkan definisi simbol, term, proposisi, dan kalimat pada materi \textit{Logika Predikat}, tentukan untuk setiap ekspresi berikut apakah ia merupakan \textbf{term}, \textbf{proposisi}, \textbf{kalimat}, atau \textbf{bukan ekspresi yang terbentuk dengan baik}.
+  Berikan alasan singkat.
+  Asumsikan: \(a,b\) konstanta; \(x,y\) variabel; \(f\) fungsi unary; \(g\) fungsi biner; \(p\) predikat biner; \(q\) predikat unary.
+  \begin{enumerate}
+    \item \(f(a)\)
+    \item \(p(a,x)\)
+    \item \(g(x,f(a))\)
+    \item \(\forall x\,q(x)\)
+    \item \(p(f(a), g(x,y))\)
+    \item \(\mathit{if}\; p(a,b)\; \mathit{then}\; f(a)\; \mathit{else}\; b\)
+    \item \(\mathit{if}\; (\forall x)\,p(a,x)\; \mathit{then}\; (\exists y)\,q(y)\; \mathit{else}\; \neg p(a,b)\)
+    \item \(p(a) \wedge f(x)\)
+    \item \(\exists x\,p(x, f(x))\)
+    \item \(q(p(a,b))\)
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari pola latihan subekspresi pada slide \textit{Logika Predikat}]
+  Diberikan ekspresi
+  \[
+  E :\;
+  \mathit{if}\; (\forall x)\,q(x, f(a))\;
+  \mathit{then}\; f(a)\;
+  \mathit{else}\; b.
+  \]
+  \begin{enumerate}
+    \item Sebutkan semua \textbf{subterm} dari \(E\).
+    \item Sebutkan semua \textbf{subkalimat} dari \(E\).
+    \item Sebutkan semua \textbf{subekspresi} dari \(E\).
+  \end{enumerate}
+  Selanjutnya, untuk ekspresi
+  \[
+  F :\;
+  (\forall x)\,\bigl(p(x,y) \wedge (\exists y)\,r(y,z)\bigr),
+  \]
+  sebutkan semua subterm dan subkalimat dari \(F\).
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari TUG Script Predicate Logic; CS Waterloo Predicate Logic Syntax]
+  Untuk setiap formula berikut, tentukan setiap kemunculan variabel apakah \textbf{bebas} atau \textbf{terikat}.
+  Jika terikat, sebutkan kuantor mana yang mengikatnya.
+  Nyatakan pula apakah formula tersebut merupakan \textbf{kalimat tertutup}.
+  \begin{enumerate}
+    \item \((\forall x)\,[p(x,y) \wedge (\exists y)\,q(y,z)]\)
+    \item \((\forall x)\,[p(x) \vee (\exists x)\,(\forall y)\,r(x,y)]\)
+    \item \((\forall x)\,(\exists y)\,p(x,y)\)
+    \item \((\forall x)\,p(x,y)\)
+    \item \(\forall x\,\exists y\,P(x,y) \wedge Q(y,x)\)
+      (perhatikan cakupan kuantor menurut aturan yang dipakai pada materi; jelaskan asumsi Anda)
+    \item \((\forall x)\,(\exists y)\,(x \leq y) \vee (x \leq z)\)
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari pola latihan interpretasi pada slide \textit{Logika Predikat}; AIMA FOL Exercises, Ex.~2--3]
+  Diberikan ekspresi
+  \[
+  E = \mathit{IF}\; p(x,f(x))\; \mathit{THEN}\; (\exists y)\,p(a,y).
+  \]
+  \begin{enumerate}
+    \item Misalkan \(I\) adalah interpretasi untuk \(E\) dengan domain bilangan real, di mana
+          \(a = \sqrt{2}\), \(x = \pi\),
+          \(f\) adalah fungsi ``dibagi dua'' (\(f_I(d) = d/2\)),
+          dan \(p\) adalah relasi ``lebih besar atau sama dengan'' (\(p_I(d_1,d_2) = (d_1 \geq d_2)\)).
+          Tuliskan arti ekspresi \(E\) berdasarkan \(I\), lalu tentukan nilai kebenarannya.
+    \item Misalkan \(J\) adalah interpretasi untuk \(E\) dengan domain semua orang, di mana
+          \(a =\) Soeharto, \(x =\) Soekarno,
+          \(f\) adalah fungsi ``ibu dari'',
+          dan \(p\) adalah relasi ``anak dari''.
+          Tuliskan arti ekspresi \(E\) berdasarkan \(J\).
+          (Nilai kebenaran boleh dibahas secara hipotetis jika fakta dunia nyata tidak Anda ketahui; yang penting adalah rumusan arti.)
+    \item Pertimbangkan basis pengetahuan yang hanya berisi \(P(a)\) dan \(P(b)\).
+          Apakah basis itu mengentail \(\forall x\,P(x)\)?
+          Jelaskan dalam kerangka model/interpretasi.
+    \item Apakah kalimat \(\exists x\,(x=x)\) valid?
+          Jelaskan.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari Saarland Semantic Theory, Exercise~1.3--1.4]
+  Pertimbangkan dua formula:
+  \[
+  A = \forall x\,(\mathit{Student}(x) \rightarrow \neg\mathit{PayAttention}(x)),
+  \qquad
+  B = \neg\exists x\,(\mathit{Student}(x) \wedge \mathit{PayAttention}(x)).
+  \]
+  \begin{enumerate}
+    \item Bandingkan kondisi kebenaran \(A\) dan \(B\).
+          Apakah keduanya ekuivalen?
+          Jelaskan.
+    \item Berikan satu struktur model di mana \(A\) bernilai benar, dan satu struktur model di mana \(A\) bernilai salah.
+          Nyatakan domain serta ekstensi predikat \(\mathit{Student}\) dan \(\mathit{PayAttention}\).
+    \item Kalimat ``setiap mahasiswa lulus'' secara intuitif sering dianggap mengimplikasikan ``ada mahasiswa yang lulus'', tetapi secara logika predikat tidak demikian.
+          \begin{enumerate}
+            \item Terjemahkan kedua kalimat ke logika predikat.
+            \item Berikan sebuah model di mana terjemahan ``setiap mahasiswa lulus'' benar, tetapi terjemahan ``ada mahasiswa yang lulus'' salah.
+          \end{enumerate}
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari pola aturan semantik kuantor pada slide \textit{Logika Predikat}]
+  Misalkan \(A : (\exists x)\,p(x,y)\).
+  Diberikan interpretasi \(I\) dengan domain bilangan bulat positif,
+  \(y = 2\), dan \(p_I(d_1,d_2) = (d_1 < d_2)\).
+  \begin{enumerate}
+    \item Tunjukkan langkah demi langkah bahwa \(A\) bernilai benar berdasarkan \(I\),
+          dengan memakai aturan FOR SOME dan interpretasi yang diperluas.
+    \item Selanjutnya, tinjau kalimat tertutup
+          \[
+          B :\;
+          \mathit{IF}\; (\forall x)\,(\exists y)\,p(x,y)\;
+          \mathit{THEN}\; p(a,f(a)).
+          \]
+          Misalkan \(I'\) meliputi domain bilangan real positif dengan
+          \(a = 1\), \(f_{I'}(d) = \sqrt{d}\), dan \(p_{I'}(d_1,d_2) = (d_1 \neq d_2)\).
+          Tentukan nilai kebenaran \(B\) berdasarkan \(I'\) dengan menelusuri antiseden dan konsekuen.
+    \item Misalkan \(Q(x,y)\) menyatakan ``\(x + y = 0\)'' dengan domain bilangan real.
+          Bandingkan nilai kebenaran \(\exists y\,\forall x\,Q(x,y)\) dan \(\forall y\,\exists x\,Q(x,y)\).
+          Jelaskan mengapa urutan kuantor penting.
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari AIMA FOL Exercises, Ex.~7; pola pembuktian validitas pada slide]
+  Manakah di antara kalimat tertutup berikut yang \textbf{valid}?
+  Untuk yang valid, berikan sketsa pembuktian berdasarkan aturan semantik.
+  Untuk yang tidak valid, berikan satu interpretasi yang membuat kalimat bernilai salah.
+  \begin{enumerate}
+    \item \(\bigl(\exists x\,(x=x)\bigr) \rightarrow \bigl(\forall y\,\exists z\,(y=z)\bigr)\)
+    \item \(\forall x\,\bigl(P(x) \vee \neg P(x)\bigr)\)
+    \item \(\forall x\,\bigl(\mathit{Smart}(x) \vee (x=x)\bigr)\)
+    \item \(\bigl[\neg(\forall x)\,p(x)\bigr] \leftrightarrow \bigl[(\exists x)\,\neg p(x)\bigr]\)
+    \item \(\mathit{IF}\; (\exists y)\,(\forall x)\,q(x,y)\; \mathit{THEN}\; (\forall x)\,(\exists y)\,q(x,y)\)
+  \end{enumerate}
+\end{soal}
+
+\begin{soal}[\normalfont Sumber: diadaptasi dari AIMA FOL Exercises, Ex.~14]
+  Benar atau salah?
+  Jelaskan jawaban Anda.
+  \begin{enumerate}
+    \item \(\exists x\,(x = \mathit{Rumpelstiltskin})\) adalah kalimat valid (selalu benar) dalam logika predikat.
+    \item Setiap kalimat berkuantor eksistensial dalam logika predikat benar pada sembarang model yang berisi tepat satu objek.
+    \item \(\forall x\,\forall y\,(x=y)\) dapat dipenuhi (\textit{satisfiable}).
+    \item Basis pengetahuan \(\{P(a), P(b)\}\) mengentail \(\forall x\,P(x)\).
+  \end{enumerate}
+\end{soal}
+
+\end{document}
