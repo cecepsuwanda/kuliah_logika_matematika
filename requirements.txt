@@ -1,2 +1,5 @@
 # Untuk script download/generate figures Bab 2
 matplotlib>=3.5.0
+
+# Untuk script format penilaian Excel
+openpyxl>=3.1.0
